@@ -3,6 +3,9 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
 import { getFunctionInfo } from '@src/utils/functions';
 import { marked } from 'marked';
+import fs from "fs";
+import path from "path";
+import { Code } from '@astrojs/starlight/components';
 
 export async function getStaticPaths() {
     const functions = await getCollection('functions');
@@ -15,11 +18,24 @@ export async function getStaticPaths() {
 const { func } = Astro.props;
 
 const funcInfo = getFunctionInfo(func.data);
-
 const funcType = funcInfo.type;
 const funcTypePretty = funcInfo.typePretty;
 
 const funcPair = funcInfo.pair;
+const funcPath = path.dirname(func.filePath ?? "")
+let funcExamples = funcInfo.examples
+
+if ( funcExamples.length > 0 ){
+    funcExamples = funcInfo.examples.map((example: any) => {
+        try {
+            const luaCode = fs.readFileSync(path.resolve(`${funcPath}`, example.path), "utf8"); 
+            return { ...example, luaCode };
+        } catch (error) {
+            console.error(`Error reading ${example.path}:`, error);
+            return { ...example, luaCode: "Loading example error." };
+        }
+    });
+}
 ---
 
 <StarlightPage frontmatter={{
@@ -35,4 +51,12 @@ const funcPair = funcInfo.pair;
 
     <!-- Description -->
     <Fragment set:html={marked(funcInfo.description)} />
+
+    {funcExamples.length > 0 && funcExamples.map((example: any) => (
+        <div>
+            <p set:html={marked(example.description)}></p>
+            <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
+        </div>
+    ))}
+
 </StarlightPage>

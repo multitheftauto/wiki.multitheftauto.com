@@ -36,6 +36,7 @@ export function getFunctionInfo(data: FunctionData): any {
         type: getFunctionType(data),
         typePretty: getFunctionTypePretty(data),
         pair: data.shared?.pair || data.client?.pair || data.server?.pair || false,
+        examples: data.shared?.examples || data.client?.examples || data.server?.examples || [ ],
     };
 }
 
