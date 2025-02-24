@@ -11,17 +11,19 @@ interface Props extends Omit<HTMLAttributes<'a'>, 'title'> {
     title: string;
     description?: string;
     icon?: StarlightIcon;
+    iconColor?: string;
+    titleColor?: string;
 }
 
-const { title, description, icon, target = Astro.props.target || '_blank', ...attributes } = Astro.props;
+const { title, description, icon, iconColor, titleColor, target = Astro.props.target || '_blank', ...attributes } = Astro.props;
 ---
 
 <div class="sl-link-card">
     <span class="sl-flex stack">
         <div class="inline-flex">
-            {icon && <Icon name={icon} size="1.333em" class="icon" />}
+            {icon && <Icon name={icon} size="1.333em" color={iconColor || "#FFFFFF"}/>}
             <a {...attributes}>
-                <span class="title" set:html={title} />
+                <span class="title" set:html={title} style=`color: ${titleColor || "var(--sl-color-white)"}` />
             </a>
         </div>
         {description && <span class="description" set:html={description} />}
@@ -64,7 +66,7 @@ const { title, description, icon, target = Astro.props.target || '_blank', ...at
     }
 
     .title {
-        color: var(--sl-color-white);
+        /* color: var(--sl-color-white); */
         font-weight: 600;
         font-size: var(--sl-text-lg);
     }
