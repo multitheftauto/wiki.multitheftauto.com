@@ -1,12 +1,20 @@
 /* Custom MTA Wiki CSS */
+:root {
+    --color-type-shared: rgba(117, 117, 255, 1);
+    --color-type-shared-background: rgba(117, 117, 255, 0.05);
+    --color-type-client: rgba(255, 50, 50, 1);
+    --color-type-client-background: rgba(255, 50, 50, 0.05);
+    --color-type-server: rgba(232, 115, 0, 1);
+    --color-type-server-background: rgba(232, 115, 0, 0.05);
+}
 
 /* Styling for "Client-side / Server-side / Shared" */
 .side-shared {
-    color: rgb(117, 117, 255);
+    color: var(--color-type-shared);
 }
 .side-client {
-    color: rgb(255, 50, 50);
+    color: var(--color-type-client);
 }
 .side-server {
-    color: rgb(232, 115, 0);
+    color: var(--color-type-server);
 }

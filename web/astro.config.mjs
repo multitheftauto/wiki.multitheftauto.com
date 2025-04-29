@@ -27,6 +27,7 @@ export default defineConfig({
 			},
 			components: {
 				// Override some default components
+				PageTitle: './src/overrides/PageTitle.astro',
 				Pagination: './src/overrides/Pagination.astro',
 			},
 			customCss: [ './src/styles/custom.css' ],

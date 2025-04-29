@@ -1,0 +1,51 @@
+---
+import { functionTypePrettyName } from '@src/utils/functions';
+import type { FunctionType } from '@src/utils/types';
+
+interface Props {
+    type: FunctionType;
+}
+
+const { type } = Astro.props;
+---
+
+{type == 'client' && <div class="type-badge type-badge--client">{functionTypePrettyName['client']}</div>}
+{type == 'server' && <div class="type-badge type-badge--server">{functionTypePrettyName['server']}</div>}
+{type == 'shared' && <div class="type-badge type-badge--shared">{functionTypePrettyName['shared']}</div>}
+
+<style>
+    .type-badge {
+        font-size: 12px;
+        border-radius: .25rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: .05rem 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .type-badge.type-badge--client {
+        background-color: var(--color-type-client-background);
+        border: 1px solid var(--color-type-client);
+        color: var(--color-type-client);
+    }
+
+    .type-badge.type-badge--server {
+        background-color: var(--color-type-server-background);
+        border: 1px solid var(--color-type-server);
+        color: var(--color-type-server);
+    }
+
+    .type-badge.type-badge--shared {
+        background-color: var(--color-type-shared-background);
+        border: 1px solid var(--color-type-shared);
+        color: var(--color-type-shared);
+    }
+
+    @media (width >= 48rem) {
+        .type-badge {
+            font-size: initial;
+            padding: .15rem 1.5rem;
+            margin-bottom: 0;
+        }
+    }
+</style>

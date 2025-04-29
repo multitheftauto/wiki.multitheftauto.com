@@ -1,6 +1,8 @@
 import { getCollection } from 'astro:content';
 import path from 'path';
 
+import type { FunctionType } from './types';
+
 type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
 
 type FunctionsByCategory = {
@@ -18,16 +20,20 @@ export type FunctionData = {
     server?: any;
 };
 
-function getFunctionType(data: FunctionData): 'shared' | 'client' | 'server' {
+export const functionTypePrettyName = {
+    'client': 'Client-side',
+    'server': 'Server-side',
+    'shared': 'Shared',
+};
+
+function getFunctionType(data: FunctionData): FunctionType {
     if (data.shared) return 'shared';
     if (data.client) return 'client';
     return 'server';
 }
 function getFunctionTypePretty(data: FunctionData): string {
     const funcType = getFunctionType(data);
-    if (funcType === 'shared') return 'Shared';
-    if (funcType === 'client') return 'Client-side';
-    return 'Server-side';
+    return functionTypePrettyName[funcType] ?? 'Server-side';
 }
 
 export function getFunctionInfo(data: FunctionData): any {

@@ -1,0 +1,55 @@
+---
+import TypeBadge from '@src/components/TypeBadge.astro';
+---
+<div class="page-title-container">
+    <h1>{Astro.props.entry.data.title}</h1>
+
+    <TypeBadge type="client" />
+    <TypeBadge type="server" />
+    <TypeBadge type="shared" />
+</div>
+
+<style is:global>
+    .type-badge--client,
+    .type-badge--server,
+    .type-badge--shared {
+        display: none
+    }
+
+    .show-type-badge-client .type-badge--client {
+        display: block;
+    }
+    .show-type-badge-server .type-badge--server {
+        display: block;
+    }
+    .show-type-badge-shared .type-badge--shared {
+        display: block;
+    }
+</style>
+
+<style>
+	h1 {
+		font-size: var(--sl-text-h1);
+		line-height: var(--sl-line-height-headings);
+		font-weight: 600;
+		color: var(--sl-color-white);
+        display: block;
+        width: 100%;
+	}
+
+    .page-title-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+    }
+
+    @media (width >= 48rem) {
+        .page-title-container {
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 1rem;
+        }
+    }
+</style>
