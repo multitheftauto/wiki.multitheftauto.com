@@ -1,21 +1,15 @@
 ---
-import TypeBadge from '@src/components/TypeBadge.astro';
+import { functionTypePrettyName } from '@src/utils/functions';
 ---
 <div class="page-title-container">
     <h1>{Astro.props.entry.data.title}</h1>
 
-    <TypeBadge type="client" />
-    <TypeBadge type="server" />
-    <TypeBadge type="shared" />
+    <div class="type-badge type-badge--client">{functionTypePrettyName['client']}</div>
+    <div class="type-badge type-badge--server">{functionTypePrettyName['server']}</div>
+    <div class="type-badge type-badge--shared">{functionTypePrettyName['shared']}</div>
 </div>
 
 <style is:global>
-    .type-badge--client,
-    .type-badge--server,
-    .type-badge--shared {
-        display: none
-    }
-
     .show-type-badge-client .type-badge--client {
         display: block;
     }
@@ -28,26 +22,66 @@ import TypeBadge from '@src/components/TypeBadge.astro';
 </style>
 
 <style>
+    .type-badge {
+        font-size: 12px;
+        border-radius: .25rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: none;
+    }
+
+    .type-badge.type-badge--client {
+        color: var(--color-type-client);
+    }
+    .type-badge.type-badge--server {
+        color: var(--color-type-server);
+    }
+    .type-badge.type-badge--shared {
+        color: var(--color-type-shared);
+    }
+
 	h1 {
 		font-size: var(--sl-text-h1);
 		line-height: var(--sl-line-height-headings);
 		font-weight: 600;
 		color: var(--sl-color-white);
-        display: block;
-        width: 100%;
 	}
 
     .page-title-container {
         display: flex;
         justify-content: flex-start;
-        align-items: flex-end;
-        flex-direction: column-reverse;
+        align-items: flex-start;
+        flex-direction: column;
+
+        border-bottom: 1px solid var(--color-type-client);
+        padding-bottom: 1.5rem;
+        margin-bottom: calc(-1.5rem - 1px);
+        position: relative;
     }
 
     @media (width >= 48rem) {
+        .type-badge {
+            font-size: initial;
+            padding: .15rem 1.5rem;
+        }
+
+        .type-badge.type-badge--client {
+            background-color: var(--color-type-client-background);
+            border: 1px solid var(--color-type-client);
+        }
+        .type-badge.type-badge--server {
+            background-color: var(--color-type-server-background);
+            border: 1px solid var(--color-type-server);
+        }
+        .type-badge.type-badge--shared {
+            background-color: var(--color-type-shared-background);
+            border: 1px solid var(--color-type-shared);
+        }
+        
         h1 {
-            display: initial;
-            width: auto;
+            border-bottom: 1px solid var(--color-type-client);
+            padding-bottom: 1.5rem;
+            margin-bottom: calc(-1.5rem - 1px);
         }
 
         .page-title-container {
@@ -55,6 +89,9 @@ import TypeBadge from '@src/components/TypeBadge.astro';
             align-items: center;
             flex-direction: row;
             margin-top: 1rem;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
         }
     }
 </style>
