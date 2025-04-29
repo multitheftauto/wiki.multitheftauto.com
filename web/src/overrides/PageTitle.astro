@@ -10,6 +10,16 @@ import { functionTypePrettyName } from '@src/utils/functions';
 </div>
 
 <style is:global>
+    .show-type-badge-client {
+        --selected-type-color: var(--color-type-client);
+    }
+    .show-type-badge-server {
+        --selected-type-color: var(--color-type-server);
+    }
+    .show-type-badge-shared {
+        --selected-type-color: var(--color-type-shared);
+    }
+
     .show-type-badge-client .type-badge--client {
         display: block;
     }
@@ -52,8 +62,7 @@ import { functionTypePrettyName } from '@src/utils/functions';
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
-
-        border-bottom: 1px solid var(--color-type-client);
+        border-bottom: 1px solid var(--selected-type-color);
         padding-bottom: 1.5rem;
         margin-bottom: calc(-1.5rem - 1px);
         position: relative;
@@ -77,9 +86,9 @@ import { functionTypePrettyName } from '@src/utils/functions';
             background-color: var(--color-type-shared-background);
             border: 1px solid var(--color-type-shared);
         }
-        
+
         h1 {
-            border-bottom: 1px solid var(--color-type-client);
+            border-bottom: 1px solid var(--selected-type-color);
             padding-bottom: 1.5rem;
             margin-bottom: calc(-1.5rem - 1px);
         }
