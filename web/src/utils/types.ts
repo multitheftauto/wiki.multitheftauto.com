@@ -1,0 +1,1 @@
+export type FunctionType = 'shared' | 'client' | 'server';

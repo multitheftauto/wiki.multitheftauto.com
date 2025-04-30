@@ -36,27 +36,27 @@ if ( funcExamples.length > 0 ){
         }
     });
 }
+
 ---
 
-<StarlightPage frontmatter={{
-    template: 'doc',
-    title: func.id,
-    tableOfContents: false,
-}}>
-    <p><strong>Type:</strong> <span class={"side-"+funcType}>{funcTypePretty}</span></p>
+<div class={"show-type-badge-" + funcType}>
+    <StarlightPage frontmatter={{
+        template: 'doc',
+        title: func.id,
+        tableOfContents: false,
+    }}>
+        {funcPair && (
+            <p><strong>Pair:</strong> <a href={ funcPair }>{ funcPair }</a></p>
+        )}
 
-    {funcPair && (
-        <p><strong>Pair:</strong> <a href={ funcPair }>{ funcPair }</a></p>
-    )}
+        <!-- Description -->
+        <Fragment set:html={marked(funcInfo.description)} />
 
-    <!-- Description -->
-    <Fragment set:html={marked(funcInfo.description)} />
-
-    {funcExamples.length > 0 && funcExamples.map((example: any) => (
-        <div>
-            <p set:html={marked(example.description)}></p>
-            <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
-        </div>
-    ))}
-
-</StarlightPage>
+        {funcExamples.length > 0 && funcExamples.map((example: any) => (
+            <div>
+                <p set:html={marked(example.description)}></p>
+                <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
+            </div>
+        ))}
+    </StarlightPage>
+</div>
