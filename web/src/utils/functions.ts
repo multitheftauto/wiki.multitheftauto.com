@@ -18,7 +18,7 @@ type FunctionDetails = {
     description?: string;
     pair?: boolean;
     examples?: { code: string; description?: string }[];
-    notes?: string;
+    notes?: string[];
     parameters?: FunctionParameter[];
 };
 
@@ -67,7 +67,7 @@ export type FunctionInfo = {
     typePretty: string;
     pair: boolean;
     examples: { code: string; description?: string }[];
-    notes?: string; // Added notes
+    notes?: string[]; // Added notes
     parameters?: FunctionParameter[]; // Added parameters
 };
 
