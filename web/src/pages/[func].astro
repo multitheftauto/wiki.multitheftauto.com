@@ -7,6 +7,8 @@ import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
 
+import '@src/styles/function-page.css';
+
 export async function getStaticPaths() {
     const functions = await getCollection('functions');
     return functions.map(func => ({
@@ -19,22 +21,28 @@ const { func } = Astro.props;
 
 const funcInfo = getFunctionInfo(func.data);
 const funcType = funcInfo.type;
-const funcTypePretty = funcInfo.typePretty;
-
 const funcPair = funcInfo.pair;
-const funcPath = path.dirname(func.filePath ?? "")
-let funcExamples = funcInfo.examples
+const funcPath = path.dirname(func.filePath ?? "");
 
-if ( funcExamples.length > 0 ){
-    funcExamples = funcInfo.examples.map((example: any) => {
+const { description, notes: funcNotes, examples: rawExamples } = funcInfo;
+
+let processedExamples: any[] = [];
+if (Array.isArray(rawExamples) && rawExamples.length > 0) {
+    processedExamples = rawExamples.map((example: any) => {
         try {
-            const luaCode = fs.readFileSync(path.resolve(`${funcPath}`, example.path), "utf8"); 
+            const exampleFilePath = path.resolve(funcPath, example.path);
+            const luaCode = fs.readFileSync(exampleFilePath, "utf8");
             return { ...example, luaCode };
         } catch (error) {
-            console.error(`Error reading ${example.path}:`, error);
-            return { ...example, luaCode: "Loading example error." };
+            console.error(`Error reading example file ${example.path} at ${path.resolve(funcPath, example.path)}:`, error);
+            return { ...example, luaCode: `Error loading example: ${example.path}` };
         }
     });
+}
+
+let notesContent: string[] = [];
+if (Array.isArray(funcNotes) && funcNotes.length > 0) {
+    notesContent = funcNotes;
 }
 
 ---
@@ -45,18 +53,36 @@ if ( funcExamples.length > 0 ){
         title: func.id,
         tableOfContents: false,
     }}>
+        <!-- Pair Function Ref -->
         {funcPair && (
             <p><strong>Pair:</strong> <a href={ `/${funcPair}` }>{ funcPair }</a></p>
         )}
 
         <!-- Description -->
-        <Fragment set:html={marked(funcInfo.description)} />
+        {description && <Fragment set:html={marked(description)} />}
 
-        {funcExamples.length > 0 && funcExamples.map((example: any) => (
-            <div>
-                <p set:html={marked(example.description)}></p>
-                <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
+        <!-- Notes -->
+        {notesContent.length > 0 && (
+            <div class="notes-section">
+                {notesContent.map((note) => (
+                    <div class="custom-note-box">
+                        <Fragment set:html={marked(note)} />
+                    </div>
+                ))}
             </div>
-        ))}
+        )}
+
+        <!-- Examples -->
+        {processedExamples.length > 0 && (
+            <div class="examples-section">
+                 <h3>Exemplos</h3>
+                 {processedExamples.map((example: any) => (
+                    <div class="function-example">
+                        <Fragment set:html={marked(example.description)} />
+                        <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
+                    </div>
+                ))}
+            </div>
+        )}
     </StarlightPage>
 </div>

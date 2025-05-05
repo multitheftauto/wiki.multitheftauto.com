@@ -43,6 +43,14 @@ $defs:
       description:
         type: string
         description: Describes the functionality provided by the function.
+      important_notes:
+        type: array
+        description: |
+          A list of important notes about the function.
+          This is a list of things that are important to know about the function, but not
+          necessarily related to the function itself.
+        items:
+          type: string
       notes:
         type: array
         description: List of noteworthy pieces of information for the function.
