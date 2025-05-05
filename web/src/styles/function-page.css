@@ -15,19 +15,6 @@
     padding-bottom: 0.25rem;
 }
 
-.custom-note-box {
-    background-color: var(--sl-color-blue-low);
-    border-left: 4px solid var(--sl-color-blue);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    color: var(--sl-color-text);
-}
-
-html[data-theme="dark"] .custom-note-box {
-    background-color: var(--sl-color-gray-5);
-}
-
 .function-example {
     margin-bottom: 1.5rem;
 }

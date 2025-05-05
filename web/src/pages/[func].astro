@@ -7,6 +7,7 @@ import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
 
+import NoteBox from '@src/components/NoteBox.astro';
 import '@src/styles/function-page.css';
 
 export async function getStaticPaths() {
@@ -62,15 +63,13 @@ if (Array.isArray(funcNotes) && funcNotes.length > 0) {
         {description && <Fragment set:html={marked(description)} />}
 
         <!-- Notes -->
-        {notesContent.length > 0 && (
-            <div class="notes-section">
-                {notesContent.map((note) => (
-                    <div class="custom-note-box">
-                        <Fragment set:html={marked(note)} />
-                    </div>
-                ))}
-            </div>
-        )}
+        <div class="notes-section">
+            {notesContent.map((note) => (
+                <NoteBox>
+                    <Fragment set:html={marked(note)} />
+                </NoteBox>
+            ))}
+        </div>
 
         <!-- Examples -->
         {processedExamples.length > 0 && (
