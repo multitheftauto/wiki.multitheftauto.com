@@ -1,21 +1,19 @@
 ---
-// Componente reutilizável para exibir uma caixa de nota estilizada.
-// Ele usa um slot padrão para receber o conteúdo da nota.
 ---
-<div class="custom-note-box">
-    <slot /> {/* O conteúdo da nota será inserido aqui */}
-</div>
+<NoteBox>
+    <slot />
+</NoteBox>
 
 <style>
 .custom-note-box {
-    background-color: var(--sl-color-blue-low); /* Tema Claro */
+    background-color: var(--sl-color-blue-low);
     border-left: 4px solid var(--sl-color-blue);
     border-radius: 8px;
     padding: 1rem 1.25rem;
-    margin-bottom: 1rem; /* Espaço abaixo se houver múltiplas notas */
+    margin-bottom: 1rem;
     color: var(--sl-color-text);
 }
 html[data-theme="dark"] .custom-note-box {
-    background-color: var(--sl-color-gray-5); /* Tema Escuro */
+    background-color: var(--sl-color-gray-5);
 }
 </style>
