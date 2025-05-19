@@ -1,12 +1,27 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getEventsByTypeByCategory } from '@src/utils/events';
+
+const eventsByTypeByCategory = getEventsByTypeByCategory();
+const theseEvents = eventsByTypeByCategory.server;
 ---
 <StarlightPage frontmatter={{
     template: 'doc',
-    title: 'Server functions',
+    title: 'Server events',
     tableOfContents: false,
 }}>
-    <p>This page lists all <strong>server-side</strong> functions available in the <a href="/lua-api">Lua API</a> organized by category.</p>
+    <p>This page lists all <strong>server-side</strong> events available in the <a href="/lua-api">Lua API</a> organized by category.</p>
 
-    TODO
+    {Object.entries(theseEvents).map(([category, events]) => (
+        <section>
+            <details>
+                <summary>{category} events</summary>
+                <ul>
+                    {events.map(event => (
+                        <li><a href={`/${event.id}`}>{event.id}</a></li>
+                    ))}
+                </ul>
+            </details>
+        </section>
+    ))}
 </StarlightPage>

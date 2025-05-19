@@ -1,0 +1,64 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import fs from "fs";
+import path from "path";
+import { Code } from '@astrojs/starlight/components';
+
+export async function getStaticPaths() {
+    const events = await getCollection('events');
+    return events.map(event => ({
+        params: { event: event.id },
+        props: { event },
+    }));
+}
+
+const { event } = Astro.props;
+
+const eventType = event.data.type;
+const eventPath = path.dirname(event.filePath ?? "");
+let eventExamples = event.data.examples
+
+if ( eventExamples.length > 0 ){
+    eventExamples = eventExamples.map((example: any) => {
+        try {
+            const luaCode = fs.readFileSync(path.resolve(`${eventPath}`, example.path), "utf8"); 
+            return { ...example, luaCode };
+        } catch (error) {
+            console.error(`Error reading ${example.path}:`, error);
+            return { ...example, luaCode: "Loading example error." };
+        }
+    });
+}
+
+---
+
+<div class={"show-type-badge-" + eventType}>
+    <StarlightPage frontmatter={{
+        template: 'doc',
+        title: event.id,
+        tableOfContents: false,
+    }}>
+        <!-- Description -->
+        <Fragment set:html={marked(event.data.description)} />
+
+        <h4>Parameters</h4>
+        {event.data.parameters.length > 0 && event.data.parameters.map((param: any) => (
+            <ul>
+                <li set:html={param.type + " " + param.name + ": " + param.description} />
+            </ul>
+        ))}
+
+        <h4>Source</h4>
+        <p set:html={event.data.source_element.type + ": " + event.data.source_element.description} />
+
+        <h4>Examples</h4>
+        {eventExamples.length > 0 && eventExamples.map((example: any) => (
+            <div>
+                <p set:html={marked(example.description)}></p>
+                <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
+            </div>
+        ))}
+    </StarlightPage>
+</div>

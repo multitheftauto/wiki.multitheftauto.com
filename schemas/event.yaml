@@ -1,0 +1,68 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: event.yaml
+title: Event schema
+type: object
+required:
+  - name
+  - type
+  - description
+  - source_element
+properties:
+  name:
+    type: string
+    description: Exact name of the event.
+  type:
+    type: string
+    description: Type of the event ("client" or "server").
+    enum:
+      - client
+      - server
+  description:
+    type: string
+    description: Description of the event.
+  parameters:
+    $ref: '#/$defs/parameters'
+  source_element:
+    $ref: '#/$defs/source_element'
+  notes:
+    $ref: 'common-defs.yaml#/$defs/notes'
+  preview_images:
+    $ref: 'common-defs.yaml#/$defs/preview_images'
+  version:
+    $ref: 'common-defs.yaml#/$defs/version'
+  issues:
+    $ref: 'common-defs.yaml#/$defs/issues'
+  examples:
+    $ref: 'common-defs.yaml#/$defs/examples'
+  see_also:
+    $ref: 'common-defs.yaml#/$defs/see_also'
+
+$defs:
+  source_element:
+    type: object
+    properties:
+      type:
+        type: string
+        description: Type of the source element (e.g., "player", "object").
+      description:
+        type: string
+        description: Description of the source element in the event's context.
+  parameters:
+    type: array
+    description: A list of parameters passed to the event handler function.
+    items:
+      type: object
+      required:
+        - name
+        - type
+        - description
+      properties:
+        name:
+          type: string
+          description: Name of the function parameter.
+        type:
+          type: string
+          description: Type of the function parameter.
+        description:
+          type: string
+          description: Describe the usage, contraints and other useful information about the parameter.
