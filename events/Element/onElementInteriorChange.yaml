@@ -1,0 +1,24 @@
+name: onElementInteriorChange
+type: server
+description: >
+  This event is triggered when the interior of an element is changed using setElementInterior. 
+parameters:
+  - name: oldInterior
+    type: int
+    description: An int representing the interior the element was in before.
+  - name: newInterior
+    type: int
+    description: An int representing the interior the element is in now.
+source_element:
+  type: element
+  description: The source of this event is the element that changed its interior.
+examples:
+  - path: examples/onElementInteriorChange.lua
+    description: >
+      Demonstrates how to detect and respond to an element's interior change.
+      Includes vehicle creation and an event handler that reports the interior transition.
+notes: []
+preview_images: []
+version: {}
+issues: []
+see_also: []
