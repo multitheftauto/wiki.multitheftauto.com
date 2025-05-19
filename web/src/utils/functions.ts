@@ -8,7 +8,7 @@ type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
 // Define a structure for function parameters
 type FunctionParameter = {
     name: string;
-    type: string; // Adjust type as needed (e.g., string | string[])
+    type: string;
     description?: string;
     optional?: boolean;
 };
@@ -19,6 +19,7 @@ type FunctionDetails = {
     pair?: boolean;
     examples?: { code: string; description?: string }[];
     notes?: string[];
+    important_notes?: string[];
     parameters?: FunctionParameter[];
 };
 
@@ -36,7 +37,6 @@ export type FunctionData = {
     server?: any;
 };
 
-// Use the specific FunctionDetails type
 export type TypedFunctionData = {
     shared?: FunctionDetails;
     client?: FunctionDetails;
@@ -47,7 +47,7 @@ export const functionTypePrettyName = {
     'client': 'Client-side',
     'server': 'Server-side',
     'shared': 'Shared',
-} as const; // Use 'as const' for stricter typing of keys
+} as const;
 
 function getFunctionType(data: FunctionData): FunctionType {
     if (data.shared) return 'shared';
@@ -55,25 +55,24 @@ function getFunctionType(data: FunctionData): FunctionType {
     return 'server';
 }
 function getFunctionTypePretty(data: FunctionData): string {
-    // No need for fallback, getFunctionType guarantees a valid FunctionType
     const funcType = getFunctionType(data);
     return functionTypePrettyName[funcType];
 }
 
-// Define a return type for getFunctionInfo
 export type FunctionInfo = {
     description: string;
     type: FunctionType;
     typePretty: string;
     pair: boolean;
     examples: { code: string; description?: string }[];
-    notes?: string[]; // Added notes
-    parameters?: FunctionParameter[]; // Added parameters
+    notes?: string[];
+    important_notes?: string[];
+    parameters?: FunctionParameter[];
 };
 
 export function getFunctionInfo(data: TypedFunctionData): FunctionInfo {
     const type = getFunctionType(data);
-    const details = data[type] ?? {}; // Get details based on type, default to empty object
+    const details = data[type] ?? {};
 
     return {
         description: details.description || '',
@@ -81,8 +80,9 @@ export function getFunctionInfo(data: TypedFunctionData): FunctionInfo {
         typePretty: getFunctionTypePretty(data),
         pair: details.pair || false,
         examples: details.examples || [],
-        notes: details.notes, // Extract notes (will be undefined if not present)
-        parameters: details.parameters || [], // Extract parameters
+        notes: details.notes || [],
+        important_notes: details.important_notes || [],
+        parameters: details.parameters || [],
     };
 }
 
@@ -95,8 +95,7 @@ let functionsByTypeByCategory: FunctionsByTypeByCategory = {
 };
 
 for (let func of functionsCollection) {
-    // Assuming func.filePath exists, handle potential undefined if necessary
-    const normalizedPath = path.normalize(func.id); // Use func.id which includes the path relative to content dir
+    const normalizedPath = path.normalize(func.id);
     const folder = path.basename(path.dirname(normalizedPath));
     if (!functionsByCategory[folder]) {
         functionsByCategory[folder] = [];
@@ -104,7 +103,6 @@ for (let func of functionsCollection) {
     functionsByCategory[folder].push(func);
 
     const funcType = getFunctionType(func.data);
-    // Ensure the folder exists for the specific type
     if (!functionsByTypeByCategory[funcType]?.[folder]) {
         functionsByTypeByCategory[funcType][folder] = [];
     }
