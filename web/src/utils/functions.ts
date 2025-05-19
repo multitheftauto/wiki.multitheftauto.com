@@ -5,15 +5,12 @@ import type { FunctionType } from './types';
 
 type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
 
-// Define a structure for function parameters
 type FunctionParameter = {
     name: string;
     type: string;
     description?: string;
-    optional?: boolean;
 };
 
-// Define a structure for the details expected within shared/client/server
 type FunctionDetails = {
     description?: string;
     pair?: boolean;
