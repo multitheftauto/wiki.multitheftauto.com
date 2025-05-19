@@ -22,4 +22,14 @@ export const collections = {
 			}
 		})
 	}),
+	events: defineCollection({
+		loader: glob({
+			pattern: "**/*.yaml",
+			base: "../events",
+			generateId: ({ entry }) => {
+				// Extract the file name without the folder
+				return ((entry.split('/') || []).pop() || '').replace(/\.yaml$/, '');
+			}
+		})
+	}),
 };

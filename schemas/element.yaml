@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-$id: /schemas/element
+$id: element.yaml
 title: Element schema
 type: object
 required:
