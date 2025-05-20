@@ -3,8 +3,10 @@ shared: &shared
   description: |
     This function determines the state of a [player](/player)'s cursor.
   notes:
-    - This function only handles the cursor state set by the [showCursor](/showCursor) function, ignoring it if the console, chatbox, or menu is opened.
-    - If you use this function on the server-side, keep in mind that it only detects the [showCursor](/showCursor) function executed on the server-side and not changes done by client-side.
+    - type: 'warning'
+      content: 'This function only handles the cursor state set by the [showCursor](/showCursor) function, ignoring it if the console, chatbox, or menu is opened.'
+    - type: 'warning'
+      content: 'If you use this function on the server-side, keep in mind that it only detects the [showCursor](/showCursor) function executed on the server-side and not changes done by client-side.'
   returns:
     description: |
       Returns *true* if the [player](/player)'s cursor is visible, and *false* if it is not.

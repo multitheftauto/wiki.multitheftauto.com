@@ -7,7 +7,7 @@ $defs:
     type: array
     description: |
       List of noteworthy pieces of information for the item.
-      Each note can be of a specific type, e.g., 'standard' or 'important'.
+      Each note can be of a specific type, e.g., 'info' or 'important'.
     items:
       type: object
       description: An individual note item.
@@ -18,9 +18,10 @@ $defs:
           type: string
           description: The type of the note, influencing its presentation.
           enum:
-            - standard
+            - info
+            - warning
             - important
-          default: standard
+          default: info
         content:
           type: string
           description: The textual content of the note. Can use markdown and YAML multi-line strings.

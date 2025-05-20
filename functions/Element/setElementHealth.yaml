@@ -8,7 +8,7 @@ shared: &shared
   description: |
     This function sets the health of a [player](/player), [ped](/ped), [vehicle](/vehicle), or [object](/object) element.
   notes:
-    - type: 'standard'
+    - type: 'info'
       content: |
         In the case of the [vehicle](/vehicle) element, the health ranges from 0 to 1000.
         
