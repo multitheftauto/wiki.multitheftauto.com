@@ -12,5 +12,10 @@ properties:
   description:
     type: string
     description: Description of the element.
+  notes:
+    type: array
+    description: A list of noteworthy pieces of information for the item.
+    items:
+      type: string
   see_also:
     $ref: 'common-defs.yaml#/$defs/see_also'
