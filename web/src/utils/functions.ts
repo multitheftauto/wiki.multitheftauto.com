@@ -89,15 +89,14 @@ let functionsByTypeByCategory: FunctionsByTypeByCategory = {
 };
 
 for (let func of functionsCollection) {
-    const normalizedPath = path.normalize(func.id);
-    const folder = path.basename(path.dirname(normalizedPath));
+    const folder = path.basename(path.dirname(func.filePath || ''));
     if (!functionsByCategory[folder]) {
         functionsByCategory[folder] = [];
     }
     functionsByCategory[folder].push(func);
 
     const funcType = getFunctionType(func.data);
-    if (!functionsByTypeByCategory[funcType]?.[folder]) {
+    if (!functionsByTypeByCategory[funcType][folder]) {
         functionsByTypeByCategory[funcType][folder] = [];
     }
     functionsByTypeByCategory[funcType][folder].push(func);

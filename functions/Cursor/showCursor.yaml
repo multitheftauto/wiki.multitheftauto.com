@@ -3,8 +3,10 @@ shared: &shared
   description: |
     This function is used to show or hide a [player](/player)'s cursor. 
   notes:
-    - Regardless of the cursor state you set using this function, the cursor will always be visible while the menu, the chatbox input line or the console are active, or if another resource has called this function.
-    - Be aware of that if showCursor is enabled by a resource, you can't disabled it from a different ressource! showCursor(false) will not work, in order to make it work, disable it from the original resource that enabled it or use an export.
+    - type: 'warning'
+      content: 'Regardless of the cursor state you set using this function, the cursor will always be visible while the menu, the chatbox input line or the console are active, or if another resource has called this function.'
+    - type: 'warning'
+      content: "Be aware of that if showCursor is enabled by a resource, you can't disabled it from a different ressource! `showCursor(false)` will not work, in order to make it work, disable it from the original resource that enabled it or use an export."
   parameters:
     - name: 'thePlayer'
       type: 'player'

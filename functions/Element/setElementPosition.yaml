@@ -8,10 +8,10 @@ shared: &shared
   description: |
     This function sets the position of an element to the specified coordinates.
   notes:
-    - |
-      Warning: Do not use this function to spawn a [player](/player). It will cause problems with other functions like [warpPedIntoVehicle](/warpPedIntoVehicle). Use [spawnPlayer](/spawnPlayer) instead.
-    - |
-      If you want to put a vehicle or player out of the water or simulate the position-resetting behaviour if CJ goes below the ground too far, then you need to retrieve a recommended coordinate on ground to place the element at. Take a look at this MTA forums [post](https://forum.mtasa.com/topic/132891-important-helprespawn-vehicle/?do=findComment&comment=1003198) for steps in the right direction.
+    - type: 'warning'
+      content: 'Do not use this function to spawn a [player](/player). It will cause problems with other functions like [warpPedIntoVehicle](/warpPedIntoVehicle). Use [spawnPlayer](/spawnPlayer) instead.'
+    - type: 'info'
+      content: If you want to put a vehicle or player out of the water or simulate the position-resetting behaviour if CJ goes below the ground too far, then you need to retrieve a recommended coordinate on ground to place the element at. Take a look at this MTA forums [post](https://forum.mtasa.com/topic/132891-important-helprespawn-vehicle/?do=findComment&comment=1003198) for steps in the right direction.
   parameters:
     - name: 'theElement'
       type: 'element'

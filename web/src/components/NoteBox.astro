@@ -2,10 +2,10 @@
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'div'> {
-  type?: 'standard' | 'important';
+  type?: 'info' | 'warning' | 'important';
 }
 
-const { type = 'standard', class: className, ...rest } = Astro.props;
+const { type = 'info', class: className, ...rest } = Astro.props;
 ---
 <div
   class:list={["custom-note-box", { 'note-important': type === 'important' }, className]}
