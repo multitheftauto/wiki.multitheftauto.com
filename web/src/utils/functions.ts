@@ -1,18 +1,31 @@
 import { getCollection } from 'astro:content';
 import path from 'path';
 
-import type { FunctionType } from './types';
+import type { FunctionType, NotesType } from './types';
 
 type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
+
+type FunctionParameter = {
+    name: string;
+    type: string;
+    description?: string;
+};
+
+type FunctionDetails = {
+    description?: string;
+    pair?: boolean;
+    examples?: { code: string; description?: string }[];
+    notes?: NotesType;
+    parameters?: FunctionParameter[];
+};
 
 type FunctionsByCategory = {
     [folder: string]: FunctionItem[];
 };
 type FunctionsByTypeByCategory = {
-    shared: FunctionsByCategory;
-    client: FunctionsByCategory;
-    server: FunctionsByCategory;
+    [key in FunctionType]: FunctionsByCategory;
 };
+
 
 export type FunctionData = {
     shared?: any;
@@ -20,11 +33,17 @@ export type FunctionData = {
     server?: any;
 };
 
+export type TypedFunctionData = {
+    shared?: FunctionDetails;
+    client?: FunctionDetails;
+    server?: FunctionDetails;
+};
+
 export const functionTypePrettyName = {
     'client': 'Client-side',
     'server': 'Server-side',
     'shared': 'Shared',
-};
+} as const;
 
 function getFunctionType(data: FunctionData): FunctionType {
     if (data.shared) return 'shared';
@@ -33,16 +52,31 @@ function getFunctionType(data: FunctionData): FunctionType {
 }
 function getFunctionTypePretty(data: FunctionData): string {
     const funcType = getFunctionType(data);
-    return functionTypePrettyName[funcType] ?? 'Server-side';
+    return functionTypePrettyName[funcType];
 }
 
-export function getFunctionInfo(data: FunctionData): any {
+export type FunctionInfo = {
+    description: string;
+    type: FunctionType;
+    typePretty: string;
+    pair: boolean;
+    examples: { code: string; description?: string }[];
+    notes?: NotesType;
+    parameters?: FunctionParameter[];
+};
+
+export function getFunctionInfo(data: TypedFunctionData): FunctionInfo {
+    const type = getFunctionType(data);
+    const details = data[type] ?? {};
+
     return {
-        description: data.shared?.description || data.client?.description || data.server?.description || '',
-        type: getFunctionType(data),
+        description: details.description || '',
+        type: type,
         typePretty: getFunctionTypePretty(data),
-        pair: data.shared?.pair || data.client?.pair || data.server?.pair || false,
-        examples: data.shared?.examples || data.client?.examples || data.server?.examples || [ ],
+        pair: details.pair || false,
+        examples: details.examples || [],
+        notes: details.notes || [],
+        parameters: details.parameters || [],
     };
 }
 
@@ -55,7 +89,7 @@ let functionsByTypeByCategory: FunctionsByTypeByCategory = {
 };
 
 for (let func of functionsCollection) {
-    const normalizedPath = path.normalize(func.filePath || '');
+    const normalizedPath = path.normalize(func.id);
     const folder = path.basename(path.dirname(normalizedPath));
     if (!functionsByCategory[folder]) {
         functionsByCategory[folder] = [];
@@ -63,7 +97,7 @@ for (let func of functionsCollection) {
     functionsByCategory[folder].push(func);
 
     const funcType = getFunctionType(func.data);
-    if (!functionsByTypeByCategory[funcType][folder]) {
+    if (!functionsByTypeByCategory[funcType]?.[folder]) {
         functionsByTypeByCategory[funcType][folder] = [];
     }
     functionsByTypeByCategory[funcType][folder].push(func);

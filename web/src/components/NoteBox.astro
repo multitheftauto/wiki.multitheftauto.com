@@ -1,0 +1,63 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  type?: 'standard' | 'important';
+}
+
+const { type = 'standard', class: className, ...rest } = Astro.props;
+---
+<div
+  class:list={["custom-note-box", { 'note-important': type === 'important' }, className]}
+  {...rest}
+>
+    {type === 'important' && (
+      <span class="note-icon" aria-label="Importante">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="10" fill="#e53935"/>
+          <text x="10" y="15" text-anchor="middle" font-size="14" fill="#fff" font-family="Arial" font-weight="bold">!</text>
+        </svg>
+      </span>
+    )}
+    <slot />
+</div >
+
+<style>
+.custom-note-box {
+    background-color: var(--sl-color-blue-low);
+    border-left: 4px solid var(--sl-color-blue);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--sl-color-text);
+    position: relative;
+}
+
+html[data-theme="dark"] .custom-note-box {
+    background-color: var(--sl-color-gray-5);
+}
+
+.custom-note-box.note-important {
+    background-color: var(--sl-color-red-low);
+    border-left-color: #d32f2f;
+}
+
+html[data-theme="dark"] .custom-note-box.note-important {
+    --sl-color-red-low: hsl(var(--sl-color-red-hue), 50%, 20%);
+}
+
+.note-icon {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.custom-note-box.note-important {
+    padding-right: 2.5rem;
+    padding-left: 1.25rem;
+}
+</style>
