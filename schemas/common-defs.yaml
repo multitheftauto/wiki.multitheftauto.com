@@ -5,9 +5,25 @@ type: object
 $defs:
   notes:
     type: array
-    description: List of noteworthy pieces of information for the item.
+    description: |
+      List of noteworthy pieces of information for the item.
+      Each note can be of a specific type, e.g., 'standard' or 'important'.
     items:
-      type: string
+      type: object
+      description: An individual note item.
+      required:
+        - content
+      properties:
+        type:
+          type: string
+          description: The type of the note, influencing its presentation.
+          enum:
+            - standard
+            - important
+          default: standard
+        content:
+          type: string
+          description: The textual content of the note. Can use markdown and YAML multi-line strings.
   
   meta:
     type: array

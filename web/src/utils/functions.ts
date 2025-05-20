@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import path from 'path';
 
-import type { FunctionType } from './types';
+import type { FunctionType, NotesType } from './types';
 
 type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
 
@@ -15,8 +15,7 @@ type FunctionDetails = {
     description?: string;
     pair?: boolean;
     examples?: { code: string; description?: string }[];
-    notes?: string[];
-    important_notes?: string[];
+    notes?: NotesType;
     parameters?: FunctionParameter[];
 };
 
@@ -62,8 +61,7 @@ export type FunctionInfo = {
     typePretty: string;
     pair: boolean;
     examples: { code: string; description?: string }[];
-    notes?: string[];
-    important_notes?: string[];
+    notes?: NotesType;
     parameters?: FunctionParameter[];
 };
 
@@ -78,7 +76,6 @@ export function getFunctionInfo(data: TypedFunctionData): FunctionInfo {
         pair: details.pair || false,
         examples: details.examples || [],
         notes: details.notes || [],
-        important_notes: details.important_notes || [],
         parameters: details.parameters || [],
     };
 }
