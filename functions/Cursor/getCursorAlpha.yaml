@@ -17,4 +17,4 @@ client:
       description: |
         This example prints the cursor alpha to chatbox using */cursoralpha* command:
   see_also:
-    - 'category:Client element functions'
+    - 'functions:any:Cursor'

@@ -33,3 +33,5 @@ client:
     - path: 'examples/getCursorPosition-2.lua'
       description: |
         This (untested) example uses [processLineOfSight](/processLineOfSight) to calculate the exact world location: Warning, this script causes high CPU usage!
+  see_also:
+    - 'functions:any:Cursor'

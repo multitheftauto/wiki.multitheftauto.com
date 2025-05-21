@@ -21,4 +21,4 @@ client:
       description: |
         This example sets the cursor alpha to 100 using */cursoralpha* command:
   see_also:
-    - 'category:Client GUI functions'
+    - 'functions:any:Cursor'

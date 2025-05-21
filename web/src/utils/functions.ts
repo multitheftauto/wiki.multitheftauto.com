@@ -237,3 +237,55 @@ export function getFunctionsByCategory(): FunctionsByCategory {
 export function getFunctionsByTypeByCategory(): FunctionsByTypeByCategory {
     return functionsByTypeByCategory;
 }
+
+// Gets related functions and other items (links) according to the see_also field
+export function getFunctionSeeAlsoLinks(
+  func: FunctionItem
+): { name: string; link: string }[] {
+  const seeAlso: string[] | undefined =
+    func.data.shared?.see_also ??
+    func.data.client?.see_also ??
+    func.data.server?.see_also;
+
+  if (!seeAlso || seeAlso.length === 0) {
+    return [];
+  }
+
+  const links = seeAlso.map((item: string) => {
+    const parts = item.split(':');
+    if (parts.length !== 3) return null;
+
+    const [itemType, functionType, functionCategory] = parts;
+
+    if (itemType !== 'functions') return null;
+
+    let functionsInCategory: FunctionItem[] = [];
+
+    switch (functionType) {
+      case 'client':
+        functionsInCategory = functionsByTypeByCategory.client[functionCategory] || [];
+        break;
+      case 'server':
+        functionsInCategory = functionsByTypeByCategory.server[functionCategory] || [];
+        break;
+      case 'any':
+        functionsInCategory = [
+          ...(functionsByTypeByCategory.shared[functionCategory] || []),
+          ...(functionsByTypeByCategory.client[functionCategory] || []),
+          ...(functionsByTypeByCategory.server[functionCategory] || []),
+        ];
+        break;
+      default:
+        return null;
+    }
+
+    return functionsInCategory.map(f => ({
+      name: f.id,
+      link: `/${f.id}`,
+    }));
+  })
+  .filter(linkGroup => linkGroup !== null)
+  .flat();
+
+  return links.sort((a, b) => a.name.localeCompare(b.name));
+}

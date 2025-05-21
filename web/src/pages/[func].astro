@@ -1,7 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
-import { getFunctionInfo, parseFunctionSyntaxes } from '@src/utils/functions';
+import { getFunctionInfo, parseFunctionSyntaxes, getFunctionSeeAlsoLinks } from '@src/utils/functions';
 import { renderInlineMarkdown } from '@src/utils/general';
 import { marked } from 'marked';
 import fs from "fs";
@@ -54,6 +54,8 @@ if (Array.isArray(funcInfo.notes) && funcInfo.notes.length > 0) {
 }
 
 let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
+
+const seeAlsoLinks = getFunctionSeeAlsoLinks(func);
 ---
 
 <div class={"show-type-badge-" + funcType}>
@@ -183,6 +185,26 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                         <Code code={example.luaCode} lang="lua"/>
                     </div>
                 ))}
+            </div>
+        )}
+
+        <!-- See Also links list -->
+        {seeAlsoLinks.length > 0 && (
+            <div class="see-also-section">
+                <h4>See Also</h4>
+                <ul>
+                    {seeAlsoLinks.map((link: any) => (
+                        (link.name === func.id) && (
+                            <li>
+                                <strong>{link.name}</strong>
+                            </li>
+                        ) || (
+                            <li>
+                                <a href={link.link}>{link.name}</a>
+                            </li>
+                        )
+                    ))}
+                </ul>
             </div>
         )}
     </StarlightPage>

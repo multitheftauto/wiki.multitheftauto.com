@@ -40,6 +40,8 @@ shared: &shared
       description: 'Changing player position when they have a jetpack will remove the jetpack and bug when skin is changed'
     - id: 529
       description: 'Player falls from bike when the bike is teleported using setElementPosition'
+  see_also:
+    - 'functions:any:Element'
 
 server:
   <<: *shared
