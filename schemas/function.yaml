@@ -89,11 +89,11 @@ $defs:
             type: string
             description: Name of the variable without a leading dot.
       - required:
-          - constructor
+          - constructorclass
         properties:
-          constructor:
+          constructorclass:
             type: string
-            description: Name of the constructor.
+            description: Name of the constructor class.
 
   parameters:
     type: array

@@ -17,7 +17,9 @@ examples:
     description: >
       Demonstrates how to detect and respond to an element's interior change.
       Includes vehicle creation and an event handler that reports the interior transition.
-notes: []
+notes:
+  - type: 'info'
+    content: 'This is a test!'
 preview_images: []
 version: {}
 issues: []

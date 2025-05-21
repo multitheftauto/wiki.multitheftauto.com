@@ -5,18 +5,34 @@ import type { FunctionType, NotesType } from './types';
 
 type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
 
-type FunctionParameter = {
-    name: string;
-    type: string;
-    description?: string;
+type BaseOOP = {
+  entity: string;
+  note?: string;
 };
 
+// /!\ constructor is a reserved word in JS/TS, so we use constructorclass
+type MethodOOP = BaseOOP & {
+  method: string;
+  static?: boolean;
+  variable?: string;
+  constructorclass?: never; // mutually exclusive with constructor
+};
+
+type ConstructorOOP = BaseOOP & {
+  constructorclass: string;
+  method?: never;      // mutually exclusive with method
+  static?: never;
+  variable?: never;
+};
+
+export type OOPInfo = MethodOOP | ConstructorOOP;
+
 type FunctionDetails = {
+    oop?: OOPInfo;
     description?: string;
     pair?: boolean;
     examples?: { code: string; description?: string }[];
     notes?: NotesType;
-    parameters?: FunctionParameter[];
 };
 
 type FunctionsByCategory = {
@@ -55,28 +71,161 @@ function getFunctionTypePretty(data: FunctionData): string {
     return functionTypePrettyName[funcType];
 }
 
+
+type Parameter = {
+  name: string;
+  type: string;
+  description: string;
+  default?: string;
+};
+
+type ReturnValue = {
+  type: string;
+  name: string;
+};
+
+type ReturnBlock = {
+  description?: string;
+  values: ReturnValue[];
+};
+
+type Syntax = {
+  type: 'shared' | 'server' | 'client';
+  parameters: Parameter[];
+  returns: ReturnBlock | null;
+  syntaxString: string;
+};
+
 export type FunctionInfo = {
+    oop?: OOPInfo;
     description: string;
     type: FunctionType;
     typePretty: string;
     pair: boolean;
     examples: { code: string; description?: string }[];
     notes?: NotesType;
-    parameters?: FunctionParameter[];
 };
+
+// return_type func_name ( param1, param2, [ optional param1 ] )
+// e.g. bool setCursorPosition ( int cursorX, int cursorY )
+function buildSyntaxString(
+  funcName: string,
+  parameters: Parameter[],
+  returns: ReturnBlock | null,
+): string {
+  const returnString = returns
+    ? `${returns.values.map(v => v.type).join(', ')}`
+    : '';
+
+  const requiredParams = parameters.filter(p => p.default === undefined);
+  const optionalParams = parameters.filter(p => p.default !== undefined);
+
+  const requiredStr = requiredParams
+    .map(p => `${p.type} ${p.name}`)
+    .join(', ');
+
+  const optionalStr = optionalParams
+    .map(p => `${p.type} ${p.name} = ${p.default}`)
+    .join(', ');
+
+  let paramStr = '';
+  if (requiredParams.length && optionalParams.length) {
+    paramStr = `${requiredStr}, [ ${optionalStr} ]`;
+  } else if (!requiredParams.length && optionalParams.length) {
+    paramStr = `[ ${optionalStr} ]`;
+  } else {
+    paramStr = requiredStr;
+  }
+
+  const spacedParams = paramStr.trim() === '' ? ' ' : ` ${paramStr} `;
+
+  return `${returnString} ${funcName} (${spacedParams})`;
+}
+
+
+
+export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData): Syntax[] {
+  const syntaxes: Syntax[] = [];
+
+  const { shared, server, client } = funcData;
+
+  const stripIgnored = (params: Parameter[] = [], ignore: string[] = []) =>
+    params.filter(p => !ignore.includes(p.name));
+
+  const funcType = getFunctionType(funcData);
+
+  if (funcType === 'shared') {
+    const sharedParams = shared?.parameters || [];
+    const sharedReturns = shared?.returns || null;
+
+    const clientParams =
+    client?.parameters !== undefined
+        ? stripIgnored(client.parameters, client.ignore_parameters || [])
+        : stripIgnored(sharedParams, client?.ignore_parameters || []);
+
+    const serverParams =
+    server?.parameters !== undefined
+        ? stripIgnored(server.parameters, server.ignore_parameters || [])
+        : stripIgnored(sharedParams, server?.ignore_parameters || []);
+
+    const clientReturns = client?.returns || sharedReturns;
+    const serverReturns = server?.returns || sharedReturns;
+
+    if (
+      JSON.stringify(clientParams) === JSON.stringify(serverParams) &&
+      JSON.stringify(clientReturns) === JSON.stringify(serverReturns)
+    ) {
+      syntaxes.push({
+        type: 'shared',
+        parameters: sharedParams,
+        returns: sharedReturns,
+        syntaxString: buildSyntaxString(funcName, sharedParams, sharedReturns),
+      });
+    } else {
+      syntaxes.push({
+        type: 'client',
+        parameters: clientParams,
+        returns: clientReturns,
+        syntaxString: buildSyntaxString(funcName, clientParams, clientReturns),
+      });
+      syntaxes.push({
+        type: 'server',
+        parameters: serverParams,
+        returns: serverReturns,
+        syntaxString: buildSyntaxString(funcName, serverParams, serverReturns),
+      });
+    }
+  } else if (funcType === 'client') {
+    syntaxes.push({
+      type: 'client',
+      parameters: client?.parameters || [],
+      returns: client?.returns || null,
+      syntaxString: buildSyntaxString(funcName, client?.parameters || [], client?.returns || null),
+    });
+  } else if (funcType === 'server') {
+    syntaxes.push({
+      type: 'server',
+      parameters: server?.parameters || [],
+      returns: server?.returns || null,
+      syntaxString: buildSyntaxString(funcName, server?.parameters || [], server?.returns || null),
+    });
+  }
+
+  return syntaxes;
+}
 
 export function getFunctionInfo(data: TypedFunctionData): FunctionInfo {
     const type = getFunctionType(data);
     const details = data[type] ?? {};
 
     return {
+        oop: details.oop || undefined,
         description: details.description || '',
         type: type,
         typePretty: getFunctionTypePretty(data),
         pair: details.pair || false,
         examples: details.examples || [],
-        notes: details.notes || [],
-        parameters: details.parameters || [],
+        notes: details.notes || []
     };
 }
 

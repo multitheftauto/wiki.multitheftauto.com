@@ -5,6 +5,10 @@ import { marked } from 'marked';
 import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
+import '@src/styles/function-page.css';
+
+import NoteBox from '@src/components/NoteBox.astro';
+import type { NotesType } from '@src/utils/types';
 
 export async function getStaticPaths() {
     const events = await getCollection('events');
@@ -47,6 +51,10 @@ if ( eventExamples.length > 0 ){
     });
 }
 
+let notesContent: NotesType = [];
+if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
+    notesContent = event.data.notes;
+}
 ---
 
 <div class={"show-type-badge-" + eventType}>
@@ -57,6 +65,17 @@ if ( eventExamples.length > 0 ){
     }}>
         <!-- Description -->
         <Fragment set:html={marked(event.data.description)} />
+
+        <!-- Notes -->
+        {notesContent.length > 0 && (
+            <div class="notes-section">
+                {notesContent.map((note) => (
+                    <NoteBox type={note.type}>
+                        <Fragment set:html={marked(note.content)} />
+                    </NoteBox>
+                ))}
+            </div>
+        )}
 
         <h4>Parameters</h4>
         <!-- Looks better with C syntax instead of Lua
@@ -81,12 +100,16 @@ if ( eventExamples.length > 0 ){
             `addEventHandler("${event.id}", elementAttachedTo, ${eventHandlerExample.funcName})`
         } lang="lua" />
 
-        <h4>Code Examples</h4>
-        {eventExamples.length > 0 && eventExamples.map((example: any) => (
-            <div>
-                <p set:html={marked(example.description)}></p>
-                <Code code={example.luaCode} lang="lua"} />
+        {eventExamples.length > 0 && (
+            <div class="examples-section">
+                <h4>Code Examples</h4>
+                {eventExamples.map((example: any) => (
+                    <div class="function-example">
+                        <Fragment set:html={marked(example.description)}></p>
+                        <Code code={example.luaCode} lang="lua"/>
+                    </div>
+                ))}
             </div>
-        ))}
+        )}
     </StarlightPage>
 </div>

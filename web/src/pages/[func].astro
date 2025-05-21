@@ -1,7 +1,8 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
-import { getFunctionInfo } from '@src/utils/functions';
+import { getFunctionInfo, parseFunctionSyntaxes } from '@src/utils/functions';
+import { renderInlineMarkdown } from '@src/utils/general';
 import { marked } from 'marked';
 import fs from "fs";
 import path from "path";
@@ -47,6 +48,7 @@ if (Array.isArray(funcNotes) && funcNotes.length > 0) {
     notesContent = funcNotes;
 }
 
+let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
 ---
 
 <div class={"show-type-badge-" + funcType}>
@@ -64,22 +66,111 @@ if (Array.isArray(funcNotes) && funcNotes.length > 0) {
         {description && <Fragment set:html={marked(description)} />}
 
         <!-- Notes -->
-        <div class="notes-section">
-            {notesContent.map((note) => (
-                <NoteBox type={note.type}>
-                    <Fragment set:html={marked(note.content)} />
-                </NoteBox>
-            ))}
-        </div>
+        {notesContent.length > 0 && (
+            <div class="notes-section">
+                {notesContent.map((note) => (
+                    <NoteBox type={note.type}>
+                        <Fragment set:html={marked(note.content)} />
+                    </NoteBox>
+                ))}
+            </div>
+        )}
+
+        <!-- OOP Syntax -->
+        {funcInfo.oop && (
+        <>
+            <h5>OOP Syntax <a class="small-text" href="/OOP_Introduction">Help! I don't understand this!</a></h5>
+            <ul>
+            {funcInfo.oop.method && (
+                <li>
+                <strong>Method:</strong>{' '}
+                <a href={ `/${funcInfo.oop.entity}` }>{funcInfo.oop.entity}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
+                </li>
+            )}
+
+            {funcInfo.oop.variable && (
+                <li>
+                <strong>Variable:</strong> .{funcInfo.oop.variable}
+                </li>
+            )}
+
+            {funcInfo.oop.constructorclass && (
+                <li>
+                <strong>Constructor:</strong> {funcInfo.oop.constructorclass}(...)
+                </li>
+            )}
+            
+            {funcPair && (
+            <li>
+                <strong>Counterpart:</strong> <a href={ `/${funcPair}` }>{ funcPair }</a>
+            </li>
+            )}
+            </ul>
+        </>
+        )}
+
+        <!-- Syntaxes -->
+        {funcSyntaxes.length > 0 && funcSyntaxes.map((syntax: any) => (
+            <div class="function-syntax">
+                {funcType === syntax.type && (
+                    <h3>Syntax</h3>
+                ) || (
+                    <h3>{syntax.type.charAt(0).toUpperCase() + syntax.type.slice(1)} Syntax</h3>
+                )}
+                <Code code={syntax.syntaxString} lang="c" />
+                {syntax.parameters.length > 0 && (
+                <>
+                    {syntax.parameters.some((param: any) => !param.default) && (
+                    <>
+                        <h5>Required Arguments</h5>
+                        <ul>
+                        {syntax.parameters
+                            .filter((param: any) => !param.default)
+                            .map((param: any) => (
+                            <li
+                                set:html={`<strong>${param.name}</strong>: ${renderInlineMarkdown(param.description)}`}
+                            />
+                            ))}
+                        </ul>
+                    </>
+                    )}
+
+                    {syntax.parameters.some((param: any) => param.default) && (
+                    <>
+                        <h5>Optional Arguments</h5>
+                        <ul>
+                        {syntax.parameters
+                            .filter((param: any) => param.default)
+                            .map((param: any) => (
+                            <li
+                                set:html={`<strong>${param.name}</strong>: ${renderInlineMarkdown(param.description)}`}
+                            />
+                            ))}
+                        </ul>
+                    </>
+                    )}
+                </>
+                )}
+                {syntax.returns && (
+                    <h5>Returns</h5>
+                    <ul>
+                        {syntax.returns.values.map((ret: any) => (
+                            <li set:html={"<strong>" + ret.type + "</strong>: " + renderInlineMarkdown(ret.name)} />
+                        ))}
+                    </ul>
+                    <Fragment set:html={marked(syntax.returns.description)} />
+                )}
+            </div>
+        ))}
 
         <!-- Examples -->
         {processedExamples.length > 0 && (
             <div class="examples-section">
-                 <h3>Exemplos</h3>
+                 <h3>Code Examples</h3>
                  {processedExamples.map((example: any) => (
                     <div class="function-example">
                         <Fragment set:html={marked(example.description)} />
-                        <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
+                        <Code code={example.luaCode} lang="lua"/>
                     </div>
                 ))}
             </div>
