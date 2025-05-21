@@ -22,7 +22,7 @@ shared: &shared
     - name: 'y'
       type: 'float'
       description: 'The y coordinate of the destination.'
-    - name: 'y'
+    - name: 'z'
       type: 'float'
       description: 'The z coordinate of the destination.'
     - name: 'warp'
