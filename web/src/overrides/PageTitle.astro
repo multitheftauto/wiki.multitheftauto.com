@@ -2,7 +2,7 @@
 import { functionTypePrettyName } from '@src/utils/functions';
 ---
 <div class="page-title-container">
-    <h1>{Astro.props.entry.data.title}</h1>
+    <h1>{Astro.locals.starlightRoute.entry.data.title}</h1>
 
     <div class="type-badge type-badge--client">{functionTypePrettyName['client']}</div>
     <div class="type-badge type-badge--server">{functionTypePrettyName['server']}</div>
