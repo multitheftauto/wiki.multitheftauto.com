@@ -27,7 +27,7 @@ shared: &shared
       description: 'The z coordinate of the destination.'
     - name: 'warp'
       type: 'bool'
-      default: 'false'
+      default: 'true'
       description: 'teleports players, resetting any animations they were doing. Setting this to false preserves the current animation.'
   returns:
     description: |

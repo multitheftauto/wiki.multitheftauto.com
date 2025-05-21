@@ -79,7 +79,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         <!-- OOP Syntax -->
         {funcInfo.oop && (
         <>
-            <h5>OOP Syntax <a class="small-text" href="/OOP_Introduction">Help! I don't understand this!</a></h5>
+            <h3>OOP Syntax <a class="small-text" href="/OOP_Introduction">Help! I don't understand this!</a></h3>
             <ul>
             {funcInfo.oop.method && (
                 <li>
@@ -143,7 +143,9 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                             .filter((param: any) => param.default)
                             .map((param: any) => (
                             <li
-                                set:html={`<strong>${param.name}</strong>: ${renderInlineMarkdown(param.description)}`}
+                                set:html={
+                                    `<strong>${param.name}</strong> (default: <em>${param.default}</em>): ${renderInlineMarkdown(param.description)}`
+                                }
                             />
                             ))}
                         </ul>
