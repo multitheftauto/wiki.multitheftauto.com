@@ -27,11 +27,12 @@ type ConstructorOOP = BaseOOP & {
 
 export type OOPInfo = MethodOOP | ConstructorOOP;
 
-type FunctionDetails = {
+export type FunctionInfo = {
+    description: string;
+    type: FunctionType;
+    typePretty: string;
+    pair?: string;
     oop?: OOPInfo;
-    description?: string;
-    pair?: boolean;
-    examples?: { code: string; description?: string }[];
     notes?: NotesType;
 };
 
@@ -47,12 +48,6 @@ export type FunctionData = {
     shared?: any;
     client?: any;
     server?: any;
-};
-
-export type TypedFunctionData = {
-    shared?: FunctionDetails;
-    client?: FunctionDetails;
-    server?: FunctionDetails;
 };
 
 export const functionTypePrettyName = {
@@ -96,15 +91,6 @@ type Syntax = {
   syntaxString: string;
 };
 
-export type FunctionInfo = {
-    oop?: OOPInfo;
-    description: string;
-    type: FunctionType;
-    typePretty: string;
-    pair: boolean;
-    examples: { code: string; description?: string }[];
-    notes?: NotesType;
-};
 
 // return_type func_name ( param1, param2, [ optional param1 ] )
 // e.g. bool setCursorPosition ( int cursorX, int cursorY )
@@ -214,19 +200,12 @@ export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData):
   return syntaxes;
 }
 
-export function getFunctionInfo(data: TypedFunctionData): FunctionInfo {
+export function getFunctionInfo(data: FunctionData): FunctionInfo {
     const type = getFunctionType(data);
-    const details = data[type] ?? {};
-
-    return {
-        oop: details.oop || undefined,
-        description: details.description || '',
-        type: type,
-        typePretty: getFunctionTypePretty(data),
-        pair: details.pair || false,
-        examples: details.examples || [],
-        notes: details.notes || []
-    };
+    const details: FunctionInfo = data[type];
+    details.type = type;
+    details.typePretty = getFunctionTypePretty(data);
+    return details;
 }
 
 const functionsCollection = await getCollection('functions');

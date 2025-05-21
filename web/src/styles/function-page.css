@@ -14,7 +14,6 @@
 .function-oop h3,
 .examples-section h3 {
     margin-bottom: 0.75rem;
-    font-size: 1.25em;
     border-bottom: 1px solid var(--sl-color-gray-5);
     padding-bottom: 0.25rem;
 }
