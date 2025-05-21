@@ -12,6 +12,3 @@ notes:
       There is a distinction in GTA: San Andreas between static and dynamic models. The alternative [createBuilding](/createBuilding) function allows you to create objects that are non-dynamic, utilizing the GTA Building pool, which makes better use of memory.
     - |
       The [createObject](/createObject) function can also create non-dynamic objects, but for optimization reasons **it is recommended to spawn [Buildings](/building) when creating static objects that don't rely on the [Dimension](/dimension) system** (buildings don't use the same MTA object-streaming system).
-see_also:
-  - 'category:Object functions'
-  - 'category:Object events'

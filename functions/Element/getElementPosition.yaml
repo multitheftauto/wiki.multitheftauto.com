@@ -33,8 +33,6 @@ shared: &shared
   issues:
     - id: 928
       description: 'Position desync with dead players'
-  see_also:
-    - 'functions:any:Element'
 
 server:
   <<: *shared

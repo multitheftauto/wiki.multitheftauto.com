@@ -18,5 +18,3 @@ client:
     - path: 'examples/setCursorPosition.lua'
       description: |
         This example sets your cursor position to the center of your screen after using the */cursorpos* command.
-  see_also:
-    - 'functions:any:Cursor'

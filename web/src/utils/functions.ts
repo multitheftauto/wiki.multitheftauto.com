@@ -242,10 +242,18 @@ export function getFunctionsByTypeByCategory(): FunctionsByTypeByCategory {
 export function getFunctionSeeAlsoLinks(
   func: FunctionItem
 ): { name: string; link: string }[] {
-  const seeAlso: string[] | undefined =
+  let seeAlso: string[] =
     func.data.shared?.see_also ??
     func.data.client?.see_also ??
-    func.data.server?.see_also;
+    func.data.server?.see_also ??
+    [];
+
+  // Add the function's own category if not already present
+  const folder = path.basename(path.dirname(func.filePath || ''));
+  const ownSeeAlso = 'functions:any:' + folder;
+  if (seeAlso && !seeAlso.includes(ownSeeAlso)) {
+    seeAlso.push(ownSeeAlso);
+  }
 
   if (!seeAlso || seeAlso.length === 0) {
     return [];
@@ -256,7 +264,6 @@ export function getFunctionSeeAlsoLinks(
     if (parts.length !== 3) return null;
 
     const [itemType, functionType, functionCategory] = parts;
-
     if (itemType !== 'functions') return null;
 
     let functionsInCategory: FunctionItem[] = [];

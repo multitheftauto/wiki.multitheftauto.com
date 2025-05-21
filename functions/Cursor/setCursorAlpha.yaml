@@ -20,5 +20,3 @@ client:
     - path: 'examples/setCursorAlpha.lua'
       description: |
         This example sets the cursor alpha to 100 using */cursoralpha* command:
-  see_also:
-    - 'functions:any:Cursor'

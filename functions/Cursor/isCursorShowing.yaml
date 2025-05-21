@@ -13,8 +13,6 @@ shared: &shared
     values:
       - type: 'bool'
         name: 'result'
-  see_also:
-  - 'functions:any:Cursor'
 
 server:
   <<: *shared

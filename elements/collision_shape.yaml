@@ -5,6 +5,3 @@ description: |
   The element type for this class is **"colshape"**. 
 
   TODO
-see_also:
-  - 'category:Collision_shape functions'
-  - 'category:Collision_shape events'

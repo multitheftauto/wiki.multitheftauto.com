@@ -16,5 +16,3 @@ client:
     - path: 'examples/getCursorAlpha.lua'
       description: |
         This example prints the cursor alpha to chatbox using */cursoralpha* command:
-  see_also:
-    - 'functions:any:Cursor'

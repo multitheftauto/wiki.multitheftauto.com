@@ -12,6 +12,3 @@ description: |
 preview_images:
     - path: '/assets/server_console_help.jpg'
       description: 'Help output inside server console:'
-see_also:
-  - 'category:Console functions'
-  - 'category:Console events'

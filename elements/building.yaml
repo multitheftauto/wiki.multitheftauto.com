@@ -18,6 +18,3 @@ notes:
       Created buildings can have **LOD models**. The procedure is as follows: spawn the LOD building using [createBuilding](/createBuilding), then use [setLowLODElement](/setLowLODElement) to associate it with the non-LOD building element you created beforehand. LOD model distance changed with [engineSetModelLODDistance](/engineSetModelLODDistance) works for buildings.
     - |
       Buildings cannot appear in certain a [dimension](/dimension), and not show in others. Function [setElementDimension](/setElementDimension) returns false on any building. A building is created in a specific [interior world](/interior) (such as 0, the main world), like the default GTA:SA landscape objects. **All buildings appear in EVERY DIMENSION.**
-see_also:
-  - 'category:Building functions'
-  - 'category:Building events'

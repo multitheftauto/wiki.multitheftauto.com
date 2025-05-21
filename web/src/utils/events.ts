@@ -45,3 +45,56 @@ export function getEventsByCategory(): EventsByCategory {
 export function getEventsByTypeByCategory(): EventsByTypeByCategory {
     return eventsByTypeByCategory;
 }
+
+
+// Gets related functions and other items (links) according to the see_also field
+export function getEventSeeAlsoLinks(
+  event: EventItem
+): { name: string; link: string }[] {
+  let seeAlso: string[] = event.data.see_also || [];
+  // Add the event's own category if not already present
+  const folder = path.basename(path.dirname(event.filePath || ''));
+  const ownSeeAlso = 'events:any:' + folder;
+  if (seeAlso && !seeAlso.includes(ownSeeAlso)) {
+      seeAlso.push(ownSeeAlso);
+  }
+  if (!seeAlso || seeAlso.length === 0) {
+    return [];
+  }
+
+  const links = seeAlso.map((item: string) => {
+    const parts = item.split(':');
+    if (parts.length !== 3) return null;
+
+    const [itemType, eventType, eventCategory] = parts;
+    if (itemType !== 'events') return null;
+
+    let eventsInCategory: EventItem[] = [];
+
+    switch (eventType) {
+      case 'client':
+        eventsInCategory = eventsByTypeByCategory.client[eventCategory] || [];
+        break;
+      case 'server':
+        eventsInCategory = eventsByTypeByCategory.server[eventCategory] || [];
+        break;
+      case 'any':
+        eventsInCategory = [
+          ...(eventsByTypeByCategory.client[eventCategory] || []),
+          ...(eventsByTypeByCategory.server[eventCategory] || []),
+        ];
+        break;
+      default:
+        return null;
+    }
+
+    return eventsInCategory.map(f => ({
+      name: f.id,
+      link: `/${f.id}`,
+    }));
+  })
+  .filter(linkGroup => linkGroup !== null)
+  .flat();
+
+  return links.sort((a, b) => a.name.localeCompare(b.name));
+}

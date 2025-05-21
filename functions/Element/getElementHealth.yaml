@@ -24,8 +24,6 @@ shared: &shared
       description: 'setElementHealth in onClientPlayerDamage bug'
     - id: 1423
       description: 'When you setElementHealth under onClientPlayerDamage, the local (hit) player rotates automatically'
-  see_also:
-    - 'functions:any:Element'
 
 server:
   <<: *shared

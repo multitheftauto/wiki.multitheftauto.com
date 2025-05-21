@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
 import '@src/styles/function-page.css';
+import { getEventSeeAlsoLinks } from '@src/utils/events';
 
 import NoteBox from '@src/components/NoteBox.astro';
 import type { NotesType } from '@src/utils/types';
@@ -55,6 +56,8 @@ let notesContent: NotesType = [];
 if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
     notesContent = event.data.notes;
 }
+
+const seeAlsoLinks = getEventSeeAlsoLinks(event);
 ---
 
 <div class={"show-type-badge-" + eventType}>
@@ -109,6 +112,26 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
                         <Code code={example.luaCode} lang="lua"/>
                     </div>
                 ))}
+            </div>
+        )}
+
+        <!-- See Also -->
+        {seeAlsoLinks.length > 0 && (
+            <div class="see-also-section">
+                <h4>See Also</h4>
+                <ul>
+                    {seeAlsoLinks.map((link: any) => (
+                        (link.name === event.id) && (
+                            <li>
+                                <strong>{link.name}</strong>
+                            </li>
+                        ) || (
+                            <li>
+                                <a href={link.link}>{link.name}</a>
+                            </li>
+                        )
+                    ))}
+                </ul>
             </div>
         )}
     </StarlightPage>

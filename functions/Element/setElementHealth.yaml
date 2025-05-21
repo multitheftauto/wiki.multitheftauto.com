@@ -41,8 +41,6 @@ shared: &shared
       description: 'When you setElementHealth under onClientPlayerDamage, the local (hit) player rotates automatically'
     - id: 448
       description: 'Crash when plane explode'
-  see_also:
-    - 'functions:any:Element'
 
 server:
   <<: *shared

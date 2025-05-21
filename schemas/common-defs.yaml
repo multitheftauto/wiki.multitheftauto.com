@@ -111,5 +111,5 @@ $defs:
       introduce this property, then you have to be explicit about it.
     items:
       type: string
-      pattern: "^functions:(client|server|any):[A-Za-z0-9_]+$"
+      pattern: "^(functions|events):(client|server|any):[A-Za-z0-9_]+$"
       uniqueItems: true
