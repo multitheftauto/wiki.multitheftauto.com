@@ -18,7 +18,22 @@ const { event } = Astro.props;
 
 const eventType = event.data.type;
 const eventPath = path.dirname(event.filePath ?? "");
-let eventExamples = event.data.examples
+let eventExamples = event.data.examples;
+
+let parametersCode = "";
+// Build parameters code syntax e.g. "int param1, string param2"
+if (event.data.parameters.length > 0) {
+    parametersCode = event.data.parameters.map((param: any) => {
+        return param.type + " " + param.name;
+    }).join(", ");
+}
+
+let eventHandlerExample = {
+    funcName: "handle" + event.id.charAt(0).toUpperCase() + event.id.slice(1),
+    funcParams: event.data.parameters.map((param: any) => {
+        return param.name;
+    }).join(", "),
+}
 
 if ( eventExamples.length > 0 ){
     eventExamples = eventExamples.map((example: any) => {
@@ -44,20 +59,33 @@ if ( eventExamples.length > 0 ){
         <Fragment set:html={marked(event.data.description)} />
 
         <h4>Parameters</h4>
+        <!-- Looks better with C syntax instead of Lua
+         to separate the type from the param name visually -->
+        {parametersCode !== "" && <Code code={parametersCode} lang="c"/>}
         {event.data.parameters.length > 0 && event.data.parameters.map((param: any) => (
             <ul>
-                <li set:html={param.type + " " + param.name + ": " + param.description} />
+                <li set:html={"<strong>" + param.name + "</strong>: " + param.description} />
             </ul>
         ))}
 
         <h4>Source</h4>
-        <p set:html={event.data.source_element.type + ": " + event.data.source_element.description} />
+        <p set:html={"<strong>" + event.data.source_element.type + "</strong>: " + event.data.source_element.description} />
 
-        <h4>Examples</h4>
+        <h4>Handler Example</h4>
+        <Code code={
+            `local function ${eventHandlerExample.funcName}(${eventHandlerExample.funcParams})\n` +
+            `    -- Your code here\n` +
+            `end\n` +
+            `\n` +
+            `-- Register the event handler\n` +
+            `addEventHandler("${event.id}", elementAttachedTo, ${eventHandlerExample.funcName})`
+        } lang="lua" />
+
+        <h4>Code Examples</h4>
         {eventExamples.length > 0 && eventExamples.map((example: any) => (
             <div>
                 <p set:html={marked(example.description)}></p>
-                <Code code={example.luaCode} lang="lua" title={path.basename(example.path)} />
+                <Code code={example.luaCode} lang="lua"} />
             </div>
         ))}
     </StarlightPage>
