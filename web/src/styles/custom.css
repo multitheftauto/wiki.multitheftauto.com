@@ -6,6 +6,9 @@
     --color-type-client-background: rgba(255, 50, 50, 0.05);
     --color-type-server: rgba(232, 115, 0, 1);
     --color-type-server-background: rgba(232, 115, 0, 0.05);
+    
+    /* Override Starlight styling */
+    --sl-content-width: 70rem;
 }
 
 /* Styling for "Client-side / Server-side / Shared" */
