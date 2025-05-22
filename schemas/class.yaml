@@ -12,5 +12,7 @@ properties:
   description:
     type: string
     description: Description of the OOP class.
+  examples:
+    $ref: 'common-defs.yaml#/$defs/examples'
   see_also:
     $ref: 'common-defs.yaml#/$defs/see_also'

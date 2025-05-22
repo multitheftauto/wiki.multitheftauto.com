@@ -1,0 +1,29 @@
+---
+import { Code } from '@astrojs/starlight/components';
+import { marked } from 'marked';
+
+export interface CodeExample {
+  description?: string;
+  luaCode: string;
+}
+
+export interface Props {
+  codeExamples: CodeExample[];
+}
+
+const { codeExamples } = Astro.props;
+---
+
+{codeExamples.length > 0 && (
+  <div class="examples-section">
+    <h4>Code Examples</h4>
+    {codeExamples.map((example) => (
+      <div class="function-example">
+        {example.description && (
+          <Fragment set:html={marked(example.description)} />
+        )}
+        <Code code={example.luaCode} lang="lua" />
+      </div>
+    ))}
+  </div>
+)}

@@ -1,0 +1,1 @@
+Object ( 1337, player.matrix.position - player.matrix.forward * 2 )

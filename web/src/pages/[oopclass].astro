@@ -2,9 +2,12 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
 import { marked } from 'marked';
+import fs from "fs";
+import path from "path";
 import { getSeeAlsoLinksForItem } from '@src/utils/general';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 
 export async function getStaticPaths() {
   const classes = await getCollection('classes');
@@ -16,6 +19,18 @@ export async function getStaticPaths() {
 
 const { oopclass } = Astro.props;
 oopclass.data.itemType = 'class';
+const oopClassPath = path.dirname(oopclass.filePath ?? "");
+
+let codeExamples: any[] = oopclass.data.examples || [];
+codeExamples = codeExamples.map((example: any) => {
+    try {
+        const luaCode = fs.readFileSync(path.resolve(`${oopClassPath}`, example.path), "utf8"); 
+        return { ...example, luaCode };
+    } catch (error) {
+        console.error(`Error reading ${example.path}:`, error);
+        return { ...example, luaCode: "Loading example error." };
+    }
+});
 
 ---
 <StarlightPage frontmatter={{
@@ -24,6 +39,8 @@ oopclass.data.itemType = 'class';
   tableOfContents: false,
 }}>
   <Fragment set:html={marked(oopclass.data.description)} />
+
+  <CodeExamplesSection codeExamples={codeExamples} />
 
   <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(oopclass)} currentId={oopclass.id} />
 </StarlightPage>

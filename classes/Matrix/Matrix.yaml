@@ -2,3 +2,13 @@ name: 'matrix'
 description: |
   Matrices are one of the most powerful features of MTA [OOP](/OOP). We did have a presence of Matrices before with [getElementMatrix](/getElementMatrix), but we were given an ugly disgusting table to play with. Now, with the new Matrix class, we can make and magically manipulate Matrices.
 
+examples:
+  - path: examples/matrix-1.lua
+    description: >
+      Say you wanted to create a bin - object 1337 - two units in front of a player. You don't want to manually do trigonometry and you don't want to play with the complicated tables. You just want to get the position two units in front of the player whilst taking into account the rotation of the player. You only need to use Matrix.getForward, Matrix.getPosition and getElementMatrix. It's just:
+  - path: examples/matrix-2.lua
+    description: >
+      If you wanted the opposite of matrix.forward you'll still use matrix.forward but you minus it instead of matrix.backward which doesn't exist. Same applies with matrix.right and matrix.up. To make the bin object appear behind a player:
+  - path: examples/matrix-3.lua
+    description: >
+      Say you'd like to get find the position underneath a vehicle. This is the position at any rotation. So if it was upside down, the Z value would be higher than the vehicle Z value. If the vehicle was the right way round, the Z value for underneath car would be less than the Z value for the car.

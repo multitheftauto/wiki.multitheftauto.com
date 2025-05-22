@@ -12,6 +12,7 @@ import NoteBox from '@src/components/NoteBox.astro';
 import type { NotesType } from '@src/utils/types';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 
 export async function getStaticPaths() {
     const events = await getCollection('events');
@@ -105,19 +106,7 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
             `addEventHandler("${event.id}", elementAttachedTo, ${eventHandlerExample.funcName})`
         } lang="lua" />
 
-        {eventExamples.length > 0 && (
-            <div class="examples-section">
-                <h4>Code Examples</h4>
-                {eventExamples.map((example: any) => (
-                    <div class="function-example">
-                        {example.description && (
-                            <Fragment set:html={marked(example.description)} />
-                        )}
-                        <Code code={example.luaCode} lang="lua"/>
-                    </div>
-                ))}
-            </div>
-        )}
+        <CodeExamplesSection codeExamples={eventExamples} />
 
         <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(event)} currentId={event.id} />
     </StarlightPage>

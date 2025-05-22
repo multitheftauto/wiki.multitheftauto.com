@@ -1,0 +1,3 @@
+- Generate pages with list of OOP functions by Element type for server and client
+https://wiki.multitheftauto.com/wiki/OOP_server
+https://wiki.multitheftauto.com/wiki/OOP_client
