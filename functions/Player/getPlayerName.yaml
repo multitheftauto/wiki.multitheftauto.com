@@ -15,7 +15,7 @@ shared: &shared
     description: |
       Returns a *string* containing the requested player's name, or *false* if the player passed to the function is invalid.
     values:
-      - type: 'string'
+      - type: 'string|false'
         name: 'name'
 
 server:

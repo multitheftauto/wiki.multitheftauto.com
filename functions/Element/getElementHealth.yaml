@@ -15,7 +15,7 @@ shared: &shared
     description: |
       Returns a *float* indicating the element's health, *false* otherwise.
     values:
-      - type: 'float'
+      - type: 'float|false'
         name: 'health'
   issues:
     - id: 3791

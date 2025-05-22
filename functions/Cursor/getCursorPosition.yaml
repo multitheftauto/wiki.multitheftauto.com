@@ -13,7 +13,7 @@ client:
       The last 3 values are the 3D world map coordinates that the cursor points at.
       If the cursor isn't showing, returns *false* as the first value.
     values:
-      - type: 'float'
+      - type: 'float|false'
         name: 'cursorX'
       - type: 'float'
         name: 'cursorY'

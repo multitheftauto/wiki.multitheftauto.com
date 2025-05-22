@@ -1,6 +1,6 @@
 function centerCursorFunction()
     -- is cursor showing?
-    if showisCursorShowing ()ing then
+    if isCursorShowing() then
         --get the screen size in pixels
         local screenX, screenY = guiGetScreenSize ()
 
