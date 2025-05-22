@@ -1,0 +1,34 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getOOPClassesByCategory } from '@src/utils/classes';
+const classesByCategory = getOOPClassesByCategory();
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'OOP Classes',
+    tableOfContents: false,
+}}>
+    <p>This page lists all <strong><a href="/OOP">OOP</a> Classes</strong> available in the <a href="/lua-api">Lua API</a> organized by category.</p>
+
+    
+    {Object.entries(classesByCategory).map(([category, oopClasses]) => (
+        <section>
+            <details>
+                <summary>{category} classes</summary>
+                <ul>
+                    {oopClasses.map(oopClass => (
+                        <li><a href={`/${oopClass.id}`}>{oopClass.id}</a></li>
+                    ))}
+                </ul>
+            </details>
+        </section>
+    ))}
+</StarlightPage>
+
+<script>
+    document.querySelectorAll('.side-type-color').forEach(el => {
+        const type = el.textContent || '';
+        el.classList.add(`side-${type.toLowerCase()}`);
+    });
+
+</script>

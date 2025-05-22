@@ -2,7 +2,7 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
 import { marked } from 'marked';
-import { getPageSeeAlsoLinks } from '@src/utils/general';
+import { getSeeAlsoLinksForItem } from '@src/utils/general';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
@@ -21,11 +21,11 @@ element.data.niceName = element.data.name.charAt(0).toUpperCase() + element.data
 ---
 <StarlightPage frontmatter={{
   template: 'doc',
-  title: element.data.name,
+  title: element.data.niceName,
   tableOfContents: false,
 }}>
   <Fragment set:html={marked(element.data.description)} />
 
-  <SeeAlsoSection seeAlsoLinks={getPageSeeAlsoLinks(element)} currentId={element.id} />
+  <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(element)} currentId={element.id} />
 </StarlightPage>
 

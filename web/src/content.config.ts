@@ -32,4 +32,14 @@ export const collections = {
 			}
 		})
 	}),
+	classes: defineCollection({
+		loader: glob({
+			pattern: "**/*.yaml",
+			base: "../classes",
+			generateId: ({ entry }) => {
+				// Extract the file name without the folder
+				return ((entry.split('/') || []).pop() || '').replace(/\.yaml$/, '');
+			}
+		})
+	}),
 };

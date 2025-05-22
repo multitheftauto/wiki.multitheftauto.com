@@ -2,7 +2,7 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
 import { getFunctionInfo, parseFunctionSyntaxes } from '@src/utils/functions';
-import { renderInlineMarkdown, getPageSeeAlsoLinks } from '@src/utils/general';
+import { renderInlineMarkdown, getSeeAlsoLinksForItem } from '@src/utils/general';
 import { marked } from 'marked';
 import fs from "fs";
 import path from "path";
@@ -186,6 +186,6 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             </div>
         )}
 
-        <SeeAlsoSection seeAlsoLinks={getPageSeeAlsoLinks(func)} currentId={func.id} />
+        <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(func)} currentId={func.id} />
     </StarlightPage>
 </div>

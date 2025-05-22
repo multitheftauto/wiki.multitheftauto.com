@@ -1,0 +1,30 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import { getSeeAlsoLinksForItem } from '@src/utils/general';
+
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+export async function getStaticPaths() {
+  const classes = await getCollection('classes');
+  return classes.map(oopclass => ({
+    params: { oopclass: oopclass.id },
+    props: { oopclass },
+  }));
+}
+
+const { oopclass } = Astro.props;
+oopclass.data.itemType = 'class';
+
+---
+<StarlightPage frontmatter={{
+  template: 'doc',
+  title: oopclass.id,
+  tableOfContents: false,
+}}>
+  <Fragment set:html={marked(oopclass.data.description)} />
+
+  <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(oopclass)} currentId={oopclass.id} />
+</StarlightPage>
+

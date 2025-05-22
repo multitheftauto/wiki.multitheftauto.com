@@ -6,12 +6,14 @@ on:
       - 'elements/**/*.yaml'
       - 'events/**/*.yaml'
       - 'functions/**/*.yaml'
+      - 'classes/**/*.yaml'
       - 'schemas/**/*.yaml'
   pull_request:
     paths:
       - 'elements/**/*.yaml'
       - 'events/**/*.yaml'
       - 'functions/**/*.yaml'
+      - 'classes/**/*.yaml'
       - 'schemas/**/*.yaml'
   workflow_dispatch:
 

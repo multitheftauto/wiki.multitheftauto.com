@@ -1,6 +1,8 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { Image } from 'astro:assets';
 import imageDiagram from '../../../assets/oop_intro_diagram.png';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
 <StarlightPage frontmatter={{
     template: 'doc',
@@ -151,5 +153,11 @@ The documentation for the OOP syntax intends to be very simplistic and is suppor
 * Sometimes a note is added to the page. This will explain any special differences in the use of OOP for that function.
 * Methods can either start like `player:` or `Player.` — the former is only for a function on an instance (like `setPlayerHealth`) and the latter is a static method (like `getRandomPlayer`).
 * The counterpart section allows you to see at a glance how the variable can be used. In most cases, this can be inferred from the function page.
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+    'article:OOP',
+    'classes:any:Vector',
+    'classes:any:Matrix'
+])} currentId='' />
 
 </StarlightPage>

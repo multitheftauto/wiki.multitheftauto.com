@@ -2,6 +2,7 @@ import { marked } from 'marked';
 import path from 'path';
 import { getFunctionsByTypeByCategory } from '@src/utils/functions';
 import { getEventsByTypeByCategory } from '@src/utils/events';
+import { getOOPClassesByCategory } from '@src/utils/classes';
 
 export function renderInlineMarkdown(markdown: string): string | Promise<string> {
   const html = marked.parseInline(markdown);
@@ -18,9 +19,111 @@ export type SeeAlsoLinkGroup = {
   links: SeeAlsoLink[];
 };
 
-// Gets related functions and other items (links) according to the see_also field
-// Currently implemented for functions, events and elements
-export function getPageSeeAlsoLinks(theItem: any): SeeAlsoLinkGroup[] {
+const titleCase = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+
+const makeTitle = (subType: string, category: string, type: string): string => {
+  const categoryPart = titleCase(category);
+  const typePart = titleCase(type);
+  if (subType === 'any') {
+    return `${categoryPart} ${typePart}`;
+  } else {
+    return `${titleCase(subType)} ${categoryPart} ${typePart}`;
+  }
+};
+
+const getItemsInCategory = (type: string, subType: string, category: string): any[] => {
+  switch (type) {
+    case 'functions': {
+      const fnByType = getFunctionsByTypeByCategory();
+      return subType === 'any'
+        ? [
+            ...(fnByType.shared?.[category] || []),
+            ...(fnByType.client?.[category] || []),
+            ...(fnByType.server?.[category] || []),
+          ]
+        : fnByType?.[subType as keyof typeof fnByType]?.[category] || [];
+    }
+    case 'events': {
+      const evByType = getEventsByTypeByCategory();
+      return subType === 'any'
+        ? [
+            ...(evByType.client?.[category] || []),
+            ...(evByType.server?.[category] || []),
+          ]
+        : evByType?.[subType as keyof typeof evByType]?.[category] || [];
+    }
+    case 'classes': {
+      const classesByCategory = getOOPClassesByCategory();
+      return classesByCategory?.[category] || [];
+    }
+    default:
+      return [];
+  }
+};
+
+export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup[] {
+  const groupedMap = new Map<string, SeeAlsoLink[]>();
+
+  for (const item of seeAlsoList) {
+    const [type, ...rest] = item.split(':');
+    if (!type || rest.length === 0) continue;
+
+    // Handle 'article' links
+    if (type === 'article') {
+      const articleName = rest[0];
+      const title = 'Articles';
+      if (!groupedMap.has(title)) groupedMap.set(title, []);
+      groupedMap.get(title)!.push({ name: articleName, link: `/${articleName}` });
+      continue;
+    }
+
+    // Handle 'class' links
+    if (type === 'class') {
+      const className = rest[0];
+      const title = 'Classes';
+      if (!groupedMap.has(title)) groupedMap.set(title, []);
+      groupedMap.get(title)!.push({ name: className, link: `/${className}` });
+      continue;
+    }
+
+    // Handle function/event style links
+    const [subType, category] = rest;
+    const items = getItemsInCategory(type, subType, category);
+    if (!items.length) continue;
+
+    const title = makeTitle(subType, category, type);
+    if (!groupedMap.has(title)) groupedMap.set(title, []);
+    const links = items.map((i: any) => ({ name: i.id, link: `/${i.id}` }));
+    groupedMap.get(title)!.push(...links);
+  }
+
+  // Preserve input order for group titles
+  const seenTitles = new Set<string>();
+  const orderedTitles = seeAlsoList
+    .map(item => {
+      const [type, ...rest] = item.split(':');
+      if (!type || rest.length === 0) return null;
+      if (type === 'article') return 'Articles';
+      if (type === 'class') return 'Classes';
+      return makeTitle(rest[0], rest[1], type);
+    })
+    .filter((title): title is string => title !== null)
+    .filter((title) => {
+      if (seenTitles.has(title)) return false;
+      seenTitles.add(title);
+      return true;
+    });
+
+  return orderedTitles
+    .filter(title => groupedMap.has(title))
+    .map(title => ({
+      title,
+      links: groupedMap.get(title)!.sort((a, b) => a.name.localeCompare(b.name)),
+    }));
+}
+
+export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
   const { itemType, shared, client, server, see_also, niceName } = theItem.data;
   const filePath = theItem.filePath || '';
   const itemCategoryName = path.basename(path.dirname(filePath));
@@ -31,20 +134,12 @@ export function getPageSeeAlsoLinks(theItem: any): SeeAlsoLinkGroup[] {
   switch (itemType) {
     case 'function':
       seeAlso = shared?.see_also ?? client?.see_also ?? server?.see_also ?? [];
-      addToSeeAlso = [
-        `functions:any:${itemCategoryName}`,
-        `events:any:${itemCategoryName}`,
-      ];
+      addToSeeAlso = [`functions:any:${itemCategoryName}`, `events:any:${itemCategoryName}`];
       break;
-
     case 'event':
       seeAlso = see_also ?? [];
-      addToSeeAlso = [
-        `events:any:${itemCategoryName}`,
-        `functions:any:${itemCategoryName}`,
-      ];
+      addToSeeAlso = [`events:any:${itemCategoryName}`, `functions:any:${itemCategoryName}`];
       break;
-
     case 'element':
       seeAlso = see_also ?? [];
       addToSeeAlso = [
@@ -54,74 +149,19 @@ export function getPageSeeAlsoLinks(theItem: any): SeeAlsoLinkGroup[] {
         `events:any:Element`,
       ];
       break;
-
+    case 'class':
+      seeAlso = see_also ?? [];
+      addToSeeAlso = [
+        `classes:any:Vector`,
+        `classes:any:Matrix`,
+        `article:OOP`,
+        `article:OOP_Introduction`,
+      ];
+      break;
     default:
       throw new Error('Invalid item type passed');
   }
 
-  // Preserve original order
   const allSeeAlso = [...new Set([...seeAlso, ...addToSeeAlso])];
-
-  const getItemsInCategory = (type: string, subType: string, category: string): any[] => {
-    switch (type) {
-      case 'functions': {
-        const fnByType = getFunctionsByTypeByCategory();
-        return subType === 'any'
-          ? [
-              ...(fnByType.shared?.[category] || []),
-              ...(fnByType.client?.[category] || []),
-              ...(fnByType.server?.[category] || []),
-            ]
-          : fnByType?.[subType as keyof typeof fnByType]?.[category] || [];
-      }
-
-      case 'events': {
-        const evByType = getEventsByTypeByCategory();
-        return subType === 'any'
-          ? [
-              ...(evByType.client?.[category] || []),
-              ...(evByType.server?.[category] || []),
-            ]
-          : evByType?.[subType as keyof typeof evByType]?.[category] || [];
-      }
-
-      default:
-        return [];
-    }
-  };
-
-  const titleCase = (str: string) =>
-    str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-
-  const makeTitle = (subType: string, category: string, type: string): string => {
-    const categoryPart = titleCase(category);
-    const typePart = titleCase(type);
-    if (subType === 'any') {
-      return `${categoryPart} ${typePart}`;
-    } else {
-      return `${titleCase(subType)} ${categoryPart} ${typePart}`;
-    }
-  };
-
-  const groups: SeeAlsoLinkGroup[] = [];
-
-  for (const item of allSeeAlso) {
-    const [type, subType, category] = item.split(':');
-    if (!type || !subType || !category) continue;
-
-    const items = getItemsInCategory(type, subType, category);
-    if (!items.length) continue;
-
-    const links: SeeAlsoLink[] = items.map((i: any) => ({
-      name: i.id,
-      link: `/${i.id}`,
-    }));
-
-    groups.push({
-      title: makeTitle(subType, category, type),
-      links: links.sort((a, b) => a.name.localeCompare(b.name)),
-    });
-  }
-
-  return groups;
+  return getSeeAlsoLinksFromList(allSeeAlso);
 }

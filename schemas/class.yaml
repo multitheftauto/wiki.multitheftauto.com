@@ -1,0 +1,16 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: class.yaml
+title: OOP Class schema
+type: object
+required:
+  - name
+  - description
+properties:
+  name:
+    type: string
+    description: Lowercase name of the OOP class.
+  description:
+    type: string
+    description: Description of the OOP class.
+  see_also:
+    $ref: 'common-defs.yaml#/$defs/see_also'

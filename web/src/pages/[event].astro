@@ -6,7 +6,7 @@ import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
 import '@src/styles/function-page.css';
-import { getPageSeeAlsoLinks } from '@src/utils/general';
+import { getSeeAlsoLinksForItem } from '@src/utils/general';
 
 import NoteBox from '@src/components/NoteBox.astro';
 import type { NotesType } from '@src/utils/types';
@@ -119,6 +119,6 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
             </div>
         )}
 
-        <SeeAlsoSection seeAlsoLinks={getPageSeeAlsoLinks(event)} currentId={event.id} />
+        <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(event)} currentId={event.id} />
     </StarlightPage>
 </div>

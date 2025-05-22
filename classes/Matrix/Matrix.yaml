@@ -1,0 +1,4 @@
+name: 'matrix'
+description: |
+  Matrices are one of the most powerful features of MTA [OOP](/OOP). We did have a presence of Matrices before with [getElementMatrix](/getElementMatrix), but we were given an ugly disgusting table to play with. Now, with the new Matrix class, we can make and magically manipulate Matrices.
+

@@ -1,0 +1,26 @@
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'OOP Vector',
+    tableOfContents: false,
+}}>
+
+A vector represents a <a href="https://en.wikipedia.org/wiki/Euclidean_vector" target="_blank">Euclidean vector</a>, which can be used to work with positions or directions in a 2D plane or 3D space. The classes of vectors available in MTA are:
+
+- [Vector2](/Vector2)
+- [Vector3](/Vector3)
+- [Vector4](/Vector4)
+
+**Tip**: if you are using vectors a lot, you can use `collectgarbage("setpause",100)` to tell Lua to garbage collect intermediary vectors frequently. Run that once per resource (or just in the resource you need it for). This has other performance implications as Lua will be stopping the world more frequently. 
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+    'article:OOP',
+    'article:OOP_Introduction',
+    'classes:any:Vector',
+    'classes:any:Matrix'
+])} currentId='' />
+
+</StarlightPage>
