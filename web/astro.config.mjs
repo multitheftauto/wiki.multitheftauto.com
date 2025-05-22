@@ -25,6 +25,9 @@ export default defineConfig({
 				light: './src/assets/logo-black.png',
 				dark: './src/assets/logo-white.png',
 			},
+            social: [
+                { icon: 'github', label: 'GitHub', href: 'https://github.com/multitheftauto/wiki.multitheftauto.com' },
+            ],
 			components: {
 				// Override some default components
 				PageTitle: './src/overrides/PageTitle.astro',

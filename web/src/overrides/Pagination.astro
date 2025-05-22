@@ -6,25 +6,40 @@ import IconLinkCard from '@src/components/IconLinkCard.astro';
 <CardGrid>
     <IconLinkCard
         icon="seti:powershell"
-        iconColor="var(--sl-color-red)"
+        iconColor="#ca6c26"
         title="Functions"
-        titleColor="var(--sl-color-red)"
+        titleColor="#ca6c26"
         description="List of all client-side, server-side and shared functions"
         href="/Scripting_Functions" />
     
     <IconLinkCard
         icon="seti:purescript"
-        iconColor="var(--sl-color-blue)"
+        iconColor="#ca6c26"
         title="Events"
-        titleColor="var(--sl-color-blue)"
+        titleColor="#ca6c26"
         description="List of all client-side and server-side events"
         href="/Scripting_Events" />
 
     <IconLinkCard
         icon="seti:plan"
+        iconColor="#ca6c26"
         title="Elements"
+        titleColor="#ca6c26"
         description="List of all element types and their properties"
         href="/Element" />
+
+    <IconLinkCard
+        icon="seti:hex"
+        iconColor="#ca6c26"
+        title="OOP"
+        titleColor="#ca6c26"
+        description="Information about MTA object-oriented programming"
+        href="/OOP" />
+
+</CardGrid>
+
+
+<CardGrid>
 
 
     <IconLinkCard
@@ -38,10 +53,13 @@ import IconLinkCard from '@src/components/IconLinkCard.astro';
         title="Forum"
         description="Engage with the community in the old-fashioned way."
         href="https://forum.multitheftauto.com/" />
-
-    <IconLinkCard
-        icon="github"
-        title="GitHub Repository"
-        description="Contribute to the Wiki project or report issues."
-        href="https://github.com/multitheftauto/wiki.multitheftauto.com" />
 </CardGrid>
+
+<IconLinkCard
+    icon="github"
+    iconColor="var(--sl-color-orange)"
+    title="GitHub Repository"
+    titleColor="var(--sl-color-orange)"
+    description="Visit our repository to contribute to the Wiki project or report issues."
+    href="https://github.com/multitheftauto/wiki.multitheftauto.com" />
+
