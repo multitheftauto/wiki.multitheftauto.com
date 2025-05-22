@@ -128,8 +128,6 @@ function buildSyntaxString(
   return `${returnString} ${funcName} (${spacedParams})`;
 }
 
-
-
 export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData): Syntax[] {
   const syntaxes: Syntax[] = [];
 

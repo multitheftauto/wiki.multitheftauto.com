@@ -73,18 +73,18 @@ export default defineConfig({
 							]
 						},
 						{
-							label: 'OOP',
-							items: [
-								{label: 'About OOP', link: 'OOP'},
-								{label: 'OOP Introduction', link: 'OOP_Introduction'},
-								{label: 'OOP Classes', link: 'OOP_Classes'},
-							]
-						},
-						{
 							label: 'Elements',
 							items: [
 								{label: 'Element types', link: 'Element'},
 								{label: 'Element tree', link: 'Element_tree'},
+							]
+						},
+						{
+							label: 'OOP',
+							items: [
+								{label: 'About OOP', link: 'OOP'},
+								{label: 'Introduction', link: 'OOP_Introduction'},
+								{label: 'Classes', link: 'OOP_Classes'},
 							]
 						},
 					]

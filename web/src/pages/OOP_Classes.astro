@@ -24,11 +24,3 @@ const classesByCategory = getOOPClassesByCategory();
         </section>
     ))}
 </StarlightPage>
-
-<script>
-    document.querySelectorAll('.side-type-color').forEach(el => {
-        const type = el.textContent || '';
-        el.classList.add(`side-${type.toLowerCase()}`);
-    });
-
-</script>

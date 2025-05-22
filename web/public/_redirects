@@ -3,3 +3,4 @@
 
 /Element/:elementname /:elementname
 
+/Vector/:vectorclass /:vectorclass
