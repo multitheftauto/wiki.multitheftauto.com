@@ -2,6 +2,106 @@ name: 'matrix'
 description: |
   Matrices are one of the most powerful features of MTA [OOP](/OOP). We did have a presence of Matrices before with [getElementMatrix](/getElementMatrix), but we were given an ugly disgusting table to play with. Now, with the new Matrix class, we can make and magically manipulate Matrices.
 
+methods:
+  - name: create
+    description: |
+      Default constructor for the Matrix class. Returns a Matrix object. 
+      Can be instantiated in multiple ways.
+    overloads:
+      - signature: Matrix(Vector3 position[, Vector3 rotation])
+        parameters:
+          - name: position
+            type: Vector3
+            description: The position vector of the matrix
+          - name: rotation
+            type: Vector3
+            optional: true
+            description: The rotation vector of the matrix
+      - signature: Matrix(Matrix matrixToClone)
+        parameters:
+          - name: matrixToClone
+            type: Matrix
+            description: A matrix you want to make a clone of
+      - signature: Matrix()
+        parameters: []
+        description: Initialize a zero matrix
+
+  - name: transformPosition
+    description: Transforms a given position vector using the Matrix.
+    signature: Vector3 Matrix:transformPosition(Vector3 position)
+    parameters:
+      - name: position
+        type: Vector3
+        description: The position vector you want to transform
+    examples:
+      - description: Teleports a random player 5 meters in front of them
+        code: |
+          local player = getRandomPlayer()
+          local desiredRelativePosition = Vector3(0, 5, 0)
+          local matrix = player.matrix
+          local newPosition = matrix:transformPosition(desiredRelativePosition)
+          player.position = newPosition
+
+  - name: getPosition
+    description: Returns the position vector of the matrix.
+    signature: Vector3 Matrix:getPosition()
+    parameters: []
+    examples:
+      - description: Prints the position of a random player.
+        code: |
+          local player = getRandomPlayer()
+          local matrix = player.matrix
+          local position = matrix:getPosition()
+          outputChatBox("x: " .. position:getX() .. ", y: " .. position:getY() .. ", z:" .. position:getZ())
+
+  - name: getRotation
+    description: Returns the rotation vector of the matrix.
+    signature: Vector3 Matrix:getRotation()
+    parameters: []
+    examples:
+      - description: Prints the rotation of a random player.
+        code: |
+          local player = getRandomPlayer()
+          local matrix = player.matrix
+          local rotation = matrix:getRotation()
+          outputChatBox("rx: " .. rotation:getX() .. ", ry: " .. rotation:getY() .. ", rz:" .. rotation:getZ())
+
+  - name: getForward
+    description: Returns the forward vector of the matrix.
+    signature: Vector3 Matrix:getForward()
+    parameters: []
+    examples:
+      - description: Prints the forward vector of a random player.
+        code: |
+          local player = getRandomPlayer()
+          local matrix = player.matrix
+          local vector = matrix:getForward()
+          outputChatBox("X: " .. vector:getX() .. ", Y: " .. vector:getY() .. ", Z:" .. vector:getZ())
+
+  - name: getRight
+    description: Returns the right vector of the matrix.
+    signature: Vector3 Matrix:getRight()
+    parameters: []
+    examples:
+      - description: Prints the right vector of a random player.
+        code: |
+          local player = getRandomPlayer()
+          local matrix = player.matrix
+          local vector = matrix:getRight()
+          outputChatBox("X: " .. vector:getX() .. ", Y: " .. vector:getY() .. ", Z:" .. vector:getZ())
+
+  - name: getUp
+    description: Returns the up vector of the matrix.
+    signature: Vector3 Matrix:getUp()
+    parameters: []
+    examples:
+      - description: Prints the up vector of a random player.
+        code: |
+          local player = getRandomPlayer()
+          local matrix = player.matrix
+          local vector = matrix:getUp()
+          outputChatBox("X: " .. vector:getX() .. ", Y: " .. vector:getY() .. ", Z:" .. vector:getZ())
+
 examples:
   - path: examples/matrix-1.lua
     description: >

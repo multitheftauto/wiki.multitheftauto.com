@@ -5,6 +5,7 @@ type: object
 required:
   - name
   - description
+  # - methods
 properties:
   name:
     type: string
@@ -16,3 +17,43 @@ properties:
     $ref: 'common-defs.yaml#/$defs/examples'
   see_also:
     $ref: 'common-defs.yaml#/$defs/see_also'
+  methods:
+    type: array
+items:
+  type: object
+  required:
+    - name
+  properties:
+    name:
+      type: string
+    description:
+      type: string
+    signature:
+      type: string
+    overloads:
+      type: array
+      items:
+        type: object
+        required:
+          - signature
+        properties:
+          signature:
+            type: string
+          description:
+            type: string
+          parameters:
+            type: array
+            items:
+              type: object
+              required:
+                - name
+                - type
+              properties:
+                name:
+                  type: string
+                type:
+                  type: string
+                description:
+                  type: string
+                optional:
+                  type: boolean

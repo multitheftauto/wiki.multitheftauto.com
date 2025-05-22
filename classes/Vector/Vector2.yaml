@@ -1,4 +1,104 @@
 name: 'vector2'
 description: |
   This is a 2D [Vector](/Vector) class.
+methods:
+  - name: create
+    description: |
+      Default constructor for the Vector2 class. Returns a Vector2 object.
+    overloads:
+      - signature: Vector2(mixed vectorOrX[, float y])
+        parameters:
+          - name: vectorOrX
+            type: float | table | vector2
+            description: Vector2, table, or float indicating vector's coordinates
+          - name: y
+            type: float
+            optional: true
+            description: If vectorOrX is a float, this is the Y coordinate
 
+  - name: normalize
+    description: Normalizes the vector
+    signature: bool Vector2.normalize(vector2 vector)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to normalize
+
+  - name: getX
+    description: Gets the X coordinate of a vector
+    signature: float Vector2.getX(vector2 vector)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to get X coordinate from
+
+  - name: getY
+    description: Gets the Y coordinate of a vector
+    signature: float Vector2.getY(vector2 vector)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to get Y coordinate from
+
+  - name: setX
+    description: Sets the X coordinate of a vector
+    signature: bool Vector2.setX(vector2 vector, float x)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to set X coordinate on
+      - name: x
+        type: float
+        description: New X coordinate
+
+  - name: setY
+    description: Sets the Y coordinate of a vector
+    signature: bool Vector2.setY(vector2 vector, float y)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to set Y coordinate on
+      - name: y
+        type: float
+        description: New Y coordinate
+
+  - name: getNormalized
+    description: Gets a normalized version of the vector
+    signature: vector2 Vector2.getNormalized(vector2 vector)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to get normalized version of
+
+  - name: getLength
+    description: Gets the length of a vector
+    signature: float Vector2.getLength(vector2 vector)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to get length from
+
+  - name: getSquaredLength
+    description: Gets the squared length of a vector
+    signature: float Vector2.getSquaredLength(vector2 vector)
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to get squared length from
+
+  - name: dot
+    description: Gets the dot product of two vectors
+    signature: float Vector2.dot(vector2 vectorOne, vector2 vectorTwo)
+    parameters:
+      - name: vectorOne
+        type: vector2
+        description: First vector
+      - name: vectorTwo
+        type: vector2
+        description: Second vector
+
+examples:
+  - path: examples/vector2-1.lua
+    description: Checks if the player is using a low resolution
+  - path: examples/vector2-2.lua
+    description: Draws a red line from center to cursor, 200px long

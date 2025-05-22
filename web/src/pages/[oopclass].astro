@@ -5,6 +5,7 @@ import { marked } from 'marked';
 import fs from "fs";
 import path from "path";
 import { getSeeAlsoLinksForItem } from '@src/utils/general';
+import { Code } from '@astrojs/starlight/components';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
@@ -32,6 +33,7 @@ codeExamples = codeExamples.map((example: any) => {
     }
 });
 
+const methods = oopclass.data.methods || [];
 ---
 <StarlightPage frontmatter={{
   template: 'doc',
@@ -39,6 +41,55 @@ codeExamples = codeExamples.map((example: any) => {
   tableOfContents: false,
 }}>
   <Fragment set:html={marked(oopclass.data.description)} />
+
+  {methods.length > 0 && (
+    <section class="methods-section">
+      <h3>Methods</h3>
+      {methods.map((method: any) => (
+        <article class="method">
+          <h4 id={method.name}><code>{method.name}</code></h4>
+          {method.description && <p>{method.description}</p>}
+
+          {method.overloads?.length > 0 && (
+            <div class="overloads">
+              {method.overloads.map((overload: any) => (
+                <div class="overload">
+                  <Code code={overload.signature} lang="c" />
+                  {overload.description && <p>{overload.description}</p>}
+                  {overload.parameters?.length > 0 && (
+                    <ul class="parameters">
+                      {overload.parameters.map((param: any) => (
+                        <li>
+                          <strong>{param.name}</strong>
+                          {param.optional && ' (optional)'}: <code>{param.type}</code> – {param.description}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {!method.overloads && method.signature && (
+            <div class="signature">
+              <Code code={method.signature} lang="c" />
+            </div>
+          )}
+
+          {method.parameters?.length > 0 && (
+            <ul class="parameters">
+              {method.parameters.map((param: any) => (
+                <li>
+                  <strong>{param.name}</strong>: <code>{param.type}</code> – {param.description}
+                </li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
+    </section>
+  )}
 
   <CodeExamplesSection codeExamples={codeExamples} />
 

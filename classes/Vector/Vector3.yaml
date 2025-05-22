@@ -1,4 +1,196 @@
-name: 'vector3'
+name: Vector3
+type: class
 description: |
-  This is a 3D [Vector](/Vector) class.
+  Represents a 3D [Vector](/Vector). Used for storing and manipulating three-dimensional coordinates (x, y, z).
+methods:
+  - name: create
+    description: |
+      Default constructor for the Vector3 class. Returns a Vector3 object.
+    overloads:
+      - signature: Vector3(mixed vectorOrX[, float y, float z])
+        parameters:
+          - name: vectorOrX
+            type: float | table | vector3
+            description: Vector3, table, or floats indicating vector's coordinates
+          - name: y
+            type: float
+            optional: true
+            description: If vectorOrX is a float, this is the Y coordinate
+          - name: z
+            type: float
+            optional: true
+            description: If vectorOrX is a float, this is the Z coordinate
 
+  - name: cross
+    type: method
+    description: |
+      Calculates the cross product of two vectors. The result is a vector orthogonal to both.
+    signature: vector3 Vector3:cross ( vector3 vector )
+    parameters:
+      - name: vector
+        type: Vector3
+        description: Vector to calculate the cross product with.
+    returns:
+      type: Vector3
+      description: The resulting vector from the cross product.
+
+  - name: dot
+    type: method
+    description: |
+      Calculates the dot (scalar) product of two vectors.
+    signature: float Vector3:dot ( vector3 vector )
+    parameters:
+      - name: vector
+        type: Vector3
+        description: Vector to calculate the dot product with.
+    returns:
+      type: float
+      description: The scalar dot product.
+
+  - name: getX
+    type: method
+    description: Returns the X component of the vector.
+    signature: float Vector3:getX ( )
+    returns:
+      type: float
+      description: The X coordinate.
+
+  - name: setX
+    type: method
+    description: Sets the X component of the vector.
+    signature: void Vector3:setX ( float x )
+    parameters:
+      - name: x
+        type: float
+        description: The new X value.
+
+  - name: getY
+    type: method
+    description: Returns the Y component of the vector.
+    signature: float Vector3:getY ( )
+    returns:
+      type: float
+      description: The Y coordinate.
+
+  - name: setY
+    type: method
+    description: Sets the Y component of the vector.
+    signature: void Vector3:setY ( float y )
+    parameters:
+      - name: y
+        type: float
+        description: The new Y value.
+
+  - name: getZ
+    type: method
+    description: Returns the Z component of the vector.
+    signature: float Vector3:getZ ( )
+    returns:
+      type: float
+      description: The Z coordinate.
+
+  - name: setZ
+    type: method
+    description: Sets the Z component of the vector.
+    signature: void Vector3:setZ ( float z )
+    parameters:
+      - name: z
+        type: float
+        description: The new Z value.
+
+  - name: normalize
+    type: method
+    description: |
+      Normalizes the vector to a unit vector (length of 1). Modifies the original vector.
+    signature: bool Vector3:normalize ( )
+    returns:
+      type: bool
+      description: Whether the operation succeeded (e.g., the vector was not zero-length).
+
+  - name: getNormalized
+    type: method
+    description: |
+      Returns a normalized version of the vector without modifying the original.
+    signature: vector3 Vector3:getNormalized ( )
+    returns:
+      type: Vector3
+      description: A new normalized vector.
+
+  - name: getLength
+    type: method
+    description: |
+      Returns the length (magnitude) of the vector.
+    signature: float Vector3:getLength ( )
+    returns:
+      type: float
+      description: The vector's length.
+
+  - name: getSquaredLength
+    type: method
+    description: |
+      Returns the squared length of the vector (useful to avoid square root operations).
+    signature: float Vector3:getSquaredLength ( )
+    returns:
+      type: float
+      description: The squared length of the vector.
+
+  - name: intersectsSegmentTriangle
+    type: method
+    description: |
+      Determines if a line segment intersects with a triangle.
+    signature: vector3 Vector3:intersectsSegmentTriangle ( vector3 segmentDir, vector3 triVert0, vector3 triVert1, vector3 triVert2 )
+    parameters:
+      - name: segmentDir
+        type: Vector3
+        description: The direction vector of the segment.
+      - name: triVert0
+        type: Vector3
+        description: First vertex of the triangle.
+      - name: triVert1
+        type: Vector3
+        description: Second vertex of the triangle.
+      - name: triVert2
+        type: Vector3
+        description: Third vertex of the triangle.
+    returns:
+      type: Vector3 | false
+      description: The point of intersection, or false if none.
+
+  - name: intersectsSegmentTriangle (static)
+    type: static_method
+    description: |
+      Static version of the segment-triangle intersection method.
+    signature: vector3 Vector3.intersectsSegmentTriangle ( vector3 origin, vector3 segmentDir, vector3 triVert0, vector3 triVert1, vector3 triVert2 )
+    parameters:
+      - name: origin
+        type: Vector3
+        description: Origin point of the segment.
+      - name: segmentDir
+        type: Vector3
+        description: Direction of the segment.
+      - name: triVert0
+        type: Vector3
+        description: First triangle vertex.
+      - name: triVert1
+        type: Vector3
+        description: Second triangle vertex.
+      - name: triVert2
+        type: Vector3
+        description: Third triangle vertex.
+    returns:
+      type: Vector3 | false
+      description: The intersection point, or false if there is no intersection.
+
+examples:
+  - path: examples/vector3-1.lua
+    description: This example sorts all players in a nice line on the center of the map.
+  - path: examples/vector3-2.lua
+    description: >
+      This example creates a tiny sun which is always at the right of the vehicle the local player drives. By default it will draw the vectors used to compute the position where it should be, so you can understand what does this function do. Note that the code could be made simpler by simply getting the right component of the vehicle matrix. Make sure that you put this code in a resource which has OOP enabled, or it won't work.
+  - path: examples/vector3-3.lua
+    description: >
+      This examples illustrates the concept of dot/scalar product and implements a useful function which can be used to get the angle between two vectors. 
+  - path: examples/vector3-4.lua
+    description: This example slowly moves all the players' camera to look at the Mount Chilliad.
+  - path: examples/vector3-5.lua
+    description: This example slowly moves all the players' camera to look at the Mount Chilliad with a shorter code than the previous example.

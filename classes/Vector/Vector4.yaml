@@ -1,4 +1,30 @@
-name: 'vector4'
+name: Vector4
+type: class
 description: |
-  This is a 4D [Vector](/Vector) class.
+  Represents a 4D [Vector](/Vector).
+methods:
+  - name: create
+    description: |
+      Default constructor for the Vector4 class. Returns a Vector4 object.
+    overloads:
+      - signature: Vector4(mixed vectorOrX[, float y, float z, float w])
+        parameters:
+          - name: vectorOrX
+            type: float | table | vector4
+            description: Vector4, table, or floats indicating vector's coordinates
+          - name: y
+            type: float
+            optional: true
+            description: If vectorOrX is a float, this is the Y coordinate
+          - name: z
+            type: float
+            optional: true
+            description: If vectorOrX is a float, this is the Z coordinate
+          - name: w
+            type: float
+            optional: true
+            description: If vectorOrX is a float, this is the W coordinate
 
+examples:
+  - path: examples/vector4-1.lua
+    description: This example adds a command called "/garage", allowing you to get any garage bounding box. 
