@@ -4,4 +4,8 @@ description: |
 
   The element type of this class is **"radararea"**. 
 
-  TODO
+
+see_also:
+  - 'functions:any:RadarArea'
+  - 'events:any:RadarArea'
+

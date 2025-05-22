@@ -4,7 +4,6 @@ description: |
 
   The element type of this class is **"building"**. 
 
-  TODO
 notes:
     - |
       There is a distinction in GTA: San Andreas between static and dynamic models (these use a separate streaming system). Examples of buildings include building models, roads, and terrain. Objects created as [Buildings](/building) can contain **glass** and **shadows**, unlike those created as [Objects](/building) (which are missing these features).

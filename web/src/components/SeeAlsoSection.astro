@@ -1,0 +1,32 @@
+---
+import type { SeeAlsoLinkGroup } from '@src/utils/general';
+
+export interface Props {
+  seeAlsoLinks: SeeAlsoLinkGroup[];
+  currentId: string;
+}
+
+const { seeAlsoLinks, currentId } = Astro.props;
+---
+
+{seeAlsoLinks.length > 0 && (
+  <div class="see-also-section">
+    <h4>See Also</h4>
+    {seeAlsoLinks.map((group) => (
+      <div class="see-also-group">
+        <h5>{group.title}</h5>
+        <ul>
+          {group.links.map((link) => (
+            <li>
+              {link.name === currentId ? (
+                <strong>{link.name}</strong>
+              ) : (
+                <a href={link.link}>{link.name}</a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+)}

@@ -6,10 +6,12 @@ import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
 import '@src/styles/function-page.css';
-import { getEventSeeAlsoLinks } from '@src/utils/events';
+import { getPageSeeAlsoLinks } from '@src/utils/general';
 
 import NoteBox from '@src/components/NoteBox.astro';
 import type { NotesType } from '@src/utils/types';
+
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
 export async function getStaticPaths() {
     const events = await getCollection('events');
@@ -20,6 +22,7 @@ export async function getStaticPaths() {
 }
 
 const { event } = Astro.props;
+event.data.itemType = 'event';
 
 const eventType = event.data.type;
 const eventPath = path.dirname(event.filePath ?? "");
@@ -57,7 +60,6 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
     notesContent = event.data.notes;
 }
 
-const seeAlsoLinks = getEventSeeAlsoLinks(event);
 ---
 
 <div class={"show-type-badge-" + eventType}>
@@ -108,31 +110,15 @@ const seeAlsoLinks = getEventSeeAlsoLinks(event);
                 <h4>Code Examples</h4>
                 {eventExamples.map((example: any) => (
                     <div class="function-example">
-                        <Fragment set:html={marked(example.description)}></p>
+                        {example.description && (
+                            <Fragment set:html={marked(example.description)} />
+                        )}
                         <Code code={example.luaCode} lang="lua"/>
                     </div>
                 ))}
             </div>
         )}
 
-        <!-- See Also -->
-        {seeAlsoLinks.length > 0 && (
-            <div class="see-also-section">
-                <h4>See Also</h4>
-                <ul>
-                    {seeAlsoLinks.map((link: any) => (
-                        (link.name === event.id) && (
-                            <li>
-                                <strong>{link.name}</strong>
-                            </li>
-                        ) || (
-                            <li>
-                                <a href={link.link}>{link.name}</a>
-                            </li>
-                        )
-                    ))}
-                </ul>
-            </div>
-        )}
+        <SeeAlsoSection seeAlsoLinks={getPageSeeAlsoLinks(event)} currentId={event.id} />
     </StarlightPage>
 </div>

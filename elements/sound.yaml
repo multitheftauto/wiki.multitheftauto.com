@@ -8,4 +8,8 @@ description: |
 
   The element type of this class is **"sound"**. 
 
-  TODO
+
+see_also:
+  - 'functions:any:Audio'
+  - 'events:any:Audio'
+

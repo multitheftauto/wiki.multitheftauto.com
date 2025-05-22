@@ -1,8 +1,8 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
-import { getFunctionInfo, parseFunctionSyntaxes, getFunctionSeeAlsoLinks } from '@src/utils/functions';
-import { renderInlineMarkdown } from '@src/utils/general';
+import { getFunctionInfo, parseFunctionSyntaxes } from '@src/utils/functions';
+import { renderInlineMarkdown, getPageSeeAlsoLinks } from '@src/utils/general';
 import { marked } from 'marked';
 import fs from "fs";
 import path from "path";
@@ -11,6 +11,8 @@ import { Code } from '@astrojs/starlight/components';
 import NoteBox from '@src/components/NoteBox.astro';
 import '@src/styles/function-page.css';
 import type { NotesType } from '@src/utils/types';
+
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
 export async function getStaticPaths() {
     const functions = await getCollection('functions');
@@ -21,6 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { func } = Astro.props;
+func.data.itemType = 'function';
 
 const funcInfo = getFunctionInfo(func.data);
 const funcType = funcInfo.type;
@@ -28,7 +31,7 @@ const funcPair = funcInfo.pair;
 const funcPath = path.dirname(func.filePath ?? "");
 
 // join shared, client and server examples (in func.data) if any
-let funcExamples = [];
+let funcExamples: any[] = [];
 if (func.data.shared && func.data.shared.examples) {
     funcExamples = [...funcExamples, ...func.data.shared.examples];
 }
@@ -55,7 +58,6 @@ if (Array.isArray(funcInfo.notes) && funcInfo.notes.length > 0) {
 
 let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
 
-const seeAlsoLinks = getFunctionSeeAlsoLinks(func);
 ---
 
 <div class={"show-type-badge-" + funcType}>
@@ -181,31 +183,15 @@ const seeAlsoLinks = getFunctionSeeAlsoLinks(func);
                  <h4>Code Examples</h4>
                  {funcExamples.map((example: any) => (
                     <div class="function-example">
-                        <Fragment set:html={marked(example.description)} />
+                        {example.description && (
+                            <Fragment set:html={marked(example.description)} />
+                        )}
                         <Code code={example.luaCode} lang="lua"/>
                     </div>
                 ))}
             </div>
         )}
 
-        <!-- See Also -->
-        {seeAlsoLinks.length > 0 && (
-            <div class="see-also-section">
-                <h4>See Also</h4>
-                <ul>
-                    {seeAlsoLinks.map((link: any) => (
-                        (link.name === func.id) && (
-                            <li>
-                                <strong>{link.name}</strong>
-                            </li>
-                        ) || (
-                            <li>
-                                <a href={link.link}>{link.name}</a>
-                            </li>
-                        )
-                    ))}
-                </ul>
-            </div>
-        )}
+        <SeeAlsoSection seeAlsoLinks={getPageSeeAlsoLinks(func)} currentId={func.id} />
     </StarlightPage>
 </div>

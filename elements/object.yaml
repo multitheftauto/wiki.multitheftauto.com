@@ -4,7 +4,6 @@ description: |
 
   The element type of this class is **"object"**. 
 
-  TODO
 notes:
     - |
       Objects only represent models **created by a script**, they do not represent objects that are part of GTA's default landscape (these belong to the "building pool").
