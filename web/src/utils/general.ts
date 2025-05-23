@@ -127,7 +127,7 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
     .filter(title => groupedMap.has(title))
     .map(title => ({
       title,
-      links: groupedMap.get(title)!.sort((a, b) => a.name.localeCompare(b.name)),
+      links: groupedMap.get(title) || [],
     }));
 }
 

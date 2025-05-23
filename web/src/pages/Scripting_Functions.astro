@@ -1,5 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { getFunctionsByCategory, getFunctionInfo } from '@src/utils/functions';
 
 const functionsByCategory = getFunctionsByCategory();
@@ -26,4 +28,12 @@ const functionsByCategory = getFunctionsByCategory();
             </details>
         </section>
     ))}
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'article:Shared_Scripting_Functions',
+        'article:Client_Scripting_Functions',
+        'article:Server_Scripting_Functions',
+        'article:Scripting_Events',
+        'article:Client_Scripting_Events',
+        'article:Server_Scripting_Events',
+    ])} currentId='' />
 </StarlightPage>
