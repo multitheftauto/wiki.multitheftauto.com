@@ -1,0 +1,3 @@
+name: gui-button
+description: |
+  The **GUI button** class represents GUI buttons in MTA's GUI system. It's only functionality is to detect whether client has clicked it.

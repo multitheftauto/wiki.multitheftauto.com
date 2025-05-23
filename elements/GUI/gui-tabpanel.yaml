@@ -1,0 +1,3 @@
+name: gui-tabpanel
+description: |
+  The GUI tab panel class represents GUI tab panels in MTA's GUI system. These are just layouts for GUI [tabs](/gui-tab) and highly rely on them. It is recommended to use GUI [windows](/gui-window) if you are not adding tabs to a tab panel. 

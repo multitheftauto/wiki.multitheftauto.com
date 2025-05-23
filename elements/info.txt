@@ -1,0 +1,1 @@
+GUI and General category names are hardcoded

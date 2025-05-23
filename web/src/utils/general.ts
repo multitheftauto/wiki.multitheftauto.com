@@ -2,6 +2,7 @@ import { marked } from 'marked';
 import path from 'path';
 import { getFunctionsByTypeByCategory } from '@src/utils/functions';
 import { getEventsByTypeByCategory } from '@src/utils/events';
+import { getElementsByCategory, getElementCategory } from '@src/utils/elements';
 import { getOOPClassesByCategory } from '@src/utils/classes';
 
 export function renderInlineMarkdown(markdown: string): string | Promise<string> {
@@ -23,12 +24,15 @@ const titleCase = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 const makeTitle = (subType: string, category: string, type: string): string => {
-  const categoryPart = titleCase(category);
+  const isUpperCase = category === category.toUpperCase();
+  const categoryPart = isUpperCase ? category : titleCase(category);
   const typePart = titleCase(type);
   if (subType === 'any') {
     return `${categoryPart} ${typePart}`;
   } else {
-    return `${titleCase(subType)} ${categoryPart} ${typePart}`;
+    const isUpperCase2 = subType === subType.toUpperCase();
+    const subTypePart = isUpperCase2 ? subType : titleCase(subType);
+    return `${subTypePart} ${categoryPart} ${typePart}`;
   }
 };
 
@@ -52,6 +56,10 @@ const getItemsInCategory = (type: string, subType: string, category: string): an
             ...(evByType.server?.[category] || []),
           ]
         : evByType?.[subType as keyof typeof evByType]?.[category] || [];
+    }
+    case 'elements': {
+      const elementsByCategory = getElementsByCategory();
+      return elementsByCategory?.[category] || [];
     }
     case 'classes': {
       const classesByCategory = getOOPClassesByCategory();
@@ -142,12 +150,30 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
       break;
     case 'element':
       seeAlso = see_also ?? [];
-      addToSeeAlso = [
-        `functions:any:${niceName}`,
-        `events:any:${niceName}`,
-        `functions:any:Element`,
-        `events:any:Element`,
-      ];
+      const elementCategory = getElementCategory(theItem);
+      if (elementCategory === 'GUI') {
+        // Show GUI functions, events and other GUI element types
+        addToSeeAlso = [
+          `functions:any:${elementCategory}`,
+          `events:any:${elementCategory}`,
+          `elements:any:${elementCategory}`,
+        ];
+      } else if (elementCategory === 'General') {
+        // Also show generic Element functions and events if category is General
+        addToSeeAlso = [
+          `functions:any:${niceName}`,
+          `events:any:${niceName}`,
+          `functions:any:Element`,
+          `events:any:Element`,
+        ];
+      }
+      else {
+        // Show all functions and events for the element type
+        addToSeeAlso = [
+          `functions:any:${niceName}`,
+          `events:any:${niceName}`,
+        ];
+      }
       break;
     case 'class':
       seeAlso = see_also ?? [];

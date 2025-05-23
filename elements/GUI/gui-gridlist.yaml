@@ -1,0 +1,3 @@
+name: gui-gridlist
+description: |
+  The GUI gridlist class represents GUI gridlists in MTA's GUI system. It can be used for example as a selection list or as a list to view information about players (see [old scoreboard resource](/Resource:OldScoreboard)).

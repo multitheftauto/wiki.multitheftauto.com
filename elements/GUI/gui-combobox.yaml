@@ -1,0 +1,3 @@
+name: gui-combobox
+description: |
+  The GUI combobox class represents GUI comboboxes in MTA's GUI system. These are drop down lists that can contain large number of items.

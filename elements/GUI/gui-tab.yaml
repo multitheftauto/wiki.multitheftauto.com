@@ -1,0 +1,3 @@
+name: gui-tab
+description: |
+  The GUI tab class represents GUI tabs in MTA's GUI system. These highly rely on GUI [tab panels](/gui-tabpanel) as they only can be created to them.
