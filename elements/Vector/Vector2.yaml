@@ -1,20 +1,19 @@
 name: 'vector2'
 description: |
   This is a 2D [Vector](/Vector) class.
-methods:
+oop_methods:
   - name: create
     description: |
       Default constructor for the Vector2 class. Returns a Vector2 object.
-    overloads:
-      - signature: Vector2(mixed vectorOrX[, float y])
-        parameters:
-          - name: vectorOrX
-            type: float | table | vector2
-            description: Vector2, table, or float indicating vector's coordinates
-          - name: y
-            type: float
-            optional: true
-            description: If vectorOrX is a float, this is the Y coordinate
+    signature: Vector2(mixed vectorOrX[, float y])
+    parameters:
+      - name: vectorOrX
+        type: float | table | vector2
+        description: Vector2, table, or float indicating vector's coordinates
+      - name: y
+        type: float
+        optional: true
+        description: If vectorOrX is a float, this is the Y coordinate
 
   - name: normalize
     description: Normalizes the vector

@@ -2,24 +2,25 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
-import { getOOPClassesByCategory } from '@src/utils/classes';
-const classesByCategory = getOOPClassesByCategory();
+import { getOOPElementsByCategory } from '@src/utils/elements';
+const elementsByCategory = getOOPElementsByCategory();
 ---
 <StarlightPage frontmatter={{
     template: 'doc',
     title: 'OOP Classes',
     tableOfContents: false,
 }}>
-    <p>This page lists all <strong><a href="/OOP">OOP</a> Classes</strong> available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
-    <p>Vectors and Matrices make it easier to drop the complex maths and go straight ahead with fun part of maths. OOP does not have to be enabled in the server config for this to be enabled.</p>
+    <p>This page lists all <strong>Classes</strong> available in the <a href="/Lua_API">Lua API</a> using <a href="/OOP_Introduction">OOP</a> organized by category.</p>
+
+    <p><strong>Vectors</strong> and <strong>Matrices</strong> make it easier to drop the complex maths and go straight ahead with fun part of maths. OOP does not have to be enabled in the server config for this to be enabled.</p>
     
-    {Object.entries(classesByCategory).map(([category, oopClasses]) => (
+    {Object.entries(elementsByCategory).map(([category, elements]) => (
         <section>
-            <details>
+            <details open>
                 <summary>{category} classes</summary>
                 <ul>
-                    {oopClasses.map(oopClass => (
-                        <li><a href={`/${oopClass.id}`}>{oopClass.id}</a></li>
+                    {elements.map(element => (
+                        <li><a href={`/${element.id}`}>{element.id}</a></li>
                     ))}
                 </ul>
             </details>
@@ -29,5 +30,6 @@ const classesByCategory = getOOPClassesByCategory();
     
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'article:OOP_Introduction',
+        'article:Element',
     ])} currentId='' />
 </StarlightPage>

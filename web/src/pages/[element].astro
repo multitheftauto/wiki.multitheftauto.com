@@ -1,11 +1,15 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
+import fs from "fs";
+import path from "path";
 import { marked } from 'marked';
 import { getSeeAlsoLinksForItem } from '@src/utils/general';
 import { getElementCategory } from '@src/utils/elements';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import { Code } from '@astrojs/starlight/components';
+import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 
 export async function getStaticPaths() {
   const elements = await getCollection('elements');
@@ -18,7 +22,20 @@ export async function getStaticPaths() {
 const { element } = Astro.props;
 element.data.itemType = 'element';
 element.data.niceName = element.data.name.charAt(0).toUpperCase() + element.data.name.slice(1);
+const elementPath = path.dirname(element.filePath ?? "");
 
+let codeExamples: any[] = element.data.examples || [];
+codeExamples = codeExamples.map((example: any) => {
+    try {
+        const luaCode = fs.readFileSync(path.resolve(`${elementPath}`, example.path), "utf8"); 
+        return { ...example, luaCode };
+    } catch (error) {
+        console.error(`Error reading ${example.path}:`, error);
+        return { ...example, luaCode: "Loading example error." };
+    }
+});
+
+const methods = element.data.oop_methods || [];
 ---
 <StarlightPage frontmatter={{
   template: 'doc',
@@ -28,6 +45,58 @@ element.data.niceName = element.data.name.charAt(0).toUpperCase() + element.data
   <p>Category: <strong>{getElementCategory(element)}</strong></p>
 
   <Fragment set:html={marked(element.data.description)} />
+
+  
+  {methods.length > 0 && (
+    <section class="methods-section">
+      <h4>OOP Methods <a class="small-text" href="/OOP_Introduction">Help! I don't understand this!</a></h4>
+      {methods.map((method: any) => (
+        <article class="method">
+          <h4 id={method.name}><code>{method.name}</code></h4>
+          {method.description && <p>{method.description}</p>}
+
+          {method.overloads?.length > 0 && (
+            <div class="overloads">
+              {method.overloads.map((overload: any) => (
+                <div class="overload">
+                  <Code code={overload.signature} lang="c" />
+                  {overload.description && <p>{overload.description}</p>}
+                  {overload.parameters?.length > 0 && (
+                    <ul class="parameters">
+                      {overload.parameters.map((param: any) => (
+                        <li>
+                          <strong>{param.name}</strong>
+                          {param.optional && ' (optional)'}: <code>{param.type}</code> – {param.description}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {!method.overloads && method.signature && (
+            <div class="signature">
+              <Code code={method.signature} lang="c" />
+            </div>
+          )}
+
+          {method.parameters?.length > 0 && (
+            <ul class="parameters">
+              {method.parameters.map((param: any) => (
+                <li>
+                  <strong>{param.name}</strong>: <code>{param.type}</code> – {param.description}
+                </li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))}
+    </section>
+  )}
+
+  <CodeExamplesSection codeExamples={codeExamples} />
 
   <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(element)} currentId={element.id} />
 </StarlightPage>

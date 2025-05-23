@@ -17,5 +17,47 @@ properties:
     description: A list of noteworthy pieces of information for the item.
     items:
       type: string
+  examples:
+    $ref: 'common-defs.yaml#/$defs/examples'
   see_also:
     $ref: 'common-defs.yaml#/$defs/see_also'
+  oop_methods:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        signature:
+          type: string
+        overloads:
+          type: array
+          items:
+            type: object
+            required:
+              - signature
+            properties:
+              signature:
+                type: string
+              description:
+                type: string
+              parameters:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - name
+                    - type
+                  properties:
+                    name:
+                      type: string
+                    type:
+                      type: string
+                    description:
+                      type: string
+                    optional:
+                      type: boolean

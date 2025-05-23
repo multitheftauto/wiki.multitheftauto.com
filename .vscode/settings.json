@@ -3,6 +3,5 @@
         "schemas/function.yaml": "/functions/**/*",
         "schemas/element.yaml": "/elements/**/*",
         "schemas/event.yaml": "/events/**/*",
-        "schemas/class.yaml": "/classes/**/*",
     }
 }

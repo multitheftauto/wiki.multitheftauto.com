@@ -2,24 +2,23 @@ name: Vector3
 type: class
 description: |
   Represents a 3D [Vector](/Vector). Used for storing and manipulating three-dimensional coordinates (x, y, z).
-methods:
+oop_methods:
   - name: create
     description: |
       Default constructor for the Vector3 class. Returns a Vector3 object.
-    overloads:
-      - signature: Vector3(mixed vectorOrX[, float y, float z])
-        parameters:
-          - name: vectorOrX
-            type: float | table | vector3
-            description: Vector3, table, or floats indicating vector's coordinates
-          - name: y
-            type: float
-            optional: true
-            description: If vectorOrX is a float, this is the Y coordinate
-          - name: z
-            type: float
-            optional: true
-            description: If vectorOrX is a float, this is the Z coordinate
+    signature: Vector3(mixed vectorOrX[, float y, float z])
+    parameters:
+      - name: vectorOrX
+        type: float | table | vector3
+        description: Vector3, table, or floats indicating vector's coordinates
+      - name: y
+        type: float
+        optional: true
+        description: If vectorOrX is a float, this is the Y coordinate
+      - name: z
+        type: float
+        optional: true
+        description: If vectorOrX is a float, this is the Z coordinate
 
   - name: cross
     type: method

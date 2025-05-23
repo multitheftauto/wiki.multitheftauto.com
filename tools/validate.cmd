@@ -11,7 +11,3 @@ for /r "elements" %%f in (*.yaml) do (
 for /r "events" %%f in (*.yaml) do (
     .\tools\yajsv.exe -s schemas/event.yaml -r schemas/common-defs.yaml "%%f"
 )
-
-for /r "classes" %%f in (*.yaml) do (
-    .\tools\yajsv.exe -s schemas/class.yaml -r schemas/common-defs.yaml "%%f"
-)

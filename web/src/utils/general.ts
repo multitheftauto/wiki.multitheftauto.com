@@ -3,7 +3,6 @@ import path from 'path';
 import { getFunctionsByTypeByCategory } from '@src/utils/functions';
 import { getEventsByTypeByCategory } from '@src/utils/events';
 import { getElementsByCategory, getElementCategory } from '@src/utils/elements';
-import { getOOPClassesByCategory } from '@src/utils/classes';
 
 export function renderInlineMarkdown(markdown: string): string | Promise<string> {
   const html = marked.parseInline(markdown);
@@ -61,10 +60,6 @@ const getItemsInCategory = (type: string, subType: string, category: string): an
       const elementsByCategory = getElementsByCategory();
       return elementsByCategory?.[category] || [];
     }
-    case 'classes': {
-      const classesByCategory = getOOPClassesByCategory();
-      return classesByCategory?.[category] || [];
-    }
     default:
       return [];
   }
@@ -86,15 +81,6 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
       continue;
     }
 
-    // Handle 'class' links
-    if (type === 'class') {
-      const className = rest[0];
-      const title = 'Classes';
-      if (!groupedMap.has(title)) groupedMap.set(title, []);
-      groupedMap.get(title)!.push({ name: className, link: `/${className}` });
-      continue;
-    }
-
     // Handle function/event style links
     const [subType, category] = rest;
     const items = getItemsInCategory(type, subType, category);
@@ -113,7 +99,6 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
       const [type, ...rest] = item.split(':');
       if (!type || rest.length === 0) return null;
       if (type === 'article') return 'Articles';
-      if (type === 'class') return 'Classes';
       return makeTitle(rest[0], rest[1], type);
     })
     .filter((title): title is string => title !== null)
@@ -174,15 +159,6 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
           `events:any:${niceName}`,
         ];
       }
-      break;
-    case 'class':
-      seeAlso = see_also ?? [];
-      addToSeeAlso = [
-        `classes:any:Vector`,
-        `classes:any:Matrix`,
-        `article:OOP`,
-        `article:OOP_Introduction`,
-      ];
       break;
     default:
       throw new Error('Invalid item type passed');

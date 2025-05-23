@@ -1,5 +1,6 @@
 /wiki/ /
 /wiki/* /:splat
+/Main_Page /
 
 /MTA_Classes /Element
 /Element/:elementname /:elementname

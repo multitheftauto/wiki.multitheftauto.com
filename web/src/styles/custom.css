@@ -10,6 +10,9 @@
     /* Override Starlight styling */
     --sl-content-width: 70rem;
 }
+.small-text {
+    font-size: 0.7em;
+}
 
 /* Styling for "Client-side / Server-side / Shared" */
 .side-shared {

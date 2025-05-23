@@ -2,7 +2,7 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
-import { getElementsByCategory } from '@src/utils/elements';
+import { getElementsByCategory, hasOopMethods } from '@src/utils/elements';
 const elementsByCategory = getElementsByCategory();
 ---
 <StarlightPage frontmatter={{
@@ -22,6 +22,7 @@ const elementsByCategory = getElementsByCategory();
                     {elements.map(element => (
                         <li>
                             <a href={`/${element.id}`}>{element.id}</a>
+                            {hasOopMethods(element) ? <span class="small-text">[OOP]</span> : ''}
                         </li>
                     ))}
                 </ul>
