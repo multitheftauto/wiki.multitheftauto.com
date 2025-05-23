@@ -1,4 +1,4 @@
-/wiki/ /
+/wiki /
 /wiki/* /:splat
 /Main_Page /
 
@@ -8,3 +8,4 @@
 /Vector/:vectorclass /:vectorclass
 
 /OOP /OOP_Introduction
+/OOP/ /OOP_Introduction
