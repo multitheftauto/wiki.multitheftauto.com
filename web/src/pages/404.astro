@@ -12,10 +12,7 @@ import { OLD_WIKI_URL, OLD_WIKI_REDIRECT } from '@src/content.constants';
   }
 }}>
     {OLD_WIKI_REDIRECT && (
-        <p>This page doesn't exist here. You will be redirected to the old MTA Wiki in <strong><span id="countdown">5</span> seconds...</p></strong>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-            <p>Click here to view the page on the old MTA Wiki</p>
-        </a>
+        <h4>You will be redirected to the old MTA Wiki in <strong><span id="countdown">5</span> seconds...</strong></h4>
     )}
 </StarlightPage>
 
@@ -23,22 +20,14 @@ import { OLD_WIKI_URL, OLD_WIKI_REDIRECT } from '@src/content.constants';
     if (!OLD_WIKI_REDIRECT) {
         return;
     }
-    const gotoUrl = OLD_WIKI_URL + location.pathname;
     let countdown = 5;
     const el = document.getElementById('countdown');
-    const aEl = document.querySelector('a');
-    aEl.onclick = (e) => {
-        e.preventDefault();
-        clearInterval(interval);
-        window.location.href = gotoUrl;
-    };
-
     const interval = setInterval(() => {
     countdown -= 1;
     if (el) el.textContent = countdown;
     if (countdown <= 0) {
         clearInterval(interval);
-        window.location.href = gotoUrl;
+        window.location.replace(OLD_WIKI_URL + location.pathname);
     }
     }, 1000);
 </script>
