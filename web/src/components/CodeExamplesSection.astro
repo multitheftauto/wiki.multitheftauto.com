@@ -18,7 +18,7 @@ const { codeExamples } = Astro.props;
   <div class="examples-section">
     <h4>Code Examples</h4>
     {codeExamples.map((example) => (
-      <div class="function-example">
+      <div class="code-example">
         {example.description && (
           <Fragment set:html={marked(example.description)} />
         )}

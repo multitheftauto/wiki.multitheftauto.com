@@ -14,6 +14,28 @@
     font-size: 0.7em;
 }
 
+.function-syntax,
+.function-oop,
+.notes-section,
+.examples-section {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.see-also-section {
+    margin-top: 2rem;
+}
+
+.code-example {
+    margin-bottom: 1.5rem;
+}
+.code-example > :first-child {
+    margin-bottom: 0.5rem;
+}
+.code-example > :last-child {
+    margin-bottom: 0;
+}
+
 /* Styling for "Client-side / Server-side / Shared" */
 .side-shared {
     color: var(--color-type-shared);
