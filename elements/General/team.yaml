@@ -4,5 +4,3 @@ description: |
 
   A common misconception is that players would be child elements of team elements. This is wrong. Being part of a team is merely a relational connection rather than a change in element hierarchy. To perform logic on all the players of a team you have to use the [getPlayersInTeam](/getPlayersInTeam) function. 
 
-  The element type of this class is **"team"**. 
-

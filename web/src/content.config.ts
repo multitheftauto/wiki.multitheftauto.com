@@ -5,13 +5,6 @@ import { glob } from 'astro/loaders';
 
 export const collections = {
 	docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
-	elements: defineCollection({
-		loader: glob({
-			pattern: "**/*.yaml",
-			base: "../elements",
-			generateId: ({ entry }) => entry.replace(/\.yaml$/, '')
-		}),
-	}),
 	functions: defineCollection({
 		loader: glob({
 			pattern: "**/*.yaml",
@@ -31,6 +24,16 @@ export const collections = {
 				return ((entry.split('/') || []).pop() || '').replace(/\.yaml$/, '');
 			}
 		})
+	}),
+	elements: defineCollection({
+		loader: glob({
+			pattern: "**/*.yaml",
+			base: "../elements",
+			generateId: ({ entry }) => {
+				// Extract the file name without the folder
+				return ((entry.split('/') || []).pop() || '').replace(/\.yaml$/, '');
+			}
+		}),
 	}),
 	classes: defineCollection({
 		loader: glob({

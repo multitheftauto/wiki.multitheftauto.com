@@ -1,5 +1,3 @@
 name: 'light'
 description: |
   The light class represents colored, 3D lights in the GTA world. There are a couple different types of lights, which are point lights, spot lights and dark lights.
-
-  The element type of this class is **"light"**. 

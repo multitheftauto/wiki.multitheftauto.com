@@ -2,5 +2,3 @@ name: 'camera'
 description: |
   The camera class represents the local player camera rendering the game to the screen.
 
-  The element type of this class is **"camera"**. 
-

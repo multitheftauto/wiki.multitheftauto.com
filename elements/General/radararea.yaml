@@ -1,8 +1,6 @@
-name: 'radar_area'
+name: 'radararea'
 description: |
   The radar area class represents coloured areas that can be displayed on a player's radar.
-
-  The element type of this class is **"radararea"**. 
 
 
 see_also:

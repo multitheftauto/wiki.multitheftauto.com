@@ -4,8 +4,6 @@ description: |
 
   Collision data can also be embedded in DFF files. At the moment, vehicle collision replacement works with DFF embedded collisions only. 
 
-  The element type of this class is **"dff"**. 
-
 see_also:
   - 'functions:any:Engine'
   - 'events:any:Engine'

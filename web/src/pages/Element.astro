@@ -1,7 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
-import { getCollection } from 'astro:content';
-const elements = await getCollection('elements');
+import { getElementsByCategory } from '@src/utils/elements';
+const elementsByCategory = getElementsByCategory();
 ---
 <StarlightPage frontmatter={{
   template: 'doc',
@@ -10,8 +10,19 @@ const elements = await getCollection('elements');
 }}>
   <p>An <strong>element</strong> is a generic class that can represent almost all in-game entities. The built-in element types are:</p>
   <ul>
-    {elements.map(element => (
-      <li><a href={`/${element.id}`}>{element.data.name}</a></li>
+    {Object.entries(elementsByCategory).map(([category, elements], index) => (
+      <section>
+            <details {...(index === 0 ? { open: true } : {})}>
+                <summary>{category}</summary>
+                <ul>
+                    {elements.map(element => (
+                        <li>
+                            <a href={`/${element.id}`}>{element.id}</a>
+                        </li>
+                    ))}
+                </ul>
+            </details>
+        </section>
     ))}
   </ul>
 </StarlightPage>

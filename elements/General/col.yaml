@@ -8,8 +8,6 @@ description: |
   To split a .col file into multiple files, you can use [CollEditor2](http://www.steve-m.com/downloads/tools/colleditor2/).
 
   Collision data can also be embedded in DFF files. At the moment, vehicle collision replacement works with DFF embedded collisions only. 
-
-  The element type of this class is **"col"**. 
 see_also:
   - 'functions:any:Engine'
   - 'events:any:Engine'

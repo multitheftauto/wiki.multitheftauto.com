@@ -1,0 +1,6 @@
+name: resource
+description: |
+  A resource object refers to a resource that is loaded in the server.
+
+  A name, state, root element, base directory path are associated to a resource, among other attributes.
+  

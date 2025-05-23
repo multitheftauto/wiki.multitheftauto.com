@@ -2,8 +2,6 @@ name: 'building'
 description: |
   The building class represents static 3D models in the GTA world.
 
-  The element type of this class is **"building"**. 
-
 notes:
     - |
       There is a distinction in GTA: San Andreas between static and dynamic models (these use a separate streaming system). Examples of buildings include building models, roads, and terrain. Objects created as [Buildings](/building) can contain **glass** and **shadows**, unlike those created as [Objects](/building) (which are missing these features).

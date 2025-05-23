@@ -6,8 +6,6 @@ description: |
 
   Sound elements can also be manipulated using the other [Client audio functions](/client_audio_functions). 
 
-  The element type of this class is **"sound"**. 
-
 
 see_also:
   - 'functions:any:Audio'

@@ -4,5 +4,3 @@ description: |
 
   The [createPed](/createPed) function specifically creates an NPC, but all other ped functions work on both players and NPC's as they're pretty much the same thing to San Andreas. 
 
-  The element type of a NPC is **"ped"**. 
-

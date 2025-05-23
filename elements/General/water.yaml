@@ -4,5 +4,3 @@ description: |
   
   A water element represents one such polygon. You can create water elements using [createWater](/createWater).
 
-  The element type of this class is **"water"**. 
-
