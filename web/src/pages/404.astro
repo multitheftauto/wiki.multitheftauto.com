@@ -3,7 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { OLD_WIKI_URL, OLD_WIKI_REDIRECT } from '@src/content.constants';
 const url = new URL(Astro.request.url);
 const pathname = url.pathname;
-const redirectUrl = `${OLD_WIKI_URL}/${pathname}`;
+const redirectUrl = `${OLD_WIKI_URL}${pathname}`;
 ---
 
 <StarlightPage frontmatter={{

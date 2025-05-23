@@ -1,5 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { getElementsByCategory } from '@src/utils/elements';
 const elementsByCategory = getElementsByCategory();
 ---
@@ -12,8 +14,9 @@ const elementsByCategory = getElementsByCategory();
   <ul>
     {Object.entries(elementsByCategory).map(([category, elements], index) => (
       <section>
-            <details {...(index === 0 ? { open: true } : {})}>
-                <summary>{category}</summary>
+            {/* <details {...(index === 0 ? { open: true } : {})}> */}
+            <details>
+                <summary>{category} elements</summary>
                 <ul>
                     {elements.map(element => (
                         <li>
@@ -25,4 +28,8 @@ const elementsByCategory = getElementsByCategory();
         </section>
     ))}
   </ul>
+
+  <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'article:Element_tree',
+  ])} currentId='' />
 </StarlightPage>

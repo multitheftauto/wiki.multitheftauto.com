@@ -1,5 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { getOOPClassesByCategory } from '@src/utils/classes';
 const classesByCategory = getOOPClassesByCategory();
 ---
@@ -23,4 +25,9 @@ const classesByCategory = getOOPClassesByCategory();
             </details>
         </section>
     ))}
+
+    
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'article:OOP_Introduction',
+    ])} currentId='' />
 </StarlightPage>

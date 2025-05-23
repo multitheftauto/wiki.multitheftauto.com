@@ -1,4 +1,6 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { Image } from 'astro:assets';
 import treeImage from '../../../assets/element_tree.webp';
 
@@ -7,11 +9,11 @@ import treeImage from '../../../assets/element_tree.webp';
     title: 'Element tree',
     tableOfContents: false,
 }}>
-MTA uses a so-called *element tree* to store all the elements that exist on the server and the client. This is directly related to the set of running [[resources]] and their map files' XML layout, although it can be changed at run-time by scripts.
+MTA uses a so-called *element tree* to store all the elements that exist on the server and the client. This is directly related to the set of running [resources](/resource) and their map files' XML layout, although it can be changed at run-time by scripts.
 
-If you are familiar with the concept of *trees* in computer-science, this should be easy to understand. If you are not, think of it as a family tree - except everyone only has a single parent. Every [[element]] has a *parent* element.
+If you are familiar with the concept of *trees* in computer-science, this should be easy to understand. If you are not, think of it as a family tree - except everyone only has a single parent. Every [element](/Element) has a *parent* element.
 
-All elements that are created within scripts or from .map files are child elements of the resource they belong to. Thus, most elements (except for [[client]]s) exist only within resources and are also destroyed as soon as their resource is stopped.
+All elements that are created within scripts or from .map files are child elements of the resource they belong to. Thus, most elements (except for [players](/player)) exist only within resources and are also destroyed as soon as their resource is stopped.
 
 <Image src={treeImage} alt="Element tree"/>
 
@@ -25,7 +27,7 @@ getRootElement()
 getResourceRootElement()
 ```
 * **map**: Each resource element contains at least one map element, representing either a ".map" file in the resource or the one containing the elements created by scripts (this is called the *dynamic* map). Their IDs contain the maps' filenames, or *dynamic* for the dynamic map.
-** Map files can contain a number of other [[element]]s as well as an unlimited number of custom elements.
+	* Map files can contain a number of other [elements](/Element) as well as an unlimited number of custom elements.
 
 ### Example
 This in an example of a serverside tree dumped to XML from a running server.
@@ -80,11 +82,11 @@ This in an example of a serverside tree dumped to XML from a running server.
 </root>
 ```
 ### Explanation
-This tree consists of a number of resource root elements, the [[Element/Console|server console]] and two [[player]] elements, that are direct children of the **root** element. All these resources have a *dynamic map* as child element (it is just not shown for most of them). These contain the elements that are created dynamically by this resource using scripts, for example a [[vehicle]]. If the resource has a map file, it is also a child element, itself containing all the elements in the .map file.
+This tree consists of a number of resource root elements, the [Server Console](/console) and two [player](/player) elements, that are direct children of the **root** element. All these resources have a *dynamic map* as child element (it is just not shown for most of them). These contain the elements that are created dynamically by this resource using scripts, for example a [vehicle](/vehicle). If the resource has a map file, it is also a child element, itself containing all the elements in the .map file.
 
 Let's have a closer look at the **assault** resource: This contains just one *dynamic* map that has 2 teams, 3 blips, 1 marker, and 1 colshape as child elements. These are the elements that are created by the script, for example, the marker, the colshape and one of the blips are probably used for the objective.
 
-The **as-farm** resource's function on the contrary is to be a map for the **assault** gamemode. The dynamic map is empty (it could contain elements if there was a script in it though), while there is a map called 'as-farm.map', that contains a number of elements. These are mostly custom elements (like spawngroup, spawnarea, objective) but also a few elements that MTA creates automatically after loading the map (like pickup). In the brackets after the element type, you can see the element data it contains. These are identical with the attributes the .map file contains within these elements, while you can also set and get element data for any other elements (e.g. players) with [[setElementData]] and [[getElementData]].
+The **as-farm** resource's function on the contrary is to be a map for the **assault** gamemode. The dynamic map is empty (it could contain elements if there was a script in it though), while there is a map called 'as-farm.map', that contains a number of elements. These are mostly custom elements (like spawngroup, spawnarea, objective) but also a few elements that MTA creates automatically after loading the map (like pickup). In the brackets after the element type, you can see the element data it contains. These are identical with the attributes the .map file contains within these elements, while you can also set and get element data for any other elements (e.g. players) with [setElementData](/setElementData) and [getElementData](/getElementData).
 
 ### Practical application
 Elements can have as many children as they like. This does not directly affect the map in any way, but it comes into its own when combined with the scripting system.
@@ -100,12 +102,16 @@ setMarkerSize ( root, 2.5 )
 The same can be done on any element, it is not restricted to the root element.
 
 ### Map manager
-The [[#Example|example above]] shows the way the [[map manager]] uses different resources. The 'assault' resource is the gamemode, that manages what happens on the server using scripts and thus by creating elements in the tree dynamically. When a map resource is started, the gamemode receives a [[resource|resource pointer]] referring to the started resource - in this case *as-farm* - from which you can retrieve and store the resource root element. Using this element in conjunction with functions like [[getElementsByType]], [[getElementData]] and various others, you can access any of the information that was loaded into the tree from the 'as-farm.map'-file through scripts in the gamemode resource.
+The example above shows the way the [map manager](/Resource:mapmanager) uses different resources. The 'assault' resource is the gamemode, that manages what happens on the server using scripts and thus by creating elements in the tree dynamically. When a map resource is started, the gamemode receives a [resource pointer](/resource) referring to the started resource - in this case *as-farm* - from which you can retrieve and store the resource root element. Using this element in conjunction with functions like [getElementsByType](/getElementsByType), [getElementData](/getElementData) and various others, you can access any of the information that was loaded into the tree from the 'as-farm.map'-file through scripts in the gamemode resource.
 
 Another thing that has to be considered related to the tree of elements is the fact that when you change the map, you don't have to remove any elements you created within the map resource, while you **do** have to remove elements that are created within the gamemode resource, **if** they are specific to the map (which will be probably the case for those items you create based on information read from the map resource's .map files).
 
 ### Element browser
 You can start the resource *elementbrowser* to see a live view of the element tree on your server. Just start the resource and browser to your server's web page and choose the *Element browser* option in the sidebar (firefox only currently).
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+	'article:Element',
+])} currentId='' />
 
 </StarlightPage>
 

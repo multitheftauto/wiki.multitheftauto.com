@@ -6,13 +6,24 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
 <StarlightPage frontmatter={{
     template: 'doc',
-    title: 'OOP Introduction',
+    title: 'About OOP',
     tableOfContents: false,
 }}>
 
-This is a scripting tutorial explaining to you what **object orientated programming** is and teaching you how to use the **OOP features of MTA**. This was originally created by qaisjp on June 8, 2014 ([Forum post](https://forum.multitheftauto.com/topic/65029-wikitut-oop-introduction/)).
 
-### Introduction to OOP
+Object Orientated Programming was introduced in MTA:SA 1.4 and comes with special utility classes like [Vector](/Vector) and [Matrix](/Matrix). This page contains general information about the OOP functions and provides useful links.
+
+### Turning it on
+
+By default, OOP is disabled (however, vectors and matrices are always available) - this is mainly because the vast majority of servers will prefer to stick to what they know - procedural programming. In fact, functions are still available even when OOP is enabled. Enabling OOP is as simple as adding the following line to the resource meta file:
+
+```xml
+<oop>true</oop>
+```
+
+### Introduction
+
+This is a scripting tutorial explaining to you what **object orientated programming** is and teaching you how to use the **OOP features of MTA**. This was originally created by qaisjp on June 8, 2014 ([Forum post](https://forum.multitheftauto.com/topic/65029-wikitut-oop-introduction/)).
 
 OOP stands for *object orientated programming*. Three simple words, and you'll probably understand the last word the most. OOP is where all functions relating to a single instance are called on that instance, an instance being a creation of a class — an element class, a database class, a player, a vehicle.
 
@@ -103,6 +114,11 @@ Timer(incrementDimension, 60*1000, 10) -- set a timer for sixty thousand millise
 
 This code would take a random player and move them to the next dimension every minute for the next ten minutes.
 
+
+### Vectors and Matrices
+
+[Vectors](/Vector) and [Matrices](/Matrix) make it easier to drop the complex maths and go straight ahead with fun part of maths. As mentioned above, OOP does not have to be enabled in the server config for this to be enabled. 
+
 ### Vectors
 
 `player.position` works too! But how do you change three arguments... using one variable? **Vectors.**
@@ -154,8 +170,62 @@ The documentation for the OOP syntax intends to be very simplistic and is suppor
 * Methods can either start like `player:` or `Player.` — the former is only for a function on an instance (like `setPlayerHealth`) and the latter is a static method (like `getRandomPlayer`).
 * The counterpart section allows you to see at a glance how the variable can be used. In most cases, this can be inferred from the function page.
 
+
+### OOP Metatable Structure (Advanced)
+
+You will understand this if you're proficient with Lua and have a decent understanding of metatables. Understanding this section is not necessary to use OOP.
+
+```lua
+-- Exposed to global environment
+Element = {
+    Element = createElement,
+    setPosition = setElementPosition,
+    ...
+}
+
+Vehicle = {
+    Vehicle = createVehicle,
+    setColor = setVehicleColor,
+    ...
+}
+
+-- Hidden in lua registry, applied to userdata
+ElementMT = {
+    __index = CLuaClassDefs::Index,
+    __newindex = CLuaClassDefs::NewIndex,
+    __class = Element,
+    __call = __class.create,
+    __set = {
+        type = CLuaClassDefs::ReadOnly,
+        health = setElementHealth,
+        ...
+    },
+    __get = {
+        type = getElementType,
+        health = getElementHealth,
+        ...
+    },
+}
+
+VehicleMT = {
+    __index = CLuaClassDefs::Index,
+    __newindex = CLuaClassDefs::NewIndex,
+    __class = Vehicle,
+    __parent = ElementMT,
+    __call = __class.create,
+    __set = {
+        damageProof = setVehicleDamageProof
+        ...
+    },
+    __get = {
+        damageProof = isVehicleDamageProof
+        ...
+    },
+}
+```
+
 <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
-    'article:OOP',
+    'article:OOP_Classes',
     'classes:any:Vector',
     'classes:any:Matrix'
 ])} currentId='' />

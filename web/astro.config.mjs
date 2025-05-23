@@ -85,9 +85,8 @@ export default defineConfig({
 						{
 							label: 'OOP',
 							items: [
-								{label: 'About OOP', link: 'OOP'},
-								{label: 'Introduction', link: 'OOP_Introduction'},
-								{label: 'Classes', link: 'OOP_Classes'},
+								{label: 'About OOP', link: 'OOP_Introduction'},
+								{label: 'OOP Classes', link: 'OOP_Classes'},
 							]
 						},
 					]
