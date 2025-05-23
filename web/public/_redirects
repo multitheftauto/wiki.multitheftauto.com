@@ -1,6 +1,7 @@
 /wiki/ /
 /wiki/* /:splat
 
+/MTA_Classes /Element
 /Element/:elementname /:elementname
 
 /Vector/:vectorclass /:vectorclass

@@ -10,6 +10,7 @@ const elementsByCategory = getElementsByCategory();
   title: 'Element types',
   tableOfContents: false,
 }}>
+  <p>In order to perform operations on MTA objects via scripting, pointers to internal classes are exported to scripts as Lua userdata. Each of these classes has a number of exported scripting functions associated with them. Elements that have a physical representation in the game are also known as <a href="/Entity">Entities</a>.</p>
   <p>An <strong>element</strong> is a generic class that can represent almost all in-game entities. The built-in element types are:</p>
   <ul>
     {Object.entries(elementsByCategory).map(([category, elements], index) => (
@@ -31,5 +32,6 @@ const elementsByCategory = getElementsByCategory();
 
   <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
       'article:Element_tree',
+      'article:Entity',
   ])} currentId='' />
 </StarlightPage>

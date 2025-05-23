@@ -80,6 +80,7 @@ export default defineConfig({
 							items: [
 								{label: 'Element types', link: 'Element'},
 								{label: 'Element tree', link: 'Element_tree'},
+								{label: 'Entities', link: 'Entity'},
 							]
 						},
 						{
