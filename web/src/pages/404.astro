@@ -1,9 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { OLD_WIKI_URL, OLD_WIKI_REDIRECT } from '@src/content.constants';
-const url = new URL(Astro.request.url);
-const pathname = url.pathname;
-const redirectUrl = `${OLD_WIKI_URL}${pathname}`;
 ---
 
 <StarlightPage frontmatter={{
@@ -14,28 +11,34 @@ const redirectUrl = `${OLD_WIKI_URL}${pathname}`;
     tagline: Astro.locals.t('404.text')
   }
 }}>
-    <p>Sorry, the page <strong>{pathname}</strong> could not be found.</p>
     {OLD_WIKI_REDIRECT && (
         <p>This page doesn't exist here. You will be redirected to the old MTA Wiki in <strong><span id="countdown">5</span> seconds...</p></strong>
-        <a href={redirectUrl} target="_blank" rel="noopener noreferrer">
+        <a href="#" target="_blank" rel="noopener noreferrer">
             <p>Click here to view the page on the old MTA Wiki</p>
         </a>
     )}
 </StarlightPage>
 
-<script is:inline define:vars={{ OLD_WIKI_REDIRECT, redirectUrl }}>
+<script is:inline define:vars={{ OLD_WIKI_URL, OLD_WIKI_REDIRECT }}>
     if (!OLD_WIKI_REDIRECT) {
         return;
     }
+    const gotoUrl = OLD_WIKI_URL + location.pathname;
     let countdown = 5;
     const el = document.getElementById('countdown');
+    const aEl = document.querySelector('a');
+    aEl.onclick = (e) => {
+        e.preventDefault();
+        clearInterval(interval);
+        window.location.href = gotoUrl;
+    };
 
     const interval = setInterval(() => {
     countdown -= 1;
     if (el) el.textContent = countdown;
     if (countdown <= 0) {
         clearInterval(interval);
-        window.location.href = redirectUrl;
+        window.location.href = gotoUrl;
     }
     }, 1000);
 </script>
