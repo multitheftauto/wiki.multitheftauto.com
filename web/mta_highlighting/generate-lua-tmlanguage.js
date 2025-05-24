@@ -2,10 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 import { glob } from 'glob';
+import { fileURLToPath } from 'url';
 
-const functionsDir = path.resolve('../../functions');
-const basePath = path.resolve('./lua-base.tmLanguage.json');
-const outputPath = path.resolve('../src/grammars/lua-mta.tmLanguage.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const functionsDir = path.resolve(__dirname, '../../functions');
+const basePath = path.resolve(__dirname, './lua-base.tmLanguage.json');
+const outputPath = path.resolve(__dirname, '../src/grammars/lua-mta.tmLanguage.json');
 
 function extractFunctionsWithScope(yamlContent) {
   if (yamlContent.shared?.name) {
