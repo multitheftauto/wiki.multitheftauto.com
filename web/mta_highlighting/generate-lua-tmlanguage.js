@@ -11,6 +11,8 @@ const functionsDir = path.resolve(__dirname, '../../functions');
 const basePath = path.resolve(__dirname, './lua-base.tmLanguage.json');
 const outputPath = path.resolve(__dirname, '../src/grammars/lua-mta.tmLanguage.json');
 
+const mtaKeywords = ['string','bool','boolean','number','int','float','element','player','vehicle','ped','object','building'];
+
 function extractFunctionsWithScope(yamlContent) {
   if (yamlContent.shared?.name) {
     return [{ name: yamlContent.shared.name, scope: 'support.function.mta-shared' }];
@@ -43,6 +45,13 @@ async function generateTmLanguage() {
       match: `\\b(${Array.from(namesSet).join('|')})\\b`,
       name: scope,
     }));
+
+  if (mtaKeywords.length > 0) {
+    patterns.push({
+      match: `\\b(${mtaKeywords.join('|')})\\b`,
+      name: 'keyword.mta',
+    });
+  }
 
   const baseGrammar = JSON.parse(fs.readFileSync(basePath, 'utf-8'));
   baseGrammar.patterns = [...patterns, ...(baseGrammar.patterns || [])];

@@ -42,6 +42,15 @@
         "fontStyle": "bold"
       }
     },
+
+    {
+      "scope": "keyword.mta",
+      "settings": {
+        "foreground": "#6edb9a",
+        "fontStyle": "bold"
+      }
+    },
+
     {
       "scope": "meta.function.lua",
       "settings": {

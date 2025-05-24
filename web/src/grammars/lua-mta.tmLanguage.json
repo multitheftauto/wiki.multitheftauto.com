@@ -11,6 +11,10 @@
       "name": "support.function.mta-client"
     },
     {
+      "match": "\\b(string|bool|boolean|number|int|float|element|player|vehicle|ped|object|building)\\b",
+      "name": "keyword.mta"
+    },
+    {
       "begin": "\\b(?:(local)\\s+)?(function)\\b(?![,:])",
       "beginCaptures": {
         "1": {
