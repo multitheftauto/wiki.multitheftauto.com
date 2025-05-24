@@ -1,0 +1,50 @@
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
+import { glob } from 'glob';
+
+const functionsDir = path.resolve('../../functions');
+const basePath = path.resolve('./lua-base.tmLanguage.json');
+const outputPath = path.resolve('../src/grammars/lua-mta.tmLanguage.json');
+
+function extractFunctionsWithScope(yamlContent) {
+  if (yamlContent.shared?.name) {
+    return [{ name: yamlContent.shared.name, scope: 'support.function.mta-shared' }];
+  } else if (yamlContent.client?.name) {
+    return [{ name: yamlContent.client.name, scope: 'support.function.mta-client' }];
+  } else if (yamlContent.server?.name) {
+    return [{ name: yamlContent.server.name, scope: 'support.function.mta-server' }];
+  }
+  return [];
+}
+
+async function generateTmLanguage() {
+  const files = await glob('**/*.yaml', { cwd: functionsDir, absolute: true });
+
+  const functionsMap = Object.fromEntries(
+    ['shared', 'server', 'client'].map(scope => [`support.function.mta-${scope}`, new Set()])
+  );
+
+  files.forEach(file => {
+    const yamlContent = yaml.load(fs.readFileSync(file, 'utf-8'));
+    console.log('Processing file:', file);
+
+    const items = Array.isArray(yamlContent) ? yamlContent : [yamlContent];
+    items.flatMap(extractFunctionsWithScope).forEach(({ name, scope }) => functionsMap[scope].add(name));
+  });
+
+  const patterns = Object.entries(functionsMap)
+    .filter(([, namesSet]) => namesSet.size > 0)
+    .map(([scope, namesSet]) => ({
+      match: `\\b(${Array.from(namesSet).join('|')})\\b`,
+      name: scope,
+    }));
+
+  const baseGrammar = JSON.parse(fs.readFileSync(basePath, 'utf-8'));
+  baseGrammar.patterns = [...patterns, ...(baseGrammar.patterns || [])];
+
+  fs.writeFileSync(outputPath, JSON.stringify(baseGrammar, null, 2));
+  console.log(`Done!`);
+}
+
+generateTmLanguage();
