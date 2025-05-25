@@ -123,7 +123,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                 ) || (
                     <h4>{syntax.type.charAt(0).toUpperCase() + syntax.type.slice(1)} Syntax</h4>
                 )}
-                <Code code={syntax.syntaxString} lang="c" />
+                <Code code={syntax.syntaxString} lang="lua" />
                 {syntax.parameters.length > 0 && (
                 <>
                     {syntax.parameters.some((param: any) => !param.default) && (

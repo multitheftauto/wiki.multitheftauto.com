@@ -3,8 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "predev": "node mta_highlighting/generate-lua-tmlanguage.js",
     "dev": "astro dev",
     "start": "astro dev",
+    "prebuild": "node mta_highlighting/generate-lua-tmlanguage.js",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -13,6 +15,8 @@
     "@astrojs/starlight": "^0.34.3",
     "@multitheftauto/starlight-theme-mtasa": "^1.4.1",
     "astro": "^5.7.13",
+    "glob": "^11.0.2",
+    "js-yaml": "^4.1.0",
     "marked": "^15.0.6",
     "sharp": "^0.32.5"
   },
