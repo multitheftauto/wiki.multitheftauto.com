@@ -1,0 +1,49 @@
+---
+interface ChangelogEntry {
+  version: string;
+  description: string;
+}
+
+interface Props {
+  entries: ChangelogEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+{entries.length > 0 && (
+  <div class="changelog-section">
+    <h4>Changelog</h4>
+    <div class="changelog-list">
+      {entries.map(entry => (
+        <li>
+          <span class="changelog-version">{entry.version}</span>
+          <span class="changelog-description">{entry.description}</span>
+        </li>
+      ))}
+    </div>
+  </div>
+)}
+
+<style>
+.changelog-list {
+  background-color: var(--sl-color-bg-nav);
+  border-left: 4px solid var(--sl-color-gray-5);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--sl-color-text);
+  list-style: none;
+}
+
+.changelog-version {
+  font-weight: bold;
+  color: var(--sl-color-orange-high);
+  display: block;
+}
+
+.changelog-description {
+  display: block;
+  margin-left: 0.5rem;
+}
+</style>

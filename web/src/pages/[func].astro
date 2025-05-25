@@ -14,6 +14,8 @@ import type { NotesType } from '@src/utils/types';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 
+import ChangelogList from '@src/components/ChangelogList.astro';
+
 export async function getStaticPaths() {
     const functions = await getCollection('functions');
     return functions.map(func => ({
@@ -55,6 +57,9 @@ let notesContent: NotesType = [];
 if (Array.isArray(funcInfo.notes) && funcInfo.notes.length > 0) {
     notesContent = funcInfo.notes;
 }
+
+const metaArray = func.data[funcInfo.type]?.meta ?? [];
+const changelogEntries = metaArray.find(m => m.changelog)?.changelog ?? [];
 
 let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
 
@@ -174,6 +179,8 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         ))}
 
         <CodeExamplesSection codeExamples={funcExamples} />
+
+        <ChangelogList entries={changelogEntries} />
 
         <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(func)} currentId={func.id} />
     </StarlightPage>
