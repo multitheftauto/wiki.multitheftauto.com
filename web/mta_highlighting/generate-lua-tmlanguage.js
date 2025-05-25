@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const functionsDir = path.resolve(__dirname, '../../functions');
 const basePath = path.resolve(__dirname, './lua-base.tmLanguage.json');
-const outputPath = path.resolve(__dirname, '../public/grammars/lua-mta.tmLanguage.json');
+const outputPath = path.resolve(__dirname, '../src/grammars/lua-mta.tmLanguage.json');
 
 const mtaKeywords = ['string','bool','boolean','number','int','float','element','player','vehicle','ped','object','building'];
 
