@@ -35,6 +35,21 @@ $defs:
         needs_checking:
           type: string
           description: Describe why the item needs checking by another person. What's problematic?
+        changelog:
+          type: array
+          description: A chronological list of changes related to this item.
+          items:
+            type: object
+            required:
+              - version
+              - description
+            properties:
+              version:
+                type: string
+                description: Version in which the change was introduced.
+              description:
+                type: string
+                description: Description of what changed.
 
   preview_images:
     type: array
