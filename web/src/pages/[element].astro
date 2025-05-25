@@ -43,7 +43,7 @@ let oop_compatible_functions = getOOPFunctionsForElement(element.data.name);
   title: element.id,
   tableOfContents: false,
 }}>
-  <p>Category: <strong>{getElementCategory(element)}</strong></p>
+  <p><a href="/Element">Element</a> category: <strong>{getElementCategory(element)}</strong></p>
 
   <Fragment set:html={marked(element.data.description)} />
 
