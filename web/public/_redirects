@@ -2,10 +2,10 @@
 /wiki/* /:splat
 /Main_Page /
 
+/element /Element
 /MTA_Classes /Element
 /Element/:elementname /:elementname
 
 /Vector/:vectorclass /:vectorclass
 
 /OOP /OOP_Introduction
-/OOP/ /OOP_Introduction

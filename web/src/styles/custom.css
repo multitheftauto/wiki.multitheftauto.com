@@ -47,3 +47,12 @@
 .side-server {
     color: var(--color-type-server);
 }
+
+.mta-keyword-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.mta-keyword-link:hover {
+    font-weight: 100;
+}
