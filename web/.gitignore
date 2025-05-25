@@ -21,4 +21,4 @@ pnpm-debug.log*
 .DS_Store
 
 # tmLanguage file
-public/grammars/
+src/grammars/

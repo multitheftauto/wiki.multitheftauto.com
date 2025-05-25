@@ -10,7 +10,7 @@ export default {
       {
         id: 'lua',
         scopeName: 'source.lua.mta',
-        ...JSON.parse(fs.readFileSync('./public/grammars/lua-mta.tmLanguage.json', 'utf-8')),
+        ...JSON.parse(fs.readFileSync('./src/grammars/lua-mta.tmLanguage.json', 'utf-8')),
       },
     ],
   },
