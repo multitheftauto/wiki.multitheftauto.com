@@ -1,6 +1,4 @@
-import tmLanguage from "../src/grammars/lua-mta.tmLanguage.json";
-
-function extractFunctions() {
+function extractFunctions(tmLanguage) {
   const wantedScopes = new Set([
     "support.function.mta-shared",
     "support.function.mta-server",
@@ -16,9 +14,7 @@ function extractFunctions() {
   }, []) || [];
 }
 
-const allFunctions = new Set(extractFunctions());
-
-function initKeywordLinker() {
+function initKeywordLinker(allFunctions) {
   function onDomReady() {
     const spans = [
       ...document.querySelectorAll(".examples-section .code-example pre code span"),
@@ -38,4 +34,8 @@ function initKeywordLinker() {
     : onDomReady();
 }
 
-initKeywordLinker();
+fetch('/grammars/lua-mta.tmLanguage.json')
+  .then(response => response.json())
+  .then(tmLanguage => {
+    initKeywordLinker(new Set(extractFunctions(tmLanguage)));
+});
