@@ -6,6 +6,10 @@ import { SITE_TITLE, SITE_URL } from './src/content.constants';
 
 export default defineConfig({
 	site: SITE_URL,
+	redirects: {
+		// External redirects only, the others are handled by CloudFlare pages (_redirects file)
+		"/How_you_can_help": "https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md",
+	},
 	i18n: {
 		locales: ["en", "es", "fr"],
 		defaultLocale: "en",
@@ -76,9 +80,9 @@ export default defineConfig({
 							]
 						},
 						{
-							label: 'Element types',
+							label: 'Elements',
 							items: [
-								{label: 'Element', link: 'Element'},
+								{label: 'Element types', link: 'Element'},
 								{label: 'Element tree', link: 'Element_tree'},
 								{label: 'Entity', link: 'Entity'},
 							]

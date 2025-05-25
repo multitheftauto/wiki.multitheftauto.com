@@ -1,0 +1,227 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Image } from 'astro:assets';
+
+// IMAGES
+import image_mtaLogo from '../../../assets/index/mta_logo.png';
+
+import { MTA_CURRENT_VERSION } from '@src/content.constants';
+import { Icon } from '@astrojs/starlight/components';
+---
+
+<StarlightPage frontmatter={{
+    template: 'doc',
+    tableOfContents: false,
+    title: 'Multi Theft Auto: Wiki',
+    head: [
+        {
+            tag: 'title',
+            content: 'Multi Theft Auto: Wiki',
+        }
+    ],
+}}>
+<div class="mtahero">
+    <div class="mtahero_left">
+        <Image src={image_mtaLogo} alt="Multi Theft Auto Logo"/>
+    </div>
+
+    <div class="mtahero_right">
+        <p>Welcome to the <strong>new Multi Theft Auto Wiki</strong> (work in progress). Visit this wiki's <a href="https://github.com/multitheftauto/wiki.multitheftauto.com" target="_blank">GitHub repository</a> for more information about the project and how to contribute. The old wiki is still active at <a href="https://wiki.multitheftauto.com/wiki/Main_Page">wiki.multitheftauto.com</a> (where unofficial articles and pages are still available).</p>
+        
+        <p>There are many <a href="/How_you_can_help" target="_blank">things you can do</a> to help us improve MTA - create a map, a gamemode, help document scripting functions, write example code, write tutorials or just play MTA and report the bugs you find.</p>
+
+        <p>If you have any questions or problems related to scripting, feel free to get in touch with us on <a href="https://discord.com/invite/mtasa" target="_blank">Discord</a>.</p>
+
+        <p class="bigtext"><em>[ Stop playing with yourself ]</em></p>
+    </div>
+</div>
+
+<div class="mtagrid">
+    <div class="mtabox">
+        <h3>Play</h3>
+        <div>
+            <a class="downloadmta" href="https://multitheftauto.com/"><Icon size="1.8rem" name="download" color="lightgreen" class="inline-icon" />Download <strong>Multi Theft Auto: San Andreas</strong> ({MTA_CURRENT_VERSION.full})</a>
+        </div>
+        <ul>
+            <li><a href="/Where_to_buy_GTASA">Where to buy GTASA</a></li>
+            <li><a href="/Client_Manual">Client Manual</a></li>
+            <li><a href="/Changes_in_current_version">Changes in Current Version</a></li>
+            <li><a href="/Known_Issues_-_FAQ">Known Issues</a></li>
+            <li><a href="/Server_Manual">Server Manual</a></li>
+            <li><a href="/Map_manager">Map Manager</a></li>
+        </ul>
+    </div>
+    <div class="mtabox">
+        <h3>Map Editor</h3>
+        <ul>
+            <li><a href="/Resource:Editor">Manual</a></li>
+            <li><a href="/Resource:Editor/EDF">Editor Definition Format</a></li>
+            <li><a href="/Resource:Editor/Plugins">Plugins</a></li>
+            <li><a href="/Resource:Editor#FAQ">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
+    <div class="mtabox">
+        <h3>Databases</h3>
+        <p>This section outlines all the Lua capabilities MTA or resources provide.</p>
+        <ul>
+            <li><a href="/Category:Resource">Resource Catalogue</a></li>
+            <li><a href="/Client_side_scripts">Client side scripts</a></li>
+            <li><a href="/Modules">Modules</a></li>
+        </ul>
+    </div>
+
+    <div class="mtabox">
+        <h3>Developing Multi Theft Auto</h3>
+        <a href="https://nightly.mtasa.com/">
+            Nightly builds
+        </a>
+        <ul>
+            <li><a href="/Compiling_MTASA">Compiling MTASA on Windows</a></li>
+            <li><a href="/Building_MTASA_Server_on_GNU_Linux">Compiling MTASA on GNU/Linux</a></li>
+            <li><a href="/Coding_guidelines">Coding guidelines</a></li>
+            <li><a href="https://github.com/multitheftauto/mtasa-blue">Main GitHub repository</a></li>
+            <li><a href="/Roadmap">Roadmap</a></li>
+            <li><a href="https://github.com/multitheftauto/mtasa-blue/issues">Bugtracker</a></li>
+            <li><a href="/Branches">Branches</a></li>
+            <li><a href="/Forks">Forks and anti cheat</a></li>
+        </ul>
+    </div>
+
+    <div class="mtabox">
+        <h3>Wiki - How can you help</h3>
+        <ul>
+            <li>Finish documentation for <a href="/Category:Incomplete">Incomplete functions</a></li>
+            <li><a href="/Category:Needs_Example">Add examples to functions and events</a></li>
+            <li><a href="/Category:Needs_Checking">Review pages that need checking</a></li>
+            <li>Write tutorials to help new people</li>
+            <li>Translate wiki pages</li>
+        </ul>
+    </div>
+
+    <div class="mtabox">
+        <h3>Community</h3>
+        <ul>
+            <li><a href="https://forum.multitheftauto.com/">Forum</a></li>
+            <li><a href="https://discord.com/invite/mtasa">Official MTA Discord server</a> (<a href="https://forum.multitheftauto.com/topic/95008-multi-theft-autos-official-discord-server/">Forum post</a>)</li>
+            <li><a href="https://discord.com/invite/GNN6PRtTnu">Development Discord</a></li>
+            <li><a href="https://community.multitheftauto.com/">MTA Community</a></li>
+            <li><a href="https://twitter.com/MTAQA">Twitter</a>, <a href="https://www.youtube.com/user/MTAQA">YouTube</a>, <a href="https://www.facebook.com/multitheftauto">Facebook</a>, <a href="https://www.moddb.com/mods/multi-theft-auto-san-andreas">ModDB</a></li>
+        </ul>
+    </div>
+
+
+    <div class="mtabox">
+        <h3>Scripting</h3>
+        <ul>
+            <li><a href="/Scripting_Introduction">Introduction to Scripting</a></li>
+            <li><a href="/Introduction_to_Scripting_the_GUI">Introduction to Scripting the GUI</a></li>
+            <li><a href="/Debugging">Debugging Tutorial</a></li>
+            <li><a href="/Resources">Introduction to Resources</a>
+            <ul>
+                <li><a href="/Resource_Web_Access">Resource Web Access</a></li>
+                <li><a href="/CEF_Tutorial">CEF Tutorial</a></li>
+                <li><a href="/Category:Resource">Resource Catalogue</a></li>
+                <li><a href="/Meta.xml">Meta.xml</a></li>
+                <li><a href="/ACL">ACL</a></li>
+            </ul>
+            </li>
+            <li><a href="/Writing_Gamemodes">Writing Gamemodes</a></li>
+            <li><a href="/Script_security">Script security</a></li>
+        </ul>
+        <p>Forum Links</p>
+        <ul>
+            <li><a href="https://forum.multitheftauto.com/forum/71-scripting/">Scripting Sub-Forum</a></li>
+            <li><a href="https://forum.multitheftauto.com/forum/123-tutorials/">Scripting Tutorials Sub-Forum</a></li>
+            <li><a href="https://forum.multitheftauto.com/topic/24702-mtasa-wiki-offline-copies-online-mirrors/">Offline Wiki Copies</a></li>
+        </ul>
+        <h3>General Lua Help</h3>
+        <ul>
+            <li><a href="http://www.lua.org/pil/index.html">Programming in Lua Manual</a></li>
+            <li><a href="http://www.lua.org/manual/5.1/#index">Internal Lua functions reference</a></li>
+            <li><a href="http://lua-users.org/wiki/TutorialDirectory">Lua Wiki</a></li>
+            <li><a href="http://nixstaller.sourceforge.net/manual/0.5.1/nixstaller_10.html">Lua Guide from Nixstaller</a></li>
+        </ul>
+    </div>
+
+    <div class="mtabox">
+        <h3>Reference</h3>
+        <a href="/Lua_API">MTA Lua API Reference</a>
+        <ul>
+            <li><a href="/Client_Scripting_Functions">Client-side Functions</a></li>
+            <li><a href="/Client_Scripting_Events">Client-side Events</a></li>
+            <li><a href="/Server_Scripting_Functions">Server-side Functions</a></li>
+            <li><a href="/Server_Scripting_Events">Server-side Events</a></li>
+            <li><a href="/Useful_Functions">Useful Functions</a></li>
+            <li><a href="/MTA_Classes">MTA Classes</a></li>
+            <li><a href="/Element">MTA Elements</a> / <a href="/Element_tree">Element tree</a></li>
+        </ul>
+    </div>
+
+    <div class="mtabox">
+        <h3><a href="/Id">ID Lists</a></h3>
+        <ul>
+            <li><a href="/Animations">Animations</a></li>
+            <li><a href="/Character_Skins">Character Skins</a></li>
+            <li><a href="/CJ_Clothes">Clothing styles</a></li>
+            <li><a href="/Garage">Garage IDs</a></li>
+            <li><a href="/Interior_IDs">Interior IDs</a></li>
+            <li><a href="/Material_IDs">Material IDs</a></li>
+            <li><a href="/Ped_voices">Ped Voices</a></li>
+            <li><a href="/Projectiles">Projectiles</a></li>
+            <li><a href="/Radar_Blips">Radar Blips</a></li>
+            <li><a href="/Sounds">Sounds</a></li>
+            <li><a href="/Vehicle_IDs">Vehicle IDs</a></li>
+            <li><a href="/Vehicle_Colors">Vehicle Colors</a></li>
+            <li><a href="/Vehicle_Upgrades">Vehicle Upgrades</a></li>
+            <li><a href="/Vehicle_variants">Vehicle Variants</a></li>
+            <li><a href="/Vehicle_component_manipulation">Vehicle component manipulation</a></li>
+            <li><a href="/Weapons">Weapons</a></li>
+            <li><a href="/Weather">Weather</a></li>
+        </ul>
+    </div>
+</div>
+
+</StarlightPage>
+
+<style>
+    .bigtext {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+
+    .mtahero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mtahero_left {
+        flex: 1;
+        align-self: flex-start;
+        padding-right: 16px;
+    }
+    .mtahero_right {
+        flex: 3;
+    }
+
+    .mtagrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 boxes per row */
+        gap: 2rem; /* spacing between boxes */
+    }
+
+    .mtabox {
+        padding: 4px 8px 8px 8px;
+        padding: 1rem;
+    }
+
+    .downloadmta {
+        font-size: 1.2em;
+        color: lightgreen !important;
+    }
+    .inline-icon {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 6px;
+    }
+</style>

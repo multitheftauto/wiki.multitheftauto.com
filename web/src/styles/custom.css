@@ -24,7 +24,9 @@
 }
 
 .see-also-section {
-    margin-top: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
 }
 
 .code-example {

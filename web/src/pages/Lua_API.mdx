@@ -1,9 +1,47 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import AnchorHeading from '@astrojs/starlight/components/AnchorHeading.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
 <StarlightPage frontmatter={{
     template: 'doc',
     title: 'Lua API',
     tableOfContents: false,
+    hero: {
+        tagline: "Power up your gameplay with the MTA Lua API – script smarter, play harder.",
+        actions: [
+            {
+                text: 'Functions',
+                link: '/Scripting_Functions',
+                variant: 'secondary',
+                icon: 'magnifier',
+            },
+            {
+                text: 'Events',
+                link: '/Scripting_Events',
+                variant: 'secondary',
+                icon: 'magnifier',
+            },
+            {
+                text: 'Elements',
+                link: '/Element',
+                variant: 'secondary',
+                icon: 'magnifier',
+            },
+            {
+                text: 'OOP',
+                link: '/OOP_Introduction',
+                variant: 'secondary',
+                icon: 'magnifier',
+            },
+        ]
+    },
 }}>
+    ### About
     The MTA **Lua API** is built on an extended version of [Lua 5.1](https://www.lua.org/manual/5.1/) and offers tools to enhance and customize gameplay.
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'article:OOP_Introduction',
+    ])} currentId='' />
+
 </StarlightPage>
