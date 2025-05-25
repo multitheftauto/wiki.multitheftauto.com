@@ -1,11 +1,11 @@
-import tmLanguage from "../src/grammars/lua-mta.tmLanguage.json";
+let allFunctions = new Set();
 
-function extractFunctions() {
+function extractFunctions(tmLanguage) {
   const wantedScopes = new Set([
     "support.function.mta-shared",
     "support.function.mta-server",
     "support.function.mta-client",
-    'keyword.mta'
+    "keyword.mta"
   ]);
 
   return tmLanguage.patterns?.reduce((funcs, { match, name }) => {
@@ -15,8 +15,6 @@ function extractFunctions() {
     return funcs;
   }, []) || [];
 }
-
-const allFunctions = new Set(extractFunctions());
 
 function initKeywordLinker() {
   function onDomReady() {
@@ -33,9 +31,15 @@ function initKeywordLinker() {
     });
   }
 
-  document.readyState === "loading"
-    ? window.addEventListener("DOMContentLoaded", onDomReady)
-    : onDomReady();
+  fetch('/lua-mta.tmLanguage.json')
+    .then(res => res.json())
+    .then(json => {
+      allFunctions = new Set(extractFunctions(json));
+      document.readyState === "loading"
+        ? window.addEventListener("DOMContentLoaded", onDomReady)
+        : onDomReady();
+    })
+    .catch(err => console.error("Failed to load JSON grammar:", err));
 }
 
 initKeywordLinker();
