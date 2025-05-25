@@ -32,7 +32,7 @@ import { Icon } from '@astrojs/starlight/components';
 
         <p>If you have any questions or problems related to scripting, feel free to get in touch with us on <a href="https://discord.com/invite/mtasa" target="_blank">Discord</a>.</p>
 
-        <p class="bigtext"><em>[ Stop playing with yourself ]</em></p>
+        <p class="bigtext">[ Stop playing with yourself ]</p>
     </div>
 </div>
 
@@ -40,7 +40,7 @@ import { Icon } from '@astrojs/starlight/components';
     <div class="mtabox">
         <h3>Play</h3>
         <div>
-            <a class="downloadmta" href="https://multitheftauto.com/"><Icon size="1.8rem" name="download" color="lightgreen" class="inline-icon" />Download <strong>Multi Theft Auto: San Andreas</strong> ({MTA_CURRENT_VERSION.full})</a>
+            <a class="downloadmta mtagreen" href="https://multitheftauto.com/"><Icon size="1.8rem" name="download" class="mtadownload-icon mtagreen" />Download <strong>Multi Theft Auto: San Andreas</strong> ({MTA_CURRENT_VERSION.full})</a>
         </div>
         <ul>
             <li><a href="/Where_to_buy_GTASA">Where to buy GTASA</a></li>
@@ -217,11 +217,17 @@ import { Icon } from '@astrojs/starlight/components';
 
     .downloadmta {
         font-size: 1.2em;
-        color: lightgreen !important;
     }
-    .inline-icon {
+    .mtadownload-icon {
         display: inline-block;
         vertical-align: top;
         margin-right: 6px;
     }
+    .mtagreen {
+        color: lightgreen !important;
+    }
+    :root[data-theme="light"] .mtagreen {
+        color: #00ac09 !important;
+    }
+
 </style>
