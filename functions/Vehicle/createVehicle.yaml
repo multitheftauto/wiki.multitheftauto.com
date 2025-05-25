@@ -1,0 +1,76 @@
+shared: &shared
+  name: 'createVehicle'
+  notes:
+    - type: 'info'
+      content: |
+        Vehicles (and other elements) created client-side are only seen by the client that created them, aren't synced and players cannot enter them. They are essentially for display only.
+    - type: 'info'
+      content: |
+        Due to how GTA works, creating a lot of vehicles in the same place will cause lag. The more geometries and unique textures has model the bigger the lag is. Even a lot of default vehicles will cause lag if in the same place.
+    - type: 'important'
+      content: |
+        It's worth nothing that the position of the vehicle is the center point of the vehicle, not its base. As such, you need to ensure that the z value (vertical axis) is some height above the ground. You can find the exact height using the client side function [getElementDistanceFromCentreOfMassToBaseOfModel](/getElementDistanceFromCentreOfMassToBaseOfModel), or you can estimate it yourself and just spawn the vehicle so it drops to the ground.
+  oop:
+    entity: vehicle
+    constructorclass: Vehicle
+  description: |
+    This function creates a [vehicle](/vehicle) at the specified location.
+  parameters:
+    - name: 'model'
+      type: 'int'
+      description: "The [vehicle ID](/Vehicle_IDs) of the vehicle being created."
+    - name: 'x'
+      type: 'float'
+      description: "A floating point number representing the X coordinate on the map."
+    - name: 'y'
+      type: 'float'
+      description: "A floating point number representing the Y coordinate on the map."
+    - name: 'z'
+      type: 'float'
+      description: "A floating point number representing the Z coordinate on the map."
+    - name: 'rx'
+      type: 'float'
+      default: '0'
+      description: "A floating point number representing the rotation about the X axis in degrees."
+    - name: 'ry'
+      type: 'float'
+      default: '0'
+      description: "A floating point number representing the rotation about the Y axis in degrees."
+    - name: 'rz'
+      type: 'float'
+      default: '0'
+      description: "A floating point number representing the rotation about the Z axis in degrees."
+    - name: 'numberplate'
+      type: 'string'
+      default: 'random'
+      description: "A string representing the vehicle's number plate. If not specified, the vehicle will have a random number plate."
+    - name: 'bDirection'
+      type: 'boolean'
+      default: 'false'
+      description: "*(Serverside only)*: Placeholder boolean which provides backward compatibility with some scripts. **It never had any effect, but it is read by the code.** It is recommended to ignore this argument, passing *false* or the next `variant1` argument in its place."
+    - name: 'variant1'
+      type: 'int'
+      default: 'random'
+      description: "An integer for the first vehicle variant. See [vehicle variants](/Vehicle_variants)."
+    - name: 'variant2'
+      type: 'int'
+      default: 'random'
+      description: "An integer for the second vehicle variant. See [vehicle variants](/Vehicle_variants)."
+    - name: 'synced'
+      type: 'boolean'
+      default: 'true'
+      description: "*(Serverside only)*: A boolean value representing whether or not the vehicle will be synced. Disabling the sync might be useful for frozen or static vehicles to increase the server performance."
+  returns:
+    description: |
+      Returns the [vehicle](/vehicle) element that was created. Returns *false* if the arguments are incorrect, or if the vehicle limit of `65535` is exceeded.
+    values:
+      - type: 'vehicle|false'
+        name: 'theVehicle'
+
+# TODO: add examples from wiki
+
+server:
+  <<: *shared
+
+client:
+  <<: *shared
