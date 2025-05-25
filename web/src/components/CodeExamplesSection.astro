@@ -6,6 +6,7 @@ import NeedsExample from '@src/components/NeedsExample.astro';
 export interface CodeExample {
   description?: string;
   luaCode: string;
+  side: string;
 }
 
 export interface Props {
@@ -18,18 +19,126 @@ const { codeExamples } = Astro.props;
 <div class="examples-section">
   <h4>Code Examples</h4>
 
-  {codeExamples.length > 0 ? (
-    codeExamples.map((example) => (
-      <div class="code-example">
-        {example.description && (
-          <Fragment set:html={marked(example.description)} />
-        )}
-        <Code code={example.luaCode} lang="lua" />
-      </div>
-    ))
-  ) : (
+  {codeExamples.length === 0 ? (
     <NeedsExample />
+  ) : (
+    <div class="examples-tabs-box">
+      {codeExamples.length > 1 && (
+        <div class="tab-buttons" id="code-tabs">
+          {codeExamples.map((example, index) => (
+            <button
+              class={`tab-btn ${index === 0 ? 'active' : ''} side-${example.side}`}
+              data-tab={index}
+              type="button"
+            >
+              Example {index + 1}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {codeExamples.map((example, index) => (
+        <div class="tab-content" data-tab={index} style={{ display: index === 0 ? 'block' : 'none' }}>
+          {example.description && <Fragment set:html={marked(example.description)} />}
+          <div class="code-example">
+            <Code code={example.luaCode} lang="lua" />
+          </div>
+        </div>
+      ))}
+    </div>
   )}
 </div>
+
+<style>
+.tab-buttons {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tab-buttons.has-scrollbar {
+  padding-bottom: 1rem;
+}
+
+.tab-btn {
+  padding: 0.4rem 0.8rem;
+  margin: 0;
+  border: 1px solid var(--sl-color-gray-4);
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--sl-color-text);
+  transition: background-color 0.2s ease;
+}
+
+.tab-btn.active {
+  color: white;
+  font-weight: bold;
+}
+
+.side-client {
+  background-color: var(--color-type-client-background);
+  border-color: var(--color-type-client);
+}
+
+.side-client.active {
+  background-color: var(--color-type-client-background-high);
+}
+
+.side-server {
+  background-color: var(--color-type-server-background);
+  border-color: var(--color-type-server);
+}
+
+.side-server.active {
+  background-color: var(--color-type-server-background-high);
+}
+
+.side-shared {
+  background-color: var(--color-type-shared-background);
+  border-color: var(--color-type-shared);
+}
+
+.side-shared.active {
+  background-color: var(--color-type-shared-background-high);
+}
+
+.tab-content {
+  background-color: var(--sl-color-bg-nav);
+  padding: 1rem;
+  box-shadow: var(--ec-frm-frameBoxShdCssVal);
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.tab-content');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+
+        buttons.forEach((b) => b.classList.toggle('active', b.dataset.tab === tab));
+        tabs.forEach((t) => (t.style.display = t.dataset.tab === tab ? 'block' : 'none'));
+      });
+    });
+
+    function checkOverflow() {
+      const tabButtons = document.querySelector('.tab-buttons');
+      if (!tabButtons) return;
+
+      if (tabButtons.scrollWidth > tabButtons.clientWidth) {
+        tabButtons.classList.add('has-scrollbar');
+      } else {
+        tabButtons.classList.remove('has-scrollbar');
+      }
+    }
+
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+  });
+</script>
 
 <script type="module" src="/mta-keyword_linker.js"></script>

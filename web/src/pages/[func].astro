@@ -35,13 +35,24 @@ const funcPath = path.dirname(func.filePath ?? "");
 // join shared, client and server examples (in func.data) if any
 let funcExamples: any[] = [];
 if (func.data.shared && func.data.shared.examples) {
-    funcExamples = [...funcExamples, ...func.data.shared.examples];
+  funcExamples = [
+    ...funcExamples,
+    ...func.data.shared.examples.map((ex: any) => ({ ...ex, side: 'shared' })),
+  ];
 }
+
 if (func.data.client && func.data.client.examples) {
-    funcExamples = [...funcExamples, ...func.data.client.examples];
+  funcExamples = [
+    ...funcExamples,
+    ...func.data.client.examples.map((ex: any) => ({ ...ex, side: 'client' })),
+  ];
 }
+
 if (func.data.server && func.data.server.examples) {
-    funcExamples = [...funcExamples, ...func.data.server.examples];
+  funcExamples = [
+    ...funcExamples,
+    ...func.data.server.examples.map((ex: any) => ({ ...ex, side: 'server' })),
+  ];
 }
 funcExamples = funcExamples.map((example: any) => {
     try {
