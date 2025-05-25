@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const functionsDir = path.resolve(__dirname, '../../functions');
 const basePath = path.resolve(__dirname, './lua-base.tmLanguage.json');
 const outputPath = path.resolve(__dirname, '../src/grammars/lua-mta.tmLanguage.json');
-const publicPath = path.resolve(__dirname, '../public/lua-mta.tmLanguage.json');
+const publicPath = path.resolve(__dirname, '../public/grammars/lua-mta.tmLanguage.json');
 
 const mtaKeywords = ['string','bool','boolean','number','int','float','element','player','vehicle','ped','object','building'];
 
@@ -57,11 +57,14 @@ async function generateTmLanguage() {
   const baseGrammar = JSON.parse(fs.readFileSync(basePath, 'utf-8'));
   baseGrammar.patterns = [...patterns, ...(baseGrammar.patterns || [])];
 
-  // Ensure the directory exists
+  // Ensure the directoroes exist
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.mkdirSync(path.dirname(publicPath), { recursive: true });
+
+  // Write the updated grammar to the output file
   fs.writeFileSync(outputPath, JSON.stringify(baseGrammar, null, 2));
   
-  // Create file also in public directory for clickable keywords (public/mta-keywords_linker.js)
+  // Create file also in public directory for clickable keywords
   fs.copyFileSync(outputPath, publicPath);
   
   console.log(`Done!`);

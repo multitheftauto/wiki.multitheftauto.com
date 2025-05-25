@@ -31,7 +31,7 @@ function initKeywordLinker() {
     });
   }
 
-  fetch('/lua-mta.tmLanguage.json')
+  fetch('/grammars/lua-mta.tmLanguage.json')
     .then(res => res.json())
     .then(json => {
       allFunctions = new Set(extractFunctions(json));

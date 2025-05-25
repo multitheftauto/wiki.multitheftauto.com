@@ -22,3 +22,4 @@ pnpm-debug.log*
 
 # tmLanguage file
 src/grammars/
+public/grammars/
