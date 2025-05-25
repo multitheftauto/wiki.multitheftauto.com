@@ -127,36 +127,52 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
   switch (itemType) {
     case 'function':
       seeAlso = shared?.see_also ?? client?.see_also ?? server?.see_also ?? [];
-      addToSeeAlso = [`functions:any:${itemCategoryName}`, `events:any:${itemCategoryName}`];
+      addToSeeAlso = [
+        `functions:any:${itemCategoryName}`,
+        `events:any:${itemCategoryName}`,
+        `elements:any:${itemCategoryName}`,
+        `article:Scripting_Functions`,
+      ];
       break;
     case 'event':
       seeAlso = see_also ?? [];
-      addToSeeAlso = [`events:any:${itemCategoryName}`, `functions:any:${itemCategoryName}`];
+      addToSeeAlso = [
+        `events:any:${itemCategoryName}`,
+        `functions:any:${itemCategoryName}`,
+        `elements:any:${itemCategoryName}`,
+        `article:Scripting_Events`,
+      ];
       break;
     case 'element':
       seeAlso = see_also ?? [];
       const elementCategory = getElementCategory(theItem);
       if (elementCategory === 'GUI') {
         // Show GUI functions, events and other GUI element types
+        // as well as the Element article
         addToSeeAlso = [
           `functions:any:${elementCategory}`,
           `events:any:${elementCategory}`,
           `elements:any:${elementCategory}`,
+          `article:Element`,
         ];
       } else if (elementCategory === 'General') {
         // Also show generic Element functions and events if category is General
         addToSeeAlso = [
           `functions:any:${niceName}`,
           `events:any:${niceName}`,
+          `elements:any:${niceName}`,
           `functions:any:Element`,
           `events:any:Element`,
+          `article:Element`,
         ];
       }
       else {
         // Show all functions and events for the element type
+        // and the Element article
         addToSeeAlso = [
           `functions:any:${niceName}`,
           `events:any:${niceName}`,
+          `article:Element`,
         ];
       }
       break;
