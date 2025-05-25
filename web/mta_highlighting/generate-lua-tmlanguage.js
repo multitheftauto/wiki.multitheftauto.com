@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 const functionsDir = path.resolve(__dirname, '../../functions');
 const basePath = path.resolve(__dirname, './lua-base.tmLanguage.json');
 const outputPath = path.resolve(__dirname, '../src/grammars/lua-mta.tmLanguage.json');
+const publicPath = path.resolve(__dirname, '../public/lua-mta.tmLanguage.json');
 
 const mtaKeywords = ['string','bool','boolean','number','int','float','element','player','vehicle','ped','object','building'];
 
@@ -58,8 +59,11 @@ async function generateTmLanguage() {
 
   // Ensure the directory exists
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-
   fs.writeFileSync(outputPath, JSON.stringify(baseGrammar, null, 2));
+  
+  // Create file also in public directory for clickable keywords (public/mta-keywords_linker.js)
+  fs.copyFileSync(outputPath, publicPath);
+  
   console.log(`Done!`);
 }
 
