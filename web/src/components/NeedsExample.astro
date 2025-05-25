@@ -1,0 +1,45 @@
+---
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const functionName = pathSegments[pathSegments.length - 1];
+---
+
+<div class="missing-example-box">
+  <div class="missing-example-icon" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M6 2C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2H6ZM13 3.5L18.5 9H13V3.5Z"/>
+    </svg>
+  </div>
+  <div class="missing-example-content">
+    <strong>Script Example Missing</strong>
+    <p>Function <code>{functionName}</code> needs a script example. Help out by writing one.</p>
+    <a href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md" class="guidelines-link">Contribution guidelines</a>
+  </div>
+</div>
+
+<style>
+.missing-example-box {
+    display: flex;
+    align-items: center;
+    background-color: var(--sl-color-bg-nav);
+    border-left: 4px solid var(--sl-color-orange);
+    padding: 1rem 1.25rem 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    color: var(--sl-color-text);
+    gap: 1rem;
+}
+
+.missing-example-icon {
+    color: var(--sl-color-orange);
+}
+
+.missing-example-content
+{
+    margin-top: 0;
+}
+
+.guidelines-link {
+  color: var(--sl-color-orange);
+  font-weight: bold;
+}
+</style>

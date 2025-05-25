@@ -1,6 +1,7 @@
 ---
 import { Code } from '@astrojs/starlight/components';
 import { marked } from 'marked';
+import NeedsExample from '@src/components/NeedsExample.astro';
 
 export interface CodeExample {
   description?: string;
@@ -14,18 +15,21 @@ export interface Props {
 const { codeExamples } = Astro.props;
 ---
 
-{codeExamples.length > 0 && (
-  <div class="examples-section">
-    <h4>Code Examples</h4>
-    {codeExamples.map((example) => (
+<div class="examples-section">
+  <h4>Code Examples</h4>
+
+  {codeExamples.length > 0 ? (
+    codeExamples.map((example) => (
       <div class="code-example">
         {example.description && (
           <Fragment set:html={marked(example.description)} />
         )}
         <Code code={example.luaCode} lang="lua" />
       </div>
-    ))}
-  </div>
-)}
+    ))
+  ) : (
+    <NeedsExample />
+  )}
+</div>
 
 <script type="module" src="/mta-keyword_linker.js"></script>
