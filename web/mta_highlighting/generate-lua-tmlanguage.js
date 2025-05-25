@@ -57,11 +57,13 @@ async function generateTmLanguage() {
   const baseGrammar = JSON.parse(fs.readFileSync(basePath, 'utf-8'));
   baseGrammar.patterns = [...patterns, ...(baseGrammar.patterns || [])];
 
+  // Ensure the directory exists
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, JSON.stringify(baseGrammar, null, 2));
-
+  
   // Create file also in public directory for clickable keywords (public/mta-keywords_linker.js)
   fs.copyFileSync(outputPath, publicPath);
-
+  
   console.log(`Done!`);
 }
 
