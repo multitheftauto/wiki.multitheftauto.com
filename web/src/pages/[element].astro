@@ -5,11 +5,11 @@ import fs from "fs";
 import path from "path";
 import { marked } from 'marked';
 import { getSeeAlsoLinksForItem } from '@src/utils/general';
-import { getElementCategory } from '@src/utils/elements';
+import { getElementCategory, getOOPFunctionsForElement } from '@src/utils/elements';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
-import { Code } from '@astrojs/starlight/components';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
+import ElementOOPInfo from '@src/components/ElementOOPInfo.astro';
 
 export async function getStaticPaths() {
   const elements = await getCollection('elements');
@@ -35,7 +35,8 @@ codeExamples = codeExamples.map((example: any) => {
     }
 });
 
-const methods = element.data.oop_methods || [];
+let oop_only_methods = element.data.oop_only_methods || [];
+let oop_compatible_functions = getOOPFunctionsForElement(element.data.name);
 ---
 <StarlightPage frontmatter={{
   template: 'doc',
@@ -46,55 +47,11 @@ const methods = element.data.oop_methods || [];
 
   <Fragment set:html={marked(element.data.description)} />
 
-  
-  {methods.length > 0 && (
-    <section class="methods-section">
-      <h4>OOP Methods <a class="small-text" href="/OOP_Introduction">Help! I don't understand this!</a></h4>
-      {methods.map((method: any) => (
-        <article class="method">
-          <h4 id={method.name}><code>{method.name}</code></h4>
-          {method.description && <p>{method.description}</p>}
-
-          {method.overloads?.length > 0 && (
-            <div class="overloads">
-              {method.overloads.map((overload: any) => (
-                <div class="overload">
-                  <Code code={overload.signature} lang="c" />
-                  {overload.description && <p>{overload.description}</p>}
-                  {overload.parameters?.length > 0 && (
-                    <ul class="parameters">
-                      {overload.parameters.map((param: any) => (
-                        <li>
-                          <strong>{param.name}</strong>
-                          {param.optional && ' (optional)'}: <code>{param.type}</code> – {param.description}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {!method.overloads && method.signature && (
-            <div class="signature">
-              <Code code={method.signature} lang="c" />
-            </div>
-          )}
-
-          {method.parameters?.length > 0 && (
-            <ul class="parameters">
-              {method.parameters.map((param: any) => (
-                <li>
-                  <strong>{param.name}</strong>: <code>{param.type}</code> – {param.description}
-                </li>
-              ))}
-            </ul>
-          )}
-        </article>
-      ))}
-    </section>
-  )}
+  <ElementOOPInfo
+    element_name={element.data.name}
+    oop_only_methods={oop_only_methods}
+    oop_compatible_functions={oop_compatible_functions}
+  />
 
   <CodeExamplesSection codeExamples={codeExamples} />
 

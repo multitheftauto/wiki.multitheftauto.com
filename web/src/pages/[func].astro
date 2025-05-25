@@ -93,20 +93,22 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             <ul>
             {funcInfo.oop.method && (
                 <li>
-                <strong>Method:</strong>{' '}
+                <strong>Method</strong>:
                 <a href={ `/${funcInfo.oop.entity}` }>{funcInfo.oop.entity}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
                 </li>
             )}
 
             {funcInfo.oop.variable && (
                 <li>
-                <strong>Variable:</strong> .{funcInfo.oop.variable}
+                <strong>Variable</strong>:
+                .{funcInfo.oop.variable}
                 </li>
             )}
 
             {funcInfo.oop.constructorclass && (
                 <li>
-                <strong>Constructor:</strong> {funcInfo.oop.constructorclass}(...)
+                <strong>Constructor</strong>:
+                {funcInfo.oop.constructorclass}(...)
                 </li>
             )}
 

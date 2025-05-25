@@ -21,7 +21,7 @@ properties:
     $ref: 'common-defs.yaml#/$defs/examples'
   see_also:
     $ref: 'common-defs.yaml#/$defs/see_also'
-  oop_methods:
+  oop_only_methods:
     type: array
     items:
       type: object

@@ -1,0 +1,105 @@
+---
+import { Code } from '@astrojs/starlight/components';
+
+export interface Props {
+    element_name?: string | null;
+    oop_only_methods: any[];
+    oop_compatible_functions: any[];
+}
+
+const { element_name = null, oop_only_methods, oop_compatible_functions } = Astro.props;
+
+let oop_variables_by_var: Record<string, any[]> = {};
+for (const func of oop_compatible_functions) {
+  if (func.oop.variable) {
+    if (!oop_variables_by_var[func.oop.variable]) {
+      oop_variables_by_var[func.oop.variable] = [];
+    }
+    oop_variables_by_var[func.oop.variable].push({
+      functionName: func.name,
+      functionLink: func.link,
+      functionOop: func.oop,
+    });
+  }
+}
+let oop_constructor = oop_compatible_functions.find(func => func.oop.constructorclass);
+---
+{element_name && oop_constructor && (
+<section class="oop-constructor-section">
+    <h4><a href="/OOP_Introduction">OOP</a> Constructor</h4>
+    <p>
+        <code>{oop_constructor.oop.constructorclass}(...)</code> is the constructor method for the <code>{element_name}</code> class (<a href={oop_constructor.link}>{oop_constructor.name}</a>).
+    </p>
+</section>
+)}
+
+{Object.keys(oop_variables_by_var).length > 0 && (
+<section class="oop-variables-section">
+    <h4><a href="/OOP_Introduction">OOP</a> Variables and Methods</h4>
+    <ul>
+    {Object.entries(oop_variables_by_var).map(([variableName, functions]) => (
+        <li>
+            <code>{variableName}</code>:
+            {functions.map((func: any, index: number) => (
+                <Fragment>
+                    <a href={func.functionLink}>{func.functionOop.method}</a>
+                    {index < functions.length - 1 ? ', ' : ''}
+                </Fragment>
+            ))}
+        </li>
+    ))}
+    </ul>
+</section>
+)}
+
+
+{oop_only_methods.length > 0 && (
+<section class="oop-methods-section">
+    <h4><a href="/OOP_Introduction">OOP</a>-Only Methods</h4>
+
+    {oop_only_methods.map((method: any) => (
+        <>
+            <h5 id={method.name}><code>{method.name}</code></h5>
+            {method.description && <p>{method.description}</p>}
+
+            {method.overloads?.length > 0 && (
+            <div class="overloads">
+                {method.overloads.map((overload: any) => (
+                <div class="overload">
+                    <Code code={overload.signature} lang="lua" />
+                    {overload.description && <p>{overload.description}</p>}
+                    {overload.parameters?.length > 0 && (
+                    <ul class="parameters">
+                        {overload.parameters.map((param: any) => (
+                        <li>
+                            <strong>{param.name}</strong>
+                            {param.optional && ' (optional)'}: <code>{param.type}</code> – {param.description}
+                        </li>
+                        ))}
+                    </ul>
+                    )}
+                </div>
+                ))}
+            </div>
+            )}
+
+            {!method.overloads && method.signature && (
+            <div class="signature">
+                <Code code={method.signature} lang="lua" />
+            </div>
+            )}
+
+            {method.parameters?.length > 0 && (
+            <ul class="parameters">
+                {method.parameters.map((param: any) => (
+                <li>
+                    <strong>{param.name}</strong>: <code>{param.type}</code> – {param.description}
+                </li>
+                ))}
+            </ul>
+            )}
+        </>
+    ))}
+
+</section>
+)}

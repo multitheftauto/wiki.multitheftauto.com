@@ -2,7 +2,7 @@ name: Vector4
 type: class
 description: |
   Represents a 4D [Vector](/Vector).
-oop_methods:
+oop_only_methods:
   - name: create
     description: |
       Default constructor for the Vector4 class. Returns a Vector4 object.
