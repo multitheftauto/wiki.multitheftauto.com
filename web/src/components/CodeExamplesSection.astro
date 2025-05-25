@@ -116,14 +116,34 @@ const { codeExamples } = Astro.props;
     const buttons = document.querySelectorAll('.tab-btn');
     const tabs = document.querySelectorAll('.tab-content');
 
+    function activateTab(tabIndex) {
+      buttons.forEach((b) => b.classList.toggle('active', b.dataset.tab === tabIndex));
+      tabs.forEach((t) => (t.style.display = t.dataset.tab === tabIndex ? 'block' : 'none'));
+    }
+
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
         const tab = btn.dataset.tab;
+        activateTab(tab);
 
-        buttons.forEach((b) => b.classList.toggle('active', b.dataset.tab === tab));
-        tabs.forEach((t) => (t.style.display = t.dataset.tab === tab ? 'block' : 'none'));
+        history.replaceState(null, '', `#example${parseInt(tab) + 1}`);
       });
     });
+
+    const hash = window.location.hash;
+    const match = hash.match(/^#example(\d+)$/i);
+    if (match) {
+      const tabIndex = String(parseInt(match[1], 10) - 1);
+      const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabIndex}"]`);
+      if (targetBtn) {
+        activateTab(tabIndex);
+
+        const section = document.querySelector('.examples-section');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
 
     function checkOverflow() {
       const tabButtons = document.querySelector('.tab-buttons');
