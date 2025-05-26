@@ -7,6 +7,7 @@ export interface CodeExample {
   description?: string;
   luaCode: string;
   side: string;
+  exampleTitle?: string;
 }
 
 export interface Props {
@@ -38,10 +39,23 @@ const { codeExamples } = Astro.props;
       )}
 
       {codeExamples.map((example, index) => (
-        <div class="tab-content" data-tab={index} style={{ display: index === 0 ? 'block' : 'none' }}>
-          {example.description && <Fragment set:html={marked(example.description)} />}
-          <div class="code-example">
-            <Code code={example.luaCode} lang="lua" />
+        <div
+          class="tab-content"
+          data-tab={index}
+          style={{
+            display: index === 0 ? 'flex' : 'none',
+            flexDirection: 'column',
+            border: `2px solid var(--color-type-${example.side}-background-high)`
+          }}
+        >
+          <div class={`tab-header side-${example.side} active`}>
+            <strong>{example.side}</strong> {example.exampleTitle && ` - ${example.exampleTitle}`}
+          </div>
+          <div class="tab-body">
+            {example.description && <Fragment set:html={marked(example.description)} />}
+            <div class="code-example">
+              <Code code={example.luaCode} lang="lua" />
+            </div>
           </div>
         </div>
       ))}
@@ -77,6 +91,25 @@ const { codeExamples } = Astro.props;
   font-weight: bold;
 }
 
+.tab-header {
+  padding: 0.5rem 1rem;
+  color: var(--sl-color-text);
+  text-transform: capitalize;
+}
+
+.tab-body {
+  margin: 0;
+  padding: 1rem;
+  color: var(--sl-color-text);
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sl-color-bg-nav);
+  box-shadow: 0.2rem 0.2rem 0.2rem #0000005b;
+}
+
 .side-client {
   background-color: var(--color-type-client-background);
   border-color: var(--color-type-client);
@@ -102,12 +135,6 @@ const { codeExamples } = Astro.props;
 
 .side-shared.active {
   background-color: var(--color-type-shared-background-high);
-}
-
-.tab-content {
-  background-color: var(--sl-color-bg-nav);
-  padding: 1rem;
-  box-shadow: var(--ec-frm-frameBoxShdCssVal);
 }
 </style>
 
