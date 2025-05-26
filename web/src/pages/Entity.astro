@@ -1,0 +1,46 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { getElementsByCategory } from '@src/utils/elements';
+const elementsByCategory = getElementsByCategory();
+const entities = elementsByCategory['Entity'] || [];
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Entity',
+    tableOfContents: false,
+}}>
+    <p>An <strong>entity</strong> is an element that has a position and a physical representation in the world. The following elements are entities:</p>
+    
+    <div class="mtagrid">
+        {Array.from({ length: Math.ceil(entities.length / 10) }, (_, i) => (
+            <ul class="mtabox">
+                {entities.slice(i * 10, i * 10 + 10).map(entity => (
+                    <li>
+                        <a href={`/${entity.id}`}>{entity.id}</a>
+                    </li>
+                ))}
+            </ul>
+        ))}
+    </div>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'article:Element',
+        'article:Element_tree',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .mtagrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 boxes per row */
+    }
+
+    .mtabox {
+        padding: 4px 8px 8px 8px;
+        padding: 1rem;
+    }
+</style>

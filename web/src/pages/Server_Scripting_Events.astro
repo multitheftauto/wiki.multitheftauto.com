@@ -16,7 +16,7 @@ const theseEvents = eventsByTypeByCategory.server;
 
     {Object.entries(theseEvents).map(([category, events]) => (
         <section>
-            <details>
+            <details open>
                 <summary>{category} events</summary>
                 <ul>
                     {events.map(event => (

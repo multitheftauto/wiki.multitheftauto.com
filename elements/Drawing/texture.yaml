@@ -1,0 +1,4 @@
+name: texture
+# In the old wiki, this element is a type of "material" element
+description: |
+  The texture class represents a source of renderable pixels which can be used as an image with [dxDrawImage](/dxDrawImage), [dxDrawImageSection](/dxDrawImageSection) or as a value in [dxSetShaderValue](/dxSetShaderValue).

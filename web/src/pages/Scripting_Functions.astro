@@ -15,7 +15,7 @@ const functionsByCategory = getFunctionsByCategory();
 
     {Object.entries(functionsByCategory).map(([category, funcs]) => (
         <section>
-            <details>
+            <details open>
                 <summary>{category} functions</summary>
                 <ul>
                     {funcs.map(func => (

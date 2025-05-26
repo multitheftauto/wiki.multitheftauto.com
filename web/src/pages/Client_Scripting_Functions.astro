@@ -16,7 +16,7 @@ const theseFunctions = functionsByTypeByCategory.client;
 
     {Object.entries(theseFunctions).map(([category, funcs]) => (
         <section>
-            <details>
+            <details open>
                 <summary>{category} functions</summary>
                 <ul>
                     {funcs.map(func => (
