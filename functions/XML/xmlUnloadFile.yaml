@@ -1,0 +1,30 @@
+shared: &shared
+  name: 'xmlUnloadFile'
+  oop:
+    entity: xmlnode
+    method: unload
+  description: |
+    Unloads an XML document from memory.
+  parameters:
+    - name: 'rootNode'
+      type: 'xmlnode'
+      description: The root of the XML document to unload.
+  returns:
+    description: |
+      Returns true if the document was unloaded successfully, false otherwise.
+    values:
+      - type: 'boolean'
+        name: 'result'
+  examples:
+  - path: 'examples/xmlUnloadFile-1.lua'
+    description: |
+      Modify a configuration file.
+
+      config.xml
+      ```xml
+      <config>
+          <markers color="255,100,0" />
+      </config>
+      ```
+
+      Lua code

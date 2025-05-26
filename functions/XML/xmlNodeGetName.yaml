@@ -1,0 +1,21 @@
+shared: &shared
+  name: 'xmlNodeGetName'
+  pair: 'xmlNodeSetName'
+  oop:
+    entity: xmlnode
+    method: getName
+    variable: name
+  description: |
+    Gets the tag name of the specified XML node.
+  parameters:
+    - name: 'node'
+      type: 'xmlnode'
+      description: The [xmlnode](/xmlnode) to get the tag name of.
+  returns:
+    description: Returns the tag name of the node if successful, false otherwise.
+    values:
+      - type: 'string|false'
+        name: 'name'
+  examples:
+  - path: 'examples/xmlNodeGetName-1.lua'
+    description: This example displays the name of the created node in the chat.

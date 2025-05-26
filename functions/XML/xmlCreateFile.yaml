@@ -1,0 +1,35 @@
+shared: &shared
+  name: 'xmlCreateFile'
+  notes:
+    - type: 'warning'
+      content: |
+        To prevent memory leaks, ensure each call to **xmlCreateFile** has a matching call to [xmlUnloadFile](/xmlUnloadFile).
+    - type: 'tip'
+      content: |
+        If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [filepath](/filepath) for more information).
+  oop:
+    entity: xmlnode
+    constructorclass: XML
+  description: |
+    This function creates a new XML document, which can later be saved to a file by using [xmlSaveFile](/xmlSaveFile). This function will overwrite the file specified if it already exists.
+  parameters:
+    - name: 'filePath'
+      type: 'string'
+      description: |
+        The [filepath](/filepath) of the file in the following format: **":resourceName/path"**. *resourceName* is the name of the resource the file will be in, and *path* is the path from the root directory of the resource to the file. For example, if you want to create a file named *new.xml* in the resource *ctf*, it can be created from another resource this way [xmlCreateFile](/xmlCreateFile)(":ctf/new.xml", "newroot"). If the file is in the current resource, only the file path is necessary, e.g. [xmlCreateFile](/xmlCreateFile)("new.xml", "newroot"). Note that if a different resource than default is being accessed, the caller resource needs access to **general.ModifyOtherObjects** in the [ACL](/ACL).
+    - name: 'rootNodeName'
+      type: 'string'
+      description: 'The name of the root node in the XML document.'
+  returns:
+    description: |
+      Returns the root [xmlnode](/xmlnode) object of the new XML file if successful, or false otherwise.
+    values:
+      - type: 'xmlnode|false'
+        name: 'xmlnode'
+
+client:
+  <<: *shared
+  examples:
+  - path: 'examples/xmlCreateFile-1.lua'
+    description: |
+      This example allows a player to use the command **createfile** to create an .xml file.

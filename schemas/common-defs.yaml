@@ -21,6 +21,7 @@ $defs:
             - info
             - warning
             - important
+            - tip
           default: info
         content:
           type: string

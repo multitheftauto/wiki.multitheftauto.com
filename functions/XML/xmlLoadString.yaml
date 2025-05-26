@@ -1,0 +1,23 @@
+shared: &shared
+  name: 'xmlLoadString'
+  oop:
+    entity: XML
+    method: loadstring
+  description: |
+    This function creates an [xmlnode](/xmlnode) from a string input.
+  parameters:
+    - name: 'xmlString'
+      type: 'string'
+      description: |
+        A string containing XML data.
+  returns:
+    description: |
+      Returns the root [xmlnode](/xmlnode) object of an xml string if successful, or false otherwise (invalid XML string).
+    values:
+      - type: 'xmlnode|false'
+        name: 'xmlnode'
+  examples:
+  - path: 'examples/xmlLoadString-1.lua'
+    description: |
+      This example loads an XML string and loops the children while outputting to debugscript.
+
