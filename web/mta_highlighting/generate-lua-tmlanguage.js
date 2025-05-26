@@ -8,11 +8,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const functionsDir = path.resolve(__dirname, '../../functions');
+const elementsDir = path.resolve(__dirname, '../../elements');
+const typesDir = path.resolve(__dirname, '../../types');
+
 const basePath = path.resolve(__dirname, './lua-base.tmLanguage.json');
 const outputPath = path.resolve(__dirname, '../src/grammars/lua-mta.tmLanguage.json');
 const publicPath = path.resolve(__dirname, '../public/grammars/lua-mta.tmLanguage.json');
-
-const mtaKeywords = ['string','bool','boolean','number','int','float','element','player','vehicle','ped','object','building'];
 
 function extractFunctionsWithScope(yamlContent) {
   if (yamlContent.shared?.name) {
@@ -40,6 +41,12 @@ async function generateTmLanguage() {
     items.flatMap(extractFunctionsWithScope).forEach(({ name, scope }) => functionsMap[scope].add(name));
   });
 
+  const elementFiles = await glob('**/*.yaml', { cwd: elementsDir, absolute: true });
+  const elementKeywords = elementFiles.map(file => path.basename(file, '.yaml'));
+
+  const typeFiles = await glob('**/*.yaml', { cwd: typesDir, absolute: true });
+  const typeKeywords = typeFiles.map(file => path.basename(file, '.yaml'));
+
   const patterns = Object.entries(functionsMap)
     .filter(([, namesSet]) => namesSet.size > 0)
     .map(([scope, namesSet]) => ({
@@ -47,9 +54,11 @@ async function generateTmLanguage() {
       name: scope,
     }));
 
-  if (mtaKeywords.length > 0) {
+  const allKeywords = [...elementKeywords, ...typeKeywords];
+
+  if (allKeywords.length > 0) {
     patterns.push({
-      match: `\\b(${mtaKeywords.join('|')})\\b`,
+      match: `\\b(${allKeywords.join('|')})\\b`,
       name: 'keyword.mta',
     });
   }
