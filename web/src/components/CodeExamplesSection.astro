@@ -1,7 +1,7 @@
 ---
 import { Code } from '@astrojs/starlight/components';
-import { marked } from 'marked';
 import NeedsExample from '@src/components/NeedsExample.astro';
+import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro'
 
 export interface CodeExample {
   description?: string;
@@ -57,7 +57,7 @@ if (codeExamples.length === 0 && !examplesRequired) {
             <strong>{example.side}</strong> {example.exampleTitle && ` - ${example.exampleTitle}`}
           </div>
           <div class="tab-body">
-            {example.description && <Fragment set:html={marked(example.description)} />}
+            {example.description && <EnhancedMarkdown content={example.description} />}
             <div class="code-example">
               <Code code={example.luaCode} lang="lua" />
             </div>
