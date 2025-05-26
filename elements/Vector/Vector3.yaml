@@ -183,13 +183,18 @@ oop_only_methods:
 examples:
   - path: examples/vector3-1.lua
     description: This example sorts all players in a nice line on the center of the map.
+    side: 'shared'
   - path: examples/vector3-2.lua
     description: >
       This example creates a tiny sun which is always at the right of the vehicle the local player drives. By default it will draw the vectors used to compute the position where it should be, so you can understand what does this function do. Note that the code could be made simpler by simply getting the right component of the vehicle matrix. Make sure that you put this code in a resource which has OOP enabled, or it won't work.
+    side: 'client'
   - path: examples/vector3-3.lua
     description: >
       This examples illustrates the concept of dot/scalar product and implements a useful function which can be used to get the angle between two vectors. 
+    side: 'shared'
   - path: examples/vector3-4.lua
     description: This example slowly moves all the players' camera to look at the Mount Chilliad.
+    side: 'client'
   - path: examples/vector3-5.lua
     description: This example slowly moves all the players' camera to look at the Mount Chilliad with a shorter code than the previous example.
+    side: 'client'

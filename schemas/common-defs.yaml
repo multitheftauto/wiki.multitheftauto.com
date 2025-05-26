@@ -120,6 +120,9 @@ $defs:
         exampleTitle:
           type: string
           description: Optional title displayed in the frame around the example.
+        side:
+          type: string
+          description: Optionally, you can specify the type of the example. In the case of function definitions, the type is automatically determined based on the client, server, or shared section.
 
   see_also:
     type: array

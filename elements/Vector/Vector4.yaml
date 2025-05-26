@@ -27,3 +27,4 @@ oop_only_methods:
 examples:
   - path: examples/vector4-1.lua
     description: This example adds a command called "/garage", allowing you to get any garage bounding box. 
+    side: 'client'

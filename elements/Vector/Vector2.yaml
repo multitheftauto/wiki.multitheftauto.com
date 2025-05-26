@@ -99,5 +99,7 @@ oop_only_methods:
 examples:
   - path: examples/vector2-1.lua
     description: Checks if the player is using a low resolution
+    side: 'client'
   - path: examples/vector2-2.lua
     description: Draws a red line from center to cursor, 200px long
+    side: 'client'
