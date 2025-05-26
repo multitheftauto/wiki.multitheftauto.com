@@ -1,0 +1,4 @@
+description: |
+  Float is an abbreviation of 'Floating Point Number'. A floating point number is one with a decimal point, i.e. it can contain values such as 5.5 or 3.142.
+  
+  An [int](/int) on the other hand can only hold whole numbers.

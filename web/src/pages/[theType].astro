@@ -1,0 +1,27 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+
+export async function getStaticPaths() {
+  const theTypes = await getCollection('types');
+  // Remove types that don't have description
+  const filteredTypes = theTypes.filter(theType => theType.data && theType.data.description && theType.data.description.trim() !== '');
+  return filteredTypes.map(theType => ({
+    params: { theType: theType.id },
+    props: { theType },
+  }));
+}
+
+const { theType } = Astro.props;
+---
+
+<StarlightPage frontmatter={{
+  template: 'doc',
+  title: theType.id,
+  tableOfContents: false,
+}}>
+
+  <Fragment set:html={marked(theType.data.description)} />
+
+</StarlightPage>

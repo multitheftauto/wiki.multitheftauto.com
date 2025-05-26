@@ -1,0 +1,20 @@
+description: |
+  A *boolean* or *bool* is a datatype whose value can be either *true* or *false*. These are often returned by functions to indicate whether the operation was successful or not.
+
+  Using the Lua functions `tostring()` and `type()` can help you to find out what datatype something is:
+
+  ```lua
+  local theReturn = isPedDead(getRandomPlayer())
+  outputChatBox("The return was: "..tostring(theReturn)) -- Will say: "true" or "false"
+  outputChatBox("The datatype of this return was: "..type(theReturn)) -- Will say "boolean"
+  ```
+
+  Reversing booleans:
+
+  ```lua
+  bool = true
+  -- if you want to reverse it you can either do
+  bool = false
+  -- or
+  bool = not bool
+  ```

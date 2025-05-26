@@ -35,4 +35,14 @@ export const collections = {
 			}
 		}),
 	}),
+	types: defineCollection({
+		loader: glob({
+			pattern: "**/*.yaml",
+			base: "../types",
+			generateId: ({ entry }) => {
+				// Extract the file name without the folder
+				return ((entry.split('/') || []).pop() || '').replace(/\.yaml$/, '');
+			}
+		}),
+	}),
 };
