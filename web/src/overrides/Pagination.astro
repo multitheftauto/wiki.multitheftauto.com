@@ -2,63 +2,65 @@
 import { CardGrid } from '@astrojs/starlight/components';
 import IconLinkCard from '@src/components/IconLinkCard.astro';
 ---
-<CardGrid>
-    <IconLinkCard
-        icon="seti:powershell"
-        iconColor="#ca6c26"
-        title="Functions"
-        titleColor="#ca6c26"
-        description="List of all client-side, server-side and shared functions"
-        href="/Scripting_Functions" />
-    
-    <IconLinkCard
-        icon="seti:purescript"
-        iconColor="#ca6c26"
-        title="Events"
-        titleColor="#ca6c26"
-        description="List of all client-side and server-side events"
-        href="/Scripting_Events" />
+<div data-pagefind-ignore>
+    <CardGrid>
+        <IconLinkCard
+            icon="seti:powershell"
+            iconColor="#ca6c26"
+            title="Functions"
+            titleColor="#ca6c26"
+            description="List of all client-side, server-side and shared functions"
+            href="/Scripting_Functions" />
+        
+        <IconLinkCard
+            icon="seti:purescript"
+            iconColor="#ca6c26"
+            title="Events"
+            titleColor="#ca6c26"
+            description="List of all client-side and server-side events"
+            href="/Scripting_Events" />
+
+        <IconLinkCard
+            icon="seti:plan"
+            iconColor="#ca6c26"
+            title="Elements"
+            titleColor="#ca6c26"
+            description="List of all element types and their properties"
+            href="/Element" />
+
+        <IconLinkCard
+            icon="seti:hex"
+            iconColor="#ca6c26"
+            title="OOP"
+            titleColor="#ca6c26"
+            description="Information about MTA object-oriented programming"
+            href="/OOP_Introduction" />
+
+    </CardGrid>
+
+
+    <CardGrid>
+
+
+        <IconLinkCard
+            icon="discord" 
+            title="Discord"
+            description="Ask questions and chat live with the community."
+            href="https://discord.com/invite/mtasa" />
+        
+        <IconLinkCard
+            icon="gitter"
+            title="Forum"
+            description="Engage with the community in the old-fashioned way."
+            href="https://forum.multitheftauto.com/" />
+    </CardGrid>
 
     <IconLinkCard
-        icon="seti:plan"
-        iconColor="#ca6c26"
-        title="Elements"
-        titleColor="#ca6c26"
-        description="List of all element types and their properties"
-        href="/Element" />
+        icon="github"
+        iconColor="var(--sl-color-orange)"
+        title="GitHub Repository"
+        titleColor="var(--sl-color-orange)"
+        description="Visit our repository to contribute to the Wiki project or report issues."
+        href="https://github.com/multitheftauto/wiki.multitheftauto.com" />
 
-    <IconLinkCard
-        icon="seti:hex"
-        iconColor="#ca6c26"
-        title="OOP"
-        titleColor="#ca6c26"
-        description="Information about MTA object-oriented programming"
-        href="/OOP_Introduction" />
-
-</CardGrid>
-
-
-<CardGrid>
-
-
-    <IconLinkCard
-        icon="discord" 
-        title="Discord"
-        description="Ask questions and chat live with the community."
-        href="https://discord.com/invite/mtasa" />
-    
-    <IconLinkCard
-        icon="gitter"
-        title="Forum"
-        description="Engage with the community in the old-fashioned way."
-        href="https://forum.multitheftauto.com/" />
-</CardGrid>
-
-<IconLinkCard
-    icon="github"
-    iconColor="var(--sl-color-orange)"
-    title="GitHub Repository"
-    titleColor="var(--sl-color-orange)"
-    description="Visit our repository to contribute to the Wiki project or report issues."
-    href="https://github.com/multitheftauto/wiki.multitheftauto.com" />
-
+</div>
