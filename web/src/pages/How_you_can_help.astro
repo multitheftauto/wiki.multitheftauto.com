@@ -1,0 +1,90 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+// import { getSeeAlsoLinksFromList } from '@src/utils/general';
+// import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import { MTA_CURRENT_VERSION } from '@src/content.constants';
+---
+
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'How you can help',
+    tableOfContents: false,
+}}>
+    <p><strong>Multi Theft Auto</strong> has loads of areas in which you can help. In turn, we'll be more than happy to help you get started with any ideas you have, help test them and - if they're good enough - release them to the whole community. This page outlines the key areas you could do something in, of course, there are many things we've not thought of, so think outside the box!</p>
+
+    <h3>Programming</h3>
+    <ul>
+    <li>Become a patch contributor by sending <a href="https://github.com/multitheftauto/mtasa-blue/pulls">pull requests</a> to MTA, containing requested features or bugfixes: <a href="/Coding_guidelines">Coding guidelines</a></li>
+    </ul>
+
+    <h3>Translating</h3>
+    <ul>
+    <li>Translate MTA to your native language on Crowdin at <a href="https://multitheftauto.crowdin.com/">https://multitheftauto.crowdin.com/</a></li>
+    </ul>
+
+    <h3>Scripting</h3>
+    <ul>
+    <li>Become a contributor to MTA's official resources, read more about them here: <a href="/Default_resources">Default resources</a></li>
+    <li>Create and <a href="https://community.multitheftauto.com/">publish</a> a gamemode or useful script
+        <ul>
+        <li><a href="/Scripting_Introduction">Scripting Introduction</a></li>
+        <li><a href="https://www.lua.org/pil/index.html">"Programming in Lua" Manual</a></li>
+        </ul>
+    </li>
+    <li>Make a general purpose resource that provides useful functions to other resources.</li>
+    </ul>
+
+    <h3>Mapping</h3>
+    <ul>
+    <li>Create and <a href="https://community.multitheftauto.com/">publish</a> a map for an existing gamemode, with the map editor.
+        <ul>
+        <li><a href="/Resource:Editor">Map Editor Manual</a></li>
+        </ul>
+    </li>
+    </ul>
+
+    <h3>Web development</h3>
+    <ul>
+    <li>Create your own system for statistics - using the <a href="/PHP_SDK">PHP SDK</a> as a basis. Join the 
+        <a href="https://discord.com/invite/mtasa">MTA Discord</a> (or 
+        <a href="https://discord.gg/GNN6PRtTnu">development Discord</a>) for help.
+    </li>
+    </ul>
+
+    <h3>Documentation</h3>
+    <p>Before you make changes check out: <a href="/Help:Editing_Guidelines">Editing Guidelines</a> and 
+    <a href="/Help:MTA_Wiki_Specific_Templates">Specific Templates</a></p>
+    <ul>
+    <li>Finish documentation for <a href="/Category:Incomplete">Incomplete functions</a> - ask in #mta.scripting if you're not sure of something.</li>
+    <li>Add examples to <a href="/Category:Needs_Example">functions & events missing examples</a> - please <strong>test</strong> them, and again, ask if you need help.</li>
+    <li>Review and verify <a href="/Category:Needs_Checking">pages that need checking</a> - make sure highlighted issues are solved before removing pages from the category.</li>
+    <li>Expand the pages that explain <a href="/Category:Scripting_Concepts">MTA core concepts</a>.</li>
+    <li>Write <a href="https://forum.multitheftauto.com/forum/123-tutorials/">tutorials</a> to help new people.</li>
+    <li>Translate the wiki pages so people from other countries can get started in MTA too.</li>
+    <li>Create documentation for undocumented functions and events <a href="/Undocumented_Items">Undocumented Items</a></li>
+    <li>Keep 'changes in' <a href={"/Changes_in_"+MTA_CURRENT_VERSION.full}>current work-in-progress</a> for future releases updated.</li>
+    </ul>
+
+    <h3>Quality Assurance</h3>
+    <ul>
+    <li><a href="https://github.com/multitheftauto/mtasa-blue/issues">Report issues</a> with the mod, make sure to do a search on the already reported issues first.</li>
+    <li>Test and confirm existing reported issues.</li>
+    <li>Use the newest build of MTA to detect and report new bugs, by going to 'Settings', 'Advanced', 'Update build type' and choosing 'Nightly' or get it regularly 
+        <a href="https://nightly.multitheftauto.com/">from here</a>.
+    </li>
+    <li>Any bugs which are related to a scripting function/event and present in the main release (rather than nightlies), document that bug by adding a 
+        <a href="/Help:MTA_Wiki_Specific_Templates">warning</a> to the wiki page to save other scripters a lot of time.
+    </li>
+    </ul>
+
+    <h3>Specific tasks</h3>
+    <ul>
+    <li>Create a fuzzer to check for crashes in our scripting functions.</li>
+    </ul>
+
+    <h3>Grant</h3>
+    <ul>
+    <li>You can donate to MTA <a href="https://multitheftauto.com/donate/manage.php">here</a></li>
+    </ul>
+
+</StarlightPage>

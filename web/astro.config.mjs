@@ -3,15 +3,9 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mtasaStarlightThemePlugin from '@multitheftauto/starlight-theme-mtasa';
 import { SITE_TITLE, SITE_URL } from './src/content.constants';
-import fs from 'fs';
-import path from 'path';
 
 export default defineConfig({
 	site: SITE_URL,
-	redirects: {
-		// External redirects only, the others are handled by CloudFlare pages (_redirects file)
-		"/How_you_can_help": "https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md",
-	},
 	i18n: {
 		locales: ["en", "es", "fr"],
 		defaultLocale: "en",
@@ -44,17 +38,12 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Start here',
-					translations: {
-						es: 'Empeza aquí',
-						fr: 'Commence ici',
-					},
 					items: [
 						{
 							label: 'Introduction', link: '/',
-							translations: {
-								es: 'Introducción',
-								fr: 'Introduction',
-							},
+						},
+						{
+							label: 'How you can help', link: '/How_you_can_help',
 						},
 					]
 				},
