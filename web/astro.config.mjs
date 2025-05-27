@@ -111,8 +111,6 @@ export default defineConfig({
 					sequential: true,
 					order: 'post',
 					handler: async () => {
-						console.log('⏳ Konfiguruję PageFind...');
-
 						const targetDir = join('dist', 'pagefind');
 						const sourceDir = join('dist', '_pagefind');
 
@@ -127,10 +125,9 @@ export default defineConfig({
 										sourcePath,
 										join(targetDir, pattern.replace('*', ''))
 									);
-									console.log(`📁 Skopiowano ${pattern}`);
 								}
 							} catch (error) {
-								console.warn(`⚠️ Nie udało się skopiować ${pattern}:`, error.message);
+								console.warn(`Filed to copy ${pattern}:`, error.message);
 							}
 						});
 
@@ -139,17 +136,13 @@ export default defineConfig({
 							const config = JSON.parse(readFileSync(configPath, 'utf-8'));
 							config.source = 'pages';
 							writeFileSync(configPath, JSON.stringify(config));
-							console.log('⚙️ Zaktualizowano ścieżkę źródłową (pages)');
 						} else {
 							writeFileSync(configPath, JSON.stringify({
 								source: 'pages',
 								bundlePath: '/pagefind/'
 							}));
 
-							console.log('⚙️ Utworzono nową konfigurację PageFind');
 						}
-
-						console.log('✅ Konfiguracja PageFind zakończona');
 					}
 				}
 			}
