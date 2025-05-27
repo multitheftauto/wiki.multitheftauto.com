@@ -3,6 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { getFunctionsByTypeByCategory } from '@src/utils/functions';
+import CategoryList from '@src/components/CategoryList.astro';
 
 const functionsByTypeByCategory = getFunctionsByTypeByCategory();
 const theseFunctions = functionsByTypeByCategory.shared;
@@ -12,20 +13,9 @@ const theseFunctions = functionsByTypeByCategory.shared;
     title: 'Shared functions',
     tableOfContents: false,
 }}>
-    <p>This page lists all <strong>shared</strong> functions available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
+    <p>This page lists all <span class="side-shared"><strong>shared</strong></span> functions available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
 
-    {Object.entries(theseFunctions).map(([category, funcs]) => (
-        <section>
-            <details open>
-                <summary>{category} functions</summary>
-                <ul>
-                    {funcs.map(func => (
-                        <li><a href={`/${func.id}`}>{func.id}</a></li>
-                    ))}
-                </ul>
-            </details>
-        </section>
-    ))}
+    <CategoryList itemsByCategory={theseFunctions} what="shared_functions" />
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'article:Scripting_Functions',

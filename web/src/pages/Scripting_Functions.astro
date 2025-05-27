@@ -2,7 +2,8 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
-import { getFunctionsByCategory, getFunctionInfo } from '@src/utils/functions';
+import { getFunctionsByCategory } from '@src/utils/functions';
+import CategoryList from '@src/components/CategoryList.astro';
 
 const functionsByCategory = getFunctionsByCategory();
 ---
@@ -11,23 +12,10 @@ const functionsByCategory = getFunctionsByCategory();
     title: 'All functions',
     tableOfContents: false,
 }}>
-    <p>This page lists all <strong>client-side</strong>, <strong>server-side</strong> and <strong>shared</strong> functions available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
+    <p>This page lists all <span class="side-client"><strong>client-side</strong></span>, <span class="side-server"><strong>server-side</strong></span> and <span class="side-shared"><strong>shared</strong></span> functions available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
 
-    {Object.entries(functionsByCategory).map(([category, funcs]) => (
-        <section>
-            <details open>
-                <summary>{category} functions</summary>
-                <ul>
-                    {funcs.map(func => (
-                        <li>
-                            <a href={`/${func.id}`}>{func.id}</a>
-                            (<span class={"side-"+getFunctionInfo(func.data).type}>{getFunctionInfo(func.data).typePretty}</span>)
-                        </li>
-                    ))}
-                </ul>
-            </details>
-        </section>
-    ))}
+    <CategoryList itemsByCategory={functionsByCategory} what="all_functions" />
+
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'article:Shared_Scripting_Functions',
         'article:Client_Scripting_Functions',

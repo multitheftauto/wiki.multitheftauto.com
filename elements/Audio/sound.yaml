@@ -4,7 +4,7 @@ description: |
 
   A sound element can be manipulated in the GTA 3D world via [setElementPosition](/setElementPosition) and [setElementDimension](/setElementDimension).
 
-  Sound elements can also be manipulated using the other [Client audio functions](/client_audio_functions). 
+  Sound elements can also be manipulated using the other [Audio functions](/Scripting_Functions#Audio). 
 
 
 see_also:
