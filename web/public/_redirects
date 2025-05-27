@@ -1,3 +1,5 @@
+/pagefind/*  /pagefind/:splat  200
+
 /wiki /
 /wiki/* /:splat
 /Main_Page /
