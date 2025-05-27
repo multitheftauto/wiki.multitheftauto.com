@@ -17,10 +17,10 @@ def copy_files(source_dir, target_dir):
                 dest_path = os.path.join(target_dir, rel_path)
                 # Ignore if the destination file already exists
                 if (OVERRIDE_EXISTING == False) and os.path.exists(dest_path):
-                    print(f"Skipping {dest_path} as it already exists.")
+                    # print(f"Skipping {dest_path} as it already exists.")
                     continue
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                # print(f"Copying {src_path} to {dest_path}")
+                print(f"Copying {src_path} to {dest_path}")
                 with open(src_path, 'r', encoding='utf-8') as src_file:
                     with open(dest_path, 'w', encoding='utf-8') as dest_file:
                         dest_file.write(src_file.read())
