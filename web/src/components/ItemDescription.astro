@@ -1,0 +1,18 @@
+---
+import { marked } from 'marked';
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
+
+const path = Astro.url.pathname;
+---
+{description.includes("NEEDS DOCUMENTATION") ? (
+    <p style="color: var(--sl-color-orange); font-size: 2rem;"><strong>This page is incomplete! Help wanted!</strong>
+        <br>Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>.
+        <br>Go to <a target="_blank" href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md">Contribution guidelines</a> for more information.</p>
+) : (
+    <Fragment set:html={marked(description)} />
+)}

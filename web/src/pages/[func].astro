@@ -15,6 +15,7 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 
 import ChangelogList from '@src/components/ChangelogList.astro';
+import ItemDescription from '@src/components/ItemDescription.astro';
 
 export async function getStaticPaths() {
     const functions = await getCollection('functions');
@@ -88,7 +89,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         )}
 
         <!-- Description -->
-        {funcInfo.description && <Fragment set:html={marked(funcInfo.description)} />}
+        <ItemDescription description={funcInfo.description} />
 
         <!-- Notes -->
         {notesContent.length > 0 && (

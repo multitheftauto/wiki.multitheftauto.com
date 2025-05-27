@@ -12,6 +12,7 @@ import type { NotesType } from '@src/utils/types';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
+import ItemDescription from '@src/components/ItemDescription.astro';
 
 export async function getStaticPaths() {
     const events = await getCollection('events');
@@ -70,7 +71,7 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         tableOfContents: false,
     }}>
         <!-- Description -->
-        <Fragment set:html={marked(event.data.description)} />
+        <ItemDescription description={event.data.description} />
 
         <!-- Notes -->
         {notesContent.length > 0 && (
