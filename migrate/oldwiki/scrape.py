@@ -16,6 +16,7 @@ EVENTS_DIR = "./output/events"
 
 CATEGORY_CORRECTIONS = {
     'SQL': 'Database',
+    'Collision_shape': 'Colshape',
 }
 
 def clean_category(category_name: str) -> str:
@@ -26,9 +27,10 @@ def clean_category(category_name: str) -> str:
     return category_name
 
 def fix_category(category_name: str) -> str:
+    category_name = category_name.replace(" ", "_")
     if category_name in CATEGORY_CORRECTIONS:
         return CATEGORY_CORRECTIONS[category_name]
-    return category_name.replace(" ", "_")
+    return category_name
 
 def parse_links(source_label: str, url: str) -> dict:
     print(f"Parsing {source_label} from {url}...")

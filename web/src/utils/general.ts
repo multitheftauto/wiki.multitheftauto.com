@@ -36,30 +36,40 @@ const makeTitle = (subType: string, category: string, type: string): string => {
 };
 
 const getItemsInCategory = (type: string, subType: string, category: string): any[] => {
+  const findCategoryInsensitive = (obj: Record<string, any[]>, cat: string): any[] => {
+    const match = Object.keys(obj).find(key => key.toLowerCase() === cat.toLowerCase());
+    return match ? obj[match] : [];
+  };
+
   switch (type) {
     case 'functions': {
       const fnByType = getFunctionsByTypeByCategory();
-      return subType === 'any'
-        ? [
-            ...(fnByType.shared?.[category] || []),
-            ...(fnByType.client?.[category] || []),
-            ...(fnByType.server?.[category] || []),
-          ]
-        : fnByType?.[subType as keyof typeof fnByType]?.[category] || [];
+      if (subType === 'any') {
+        return [
+          ...findCategoryInsensitive(fnByType.shared || {}, category),
+          ...findCategoryInsensitive(fnByType.client || {}, category),
+          ...findCategoryInsensitive(fnByType.server || {}, category),
+        ];
+      }
+      return findCategoryInsensitive(fnByType?.[subType as keyof typeof fnByType] || {}, category);
     }
+
     case 'events': {
       const evByType = getEventsByTypeByCategory();
-      return subType === 'any'
-        ? [
-            ...(evByType.client?.[category] || []),
-            ...(evByType.server?.[category] || []),
-          ]
-        : evByType?.[subType as keyof typeof evByType]?.[category] || [];
+      if (subType === 'any') {
+        return [
+          ...findCategoryInsensitive(evByType.client || {}, category),
+          ...findCategoryInsensitive(evByType.server || {}, category),
+        ];
+      }
+      return findCategoryInsensitive(evByType?.[subType as keyof typeof evByType] || {}, category);
     }
+
     case 'elements': {
       const elementsByCategory = getElementsByCategory();
-      return elementsByCategory?.[category] || [];
+      return findCategoryInsensitive(elementsByCategory || {}, category);
     }
+
     default:
       return [];
   }
