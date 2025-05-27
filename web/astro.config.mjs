@@ -3,8 +3,9 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mtasaStarlightThemePlugin from '@multitheftauto/starlight-theme-mtasa';
 import { SITE_TITLE, SITE_URL } from './src/content.constants';
-import fs from 'fs';
-import path from 'path';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'fs';
+import { join } from 'path';
+
 
 export default defineConfig({
 	site: SITE_URL,
@@ -106,16 +107,52 @@ export default defineConfig({
 		plugins: [
 			{
 				name: 'override-pagefind-config',
-				closeBundle: async () => {
-					const configPath = path.join('dist', 'pagefind', 'pagefind.json');
-					
-					if (fs.existsSync(configPath)) {
-						let config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-						config.source = 'pages'; 
-						fs.writeFileSync(configPath, JSON.stringify(config));
+				writeBundle: {
+					sequential: true,
+					order: 'post',
+					handler: async () => {
+						console.log('⏳ Konfiguruję PageFind...');
+
+						const targetDir = join('dist', 'pagefind');
+						const sourceDir = join('dist', '_pagefind');
+
+						if (!existsSync(targetDir)) mkdirSync(targetDir, { recursive: true });
+
+						const filesToCopy = ['pagefind.js', 'pagefind.json', 'pagefind-*.wasm'];
+						filesToCopy.forEach(pattern => {
+							try {
+								const sourcePath = join(sourceDir, pattern.replace('*', ''));
+								if (existsSync(sourcePath)) {
+									copyFileSync(
+										sourcePath,
+										join(targetDir, pattern.replace('*', ''))
+									);
+									console.log(`📁 Skopiowano ${pattern}`);
+								}
+							} catch (error) {
+								console.warn(`⚠️ Nie udało się skopiować ${pattern}:`, error.message);
+							}
+						});
+
+						const configPath = join(targetDir, 'pagefind.json');
+						if (existsSync(configPath)) {
+							const config = JSON.parse(readFileSync(configPath, 'utf-8'));
+							config.source = 'pages';
+							writeFileSync(configPath, JSON.stringify(config));
+							console.log('⚙️ Zaktualizowano ścieżkę źródłową (pages)');
+						} else {
+							writeFileSync(configPath, JSON.stringify({
+								source: 'pages',
+								bundlePath: '/pagefind/'
+							}));
+
+							console.log('⚙️ Utworzono nową konfigurację PageFind');
+						}
+
+						console.log('✅ Konfiguracja PageFind zakończona');
 					}
-				},
-			},
-		],
+				}
+			}
+		]
 	}
 });
