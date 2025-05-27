@@ -10,7 +10,7 @@ const { seeAlsoLinks, currentId } = Astro.props;
 ---
 
 {seeAlsoLinks.length > 0 && (
-  <div class="see-also-section">
+  <div class="see-also-section" data-pagefind-ignore>
     <h4>See Also</h4>
     {seeAlsoLinks.map((group) => (
       <div class="see-also-group">

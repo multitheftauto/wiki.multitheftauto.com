@@ -3,6 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { getFunctionsByTypeByCategory } from '@src/utils/functions';
+import CategoryList from '@src/components/CategoryList.astro';
 
 const functionsByTypeByCategory = getFunctionsByTypeByCategory();
 const theseFunctions = functionsByTypeByCategory.server;
@@ -12,20 +13,9 @@ const theseFunctions = functionsByTypeByCategory.server;
     title: 'Server functions',
     tableOfContents: false,
 }}>
-    <p>This page lists all <strong>server-side</strong> functions available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
+    <p>This page lists all <span class="side-server"><strong>server-side</strong></span> functions available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
 
-    {Object.entries(theseFunctions).map(([category, funcs]) => (
-        <section>
-            <details open>
-                <summary>{category} functions</summary>
-                <ul>
-                    {funcs.map(func => (
-                        <li><a href={`/${func.id}`}>{func.id}</a></li>
-                    ))}
-                </ul>
-            </details>
-        </section>
-    ))}
+    <CategoryList itemsByCategory={theseFunctions} what="server_functions" />
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'article:Scripting_Functions',

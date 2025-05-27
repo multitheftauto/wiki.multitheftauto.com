@@ -1,0 +1,81 @@
+---
+import { getFunctionInfo } from '@src/utils/functions';
+import { getEventTypePretty } from '@src/utils/events';
+import { Icon } from '@astrojs/starlight/components';
+
+interface Props {
+  itemsByCategory: any;
+  what: string;
+}
+
+const { itemsByCategory, what } = Astro.props;
+const categories = Object.keys(itemsByCategory);
+const slugify = (str: string) => str.replace(/\s+/g, '-');
+
+function displayTitle(title: string) {
+    switch (what) {
+        case 'all_functions':
+        case 'client_functions':
+        case 'server_functions':
+        case 'shared_functions':
+            title = title + ' functions';
+            break;
+        case 'all_events':
+        case 'client_events':
+        case 'server_events':
+            title = title + ' events';
+            break;
+    }
+    return title;
+}
+function displayItem(item: any) {
+    switch (what) {
+        case 'all_functions':
+            const funcInfo = getFunctionInfo(item.data);
+            return `<a href=/${item.id}>${item.id}</a>
+                    (<span class=${"side-"+funcInfo.type}>${funcInfo.typePretty}</span>)`;
+        case 'all_events':
+            return `<a href=/${item.id}>${item.id}</a>
+                    (<span class=${"side-"+item.data.type}>${getEventTypePretty(item.data.type)}-side</span>)`;
+        case 'client_functions':
+        case 'server_functions':
+        case 'shared_functions':
+        case 'client_events':
+        case 'server_events':
+            return `<a href=/${item.id}>${item.id}</a>`;
+    }
+    return '?';
+}
+---
+
+<section>
+  <nav>
+    <h5>Table of Contents</h5>
+    <ol>
+      {categories.map(category => (
+        <li><a href={`#${slugify(category)}`}>{category}</a></li>
+      ))}
+    </ol>
+  </nav>
+
+  {Object.entries(itemsByCategory).map(([category, items]) => (
+    <section id={slugify(category)}>
+      <h4>{displayTitle(category)}
+        <a href={`#${slugify(category)}`}><Icon size="1.5rem" name="external" class="mtainfoicon"/></a>
+      </h4>
+      <ul>
+        {items.map(item => (
+          <li set:html={displayItem(item)}></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</section>
+
+<style>
+    .mtainfoicon {
+        display: inline-block;
+        vertical-align: center;
+        cursor: pointer;
+    }
+</style>

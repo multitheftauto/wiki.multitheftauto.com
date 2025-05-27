@@ -2,7 +2,8 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
-import { getEventsByCategory, getEventTypePretty } from '@src/utils/events';
+import { getEventsByCategory } from '@src/utils/events';
+import CategoryList from '@src/components/CategoryList.astro';
 const eventsByCategory = getEventsByCategory();
 ---
 <StarlightPage frontmatter={{
@@ -10,22 +11,9 @@ const eventsByCategory = getEventsByCategory();
     title: 'All events',
     tableOfContents: false,
 }}>
-    <p>This page lists all <strong>client-side</strong> and <strong>server-side</strong> events available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
+    <p>This page lists all <span class="side-client"><strong>client-side</strong></span> and <span class="side-server"><strong>server-side</strong></span> events available in the <a href="/Lua_API">Lua API</a> organized by category.</p>
 
-    
-    {Object.entries(eventsByCategory).map(([category, events]) => (
-        <section>
-            <details open>
-                <summary>{category} events</summary>
-                <ul>
-                    {events.map(event => (
-                        <li><a href={`/${event.id}`}>{event.id}</a> (<span class={"side-"+event.data.type}>{getEventTypePretty(event.data.type)}-side</span>)</li>
-                    ))}
-                </ul>
-            </details>
-        </section>
-    ))}
-    
+    <CategoryList itemsByCategory={eventsByCategory} what="all_events" />
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'article:Client_Scripting_Events',

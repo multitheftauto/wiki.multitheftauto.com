@@ -1,6 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import { Icon } from '@astrojs/starlight/components';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import ElementOOPInfo from '@src/components/ElementOOPInfo.astro';
 import { getElementsByCategory, hasOopMethods, getOOPFunctionsForElement } from '@src/utils/elements';
@@ -18,7 +19,8 @@ const elementsByCategory = getElementsByCategory();
   <div class="mtaflex">
     {Object.entries(elementsByCategory).map(([category, elements]) => (
       <div class="mtabox">
-        <span class="mtabox_title">{category} elements</span>
+        <span class="mtabox_title" id={category}>{category} elements <a href={"#"+category}><Icon
+          size="1rem" name="external" class="mtainfoicon" /></a></span>
         <ul>
           {elements.map(element => (
             <li>
@@ -45,6 +47,11 @@ const elementsByCategory = getElementsByCategory();
 </StarlightPage>
 
 <style>
+  .mtainfoicon {
+    display: inline-block;
+    vertical-align: center;
+    cursor: pointer;
+  }
   .mtaflex {
     margin-top: 1.5rem;
     display: flex;
