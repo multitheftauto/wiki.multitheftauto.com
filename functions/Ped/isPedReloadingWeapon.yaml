@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/isPedReloadingWeapon
+shared: &shared
+  name: isPedReloadingWeapon
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

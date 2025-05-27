@@ -1,0 +1,4 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getPedMoveState
+client:
+  name: getPedMoveState
+  description: THIS FUNCTION NEEDS DOCUMENTATION

@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleSirenParams
+shared: &shared
+  name: getVehicleSirenParams
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

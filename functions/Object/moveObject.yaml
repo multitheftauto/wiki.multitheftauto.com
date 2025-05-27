@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/moveObject
+shared: &shared
+  name: moveObject
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

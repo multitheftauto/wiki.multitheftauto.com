@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getTeamFriendlyFire
+shared: &shared
+  name: getTeamFriendlyFire
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

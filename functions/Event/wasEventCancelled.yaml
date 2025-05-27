@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/wasEventCancelled
+shared: &shared
+  name: wasEventCancelled
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

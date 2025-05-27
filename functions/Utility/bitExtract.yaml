@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/bitExtract
+shared: &shared
+  name: bitExtract
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

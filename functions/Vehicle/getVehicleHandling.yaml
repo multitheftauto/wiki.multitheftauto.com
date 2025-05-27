@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleHandling
+shared: &shared
+  name: getVehicleHandling
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

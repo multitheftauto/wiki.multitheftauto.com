@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/setGameSpeed
+shared: &shared
+  name: setGameSpeed
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

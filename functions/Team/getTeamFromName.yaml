@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getTeamFromName
+shared: &shared
+  name: getTeamFromName
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

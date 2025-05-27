@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/bitTest
+shared: &shared
+  name: bitTest
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

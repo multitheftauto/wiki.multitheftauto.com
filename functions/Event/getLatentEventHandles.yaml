@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getLatentEventHandles
+shared: &shared
+  name: getLatentEventHandles
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

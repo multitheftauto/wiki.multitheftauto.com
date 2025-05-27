@@ -35,7 +35,7 @@ async function generateTmLanguage() {
 
   files.forEach(file => {
     const yamlContent = yaml.load(fs.readFileSync(file, 'utf-8'));
-    console.log('Processing file:', file);
+    // console.log('Processing file:', file);
 
     const items = Array.isArray(yamlContent) ? yamlContent : [yamlContent];
     items.flatMap(extractFunctionsWithScope).forEach(({ name, scope }) => functionsMap[scope].add(name));

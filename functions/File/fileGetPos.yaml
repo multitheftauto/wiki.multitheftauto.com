@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/fileGetPos
+shared: &shared
+  name: fileGetPos
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

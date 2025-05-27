@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/toJSON
+shared: &shared
+  name: toJSON
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

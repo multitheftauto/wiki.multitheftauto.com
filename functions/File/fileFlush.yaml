@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/fileFlush
+shared: &shared
+  name: fileFlush
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

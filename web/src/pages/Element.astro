@@ -11,26 +11,25 @@ const elementsByCategory = getElementsByCategory();
   title: 'Element',
   tableOfContents: false,
 }}>
-  <p>In order to perform operations on MTA objects via scripting, pointers to internal classes are exported to scripts as Lua userdata. Each of these classes has a number of exported scripting functions associated with them. Elements that have a physical representation in the game are also known as <a href="/Entity">Entities</a>.</p>
-  <p>An <strong>element</strong> is a generic class that can represent almost all in-game entities. The built-in element types are:</p>
-  <ul>
-    {Object.entries(elementsByCategory).map(([category, elements], index) => (
-      <section>
-            {/* <details {...(index === 0 ? { open: true } : {})}> */}
-            <details>
-                <summary>{category} elements</summary>
-                <ul>
-                    {elements.map(element => (
-                        <li>
-                            <a href={`/${element.id}`}>{element.id}</a>
-                            {hasOopMethods(element) ? <span class="small-text">[OOP]</span> : ''}
-                        </li>
-                    ))}
-                </ul>
-            </details>
-        </section>
+  <p>In order to perform operations on MTA objects via scripting, pointers to internal classes are exported to scripts as Lua userdata. Each of these classes has a number of exported scripting functions associated with them. Elements that have a physical representation in the game are also known as <a href="/Entity">Entities</a>.
+    An <strong>element</strong> is a generic class that can represent almost all in-game entities.
+    The built-in element types are:</p>
+  
+  <div class="mtaflex">
+    {Object.entries(elementsByCategory).map(([category, elements]) => (
+      <div class="mtabox">
+        <span class="mtabox_title">{category} elements</span>
+        <ul>
+          {elements.map(element => (
+            <li>
+              <a href={`/${element.id}`}>{element.id}</a>
+              {hasOopMethods(element) ? <span class="small-text">[OOP]</span> : ''}
+            </li>
+          ))}
+        </ul>
+      </div>
     ))}
-  </ul>
+  </div>
 
   <hr>
 
@@ -44,3 +43,27 @@ const elementsByCategory = getElementsByCategory();
       'article:Entity',
   ])} currentId='' />
 </StarlightPage>
+
+<style>
+  .mtaflex {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .mtabox {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .mtabox_title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+</style>

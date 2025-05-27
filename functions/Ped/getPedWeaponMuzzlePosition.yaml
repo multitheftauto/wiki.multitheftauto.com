@@ -1,0 +1,4 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getPedWeaponMuzzlePosition
+client:
+  name: getPedWeaponMuzzlePosition
+  description: THIS FUNCTION NEEDS DOCUMENTATION

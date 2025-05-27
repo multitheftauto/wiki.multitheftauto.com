@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/isVehicleFuelTankExplodable
+shared: &shared
+  name: isVehicleFuelTankExplodable
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

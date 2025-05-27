@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/resetSunSize
+shared: &shared
+  name: resetSunSize
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/pathListDir
+shared: &shared
+  name: pathListDir
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

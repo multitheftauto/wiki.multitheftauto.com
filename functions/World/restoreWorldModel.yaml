@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/restoreWorldModel
+shared: &shared
+  name: restoreWorldModel
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

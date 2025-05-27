@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/triggerEvent
+shared: &shared
+  name: triggerEvent
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

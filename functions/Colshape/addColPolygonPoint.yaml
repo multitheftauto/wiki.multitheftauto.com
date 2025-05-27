@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/addColPolygonPoint
+shared: &shared
+  name: addColPolygonPoint
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

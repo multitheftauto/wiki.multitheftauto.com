@@ -15,7 +15,7 @@ const eventsByCategory = getEventsByCategory();
     
     {Object.entries(eventsByCategory).map(([category, events]) => (
         <section>
-            <details>
+            <details open>
                 <summary>{category} events</summary>
                 <ul>
                     {events.map(event => (

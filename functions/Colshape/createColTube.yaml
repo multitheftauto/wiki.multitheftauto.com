@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/createColTube
+shared: &shared
+  name: createColTube
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

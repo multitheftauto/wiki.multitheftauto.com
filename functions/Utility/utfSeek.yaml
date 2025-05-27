@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/utfSeek
+shared: &shared
+  name: utfSeek
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

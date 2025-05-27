@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/setMarkerIcon
+shared: &shared
+  name: setMarkerIcon
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

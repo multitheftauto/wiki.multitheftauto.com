@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/setMinuteDuration
+shared: &shared
+  name: setMinuteDuration
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

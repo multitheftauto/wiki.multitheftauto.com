@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/toggleControl
+shared: &shared
+  name: toggleControl
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

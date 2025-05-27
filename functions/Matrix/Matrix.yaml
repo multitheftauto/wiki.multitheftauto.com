@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Matrix
+shared: &shared
+  name: Matrix
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

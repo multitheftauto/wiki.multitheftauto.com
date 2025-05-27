@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/bitReplace
+shared: &shared
+  name: bitReplace
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

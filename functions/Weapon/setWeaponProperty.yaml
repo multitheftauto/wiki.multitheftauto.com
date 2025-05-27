@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/setWeaponProperty
+shared: &shared
+  name: setWeaponProperty
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

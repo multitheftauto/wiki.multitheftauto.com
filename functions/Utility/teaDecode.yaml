@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/teaDecode
+shared: &shared
+  name: teaDecode
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

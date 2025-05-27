@@ -1,0 +1,7 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPedHitByWaterCannon
+name: onClientPedHitByWaterCannon
+type: client
+description: THIS EVENT NEEDS DOCUMENTATION
+source_element:
+  type: element
+  description: TODO

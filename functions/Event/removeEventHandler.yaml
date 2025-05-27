@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/removeEventHandler
+shared: &shared
+  name: removeEventHandler
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

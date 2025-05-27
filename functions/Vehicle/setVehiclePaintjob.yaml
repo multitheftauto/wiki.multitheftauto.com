@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/setVehiclePaintjob
+shared: &shared
+  name: setVehiclePaintjob
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

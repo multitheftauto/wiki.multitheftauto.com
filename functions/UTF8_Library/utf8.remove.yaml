@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.remove
+shared: &shared
+  name: utf8.remove
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

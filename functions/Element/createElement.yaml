@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/createElement
+shared: &shared
+  name: createElement
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

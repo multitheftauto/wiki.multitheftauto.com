@@ -1,6 +1,13 @@
 ---
-const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const functionName = pathSegments[pathSegments.length - 1];
+export interface Props {
+  theItem: any;
+}
+
+const { theItem } = Astro.props;
+
+const itemName = theItem.id;
+let itemType = theItem.data && theItem.data.itemType ? theItem.data.itemType : 'item';
+itemType = itemType.charAt(0).toUpperCase() + itemType.slice(1);
 ---
 
 <div class="missing-example-box">
@@ -11,7 +18,7 @@ const functionName = pathSegments[pathSegments.length - 1];
   </div>
   <div class="missing-example-content">
     <strong>Script Example Missing</strong>
-    <p>Function <code>{functionName}</code> needs a script example. Help out by writing one.</p>
+    <p>{itemType} <code>{itemName}</code> needs a script example. Help out by writing one.</p>
     <a href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md" class="guidelines-link">Contribution guidelines</a>
   </div>
 </div>

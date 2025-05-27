@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/isTransferBoxVisible
+shared: &shared
+  name: isTransferBoxVisible
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

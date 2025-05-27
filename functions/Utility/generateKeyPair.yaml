@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/generateKeyPair
+shared: &shared
+  name: generateKeyPair
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

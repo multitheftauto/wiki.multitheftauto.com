@@ -2,6 +2,7 @@
 /wiki/* /:splat
 /Main_Page /
 
+/bool /boolean
 /element /Element
 /MTA_Classes /Element
 /Element/:elementname /:elementname

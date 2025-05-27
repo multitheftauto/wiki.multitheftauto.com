@@ -1,0 +1,7 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/onElementDataChange
+name: onElementDataChange
+type: server
+description: THIS EVENT NEEDS DOCUMENTATION
+source_element:
+  type: element
+  description: TODO

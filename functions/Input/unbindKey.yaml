@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/unbindKey
+shared: &shared
+  name: unbindKey
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

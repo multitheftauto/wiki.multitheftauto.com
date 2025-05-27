@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/isElementLowLOD
+shared: &shared
+  name: isElementLowLOD
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared
