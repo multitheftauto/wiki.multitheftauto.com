@@ -101,21 +101,4 @@ export default defineConfig({
 			],
 		}),
 	],
-
-	vite: {
-		plugins: [
-			{
-				name: 'override-pagefind-config',
-				closeBundle: async () => {
-					const configPath = path.join('dist', 'pagefind', 'pagefind.json');
-					
-					if (fs.existsSync(configPath)) {
-						let config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-						config.source = 'pages'; 
-						fs.writeFileSync(configPath, JSON.stringify(config));
-					}
-				},
-			},
-		],
-	}
 });
