@@ -1,15 +1,5 @@
-# Serve actual files first (if they exist)
-# If a file exists with this path, serve it directly
-# This must come first
-/*    /:splat  200!
-
-# Allow pagefind assets to be served as-is
-/pagefind/*  /pagefind/:splat  200
-
-# Rewrite /wiki to /
+# Rewrite /wiki
 /wiki        /
-
-# Rewrite /wiki/* to root paths
 /wiki/*      /:splat
 
 # Aliases for specific pages
