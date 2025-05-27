@@ -27,7 +27,10 @@ import { OLD_WIKI_URL, OLD_WIKI_REDIRECT } from '@src/content.constants';
     if (el) el.textContent = countdown;
     if (countdown <= 0) {
         clearInterval(interval);
-        window.location.replace(OLD_WIKI_URL + location.pathname);
+        let path = location.pathname;
+        // Remove trailing slash if any
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        window.location.replace(OLD_WIKI_URL + path);
     }
     }, 1000);
 </script>

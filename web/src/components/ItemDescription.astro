@@ -7,7 +7,9 @@ interface Props {
 
 const { description } = Astro.props;
 
-const path = Astro.url.pathname;
+let path = Astro.url.pathname;
+// Remove trailing slash if any
+path = path.endsWith('/') ? path.slice(0, -1) : path;
 ---
 {description.includes("NEEDS DOCUMENTATION") ? (
     <p style="color: var(--sl-color-orange); font-size: 2rem;"><strong>This page is incomplete! Help wanted!</strong>
