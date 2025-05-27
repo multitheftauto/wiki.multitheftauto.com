@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/fileGetSize
+shared: &shared
+  name: fileGetSize
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

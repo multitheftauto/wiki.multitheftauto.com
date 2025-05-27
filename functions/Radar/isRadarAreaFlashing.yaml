@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/isRadarAreaFlashing
+shared: &shared
+  name: isRadarAreaFlashing
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/fileClose
+shared: &shared
+  name: fileClose
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

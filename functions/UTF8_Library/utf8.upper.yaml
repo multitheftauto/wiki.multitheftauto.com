@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.upper
+shared: &shared
+  name: utf8.upper
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

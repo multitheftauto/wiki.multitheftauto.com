@@ -1,0 +1,7 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMouseEnter
+name: onClientMouseEnter
+type: client
+description: THIS EVENT NEEDS DOCUMENTATION
+source_element:
+  type: element
+  description: TODO

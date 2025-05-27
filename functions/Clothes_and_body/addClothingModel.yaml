@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/addClothingModel
+shared: &shared
+  name: addClothingModel
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

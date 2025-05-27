@@ -1,0 +1,7 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/onClientSoundStream
+name: onClientSoundStream
+type: client
+description: THIS EVENT NEEDS DOCUMENTATION
+source_element:
+  type: element
+  description: TODO

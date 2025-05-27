@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/forcePlayerMap
+shared: &shared
+  name: forcePlayerMap
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

@@ -1,0 +1,4 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/getAccountsBySerial
+server:
+  name: getAccountsBySerial
+  description: THIS FUNCTION NEEDS DOCUMENTATION

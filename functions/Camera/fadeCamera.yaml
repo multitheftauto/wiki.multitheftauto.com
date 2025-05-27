@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/fadeCamera
+shared: &shared
+  name: fadeCamera
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

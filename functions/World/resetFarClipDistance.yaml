@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/resetFarClipDistance
+shared: &shared
+  name: resetFarClipDistance
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

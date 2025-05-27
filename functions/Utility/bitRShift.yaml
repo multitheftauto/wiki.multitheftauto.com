@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/bitRShift
+shared: &shared
+  name: bitRShift
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

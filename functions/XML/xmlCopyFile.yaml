@@ -13,6 +13,13 @@ shared: &shared
     - name: 'nodeToCopy'
       type: 'xmlnode'
       description: "The [xmlnode](/xmlnode) that is to be copied to a new document."
+    - name: 'newFilePath'
+      type: 'string'
+      description: |
+        the path of the file that is to be created, in the following format: `":resourceName/path"`. `'resourceName'` is the name of the resource the file is in, and `'path'` is the path from the root directory of the resource to the file.
+        If the file is to be in the current resource, only the file path is necessary, e.g. `"newfile.xml"`.
+        For example, to create a file named `'newfile.xml'` with myNode as the root node in the resource `'ctf'`, it can be done from another resource this way: `xmlCopyFile(myNode, ":ctf/newfile.xml")`.
+        If the file is to be in the current resource, only the file path is necessary, e.g. `xmlCopyFile(myNode, "newfile.xml")`.
   returns:
     description: |
       Returns the [xmlnode](/xmlnode) of the copy if the node was successfully copied, **false** if invalid arguments were passed.

@@ -189,7 +189,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             </div>
         ))}
 
-        <CodeExamplesSection codeExamples={funcExamples}, examplesRequired={true} />
+        <CodeExamplesSection codeExamples={funcExamples}, examplesRequired={true} theItem={func} />
 
         <ChangelogList entries={changelogEntries} />
 

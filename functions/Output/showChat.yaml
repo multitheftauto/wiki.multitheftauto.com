@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/showChat
+shared: &shared
+  name: showChat
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

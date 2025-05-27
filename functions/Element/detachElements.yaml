@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/detachElements
+shared: &shared
+  name: detachElements
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared

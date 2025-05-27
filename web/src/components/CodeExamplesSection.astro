@@ -13,9 +13,10 @@ export interface CodeExample {
 export interface Props {
   codeExamples: CodeExample[];
   examplesRequired?: boolean;
+  theItem?: any;
 }
 
-const { codeExamples, examplesRequired } = Astro.props;
+const { codeExamples, examplesRequired, theItem } = Astro.props;
 
 if (codeExamples.length === 0 && !examplesRequired) {
   return null;
@@ -25,8 +26,8 @@ if (codeExamples.length === 0 && !examplesRequired) {
 <div class="examples-section">
   <h4>Code Examples</h4>
 
-  {codeExamples.length === 0 ? (
-    <NeedsExample />
+  {codeExamples.length === 0 && theItem ? (
+    <NeedsExample theItem={theItem} />
   ) : (
     <div class="examples-tabs-box">
       {codeExamples.length > 1 && (

@@ -1,0 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/resetWindVelocity
+shared: &shared
+  name: resetWindVelocity
+  description: THIS FUNCTION NEEDS DOCUMENTATION
+
+server:
+  <<: *shared
+client:
+  <<: *shared
