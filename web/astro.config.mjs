@@ -3,9 +3,8 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mtasaStarlightThemePlugin from '@multitheftauto/starlight-theme-mtasa';
 import { SITE_TITLE, SITE_URL } from './src/content.constants';
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'fs';
-import { join } from 'path';
-
+import fs from 'fs';
+import path from 'path';
 
 export default defineConfig({
 	site: SITE_URL,
@@ -87,7 +86,7 @@ export default defineConfig({
 							items: [
 								{label: 'Element types', link: 'Element'},
 								{label: 'Element tree', link: 'Element_tree'},
-								{label: 'Entities', link: 'Entity'},
+								{label: 'Entity', link: 'Entity'},
 							]
 						},
 						{
@@ -107,45 +106,16 @@ export default defineConfig({
 		plugins: [
 			{
 				name: 'override-pagefind-config',
-				writeBundle: {
-					sequential: true,
-					order: 'post',
-					handler: async () => {
-						const targetDir = join('dist', 'pagefind');
-						const sourceDir = join('dist', '_pagefind');
-
-						if (!existsSync(targetDir)) mkdirSync(targetDir, { recursive: true });
-
-						const filesToCopy = ['pagefind.js', 'pagefind.json', 'pagefind-*.wasm'];
-						filesToCopy.forEach(pattern => {
-							try {
-								const sourcePath = join(sourceDir, pattern.replace('*', ''));
-								if (existsSync(sourcePath)) {
-									copyFileSync(
-										sourcePath,
-										join(targetDir, pattern.replace('*', ''))
-									);
-								}
-							} catch (error) {
-								console.warn(`Filed to copy ${pattern}:`, error.message);
-							}
-						});
-
-						const configPath = join(targetDir, 'pagefind.json');
-						if (existsSync(configPath)) {
-							const config = JSON.parse(readFileSync(configPath, 'utf-8'));
-							config.source = 'pages';
-							writeFileSync(configPath, JSON.stringify(config));
-						} else {
-							writeFileSync(configPath, JSON.stringify({
-								source: 'pages',
-								bundlePath: '/pagefind/'
-							}));
-
-						}
+				closeBundle: async () => {
+					const configPath = path.join('dist', 'pagefind', 'pagefind.json');
+					
+					if (fs.existsSync(configPath)) {
+						let config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+						config.source = 'pages'; 
+						fs.writeFileSync(configPath, JSON.stringify(config));
 					}
-				}
-			}
-		]
+				},
+			},
+		],
 	}
 });
