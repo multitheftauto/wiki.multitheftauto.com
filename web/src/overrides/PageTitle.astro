@@ -1,12 +1,12 @@
 ---
 import { functionTypePrettyName } from '@src/utils/functions';
 ---
-<div class="page-title-container">
+<div class="page-title-container" data-pagefind-ignore>
     <h1>{Astro.locals.starlightRoute.entry.data.title}</h1>
 
-    <div data-pagefind-ignore class="type-badge type-badge--client">{functionTypePrettyName['client']}</div>
-    <div data-pagefind-ignore class="type-badge type-badge--server">{functionTypePrettyName['server']}</div>
-    <div data-pagefind-ignore class="type-badge type-badge--shared">{functionTypePrettyName['shared']}</div>
+    <div class="type-badge type-badge--client">{functionTypePrettyName['client']}</div>
+    <div class="type-badge type-badge--server">{functionTypePrettyName['server']}</div>
+    <div class="type-badge type-badge--shared">{functionTypePrettyName['shared']}</div>
 </div>
 
 <style is:global>
