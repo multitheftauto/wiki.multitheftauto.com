@@ -17,6 +17,7 @@ EVENTS_DIR = "./output/events"
 CATEGORY_CORRECTIONS = {
     'SQL': 'Database',
     'Collision_shape': 'Colshape',
+    'Weapon_creation': 'Weapon',
 }
 
 def clean_category(category_name: str) -> str:

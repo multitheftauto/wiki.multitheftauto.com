@@ -20,8 +20,9 @@ let eventsByTypeByCategory: EventsByTypeByCategory = {
 };
 
 for (let event of eventsCollection) {
-    const normalizedPath = path.normalize(event.filePath || '');
-    const folder = path.basename(path.dirname(normalizedPath));
+    let folder = path.basename(path.dirname(event.filePath || ''));
+    folder = folder.replace(/_/g, ' ');
+
     if (!eventsByCategory[folder]) {
         eventsByCategory[folder] = [];
     }
