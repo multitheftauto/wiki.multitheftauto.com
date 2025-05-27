@@ -1,14 +1,22 @@
+# Serve actual files first (if they exist)
+# If a file exists with this path, serve it directly
+# This must come first
+/*    /:splat  200!
+
+# Allow pagefind assets to be served as-is
 /pagefind/*  /pagefind/:splat  200
 
-/wiki /
-/wiki/* /:splat
-/Main_Page /
+# Rewrite /wiki to /
+/wiki        /
 
-/bool /boolean
-/element /Element
+# Rewrite /wiki/* to root paths
+/wiki/*      /:splat
+
+# Aliases for specific pages
+/Main_Page   /
+/bool        /boolean
+/element     /Element
 /MTA_Classes /Element
 /Element/:elementname /:elementname
-
-/Vector/:vectorclass /:vectorclass
-
-/OOP /OOP_Introduction
+/Vector/:vectorclass  /:vectorclass
+/OOP         /OOP_Introduction
