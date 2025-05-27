@@ -32,17 +32,17 @@ function displayItem(item: any) {
     switch (what) {
         case 'all_functions':
             const funcInfo = getFunctionInfo(item.data);
-            return `<a href=${item.id}>${item.id}</a>
+            return `<a href=/${item.id}>${item.id}</a>
                     (<span class=${"side-"+funcInfo.type}>${funcInfo.typePretty}</span>)`;
         case 'all_events':
-            return `<a href=${item.id}>${item.id}</a>
+            return `<a href=/${item.id}>${item.id}</a>
                     (<span class=${"side-"+item.data.type}>${getEventTypePretty(item.data.type)}-side</span>)`;
         case 'client_functions':
         case 'server_functions':
         case 'shared_functions':
         case 'client_events':
         case 'server_events':
-            return `<a href=${item.id}>${item.id}</a>`;
+            return `<a href=/${item.id}>${item.id}</a>`;
     }
     return '?';
 }
