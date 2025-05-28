@@ -2,7 +2,7 @@ shared: &shared
   name: fileGetPos
   pair: fileSetPos
   oop:
-    entity: file
+    element: file
     method: getPos
     variable: pos
   description: Returns the current read/write position in the given file.

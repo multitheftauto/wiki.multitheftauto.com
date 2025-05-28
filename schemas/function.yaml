@@ -66,12 +66,12 @@ $defs:
     type: object
     description: Object-Oriented Programming (OOP) information block for the function.
     required:
-      - entity
+      - element
     properties:
       note:
         type: string
         description: A piece of information to show alongside OOP syntax.
-      entity:
+      element:
         type: string
         description: Name of the element or userdata.
     oneOf:

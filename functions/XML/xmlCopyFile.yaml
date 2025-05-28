@@ -5,7 +5,7 @@ shared: &shared
       content: |
         To prevent memory leaks, ensure each call to **xmlCopyFile** has a matching call to [xmlUnloadFile](/xmlUnloadFile).
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: copy
   description: |
     This function copies all contents of a certain node in a XML document to a new document file, so the copied node becomes the new file's root node. The new file will not be saved to file system until [xmlSaveFile](/xmlSaveFile) is called.

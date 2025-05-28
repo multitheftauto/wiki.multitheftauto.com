@@ -11,7 +11,7 @@ shared: &shared
       content: |
         It's worth nothing that the position of the vehicle is the center point of the vehicle, not its base. As such, you need to ensure that the z value (vertical axis) is some height above the ground. You can find the exact height using the client side function [getElementDistanceFromCentreOfMassToBaseOfModel](/getElementDistanceFromCentreOfMassToBaseOfModel), or you can estimate it yourself and just spawn the vehicle so it drops to the ground.
   oop:
-    entity: vehicle
+    element: vehicle
     constructorclass: Vehicle
   description: |
     This function creates a [vehicle](/vehicle) at the specified location.

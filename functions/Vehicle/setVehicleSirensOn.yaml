@@ -1,7 +1,7 @@
 shared: &shared
   name: 'setVehicleSirensOn'
   oop:
-    entity: vehicle
+    element: vehicle
     method: setSirensOn
     variable: sirensOn
   pair: 'getVehicleSirensOn'

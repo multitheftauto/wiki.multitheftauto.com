@@ -1,7 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
-import { getFunctionInfo, parseFunctionSyntaxes } from '@src/utils/functions';
+import { getFunctionInfo, parseFunctionSyntaxes, getFixedStaticOOPClass } from '@src/utils/functions';
 import { renderInlineMarkdown, getSeeAlsoLinksForItem } from '@src/utils/general';
 import fs from "fs";
 import path from "path";
@@ -112,14 +112,14 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             {funcInfo.oop.constructorclass ? (
                 <li>
                 <strong>Constructor</strong>:
-                <a href={`/${funcInfo.oop.entity}`}>{funcInfo.oop.constructorclass}</a>(...)
+                <a href={`/${funcInfo.oop.element}`}>{funcInfo.oop.constructorclass}</a>(...)
                 </li>
             ) : (
                 <>
                     {funcInfo.oop.method && (
                         <li>
                         <strong>Method</strong>:
-                        <a href={ `/${funcInfo.oop.entity}` }>{funcInfo.oop.static ? funcInfo.oop.entity.charAt(0).toUpperCase() + funcInfo.oop.entity.slice(1) : funcInfo.oop.entity}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
+                        <a href={ `/${funcInfo.oop.element}` }>{funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
                         </li>
                     )}
 

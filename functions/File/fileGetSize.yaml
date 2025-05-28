@@ -1,7 +1,7 @@
 shared: &shared
   name: fileGetSize
   oop:
-    entity: file
+    element: file
     method: getSize
     variable: size
   description: Returns the total size in **bytes** of the given file.

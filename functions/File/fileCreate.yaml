@@ -11,7 +11,7 @@ shared: &shared
       content: |
         It is important to remember to close a file after you've finished all your operations on it, especially if you've been writing to the file. If you don't close a file and your resource crashes, all changes to the file may be lost.
   oop:
-    entity: file
+    element: file
     static: true
     method: new
   description: Creates a new file in a directory of a resource. If there already exists a file with the specified name, it is overwritten with an empty file.

@@ -1,7 +1,7 @@
 shared: &shared
   name: fileDelete
   oop:
-    entity: file
+    element: file
     static: true
     method: delete
   description: Deletes the specified file.

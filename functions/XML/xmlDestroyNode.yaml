@@ -1,7 +1,7 @@
 shared: &shared
   name: 'xmlDestroyNode'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: destroy
   description: |
     This function destroys a XML node from the XML node tree.

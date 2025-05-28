@@ -5,7 +5,7 @@ shared: &shared
       content: |
         Please note that even if you enable SD #22 and #23 on your server, you are not protected from user attacks, which can happen after verification of the file, but before you read the contents of such verified file. This function enables you to safely read the contents of a meta.xml-listed file on both client and server.
   oop:
-    entity: file
+    element: file
     method: getContents
   description: |
     Reads the entire contents of the file, optionally verifies the read contents by computing and comparing the checksum with the expected one, and returns the content as string. The file cursor position is not modified by calls to this function. File must be added in the [[meta.xml]].

@@ -1,7 +1,7 @@
 shared: &shared
   name: 'xmlUnloadFile'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: unload
   description: |
     Unloads an XML document from memory.

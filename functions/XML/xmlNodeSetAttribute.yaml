@@ -2,7 +2,7 @@ shared: &shared
   name: 'xmlNodeSetAttribute'
   pair: 'xmlNodeGetAttribute'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: setAttribute
   description: |
     This function is used to edit an attribute of a node in a configuration file.
