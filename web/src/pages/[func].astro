@@ -112,7 +112,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             {funcInfo.oop.constructorclass ? (
                 <li>
                 <strong>Constructor</strong>:
-                {funcInfo.oop.constructorclass}(...)
+                <a href={`/${funcInfo.oop.entity}`}>{funcInfo.oop.constructorclass}</a>(...)
                 </li>
             ) : (
                 <>

@@ -15,7 +15,7 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
 <section class="oop-constructor-section">
     <h4><a href="/OOP_Introduction">OOP</a> Constructor</h4>
     <p>
-        <code>{oop_constructor.oop.constructorclass}(...)</code> is the constructor method for the <code>{element_name}</code> class (<a href={oop_constructor.link}>{oop_constructor.name}</a>).
+        {oop_constructor.oop.constructorclass}(...) is the constructor method for the <code>{element_name}</code> class (<a href={oop_constructor.link}>{oop_constructor.name}</a>).
     </p>
 </section>
 )}
@@ -25,30 +25,22 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
     <h4><a href="/OOP_Introduction">OOP</a> Methods and Variables</h4>
     <ul>
         {oop_compatible_functions.map((funcInfo: any) => (
-            <li>
-                {funcInfo.oop.constructorclass ? (
-                    <span>
-                        <strong>Constructor</strong>:
-                        {funcInfo.oop.constructorclass}(...)
-                    </span>
-                ) : (
-                    <>
-                        {funcInfo.oop.method && (
-                            <span style="margin-right: 10px;">
-                                <strong>Method</strong>:
-                                {funcInfo.oop.static ? funcInfo.oop.entity.charAt(0).toUpperCase() + funcInfo.oop.entity.slice(1) : funcInfo.oop.entity}{funcInfo.oop.static ? '.' : ':'}<a href={funcInfo.link} title={funcInfo.name}>{funcInfo.oop.method}</a>(...)
-                            </span>
-                        )}
+            funcInfo.oop.constructorclass ? null : (
+                <li>
+                    {funcInfo.oop.method && (
+                        <span style="margin-right: 10px;">
+                            {funcInfo.oop.static ? funcInfo.oop.entity.charAt(0).toUpperCase() + funcInfo.oop.entity.slice(1) : funcInfo.oop.entity}{funcInfo.oop.static ? '.' : ':'}<a href={funcInfo.link} title={funcInfo.name}>{funcInfo.oop.method}</a>(...)
+                        </span>
+                    )}
 
-                        {funcInfo.oop.variable && (
-                            <span>
-                                <strong>Variable</strong>:
-                                .{funcInfo.oop.variable}
-                            </span>
-                        )}
-                    </>
-                )}
-            </li>
+                    {funcInfo.oop.variable && (
+                        <span>
+                            <strong>Variable</strong>:
+                            .{funcInfo.oop.variable}
+                        </span>
+                    )}
+                </li>
+            )
         ))}
     </ul>
 </section>

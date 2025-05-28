@@ -2,6 +2,7 @@ shared: &shared
   name: fileExists
   oop:
     entity: file
+    static: true
     method: exists
   description: This functions checks whether a specified file exists inside a resource.
   parameters:
