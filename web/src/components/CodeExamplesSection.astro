@@ -8,6 +8,7 @@ export interface CodeExample {
   luaCode: string;
   side: string;
   title?: string;
+  oop?: boolean;
 }
 
 export interface Props {
@@ -56,6 +57,11 @@ if (codeExamples.length === 0 && !examplesRequired) {
         >
           <div class={`tab-header side-${example.side} active`}>
             <strong>{example.side}</strong> {example.title && ` - ${example.title}`}
+            {example.oop && (
+              <div class="oop-indicator">
+                <a href="/OOP_Introduction">OOP</a> Required
+              </div>
+            )}
           </div>
           <div class="tab-body">
             {example.description && <EnhancedMarkdown content={example.description} />}
@@ -70,6 +76,15 @@ if (codeExamples.length === 0 && !examplesRequired) {
 </div>
 
 <style>
+.oop-indicator {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--sl-color-accent-low);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+}
+
 .tab-buttons {
   display: flex;
   gap: 1rem;
