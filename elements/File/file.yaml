@@ -1,3 +1,4 @@
 name: 'file'
 description: |
-    THIS FUNCTION NEEDS DOCUMENTATION
+    The file object refers to a file loaded into memory.
+    It can be obtained using the [[fileCreate]] or [[fileOpen]] functions and then, for example, read using [[fileRead]] or used for any other file-related operation with the file functions.
