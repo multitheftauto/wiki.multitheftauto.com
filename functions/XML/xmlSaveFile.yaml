@@ -1,7 +1,7 @@
 shared: &shared
   name: 'xmlSaveFile'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: saveFile
   description: |
     This function saves a loaded XML file.

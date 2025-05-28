@@ -1,5 +1,6 @@
 ---
 import { Code } from '@astrojs/starlight/components';
+import { getFixedStaticOOPClass } from '@src/utils/functions';
 
 export interface Props {
     element_name?: string | null;
@@ -29,7 +30,7 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
                 <li>
                     {funcInfo.oop.method && (
                         <span style="margin-right: 10px;">
-                            {funcInfo.oop.static ? funcInfo.oop.entity.charAt(0).toUpperCase() + funcInfo.oop.entity.slice(1) : funcInfo.oop.entity}{funcInfo.oop.static ? '.' : ':'}<a href={funcInfo.link} title={funcInfo.name}>{funcInfo.oop.method}</a>(...)
+                            {funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}{funcInfo.oop.static ? '.' : ':'}<a href={funcInfo.link} title={funcInfo.name}>{funcInfo.oop.method}</a>(...)
                         </span>
                     )}
 

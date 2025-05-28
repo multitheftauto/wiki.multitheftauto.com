@@ -6,8 +6,7 @@ import type { FunctionType, NotesType } from './types';
 type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
 
 type BaseOOP = {
-  entity: string;
-  note?: string;
+  element: string;
 };
 
 // /!\ constructor is a reserved word in JS/TS, so we use constructorclass
@@ -236,4 +235,11 @@ export function getFunctionsByCategory(): FunctionsByCategory {
 
 export function getFunctionsByTypeByCategory(): FunctionsByTypeByCategory {
     return functionsByTypeByCategory;
+}
+
+export function getFixedStaticOOPClass(elementName: string): string {
+    if (elementName === 'xmlnode') {
+      return 'XML';
+    }
+    return elementName.charAt(0).toUpperCase() + elementName.slice(1);
 }

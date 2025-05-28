@@ -7,7 +7,7 @@ shared: &shared
       content: |
         When you open a file, its file position is set to the beginning of the file. Each call to [[fileRead]] or [[fileWrite]] moves the position ahead by the amount of bytes that were read/written. This way, by using [[fileIsEOF]] you can check if you've passed through the whole file.
   oop:
-    entity: file
+    element: file
     method: isEOF
     variable: eof
   description: Checks if the file position is at the end of the file.

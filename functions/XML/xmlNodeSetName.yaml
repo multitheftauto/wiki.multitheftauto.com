@@ -2,7 +2,7 @@ shared: &shared
   name: 'xmlNodeSetName'
   pair: 'xmlNodeGetName'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: setName
     variable: name
   description: |

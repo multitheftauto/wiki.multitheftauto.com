@@ -1,7 +1,7 @@
 shared: &shared
   name: 'getPlayerName'
   oop:
-    entity: player
+    element: player
     method: getName
     variable: name
   pair: 'setPlayerName'

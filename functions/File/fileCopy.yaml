@@ -5,7 +5,7 @@ shared: &shared
       content: |
         If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [[filepath]] for more information).
   oop:
-    entity: file
+    element: file
     static: true
     method: copy
   description: This function copies a file.

@@ -5,7 +5,7 @@ shared: &shared
       content: |
         It is important to remember to close a file after you've finished all your operations on it, especially if you've been writing to the file. If you don't close a file and your resource crashes, all changes to the file may be lost.
   oop:
-    entity: file
+    element: file
     method: write
   description: Writes one or more strings to a given file, starting at the current read/write position. Advances the position over the number of bytes that were written.
   parameters:

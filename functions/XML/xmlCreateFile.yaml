@@ -8,7 +8,7 @@ shared: &shared
       content: |
         If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [filepath](/filepath) for more information).
   oop:
-    entity: xmlnode
+    element: xmlnode
     constructorclass: XML
   description: |
     This function creates a new XML document, which can later be saved to a file by using [xmlSaveFile](/xmlSaveFile). This function will overwrite the file specified if it already exists.

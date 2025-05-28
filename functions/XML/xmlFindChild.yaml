@@ -1,7 +1,7 @@
 shared: &shared
   name: 'xmlFindChild'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: findChild
   description: |
     This function returns a named child node of an XML node.

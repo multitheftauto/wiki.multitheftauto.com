@@ -1,7 +1,7 @@
 shared: &shared
   name: 'xmlNodeGetChildren'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: getChildren
     variable: children
   description: |

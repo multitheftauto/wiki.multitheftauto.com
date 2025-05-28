@@ -1,7 +1,7 @@
 shared: &shared
   name: 'setElementHealth'
   oop:
-    entity: element
+    element: element
     method: setHealth
     variable: health
   pair: 'getElementHealth'

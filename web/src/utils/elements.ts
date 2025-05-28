@@ -56,7 +56,7 @@ export function getOOPFunctionsForElement(elementName: string): any[] {
         for (const func of functions) {
             const funcData = func.data;
             const funcOop = funcData.shared?.oop || funcData.client?.oop || funcData.server?.oop;
-            if (funcOop && funcOop.entity === elementName) {
+            if (funcOop && funcOop.element === elementName) {
                 oopFunctions.push({
                     name: func.id,
                     link: `/${func.id}`,

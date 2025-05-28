@@ -1,7 +1,7 @@
 shared: &shared
   name: fileGetPath
   oop:
-    entity: file
+    element: file
     method: getPath
     variable: path
   description: This function retrieves the path of the given file.

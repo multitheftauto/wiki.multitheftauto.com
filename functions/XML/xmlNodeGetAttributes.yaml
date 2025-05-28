@@ -1,7 +1,7 @@
 shared: &shared
   name: 'xmlNodeGetAttributes'
   oop:
-    entity: xmlnode
+    element: xmlnode
     method: getAttributes
     variable: attributes
   description: |

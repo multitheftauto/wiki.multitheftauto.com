@@ -4,7 +4,7 @@ shared: &shared
     - type: 'important'
       content: To prevent memory leaks, ensure each successful call to [[fileOpen]] has a matching call to [[fileClose]].
   oop:
-    entity: file
+    element: file
     constructorclass: File
   description: Opens an existing file for reading and writing.
   parameters:
