@@ -72,5 +72,12 @@ shared: &shared
 server:
   <<: *shared
 
+  examples:
+    - path: 'examples/createVehicle-oop-1.lua'
+      description: |
+        Creates a vehicle using the OOP syntax. This example creates a vehicle at the specified position and with the specified rotation.
+      oop: true
+      title: 'Create Vehicle using Constructor Class'
+
 client:
   <<: *shared
