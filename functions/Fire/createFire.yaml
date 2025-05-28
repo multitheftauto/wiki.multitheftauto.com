@@ -1,4 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createFire
 client:
   name: createFire
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: Creates a patch of fire that will spread a bit and die out after a while. Because it's a client side only function, other players won't see it, so custom events or custom objects will be needed to make a fire visible to some players.
+  parameters:
+    - name: x
+      type: float
+      description: The X coordinate when the initial patch of fire will be created.
+    - name: y
+      type: float
+      description: The Y coordinate when the initial patch of fire will be created.
+    - name: z
+      type: float
+      description: The Z coordinate when the initial patch of fire will be created.
+    - name: size
+      type: float
+      description: A float value indicating the size of the initial patch of fire, this value also affects the duration of how long the fire remains.
+      default: '1.8'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if successful, false if bad arguments were passed or the limit of active fires was reached. There can be a maximum of 60 active fires.
+  examples:
+    - path: 'examples/createFire-1.lua'
+      description: This example adds a `/fire` command, which creates a patch of fire in the position of the player that types it.
+  preview_images:
+    - path: '/assets/fire.png'
+      description: Fire with default size (1.8)
