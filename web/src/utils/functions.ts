@@ -13,7 +13,7 @@ type BaseOOP = {
 // /!\ constructor is a reserved word in JS/TS, so we use constructorclass
 type MethodOOP = BaseOOP & {
   method: string;
-  static?: boolean;
+  static: boolean;
   variable?: string;
   constructorclass?: never; // mutually exclusive with constructor
 };

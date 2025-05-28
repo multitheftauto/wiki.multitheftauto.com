@@ -9,19 +9,6 @@ export interface Props {
 
 const { element_name = null, oop_only_methods, oop_compatible_functions } = Astro.props;
 
-let oop_variables_by_var: Record<string, any[]> = {};
-for (const func of oop_compatible_functions) {
-  if (func.oop.variable) {
-    if (!oop_variables_by_var[func.oop.variable]) {
-      oop_variables_by_var[func.oop.variable] = [];
-    }
-    oop_variables_by_var[func.oop.variable].push({
-      functionName: func.name,
-      functionLink: func.link,
-      functionOop: func.oop,
-    });
-  }
-}
 let oop_constructor = oop_compatible_functions.find(func => func.oop.constructorclass);
 ---
 {element_name && oop_constructor && (
@@ -33,21 +20,36 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
 </section>
 )}
 
-{Object.keys(oop_variables_by_var).length > 0 && (
-<section class="oop-variables-section">
-    <h4><a href="/OOP_Introduction">OOP</a> Variables and Methods</h4>
+{oop_compatible_functions.length > 0 && (
+<section class="oop-compatible-functions-section">
+    <h4><a href="/OOP_Introduction">OOP</a> Methods and Variables</h4>
     <ul>
-    {Object.entries(oop_variables_by_var).map(([variableName, functions]) => (
-        <li>
-            <code>{variableName}</code>:
-            {functions.map((func: any, index: number) => (
-                <Fragment>
-                    <a href={func.functionLink}>{func.functionOop.method}</a>
-                    {index < functions.length - 1 ? ', ' : ''}
-                </Fragment>
-            ))}
-        </li>
-    ))}
+        {oop_compatible_functions.map((funcInfo: any) => (
+            <li>
+                {funcInfo.oop.constructorclass ? (
+                    <span>
+                        <strong>Constructor</strong>:
+                        {funcInfo.oop.constructorclass}(...)
+                    </span>
+                ) : (
+                    <>
+                        {funcInfo.oop.method && (
+                            <span style="margin-right: 10px;">
+                                <strong>Method</strong>:
+                                {funcInfo.oop.static ? funcInfo.oop.entity.charAt(0).toUpperCase() + funcInfo.oop.entity.slice(1) : funcInfo.oop.entity}{funcInfo.oop.static ? '.' : ':'}<a href={funcInfo.link} title={funcInfo.name}>{funcInfo.oop.method}</a>(...)
+                            </span>
+                        )}
+
+                        {funcInfo.oop.variable && (
+                            <span>
+                                <strong>Variable</strong>:
+                                .{funcInfo.oop.variable}
+                            </span>
+                        )}
+                    </>
+                )}
+            </li>
+        ))}
     </ul>
 </section>
 )}

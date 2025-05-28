@@ -108,27 +108,29 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         <div class="function-oop">
             <h4>OOP Syntax <a class="small-text" href="/OOP_Introduction">Help! I don't understand this!</a></h4>
             <ul>
-            {funcInfo.oop.method && (
-                <li>
-                <strong>Method</strong>:
-                <a href={ `/${funcInfo.oop.entity}` }>{funcInfo.oop.entity}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
-                </li>
-            )}
 
-            {funcInfo.oop.variable && (
-                <li>
-                <strong>Variable</strong>:
-                .{funcInfo.oop.variable}
-                </li>
-            )}
-
-            {funcInfo.oop.constructorclass && (
+            {funcInfo.oop.constructorclass ? (
                 <li>
                 <strong>Constructor</strong>:
                 {funcInfo.oop.constructorclass}(...)
                 </li>
-            )}
+            ) : (
+                <>
+                    {funcInfo.oop.method && (
+                        <li>
+                        <strong>Method</strong>:
+                        <a href={ `/${funcInfo.oop.entity}` }>{funcInfo.oop.static ? funcInfo.oop.entity.charAt(0).toUpperCase() + funcInfo.oop.entity.slice(1) : funcInfo.oop.entity}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
+                        </li>
+                    )}
 
+                    {funcInfo.oop.variable && (
+                        <li>
+                        <strong>Variable</strong>:
+                        .{funcInfo.oop.variable}
+                        </li>
+                    )}
+                </>
+            )}
             </ul>
         </div>
         </>
