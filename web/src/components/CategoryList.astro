@@ -9,7 +9,6 @@ interface Props {
 }
 
 const { itemsByCategory, what } = Astro.props;
-const categories = Object.keys(itemsByCategory);
 const slugify = (str: string) => str.replace(/\s+/g, '-');
 
 const categoryEmojis: Record<string, string> = {
@@ -115,7 +114,8 @@ function displayCategory(category: string) {
 <section data-pagefind-ignore>
   <h5>Table of Contents</h5>
   <div class="mtatoc-list">
-    {categories.map(category => (
+    {Object.keys(itemsByCategory).sort((a, b) => a.localeCompare(b))
+      .map(category => (
       <div class="mtatoc-item">
         <a href={`#${slugify(category)}`}>{displayCategory(category)}</a>
       </div>
@@ -123,13 +123,18 @@ function displayCategory(category: string) {
   </div>
 
 
-  {Object.entries(itemsByCategory).map(([category, items]) => (
+  {Object.entries(itemsByCategory)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([category, items]) => (
     <section id={slugify(category)}>
       <h4>{displayTitle(category)}
         <a href={`#${slugify(category)}`}><Icon size="1.5rem" name="external" class="mtainfoicon"/></a>
       </h4>
       <ul>
-        {items.map(item => (
+        {items
+          .slice()
+          .sort((a, b) => a.id.localeCompare(b.id))
+          .map(item => (
           <li set:html={displayItem(item)}></li>
         ))}
       </ul>
