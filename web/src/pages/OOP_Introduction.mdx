@@ -1,6 +1,6 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { Image } from 'astro:assets';
-import imageDiagram from '@src/assets/images/oop_intro_diagram.png';
+import { getAssetImagePath } from '@src/utils/general';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
@@ -48,7 +48,7 @@ Throughout the tutorial when I say *object*, I don't mean `createObject` (unless
 
 Here is a fancy Venn diagram I created to show the simple organisation of classes and elements:
 
-<Image src={imageDiagram} width="600" alt="Diagram"/>
+<Image src={getAssetImagePath("oop_intro_diagram.png")} width="600" alt="Diagram"/>
 
 The functions on the left are sorted to show what kind of category the returned value rests in. We've got Classes, Elements and "Problem children".
 

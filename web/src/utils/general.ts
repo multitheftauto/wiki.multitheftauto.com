@@ -4,6 +4,17 @@ import { getFunctionsByTypeByCategory } from '@src/utils/functions';
 import { getEventsByTypeByCategory } from '@src/utils/events';
 import { getElementsByCategory, getElementCategory } from '@src/utils/elements';
 
+import type { ImageMetadata } from 'astro';
+
+const imagesFromAssets = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
+export function getAssetImagePath(imageFilename: string): any {
+  const imagePath = `/src/assets/images/${imageFilename}`;
+  if (imagesFromAssets[imagePath]) {
+    return imagesFromAssets[imagePath]();
+  } else {
+    throw new Error(`Image not found: ${imageFilename}`);
+  }
+}
 
 export function renderInlineMarkdown(markdown: string): string | Promise<string> {
   const html = marked.parseInline(markdown);

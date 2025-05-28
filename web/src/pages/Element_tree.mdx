@@ -1,8 +1,7 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
-import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import { getSeeAlsoLinksFromList, getAssetImagePath } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { Image } from 'astro:assets';
-import treeImage from '@src/assets/images/element_tree.webp';
 
 <StarlightPage frontmatter={{
     template: 'doc',
@@ -15,7 +14,7 @@ If you are familiar with the concept of *trees* in computer-science, this should
 
 All elements that are created within scripts or from .map files are child elements of the resource they belong to. Thus, most elements (except for [players](/player)) exist only within resources and are also destroyed as soon as their resource is stopped.
 
-<Image src={treeImage} alt="Element tree"/>
+<Image src={getAssetImagePath("element_tree.webp")} alt="Element tree"/>
 
 ### Tree elements
 * **root**: This is at the very base of the tree - all elements are children (or descendants) of this element.

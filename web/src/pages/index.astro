@@ -1,9 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { Image } from 'astro:assets';
-
-// IMAGES
-import image_mtaLogo from '@src/assets/images/mta_logo.png';
+import { getAssetImagePath } from '@src/utils/general';
 
 import { MTA_CURRENT_VERSION } from '@src/content.constants';
 import { Icon } from '@astrojs/starlight/components';
@@ -22,7 +20,7 @@ import { Icon } from '@astrojs/starlight/components';
 }}>
 <div class="mtahero">
     <div class="mtahero_left">
-        <Image src={image_mtaLogo} alt="Multi Theft Auto Logo"/>
+        <Image src={getAssetImagePath("mta_logo.png")} alt="Multi Theft Auto Logo"/>
     </div>
 
     <div class="mtahero_right">
