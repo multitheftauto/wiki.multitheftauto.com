@@ -1,0 +1,4 @@
+description: |
+  *Nil* is a type with a single value, *nil*, whose main property is to be different from any other value. A global variable has a *nil* value by default, before a first assignment, and you can assign *nil* to a global variable to delete it. Lua uses *nil* as a kind of non-value, to represent the absence of a useful value.
+
+  Reference: [Nil in Programming in Lua](https://www.lua.org/pil/2.1.html)

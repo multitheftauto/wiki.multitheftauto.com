@@ -164,6 +164,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                     {syntax.parameters.some((param: any) => param.default) && (
                     <>
                         <h5>Optional Arguments</h5>
+                        <p><strong>NOTE</strong>: When using <a href="/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
                         <ul>
                         {syntax.parameters
                             .filter((param: any) => param.default)
