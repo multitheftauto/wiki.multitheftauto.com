@@ -1,5 +1,6 @@
 ---
 import { marked } from 'marked';
+import EnhancedMarkdown from './EnhancedMarkdown.astro';
 
 interface Props {
   description: string;
@@ -16,5 +17,5 @@ path = path.endsWith('/') ? path.slice(0, -1) : path;
         <br>Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>.
         <br>Go to <a target="_blank" href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md">Contribution guidelines</a> for more information.</p>
 ) : (
-    <Fragment set:html={marked(description)} />
+    <EnhancedMarkdown content={description} />
 )}

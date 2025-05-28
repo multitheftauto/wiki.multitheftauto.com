@@ -16,6 +16,7 @@ import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 
 import ChangelogList from '@src/components/ChangelogList.astro';
 import ItemDescription from '@src/components/ItemDescription.astro';
+import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
 
 export async function getStaticPaths() {
     const functions = await getCollection('functions');
@@ -96,7 +97,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             <div class="notes-section">
                 {notesContent.map((note) => (
                     <NoteBox type={note.type}>
-                        <Fragment set:html={marked(note.content)} />
+                        <EnhancedMarkdown content={note.content} />
                     </NoteBox>
                 ))}
             </div>
@@ -185,7 +186,8 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                             <li set:html={"<strong>" + ret.type + "</strong>: " + renderInlineMarkdown(ret.name)} />
                         ))}
                     </ul>
-                    <Fragment set:html={marked(syntax.returns.description)} />
+
+                    <EnhancedMarkdown content={syntax.returns.description}/>
                 )}
             </div>
         ))}

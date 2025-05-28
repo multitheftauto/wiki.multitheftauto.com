@@ -13,6 +13,7 @@ import type { NotesType } from '@src/utils/types';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 import ItemDescription from '@src/components/ItemDescription.astro';
+import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
 
 export async function getStaticPaths() {
     const events = await getCollection('events');
@@ -78,7 +79,7 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
             <div class="notes-section">
                 {notesContent.map((note) => (
                     <NoteBox type={note.type}>
-                        <Fragment set:html={marked(note.content)} />
+                        <EnhancedMarkdown content={note.content}/>
                     </NoteBox>
                 ))}
             </div>
