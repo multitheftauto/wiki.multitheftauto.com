@@ -118,7 +118,7 @@ $defs:
           type: boolean
           default: false
           description: If set to true, this example will be appended to the previous example.
-        exampleTitle:
+        title:
           type: string
           description: Optional title displayed in the frame around the example.
         side:

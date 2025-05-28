@@ -7,7 +7,7 @@ export interface CodeExample {
   description?: string;
   luaCode: string;
   side: string;
-  exampleTitle?: string;
+  title?: string;
 }
 
 export interface Props {
@@ -55,7 +55,7 @@ if (codeExamples.length === 0 && !examplesRequired) {
           }}
         >
           <div class={`tab-header side-${example.side} active`}>
-            <strong>{example.side}</strong> {example.exampleTitle && ` - ${example.exampleTitle}`}
+            <strong>{example.side}</strong> {example.title && ` - ${example.title}`}
           </div>
           <div class="tab-body">
             {example.description && <EnhancedMarkdown content={example.description} />}
