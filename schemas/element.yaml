@@ -17,6 +17,8 @@ properties:
     description: A list of noteworthy pieces of information for the item.
     items:
       type: string
+  preview_images:
+    $ref: 'common-defs.yaml#/$defs/preview_images'
   examples:
     $ref: 'common-defs.yaml#/$defs/examples'
   see_also:

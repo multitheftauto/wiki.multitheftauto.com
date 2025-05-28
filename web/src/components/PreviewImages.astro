@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+
+interface Props {
+  images?: any;
+}
+
+const { images } = Astro.props;
+---
+
+{images && images.length > 0 && (
+    <div class="preview-images">
+        {images.map((imageInfo: any) => (
+            <Image width={imageInfo.width || undefined}
+                height={imageInfo.height || undefined}
+                src={getAssetImagePath(imageInfo.path)}
+                alt={imageInfo.description || "Preview"} />
+        ))}
+    </div>
+)}

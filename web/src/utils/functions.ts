@@ -31,6 +31,7 @@ export type FunctionInfo = {
     type: FunctionType;
     typePretty: string;
     pair?: string;
+    preview_images?: string[];
     oop?: OOPInfo;
     notes?: NotesType;
 };

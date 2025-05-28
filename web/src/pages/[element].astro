@@ -6,6 +6,7 @@ import path from "path";
 import { getSeeAlsoLinksForItem } from '@src/utils/general';
 import { getElementCategory, getOOPFunctionsForElement } from '@src/utils/elements';
 
+import PreviewImages from '@src/components/PreviewImages.astro';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 import ElementOOPInfo from '@src/components/ElementOOPInfo.astro';
@@ -46,6 +47,8 @@ let oop_compatible_functions = getOOPFunctionsForElement(element.data.name);
   <p><a href="/Element">Element</a> category: <strong>{getElementCategory(element)}</strong></p>
 
   <EnhancedMarkdown content={element.data.description} />
+
+  <PreviewImages images={element.data.preview_images} />
 
   <ElementOOPInfo
     element_name={element.data.name}

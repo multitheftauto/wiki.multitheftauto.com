@@ -5,6 +5,7 @@ client:
     This function is used to get the client's cursor alpha (transparency).
   preview_images:
   - path: 'cursor-alpha.jpg'
+    width: 160
     description: 'Visual representation of the cursor alpha:'
   returns:
     description: |

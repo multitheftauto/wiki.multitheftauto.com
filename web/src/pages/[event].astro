@@ -6,6 +6,7 @@ import path from "path";
 import { Code } from '@astrojs/starlight/components';
 import { getSeeAlsoLinksForItem } from '@src/utils/general';
 
+
 import NoteBox from '@src/components/NoteBox.astro';
 import type { NotesType } from '@src/utils/types';
 
@@ -13,6 +14,7 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 import ItemDescription from '@src/components/ItemDescription.astro';
 import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
+import PreviewImages from '@src/components/PreviewImages.astro';
 
 export async function getStaticPaths() {
     const events = await getCollection('events');
@@ -72,6 +74,9 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
     }}>
         <!-- Description -->
         <ItemDescription description={event.data.description} />
+
+        <!-- Preview Images -->
+        <PreviewImages images={event.data.preview_images} />
 
         <!-- Notes -->
         {notesContent.length > 0 && (

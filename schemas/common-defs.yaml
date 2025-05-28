@@ -66,6 +66,12 @@ $defs:
         description:
           type: string
           description: Brief summary of the content in the picture.
+        width:
+          type: integer
+          description: Width of the image in pixels.
+        height:
+          type: integer
+          description: Height of the image in pixels.
 
   version:
     type: object
