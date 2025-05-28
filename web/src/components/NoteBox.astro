@@ -2,62 +2,107 @@
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'div'> {
-  type?: 'info' | 'warning' | 'important';
+  type?: 'info' | 'warning' | 'important' | 'tip';
 }
 
 const { type = 'info', class: className, ...rest } = Astro.props;
 ---
+
 <div
-  class:list={["custom-note-box", { 'note-important': type === 'important' }, className]}
+  class:list={[
+    "custom-note-box",
+    { 
+      'note-info': type === 'info',
+      'note-warning': type === 'warning',
+      'note-important': type === 'important',
+      'note-tip': type === 'tip',
+    }, 
+    className
+  ]}
   {...rest}
 >
-    {type === 'important' && (
-      <span class="note-icon" aria-label="Importante">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <circle cx="10" cy="10" r="10" fill="#e53935"/>
-          <text x="10" y="15" text-anchor="middle" font-size="14" fill="#fff" font-family="Arial" font-weight="bold">!</text>
-        </svg>
-      </span>
-    )}
-    <slot />
-</div >
+  {type === 'important' && (
+    <span class="note-icon" aria-label="Important">
+      <svg width="28" height="28" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="10" fill="#e53935"/>
+        <text x="10" y="15" text-anchor="middle" font-size="14" fill="#fff" font-family="Arial" font-weight="bold">!</text>
+      </svg>
+    </span>
+  )}
+
+  {type === 'warning' && (
+    <span class="note-icon" aria-label="Warning">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="#ff9800" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </span>
+  )}
+
+  {type === 'info' && (
+    <span class="note-icon" aria-label="Info">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="#2196f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+    </span>
+  )}
+
+  {type === 'tip' && (
+    <span class="note-icon" aria-label="Tip">
+      <svg width="28" height="28" viewBox="0 0 20 20" fill="none" aria-hidden="true" stroke="#4caf50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18h6"/>
+        <path d="M12 2a7 7 0 0 0-7 7c0 3.93 3.13 7 7 7s7-3.07 7-7a7 7 0 0 0-7-7z"/>
+        <line x1="12" y1="9" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12" y2="16"/>
+      </svg>
+    </span>
+  )}
+
+  <slot />
+</div>
 
 <style>
 .custom-note-box {
-    background-color: var(--sl-color-blue-low);
-    border-left: 4px solid var(--sl-color-blue);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    color: var(--sl-color-text);
-    position: relative;
+  background-color: var(--sl-color-gray-5);
+  position: relative;
+  border-left: 4px solid transparent;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--sl-color-text);
 }
 
-html[data-theme="dark"] .custom-note-box {
-    background-color: var(--sl-color-gray-5);
+.custom-note-box.note-info,
+.custom-note-box.note-warning,
+.custom-note-box.note-important,
+.custom-note-box.note-tip {
+  padding-left: 3.5rem;
+  padding-right: 1.25rem;
+}
+
+.custom-note-box.note-info {
+  border-left-color: var(--sl-color-blue);
+}
+
+.custom-note-box.note-warning {
+  border-left-color: #ff9800;
 }
 
 .custom-note-box.note-important {
-    background-color: var(--sl-color-red-low);
-    border-left-color: #d32f2f;
+  border-left-color: #d32f2f;
 }
 
-html[data-theme="dark"] .custom-note-box.note-important {
-    --sl-color-red-low: hsl(var(--sl-color-red-hue), 50%, 20%);
+.custom-note-box.note-tip {
+  border-left-color: #4caf50;
 }
 
 .note-icon {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-.custom-note-box.note-important {
-    padding-right: 2.5rem;
-    padding-left: 1.25rem;
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
 }
 </style>
