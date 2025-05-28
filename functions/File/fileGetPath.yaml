@@ -1,9 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fileGetPath
 shared: &shared
   name: fileGetPath
-  description: THIS FUNCTION NEEDS DOCUMENTATION
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  oop:
+    entity: file
+    method: getPath
+    variable: path
+  description: This function retrieves the path of the given file.
+  parameters:
+    - name: 'theFile'
+      type: 'file'
+      description: The file you want to get the path.
+  returns:
+    description: Returns a string representing the file path, false if invalid file was provided.
+    values:
+      - type: string|false
+        name: result
+  examples:
+    - path: 'examples/fileGetPath-1.lua'

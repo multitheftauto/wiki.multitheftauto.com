@@ -1,9 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fileClose
 shared: &shared
   name: fileClose
-  description: THIS FUNCTION NEEDS DOCUMENTATION
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  notes:
+    - type: 'important'
+      content: |
+        It is important to remember to close a file after you've finished all your operations on it, especially if you've been writing to the file. If you don't close a file and your resource crashes, all changes to the file may be lost.
+  oop:
+    entity: file
+    method: close
+  description: Closes a file handle obtained by [[fileCreate]] or [[fileOpen]].
+  parameters:
+    - name: 'theFile'
+      type: 'file'
+      description: The file handle to close. 
+  returns:
+    description: Returns true if successful, false otherwise.
+    values:
+      - type: bool
+        name: result
+  examples:
+    - path: 'examples/fileClose-1.lua'
+      description: This example creates a text file and writes a string to it.

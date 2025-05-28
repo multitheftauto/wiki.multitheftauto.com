@@ -1,9 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fileGetPos
 shared: &shared
   name: fileGetPos
-  description: THIS FUNCTION NEEDS DOCUMENTATION
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  pair: fileSetPos
+  oop:
+    entity: file
+    method: getPos
+    variable: pos
+  description: Returns the current read/write position in the given file.
+  parameters:
+    - name: 'theFile'
+      type: 'file'
+      description: The file handle you wish to get the position of.
+  returns:
+    description: Returns the file position if successful, or false if an error occured (e.g. an invalid handle was passed).
+    values:
+      - type: int|false
+        name: result
+  examples:
+    - path: 'examples/fileGetPos-1.lua'
+      description: This example opens the file test.txt and outputs its contents and current read position to the console.

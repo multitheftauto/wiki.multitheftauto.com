@@ -1,9 +1,38 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fileCopy
 shared: &shared
   name: fileCopy
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  notes:
+    - type: 'tip'
+      content: |
+        If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [[filepath]] for more information).
+  oop:
+    entity: file
+    method: copy
+  description: This function copies a file.
+  parameters:
+    - name: 'filePath'
+      type: 'string'
+      description: The path of the file you want to copy.
+    - name: 'copyToFilePath'
+      type: 'string'
+      description: Where to copy the specified file to.
+    - name: 'overwrite'
+      type: 'bool'
+      description: If set to true it will overwrite a file that already exists at `copyToFilePath`.
+      default: 'false'
+  returns:
+    description: Return true if the file was copied, else false if the `filePath` doesn't exist.
+    values:
+      - type: bool
+        name: result
+
+client:
+  <<: *shared
+  examples:
+    - path: 'examples/fileCopy-1.lua'
+      description: This example copies a file called `test.txt` and called it `test1.txt`.
 
 server:
   <<: *shared
-client:
-  <<: *shared
+  examples:
+    - path: 'examples/fileCopy-2.lua'
+      description: This example copies a file called `test.txt` and called it `test1.txt`.

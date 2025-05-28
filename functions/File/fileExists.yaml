@@ -1,9 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fileExists
 shared: &shared
   name: fileExists
-  description: THIS FUNCTION NEEDS DOCUMENTATION
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  oop:
+    entity: file
+    method: exists
+  description: This functions checks whether a specified file exists inside a resource.
+  parameters:
+    - name: 'filePath'
+      type: 'string'
+      description: |
+        The [filepath](/filepath) of the file, whose existence is going to be checked, in the following format: `:resourceName/path`. `resourceName` is the name of the resource the file is checked to be in, and 'path' is the path from the root directory of the resource to the file.
+        For example, if you want to check whether a file named 'myfile.txt' exists in the resource 'mapcreator', it can be done from another resource this way: `fileExists(":mapcreator/myfile.txt")`.
+        If the file, whose existence is going to be checked, is in the current resource, only the file path is necessary, e.g. `fileExists("myfile.txt")`. Note that you must use forward slashes '/' for the folders, backslashes '\' will return false.
+  returns:
+    description: Returns true if the file exists, false otherwise.
+    values:
+      - type: bool
+        name: result
+  examples:
+    - path: 'examples/fileExists-1.lua'
+      description: This example checks if a file exists in a resource directory.

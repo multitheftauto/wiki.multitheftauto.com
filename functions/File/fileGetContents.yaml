@@ -1,9 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fileGetContents
 shared: &shared
   name: fileGetContents
-  description: THIS FUNCTION NEEDS DOCUMENTATION
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  notes:
+    - type: 'important'
+      content: |
+        Please note that even if you enable SD #22 and #23 on your server, you are not protected from user attacks, which can happen after verification of the file, but before you read the contents of such verified file. This function enables you to safely read the contents of a meta.xml-listed file on both client and server.
+  oop:
+    entity: file
+    method: getContents
+  description: |
+    Reads the entire contents of the file, optionally verifies the read contents by computing and comparing the checksum with the expected one, and returns the content as string. The file cursor position is not modified by calls to this function. File must be added in the [[meta.xml]].
+  parameters:
+    - name: 'theFile'
+      type: 'file'
+      description: A handle to the file you wish to get the contents from. Use [[fileOpen]] to obtain this handle.
+    - name: 'verifyContents'
+      type: 'bool'
+      description: Set to true, to compare the computed and the expected checksum of the file content.
+      default: 'true'
+  returns:
+    description: Returns the bytes that were read from the file, but only if verification was disabled or if the checksum comparison succeeded. On failure, this function returns nil.
+    values:
+      - type: nil|string
+        name: result
+  examples:
+    - path: 'examples/fileGetContents-1.lua'
+      description: This example opens the code.lua file, checks its contents, and then runs it.

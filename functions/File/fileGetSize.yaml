@@ -1,9 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fileGetSize
 shared: &shared
   name: fileGetSize
-  description: THIS FUNCTION NEEDS DOCUMENTATION
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  oop:
+    entity: file
+    method: getSize
+    variable: size
+  description: Returns the total size in **bytes** of the given file.
+  parameters:
+    - name: 'theFile'
+      type: 'file'
+      description: The file handle you wish to get the size of.
+  returns:
+    description: Returns the file size if successful, or false if an error occured (e.g. an invalid file handle was passed).
+    values:
+      - type: int|false
+        name: result
+  examples:
+    - path: 'examples/fileGetSize-1.lua'
