@@ -12,6 +12,63 @@ const { itemsByCategory, what } = Astro.props;
 const categories = Object.keys(itemsByCategory);
 const slugify = (str: string) => str.replace(/\s+/g, '-');
 
+const categoryEmojis: Record<string, string> = {
+  Account: "👤",
+  Admin: "🛡️",
+  ACL: "🔐",
+  Announcement: "📢",
+  Audio: "🎧",
+  Sound: "🔊",
+  Blip: "📍",
+  Browser: "🌐",
+  Building: "🏢",
+  Camera: "📷",
+  "Clothes and body": "🧍",
+  Ped: "🚶",
+  Colshape: "🔲",
+  Cursor: "🖱️",
+  Database: "🗄️",
+  Discord: "💬",
+  Drawing: "🎨",
+  Effects: "✨",
+  Event: "🎉",
+  Explosion: "💥",
+  File: "📄",
+  Fire: "🔥",
+  Engine: "⚙️",
+  Element: "🧩",
+  HTTP: "🔗",
+  Light: "💡",
+  Input: "⌨️",
+  Map: "🗺️",
+  GUI: "🖥️",
+  Module: "📦",
+  Marker: "📌",
+  Matrix: "🧮",
+  Object: "📦",
+  Output: "📤",
+  Path: "🛣️",
+  Pickup: "🎁",
+  Projectile: "🎯",
+  Player: "🧑‍💻",
+  "Radar area": "📡",
+  Resource: "🪵",
+  Server: "🖧",
+  Searchlight: "🔦",
+  "Settings registry": "⚙️",
+  SVG: "🖼️",
+  Team: "👥",
+  "UTF8 Library": "🔤",
+  Text: "📝",
+  Utility: "🛠️",
+  Water: "💧",
+  Weapon: "🔫",
+  "Weapon creation": "🛠️",
+  XML: "📃",
+  Vehicle: "🚗",
+  World: "🌍"
+};
+
 function displayTitle(title: string) {
     switch (what) {
         case 'all_functions':
@@ -46,17 +103,25 @@ function displayItem(item: any) {
     }
     return '?';
 }
+function displayCategory(category: string) {
+  // Add emoji if available
+  if (categoryEmojis[category]) {
+    return `${categoryEmojis[category]} ${category}`;
+  }
+  return category;
+}
 ---
 
 <section data-pagefind-ignore>
-  <nav>
-    <h5>Table of Contents</h5>
-    <ol>
-      {categories.map(category => (
-        <li><a href={`#${slugify(category)}`}>{category}</a></li>
-      ))}
-    </ol>
-  </nav>
+  <h5>Table of Contents</h5>
+  <div class="mtatoc-list">
+    {categories.map(category => (
+      <div class="mtatoc-item">
+        <a href={`#${slugify(category)}`}>{displayCategory(category)}</a>
+      </div>
+    ))}
+  </div>
+
 
   {Object.entries(itemsByCategory).map(([category, items]) => (
     <section id={slugify(category)}>
@@ -78,4 +143,26 @@ function displayItem(item: any) {
         vertical-align: center;
         cursor: pointer;
     }
+
+    .mtatoc-list {
+      font-size: 1.1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .mtatoc-item {
+      margin: 0;
+      background-color: var(--sl-color-accent-low);
+      border-radius: 0.5rem;
+    }
+
+    .mtatoc-item a {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--sl-color-white);
+    }
+
 </style>
