@@ -2,6 +2,7 @@ shared: &shared
   name: 'xmlLoadString'
   oop:
     entity: XML
+    static: true
     method: loadstring
   description: |
     This function creates an [xmlnode](/xmlnode) from a string input.

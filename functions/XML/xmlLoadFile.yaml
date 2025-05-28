@@ -2,6 +2,7 @@ shared: &shared
   name: 'xmlLoadFile'
   oop:
     entity: XML
+    static: true
     method: load
   description: |
     This function provides an alternative way to load XML files to [getResourceConfig](/getResourceConfig). This function loads an XML file and returns the node by specifying a specific file path, while [getResourceConfig](/getResourceConfig) allows for loading an XML file from a resource.
