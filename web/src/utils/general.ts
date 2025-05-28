@@ -4,6 +4,7 @@ import { getFunctionsByTypeByCategory } from '@src/utils/functions';
 import { getEventsByTypeByCategory } from '@src/utils/events';
 import { getElementsByCategory, getElementCategory } from '@src/utils/elements';
 
+
 export function renderInlineMarkdown(markdown: string): string | Promise<string> {
   const html = marked.parseInline(markdown);
   return html;

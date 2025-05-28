@@ -22,8 +22,8 @@ export default defineConfig({
 			title: SITE_TITLE,
 			logo: {
 				replacesTitle: true,
-				light: './src/assets/logo-black.png',
-				dark: './src/assets/logo-white.png',
+				light: './src/assets/images/logo-black.png',
+				dark: './src/assets/images/logo-white.png',
 			},
             social: [
                 { icon: 'github', label: 'GitHub', href: 'https://github.com/multitheftauto/wiki.multitheftauto.com' },
