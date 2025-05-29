@@ -26,7 +26,7 @@ function initKeywordLinker() {
     spans.forEach(span => {
       const text = span.textContent;
       if (allFunctions.has(text)) {
-        span.innerHTML = `<a href="/${text}" class="mta-keyword-link">${text}</a>`;
+        span.innerHTML = `<a href="/reference/${text}" class="mta-keyword-link">${text}</a>`;
       }
     });
   }
