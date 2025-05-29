@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/isPedDoingTask
 client:
   name: isPedDoingTask
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

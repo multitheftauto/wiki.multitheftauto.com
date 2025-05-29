@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListSetScrollBars
 client:
   name: guiGridListSetScrollBars
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

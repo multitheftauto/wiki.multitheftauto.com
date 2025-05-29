@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/dxGetPixelsFormat
 client:
   name: dxGetPixelsFormat
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

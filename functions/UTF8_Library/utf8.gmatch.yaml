@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/utf8.gmatch
 shared: &shared
   name: utf8.gmatch
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

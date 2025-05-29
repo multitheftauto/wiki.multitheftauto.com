@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setServerConfigSetting
 server:
   name: setServerConfigSetting
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

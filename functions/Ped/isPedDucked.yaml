@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/isPedDucked
 shared: &shared
   name: isPedDucked
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

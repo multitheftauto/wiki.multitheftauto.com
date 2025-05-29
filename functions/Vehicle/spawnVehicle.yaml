@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/spawnVehicle
 server:
   name: spawnVehicle
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

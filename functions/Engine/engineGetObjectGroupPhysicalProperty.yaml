@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/engineGetObjectGroupPhysicalProperty
 client:
   name: engineGetObjectGroupPhysicalProperty
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

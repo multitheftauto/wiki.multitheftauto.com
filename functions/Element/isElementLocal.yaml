@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/isElementLocal
 client:
   name: isElementLocal
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/injectBrowserMouseUp
 client:
   name: injectBrowserMouseUp
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

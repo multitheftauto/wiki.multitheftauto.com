@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/aclRemoveRight
 server:
   name: aclRemoveRight
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

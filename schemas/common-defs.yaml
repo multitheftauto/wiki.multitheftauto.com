@@ -3,6 +3,12 @@ $id: common-defs.yaml
 title: Common definitions
 type: object
 $defs:
+  incomplete:
+    type: boolean
+    description: |
+      If set to true, this item is considered incomplete and may not have all the necessary information.
+      This is useful for items that are still being worked on or need further documentation.
+    default: false
   notes:
     type: array
     description: |

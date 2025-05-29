@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/isResourceArchived
 server:
   name: isResourceArchived
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

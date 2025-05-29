@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/createBrowser
 client:
   name: createBrowser
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

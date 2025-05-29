@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getEffectSpeed
 client:
   name: getEffectSpeed
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/isElementCallPropagationEnabled
 shared: &shared
   name: isElementCallPropagationEnabled
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

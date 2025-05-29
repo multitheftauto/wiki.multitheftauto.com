@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/addResourceMap
 server:
   name: addResourceMap
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

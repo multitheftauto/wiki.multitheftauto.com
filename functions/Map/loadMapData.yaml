@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/loadMapData
 server:
   name: loadMapData
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

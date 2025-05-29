@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/copyResource
 server:
   name: copyResource
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleTowingVehicle
 shared: &shared
   name: getVehicleTowingVehicle
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

@@ -28,6 +28,7 @@ export type OOPInfo = MethodOOP | ConstructorOOP;
 
 export type FunctionInfo = {
     description: string;
+    incomplete?: boolean;
     type: FunctionType;
     typePretty: string;
     pair?: string;

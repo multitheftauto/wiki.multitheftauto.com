@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getLightRadius
 client:
   name: getLightRadius
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

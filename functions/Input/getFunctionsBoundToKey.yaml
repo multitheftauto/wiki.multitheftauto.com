@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getFunctionsBoundToKey
 shared: &shared
   name: getFunctionsBoundToKey
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

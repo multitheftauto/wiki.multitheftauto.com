@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/isWeaponRenderEnabled
 client:
   name: isWeaponRenderEnabled
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

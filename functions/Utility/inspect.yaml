@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/inspect
 shared: &shared
   name: inspect
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

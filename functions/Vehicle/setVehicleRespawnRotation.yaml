@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleRespawnRotation
 server:
   name: setVehicleRespawnRotation
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

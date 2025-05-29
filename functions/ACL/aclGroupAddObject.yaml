@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/aclGroupAddObject
 server:
   name: aclGroupAddObject
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/resetNearClipDistance
 client:
   name: resetNearClipDistance
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

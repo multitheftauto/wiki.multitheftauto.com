@@ -3,9 +3,10 @@ import EnhancedMarkdown from './EnhancedMarkdown.astro';
 
 interface Props {
   description: string;
+  incomplete?: boolean;
 }
 
-const { description } = Astro.props;
+const { description, incomplete = false } = Astro.props;
 
 let path = Astro.url.pathname;
 // Remove trailing slash if any
@@ -13,10 +14,11 @@ path = path.endsWith('/') ? path.slice(0, -1) : path;
 // Also remove anything before the last slash, effectively removing folders
 path = path.substring(path.lastIndexOf('/'));
 ---
-{description.includes("NEEDS DOCUMENTATION") ? (
-    <p style="color: var(--sl-color-orange); font-size: 2rem;"><strong>This page is incomplete! Help wanted!</strong>
-        <br>Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>.
-        <br>Go to <a target="_blank" href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md">Contribution guidelines</a> for more information.</p>
-) : (
-    <EnhancedMarkdown content={description} />
+{incomplete && (
+    <p style="color: var(--sl-color-orange); font-size: 1.6rem;"><strong>This page is incomplete! Help wanted!</strong></p>
+    <p style="color: var(--sl-color-orange); font-size: 1.25rem;">Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>.
+    <br>Go to <a target="_blank" href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md">Contribution guidelines</a> for more information.</p>
+    <hr>
 )}
+
+<EnhancedMarkdown content={description} />

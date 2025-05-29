@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setTeamFriendlyFire
 server:
   name: setTeamFriendlyFire
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

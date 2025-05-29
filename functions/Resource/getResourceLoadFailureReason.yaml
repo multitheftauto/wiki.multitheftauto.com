@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getResourceLoadFailureReason
 server:
   name: getResourceLoadFailureReason
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

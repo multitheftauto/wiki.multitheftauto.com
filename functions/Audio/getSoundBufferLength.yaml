@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getSoundBufferLength
 client:
   name: getSoundBufferLength
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/removeAccount
 server:
   name: removeAccount
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

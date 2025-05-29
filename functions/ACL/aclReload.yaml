@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/aclReload
 server:
   name: aclReload
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

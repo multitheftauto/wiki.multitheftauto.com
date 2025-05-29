@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setControlState
 shared: &shared
   name: setControlState
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

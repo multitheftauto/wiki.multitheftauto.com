@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/aclDestroyGroup
 server:
   name: aclDestroyGroup
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

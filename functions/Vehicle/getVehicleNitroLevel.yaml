@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleNitroLevel
 client:
   name: getVehicleNitroLevel
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

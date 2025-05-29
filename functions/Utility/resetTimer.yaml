@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/resetTimer
 shared: &shared
   name: resetTimer
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

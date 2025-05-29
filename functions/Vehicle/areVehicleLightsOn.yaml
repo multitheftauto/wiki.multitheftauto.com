@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/areVehicleLightsOn
 client:
   name: areVehicleLightsOn
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

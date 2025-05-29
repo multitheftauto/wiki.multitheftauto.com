@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/utf8.escape
 shared: &shared
   name: utf8.escape
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

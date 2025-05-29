@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setSoundMinDistance
 client:
   name: setSoundMinDistance
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

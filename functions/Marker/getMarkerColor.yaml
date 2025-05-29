@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getMarkerColor
 shared: &shared
   name: getMarkerColor
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

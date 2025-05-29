@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerTriggerEventThreshold
 name: onPlayerTriggerEventThreshold
 type: server
-description: THIS EVENT NEEDS DOCUMENTATION
+description: TODO
+incomplete: true
 source_element:
   type: element
   description: TODO

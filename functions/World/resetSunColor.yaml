@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/resetSunColor
 shared: &shared
   name: resetSunColor
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

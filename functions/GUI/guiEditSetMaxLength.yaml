@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/guiEditSetMaxLength
 client:
   name: guiEditSetMaxLength
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

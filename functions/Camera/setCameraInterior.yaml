@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setCameraInterior
 shared: &shared
   name: setCameraInterior
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

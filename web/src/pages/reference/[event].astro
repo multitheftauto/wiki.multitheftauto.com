@@ -73,7 +73,7 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         tableOfContents: false,
     }}>
         <!-- Description -->
-        <ItemDescription description={event.data.description} />
+        <ItemDescription description={event.data.description} incomplete={event.data.incomplete} />
 
         <!-- Preview Images -->
         <PreviewImages images={event.data.preview_images} />

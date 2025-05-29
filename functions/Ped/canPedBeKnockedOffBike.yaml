@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/canPedBeKnockedOffBike
 client:
   name: canPedBeKnockedOffBike
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

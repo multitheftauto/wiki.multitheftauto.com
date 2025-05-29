@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/hasElementData
 shared: &shared
   name: hasElementData
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

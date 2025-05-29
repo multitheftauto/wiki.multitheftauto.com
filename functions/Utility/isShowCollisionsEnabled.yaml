@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/isShowCollisionsEnabled
 client:
   name: isShowCollisionsEnabled
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/injectBrowserMouseDown
 client:
   name: injectBrowserMouseDown
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

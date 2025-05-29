@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setGrainLevel
 client:
   name: setGrainLevel
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

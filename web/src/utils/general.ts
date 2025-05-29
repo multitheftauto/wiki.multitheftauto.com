@@ -210,8 +210,8 @@ export function getUnfinishedPages(pageType: 'functions' | 'events'): string[] {
     const items = pagesByCategory[pageType][category];
     for (const item of items) {
       const data = item.data.shared || item.data.client || item.data.server || item.data;
-      // Check if item description contains 'NEEDS DOCUMENTATION'
-      if (data && data.description && data.description.includes('NEEDS DOCUMENTATION')) {
+      // Check if the item is marked as incomplete
+      if (data && data.incomplete) {
         unfinishedPages.push(item.id);
       } else {
         // Check if the item has no code examples

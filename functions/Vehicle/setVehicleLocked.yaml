@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleLocked
 shared: &shared
   name: setVehicleLocked
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

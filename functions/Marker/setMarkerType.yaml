@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setMarkerType
 shared: &shared
   name: setMarkerType
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

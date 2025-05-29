@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/utf8.charpos
 shared: &shared
   name: utf8.charpos
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

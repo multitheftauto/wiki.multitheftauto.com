@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/guiGetScreenSize
 client:
   name: guiGetScreenSize
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

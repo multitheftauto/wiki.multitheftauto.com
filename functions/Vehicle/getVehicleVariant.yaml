@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleVariant
 shared: &shared
   name: getVehicleVariant
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

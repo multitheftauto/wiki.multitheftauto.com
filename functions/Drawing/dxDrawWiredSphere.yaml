@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/dxDrawWiredSphere
 client:
   name: dxDrawWiredSphere
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

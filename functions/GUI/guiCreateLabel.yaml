@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateLabel
 client:
   name: guiCreateLabel
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

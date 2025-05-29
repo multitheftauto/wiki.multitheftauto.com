@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/dxSetShaderTessellation
 client:
   name: dxSetShaderTessellation
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true

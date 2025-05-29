@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/setTime
 shared: &shared
   name: setTime
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

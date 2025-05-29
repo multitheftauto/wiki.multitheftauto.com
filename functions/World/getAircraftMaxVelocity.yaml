@@ -1,7 +1,8 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/getAircraftMaxVelocity
 shared: &shared
   name: getAircraftMaxVelocity
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
 
 server:
   <<: *shared

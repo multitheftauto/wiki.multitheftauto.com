@@ -89,7 +89,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         )}
 
         <!-- Description -->
-        <ItemDescription description={funcInfo.description} />
+        <ItemDescription description={funcInfo.description} incomplete={funcInfo.incomplete} />
 
         <!-- Preview Images -->
         <PreviewImages images={funcInfo.preview_images} />

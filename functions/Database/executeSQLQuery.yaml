@@ -1,4 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/executeSQLQuery
 server:
   name: executeSQLQuery
-  description: THIS FUNCTION NEEDS DOCUMENTATION
+  description: TODO
+  incomplete: true
