@@ -10,6 +10,8 @@ const { description } = Astro.props;
 let path = Astro.url.pathname;
 // Remove trailing slash if any
 path = path.endsWith('/') ? path.slice(0, -1) : path;
+// Also remove anything before the last slash, effectively removing folders
+path = path.substring(path.lastIndexOf('/'));
 ---
 {description.includes("NEEDS DOCUMENTATION") ? (
     <p style="color: var(--sl-color-orange); font-size: 2rem;"><strong>This page is incomplete! Help wanted!</strong>
