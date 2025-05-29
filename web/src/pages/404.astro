@@ -12,46 +12,69 @@ import { OLD_WIKI_URL, OLD_WIKI_REDIRECT } from '@src/content.constants';
   }
 }}>
     {OLD_WIKI_REDIRECT && (
-        <h4>You will be redirected to the old MTA Wiki in <strong><span id="countdown">5</span> seconds...</strong></h4>
+        <h4>You will be redirected to the old MTA Wiki in <strong><span id="countdown">3</span> seconds...</strong></h4>
     )}
 </StarlightPage>
 
 <script is:inline define:vars={{ OLD_WIKI_URL, OLD_WIKI_REDIRECT }}>
-    if (!OLD_WIKI_REDIRECT) {
-        return;
-    }
 
     async function tryFallbacks() {
         let path = location.pathname;
         // Remove trailing slash if any
         path = path.endsWith('/') ? path.slice(0, -1) : path;
 
-        const tryPath = async (prefix) => {
-            const testPath = `${prefix}${path}`;
+        const tryDifferentPath = async (newPath) => {
             try {
-                const res = await fetch(testPath, { method: 'HEAD' });
+                const res = await fetch(newPath, { method: 'HEAD' });
                 if (res.ok) {
-                    window.location.replace(testPath);
+                    console.log(`Attempt OK: Redirecting to ${newPath}`);
+                    window.location.replace(newPath);
                     return true;
                 }
             } catch (_) {}
             return false;
         };
 
-        if (await tryPath('/reference')) return;
-        if (await tryPath('/articles')) return;
+        if (!path.startsWith('/reference') &&
+            await tryDifferentPath('/reference' + path)) return;
+        if (!path.startsWith('/articles') &&
+            await tryDifferentPath('/articles' + path)) return;
 
-        // Fallback to old wiki
-        let countdown = 5;
-        const el = document.getElementById('countdown');
-        const interval = setInterval(() => {
-            countdown -= 1;
-            if (el) el.textContent = countdown;
-            if (countdown <= 0) {
-                clearInterval(interval);
-                window.location.replace(OLD_WIKI_URL + path);
+        // Try invert case of the first letter after the first slash
+        let newPath;
+        if (path.charAt(0) === '/' && path.length > 1) {
+            const firstChar = path.charAt(1);
+            if (firstChar) {
+                const invertedChar = firstChar === firstChar.toLowerCase() ? firstChar.toUpperCase() : firstChar.toLowerCase();
+                newPath = path.charAt(0) + invertedChar + path.slice(2);
+                if (await tryDifferentPath(newPath)) return;
             }
-        }, 1000);
+        }
+
+        // Try with articles and reference prefixes again with newPath
+        if (newPath) {
+            if (await tryDifferentPath('/reference' + newPath)) return;
+            if (await tryDifferentPath('/articles' + newPath)) return;
+        }
+
+        // Fallback to old wiki if nothing else worked
+        if (!OLD_WIKI_REDIRECT) {
+            console.log('No old wiki redirect configured, staying in 404 page');
+            return;
+        }
+        let countdown = 3;
+        const el = document.getElementById('countdown');
+        if (el) {
+            console.log(`Redirecting to old wiki in ${countdown} seconds...`);
+            const interval = setInterval(() => {
+                countdown -= 1;
+                if (el) el.textContent = countdown;
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    window.location.replace(OLD_WIKI_URL + path);
+                }
+            }, 1000);
+        } else { console.error('Countdown element not found'); }
     }
 
     tryFallbacks();
