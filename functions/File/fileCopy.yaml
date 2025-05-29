@@ -3,7 +3,7 @@ shared: &shared
   notes:
     - type: 'tip'
       content: |
-        If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [[filepath]] for more information).
+        If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [Filepath](/reference/Filepath) for more information).
   oop:
     element: file
     static: true

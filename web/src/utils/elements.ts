@@ -58,8 +58,7 @@ export function getOOPFunctionsForElement(elementName: string): any[] {
             const funcOop = funcData.shared?.oop || funcData.client?.oop || funcData.server?.oop;
             if (funcOop && funcOop.element === elementName) {
                 oopFunctions.push({
-                    name: func.id,
-                    link: `/${func.id}`,
+                    id: func.id,
                     oop: funcOop,
                 });
             }

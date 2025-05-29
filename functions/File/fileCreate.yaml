@@ -6,7 +6,7 @@ shared: &shared
         To prevent memory leaks, ensure each successful call to [[fileCreate]] has a matching call to [[fileClose]].
     - type: 'tip'
       content: |
-        If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [[filepath]] for more information).
+        If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [Filepath](/reference/Filepath) for more information).
     - type: 'important'
       content: |
         It is important to remember to close a file after you've finished all your operations on it, especially if you've been writing to the file. If you don't close a file and your resource crashes, all changes to the file may be lost.

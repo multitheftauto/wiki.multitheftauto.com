@@ -1,6 +1,6 @@
 name: 'vector2'
 description: |
-  This is a 2D [Vector](/Vector) class.
+  This is a 2D [Vector](/reference/Vector) class.
 oop_only_methods:
   - name: create
     description: |

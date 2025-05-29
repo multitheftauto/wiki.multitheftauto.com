@@ -20,7 +20,7 @@ const entities = elementsByCategory['Entity'] || [];
             <ul class="mtabox">
                 {entities.slice(i * 10, i * 10 + 10).map(entity => (
                     <li>
-                        <a href={`/${entity.id}`}>{entity.id}</a>
+                        <a href={`/reference/${entity.id}`}>{entity.id}</a>
                     </li>
                 ))}
             </ul>
@@ -28,8 +28,8 @@ const entities = elementsByCategory['Entity'] || [];
     </div>
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
-        'article:Element',
-        'article:Element_tree',
+        'reference:Element',
+        'reference:Element_tree',
     ])} currentId='' />
 </StarlightPage>
 

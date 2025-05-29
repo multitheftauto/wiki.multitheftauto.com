@@ -9,28 +9,27 @@ export interface Props {
 }
 
 const { element_name = null, oop_only_methods, oop_compatible_functions } = Astro.props;
-
 let oop_constructor = oop_compatible_functions.find(func => func.oop.constructorclass);
 ---
 {element_name && oop_constructor && (
 <section class="oop-constructor-section">
-    <h4><a href="/OOP_Introduction">OOP</a> Constructor</h4>
+    <h4><a href="/reference/OOP">OOP</a> Constructor</h4>
     <p>
-        {oop_constructor.oop.constructorclass}(...) is the constructor method for the <code>{element_name}</code> class (<a href={oop_constructor.link}>{oop_constructor.name}</a>).
+        {oop_constructor.oop.constructorclass}(...) is the constructor method for the <code>{element_name}</code> class (<a href={"/reference/"+oop_constructor.id}>{oop_constructor.id}</a>).
     </p>
 </section>
 )}
 
 {oop_compatible_functions.length > 0 && (
 <section class="oop-compatible-functions-section">
-    <h4><a href="/OOP_Introduction">OOP</a> Methods and Variables</h4>
+    <h4><a href="/reference/OOP">OOP</a> Methods and Variables</h4>
     <ul>
         {oop_compatible_functions.map((funcInfo: any) => (
             funcInfo.oop.constructorclass ? null : (
                 <li>
                     {funcInfo.oop.method && (
                         <span style="margin-right: 10px;">
-                            {funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}{funcInfo.oop.static ? '.' : ':'}<a href={funcInfo.link} title={funcInfo.name}>{funcInfo.oop.method}</a>(...)
+                            {funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}{funcInfo.oop.static ? '.' : ':'}<a href={"/reference/"+funcInfo.id} title={funcInfo.id}>{funcInfo.oop.method}</a>(...)
                         </span>
                     )}
 
@@ -50,7 +49,7 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
 
 {oop_only_methods.length > 0 && (
 <section class="oop-methods-section">
-    <h4><a href="/OOP_Introduction">OOP</a>-Only Methods</h4>
+    <h4><a href="/reference/OOP">OOP</a>-Only Methods</h4>
 
     {oop_only_methods.map((method: any) => (
         <>

@@ -47,7 +47,7 @@ const makeTitle = (subType: string, category: string, type: string): string => {
   }
 };
 
-const getItemsInCategory = (type: string, subType: string, category: string): any[] => {
+const getReferencePagesByCategory = (type: string, subType: string, category: string): any[] => {
   const findCategoryInsensitive = (obj: Record<string, any[]>, cat: string): any[] => {
     const match = Object.keys(obj).find(key => key.toLowerCase() === cat.toLowerCase());
     return match ? obj[match] : [];
@@ -94,23 +94,29 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
     const [type, ...rest] = item.split(':');
     if (!type || rest.length === 0) continue;
 
-    // Handle 'article' links
     if (type === 'article') {
       const articleName = rest[0];
       const title = 'Articles';
       if (!groupedMap.has(title)) groupedMap.set(title, []);
-      groupedMap.get(title)!.push({ name: articleName, link: `/${articleName}` });
+      groupedMap.get(title)!.push({ name: articleName, link: `/articles/${articleName}` });
+      continue;
+    }
+    if (type === 'reference') {
+      const refPage = rest[0];
+      const title = 'Reference';
+      if (!groupedMap.has(title)) groupedMap.set(title, []);
+      groupedMap.get(title)!.push({ name: refPage, link: `/reference/${refPage}` });
       continue;
     }
 
     // Handle function/event style links
     const [subType, category] = rest;
-    const items = getItemsInCategory(type, subType, category);
+    const items = getReferencePagesByCategory(type, subType, category);
     if (!items.length) continue;
 
     const title = makeTitle(subType, category, type);
     if (!groupedMap.has(title)) groupedMap.set(title, []);
-    const links = items.map((i: any) => ({ name: i.id, link: `/${i.id}` }));
+    const links = items.map((i: any) => ({ name: i.id, link: `/reference/${i.id}` }));
     groupedMap.get(title)!.push(...links);
   }
 
@@ -121,6 +127,7 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
       const [type, ...rest] = item.split(':');
       if (!type || rest.length === 0) return null;
       if (type === 'article') return 'Articles';
+      if (type === 'reference') return 'Reference';
       return makeTitle(rest[0], rest[1], type);
     })
     .filter((title): title is string => title !== null)
@@ -153,7 +160,7 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
         `functions:any:${itemCategoryName}`,
         `events:any:${itemCategoryName}`,
         `elements:any:${itemCategoryName}`,
-        `article:Scripting_Functions`,
+        `reference:Scripting_Functions`,
       ];
       break;
     case 'event':
@@ -162,7 +169,7 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
         `events:any:${itemCategoryName}`,
         `functions:any:${itemCategoryName}`,
         `elements:any:${itemCategoryName}`,
-        `article:Scripting_Events`,
+        `reference:Scripting_Events`,
       ];
       break;
     case 'element':
@@ -183,7 +190,7 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
           `events:any:Element`,
         );
       }
-      addToSeeAlso.push(`article:Element`);
+      addToSeeAlso.push(`reference:Element`);
       break;
     default:
       throw new Error('Invalid item type passed');

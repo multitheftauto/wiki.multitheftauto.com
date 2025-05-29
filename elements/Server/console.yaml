@@ -9,6 +9,3 @@ description: |
 preview_images:
     - path: 'server_console_help.jpg'
       description: 'Help output inside server console:'
-
-# see_also:
-#   - 'article:Server_Commands'

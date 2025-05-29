@@ -1,7 +1,7 @@
 name: Vector4
 type: class
 description: |
-  Represents a 4D [Vector](/Vector).
+  Represents a 4D [Vector](/reference/Vector).
 oop_only_methods:
   - name: create
     description: |

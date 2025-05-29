@@ -1,12 +1,7 @@
-# Rewrite /wiki
 /wiki        /
 /wiki/*      /:splat
-
-# Aliases for specific pages
 /Main_Page   /
-/bool        /boolean
-/element     /Element
-/MTA_Classes /Element
-/Element/:elementname /:elementname
-/Vector/:vectorclass  /:vectorclass
-/OOP         /OOP_Introduction
+
+# Fallbacks
+/* /articles/:splat 200
+/* /reference/:splat 200

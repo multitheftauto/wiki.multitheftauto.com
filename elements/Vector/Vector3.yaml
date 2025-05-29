@@ -1,7 +1,7 @@
 name: Vector3
 type: class
 description: |
-  Represents a 3D [Vector](/Vector). Used for storing and manipulating three-dimensional coordinates (x, y, z).
+  Represents a 3D [Vector](/reference/Vector). Used for storing and manipulating three-dimensional coordinates (x, y, z).
 oop_only_methods:
   - name: create
     description: |

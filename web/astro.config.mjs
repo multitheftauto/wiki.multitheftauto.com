@@ -43,7 +43,15 @@ export default defineConfig({
 							label: 'Introduction', link: '/',
 						},
 						{
-							label: 'How you can help', link: '/How_you_can_help',
+							label: 'How you can help', link: '/articles/How_you_can_help',
+						},
+					]
+				},
+				{
+					label: 'Tutorials',
+					items: [
+						{
+							label: 'Scripting Introduction', link: '/articles/Scripting_Introduction',
 						},
 					]
 				},
@@ -51,38 +59,38 @@ export default defineConfig({
 					label: 'Reference',
 					items: [
 						{
-							label: 'Lua API', link: 'Lua_API',
+							label: 'Lua API', link: '/reference/Lua_API',
 						},
 						{
 							label: 'Functions',
 							items: [
-								{label: 'All functions', link: 'Scripting_Functions'},
-								{label: 'Shared functions', link: 'Shared_Scripting_Functions'},
-								{label: 'Client functions', link: 'Client_Scripting_Functions'},
-								{label: 'Server functions', link: 'Server_Scripting_Functions'},
+								{label: 'All functions', link: '/reference/Scripting_Functions'},
+								{label: 'Shared functions', link: '/reference/Shared_Scripting_Functions'},
+								{label: 'Client functions', link: '/reference/Client_Scripting_Functions'},
+								{label: 'Server functions', link: '/reference/Server_Scripting_Functions'},
 							]
 						},
 						{
 							label: 'Events',
 							items: [
-								{label: 'All events', link: 'Scripting_Events'},
-								{label: 'Client events', link: 'Client_Scripting_Events'},
-								{label: 'Server events', link: 'Server_Scripting_Events'},
+								{label: 'All events', link: '/reference/Scripting_Events'},
+								{label: 'Client events', link: '/reference/Client_Scripting_Events'},
+								{label: 'Server events', link: '/reference/Server_Scripting_Events'},
 							]
 						},
 						{
 							label: 'Elements',
 							items: [
-								{label: 'Element types', link: 'Element'},
-								{label: 'Element tree', link: 'Element_tree'},
-								{label: 'Entity', link: 'Entity'},
+								{label: 'Element types', link: '/reference/Element'},
+								{label: 'Element tree', link: '/reference/Element_tree'},
+								{label: 'Entity', link: '/reference/Entity'},
 							]
 						},
 						{
 							label: 'OOP',
 							items: [
-								{label: 'About OOP', link: 'OOP_Introduction'},
-								{label: 'OOP Classes', link: 'OOP_Classes'},
+								{label: 'About OOP', link: '/reference/OOP'},
+								{label: 'OOP Classes', link: '/reference/OOP_Classes'},
 							]
 						},
 					]

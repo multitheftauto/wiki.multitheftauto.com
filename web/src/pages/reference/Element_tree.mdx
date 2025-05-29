@@ -10,7 +10,7 @@ import { Image } from 'astro:assets';
 }}>
 MTA uses a so-called *element tree* to store all the elements that exist on the server and the client. This is directly related to the set of running [resources](/resource) and their map files' XML layout, although it can be changed at run-time by scripts.
 
-If you are familiar with the concept of *trees* in computer-science, this should be easy to understand. If you are not, think of it as a family tree - except everyone only has a single parent. Every [element](/Element) has a *parent* element.
+If you are familiar with the concept of *trees* in computer-science, this should be easy to understand. If you are not, think of it as a family tree - except everyone only has a single parent. Every [element](/reference/Element) has a *parent* element.
 
 All elements that are created within scripts or from .map files are child elements of the resource they belong to. Thus, most elements (except for [players](/player)) exist only within resources and are also destroyed as soon as their resource is stopped.
 
@@ -26,7 +26,7 @@ getRootElement()
 getResourceRootElement()
 ```
 * **map**: Each resource element contains at least one map element, representing either a ".map" file in the resource or the one containing the elements created by scripts (this is called the *dynamic* map). Their IDs contain the maps' filenames, or *dynamic* for the dynamic map.
-	* Map files can contain a number of other [elements](/Element) as well as an unlimited number of custom elements.
+	* Map files can contain a number of other [elements](/reference/Element) as well as an unlimited number of custom elements.
 
 ### Example
 This in an example of a serverside tree dumped to XML from a running server.
@@ -109,8 +109,8 @@ Another thing that has to be considered related to the tree of elements is the f
 You can start the resource *elementbrowser* to see a live view of the element tree on your server. Just start the resource and browser to your server's web page and choose the *Element browser* option in the sidebar (firefox only currently).
 
 <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
-	'article:Element',
-      'article:Entity',
+	'reference:Element',
+    'reference:Entity',
 ])} currentId='' />
 
 </StarlightPage>

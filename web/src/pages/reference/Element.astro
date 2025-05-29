@@ -24,7 +24,7 @@ const elementsByCategory = getElementsByCategory();
         <ul>
           {elements.map(element => (
             <li>
-              <a href={`/${element.id}`}>{element.id}</a>
+              <a href={`/reference/${element.id}`}>{element.id}</a>
               {hasOopMethods(element) ? <span class="small-text">[OOP]</span> : ''}
             </li>
           ))}
@@ -41,8 +41,8 @@ const elementsByCategory = getElementsByCategory();
   />
 
   <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
-      'article:Element_tree',
-      'article:Entity',
+      'reference:Element_tree',
+      'reference:Entity',
   ])} currentId='' />
 </StarlightPage>
 

@@ -109,7 +109,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         {funcInfo.oop && (
         <>
         <div class="function-oop">
-            <h4>OOP Syntax <a class="small-text" href="/OOP_Introduction">Help! I don't understand this!</a></h4>
+            <h4>OOP Syntax <a class="small-text" href="/reference/OOP">Help! I don't understand this!</a></h4>
             <ul>
 
             {funcInfo.oop.constructorclass ? (
@@ -168,7 +168,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                     {syntax.parameters.some((param: any) => param.default) && (
                     <>
                         <h5>Optional Arguments</h5>
-                        <p><strong>NOTE</strong>: When using <a href="/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
+                        <p><strong>NOTE</strong>: When using <a href="/reference/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
                         <ul>
                         {syntax.parameters
                             .filter((param: any) => param.default)

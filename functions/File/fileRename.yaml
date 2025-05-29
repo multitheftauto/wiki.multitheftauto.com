@@ -15,7 +15,7 @@ shared: &shared
         The filepath of the source file in the following format: `:resourceName/path`. `resourceName` is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file. If the file is in the current resource, only the file path is necessary.
     - name: 'newFilePath'
       type: 'string'
-      description: Destination [filepath](/filepath) for the specified source file in the same format.
+      description: Destination [Filepath](/reference/Filepath) for the specified source file in the same format.
   returns:
     description: If successful, returns true. Otherwise returns false.
     values:
