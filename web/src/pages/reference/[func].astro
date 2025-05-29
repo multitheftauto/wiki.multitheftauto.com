@@ -85,7 +85,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
     }}>
         <!-- Pair Function Ref -->
         {funcPair && (
-            <p><strong>Pair:</strong> <a href={ `/${funcPair}` }>{ funcPair }</a></p>
+            <p><strong>Pair:</strong> <a href={`/reference/${funcPair}`}>{ funcPair }</a></p>
         )}
 
         <!-- Description -->
@@ -115,14 +115,14 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             {funcInfo.oop.constructorclass ? (
                 <li>
                 <strong>Constructor</strong>:
-                <a href={`/${funcInfo.oop.element}`}>{funcInfo.oop.constructorclass}</a>(...)
+                <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.constructorclass}</a>(...)
                 </li>
             ) : (
                 <>
                     {funcInfo.oop.method && (
                         <li>
                         <strong>Method</strong>:
-                        <a href={ `/${funcInfo.oop.element}` }>{funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
+                        <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
                         </li>
                     )}
 
