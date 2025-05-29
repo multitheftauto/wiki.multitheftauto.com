@@ -48,14 +48,25 @@ import { Icon } from '@astrojs/starlight/components';
             <li><a href="/Server_Manual">Server Manual</a></li>
             <li><a href="/Map_manager">Map Manager</a></li>
         </ul>
-    </div>
-    <div class="mtabox">
+
         <h3>Map Editor</h3>
         <ul>
             <li><a href="/Resource:Editor">Manual</a></li>
             <li><a href="/Resource:Editor/EDF">Editor Definition Format</a></li>
             <li><a href="/Resource:Editor/Plugins">Plugins</a></li>
             <li><a href="/Resource:Editor#FAQ">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
+    <div class="mtabox">
+        <h3>Community</h3>
+        <ul>
+            <li><a href="/Category:Resource">Resource Catalogue</a></li>
+            <li><a href="https://forum.multitheftauto.com/">Forum</a></li>
+            <li><a href="https://discord.com/invite/mtasa">Official MTA Discord server</a> (<a href="https://forum.multitheftauto.com/topic/95008-multi-theft-autos-official-discord-server/">Forum post</a>)</li>
+            <li><a href="https://discord.com/invite/GNN6PRtTnu">Development Discord</a></li>
+            <li><a href="https://community.multitheftauto.com/">MTA Community</a></li>
+            <li><a href="https://twitter.com/MTAQA">Twitter</a>, <a href="https://www.youtube.com/user/MTAQA">YouTube</a>, <a href="https://www.facebook.com/multitheftauto">Facebook</a>, <a href="https://www.moddb.com/mods/multi-theft-auto-san-andreas">ModDB</a></li>
         </ul>
     </div>
 
@@ -71,18 +82,6 @@ import { Icon } from '@astrojs/starlight/components';
             <li><a href="https://github.com/multitheftauto/mtasa-blue/issues">Bugtracker (GitHub Issues)</a></li>
             <li><a href="/Branches">Branches</a></li>
             <li><a href="/Forks">Forks and anti cheat</a></li>
-        </ul>
-    </div>
-
-    <div class="mtabox">
-        <h3>Community</h3>
-        <ul>
-            <li><a href="/Category:Resource">Resource Catalogue</a></li>
-            <li><a href="https://forum.multitheftauto.com/">Forum</a></li>
-            <li><a href="https://discord.com/invite/mtasa">Official MTA Discord server</a> (<a href="https://forum.multitheftauto.com/topic/95008-multi-theft-autos-official-discord-server/">Forum post</a>)</li>
-            <li><a href="https://discord.com/invite/GNN6PRtTnu">Development Discord</a></li>
-            <li><a href="https://community.multitheftauto.com/">MTA Community</a></li>
-            <li><a href="https://twitter.com/MTAQA">Twitter</a>, <a href="https://www.youtube.com/user/MTAQA">YouTube</a>, <a href="https://www.facebook.com/multitheftauto">Facebook</a>, <a href="https://www.moddb.com/mods/multi-theft-auto-san-andreas">ModDB</a></li>
         </ul>
     </div>
 
@@ -153,9 +152,11 @@ import { Icon } from '@astrojs/starlight/components';
     }
 
     .mtagrid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 boxes per row */
-        gap: 2rem; /* spacing between boxes */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 
     .mtabox {
