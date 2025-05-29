@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 import path from 'path';
-import { getFunctionsByTypeByCategory } from '@src/utils/functions';
-import { getEventsByTypeByCategory } from '@src/utils/events';
+import { getFunctionsByCategory, getFunctionsByTypeByCategory } from '@src/utils/functions';
+import { getEventsByCategory, getEventsByTypeByCategory } from '@src/utils/events';
 import { getElementsByCategory, getElementCategory } from '@src/utils/elements';
 
 import type { ImageMetadata } from 'astro';
@@ -198,4 +198,31 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
 
   const allSeeAlso = [...new Set([...seeAlso, ...addToSeeAlso])];
   return getSeeAlsoLinksFromList(allSeeAlso);
+}
+
+export function getUnfinishedPages(pageType: 'functions' | 'events'): string[] {
+  const unfinishedPages: string[] = [];
+  const pagesByCategory = {
+    functions: getFunctionsByCategory(),
+    events: getEventsByCategory(),
+  };
+  for (const category in pagesByCategory[pageType]) {
+    const items = pagesByCategory[pageType][category];
+    for (const item of items) {
+      const data = item.data.shared || item.data.client || item.data.server || item.data;
+      // Check if item description contains 'NEEDS DOCUMENTATION'
+      if (data && data.description && data.description.includes('NEEDS DOCUMENTATION')) {
+        unfinishedPages.push(item.id);
+      } else {
+        // Check if the item has no code examples
+        const examples = item.data.shared?.examples || item.data.client?.examples || item.data.server?.examples || item.data.examples;
+        if (!examples || examples.length === 0) {
+          unfinishedPages.push(item.id);
+        }
+      }
+    }
+  }
+  // Sort alphabetically
+  unfinishedPages.sort((a, b) => a.localeCompare(b));
+  return unfinishedPages;
 }

@@ -1,0 +1,57 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getUnfinishedPages } from '@src/utils/general';
+
+const unfinishedFunctions = getUnfinishedPages('functions');
+const unfinishedEvents = getUnfinishedPages('events');
+---
+
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Incomplete Pages',
+    tableOfContents: false,
+}}>
+
+<p>The following pages are not finished, and need your attention! Please help complete the MTA Wiki.</p>
+<p><a href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md"
+    class="guidelines-link">Contribution guidelines</a></p>
+
+<h3>Unfinished Function Pages</h3>
+<p>These functions (part of the MTA Lua API) are <strong>missing documentation or code examples</strong>:</p>
+<section>
+    <details>
+    <summary>Total: {unfinishedFunctions.length}</summary>
+    <ul>
+        {unfinishedFunctions.map((func) => (
+            <li>
+                <a href={`/reference/${func}`}>{func}</a>
+            </li>
+        ))}
+    </ul>
+    </details>
+</section>
+
+<h3>Unfinished Event Pages</h3>
+<p>These events (part of the MTA Lua API) are <strong>missing documentation or code examples</strong>:</p>
+<section>
+    <details>
+    <summary>Total: {unfinishedEvents.length}</summary>
+    <ul>
+        {unfinishedEvents.map((event) => (
+            <li>
+                <a href={`/reference/${event}`}>{event}</a>
+            </li>
+        ))}
+    </ul>
+    </details>
+</section>
+
+</StarlightPage>
+
+<style>
+    .guidelines-link {
+        font-size: 1.5rem;
+        color: var(--sl-color-orange);
+        font-weight: bold;
+    }
+</style>

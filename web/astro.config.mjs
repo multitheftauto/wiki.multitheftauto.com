@@ -37,13 +37,16 @@ export default defineConfig({
 			disable404Route: true,
 			sidebar: [
 				{
-					label: 'Start here',
+					label: 'Welcome',
 					items: [
 						{
 							label: 'Introduction', link: '/',
 						},
 						{
 							label: 'How you can help', link: '/articles/How_you_can_help',
+						},
+						{
+							label: 'Incomplete Pages', link: '/Incomplete_Pages',
 						},
 					]
 				},
