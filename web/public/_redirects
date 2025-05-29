@@ -1,7 +1,3 @@
 /wiki        /
 /wiki/*      /:splat
 /Main_Page   /
-
-# Fallbacks
-/* /articles/:splat 200
-/* /reference/:splat 200

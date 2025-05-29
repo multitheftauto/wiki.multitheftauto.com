@@ -9,22 +9,21 @@ interface Props {
 const { content } = Astro.props;
 
 
-// We can't do this as we're now organizing pages in folders
+// We shouldn't this as we're now organizing pages in folders
+// TODO let's move away from MediaWiki links in the future
 
-// function convertMediaWikiLinks(text: string): string {
-//   return text.replace(
-//     /\[\[([^|\]#]+)(?:#([^\]]+))?(?:\|([^\]]+))?\]\]/g,
-//     (_, link, hash, text) => {
-//       const url = `/${link}${hash ? `#${hash}` : ''}`;
-//       return `[${text || link}](${url})`;
-//     }
-//   );
-// }
+function convertMediaWikiLinks(text: string): string {
+  return text.replace(
+    /\[\[([^|\]#]+)(?:#([^\]]+))?(?:\|([^\]]+))?\]\]/g,
+    (_, link, hash, text) => {
+      const url = `/${link}${hash ? `#${hash}` : ''}`;
+      return `[${text || link}](${url})`;
+    }
+  );
+}
 
-// const processedContent = convertMediaWikiLinks(content);
-// const tokens = marked.lexer(processedContent);
-
-const tokens = marked.lexer(content);
+const processedContent = convertMediaWikiLinks(content);
+const tokens = marked.lexer(processedContent);
 ---
 
 {
