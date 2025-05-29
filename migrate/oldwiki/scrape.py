@@ -103,17 +103,76 @@ def convert_page_to_yaml(page_url: str, name: str, source: str) -> str:
                 event_description = convert_to_markdown(str(p))
                 break
         if not event_description:
-            raise ValueError(f"Could not find a valid description for {name}.")
+            raise ValueError(f"Could not find a valid description for {name}")
+        
+        event_source = None
+        source_header = content_div.find("span", id="Source")
+        if source_header:
+            source_paragraph = source_header.find_next("p")
+            if source_paragraph:
+                source_text = source_paragraph.get_text().strip()
+                if source_text:
+                    # Remove new lines from the source text
+                    source_text = source_text.replace("\n", " ")
+                    event_source = {
+                        "type": "element",
+                        "description": source_text
+                    }
+        if not event_source:
+            raise ValueError(f"Could not find a valid source for {name}")
+        
+        # Event parameters are optional, there may be none
+        event_parameters = []
+        # <h2><span class="mw-headline" id="Parameters">Parameters</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/OnElementDataChange?action=edit&amp;section=1" title="Edit section: Parameters">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+        # <pre class="prettyprint lang-lua">string theKey, var oldValue, var newValue
+        # </pre> 
+        # <ul><li><b>theKey</b>: The name of the element data entry that has changed.</li>
+        # <li><b>oldValue</b>: The old value of this entry before it changed. See <a href="/wiki/Element_data" title="Element data">element data</a> for a list of possible datatypes.</li>
+        # <li><b>newValue</b>: the new value of this entry after it changed. This will be equivalent to <a href="/wiki/GetElementData" title="GetElementData">getElementData</a>(source, theKey).</li></ul>
+        parameters_header = content_div.find("span", id="Parameters")
+        if parameters_header:
+            params = []
+            # Find the next <pre> tag after the parameters header
+            pre_tag = parameters_header.find_next("pre")
+            if pre_tag:
+                # Extract the text from the <pre> tag
+                pre_text = pre_tag.get_text().strip()
+                # Split the text by commas to get individual parameters
+                param_lines = pre_text.split(",")
+                for line in param_lines:
+                    line = line.strip()
+                    if line:
+                        # Split by space to get type and name
+                        parts = line.split(" ", 1)
+                        if len(parts) == 2:
+                            param_type, param_name = parts
+                            params.append({
+                                "name": param_name.strip(),
+                                "type": param_type.strip(),
+                                "description": "TODO"  # Placeholder for now
+                            })
+            # Get the parameters descriptions
+            params_list = parameters_header.find_next("ul")
+            if params_list:
+                for li in params_list.find_all("li"):
+                    b_tag = li.find("b")
+                    if b_tag:
+                        param_name = b_tag.text.strip()
+                        for param in params:
+                            if param["name"] == param_name:
+                                # Split by : to get the description
+                                description = li.get_text().split(":", 1)
+                                if len(description) > 1:
+                                    param["description"] = description[1].strip()
+            event_parameters = params
         
         yaml_dict = {
             "incomplete": True,
             "name": name,
             "type": "client" if "Client" in source else "server",
-            "source_element": {
-                "type": "element",
-                "description": "TODO"
-            },
-            "description": event_description.strip()
+            "source_element": event_source,
+            "description": event_description.strip(),
+            "parameters": event_parameters
         }
         yaml_content = yaml.safe_dump(yaml_dict,
                                         sort_keys=False,
@@ -157,7 +216,7 @@ def write_yaml_per_entry(base_dir, data_by_source):
                         file_content += convert_page_to_yaml(page_url, name, source)
                         f.write(file_content)
                 except Exception as e:
-                    print(f"Error processing {name} from {page_url}: {e}")
+                    print(e)
                     # Cancel and continue to next entry, closing/deleting file if needed
                     if os.path.exists(filename):
                         os.remove(filename)
