@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
-import { getSeeAlsoLinksForItem } from '@src/utils/general';
+import { renderInlineMarkdown, getSeeAlsoLinksForItem } from '@src/utils/general';
 
 
 import NoteBox from '@src/components/NoteBox.astro';
@@ -95,7 +95,9 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
             <Code code={parametersCode} lang="lua"/>
             {eventParameters.map((param: any) => (
                 <ul>
-                    <li set:html={"<strong>" + param.name + "</strong>: " + param.description} />
+                    <li
+                        set:html={`<strong>${param.name}</strong>: ${renderInlineMarkdown(param.description)}`}
+                    />
                 </ul>
             ))}
             </>
@@ -104,7 +106,8 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         )}
 
         <h4>Source</h4>
-        <p set:html={"<strong>" + event.data.source_element.type + "</strong>: " + event.data.source_element.description} />
+        <p set:html={"<strong>" + event.data.source_element.type + "</strong>: "
+            + renderInlineMarkdown(event.data.source_element.description)} />
 
         <!-- Canceling (optional) -->
         {event.data.canceling && (

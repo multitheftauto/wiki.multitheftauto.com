@@ -3,7 +3,7 @@ name: onElementDataChange
 type: server
 source_element:
   type: element
-  description: The source of this any element that supports element data.
+  description: The source of this event is the [element](/reference/Element) whose element data changed.
 description: This event is triggered *after* an element's [data](/wiki/Element_data
   "Element data") entry is changed. Such changes can be made on the client or the
   server using [setElementData](/wiki/SetElementData "SetElementData").
