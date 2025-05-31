@@ -1,0 +1,11 @@
+---
+// MicroModalInit.astro
+---
+<script src="https://unpkg.com/micromodal@0.6.1/dist/micromodal.js"></script>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    MicroModal.init({
+      disableScroll: true,
+    });
+  });
+</script>
