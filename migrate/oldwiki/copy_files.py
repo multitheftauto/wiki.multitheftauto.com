@@ -30,7 +30,11 @@ def copy_files(source_dir, target_dir):
                 print(f"(YAML) Copying {src_path} to {dest_path}")
                 with open(src_path, 'r', encoding='utf-8') as src_file:
                     with open(dest_path, 'w', encoding='utf-8') as dest_file:
-                        dest_file.write(src_file.read())
+                        src_file_content = src_file.read()
+                        # Hack: replace name: y with name: "y"
+                        # because that's a YAML reserved keyword xD
+                        src_file_content = src_file_content.replace("name: y", 'name: "y"')
+                        dest_file.write(src_file_content)
 
             elif file.endswith(".lua"):
                 # Copy all .lua files too

@@ -41,3 +41,4 @@ examples:
 - path: examples/onClientWeaponFire-1.lua
   description: This example prevents player damage from custom weapons.
   side: client
+canceling: If this event was canceled, then the weapon will not fire.
