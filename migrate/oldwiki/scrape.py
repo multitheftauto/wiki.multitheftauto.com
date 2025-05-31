@@ -253,7 +253,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
         raise ValueError(f"Could not find a valid source for {name}")
     
     event_canceling = None
-    canceling_header = content_div.find("span", id="Canceling") or content_div.find("span", id="Cancelling") or content_div.find("span", id="Cancel_effect") or content_div.find("span", id="Cancel_effects")
+    canceling_header = content_div.find("span", id="Canceling") or content_div.find("span", id="Cancelling") or content_div.find("span", id="Cancel_effect") or content_div.find("span", id="Cancel_effects") or content_div.find("span", id="Cancel_Effect") or content_div.find("span", id="Cancel_Effects")
     if canceling_header:
         # Extract text
         canceling_paragraph = canceling_header.find_next("p")
