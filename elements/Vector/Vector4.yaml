@@ -11,7 +11,7 @@ oop_only_methods:
       - name: vectorOrX
         type: float | table | vector4
         description: Vector4, table, or floats indicating vector's coordinates
-      - name: y
+      - name: "y"
         type: float
         optional: true
         description: If vectorOrX is a float, this is the Y coordinate

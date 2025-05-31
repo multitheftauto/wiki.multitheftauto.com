@@ -15,7 +15,7 @@ parameters:
 - name: x
   type: float
   description: a floating point number representing the X coordinate on the map.
-- name: y
+- name: "y"
   type: float
   description: a floating point number representing the Y coordinate on the map.
 - name: z

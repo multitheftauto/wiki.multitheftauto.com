@@ -13,7 +13,7 @@ parameters:
 - name: x
   type: float
   description: X coordinate of where the explosion was created
-- name: y
+- name: "y"
   type: float
   description: Y coordinate of where the explosion was created
 - name: z

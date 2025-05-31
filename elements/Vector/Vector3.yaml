@@ -11,7 +11,7 @@ oop_only_methods:
       - name: vectorOrX
         type: float | table | vector3
         description: Vector3, table, or floats indicating vector's coordinates
-      - name: y
+      - name: "y"
         type: float
         optional: true
         description: If vectorOrX is a float, this is the Y coordinate
@@ -76,7 +76,7 @@ oop_only_methods:
     description: Sets the Y component of the vector.
     signature: void Vector3:setY ( float y )
     parameters:
-      - name: y
+      - name: "y"
         type: float
         description: The new Y value.
 

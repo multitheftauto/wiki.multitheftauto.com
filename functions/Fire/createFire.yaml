@@ -5,7 +5,7 @@ client:
     - name: x
       type: float
       description: The X coordinate when the initial patch of fire will be created.
-    - name: y
+    - name: "y"
       type: float
       description: The Y coordinate when the initial patch of fire will be created.
     - name: z

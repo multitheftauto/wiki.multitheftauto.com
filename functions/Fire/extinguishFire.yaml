@@ -6,7 +6,7 @@ client:
       type: float
       description: The X coordinate at which any fire will be extinguished.
       default: 'nil'
-    - name: y
+    - name: "y"
       type: float
       description: The Y coordinate at which any fire will be extinguished.
       default: 'nil'
