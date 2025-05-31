@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerVehicleEnter
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerVehicleEnter
 name: onClientPlayerVehicleEnter
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that entered the vehicle.
+description: This event is fired when a player has entered a vehicle.
+parameters:
+- name: theVehicle
+  type: vehicle
+  description: the vehicle that the player entered
+- name: seat
+  type: int
+  description: the seat that the player now is on. Driver's seat = 0, higher numbers
+    are passenger seats.

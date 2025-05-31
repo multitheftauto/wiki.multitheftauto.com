@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPickupLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPickupLeave
 name: onPickupLeave
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the pickup that was left by the player.
+description: This event is triggered when a [player](/wiki/Player "Player") leaves
+  a [pickup](/wiki/Pickup "Pickup").
+parameters:
+- name: thePlayer
+  type: player
+  description: a player element referring to the player who left the pickup.

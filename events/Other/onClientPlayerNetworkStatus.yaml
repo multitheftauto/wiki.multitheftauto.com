@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerNetworkStatus
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerNetworkStatus
 name: onClientPlayerNetworkStatus
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered when the server network connection to a player
+  is interrupted. See [onPlayerNetworkStatus](/wiki/OnPlayerNetworkStatus "OnPlayerNetworkStatus")
+  for detecting player to server interruptions.
+parameters:
+- name: status
+  type: int
+  description: A number which is 0 if the interruption has begun, or 1 if the interruption
+    is ending.
+- name: ticks
+  type: int
+  description: Number of ticks since the interruption started.

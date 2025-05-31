@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerTarget
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerTarget
 name: onPlayerTarget
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that is targetting the element.
+description: This event is triggered when a player targets an element with his crosshair
+  while aiming, or simply facing it while standing close. It's triggered again when
+  the player no longer targets anything.
+parameters:
+- name: targettedElement
+  type: element
+  description: the element the player is targetting. false if no element is being
+    targetted anymore.

@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserLoadingFailed
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserLoadingFailed
 name: onClientBrowserLoadingFailed
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The browser element.
+description: The event is triggered when the browser can not load the page.
+parameters:
+- name: url
+  type: string
+  description: the requested URL.
+- name: errorCode
+  type: int
+  description: see error codes below.
+- name: errorDescription
+  type: string
+  description: a short description.

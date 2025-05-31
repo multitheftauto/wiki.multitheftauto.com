@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientTransferBoxProgressChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientTransferBoxProgressChange
 name: onClientTransferBoxProgressChange
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered every time the [resource](/wiki/Resource "Resource")
+  file downloader (aka. transfer box) updates the download progress.
+parameters:
+- name: downloadedSizeTotal
+  type: float
+  description: The total progress in bytes.
+- name: downloadTotalBytes
+  type: float
+  description: The total size of the download in bytes.

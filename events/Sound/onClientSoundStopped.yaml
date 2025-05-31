@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientSoundStopped
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientSoundStopped
 name: onClientSoundStopped
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the sound's element.
+description: This event is triggered when a **sound** is stopped.
+parameters:
+- name: reason
+  type: string
+  description: the reason the sound was stopped, can be "finished", "paused", "destroyed"
+    or "disabled".

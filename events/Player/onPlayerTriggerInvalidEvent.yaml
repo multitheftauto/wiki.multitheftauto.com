@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerTriggerInvalidEvent
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerTriggerInvalidEvent
 name: onPlayerTriggerInvalidEvent
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who triggered invalid event.
+description: It works for both non\-added and non\-remote events.
+parameters:
+- name: eventName
+  type: string
+  description: An string representing event name.
+- name: isAdded
+  type: bool
+  description: An bool representing whether called event is added.
+- name: isRemote
+  type: bool
+  description: An bool representing whether called event is remote.

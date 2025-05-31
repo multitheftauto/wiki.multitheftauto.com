@@ -1,8 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerScreenShot
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerScreenShot
 name: onPlayerScreenShot
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player
+description: This event is triggered when the screen capture requested by [takePlayerScreenShot](/wiki/TakePlayerScreenShot
+  "TakePlayerScreenShot") has completed.
+parameters:
+- name: theResource
+  type: resource
+  description: the resource which called takePlayerScreenShot.
+- name: status
+  type: string
+  description: 'a string containing the status of the event which can be one of these
+    values:
+
+    "ok" - the image capture was successful and imageData will contain a JPEG image.
+
+    "disabled" - the image capture failed because the player has disabled screen uploads.
+
+    "minimized" - the image capture failed because the player has minimized the screen
+    (i.e. alt-tabbed).
+
+    "error" - the image capture failed because of an unspecified error.'
+- name: imageData
+  type: string
+  description: a string which contains the JPEG image data. This can be saved with
+    the file functions, or sent to players with triggerClientEvent or even uploaded
+    to a web site.
+- name: timestamp
+  type: int
+  description: an int representing the server tick count when the capture was taken.
+- name: tag
+  type: string
+  description: a string passed to takePlayerScreenShot.

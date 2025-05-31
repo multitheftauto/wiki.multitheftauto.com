@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserLoadingStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserLoadingStart
 name: onClientBrowserLoadingStart
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The webbrowser element.
+description: The event is triggered when a [webbrowser](/wiki/Browser "Browser") starts
+  loading a page.
+parameters:
+- name: URL
+  type: string
+  description: string containing the URL that will be loaded.
+- name: isMainFrame
+  type: boolean
+  description: 'a boolean representing whether the entire page (main frame) was loaded
+    or an <iframe> inside the page was loaded. true: If the URL is loaded in the main
+    frame. false: If the URL is loaded in a <iframe>.'

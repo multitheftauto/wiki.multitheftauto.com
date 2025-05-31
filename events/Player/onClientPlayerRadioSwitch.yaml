@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerRadioSwitch
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerRadioSwitch
 name: onClientPlayerRadioSwitch
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the local player.
+description: This event is triggered whenever the local player's radio station is
+  changed
+parameters:
+- name: stationID
+  type: int
+  description: An integer representing the station the player switched to.
+canceling: If this event is canceled, the Radio station will not change.

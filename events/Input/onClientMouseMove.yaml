@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMouseMove
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMouseMove
 name: onClientMouseMove
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element on which the mouse was
+    moved.
+description: This event is triggered each time the user moves the mouse on top of
+  a GUI element.
+parameters:
+- name: absoluteX
+  type: int
+  description: the X position of the mouse cursor, in pixels, measured from the left
+    side of the screen.
+- name: absoluteY
+  type: int
+  description: the Y position of the mouse cursor, in pixels, measured from the top
+    of the screen.

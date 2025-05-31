@@ -1,8 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerWeaponSwitch
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerWeaponSwitch
 name: onClientPlayerWeaponSwitch
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who switched their weapon (Local
+    player only)
+description: This event is triggered whenever the local player's equipped **[weapon
+  slot](/wiki/Weapon "Weapon")** changes. This means giveWeapon and takeWeapon will
+  trigger this event if the equipped slot is forced to change.
+parameters:
+- name: previousWeaponSlot
+  type: int
+  description: An integer representing the previous weapon slot the player had before
+    he switched.
+- name: currentWeaponSlot
+  type: int
+  description: An integer representing the new weapon slot the player has after he
+    switched.
+canceling: If this event is canceled, then the weapon will not be switched.

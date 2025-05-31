@@ -1,8 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerQuit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerQuit
 name: onPlayerQuit
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that left the server.
+description: This event is triggered when a player disconnects from the server.
+parameters:
+- name: quitType
+  type: string
+  description: 'How the player left. Possible values:
+
+    "Unknown"
+
+    "Quit"
+
+    "Kicked"
+
+    "Banned"
+
+    "Bad Connection"
+
+    "Timed out"'
+- name: reason
+  type: string
+  description: If the player was kicked or banned, the reason given goes here. If
+    the player was not kicked or banned, this will be false.
+- name: responsibleElement
+  type: element
+  description: The element that was responsible for kicking or banning the player.
+    This is commonly another player, but can also be the console element.
+canceling: This event cannot be canceled.

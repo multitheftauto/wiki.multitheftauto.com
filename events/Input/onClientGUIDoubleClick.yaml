@@ -1,8 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIDoubleClick
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIDoubleClick
 name: onClientGUIDoubleClick
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element that was double clicked.
+description: This event is fired when the user double clicks a GUI element. Doesn't
+  work with buttons.
+parameters:
+- name: button
+  type: string
+  description: the name of the mouse button that the GUI element was double clicked
+    with.
+- name: state
+  type: string
+  description: the state of the mouse button. Can be down or up. Please note currently
+    only the up state is supported.
+- name: absoluteX
+  type: int
+  description: the X position of the mouse cursor, in pixels, measured from the left
+    side of the screen.
+- name: absoluteY
+  type: int
+  description: the Y position of the mouse cursor, in pixels, measured from the top
+    of the screen.

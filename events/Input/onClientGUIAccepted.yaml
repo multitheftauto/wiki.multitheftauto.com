@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIAccepted
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIAccepted
 name: onClientGUIAccepted
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the editbox which enter was pressed on.
+description: This event is triggered when enter is pressed on an editbox.
+parameters:
+- name: editBox
+  type: element
+  description: the editbox which had focus.

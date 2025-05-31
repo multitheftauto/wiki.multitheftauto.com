@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerChoke
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerChoke
 name: onClientPlayerChoke
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who is choking. (Local player
+    only)
+description: This event is fired when the local player chokes due to the effect of
+  a weapon such as tear gas grenades, fire extinguishers and spray cans.
+parameters:
+- name: weaponID
+  type: int
+  description: an int representing the ID of the weapon which caused the choking.
+canceling: If this event is canceled, the player will not be choked.

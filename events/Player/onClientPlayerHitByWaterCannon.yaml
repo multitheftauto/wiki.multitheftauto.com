@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerHitByWaterCannon
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerHitByWaterCannon
 name: onClientPlayerHitByWaterCannon
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle who shot the water cannon.
+description: This event is fired when a player is hit by a water cannon.
+parameters:
+- name: playerHit
+  type: player
+  description: the player which got shot by the water cannon
+canceling: If this event is canceled, the player will not be knocked down.

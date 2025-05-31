@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerVoicePause
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerVoicePause
 name: onClientPlayerVoicePause
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player whose voice got paused.
+description: This event is triggered when a player's voice sound is paused using [setSoundPaused](/wiki/SetSoundPaused
+  "SetSoundPaused").
+parameters:
+- name: reason
+  type: string
+  description: the reason for the pause, this can be only "paused".

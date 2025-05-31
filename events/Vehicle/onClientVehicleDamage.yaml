@@ -1,8 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleDamage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleDamage
 name: onClientVehicleDamage
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that got damaged.
+description: This event is triggered when a vehicle is damaged.
+parameters:
+- name: theAttacker
+  type: element
+  description: An element if there was an attacker.
+- name: theWeapon
+  type: int
+  description: An integer specifying the weapon ID if a weapon was used. Otherwise
+    Damage Type ID is used.
+- name: loss
+  type: float
+  description: A float representing the amount of damage taken.
+- name: damagePosX
+  type: float
+  description: A float representing the X co-ordinate of where the damage took place.
+- name: damagePosY
+  type: float
+  description: A float representing the Y co-ordinate of where the damage took place.
+- name: damagePosZ
+  type: float
+  description: A float representing the Z co-ordinate of where the damage took place.
+- name: tireID
+  type: int
+  description: A number representing the tire which took damage, if there is one.
+canceling: If this event is canceled, the vehicle health won't be reduced. Physical
+  damage to the vehicle will remain.

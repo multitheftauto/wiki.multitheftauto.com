@@ -1,8 +1,44 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientDebugMessage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientDebugMessage
 name: onClientDebugMessage
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered when client\-side debug messages (for instance
+  errors or warnings) would appear in the debug window. This event doesn't require
+  the debug window to be enabled to trigger, however.
+parameters:
+- name: message
+  type: string
+  description: The message which was outputted in the server console, without details
+    like file, line etc
+- name: level
+  type: int
+  description: 'The type of debug message which was outputted
+
+    0: "Custom" message
+
+    1: Error message
+
+    2: Warning message
+
+    3: Information message'
+- name: file
+  type: string
+  description: 'The file from which the debug message was outputted
+
+    Note: May return nil when the source could not be found'
+- name: line
+  type: int
+  description: 'The line in file file where the debug message was outputted
+
+    Note: May return nil when the source could not be found'
+- name: r
+  type: int
+  description: Amount of red color (0-255)
+- name: g
+  type: int
+  description: Amount of green color (0-255)
+- name: b
+  type: int
+  description: Amount of blue color (0-255)

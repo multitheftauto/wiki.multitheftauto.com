@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onMarkerHit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnMarkerHit
 name: onMarkerHit
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the marker that got hit by the element.
+description: This event is triggered when an element enters a marker created using
+  [createMarker](/wiki/CreateMarker "CreateMarker").
+parameters:
+- name: hitElement
+  type: element
+  description: the element that hit the marker.
+- name: matchingDimension
+  type: bool
+  description: a boolean representing whether the element is in the same dimension
+    as the marker.

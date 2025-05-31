@@ -1,8 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerTeleport
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerTeleport
 name: onPlayerTeleport
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who triggered the teleport detection.
+description: When the player synchronizes data with the server, the server monitors
+  player positions to detect significant unexpected movements. If a player's position
+  deviates beyond the established threshold without server functions like [setElementPosition](/wiki/SetElementPosition
+  "SetElementPosition") being used, this event will be triggered.
+parameters:
+- name: previousX
+  type: float
+  description: A float representing the player X-coordinate before teleporting.
+- name: previousY
+  type: float
+  description: A float representing the player Y-coordinate before teleporting.
+- name: previousZ
+  type: float
+  description: A float representing the player Z-coordinate before teleporting.
+- name: currentX
+  type: float
+  description: A float representing the player current X-coordinate after teleporting.
+- name: currentY
+  type: float
+  description: A float representing the player current Y-coordinate after teleporting.
+- name: currentZ
+  type: float
+  description: A float representing the player current Z-coordinate after teleporting.
+canceling: Canceling this event has no effect.

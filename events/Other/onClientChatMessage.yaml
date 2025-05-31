@@ -1,8 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientChatMessage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientChatMessage
 name: onClientChatMessage
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is either a player element or the root element.
+description: This event is triggered when any text is output to chatbox, including
+  MTA's internal messages.
+parameters:
+- name: text
+  type: string
+  description: The text that was output to chatbox.
+- name: r
+  type: int
+  description: The amount of red in the color of the text.
+- name: g
+  type: int
+  description: The amount of green in the color of the text.
+- name: b
+  type: int
+  description: The amount of blue in the color of the text.
+- name: messageType
+  type: int
+  description: The type of message as a number.
+canceling: If this event is canceled, the game's chat system won't deliver the posts.
+  You may use outputChatBox to send the messages then.

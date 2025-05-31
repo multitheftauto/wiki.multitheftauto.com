@@ -1,8 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onVehicleStartExit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnVehicleStartExit
 name: onVehicleStartExit
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle in which a ped began to exit.
+description: This event is triggered when a player or ped starts to exit a vehicle.
+  This event can be used to cancel exit, if necessary.
+parameters:
+- name: exitingPed
+  type: ped
+  description: a player or ped element who is starting to exit a vehicle.
+- name: seat
+  type: int
+  description: an int representing the seat in which the ped is exiting from.
+- name: jacked
+  type: ped
+  description: a player or ped element representing who is jacking.
+- name: door
+  type: int
+  description: an int representing the door that the ped is using to leave.
+canceling: If this event is canceled, the ped will not exit the vehicle.

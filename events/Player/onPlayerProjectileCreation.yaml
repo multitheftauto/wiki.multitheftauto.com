@@ -1,8 +1,48 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerProjectileCreation
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerProjectileCreation
 name: onPlayerProjectileCreation
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who created the projectile.
+description: This event is triggered every time a projectile is created by a [player](/wiki/Player
+  "Player") \- either through a weapon, a vehicle weapon or [createProjectile](/wiki/CreateProjectile
+  "CreateProjectile").
+parameters:
+- name: weaponType
+  type: int
+  description: ID, see below
+- name: x
+  type: float
+  description: X coordinate of where the projectile was created
+- name: y
+  type: float
+  description: Y coordinate of where the projectile was created
+- name: z
+  type: float
+  description: Z coordinate of where the projectile was created
+- name: force
+  type: float
+  description: force of thrown projectile. Valid for ID 16, 17, 18, 39.
+- name: target
+  type: element
+  description: element the projectile is targeting. Valid for ID 19, 20.
+- name: rotX
+  type: float
+  description: X rotation. Valid for ID 19, 20.
+- name: rotY
+  type: float
+  description: Y rotation. Valid for ID 19, 20.
+- name: rotZ
+  type: float
+  description: Z rotation. Valid for ID 19, 20.
+- name: velX
+  type: float
+  description: X axis velocity. Valid for ID 16, 17, 18, 19, 20, 39.
+- name: velY
+  type: float
+  description: Y axis velocity. Valid for ID 16, 17, 18, 19, 20, 39.
+- name: velZ
+  type: float
+  description: Z axis velocity. Valid for ID 16, 17, 18, 19, 20, 39.
+canceling: If this event is canceled, the projectile will not be created for other
+  players on the server.

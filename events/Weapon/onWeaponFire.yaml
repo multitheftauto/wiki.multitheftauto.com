@@ -1,8 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onWeaponFire
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnWeaponFire
 name: onWeaponFire
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that fired the weapon. If the
+    server is the creator it returns nil.
+description: This event is triggered when a custom weapon gets fired.
+parameters: []
+canceling: If this event is canceled, the bullet(s) won't be synced with other players.

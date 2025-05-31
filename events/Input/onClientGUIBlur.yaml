@@ -1,8 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIBlur
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIBlur
 name: onClientGUIBlur
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element which just lost input focus.
+description: This event is triggered each time a GUI element looses input focus (mainly
+  useful for windows, editboxes and memos but triggered for all GUI elements nevertheless).
+parameters: []

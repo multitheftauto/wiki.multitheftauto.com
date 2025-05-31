@@ -1,8 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleStartExit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleStartExit
 name: onClientVehicleStartExit
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that the ped started to exit.
+description: This event is triggered when a [ped](/wiki/Ped "Ped") or [player](/wiki/Player
+  "Player") starts exiting a vehicle. Once the exiting animation completes, [onClientVehicleExit](/wiki/OnClientVehicleExit
+  "OnClientVehicleExit") is triggered.
+parameters:
+- name: thePed
+  type: ped
+  description: the ped who started exiting the vehicle.
+- name: seat
+  type: int
+  description: the number of the seat that the ped was sitting on.
+- name: door
+  type: int
+  description: the number of the door that the ped is using to leave.

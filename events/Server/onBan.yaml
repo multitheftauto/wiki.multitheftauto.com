@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onBan
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnBan
 name: onBan
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that was responsible for the
+    banning. If no responsible was specified, the source is the global root element.
+description: This event is triggered when an IP address or serial is banned from the
+  server.
+parameters:
+- name: theBan
+  type: ban
+  description: the ban which was added.
+canceling: This event cannot be canceled.

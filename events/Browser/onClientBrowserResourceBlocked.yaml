@@ -1,8 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserResourceBlocked
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserResourceBlocked
 name: onClientBrowserResourceBlocked
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The browser element.
+description: This event is executed when a resource (images, sounds etc.) has been
+  blocked.
+parameters:
+- name: url
+  type: string
+  description: the blocked URL.
+- name: domain
+  type: string
+  description: the blocked domain (part of the URL).
+- name: reason
+  type: int
+  description: 'the reason why the resource was blocked. Possibles values:
+
+    0: not allowed yet
+
+    1: blacklisted
+
+    2: blocked protocol scheme'

@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerDetonateSatchels
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerDetonateSatchels
 name: onPlayerDetonateSatchels
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player whose satchels are being detonated.
+description: This event is triggered every time satchels are detonated \- either by
+  a [player](/wiki/Player "Player") or through [detonateSatchels](/wiki/DetonateSatchels
+  "DetonateSatchels").
+parameters: []
+canceling: If this event is canceled, the satchels will not detonate.

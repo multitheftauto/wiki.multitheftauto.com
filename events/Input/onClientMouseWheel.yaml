@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMouseWheel
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMouseWheel
 name: onClientMouseWheel
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element on which the mouse scroll
+    was scrolled.
+description: This event is triggered each time the user scrolls his mouse scroll on
+  top of a GUI element.
+parameters:
+- name: upOrDown
+  type: int
+  description: An integer representing whether the scroll was scrolled up or down.
+    This can be either 1 (mouse was scrolled up) or -1 (mouse was scrolled down).

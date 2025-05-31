@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerChangeNick
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerChangeNick
 name: onClientPlayerChangeNick
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that changed his nick
+description: This event is triggered when a player changes his nickname.
+parameters:
+- name: oldNick
+  type: string
+  description: the nickname the player had before.
+- name: newNick
+  type: string
+  description: the new nickname of the player.

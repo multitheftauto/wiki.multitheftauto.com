@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPedHeliKilled
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPedHeliKilled
 name: onClientPedHeliKilled
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped who was killed
+description: This event is fired when a ped is killed due to the effect of a helicopter
+  blades.
+parameters:
+- name: killer
+  type: vehicle
+  description: the vehicle (heli) responsible for causing the death.
+canceling: If this event is canceled, the ped will not be killed

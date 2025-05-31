@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerContact
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerContact
 name: onPlayerContact
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who hit an element.
+description: This event is triggered when a player stands on a different element than
+  before.
+parameters:
+- name: previousElement
+  type: element
+  description: the element player was standing on before. nil if none.
+- name: currentElement
+  type: element
+  description: the new element that the player is standing on now. nil if none.

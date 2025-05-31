@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerMarkerHit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerMarkerHit
 name: onPlayerMarkerHit
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that hit the marker.
+description: This event is triggered when a [player](/wiki/Player "Player") hits a
+  [marker](/wiki/Marker "Marker").
+parameters:
+- name: markerHit
+  type: marker
+  description: the marker the player hit.
+- name: matchingDimension
+  type: bool
+  description: a boolean representing whether the player and the hit marker are in
+    the same dimension.

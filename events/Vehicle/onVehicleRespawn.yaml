@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onVehicleRespawn
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnVehicleRespawn
 name: onVehicleRespawn
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that respawned.
+description: This event is triggered when a vehicle is respawned due. See [toggleVehicleRespawn](/wiki/ToggleVehicleRespawn
+  "ToggleVehicleRespawn").
+parameters:
+- name: exploded
+  type: bool
+  description: true if this vehicle respawned because it exploded, false if it respawned
+    due to being deserted.

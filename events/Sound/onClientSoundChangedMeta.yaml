@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientSoundChangedMeta
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientSoundChangedMeta
 name: onClientSoundChangedMeta
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the sound of which the meta tags have just
+    been modified.
+description: This event is triggered when a sound's meta tags have been modified.
+parameters:
+- name: streamTitle
+  type: string
+  description: The title of a specific stream

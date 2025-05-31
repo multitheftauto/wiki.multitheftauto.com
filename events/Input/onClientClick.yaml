@@ -1,8 +1,44 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientClick
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientClick
 name: onClientClick
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: This event triggers whenever the user clicks his mouse. This is linked
+  to the GTA world, as oppose to GUI for which [onClientGUIClick](/wiki/OnClientGUIClick
+  "OnClientGUIClick") is to be used. This event allows detection of click positions
+  of the 3D world.
+parameters:
+- name: button
+  type: string
+  description: This refers the button used to click on the mouse, can be left, right,
+    or middle.
+- name: state
+  type: string
+  description: This can be used to tell if the user released or pressed the mouse
+    button, where up is passed if the button is released, and down is passed if the
+    button is pushed.
+- name: absoluteX
+  type: int
+  description: This refers to the 2D x coordinate the user clicked on his screen,
+    and is an absolute position in pixels.
+- name: absoluteY
+  type: int
+  description: This refers to the 2D y coordinate the user clicked on his screen,
+    and is an absolute position in pixels.
+- name: worldX
+  type: float
+  description: This represents the 3D x coordinate the player clicked on the screen,
+    and is relative to the GTA world.
+- name: worldY
+  type: float
+  description: This represents the 3D y coordinate the player clicked on the screen,
+    and is relative to the GTA world.
+- name: worldZ
+  type: float
+  description: This represents the 3D z coordinate the player clicked on the screen,
+    and is relative to the GTA world.
+- name: clickedWorld
+  type: element
+  description: This represents any physical entity elements that were clicked. If
+    the player clicked on no MTA element, it's set to false.

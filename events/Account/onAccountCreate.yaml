@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onAccountCreate
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnAccountCreate
 name: onAccountCreate
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered every time an [account](/wiki/Account "Account")
+  is created
+parameters:
+- name: theAccount
+  type: account
+  description: An account element that was created
+canceling: This event cannot be canceled.

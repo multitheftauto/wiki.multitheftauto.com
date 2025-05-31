@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerTeamChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerTeamChange
 name: onPlayerTeamChange
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player whose team was changed.
+description: Additionally, this event is triggered for all players on a team when
+  that team is destroyed.
+parameters:
+- name: oldTeam
+  type: team
+  description: An team representing the previous team of the player. If there is no
+    old team, this is nil.
+- name: newTeam
+  type: team
+  description: An team representing the new team of the player. If there is no new
+    team, this is nil.
+canceling: If this event is canceled, then the player's team change will be prevented.

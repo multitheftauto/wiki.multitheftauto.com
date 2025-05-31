@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserWhitelistChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserWhitelistChange
 name: onClientBrowserWhitelistChange
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The root element.
+description: The event is triggered when the whitelist has changed. Note that this
+  event is only triggered if the request window was confirmed by accepting.
+parameters:
+- name: changedDomains
+  type: table
+  description: a table of changed domains.

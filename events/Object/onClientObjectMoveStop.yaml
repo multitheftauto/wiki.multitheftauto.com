@@ -1,8 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientObjectMoveStop
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientObjectMoveStop
 name: onClientObjectMoveStop
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the object which was moved.
+description: This event is triggered when an [object](/wiki/Object "Object")'s movements
+  stop.
+parameters: []

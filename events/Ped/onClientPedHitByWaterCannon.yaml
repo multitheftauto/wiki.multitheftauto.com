@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPedHitByWaterCannon
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPedHitByWaterCannon
 name: onClientPedHitByWaterCannon
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle who shot the water cannon.
+description: This event is fired when a ped is hit by a water cannon.
+parameters:
+- name: pedHit
+  type: ped
+  description: the ped which got shot by the water cannon
+canceling: If this event is canceled, the ped will not be knocked down

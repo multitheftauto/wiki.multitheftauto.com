@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientSoundStarted
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientSoundStarted
 name: onClientSoundStarted
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the sound's element.
+description: This event is triggered when a **sound** is started.
+parameters:
+- name: reason
+  type: string
+  description: the reason the sound was started, can be "play", "resumed" or "enabled".

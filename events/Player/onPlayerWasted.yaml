@@ -1,8 +1,8 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerWasted
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerWasted
 name: onPlayerWasted
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that died or got killed.
+description: This event is triggered when a player is killed or dies.
+parameters: []

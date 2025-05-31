@@ -1,8 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onExplosion
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnExplosion
 name: onExplosion
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who notified server about explosion,
+    or root if explosion was created server-side along without specifying creator
+    in createExplosion.
+description: This event is triggered every time an explosion is created either by
+  server\-side [createExplosion](/wiki/CreateExplosion "CreateExplosion"), or when
+  reported by [player](/wiki/Player "Player").
+parameters:
+- name: x
+  type: float
+  description: X coordinate of where the explosion was created
+- name: y
+  type: float
+  description: Y coordinate of where the explosion was created
+- name: z
+  type: float
+  description: Z coordinate of where the explosion was created
+- name: theType
+  type: int
+  description: 'the type of explosion created, see: Explosion types'
+canceling: If this event is canceled, the explosion will not occur.

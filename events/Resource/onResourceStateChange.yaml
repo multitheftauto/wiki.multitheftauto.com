@@ -1,8 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onResourceStateChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnResourceStateChange
 name: onResourceStateChange
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: 'This event is triggered when a [resource](/wiki/Resource "Resource")''s
+  state is changed.
+
+  This event is an extended version of [onResourceLoadStateChange](/wiki/OnResourceLoadStateChange
+  "OnResourceLoadStateChange")'
+parameters:
+- name: changedResource
+  type: resource
+  description: The resource that was either loaded, reloaded or is unloading.
+- name: oldState
+  type: string
+  description: The state the resource was in before it changed.
+- name: newState
+  type: string
+  description: The state the resource has changed to.

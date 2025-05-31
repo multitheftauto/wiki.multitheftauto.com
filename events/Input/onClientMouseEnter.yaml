@@ -1,8 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMouseEnter
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMouseEnter
 name: onClientMouseEnter
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element that was pointed at.
+description: This event is fired when the user moves the mouse over a GUI element.
+parameters:
+- name: absoluteX
+  type: int
+  description: the X position of the mouse cursor, in pixels, measured from the left
+    side of the screen.
+- name: absoluteY
+  type: int
+  description: the Y position of the mouse cursor, in pixels, measured from the top
+    of the screen.
+- name: leftGUI
+  type: element
+  description: the gui element that was switched from, or nil if it doesn't exist.

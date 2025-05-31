@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientElementDimensionChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientElementDimensionChange
 name: onClientElementDimensionChange
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that changed its dimension.
+description: This event is triggered when the dimension of an [element](/wiki/Element
+  "Element") is changed using [setElementDimension](/wiki/SetElementDimension "SetElementDimension").
+parameters:
+- name: oldDimension
+  type: int
+  description: An int representing the dimension the element was in before.
+- name: newDimension
+  type: int
+  description: An int representing the dimension the element is in now.

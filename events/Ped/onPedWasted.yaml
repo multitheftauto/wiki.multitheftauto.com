@@ -1,8 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPedWasted
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPedWasted
 name: onPedWasted
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped that died or got killed.
+description: This event is triggered when a ped is killed or dies. It is not triggered
+  for players.
+parameters: []

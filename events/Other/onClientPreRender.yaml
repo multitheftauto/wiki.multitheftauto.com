@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPreRender
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPreRender
 name: onClientPreRender
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: This event is triggered every time before GTA renders a new frame.
+parameters:
+- name: timeSlice
+  type: float
+  description: The interval between this frame and the previous one in milliseconds
+    (delta time).

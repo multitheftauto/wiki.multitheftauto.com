@@ -1,8 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientObjectMoveStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientObjectMoveStart
 name: onClientObjectMoveStart
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the object which was moved.
+description: This event is triggered when an [object](/wiki/Object "Object") starts
+  moving.
+parameters: []

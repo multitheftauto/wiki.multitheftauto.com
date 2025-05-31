@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientResourceStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientResourceStart
 name: onClientResourceStart
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the started resource's root element.
+description: 'This event is triggered when a [resource](/wiki/Resource "Resource")
+  is started. Please note that this is **not** triggered the same time as the serverside
+  event [onResourceStart](/wiki/OnResourceStart "OnResourceStart") is. The event is
+  triggered when any *clientside resources* are started. This means it is triggered
+  when a clientside script is initiated after a download, which includes downloading
+  after join. So:'
+parameters:
+- name: startedResource
+  type: resource
+  description: the resource that was started.

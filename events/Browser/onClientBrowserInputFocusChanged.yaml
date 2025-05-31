@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserInputFocusChanged
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserInputFocusChanged
 name: onClientBrowserInputFocusChanged
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The browser element.
+description: This event is triggered when the input focus inside a browser has changed.
+parameters:
+- name: gainedFocus
+  type: bool
+  description: true if an input field has been focused, false if it has lost focus.

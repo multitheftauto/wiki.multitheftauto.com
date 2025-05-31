@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMTAFocusChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMTAFocusChange
 name: onClientMTAFocusChange
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered every time the MTA window gains or loses focus.
+parameters:
+- name: windowFocused
+  type: bool
+  description: A boolean, indicating whether the MTA window is focused or not.

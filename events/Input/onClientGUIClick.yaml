@@ -1,8 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIClick
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIClick
 name: onClientGUIClick
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element that was clicked.
+description: This event happens when any gui\-element clicked.
+parameters:
+- name: button
+  type: string
+  description: the name of the button which will be clicked, it can be left, right,
+    middle.
+- name: state
+  type: string
+  description: the state of the mouse button, will be down if the mouse button was
+    pushed, or up if it was released. Please note currently only the up state is supported.
+- name: absoluteX
+  type: int
+  description: the X position of the mouse cursor, in pixels, measured from the left
+    side of the screen.
+- name: absoluteY
+  type: int
+  description: the Y position of the mouse cursor, in pixels, measured from the top
+    of the screen.

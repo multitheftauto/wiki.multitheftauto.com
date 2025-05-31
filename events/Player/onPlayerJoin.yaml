@@ -1,8 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerJoin
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerJoin
 name: onPlayerJoin
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who joined.
+description: This event is triggered when a player joins the server. This event is
+  not cancellable.
+parameters: []

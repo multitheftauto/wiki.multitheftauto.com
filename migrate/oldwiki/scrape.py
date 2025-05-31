@@ -36,7 +36,7 @@ def fix_category(category_name: str) -> str:
     return category_name
 
 def parse_links(source_label: str, url: str) -> dict:
-    print(f"Parsing {source_label} from {url}...")
+    print(f"Parsing list of {source_label} from {url}...")
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -78,6 +78,172 @@ def str_presenter(dumper, data):
 # Register the custom string presenter
 yaml.add_representer(str, str_presenter)
 
+def parse_event_page(page_url: str, name: str, source: str) -> dict:
+    response = requests.get(page_url)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # Find first non-empty p inside mw-content-text
+    content_div = soup.find("div", id="mw-content-text")
+    if not content_div:
+        raise ValueError(f"Could not find content in {page_url}.")
+    
+    event_description = None
+    # Find the first p before a header h2 or h3
+    for element in content_div.find_all(["p", "h2", "h3"]):
+        if element.name == "p":
+            text = element.get_text().strip()
+            if text and not text.isspace():
+                event_description = convert_to_markdown(str(element))
+                event_description = event_description.strip()
+                # print(f"Found description for {name}: {event_description}")
+                break
+        elif element.name in ["h2", "h3"]:
+            # Stop at the first header
+            break
+    
+    if not event_description:
+        # Alternatively, look for content inside a div that has style="padding: 4px 8px"
+        divs = content_div.find_all("div", style="padding: 4px 8px")
+        for div in divs:
+            text = div.get_text()
+            if text and not text.isspace():
+                event_description = convert_to_markdown(str(div))
+                event_description = event_description.strip()
+                # print(f"Found description in div for {name}: {event_description}")
+                break
+    
+    if event_description is None:
+        raise ValueError(f"Could not find a valid description for {name} in {page_url}")
+
+    # Event parameters are optional, there may be none
+    event_parameters = []
+    parameters_header = content_div.find("span", id="Parameters")
+
+    if parameters_header:
+        params = []
+        next_element = parameters_header.find_next()
+
+        # Traverse siblings until we find a <pre> or a header (<h2> or <h3>)
+        while next_element:
+            if next_element.name in ["h2", "h3"]:
+                break  # Another section begins
+            if next_element.name == "pre":
+                # Found the relevant <pre> block
+                pre_text = next_element.get_text().strip()
+                # Remove [ and ] from the pre_text
+                pre_text = pre_text.replace("[", "").replace("]", "")
+                param_lines = pre_text.split(",")
+
+                for line in param_lines:
+                    line = line.strip()
+                    if line:
+                        parts = line.split(" ", 1)
+                        if len(parts) == 2:
+                            param_type, param_name = parts
+                            params.append({
+                                "name": param_name.strip(),
+                                "type": param_type.strip(),
+                                "description": "MISSING_PARAM_DESC"
+                            })
+
+                # Now look for adjacent <ul>s or <div class="new-feature-item"> containing <ul>
+                ul_element = next_element.find_next_sibling()
+                while ul_element:
+                    if ul_element.name in ["h2", "h3", "pre"]:
+                        break  # Reached unrelated content
+
+                    if ul_element.name == "ul":
+                        ul_blocks = [ul_element]
+                    elif ul_element.name == "div" and any(cls in ul_element.get("class", []) for cls in ["new-feature-item", "new-items"]):
+                        # Look for <ul> inside this special div
+                        ul_blocks = ul_element.find_all("ul", recursive=True)
+                    else:
+                        ul_blocks = []
+
+                    for ul in ul_blocks:
+                        for li in ul.find_all("li"):
+                            b_tag = li.find("b")
+                            if b_tag:
+                                param_name = b_tag.text.strip().replace(":", "")
+                                for param in params:
+                                    if param["name"] == param_name:
+                                        description_parts = li.get_text().split(":", 1)
+                                        if len(description_parts) > 1:
+                                            param["description"] = description_parts[1].strip()
+                                        break
+
+                    ul_element = ul_element.find_next_sibling()
+
+                break  # Done processing this parameters section
+
+            next_element = next_element.find_next_sibling()
+
+        event_parameters = params
+    
+    event_source = None
+    source_header = content_div.find("span", id="Source")
+    if source_header:
+        source_paragraph = source_header.find_next("p")
+        if source_paragraph:
+            source_text = source_paragraph.get_text().strip()
+            if source_text:
+                # Remove new lines from the source text
+                source_text = source_text.replace("\n", " ")
+                event_source = {
+                    "type": "element",
+                    "description": source_text
+                }
+    if not event_source:
+        raise ValueError(f"Could not find a valid source for {name}")
+    
+    event_canceling = None
+    canceling_header = content_div.find("span", id="Canceling") or content_div.find("span", id="Cancelling") or content_div.find("span", id="Cancel_effect") or content_div.find("span", id="Cancel_effects")
+    if canceling_header:
+        # Extract text
+        canceling_paragraph = canceling_header.find_next("p")
+        if canceling_paragraph:
+            canceling_text = canceling_paragraph.get_text().strip()
+            if canceling_text:
+                # Remove new lines from the canceling text
+                event_canceling = canceling_text.replace("\n", " ")
+
+    yaml_dict = {
+        "name": name,
+        "type": "client" if "Client" in source else "server",
+        "source_element": event_source,
+        "description": event_description,
+        "parameters": event_parameters,
+    }
+    if event_canceling:
+        yaml_dict["canceling"] = event_canceling
+
+    # Set incomplete to true if no description is found for at least one parameter
+    if any(param["description"] == "MISSING_PARAM_DESC" for param in event_parameters):
+        yaml_dict["incomplete"] = True
+    
+    return yaml_dict
+
+def parse_function_page(page_url: str, name: str, source: str) -> str:
+    if source.startswith("Shared"):
+        yaml_content = "shared: &shared\n"
+        yaml_content += f"  incomplete: true\n"
+        yaml_content += f"  name: {name}\n"
+        yaml_content += f"  description: TODO\n"
+        yaml_content += "\nserver:\n  <<: *shared"
+        yaml_content += "\nclient:\n  <<: *shared"
+    elif source.startswith("Server"):
+        yaml_content = "server:\n"
+        yaml_content += f"  incomplete: true\n"
+        yaml_content += f"  name: {name}\n"
+        yaml_content += f"  description: TODO\n"
+    elif source.startswith("Client"):
+        yaml_content = "client:\n"
+        yaml_content += f"  incomplete: true\n"
+        yaml_content += f"  name: {name}\n"
+        yaml_content += f"  description: TODO\n"
+
+    return yaml_content
+
 def convert_page_to_yaml(page_url: str, name: str, source: str) -> str:
     # This scrapes the page and tries to parse the MediaWiki content into a YAML format for the function/event
     
@@ -87,122 +253,19 @@ def convert_page_to_yaml(page_url: str, name: str, source: str) -> str:
         raise ValueError("Source must be either a function or an event.")
     
     if is_event:
-        response = requests.get(page_url)
-        soup = BeautifulSoup(response.text, "html.parser")
-
-        # Find first non-empty p inside mw-content-text
-        content_div = soup.find("div", id="mw-content-text")
-        if not content_div:
-            raise ValueError(f"Could not find content in {page_url}.")
-        
-        paragraphs = content_div.find_all("p")
-        event_description = None
-        for p in paragraphs:
-            text = p.get_text()
-            if text and not text.isspace():
-                event_description = convert_to_markdown(str(p))
-                break
-        if not event_description:
-            raise ValueError(f"Could not find a valid description for {name}")
-        
-        event_source = None
-        source_header = content_div.find("span", id="Source")
-        if source_header:
-            source_paragraph = source_header.find_next("p")
-            if source_paragraph:
-                source_text = source_paragraph.get_text().strip()
-                if source_text:
-                    # Remove new lines from the source text
-                    source_text = source_text.replace("\n", " ")
-                    event_source = {
-                        "type": "element",
-                        "description": source_text
-                    }
-        if not event_source:
-            raise ValueError(f"Could not find a valid source for {name}")
-        
-        # Event parameters are optional, there may be none
-        event_parameters = []
-        # <h2><span class="mw-headline" id="Parameters">Parameters</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/wiki/OnElementDataChange?action=edit&amp;section=1" title="Edit section: Parameters">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
-        # <pre class="prettyprint lang-lua">string theKey, var oldValue, var newValue
-        # </pre> 
-        # <ul><li><b>theKey</b>: The name of the element data entry that has changed.</li>
-        # <li><b>oldValue</b>: The old value of this entry before it changed. See <a href="/wiki/Element_data" title="Element data">element data</a> for a list of possible datatypes.</li>
-        # <li><b>newValue</b>: the new value of this entry after it changed. This will be equivalent to <a href="/wiki/GetElementData" title="GetElementData">getElementData</a>(source, theKey).</li></ul>
-        parameters_header = content_div.find("span", id="Parameters")
-        if parameters_header:
-            params = []
-            # Find the next <pre> tag after the parameters header
-            pre_tag = parameters_header.find_next("pre")
-            if pre_tag:
-                # Extract the text from the <pre> tag
-                pre_text = pre_tag.get_text().strip()
-                # Split the text by commas to get individual parameters
-                param_lines = pre_text.split(",")
-                for line in param_lines:
-                    line = line.strip()
-                    if line:
-                        # Split by space to get type and name
-                        parts = line.split(" ", 1)
-                        if len(parts) == 2:
-                            param_type, param_name = parts
-                            params.append({
-                                "name": param_name.strip(),
-                                "type": param_type.strip(),
-                                "description": "TODO"  # Placeholder for now
-                            })
-            # Get the parameters descriptions
-            params_list = parameters_header.find_next("ul")
-            if params_list:
-                for li in params_list.find_all("li"):
-                    b_tag = li.find("b")
-                    if b_tag:
-                        param_name = b_tag.text.strip()
-                        for param in params:
-                            if param["name"] == param_name:
-                                # Split by : to get the description
-                                description = li.get_text().split(":", 1)
-                                if len(description) > 1:
-                                    param["description"] = description[1].strip()
-            event_parameters = params
-        
-        yaml_dict = {
-            "incomplete": True,
-            "name": name,
-            "type": "client" if "Client" in source else "server",
-            "source_element": event_source,
-            "description": event_description.strip(),
-            "parameters": event_parameters
-        }
-        yaml_content = yaml.safe_dump(yaml_dict,
-                                        sort_keys=False,
-                                        allow_unicode=True,
-                                        default_flow_style=False)
+        yaml_content = yaml.safe_dump(parse_event_page(page_url, name, source),
+            sort_keys=False,
+            allow_unicode=True,
+            default_flow_style=False)
 
     elif is_function:
-        if source.startswith("Shared"):
-            yaml_content = "shared: &shared\n"
-            yaml_content += f"  name: {name}\n"
-            yaml_content += f"  description: TODO\n"
-            yaml_content += f"  incomplete: true\n"
-            yaml_content += "\nserver:\n  <<: *shared"
-            yaml_content += "\nclient:\n  <<: *shared"
-        elif source.startswith("Server"):
-            yaml_content = "server:\n"
-            yaml_content += f"  name: {name}\n"
-            yaml_content += f"  description: TODO\n"
-            yaml_content += f"  incomplete: true\n"
-        elif source.startswith("Client"):
-            yaml_content = "client:\n"
-            yaml_content += f"  name: {name}\n"
-            yaml_content += f"  description: TODO\n"
-            yaml_content += f"  incomplete: true\n"
+        yaml_content = parse_function_page(page_url, name, source)
 
     return yaml_content
 
 def write_yaml_per_entry(base_dir, data_by_source):
     for source, categories in data_by_source.items():
-        print(f"Writing YAML files for {source}...")
+        print(f"Parsing individual pages of {source}...")
         for category, entries in categories.items():
             dir_path = os.path.join(base_dir, category)
             os.makedirs(dir_path, exist_ok=True)

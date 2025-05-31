@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientCharacter
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientCharacter
 name: onClientCharacter
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: This event triggers whenever the user presses an alphanumeric character
+  on their keyboard. This also includes special characters, ie. **" / \# % \[ ] {
+  }**.
+parameters:
+- name: character
+  type: string
+  description: a string representing the pressed character.

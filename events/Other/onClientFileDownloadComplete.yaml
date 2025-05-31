@@ -1,8 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientFileDownloadComplete
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientFileDownloadComplete
 name: onClientFileDownloadComplete
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element of the resource that downloaded
+    file.
+description: This event is triggered when a file has been downloaded after [downloadFile](/wiki/DownloadFile
+  "DownloadFile") has been successfully called.
+parameters:
+- name: fileName
+  type: string
+  description: the file downloaded.
+- name: success
+  type: bool
+  description: whether successful or not.
+- name: requestResource
+  type: resource
+  description: the resource that called downloadFile.

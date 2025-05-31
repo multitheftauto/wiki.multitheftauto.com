@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onTrailerDetach
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnTrailerDetach
 name: onTrailerDetach
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the trailer vehicle that the truck got
+    detached from.
+description: This event is triggered when a trailer is detached from a truck.
+parameters:
+- name: theTruck
+  type: vehicle
+  description: the truck vehicle that this trailer got detached from.

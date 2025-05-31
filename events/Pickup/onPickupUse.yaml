@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPickupUse
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPickupUse
 name: onPickupUse
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the pickup that is getting used by the
+    player.
+description: This event is triggered when a [player](/wiki/Player "Player") stands
+  on a [pickup](/wiki/Pickup "Pickup") while not in a [vehicle](/wiki/Vehicle "Vehicle").
+parameters:
+- name: playerWhoUsed
+  type: player
+  description: a player element referring to the player who used the pickup.
+canceling: If this event is canceled, the player will not be given the item they picked
+  up.

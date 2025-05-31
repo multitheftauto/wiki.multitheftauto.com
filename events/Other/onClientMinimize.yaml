@@ -1,8 +1,8 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMinimize
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMinimize
 name: onClientMinimize
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is root element.
+description: This event is triggered when the local player minimizes the game screen.
+parameters: []

@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPickupLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPickupLeave
 name: onClientPickupLeave
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the pickup that was left.
+description: This event triggers whenever a pickup is left clientside.
+parameters:
+- name: thePlayer
+  type: player
+  description: the player that left the pickup
+- name: matchingDimension
+  type: bool
+  description: true if thePlayer is in the same dimension as the pickup, false otherwise.

@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerStealthKill
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerStealthKill
 name: onPlayerStealthKill
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that initiated the stealth kill.
+description: This event is triggered when a player stealth kills another player.
+parameters:
+- name: targetPlayer
+  type: element
+  description: the player or ped that is being stealth killed.
+canceling: If this event is canceled, then the stealth kill is aborted.

@@ -1,8 +1,39 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientWeaponFire
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientWeaponFire
 name: onClientWeaponFire
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the weapon that was fired.
+description: This event triggers when a [custom weapon](/wiki/Element/Weapon "Element/Weapon")
+  fires a shot.
+parameters:
+- name: hitElement
+  type: element
+  description: the element that was hit
+- name: posX
+  type: float
+  description: the position it will hit
+- name: posY
+  type: float
+  description: the position it will hit
+- name: posZ
+  type: float
+  description: the position it will hit
+- name: normalX
+  type: float
+  description: the normal it hit ( see processLineOfSight )
+- name: normalY
+  type: float
+  description: the normal it hit ( see processLineOfSight )
+- name: normalZ
+  type: float
+  description: the normal it hit ( see processLineOfSight )
+- name: materialType
+  type: int
+  description: the material type it hit ( see processLineOfSight )
+- name: lighting
+  type: float
+  description: the lighting of the entity it hit ( see processLineOfSight )
+- name: pieceHit
+  type: int
+  description: the piece of the entity it hit ( see processLineOfSight )

@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onElementStartSync
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnElementStartSync
 name: onElementStartSync
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that got synced by a player.
+description: This event is triggered when an element becomes synced by a player.
+parameters:
+- name: newSyncer
+  type: player
+  description: a player element representing the player who is now syncing the element.

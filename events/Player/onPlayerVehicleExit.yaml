@@ -1,8 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerVehicleExit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerVehicleExit
 name: onPlayerVehicleExit
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that left the vehicle.
+description: This event is triggered when a [player](/wiki/Player "Player") leaves
+  a vehicle, for whatever reason.
+parameters:
+- name: theVehicle
+  type: vehicle
+  description: a vehicle element representing the vehicle in which the player exited
+    from.
+- name: seat
+  type: int
+  description: an int representing the seat in which the player was before exiting.
+- name: jacker
+  type: ped
+  description: a player or ped element representing who jacked the driver.
+- name: forcedByScript
+  type: bool
+  description: a boolean representing whether the exit was forced using removePedFromVehicle
+    or by the player.

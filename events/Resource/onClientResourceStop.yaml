@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientResourceStop
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientResourceStop
 name: onClientResourceStop
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the stopped resource root element.
+description: This event is triggered when a [resource](/wiki/Resource "Resource")
+  is being stopped.
+parameters:
+- name: stoppedResource
+  type: resource
+  description: the resource that is about to get stopped.

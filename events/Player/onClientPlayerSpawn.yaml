@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerSpawn
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerSpawn
 name: onClientPlayerSpawn
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that spawned.
+description: This event is triggered when any player, including a remote player, spawns.
+parameters:
+- name: hisTeam
+  type: team
+  description: A team element representing the team the player spawned on.

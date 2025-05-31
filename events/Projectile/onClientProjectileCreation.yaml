@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientProjectileCreation
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientProjectileCreation
 name: onClientProjectileCreation
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the projectile that was created.
+description: This event is triggered when a [projectile](/wiki/Projectile "Projectile")
+  is created.
+parameters:
+- name: creator
+  type: element
+  description: the element that created the projectile.
+canceling: This event cannot be cancelled. To remove the projectile you can use setElementPosition
+  (somewhere far away) and then destroyElement (which makes it explode).

@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerVoiceStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerVoiceStart
 name: onPlayerVoiceStart
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player element that just started talking
+    through voice chat.
+description: This event is triggered when a player starts talking through voice chat.
+parameters: []
+canceling: If this event is canceled the player will not broadcast his voice chat
+  to anyone in the server.

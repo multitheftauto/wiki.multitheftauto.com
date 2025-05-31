@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserDocumentReady
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserDocumentReady
 name: onClientBrowserDocumentReady
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The browser element.
+description: This event is executed after the web page has been loaded successfully.
+parameters:
+- name: url
+  type: string
+  description: the url of the web page loaded.

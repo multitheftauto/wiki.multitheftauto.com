@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientElementStreamIn
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientElementStreamIn
 name: onClientElementStreamIn
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that streamed in.
+description: This event is triggered whenever a physical element is streamed in. This
+  is triggered for all elements that are streamable, such as players, peds, vehicles,
+  objects and markers. When this event is triggered, that element is guaranteed to
+  be physically created as a GTA object.
+parameters: []

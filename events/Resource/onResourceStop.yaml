@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onResourceStop
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnResourceStop
 name: onResourceStop
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element of the resource that is
+    being stopped.
+description: 'This event is triggered when the resource is stopped. This can occur
+  for a number of reasons:'
+parameters:
+- name: stoppedResource
+  type: resource
+  description: the resource that is being stopped.
+- name: wasDeleted
+  type: boolean
+  description: a boolean representing whether the resource folder was deleted, moved
+    or renamed.

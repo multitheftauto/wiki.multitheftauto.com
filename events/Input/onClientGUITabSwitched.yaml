@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUITabSwitched
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUITabSwitched
 name: onClientGUITabSwitched
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the tab.
+description: This event is triggered each time the user switch from GUI tab.
+parameters:
+- name: theElement
+  type: element
+  description: the tab which was selected.

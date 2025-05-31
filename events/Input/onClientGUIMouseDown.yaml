@@ -1,8 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIMouseDown
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIMouseDown
 name: onClientGUIMouseDown
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element that was clicked.
+description: This event is fired when the user clicks certain mouse button on a GUI
+  element.
+parameters:
+- name: button
+  type: string
+  description: the name of the mouse button that the GUI element was clicked with,
+    can be left, right, or middle.
+- name: absoluteX
+  type: int
+  description: the X position of the mouse cursor, in pixels, measured from the left
+    side of the screen.
+- name: absoluteY
+  type: int
+  description: the Y position of the mouse cursor, in pixels, measured from the top
+    of the screen.

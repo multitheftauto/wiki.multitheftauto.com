@@ -1,8 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onSettingChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnSettingChange
 name: onSettingChange
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered when resource setting has been changed. For instance,
+  this event would trigger if you would edit the settings of the Race resource through
+  the Admin panel.
+parameters:
+- name: setting
+  type: string
+  description: 'The setting which was changed. For instance: "*race.ghostmode"'
+- name: oldValue
+  type: string
+  description: The previous value. Please note that this value is in JSON. To get
+    a normal Lua value, use fromJSON
+- name: newValue
+  type: string
+  description: The new value. Also in JSON

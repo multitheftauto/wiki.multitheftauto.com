@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleExit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleExit
 name: onClientVehicleExit
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of the event is the vehicle that the ped exited.
+description: This event gets fired when a [ped](/wiki/Ped "Ped") or [player](/wiki/Player
+  "Player") gets out of a vehicle.
+parameters:
+- name: thePed
+  type: ped
+  description: the player or ped element that exited the vehicle
+- name: seat
+  type: int
+  description: the number of the seat that the player was sitting on. 0 = driver,
+    higher numbers are passenger seats.

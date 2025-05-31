@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerChangesWorldSpecialProperty
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerChangesWorldSpecialProperty
 name: onPlayerChangesWorldSpecialProperty
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who changed a special property.
+description: This event is triggered every time a [player](/wiki/Player "Player")
+  calls [setWorldSpecialPropertyEnabled](/wiki/SetWorldSpecialPropertyEnabled "SetWorldSpecialPropertyEnabled").
+parameters:
+- name: property
+  type: string
+  description: The name of the property
+- name: enabled
+  type: bool
+  description: The property's state
+canceling: This event cannot be cancelled.

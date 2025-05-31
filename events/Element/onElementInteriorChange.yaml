@@ -1,22 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnElementInteriorChange
 name: onElementInteriorChange
 type: server
-description: >
-  This event is triggered when the interior of an element is changed using setElementInterior. 
-parameters:
-  - name: oldInterior
-    type: int
-    description: An int representing the interior the element was in before.
-  - name: newInterior
-    type: int
-    description: An int representing the interior the element is in now.
 source_element:
   type: element
   description: The source of this event is the element that changed its interior.
-examples:
-  - path: examples/onElementInteriorChange.lua
-    description: >
-      Demonstrates how to detect and respond to an element's interior change.
-      Includes vehicle creation and an event handler that reports the interior transition.
-notes:
-  - type: 'info'
-    content: 'This is a test!'
+description: This event is triggered when the interior of an [element](/wiki/Element
+  "Element") is changed using [setElementInterior](/wiki/SetElementInterior "SetElementInterior").
+parameters:
+- name: oldInterior
+  type: int
+  description: an int representing the interior the element was in before.
+- name: newInterior
+  type: int
+  description: an int representing the interior the element is in now.

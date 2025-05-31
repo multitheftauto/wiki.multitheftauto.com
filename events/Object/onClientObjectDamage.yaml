@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientObjectDamage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientObjectDamage
 name: onClientObjectDamage
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the object which was damaged.
+description: This event is fired before an object gets damaged.
+parameters:
+- name: loss
+  type: float
+  description: the health loss caused by the damage. This parameter contains the theoretical
+    loss, which could be less than 0, if you substract it of the current health. If
+    you want to get the real loss, you have to substract the new health of the old
+    health (use a timer for this).
+- name: attacker
+  type: element
+  description: the vehicle/ped/player who is damaging the object.
+canceling: If this event is canceled, the object will not be damaged.

@@ -1,8 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerConnect
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerConnect
 name: onPlayerConnect
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: This event is triggered when a player attempts to connect to the server.
+parameters:
+- name: playerNick
+  type: string
+  description: The player's current nickname.
+- name: playerIP
+  type: string
+  description: The player's current IP.
+- name: playerUsername
+  type: string
+  description: The player's community username.
+- name: playerSerial
+  type: string
+  description: The player's serial number.
+- name: playerVersionNumber
+  type: int
+  description: The player's MTA version in pure numerical form, e.g. '256' for 1.0,
+    '257' for 1.0.1, etc.
+- name: playerVersionString
+  type: string
+  description: The player's MTA version in sortable string form. Same as the return
+    value from getPlayerVersion.
+canceling: 'If this event is canceled, the player will be disconnected with an error
+  message saying the reason specified in cancelEvent or "Disconnected: server refused
+  the connection" if none was specified.'

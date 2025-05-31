@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onMarkerLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnMarkerLeave
 name: onMarkerLeave
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the marker that the element left.
+description: This event is triggered when an element leaves the area of a marker created
+  using [createMarker](/wiki/CreateMarker "CreateMarker").
+parameters:
+- name: leftElement
+  type: element
+  description: the element that left the marker's area.
+- name: matchingDimension
+  type: bool
+  description: a boolean representing whether the element is in the same dimension
+    as the marker.

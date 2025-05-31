@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientElementStreamOut
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientElementStreamOut
 name: onClientElementStreamOut
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that streamed out.
+description: This event is triggered whenever a physical element is streamed out.
+  This is triggered for all elements that are streamable, such as players, peds, vehicles,
+  objects and markers when the local player is leaving the element. When this event
+  is triggered, that element is no longer physical and is now virtualized by MTA.
+parameters: []

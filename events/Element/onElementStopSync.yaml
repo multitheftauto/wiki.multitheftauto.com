@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onElementStopSync
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnElementStopSync
 name: onElementStopSync
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element which is no longer synced by
+    a player.
+description: This event is triggered when an element is no longer synced by a player.
+parameters:
+- name: oldSyncer
+  type: player
+  description: a player element representing the last player who was syncing the element.

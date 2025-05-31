@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerResourceStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerResourceStart
 name: onPlayerResourceStart
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who loaded the resource.
+description: This event is triggered when a [resource](/wiki/Resource "Resource")
+  has loaded client\-side for a [player](/wiki/Player "Player").
+parameters:
+- name: loadedResource
+  type: resource
+  description: The resource that was loaded on the client.

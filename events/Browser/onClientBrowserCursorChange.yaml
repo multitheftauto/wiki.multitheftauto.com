@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserCursorChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserCursorChange
 name: onClientBrowserCursorChange
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the browser element the cursor change occured
+    in.
+description: This event is triggered when the cursor changes within a browser window.
+parameters:
+- name: cursorId
+  type: int
+  description: The new cursor ID. See Cursor IDs.

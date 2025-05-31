@@ -1,8 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerDamage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerDamage
 name: onPlayerDamage
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who was damaged.
+description: This event is triggered when a player is damaged, in any way.
+parameters:
+- name: attacker
+  type: player
+  description: a player element representing the player who was the attacker.  If
+    there was no attacker this returns false.
+- name: damage_causing
+  type: int
+  description: an int representing the cause of damage, either a attacker weapon,
+    or some other types of damage.
+- name: bodypart
+  type: int
+  description: an int representing the bodypart ID the player was hit on when he got
+    damaged.
+- name: loss
+  type: float
+  description: a float representing the percentage of health the player lost.

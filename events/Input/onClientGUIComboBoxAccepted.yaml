@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIComboBoxAccepted
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIComboBoxAccepted
 name: onClientGUIComboBoxAccepted
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI combo box that was accepted.
+description: This event is called when a [combobox](/wiki/Element/GUI/Combobox "Element/GUI/Combobox")
+  gets accepted.
+parameters:
+- name: theElement
+  type: element
+  description: the combobox that got accepted.

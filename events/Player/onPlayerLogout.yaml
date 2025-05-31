@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerLogout
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerLogout
 name: onPlayerLogout
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that logged out.
+description: This event is triggered when a user logs out of their account in\-game.
+parameters:
+- name: thePreviousAccount
+  type: account
+  description: the account the client was logged in as.
+- name: theCurrentAccount
+  type: account
+  description: the account the client is a part of now (usually a guest account).
+canceling: If you cancel this event the player will not be logged out.

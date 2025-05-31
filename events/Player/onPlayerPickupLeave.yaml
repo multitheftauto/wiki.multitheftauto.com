@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerPickupLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerPickupLeave
 name: onPlayerPickupLeave
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: This example creates a pickup and outputs a message to the chat box
+    when a player leaves it.
+description: This event is triggered when a [player](/wiki/Player "Player") leaves
+  a [pickup](/wiki/Pickup "Pickup").
+parameters:
+- name: pickupLeft
+  type: pickup
+  description: the pickup the player left.

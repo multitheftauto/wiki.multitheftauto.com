@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleNitroStateChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleNitroStateChange
 name: onClientVehicleNitroStateChange
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player vehicle.
+description: This event gets triggered when nitro state is changing.
+parameters:
+- name: state
+  type: bool
+  description: current state of nitro

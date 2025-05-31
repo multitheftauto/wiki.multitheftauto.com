@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPedWeaponSwitch
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPedWeaponSwitch
 name: onPedWeaponSwitch
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped that switched his weapon.
+description: This event is triggered when a ped switches weapons.
+parameters:
+- name: previousWeaponID
+  type: int
+  description: an int representing the weapon that was switched from.
+- name: currentWeaponID
+  type: int
+  description: an int representing the weapon that was switched to.

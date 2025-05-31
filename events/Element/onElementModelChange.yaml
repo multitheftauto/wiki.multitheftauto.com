@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onElementModelChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnElementModelChange
 name: onElementModelChange
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that changed its model
+description: This event is triggered when the model of an [element](/wiki/Element
+  "Element") is changed using [setElementModel](/wiki/SetElementModel "SetElementModel").
+parameters:
+- name: oldModel
+  type: int
+  description: an int representing the model of the element before the change occurred.
+- name: newModel
+  type: int
+  description: an int representing the new model of the element.
+canceling: This event does NOT support cancellation. Use setElementModel with the
+  old value to reverse.

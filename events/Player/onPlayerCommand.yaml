@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerCommand
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerCommand
 name: onPlayerCommand
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who tried to execute a command.
+description: This event is triggered when a player issues a command.
+parameters:
+- name: command
+  type: string
+  description: a string containing the name of the command executed.

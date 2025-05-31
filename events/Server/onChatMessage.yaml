@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onChatMessage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnChatMessage
 name: onChatMessage
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered when any message is output to chat using [outputChatBox](/wiki/OutputChatBox
+  "OutputChatBox") server\-side (also when a player uses *say*, *teamsay* or *me*
+  successfully).
+parameters:
+- name: theMessage
+  type: string
+  description: A string representing the text that was output to the chatbox.
+- name: theElement
+  type: element
+  description: A resource if it was done via outputChatBox or a player element if
+    it was done via say, teamsay or me.

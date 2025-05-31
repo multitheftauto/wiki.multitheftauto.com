@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onConsole
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnConsole
 name: onConsole
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that entered the message in
+    the console. This can be a player or the server console.
+description: This event is triggered when a player types a message into his console.
+  It is also triggered when entering '/' commands via the chatbox.
+parameters:
+- name: theMessage
+  type: string
+  description: a string representing the message entered into the console.

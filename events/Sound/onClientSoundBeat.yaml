@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientSoundBeat
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientSoundBeat
 name: onClientSoundBeat
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the sound's element.
+description: This event is triggered when a **sound** beats.
+parameters:
+- name: theTime
+  type: double
+  description: the position in the song of the beat

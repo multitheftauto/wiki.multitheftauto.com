@@ -1,8 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerChangeNick
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerChangeNick
 name: onPlayerChangeNick
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that changed his nick
+description: This event is triggered when a player changes his nickname.
+parameters:
+- name: oldNick
+  type: string
+  description: the nickname the player had before.
+- name: newNick
+  type: string
+  description: the new nickname of the player.
+- name: changedByUser
+  type: bool
+  description: a boolean representing whether the name was changed using setPlayerName
+    or by the user.
+canceling: Cancelling this event depends on how it is called, if it is called by the
+  scripting event then it is NOT cancelable. If it is called from the /nick command
+  it IS cancelable. If this event is cancelled and can be cancelled then the name
+  will not change.

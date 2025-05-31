@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerChangesProtectedData
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerChangesProtectedData
 name: onPlayerChangesProtectedData
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who changes protected element
+    data.
+description: This event is triggered when a player tries to change protected element
+  data. The server protects element data with using [elementdata\_whitelisted](/wiki/Server_mtaserver.conf#elementdata_whitelisted
+  "Server mtaserver.conf") from **mtaserver.conf** and the **clientChangesPolicy**
+  parameter in [setElementData](/wiki/SetElementData "SetElementData").
+parameters: []

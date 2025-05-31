@@ -1,8 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPedDamage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPedDamage
 name: onClientPedDamage
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped that got damaged
+description: This event is triggered whenever a [ped](/wiki/Ped "Ped") is damaged.
+parameters:
+- name: attacker
+  type: element
+  description: A player element representing the attacker or vehicle element (when
+    a ped falls of a bike).
+- name: weapon
+  type: int
+  description: An integer representing the weapon ID the attacker used
+- name: bodypart
+  type: int
+  description: An integer representing the bodypart the ped was damaged
+- name: loss
+  type: float
+  description: A float representing the percentage of health the ped lost.
+canceling: If this event is canceled, then any damaging effects to the ped will cease.

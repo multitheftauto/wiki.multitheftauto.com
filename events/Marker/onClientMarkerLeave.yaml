@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMarkerLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMarkerLeave
 name: onClientMarkerLeave
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the marker that the player left.
+description: This event is triggered when a player leaves the area of a marker created
+  using [createMarker](/wiki/CreateMarker "CreateMarker").
+parameters:
+- name: leftPlayer
+  type: player
+  description: the player that left the marker's area.
+- name: matchingDimension
+  type: bool
+  description: true if the player is in the same dimension as the marker.

@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onVehicleExplode
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnVehicleExplode
 name: onVehicleExplode
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that exploded.
+description: This event is triggered when a vehicle explodes.
+parameters:
+- name: withExplosion
+  type: bool
+  description: Determines whether the vehicle was blown with or without an explosion.
+- name: player
+  type: player
+  description: The player who sent the explosion packet.

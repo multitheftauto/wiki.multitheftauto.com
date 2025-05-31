@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerHeliKilled
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerHeliKilled
 name: onClientPlayerHeliKilled
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who was killed
+description: This event is fired when a player is killed due to the effect of a helicopter
+  blades.
+parameters:
+- name: killer
+  type: vehicle
+  description: the vehicle (heli) responsible for causing the death.
+canceling: If this event is canceled, the player will not be killed

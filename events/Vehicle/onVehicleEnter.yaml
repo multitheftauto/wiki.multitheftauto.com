@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onVehicleEnter
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnVehicleEnter
 name: onVehicleEnter
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that was entered.
+description: This event is triggered when a player or ped enters a vehicle.
+parameters:
+- name: thePed
+  type: ped
+  description: a player or ped element who is entering the vehicle.
+- name: seat
+  type: int
+  description: an int representing the seat in which the ped is entering. Seat 0 is
+    the driver's seat.
+- name: jacked
+  type: player
+  description: a player or ped element representing who has been jacked.

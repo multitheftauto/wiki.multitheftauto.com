@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIChanged
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIChanged
 name: onClientGUIChanged
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element which was changed.
+description: This event is fired when a [memo](/wiki/Element/GUI/Memo "Element/GUI/Memo")
+  or an [editbox](/wiki/Element/GUI/Edit_field "Element/GUI/Edit field") has changed
+  (either by the user or by [guiSetText](/wiki/GuiSetText "GuiSetText")).
+parameters:
+- name: theElement
+  type: element
+  description: The GUI element which was changed.

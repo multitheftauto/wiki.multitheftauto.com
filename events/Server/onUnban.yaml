@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onUnban
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnUnban
 name: onUnban
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source is always the global root element.
+description: This event is triggered when a ban is removed from the server.
+parameters:
+- name: theBan
+  type: ban
+  description: the ban that will be removed.
+- name: responsibleElement
+  type: player
+  description: the player who removed the ban, otherwise returns nil.
+canceling: If this event is canceled, the requested unban is not performed.

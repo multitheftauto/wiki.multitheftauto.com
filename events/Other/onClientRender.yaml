@@ -1,8 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientRender
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientRender
 name: onClientRender
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: This event is triggered every time GTA renders a new frame. It is required
+  for the DirectX drawing functions, and also useful for other clientside operations
+  that have to be applied repeatedly with very short time differences between them.
+parameters: []

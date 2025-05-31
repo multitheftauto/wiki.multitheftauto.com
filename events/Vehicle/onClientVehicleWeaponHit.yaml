@@ -1,8 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleWeaponHit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleWeaponHit
 name: onClientVehicleWeaponHit
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that fired the weapon.
+description: This event is called when a vehicle weapon hits an element or the world.
+parameters:
+- name: weaponType
+  type: int
+  description: The type of vehicle weapon. (See the list below)
+- name: hitElement
+  type: element
+  description: The vehicle, ped or player that was hit by the weapon sometimes false.
+- name: hitX
+  type: float
+  description: The X world co-ordinate of where the hit occured.
+- name: hitY
+  type: float
+  description: The Y world co-ordinate of where the hit occured.
+- name: hitZ
+  type: float
+  description: The Z world co-ordinate of where the hit occured.
+- name: model
+  type: int
+  description: The model ID of the element that was hit.
+- name: materialID
+  type: int
+  description: The material ID of the element that was hit.

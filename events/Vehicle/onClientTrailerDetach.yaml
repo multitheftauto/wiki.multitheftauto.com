@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientTrailerDetach
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientTrailerDetach
 name: onClientTrailerDetach
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the trailer that is now detached.
+description: This event is triggered when a trailer gets detached from its towing
+  vehicle.
+parameters:
+- name: towedBy
+  type: vehicle
+  description: the vehicle that was towing the trailer.

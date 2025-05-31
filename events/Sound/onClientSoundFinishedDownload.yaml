@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientSoundFinishedDownload
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientSoundFinishedDownload
 name: onClientSoundFinishedDownload
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the sound which just finished downloading.
+description: This event is triggered when a sound has just finished downloading. This
+  means the complete sound file is now loaded in the player's RAM, and can be played
+  completely from start to end. Unlike [onClientSoundStream](/wiki/OnClientSoundStream
+  "OnClientSoundStream"), this event only triggers for file streams, not for live
+  ones since live streams never actually end.
+parameters:
+- name: length
+  type: int
+  description: The length of the stream in milliseconds

@@ -1,8 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerUnmute
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerUnmute
 name: onPlayerUnmute
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who got unmuted.
+description: This event is triggered when a player has been unmuted by [setPlayerMuted](/wiki/SetPlayerMuted
+  "SetPlayerMuted").
+parameters: []
+canceling: If this event is canceled, the player will not be unmuted.

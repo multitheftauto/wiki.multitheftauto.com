@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPaste
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPaste
 name: onClientPaste
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: This event triggers when user paste whatever (**CTRL \+ V**). **This
+  event isn't triggered if menu or console is visible or if any browser is focused,
+  or if cursor is invisible.**
+parameters:
+- name: clipboardText
+  type: string
+  description: a string representing the pasted value from clipboard.

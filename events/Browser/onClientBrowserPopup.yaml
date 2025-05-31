@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserPopup
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserPopup
 name: onClientBrowserPopup
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
   description: TODO
+description: TODO
+parameters:
+- name: targetURL
+  type: string
+  description: ''
+- name: openerURL
+  type: string
+  description: ''
+- name: isPopup
+  type: bool
+  description: ''

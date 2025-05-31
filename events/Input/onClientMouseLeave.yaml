@@ -1,8 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMouseLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMouseLeave
 name: onClientMouseLeave
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element that the mouse was moved
+    from.
+description: This event is fired when the user moves the mouse away from a GUI element.
+parameters:
+- name: absoluteX
+  type: int
+  description: the X position of the mouse cursor, in pixels, measured from the left
+    side of the screen.
+- name: absoluteY
+  type: int
+  description: the Y position of the mouse cursor, in pixels, measured from the top
+    of the screen.
+- name: enteredGUI
+  type: element
+  description: is the GUI element that was switched from, or nil if it doesn't exist.

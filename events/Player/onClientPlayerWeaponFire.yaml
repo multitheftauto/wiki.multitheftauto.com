@@ -1,8 +1,42 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerWeaponFire
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerWeaponFire
 name: onClientPlayerWeaponFire
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the streamed in player who fired the weapon.
+description: This event is called when a player fires a weapon. This event does not
+  trigger for melee weapons. Projectile weapons or the camera will only trigger the
+  event if fired by the local player.
+parameters:
+- name: weapon
+  type: int
+  description: an int representing weapon used for firing a shot.
+- name: ammo
+  type: int
+  description: an int amount of ammo left for this weapon type.
+- name: ammoInClip
+  type: int
+  description: an int amount of ammo left for this weapon type in clip.
+- name: hitX
+  type: float
+  description: float world coordinates representing a hit point.
+- name: hitY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: hitZ
+  type: float
+  description: MISSING_PARAM_DESC
+- name: hitElement
+  type: element
+  description: an element which was hit by a shot.
+- name: startX
+  type: float
+  description: 'float world coordinates representing the start of the bullet. Note:
+    This is not the gun muzzle.'
+- name: startY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: startZ
+  type: float
+  description: MISSING_PARAM_DESC
+incomplete: true

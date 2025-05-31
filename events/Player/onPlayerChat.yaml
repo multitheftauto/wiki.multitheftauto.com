@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerChat
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerChat
 name: onPlayerChat
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who sent the chatbox message.
+description: This event is triggered when a player chats inside the chatbox.
+parameters:
+- name: message
+  type: string
+  description: a string representing the message typed into the chat.
+- name: messageType
+  type: int
+  description: 'an int value representing the message type:'
+canceling: If this event is canceled, the game's chat system won't deliver the posts.
+  You may use outputChatBox to send the messages then. Cancelling this event also
+  means the chat will not appear in the server console or logs. If you want chat logging,
+  you will have to add a call to outputServerLog - See the second example.

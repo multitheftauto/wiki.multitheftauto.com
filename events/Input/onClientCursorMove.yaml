@@ -1,8 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientCursorMove
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientCursorMove
 name: onClientCursorMove
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is called by the root element whenever the cursor is moved
+  over the screen, by the player. It returns information about the world coordinates
+  as well as the screen coordinates of where the player moved the cursor.
+parameters:
+- name: cursorX
+  type: float
+  description: the relative X coordinate of the mouse cursor. 0 = left side of the
+    screen, 1 = right side.
+- name: cursorY
+  type: float
+  description: the relative Y coordinate of the mouse cursor. 0 = top of the screen,
+    1 = bottom.
+- name: absoluteX
+  type: int
+  description: the X coordinate of the mouse cursor, in pixels, measured from the
+    left side of the screen.
+- name: absoluteY
+  type: int
+  description: the Y coordinate of the mouse cursor, in pixels, measured from the
+    top of the screen.
+- name: worldX
+  type: float
+  description: MISSING_PARAM_DESC
+- name: worldY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: worldZ
+  type: float
+  description: MISSING_PARAM_DESC
+incomplete: true

@@ -1,8 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientExplosion
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientExplosion
 name: onClientExplosion
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who created the explosion. If
+    the explosion is from a vehicle the source is the player who syncs the vehicle.
+description: This event is triggered every time an explosion is created on the current
+  **clients scene** (inside the streamer).
+parameters:
+- name: x
+  type: float
+  description: X coordinate of where the explosion was created
+- name: y
+  type: float
+  description: Y coordinate of where the explosion was created
+- name: z
+  type: float
+  description: Z coordinate of where the explosion was created
+- name: theType
+  type: int
+  description: 'the type of explosion created, see: Explosion types'
+canceling: If this event is canceled, the explosion will not occur.

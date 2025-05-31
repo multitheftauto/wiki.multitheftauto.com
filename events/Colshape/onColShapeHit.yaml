@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onColShapeHit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnColShapeHit
 name: onColShapeHit
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the colshape that got hit by a player or
+    vehicle.
+description: This event is triggered when a physical [element](/wiki/Element "Element")
+  hits a [colshape](/wiki/Colshape "Colshape").
+parameters:
+- name: hitElement
+  type: element
+  description: the element that entered the colshape.
+- name: matchingDimension
+  type: bool
+  description: a boolean referring to whether the hit collision shape was in the same
+    dimension as the element.

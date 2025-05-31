@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientRestore
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientRestore
 name: onClientRestore
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is root element.
+description: This event is triggered when the local player restores the game screen
+  from a previously minimized state.
+parameters:
+- name: didClearRenderTargets
+  type: bool
+  description: A bool specifying whether all render targets have been cleared as part
+    of the restore process. Generally, restoring in full screen mode will clear render
+    targets.

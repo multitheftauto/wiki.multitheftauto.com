@@ -1,8 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientWorldSound
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientWorldSound
 name: onClientWorldSound
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element, which emitted the sound.
+description: This event triggers whenever a GTA sound starts playing.
+parameters:
+- name: group
+  type: int
+  description: An integer representing the world sound group
+- name: index
+  type: int
+  description: An integer representing an individual sound within the group
+- name: x
+  type: float
+  description: a floating point number representing the X coordinate on the map.
+- name: y
+  type: float
+  description: a floating point number representing the Y coordinate on the map.
+- name: z
+  type: float
+  description: a floating point number representing the Z coordinate on the map.
+canceling: If this event is canceled, the sound won't play at all.

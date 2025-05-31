@@ -1,8 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientKey
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientKey
 name: onClientKey
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: 'This event triggers whenever the user presses a button on their keyboard
+  or mouse.
+
+  This event can also be used to see if the client scrolls their mouse wheel.'
+parameters:
+- name: button
+  type: string
+  description: This refers the button pressed. See key names for a list of keys.
+- name: pressOrRelease
+  type: bool
+  description: This refers to whether they were pressing or releasing the key, true
+    when pressing, false when releasing.
+canceling: If this event is canceled, then all GTA and MTA binds, bound to the canceled
+  key, won't be triggered.

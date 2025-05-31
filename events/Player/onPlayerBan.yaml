@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerBan
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerBan
 name: onPlayerBan
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who was banned.
+description: This event is triggered when a player added a [ban](/wiki/Ban "Ban")
+  (like [onBan](/wiki/OnBan "OnBan")).
+parameters:
+- name: banPointer
+  type: ban
+  description: the ban pointer which was added.
+- name: responsibleElement
+  type: player
+  description: the player who added the ban.
+canceling: This event cannot be canceled.

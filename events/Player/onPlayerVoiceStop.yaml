@@ -1,8 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerVoiceStop
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerVoiceStop
 name: onPlayerVoiceStop
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player element that just stopped talking
+    through voice chat.
+description: This event is triggered when a player stops talking through voice chat.
+parameters: []

@@ -1,8 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onElementDestroy
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnElementDestroy
 name: onElementDestroy
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that is being destroyed.
+description: This event is triggered when an element gets destroyed by [destroyElement](/wiki/DestroyElement
+  "DestroyElement") or when the creator resource is stopping. It is also triggered
+  when a parent element of this element is destroyed.
+parameters: []

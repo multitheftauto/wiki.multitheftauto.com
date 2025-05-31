@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientObjectBreak
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientObjectBreak
 name: onClientObjectBreak
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the object which will break.
+description: This event is fired before an object breaks.
+parameters:
+- name: attacker
+  type: element
+  description: the vehicle/ped/player who is breaking the object
+canceling: If this event is canceled, the object will not break.

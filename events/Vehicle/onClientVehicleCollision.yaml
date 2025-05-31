@@ -1,8 +1,46 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleCollision
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleCollision
 name: onClientVehicleCollision
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that collided with something.
+description: This event is triggered when a vehicle collides with an [element](/wiki/Element
+  "Element") or a world object.
+parameters:
+- name: theHitElement
+  type: element
+  description: the other entity, or nil if the vehicle collided with the world
+- name: damageImpulseMag
+  type: float
+  description: 'the impact magnitude (Note: this is NOT the damage it is a force value
+    which is then multiplied by the vehicles collision damage multiplier. for an example
+    of this see below)'
+- name: bodyPart
+  type: int
+  description: the bodypart that hit the other element
+- name: collisionX
+  type: float
+  description: MISSING_PARAM_DESC
+- name: collisionY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: collisionZ
+  type: float
+  description: MISSING_PARAM_DESC
+- name: normalX
+  type: float
+  description: MISSING_PARAM_DESC
+- name: normalY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: normalZ
+  type: float
+  description: MISSING_PARAM_DESC
+- name: hitElementForce
+  type: float
+  description: 0 for non vehicles or the force of the other vehicle
+- name: model
+  type: int
+  description: model of the hit element (useful to detect building collisions as hitElement
+    will be nil)
+incomplete: true

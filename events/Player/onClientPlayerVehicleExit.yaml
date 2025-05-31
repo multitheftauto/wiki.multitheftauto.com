@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerVehicleExit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerVehicleExit
 name: onClientPlayerVehicleExit
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that exited the vehicle.
+description: This event is triggered when a player has exited a vehicle.
+parameters:
+- name: theVehicle
+  type: vehicle
+  description: the vehicle that the player exited.
+- name: seat
+  type: int
+  description: the number of the seat that the player was sitting on.

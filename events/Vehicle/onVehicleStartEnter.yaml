@@ -1,8 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onVehicleStartEnter
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnVehicleStartEnter
 name: onVehicleStartEnter
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle in which a ped began to enter.
+description: This event is triggered when a player or ped starts to enter a vehicle.
+  This event can be used to cancel entry, if necessary.
+parameters:
+- name: enteringPed
+  type: ped
+  description: a player or ped element who is starting to enter a vehicle.
+- name: seat
+  type: int
+  description: an int representing the seat in which the ped is entering.
+- name: jacked
+  type: ped
+  description: a player or ped element representing who is going to be jacked.
+- name: door
+  type: int
+  description: an int of which door is being used (0-3). 0 is driver side door, 1
+    is front passenger, 2 is back left, 3 is back right.
+canceling: If this event is canceled, the ped will not enter the vehicle.

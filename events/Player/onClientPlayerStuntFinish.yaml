@@ -1,8 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerStuntFinish
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerStuntFinish
 name: onClientPlayerStuntFinish
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the local player.
+description: This event is triggered whenever the local player finishes a vehicle
+  stunt.
+parameters:
+- name: stuntType
+  type: string
+  description: 'the type of stunt the player just performed. Valid types are:
+
+    2wheeler
+
+    wheelie
+
+    stoppie'
+- name: stuntTime
+  type: int
+  description: the number of miliseconds the stunt lasted.
+- name: stuntDistance
+  type: float
+  description: the distance traveled while doing the stunt.

@@ -20,6 +20,9 @@ properties:
   description:
     type: string
     description: Description of the event.
+  canceling:
+    type: string
+    description: Description of the canceling behavior of the event, if it can be canceled.
   parameters:
     $ref: '#/$defs/parameters'
   source_element:

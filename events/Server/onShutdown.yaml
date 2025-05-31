@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onShutdown
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnShutdown
 name: onShutdown
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is root.
+description: This event is triggered when the server is about to be stopped using
+  the server console or the [shutdown](/wiki/Shutdown "Shutdown") function.
+parameters:
+- name: theResource
+  type: resource
+  description: The resource that stops the server using the shutdown function. If
+    the server is being stopped from the console, the resource is set to nil.
+- name: reason
+  type: string
+  description: The reason for stopping the server (if provided).
+canceling: This event cannot be canceled.

@@ -1,8 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPedWeaponFire
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPedWeaponFire
 name: onClientPedWeaponFire
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped who fired the weapon.
+description: This event is called when ped shoots a weapon. This does not trigger
+  for projectiles based, or melee weapons.
+parameters:
+- name: weapon
+  type: int
+  description: an int representing weapon used for making a shot.
+- name: ammo
+  type: int
+  description: an int ammount of ammo left for this weapon type.
+- name: ammoInClip
+  type: int
+  description: an int ammount of ammo left for this weapon type in clip.
+- name: hitX
+  type: float
+  description: float world coordinates representing a hit point.
+- name: hitY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: hitZ
+  type: float
+  description: MISSING_PARAM_DESC
+- name: hitElement
+  type: element
+  description: an element which was hit by a shot.
+incomplete: true

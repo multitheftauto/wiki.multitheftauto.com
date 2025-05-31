@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerPickupHit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerPickupHit
 name: onClientPlayerPickupHit
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that hit the pickup.
+description: This event triggers whenever a player hits a pickup locally.
+parameters:
+- name: thePickup
+  type: pickup
+  description: the pickup that was hit.
+- name: matchingDimension
+  type: bool
+  description: true if thePickup is in the same dimension as the player, false otherwise.

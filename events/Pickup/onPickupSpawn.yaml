@@ -1,8 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPickupSpawn
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPickupSpawn
 name: onPickupSpawn
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the pickup that just spawned or respawned.
+description: This event is triggered when a [pickup](/wiki/Pickup "Pickup") is spawned
+  or respawned.
+parameters: []

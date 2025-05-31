@@ -1,8 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleStartEnter
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleStartEnter
 name: onClientVehicleStartEnter
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle the ped is entering.
+description: This event is triggered when a [ped](/wiki/Ped "Ped") or [player](/wiki/Player
+  "Player") starts entering a vehicle. Once the entering animation completes, [onClientVehicleEnter](/wiki/OnClientVehicleEnter
+  "OnClientVehicleEnter") is triggered.
+parameters:
+- name: thePed
+  type: ped
+  description: the ped that just started entering a vehicle.
+- name: seat
+  type: int
+  description: the number of the seat he is going to sit on.
+- name: door
+  type: int
+  description: An integer of which door the ped used (0-3). 0 is driver side door,
+    1 is front passenger, 2 is back left, 3 is back right.
+canceling: This event can be canceled, but only for the local player or peds synced
+  by the client. If cancelled, they will not begin to the enter the vehicle.

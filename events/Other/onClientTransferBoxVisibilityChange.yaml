@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientTransferBoxVisibilityChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientTransferBoxVisibilityChange
 name: onClientTransferBoxVisibilityChange
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered every time the [resource](/wiki/Resource "Resource")
+  file downloader (aka. transfer box) is shown or hidden by MTA.
+parameters:
+- name: isVisible
+  type: boolean
+  description: A boolean, indicating the new visibility status of the transfer box.

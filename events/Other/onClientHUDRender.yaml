@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientHUDRender
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientHUDRender
 name: onClientHUDRender
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the client's root element.
+description: This event is triggered before GTA renders the HUD. This is particularly
+  useful if you want to use [dxUpdateScreenSource](/wiki/DxUpdateScreenSource "DxUpdateScreenSource")
+  to capture the screen onto a texture without capturing the HUD, or to alter HUD
+  textures using [shaders](/wiki/Element/Shader "Element/Shader") before they are
+  drawn onto the screen.
+parameters: []

@@ -1,8 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPedWasted
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPedWasted
 name: onClientPedWasted
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped that died.
+description: This event is triggered whenever a ped dies.
+parameters:
+- name: killer
+  type: element
+  description: A player, ped or vehicle element representing the killer.
+- name: weapon
+  type: int
+  description: An integer representing the killer weapon or the damage types.
+- name: bodypart
+  type: int
+  description: An integer representing the bodypart the player was damaged.
+- name: lossOrStealth
+  type: mixed
+  description: A float representing the percentage of health the ped lost in the final
+    "hit" (only for client-side created peds.) or a boolean representing whether or
+    not this was a stealth kill

@@ -1,8 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerClick
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerClick
 name: onPlayerClick
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that clicked.
+description: This event is triggered when a player clicks using the mouse cursor.
+parameters:
+- name: mouseButton
+  type: string
+  description: a string representing the mouse button that was pressed. Value can
+    be left, middle or right.
+- name: buttonState
+  type: string
+  description: a string representing the button state. Value can be up or down.
+- name: clickedElement
+  type: element
+  description: the element the player clicked on. This value is nil if none.
+- name: worldPosX
+  type: float
+  description: the X position in the world the player clicked on.
+- name: worldPosY
+  type: float
+  description: the Y position in the world the player clicked on.
+- name: worldPosZ
+  type: float
+  description: the Z position in the world the player clicked on.
+- name: screenPosX
+  type: float
+  description: the X position on the screen the player clicked on.
+- name: screenPosY
+  type: float
+  description: the Y position on the screen the player clicked on.

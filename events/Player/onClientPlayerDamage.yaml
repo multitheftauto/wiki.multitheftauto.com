@@ -1,8 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerDamage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerDamage
 name: onClientPlayerDamage
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that got damaged. (Streamed
+    in players only)
+description: This event is triggered whenever a player is damaged.
+parameters:
+- name: attacker
+  type: element
+  description: A player element representing the attacker or vehicle element (when
+    being run over or falling off a bike).
+- name: damage_causing
+  type: int
+  description: An int representing the cause of damage, either a attacker weapon,
+    or some other types of damage.
+- name: bodypart
+  type: int
+  description: An integer representing the bodypart the player was damaged.
+- name: loss
+  type: float
+  description: A float representing the percentage of health the player lost.
+canceling: If this event is canceled, then any damaging effects to the local player
+  will cease.

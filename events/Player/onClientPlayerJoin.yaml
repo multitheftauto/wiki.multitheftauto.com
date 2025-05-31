@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerJoin
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerJoin
 name: onClientPlayerJoin
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that joined the server.
+description: This event is triggered when a [player](/wiki/Player "Player") joins
+  a server. It is triggered for all players except the local player, as the local
+  player joins the server before their client\-side resources are started. It would
+  also be possible for two players to join within a few seconds of each other and
+  for the two players' scripts may not receive onClientPlayerJoin events as their
+  scripts wouldn't have started yet.
+parameters: []

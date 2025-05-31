@@ -1,8 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerWeaponSwitch
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerWeaponSwitch
 name: onPlayerWeaponSwitch
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that switched his weapon.
+description: This event is triggered whenever a player's equipped weapon **slot**
+  changes. This means [giveWeapon](/wiki/GiveWeapon "GiveWeapon") and [takeWeapon](/wiki/TakeWeapon
+  "TakeWeapon") will trigger this event if the equipped slot is forced to change.
+parameters:
+- name: previousWeaponID
+  type: int
+  description: An integer representing the weapon that was switched from.
+- name: currentWeaponID
+  type: int
+  description: An integer representing the weapon that was switched to.
+canceling: If this event is canceled, then the player's weapon won't be switched.

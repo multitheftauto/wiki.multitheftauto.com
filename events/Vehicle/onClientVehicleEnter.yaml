@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientVehicleEnter
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientVehicleEnter
 name: onClientVehicleEnter
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of the event is the vehicle that the ped entered.
+description: This event gets fired when a [player](/wiki/Player "Player") or [ped](/wiki/Ped
+  "Ped") enters a vehicle.
+parameters:
+- name: thePed
+  type: ped
+  description: the player or ped that entered the vehicle
+- name: seat
+  type: int
+  description: the number of the seat that the ped is now sitting on. 0 = driver,
+    higher numbers are passenger seats.

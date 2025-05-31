@@ -1,8 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onElementClicked
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnElementClicked
 name: onElementClicked
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that got clicked by the player.
+description: This event is triggered when an element is clicked on by the client.
+  These events can only trigger when the client has its cursor enabled. It triggers
+  for all three mousebuttons in both their up and down states.
+parameters:
+- name: mouseButton
+  type: string
+  description: a string representing the mouse button that was clicked. This might
+    be left, middle or right.
+- name: buttonState
+  type: string
+  description: a string representing what state the button clicked is in. This might
+    be up or down.
+- name: playerWhoClicked
+  type: player
+  description: the player that clicked on the element.
+- name: clickPosX
+  type: float
+  description: the X position in the world the player clicked at.
+- name: clickPosY
+  type: float
+  description: the Y position in the world the player clicked at.
+- name: clickPosZ
+  type: float
+  description: the Z position in the world the player clicked at.

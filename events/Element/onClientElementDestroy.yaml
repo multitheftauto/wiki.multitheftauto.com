@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientElementDestroy
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientElementDestroy
 name: onClientElementDestroy
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that is being destroyed.
+description: This event is triggered when an element gets destroyed by [destroyElement](/wiki/DestroyElement
+  "DestroyElement") or when the creator resource is stopping. It is also triggered
+  when a children element of this element is destroyed. It is not triggered on a player
+  when they quit.
+parameters: []

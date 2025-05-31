@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientConsole
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientConsole
 name: onClientConsole
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the localPlayer player element.
+description: This event is triggered when the local player enters text in the console.
+  Note that, if you want to add custom console commands, it is easier to use the [addCommandHandler](/wiki/AddCommandHandler
+  "AddCommandHandler") function.
+parameters:
+- name: text
+  type: string
+  description: the text line that was entered.

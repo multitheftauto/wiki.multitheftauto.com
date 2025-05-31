@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onTrailerAttach
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnTrailerAttach
 name: onTrailerAttach
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the trailer vehicle that the truck got
+    attached to.
+description: This event is triggered when a trailer is attached to a truck or when
+  a tow truck hooks on to a vehicle.
+parameters:
+- name: theTruck
+  type: vehicle
+  description: the truck vehicle that got attached to this trailer.
+canceling: If this event is canceled, the trailer will detach from the truck again.

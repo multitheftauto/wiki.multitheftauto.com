@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIScroll
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIScroll
 name: onClientGUIScroll
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the scrollbar element that got scrolled.
+description: This event is fired when a GUI scrollbar is scrolled.
+parameters:
+- name: scrolled
+  type: element
+  description: the scrollbar element that was scrolled.

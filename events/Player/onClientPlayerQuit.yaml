@@ -1,8 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerQuit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerQuit
 name: onClientPlayerQuit
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that quit the game.
+description: This event is triggered when a **remote** player quits the game or leaves
+  the server. It **will not** get triggered on the source player's client. (Use [onClientResourceStop](/wiki/OnClientResourceStop
+  "OnClientResourceStop") to save client side data when the local player quits.)
+parameters:
+- name: reason
+  type: string
+  description: 'A string representing the reason why the player quit.
+
+    "Unknown"
+
+    "Quit"
+
+    "Kicked"
+
+    "Banned"
+
+    "Bad Connection"
+
+    "Timed out"'

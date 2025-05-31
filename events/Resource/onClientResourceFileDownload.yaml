@@ -1,8 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientResourceFileDownload
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientResourceFileDownload
 name: onClientResourceFileDownload
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the resource's root element.
+description: This event is triggered every time a [resource](/wiki/Resource "Resource")
+  file download is queued, finished or has failed.
+parameters:
+- name: fileResource
+  type: resource
+  description: Resource the file belongs to.
+- name: fileName
+  type: string
+  description: Relative resource file path.
+- name: fileSize
+  type: int
+  description: Size of the file in bytes.
+- name: state
+  type: string
+  description: 'Possible values: "queued" or "finished" or "failed".'

@@ -1,8 +1,8 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIMove
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIMove
 name: onClientGUIMove
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element which was moved.
+description: This event is triggered each time the user moves a GUI element.
+parameters: []

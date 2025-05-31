@@ -1,8 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerWeaponFire
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerWeaponFire
 name: onPlayerWeaponFire
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who fired the weapon.
+description: This event is called when a player fires a weapon. This does not trigger
+  for projectiles, melee weapons, or camera.
+parameters:
+- name: weapon
+  type: int
+  description: an int representing weapon used for making a shot.
+- name: endX
+  type: float
+  description: float world coordinates representing an end point.
+- name: endY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: endZ
+  type: float
+  description: MISSING_PARAM_DESC
+- name: hitElement
+  type: element
+  description: 'an element which was hit by a shot. Currently this can be only another
+    player. Note: hitElement could be incorrect and should not be relied upon.'
+- name: startX
+  type: float
+  description: 'float world coordinates representing the start of the bullet. Note:
+    This is not the gun muzzle.'
+- name: startY
+  type: float
+  description: MISSING_PARAM_DESC
+- name: startZ
+  type: float
+  description: MISSING_PARAM_DESC
+incomplete: true

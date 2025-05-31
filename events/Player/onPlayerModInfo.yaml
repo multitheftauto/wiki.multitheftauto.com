@@ -1,8 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerModInfo
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerModInfo
 name: onPlayerModInfo
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player.
+description: This event is triggered when a player has modified certain files.
+parameters:
+- name: filename
+  type: string
+  description: a string with the filename of the modified file.
+- name: itemlist
+  type: table
+  description: 'a table with the details of each modification within the file. Possible
+    keys for each sub-table are:
+
+    id: GTA model or texture id.
+
+    name: GTA name.
+
+    sizeX, sizeY, sizeZ: the modified model size (if the item is a DFF).
+
+    originalSizeX, originalSizeY, originalSizeZ: the unmodified model size (if the
+    item is a DFF).
+
+    length: length in bytes of the item.
+
+    md5: md5 of the item bytes.
+
+    sha256: sha256 of the item bytes.
+
+    paddedLength: length in bytes of the item padded to 2048 byte boundary.
+
+    paddedMd5: md5 of the item bytes padded to 2048 byte boundary.
+
+    paddedSha256: sha256 of the item bytes padded to 2048 byte boundary.'

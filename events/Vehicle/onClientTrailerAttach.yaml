@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientTrailerAttach
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientTrailerAttach
 name: onClientTrailerAttach
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the trailer that is now being towed.
+description: This event is triggered by a trailer when it gets attached to a towing
+  vehicle.
+parameters:
+- name: towedBy
+  type: vehicle
+  description: the vehicle that is now towing the trailer.

@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerTarget
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerTarget
 name: onClientPlayerTarget
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that targeted the element.
+description: This event is triggered whenever the local player targets an element.
+parameters:
+- name: target
+  type: element
+  description: The element the player targetted.

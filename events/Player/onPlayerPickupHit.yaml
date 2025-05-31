@@ -1,8 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerPickupHit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerPickupHit
 name: onPlayerPickupHit
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that hit the pickup.
+description: This event is triggered when a [player](/wiki/Player "Player") hits a
+  [pickup](/wiki/Pickup "Pickup").
+parameters:
+- name: pickupHit
+  type: pickup
+  description: the pickup the player hit.
+canceling: If this event is canceled, the player will not be able to pick up this
+  pickup.

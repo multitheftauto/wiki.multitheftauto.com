@@ -1,8 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientSoundStream
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientSoundStream
 name: onClientSoundStream
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the sound which either successfully streamed
+    or failed to stream.
+description: This event is triggered when a sound has just finished initial streaming.
+  For file streams, this means the sound will now start playing, but isn't done downloading
+  yet. For live streams, this just means the stream will start playing. This event
+  will also trigger when, for some reason, the streaming failed.
+parameters:
+- name: success
+  type: bool
+  description: A boolean indicating whether the stream was a success or not
+- name: length
+  type: int
+  description: The length of the stream in seconds. Always returns 0 for a live stream
+- name: streamName
+  type: string
+  description: The name of the stream. Note that this isn't the filename. Also note
+    that this isn't always provided
+- name: errorMessage
+  type: string
+  description: A string containing the error message or an empty string if there was
+    no error

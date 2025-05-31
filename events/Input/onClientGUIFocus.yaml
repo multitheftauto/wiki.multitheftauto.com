@@ -1,8 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientGUIFocus
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientGUIFocus
 name: onClientGUIFocus
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the GUI element which just gained input
+    focus.
+description: This event is triggered each time a GUI element gains input focus (mainly
+  useful for windows, editboxes and memos but triggered for all GUI elements nevertheless).
+parameters: []

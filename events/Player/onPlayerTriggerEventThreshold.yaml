@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerTriggerEventThreshold
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerTriggerEventThreshold
 name: onPlayerTriggerEventThreshold
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who exceeded the threshold.
+description: During each interval (*player\_triggered\_event\_interval*), all usage
+  of [triggerServerEvent](/wiki/TriggerServerEvent "TriggerServerEvent") will be counted
+  for each player. This includes registered events, non\-registered events and non\-remote
+  events.
+parameters: []
+canceling: Canceling this event has no effect.

@@ -1,8 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerSpawn
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerSpawn
 name: onPlayerSpawn
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player that just spawned.
+description: This event is called when a player spawns.
+parameters:
+- name: posX
+  type: float
+  description: the X position the player spawned at.
+- name: posY
+  type: float
+  description: the Y position the player spawned at.
+- name: posZ
+  type: float
+  description: the Z position the player spawned at.
+- name: spawnRotation
+  type: float
+  description: the rotation the player spawned with.
+- name: theTeam
+  type: team
+  description: the team the player spawned with.
+- name: theSkin
+  type: int
+  description: the skin/model the player spawned with.
+- name: theInterior
+  type: int
+  description: the interior the player spawned in.
+- name: theDimension
+  type: int
+  description: the dimension the player spawned in.

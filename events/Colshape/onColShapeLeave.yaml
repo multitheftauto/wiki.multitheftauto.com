@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onColShapeLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnColShapeLeave
 name: onColShapeLeave
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the colshape that the element no longer
+    is in contact with.
+description: This event is triggered when a player or a vehicle leaves a collision
+  shape.
+parameters:
+- name: leaveElement
+  type: element
+  description: The element that who exited the col shape. This can be a player or
+    a vehicle.
+- name: matchingDimension
+  type: bool
+  description: a boolean referring to whether the collision shape was in the same
+    dimension as the element.

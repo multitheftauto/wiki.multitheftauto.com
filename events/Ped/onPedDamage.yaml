@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPedDamage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPedDamage
 name: onPedDamage
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped that got damaged.
+description: This event is triggered when a ped is damaged. For player damage, use
+  [onPlayerDamage](/wiki/OnPlayerDamage "OnPlayerDamage") instead.
+parameters:
+- name: loss
+  type: float
+  description: an int representing the percentage of health the ped lost.

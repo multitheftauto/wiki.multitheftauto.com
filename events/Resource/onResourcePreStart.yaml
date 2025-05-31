@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onResourcePreStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnResourcePreStart
 name: onResourcePreStart
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: Analogous to [onResourceStart](/wiki/OnResourceStart "OnResourceStart"),
+  but triggered before script files are initialised.
+parameters:
+- name: startingResource
+  type: resource
+  description: the resource that is starting.
+canceling: If this event is cancelled, the resource won't begin starting.

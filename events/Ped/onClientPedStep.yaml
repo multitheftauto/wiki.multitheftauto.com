@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPedStep
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPedStep
 name: onClientPedStep
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the ped who stepped.
+description: This event is called when a peds foot has come on to the ground after
+  jumping or taking a full step.
+parameters:
+- name: leftFoot
+  type: bool
+  description: a bool representing if it was the left foot that moved.

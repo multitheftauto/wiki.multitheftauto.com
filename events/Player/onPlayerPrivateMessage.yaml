@@ -1,8 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerPrivateMessage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerPrivateMessage
 name: onPlayerPrivateMessage
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player who sent the private message.
+description: This event is triggered when a player sends a private message with *msg*
+  command.
+parameters:
+- name: fullMessage
+  type: string
+  description: a string representing the message along with the nickname
+- name: recipient
+  type: player
+  description: the player to whom the message is being sent.
+- name: content
+  type: string
+  description: a string representing the message content only. This parameter is available
+    since 1.6.0-9.22430 version.
+canceling: If this event is canceled, the game's chat system won't deliver the message.
+  You may use outputChatBox to send the messages then.

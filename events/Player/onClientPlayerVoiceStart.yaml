@@ -1,8 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerVoiceStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerVoiceStart
 name: onClientPlayerVoiceStart
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player element that just started talking
+    through voice chat.
+description: This event is triggered when a player starts talking through voice chat.
+parameters: []
+canceling: This example outputs to the console the player that started talking.

@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onVehicleDamage
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnVehicleDamage
 name: onVehicleDamage
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the vehicle that got damaged.
+description: This event is triggered when a vehicle is damaged. If you want to get
+  the attacker you can use [onClientVehicleDamage](/wiki/OnClientVehicleDamage "OnClientVehicleDamage").
+parameters:
+- name: loss
+  type: float
+  description: a float representing the amount of health the vehicle lost.

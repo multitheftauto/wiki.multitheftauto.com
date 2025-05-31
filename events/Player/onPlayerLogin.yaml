@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerLogin
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerLogin
 name: onPlayerLogin
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player element that just logged in.
+description: This event is triggered when a player logs into their account in\-game.
+parameters:
+- name: thePreviousAccount
+  type: account
+  description: The account the player was logged into before.
+- name: theCurrentAccount
+  type: account
+  description: The account the player logged into just now.
+canceling: If this event is canceled the player will not be logged in.

@@ -1,8 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onResourceStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnResourceStart
 name: onResourceStart
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element in the resource that started.
+description: This event is triggered when a resource is started.
+parameters:
+- name: startedResource
+  type: resource
+  description: the resource that was started.
+canceling: If this event is canceled, the resource starting is aborted and is stopped
+  again.

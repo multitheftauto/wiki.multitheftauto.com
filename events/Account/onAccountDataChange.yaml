@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onAccountDataChange
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnAccountDataChange
 name: onAccountDataChange
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the root element.
+description: This event is triggered when an accounts data changes through [setAccountData](/wiki/SetAccountData
+  "SetAccountData").
+parameters:
+- name: theAccount
+  type: account
+  description: the account that had data changed.
+- name: theKey
+  type: string
+  description: the string key that is being changed.
+- name: theValue
+  type: string
+  description: the value it is changing to.

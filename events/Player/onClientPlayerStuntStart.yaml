@@ -1,8 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientPlayerStuntStart
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPlayerStuntStart
 name: onClientPlayerStuntStart
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the local player.
+description: This event is triggered whenever the local player starts doing a vehicle
+  stunt.
+parameters:
+- name: stuntType
+  type: string
+  description: 'the type of stunt the player is starting to perform. Valid types are:
+
+    2wheeler
+
+    wheelie
+
+    stoppie'

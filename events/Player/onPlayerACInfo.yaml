@@ -1,8 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onPlayerACInfo
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerACInfo
 name: onPlayerACInfo
 type: server
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the player
+description: This event is triggered when a player trips anti\-cheat detections. It
+  can be used to script a white/blacklist of custom d3d9\.dll files, or a white/blacklist
+  of players with certain anti\-cheat codes. The relevant anti\-cheat code has to
+  be disabled (or not enabled) in the server [mtaserver.conf](/wiki/Mtaserver.conf#disableac
+  "Mtaserver.conf") to be of use here.
+parameters:
+- name: detectedACList
+  type: table
+  description: A table of anti-cheat codes the player has triggered.
+- name: d3d9Size
+  type: int
+  description: A number representing the file size of any custom d3d9.dll the player
+    may have installed.
+- name: d3d9MD5
+  type: string
+  description: A string containing the MD5 of any custom d3d9.dll the player may have
+    installed.
+- name: d3d9SHA256
+  type: string
+  description: A string containing the SHA256 of any custom d3d9.dll the player may
+    have installed.

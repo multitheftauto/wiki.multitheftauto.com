@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserTooltip
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserTooltip
 name: onClientBrowserTooltip
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The webbrowser element.
+description: The event is triggered when the user hovers a tooltip.
+parameters:
+- name: text
+  type: string
+  description: string containing the tooltip text. Empty string if user is not longer
+    hovering.

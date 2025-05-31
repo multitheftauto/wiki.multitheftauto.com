@@ -1,8 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserNavigate
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserNavigate
 name: onClientBrowserNavigate
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The browser element.
+description: The event is executed when the browser loads a new page. Do not use [loadBrowserURL](/wiki/LoadBrowserURL
+  "LoadBrowserURL") in the attached function.
+parameters:
+- name: targetURL
+  type: string
+  description: the page the browser loaded.
+- name: isBlocked
+  type: bool
+  description: if the browser was created with isLocal set to true, and the browser
+    tried to load a remote page, this would be set to true (and vice-versa).
+- name: isMainFrame
+  type: bool
+  description: a boolean representing whether the entire page (main frame) was loaded
+    or an <iframe> inside the page was loaded.

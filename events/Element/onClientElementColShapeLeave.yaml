@@ -1,8 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientElementColShapeLeave
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientElementColShapeLeave
 name: onClientElementColShapeLeave
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the element that left the colshape.
+description: This event is triggered when an element (like a player or vehicle) leaves
+  a collision shape.
+parameters:
+- name: theShape
+  type: colshape
+  description: the colshape that the element left.
+- name: matchingDimension
+  type: bool
+  description: true if the element is in the same dimension as the colshape, false
+    otherwise.

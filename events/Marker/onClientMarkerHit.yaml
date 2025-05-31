@@ -1,8 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientMarkerHit
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientMarkerHit
 name: onClientMarkerHit
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the marker that got hit by the player.
+description: This event is triggered when a player enters a marker created using [createMarker](/wiki/CreateMarker
+  "CreateMarker").
+parameters:
+- name: hitPlayer
+  type: player
+  description: the player that hit the marker.
+- name: matchingDimension
+  type: bool
+  description: true if the player is in the same dimension as the hit marker.

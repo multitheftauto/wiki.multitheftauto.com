@@ -1,8 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientBrowserCreated
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientBrowserCreated
 name: onClientBrowserCreated
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The browser element.
+description: This event is triggered when the CEF browser instance has been created.
+  If you want to load a specific website right after creating the browser (using [createBrowser](/wiki/CreateBrowser
+  "CreateBrowser") or [guiCreateBrowser](/wiki/GuiCreateBrowser "GuiCreateBrowser")),
+  this event will be the convenient place.
+parameters: []

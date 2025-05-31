@@ -1,8 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/onClientCoreCommand
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientCoreCommand
 name: onClientCoreCommand
 type: client
-description: TODO
-incomplete: true
 source_element:
   type: element
-  description: TODO
+  description: The source of this event is the localPlayer player element.
+description: This event is triggered when a built\-in client command is used, check
+  [Client Commands](/wiki/Client_Commands "Client Commands").
+parameters:
+- name: command
+  type: string
+  description: The command that was executed.
