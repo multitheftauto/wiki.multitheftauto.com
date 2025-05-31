@@ -67,26 +67,27 @@ export default defineConfig({
 						{
 							label: 'Functions',
 							items: [
-								{label: 'All functions', link: '/reference/Scripting_Functions'},
-								{label: 'Shared functions', link: '/reference/Shared_Scripting_Functions'},
-								{label: 'Client functions', link: '/reference/Client_Scripting_Functions'},
-								{label: 'Server functions', link: '/reference/Server_Scripting_Functions'},
+								{label: 'All Functions', link: '/reference/Scripting_Functions'},
+								{label: 'Shared Functions', link: '/reference/Shared_Scripting_Functions'},
+								{label: 'Client Functions', link: '/reference/Client_Scripting_Functions'},
+								{label: 'Server Functions', link: '/reference/Server_Scripting_Functions'},
 							]
 						},
 						{
 							label: 'Events',
 							items: [
-								{label: 'All events', link: '/reference/Scripting_Events'},
-								{label: 'Client events', link: '/reference/Client_Scripting_Events'},
-								{label: 'Server events', link: '/reference/Server_Scripting_Events'},
+								{label: 'Event System', link: '/reference/Event_System'},
+								{label: 'All Events', link: '/reference/Scripting_Events'},
+								{label: 'Client Events', link: '/reference/Client_Scripting_Events'},
+								{label: 'Server Events', link: '/reference/Server_Scripting_Events'},
 							]
 						},
 						{
 							label: 'Elements',
 							items: [
-								{label: 'Element types', link: '/reference/Element'},
-								{label: 'Element tree', link: '/reference/Element_tree'},
-								{label: 'Entity', link: '/reference/Entity'},
+								{label: 'Element Types', link: '/reference/Element'},
+								{label: 'Element Tree', link: '/reference/Element_tree'},
+								{label: 'Entities', link: '/reference/Entity'},
 							]
 						},
 						{

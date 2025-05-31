@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Code } from '@astrojs/starlight/components';
 ---
 <StarlightPage frontmatter={{
   template: 'doc',
@@ -12,19 +13,19 @@ The event system is at the core of MTA scripting. Events work closely in conjunc
 
 <h2 id="event-handlers">Event handlers</h2>
 <p>
-To use the event system, you attach event handlers to elements in the element tree using <code>addEventHandler</code>. When you do this, your function will get triggered for all the events triggered on that element, its parents (and their parents, etc.) and its children (and their children). As such, an event handler attached to the <em>root</em> element will be triggered when an event occurs for any element. As a consequence you should generally use as specific a handler as you can. If you wish to just see when the player enters a specific marker, just attach the event handler to that marker.
+To use the event system, you attach event handlers to elements in the element tree using <a href="/reference/addEventHandler">addEventHandler</a>. When you do this, your function will get triggered for all the events triggered on that element, its parents (and their parents, etc.) and its children (and their children). As such, an event handler attached to the <em>root</em> element will be triggered when an event occurs for any element. As a consequence you should generally use as specific a handler as you can. If you wish to just see when the player enters a specific marker, just attach the event handler to that marker.
 </p>
 
 <p>Each event handler has three 'hidden' variables:</p>
 <ul>
 <li><strong>source</strong>: This is the element that the event originated from.</li>
-<li><strong>this</strong>: This is the element that the handler is being triggered on (i.e. the one you attached it to with <code>addEventHandler</code>).</li>
-<li><strong>eventName</strong>: This is the string of the name of the event that was called upon (i.e. the event name that was added with <code>addEventHandler</code>).</li>
+<li><strong>this</strong>: This is the element that the handler is being triggered on (i.e. the one you attached it to with <a href="/reference/addEventHandler">addEventHandler</a>).</li>
+<li><strong>eventName</strong>: This is the string of the name of the event that was called upon (i.e. the event name that was added with <a href="/reference/addEventHandler">addEventHandler</a>).</li>
 </ul>
 
 <p>Additionally, the server-side event system also has one more 'hidden' variable:</p>
 <ul>
-<li><strong>client</strong>: This is the client that triggered the event using <code>triggerServerEvent</code>. This is not set if the event was not triggered from a client.</li>
+<li><strong>client</strong>: This is the client that triggered the event using <a href="/reference/triggerServerEvent">triggerServerEvent</a>. This is not set if the event was not triggered from a client.</li>
 </ul>
 
 <p>
@@ -41,17 +42,17 @@ It is <strong>important</strong> to note that events follow the element hierarch
 <li>You can attach an event handler to your resource's root element to get all the events triggered by elements your resource contains.</li>
 <li>You can create 'dummy' elements to catch events from a group of child elements.</li>
 <li>
-    You can use dummy elements specified in a .map file (e.g. <code>&lt;flag&gt;</code>) and create 'real' representations for them (e.g. objects) and make these real elements children of the dummy element. Event handlers can then be attached to the dummy element and it will receive all the events of the real elements.
+    You can use dummy elements specified in a .map file (e.g. "flag") and create 'real' representations for them (e.g. objects) and make these real elements children of the dummy element. Event handlers can then be attached to the dummy element and it will receive all the events of the real elements.
     This is useful for when one resource manages the representation of the element (creating the objects, for example), while another wants to handle special events. This could be a map resource that wants to handle a flag being captured in a specific way - the map resource would (generally) not be aware of the way the flag is represented.
     This doesn't matter as it can just attach handlers to its dummy flag element while the other gamemode resource can handle the representation.
 </li>
 </ul>
 
 <p>
-The function you attached to an event gets called and passed a bunch of arguments. These arguments are event-specific. Each event has specific parameters, for instance <code>onClientGUIClick</code> has 4 parameters, which are:
+The function you attached to an event gets called and passed a bunch of arguments. These arguments are event-specific. Each event has specific parameters, for instance <a href="/reference/onClientGUIClick">onClientGUIClick</a> has 4 parameters, which are:
 </p>
 
-<pre><code class="language-lua">string button, string state, int absoluteX, int absoluteY</code></pre>
+<Code code="string button, string state, int absoluteX, int absoluteY" lang="lua" />
 
 <p>
 The function you attached to this event will be passed these parameters as arguments. You must remember that each event has different parameters.
@@ -64,16 +65,16 @@ MTA has a number of built in events. These are listed on the pages <a href="/ref
 
 <h2 id="custom-events">Custom events</h2>
 <p>
-You can create your own events that can be triggered across all resources. This is an important way to communicate with other resources and allow them to hook into your code. To add your own custom event, just call the <code>addEvent</code> function. You can then use the <code>triggerEvent</code> function to trigger that event any time you want - either using a timer, or based on a more general event.
+You can create your own events that can be triggered across all resources. This is an important way to communicate with other resources and allow them to hook into your code. To add your own custom event, just call the <a href="/reference/addEvent">addEvent</a> function. You can then use the <a href="/reference/triggerEvent">triggerEvent</a> function to trigger that event any time you want - either using a timer, or based on a more general event.
 </p>
 
 <p>
-For example, you could be making a Capture the Flag game mode and want to trigger an event when a player captures the flag. You could do this by attaching a event handler to the standard MTA <code>onMarkerHit</code> event and checking that the player entering the marker has the flag. If they do, you can then trigger your more specific <em>onFlagCaptured</em> event and other resources could handle this as they please.
+For example, you could be making a Capture the Flag game mode and want to trigger an event when a player captures the flag. You could do this by attaching a event handler to the standard MTA <a href="/reference/onMarkerHit">onMarkerHit</a> event and checking that the player entering the marker has the flag. If they do, you can then trigger your more specific <em>onFlagCaptured</em> event and other resources could handle this as they please.
 </p>
 
 <h2 id="canceling">Canceling</h2>
 <p>
-Events can be canceled with <code>cancelEvent</code>. This can have a variety of effects, but in general this means that the server will not perform whatever action it would usually do. For example, canceling <code>onPickupUse</code> would prevent a player being given what they tried to pick up, canceling <code>onVehicleStartEnter</code> would prevent the player entering the vehicle. You can check if the currently active event has been canceled using <code>wasEventCanceled</code>. It's important to note that canceling an event <strong>does not</strong> prevent other event handlers being triggered.
+Events can be canceled with <a href="/reference/cancelEvent">cancelEvent</a>. This can have a variety of effects, but in general this means that the server will not perform whatever action it would usually do. For example, canceling <a href="/reference/onPickupUse">onPickupUse</a> would prevent a player being given what they tried to pick up, canceling <a href="/reference/onVehicleStartEnter">onVehicleStartEnter</a> would prevent the player entering the vehicle. You can check if the currently active event has been canceled using <a href="/reference/wasEventCancelled">wasEventCancelled</a>. It's important to note that canceling an event <strong>does not</strong> prevent other event handlers being triggered.
 </p>
 
 </StarlightPage>

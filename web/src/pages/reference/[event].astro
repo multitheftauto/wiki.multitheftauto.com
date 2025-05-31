@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
 import { renderInlineMarkdown, getSeeAlsoLinksForItem } from '@src/utils/general';
+import { Icon } from '@astrojs/starlight/components';
 
 
 import NoteBox from '@src/components/NoteBox.astro';
@@ -105,7 +106,7 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         <!-- Canceling (optional) -->
         {event.data.canceling && (
             <>
-            <h4>Canceling</h4>
+            <h4>Canceling <a href="/reference/Event_System#canceling"><Icon size="1.6rem" name="information" class="help-icon" /></a></h4>
             <p>{event.data.canceling}</p>
             </>
         )}
@@ -115,3 +116,10 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(event)} currentId={event.id} />
     </StarlightPage>
 </div>
+
+<style>
+    .help-icon {
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
