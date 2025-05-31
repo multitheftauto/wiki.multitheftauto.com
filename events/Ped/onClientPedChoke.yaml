@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnClientPedChoke
+name: onClientPedChoke
+type: client
+source_element:
+  type: element
+  description: The source of this event is the ped who is choking.
+description: This event is fired when a ped chokes due to the effect of a weapon such
+  as tear gas grenades, fire extinguishers and spray cans.
+parameters:
+- name: weaponID
+  type: int
+  description: an int representing the ID of the weapon which caused the choking.
+- name: responsiblePed
+  type: ped
+  description: the ped responsible for causing the choking, possiblly nil.
+examples:
+- path: examples/onClientPedChoke-1.lua
+  description: This example disables choking effects from the tear gas grenades.
+  side: client
+canceling: If this event is canceled, the ped will not be choked.

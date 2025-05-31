@@ -1,0 +1,6 @@
+addEventHandler("onPlayerWeaponReload", root, function(weapon, ammoInClip, ammo) 
+    outputChatBox(getPlayerName(source) .. " is reloading their weapon: ")
+    outputChatBox("Weapon: " .. getWeaponNameFromID(weapon))
+    outputChatBox("AmmoInClip: " .. ammoInClip)
+    outputChatBox("Ammo: " .. ammo)
+end)

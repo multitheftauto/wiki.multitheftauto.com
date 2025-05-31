@@ -1,0 +1,25 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerWeaponReload
+name: onPlayerWeaponReload
+type: server
+source_element:
+  type: element
+  description: The source of this event is the player who's reloading their weapon.
+description: This event is triggered when a [player](/wiki/Player "Player") is reloading
+  their weapon.
+parameters:
+- name: weapon
+  type: int
+  description: an int representing weapon used for firing a shot.
+- name: ammoInClip
+  type: int
+  description: an int amount of ammo left for this weapon type in clip.
+- name: ammo
+  type: int
+  description: an int amount of ammo left for this weapon type.
+examples:
+- path: examples/onPlayerWeaponReload-1.lua
+  description: This example will output informations when aplayer's weapon is reloading.
+  side: server
+canceling: If this event is canceled, then the players will not be able to reload
+  their weapon manually by pressing R key.  The weapons will still reload when the
+  ammoInClip reaches zero. Using quickreload will also reload the weapon.

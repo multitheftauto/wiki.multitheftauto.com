@@ -4,10 +4,13 @@ type: server
 source_element:
   type: element
   description: The source of this event is the player who triggered the teleport detection.
-description: When the player synchronizes data with the server, the server monitors
-  player positions to detect significant unexpected movements. If a player's position
-  deviates beyond the established threshold without server functions like [setElementPosition](/wiki/SetElementPosition
-  "SetElementPosition") being used, this event will be triggered.
+description: This event is triggered when a player's position changes significantly
+  without direct server intervention, such as the use of [setElementPosition](/wiki/SetElementPosition
+  "SetElementPosition"). When the player synchronizes data with the server, the server
+  monitors player positions to detect significant unexpected movements. If a player's
+  position deviates beyond the established threshold without server functions like
+  [setElementPosition](/wiki/SetElementPosition "SetElementPosition") being used,
+  this event will be triggered.
 parameters:
 - name: previousX
   type: float

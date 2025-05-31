@@ -1,0 +1,23 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/OnPlayerDiscordJoin
+name: onPlayerDiscordJoin
+type: server
+source_element:
+  type: element
+  description: The source of this event is the player who is invited to the game/clicked
+    the "Join" button.
+description: This event is triggered when a player accepts game invites from a user
+  in discord or click on "Join" button from that player.
+parameters:
+- name: justConnected
+  type: bool
+  description: If true, player connected to the server using game invite, otherwise
+    he's already in the game and not joined the server using discord invite.
+- name: key
+  type: string
+  description: The key passed by setPlayerDiscordJoinParams to the player who invited
+    this user.
+examples:
+- path: examples/onPlayerDiscordJoin-1.lua
+  description: This example will announce the server that who invited that user from
+    discord.
+  side: server
