@@ -44,5 +44,9 @@ parameters:
 - name: velZ
   type: float
   description: Z axis velocity. Valid for ID 16, 17, 18, 19, 20, 39.
+examples:
+- path: examples/onPlayerProjectileCreation-1.lua
+  description: ''
+  side: server
 canceling: If this event is canceled, the projectile will not be created for other
   players on the server.

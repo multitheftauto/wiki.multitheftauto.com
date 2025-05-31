@@ -7,3 +7,8 @@ source_element:
 description: This event is triggered when a [pickup](/wiki/Pickup "Pickup") is spawned
   or respawned.
 parameters: []
+examples:
+- path: examples/onPickupSpawn-1.lua
+  description: This example gets the area and city name when a pickup spawns and outputs
+    it to all the players.
+  side: server

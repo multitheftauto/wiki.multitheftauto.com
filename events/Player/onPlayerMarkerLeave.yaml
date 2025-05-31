@@ -14,3 +14,8 @@ parameters:
   type: bool
   description: a boolean representing whether the player and the left marker are in
     the same dimension.
+examples:
+- path: examples/onPlayerMarkerLeave-1.lua
+  description: This example will output the name of the player that has left a specific
+    marker to the chatbox.
+  side: server

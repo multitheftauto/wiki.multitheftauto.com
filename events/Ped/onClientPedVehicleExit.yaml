@@ -13,3 +13,8 @@ parameters:
 - name: seat
   type: int
   description: The number of the seat that the ped was sitting on.
+examples:
+- path: examples/onClientPedVehicleExit-1.lua
+  description: 'This example will immediately delete any vehicle a ped exits if the
+    vehicle''s health is below 500:'
+  side: client

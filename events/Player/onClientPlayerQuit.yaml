@@ -23,3 +23,8 @@ parameters:
     "Bad Connection"
 
     "Timed out"'
+examples:
+- path: examples/onClientPlayerQuit-1.lua
+  description: This example prints a message in the chatbox when a remote player leaves
+    the server.
+  side: client

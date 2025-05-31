@@ -9,3 +9,8 @@ description: This event is triggered when an element gets destroyed by [destroyE
   when a children element of this element is destroyed. It is not triggered on a player
   when they quit.
 parameters: []
+examples:
+- path: examples/onClientElementDestroy-1.lua
+  description: This example prints a message in the chat box when the vehicle that
+    you are in gets destroyed.
+  side: client

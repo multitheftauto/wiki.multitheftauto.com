@@ -10,3 +10,7 @@ parameters:
 - name: theTruck
   type: vehicle
   description: the truck vehicle that this trailer got detached from.
+examples:
+- path: examples/onTrailerDetach-1.lua
+  description: This example re-attaches a trailer when it detaches.
+  side: server

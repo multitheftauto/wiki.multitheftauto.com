@@ -11,3 +11,7 @@ parameters:
   type: bool
   description: true if this vehicle respawned because it exploded, false if it respawned
     due to being deserted.
+examples:
+- path: examples/onVehicleRespawn-1.lua
+  description: This example shows a message in the chatbox, if it is respawned.
+  side: server

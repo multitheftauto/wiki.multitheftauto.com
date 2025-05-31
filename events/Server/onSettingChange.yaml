@@ -18,3 +18,7 @@ parameters:
 - name: newValue
   type: string
   description: The new value. Also in JSON
+examples:
+- path: examples/onSettingChange-1.lua
+  description: ''
+  side: server

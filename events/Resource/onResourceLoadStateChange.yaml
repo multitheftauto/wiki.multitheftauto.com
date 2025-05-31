@@ -16,3 +16,8 @@ parameters:
 - name: newState
   type: string
   description: The state the resource has changed to.
+examples:
+- path: examples/onResourceLoadStateChange-1.lua
+  description: 'This code will output the state of resource when it''s state will
+    be changed:'
+  side: server

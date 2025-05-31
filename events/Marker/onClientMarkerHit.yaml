@@ -13,3 +13,8 @@ parameters:
 - name: matchingDimension
   type: bool
   description: true if the player is in the same dimension as the hit marker.
+examples:
+- path: examples/onClientMarkerHit-1.lua
+  description: This code will output a message to the chatbox whenever any player
+    walks into any marker.
+  side: client

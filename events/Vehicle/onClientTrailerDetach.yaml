@@ -10,3 +10,8 @@ parameters:
 - name: towedBy
   type: vehicle
   description: the vehicle that was towing the trailer.
+examples:
+- path: examples/onClientTrailerDetach-1.lua
+  description: This example outputs to the player that's towing the trailer that "The
+    vehicle is now detached". (TESTED!)
+  side: client

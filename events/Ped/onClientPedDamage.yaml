@@ -19,4 +19,8 @@ parameters:
 - name: loss
   type: float
   description: A float representing the percentage of health the ped lost.
+examples:
+- path: examples/onClientPedDamage-1.lua
+  description: This example cancels any damage done to peds
+  side: client
 canceling: If this event is canceled, then any damaging effects to the ped will cease.

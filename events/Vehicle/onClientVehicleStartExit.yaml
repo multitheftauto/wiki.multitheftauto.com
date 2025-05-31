@@ -17,3 +17,7 @@ parameters:
 - name: door
   type: int
   description: the number of the door that the ped is using to leave.
+examples:
+- path: examples/onClientVehicleStartExit-1.lua
+  description: This example outputs to the player that he's leaving the drivers seat.
+  side: client

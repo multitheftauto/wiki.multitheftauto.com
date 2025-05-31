@@ -12,3 +12,8 @@ parameters:
 - name: seat
   type: int
   description: the number of the seat that the player was sitting on.
+examples:
+- path: examples/onClientPlayerVehicleExit-1.lua
+  description: This example outputs a chat box message with player's name and vehicle
+    name when someone leave vehicle.
+  side: client

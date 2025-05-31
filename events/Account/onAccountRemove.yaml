@@ -10,4 +10,8 @@ parameters:
 - name: theAccount
   type: account
   description: An account element that was removed
+examples:
+- path: examples/onAccountRemove-1.lua
+  description: This example prints a message every time new account is created.
+  side: server
 canceling: This event cannot be canceled.

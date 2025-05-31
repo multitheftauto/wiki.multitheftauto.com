@@ -6,3 +6,7 @@ source_element:
   description: The source of this event is the player that died.
 description: This event is triggered whenever a player, including those remote, dies.
 parameters: []
+examples:
+- path: examples/onClientPlayerWasted-1.lua
+  description: This example outputs a mocking message when the local player dies.
+  side: client

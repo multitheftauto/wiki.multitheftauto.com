@@ -10,4 +10,8 @@ parameters:
 - name: killer
   type: vehicle
   description: the vehicle (heli) responsible for causing the death.
+examples:
+- path: examples/onClientPlayerHeliKilled-1.lua
+  description: This example disables helicopter killing
+  side: client
 canceling: If this event is canceled, the player will not be killed

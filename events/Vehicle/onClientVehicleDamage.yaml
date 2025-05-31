@@ -28,5 +28,15 @@ parameters:
 - name: tireID
   type: int
   description: A number representing the tire which took damage, if there is one.
+examples:
+- path: examples/onClientVehicleDamage-1.lua
+  description: ''
+  side: client
+- path: examples/onClientVehicleDamage-2.lua
+  description: ''
+  side: client
+- path: examples/onClientVehicleDamage-3.lua
+  description: ''
+  side: client
 canceling: If this event is canceled, the vehicle health won't be reduced. Physical
   damage to the vehicle will remain.

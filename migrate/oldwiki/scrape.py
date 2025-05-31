@@ -78,7 +78,63 @@ def str_presenter(dumper, data):
 # Register the custom string presenter
 yaml.add_representer(str, str_presenter)
 
-def parse_event_page(page_url: str, name: str, source: str) -> dict:
+def parse_examples(content_div):
+    
+    examples = []
+    example_header = content_div.find("span", id=lambda x: x and x.lower() in ["example", "examples"])
+
+    if example_header:
+        current = example_header.find_parent(["h2", "h3"]).find_next_sibling()
+        while current:
+            # Stop at the next section
+            if current.name in ["h2", "h3"]:
+                break
+
+            # Case 1: Structured example (wrapped in section divs)
+            if current.name == "div" and current.get("id", "").startswith("section"):
+                section_type = None
+                prev_sibling = current.find_previous_sibling()
+                if prev_sibling:
+                    if "serverHeader" in prev_sibling.get("class", []):
+                        section_type = "server"
+                    elif "clientHeader" in prev_sibling.get("class", []):
+                        section_type = "client"
+
+                desc = current.find("p")
+                code = current.find("pre")
+
+                if code:
+                    examples.append({
+                        "type": section_type,
+                        "description": desc.get_text(strip=True) if desc else "",
+                        "code": code.get_text(strip=True)
+                    })
+
+            # Case 2: <p> followed by <pre> (loose example)
+            elif current.name == "p":
+                next_sibling = current.find_next_sibling()
+                if next_sibling and next_sibling.name == "pre":
+                    examples.append({
+                        "type": None,
+                        "description": current.get_text(strip=True),
+                        "code": next_sibling.get_text(strip=True)
+                    })
+                    current = next_sibling  # skip next since it's handled
+
+            # Case 3: Just a <pre> after the header (no <p>, no section)
+            elif current.name == "pre":
+                examples.append({
+                    "type": None,
+                    "description": "",  # no description available
+                    "code": current.get_text(strip=True)
+                })
+
+            current = current.find_next_sibling()
+
+    return examples
+
+
+def parse_event_page(page_url: str, category: str, name: str, source: str) -> dict:
     response = requests.get(page_url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -207,12 +263,40 @@ def parse_event_page(page_url: str, name: str, source: str) -> dict:
                 # Remove new lines from the canceling text
                 event_canceling = canceling_text.replace("\n", " ")
 
+    # Examples
+    examples = parse_examples(content_div)
+    if len(examples) == 0:
+        print(f"Found no examples for {name}")
+
+    event_type = "client" if "Client" in source else "server"
+
+    # For each example, create a .lua file with the code
+    # with name eventName-index.lua
+    example_index = 1
+    added_examples = []
+    for example in examples:
+        example_code = example.get("code", "").strip()
+        if example_code:
+            example_filename = f"{name}-{example_index}.lua"
+            example_path = os.path.join(EVENTS_DIR, category, 'examples', example_filename)
+            os.makedirs(os.path.dirname(example_path), exist_ok=True)
+            with open(example_path, "w", encoding="utf-8") as example_file:
+                example_file.write(example_code)
+            example_description = example.get("description", "").strip()
+            added_examples.append({
+                "path": 'examples/' + example_filename,
+                "description": example_description,
+                "side": example.get("type") or event_type # Default to event_type if not specified
+            })
+            example_index += 1
+
     yaml_dict = {
         "name": name,
-        "type": "client" if "Client" in source else "server",
+        "type": event_type,
         "source_element": event_source,
         "description": event_description,
         "parameters": event_parameters,
+        "examples": added_examples,
     }
     if event_canceling:
         yaml_dict["canceling"] = event_canceling
@@ -223,7 +307,7 @@ def parse_event_page(page_url: str, name: str, source: str) -> dict:
     
     return yaml_dict
 
-def parse_function_page(page_url: str, name: str, source: str) -> str:
+def parse_function_page(page_url: str, category: str, name: str, source: str) -> str:
     if source.startswith("Shared"):
         yaml_content = "shared: &shared\n"
         yaml_content += f"  incomplete: true\n"
@@ -244,7 +328,7 @@ def parse_function_page(page_url: str, name: str, source: str) -> str:
 
     return yaml_content
 
-def convert_page_to_yaml(page_url: str, name: str, source: str) -> str:
+def convert_page_to_yaml(page_url: str, category: str, name: str, source: str) -> str:
     # This scrapes the page and tries to parse the MediaWiki content into a YAML format for the function/event
     
     is_function = "function" in source.lower()
@@ -253,13 +337,13 @@ def convert_page_to_yaml(page_url: str, name: str, source: str) -> str:
         raise ValueError("Source must be either a function or an event.")
     
     if is_event:
-        yaml_content = yaml.safe_dump(parse_event_page(page_url, name, source),
+        yaml_content = yaml.safe_dump(parse_event_page(page_url, category, name, source),
             sort_keys=False,
             allow_unicode=True,
             default_flow_style=False)
 
     elif is_function:
-        yaml_content = parse_function_page(page_url, name, source)
+        yaml_content = parse_function_page(page_url, category, name, source)
 
     return yaml_content
 
@@ -276,7 +360,7 @@ def write_yaml_per_entry(base_dir, data_by_source):
                 file_content = f"# Scraped from: {page_url}\n"
                 try:
                     with open(filename, "w", encoding="utf-8") as f:
-                        file_content += convert_page_to_yaml(page_url, name, source)
+                        file_content += convert_page_to_yaml(page_url, category, name, source)
                         f.write(file_content)
                 except Exception as e:
                     print(e)
@@ -284,7 +368,7 @@ def write_yaml_per_entry(base_dir, data_by_source):
                     if os.path.exists(filename):
                         os.remove(filename)
                     
-        print(f"YAML files for {source} written successfully to {base_dir}.")
+        print(f"YAML & Lua files for {source} written successfully to {base_dir}.")
 
 def main():
     functions_by_source = {}

@@ -41,4 +41,8 @@ parameters:
 - name: b
   type: int
   description: an int representing the amount of blue color (0-255).
+examples:
+- path: examples/onDebugMessage-1.lua
+  description: This example outputs error debug messages to chat.
+  side: server
 canceling: If this event is canceled, the debug message won't appear.

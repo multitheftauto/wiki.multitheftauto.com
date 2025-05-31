@@ -10,4 +10,8 @@ parameters:
 - name: stationID
   type: int
   description: An integer representing the station the player switched to.
+examples:
+- path: examples/onClientPlayerRadioSwitch-1.lua
+  description: ''
+  side: client
 canceling: If this event is canceled, the Radio station will not change.

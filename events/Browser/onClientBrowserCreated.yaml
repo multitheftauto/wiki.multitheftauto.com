@@ -9,3 +9,7 @@ description: This event is triggered when the CEF browser instance has been crea
   "CreateBrowser") or [guiCreateBrowser](/wiki/GuiCreateBrowser "GuiCreateBrowser")),
   this event will be the convenient place.
 parameters: []
+examples:
+- path: examples/onClientBrowserCreated-1.lua
+  description: ''
+  side: client

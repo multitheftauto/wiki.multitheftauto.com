@@ -40,13 +40,6 @@ if (eventParameters.length > 0) {
     }).join(", ");
 }
 
-let eventHandlerExample = {
-    funcName: "handle" + event.id.charAt(0).toUpperCase() + event.id.slice(1),
-    funcParams: eventParameters.map((param: any) => {
-        return param.name;
-    }).join(", "),
-}
-
 if ( eventExamples.length > 0 ){
     eventExamples = eventExamples.map((example: any) => {
         try {
@@ -116,15 +109,6 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
             <p>{event.data.canceling}</p>
             </>
         )}
-
-        <h4>Handler Example</h4>
-        <Code code={
-            `local function ${eventHandlerExample.funcName}(${eventHandlerExample.funcParams})\n` +
-            `    -- Your code here\n` +
-            `end\n` +
-            `-- Register the event handler\n` +
-            `addEventHandler("${event.id}", elementAttachedTo, ${eventHandlerExample.funcName})`
-        } lang="lua" />
 
         <CodeExamplesSection codeExamples={eventExamples}, examplesRequired={true} theItem={event} />
 

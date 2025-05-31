@@ -20,3 +20,8 @@ parameters:
   type: int
   description: the Y position of the mouse cursor, in pixels, measured from the top
     of the screen.
+examples:
+- path: examples/onClientGUIMouseUp-1.lua
+  description: This example show how to add very basicclick'n'dragfeature for GUI
+    elements (only for those which parent element is gui-root)
+  side: client

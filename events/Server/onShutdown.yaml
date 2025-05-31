@@ -14,4 +14,8 @@ parameters:
 - name: reason
   type: string
   description: The reason for stopping the server (if provided).
+examples:
+- path: examples/onShutdown-1.lua
+  description: ''
+  side: server
 canceling: This event cannot be canceled.

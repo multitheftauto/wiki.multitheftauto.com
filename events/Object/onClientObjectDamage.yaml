@@ -15,4 +15,8 @@ parameters:
 - name: attacker
   type: element
   description: the vehicle/ped/player who is damaging the object.
+examples:
+- path: examples/onClientObjectDamage-1.lua
+  description: 'This example outputs the theoretical and real loss:'
+  side: client
 canceling: If this event is canceled, the object will not be damaged.

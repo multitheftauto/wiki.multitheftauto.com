@@ -14,3 +14,8 @@ parameters:
   type: bool
   description: a boolean referring to whether the collision shape was in the same
     dimension as the element.
+examples:
+- path: examples/onClientColShapeLeave-1.lua
+  description: This example outputs "Out." to the chatbox whenever the local user
+    leaves a collision shape.
+  side: client

@@ -13,3 +13,7 @@ parameters:
   type: int
   description: the seat that the player now is on. Driver's seat = 0, higher numbers
     are passenger seats.
+examples:
+- path: examples/onClientPlayerVehicleEnter-1.lua
+  description: This example will tell you the name of the vehicle you enter.
+  side: client

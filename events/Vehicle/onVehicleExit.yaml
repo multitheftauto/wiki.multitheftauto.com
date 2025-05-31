@@ -19,3 +19,8 @@ parameters:
   type: bool
   description: a boolean representing whether the exit was forced using removePedFromVehicle
     or by the ped/player.
+examples:
+- path: examples/onVehicleExit-1.lua
+  description: This example adds a 'moto' helmet to a player when he gets on a nrg
+    bike, and removes it when he gets off.
+  side: server

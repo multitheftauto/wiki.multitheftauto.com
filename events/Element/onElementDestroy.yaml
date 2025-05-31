@@ -8,3 +8,18 @@ description: This event is triggered when an element gets destroyed by [destroyE
   "DestroyElement") or when the creator resource is stopping. It is also triggered
   when a parent element of this element is destroyed.
 parameters: []
+examples:
+- path: examples/onElementDestroy-1.lua
+  description: This example sends a message to the vehicle occupants when it's being
+    destroyed.
+  side: server
+- path: examples/onElementDestroy-2.lua
+  description: This example outputs a message every time an element is destroyed saying
+    which resource created the element
+  side: server
+- path: examples/onElementDestroy-3.lua
+  description: This example only works in builds above 1.3.4-5937 and will tell you
+    if a script is causing bugs with other scripts if it's deleting elements from
+    other scripts because element IDs are being re-used and some scripts don't dereference
+    an element after destroying it.
+  side: server

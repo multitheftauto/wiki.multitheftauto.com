@@ -28,3 +28,12 @@ parameters:
 - name: clickPosZ
   type: float
   description: the Z position in the world the player clicked at.
+examples:
+- path: examples/onElementClicked-1.lua
+  description: This example prints type of the element you clicked to chatbox when
+    you click it.
+  side: server
+- path: examples/onElementClicked-2.lua
+  description: This example check if the clicked element is a vehicle. If is, then
+    repairs it.
+  side: server

@@ -9,4 +9,8 @@ parameters:
 - name: playerHit
   type: player
   description: the player which got shot by the water cannon
+examples:
+- path: examples/onClientPlayerHitByWaterCannon-1.lua
+  description: This example outputs a message when you are hit by a water cannon
+  side: client
 canceling: If this event is canceled, the player will not be knocked down.

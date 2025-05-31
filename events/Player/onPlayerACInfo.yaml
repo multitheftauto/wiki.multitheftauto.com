@@ -25,3 +25,16 @@ parameters:
   type: string
   description: A string containing the SHA256 of any custom d3d9.dll the player may
     have installed.
+examples:
+- path: examples/onPlayerACInfo-1.lua
+  description: This example prints all information into the chatbox
+  side: server
+- path: examples/onPlayerACInfo-2.lua
+  description: This example will notify all online admins when someone triggers a
+    (suspicious) detection
+  side: server
+- path: examples/onPlayerACInfo-3.lua
+  description: 'This example allows player serial exceptions for SD #14 (virtual machines).
+    In order for this to work, it''s important that youdon''tadd SD #14 detection
+    into mtaserver.conf, as this is a custom re-implementation.'
+  side: server

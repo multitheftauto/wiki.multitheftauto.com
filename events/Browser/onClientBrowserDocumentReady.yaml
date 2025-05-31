@@ -9,3 +9,7 @@ parameters:
 - name: url
   type: string
   description: the url of the web page loaded.
+examples:
+- path: examples/onClientBrowserDocumentReady-1.lua
+  description: ''
+  side: client

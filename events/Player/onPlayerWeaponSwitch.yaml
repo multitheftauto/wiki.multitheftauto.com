@@ -14,4 +14,9 @@ parameters:
 - name: currentWeaponID
   type: int
   description: An integer representing the weapon that was switched to.
+examples:
+- path: examples/onPlayerWeaponSwitch-1.lua
+  description: This example allows you to disable shoot ability for certain weapons,
+    it should be noted that it will be more efficient if done on client-side.
+  side: server
 canceling: If this event is canceled, then the player's weapon won't be switched.

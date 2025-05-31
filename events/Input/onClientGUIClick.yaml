@@ -22,3 +22,9 @@ parameters:
   type: int
   description: the Y position of the mouse cursor, in pixels, measured from the top
     of the screen.
+examples:
+- path: examples/onClientGUIClick-1.lua
+  description: This example creates an edit box alongside an "Output!" button. When
+    the button is clicked with the left mouse button, it will output the message in
+    the edit box into the chat box.
+  side: client

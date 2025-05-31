@@ -9,3 +9,8 @@ parameters:
 - name: theTime
   type: double
   description: the position in the song of the beat
+examples:
+- path: examples/onClientSoundBeat-1.lua
+  description: This code will change the vehicle color to a random value if the sound
+    beats and the localPlayer is inside a vehicle
+  side: client

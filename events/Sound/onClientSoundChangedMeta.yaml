@@ -10,3 +10,7 @@ parameters:
 - name: streamTitle
   type: string
   description: The title of a specific stream
+examples:
+- path: examples/onClientSoundChangedMeta-1.lua
+  description: This example will output the new stream title in the chatbox.
+  side: client

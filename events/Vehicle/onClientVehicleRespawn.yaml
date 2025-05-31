@@ -6,3 +6,7 @@ source_element:
   description: The source of this event is the vehicle that respawned.
 description: This event is triggered when a vehicle respawns.
 parameters: []
+examples:
+- path: examples/onClientVehicleRespawn-1.lua
+  description: This example outputs to the console that a vehicle has respawned.
+  side: client

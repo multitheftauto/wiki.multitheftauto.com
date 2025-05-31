@@ -9,3 +9,4 @@ parameters:
 - name: gainedFocus
   type: bool
   description: true if an input field has been focused, false if it has lost focus.
+examples: []

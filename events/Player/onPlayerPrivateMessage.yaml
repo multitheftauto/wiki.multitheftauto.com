@@ -17,5 +17,9 @@ parameters:
   type: string
   description: a string representing the message content only. This parameter is available
     since 1.6.0-9.22430 version.
+examples:
+- path: examples/onPlayerPrivateMessage-1.lua
+  description: This example blocks players sending a PM to a player named "Bob".
+  side: server
 canceling: If this event is canceled, the game's chat system won't deliver the message.
   You may use outputChatBox to send the messages then.

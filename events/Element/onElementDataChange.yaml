@@ -3,7 +3,7 @@ name: onElementDataChange
 type: server
 source_element:
   type: element
-  description: The source of this event is the [element](/reference/Element) whose element data changed.
+  description: The source of this event is the element whose element data changed.
 description: This event is triggered *after* an element's [data](/wiki/Element_data
   "Element data") entry is changed. Such changes can be made on the client or the
   server using [setElementData](/wiki/SetElementData "SetElementData").
@@ -19,5 +19,13 @@ parameters:
   type: var
   description: the new value of this entry after it changed. This will be equivalent
     to getElementData(source, theKey).
+examples:
+- path: examples/onElementDataChange-1.lua
+  description: This example outputs a message to players when any of their element
+    data values is changed.
+  side: server
+- path: examples/onElementDataChange-2.lua
+  description: This example checks and possibly reverses an element's data change.
+  side: server
 canceling: This event cannot be cancelled using cancelEvent. To reverse the effect,
   use setElementData with the old value. See Example.

@@ -27,4 +27,8 @@ parameters:
 - name: currentZ
   type: float
   description: A float representing the player current Z-coordinate after teleporting.
+examples:
+- path: examples/onPlayerTeleport-1.lua
+  description: This example logs unexpected teleportation events.
+  side: server
 canceling: Canceling this event has no effect.

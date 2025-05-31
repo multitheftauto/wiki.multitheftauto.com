@@ -12,4 +12,8 @@ parameters:
 - name: theCurrentAccount
   type: account
   description: the account the client is a part of now (usually a guest account).
+examples:
+- path: examples/onPlayerLogout-1.lua
+  description: This example displays a message if the player logs out.
+  side: server
 canceling: If you cancel this event the player will not be logged out.

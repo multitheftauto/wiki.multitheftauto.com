@@ -12,4 +12,8 @@ parameters:
 - name: responsibleElement
   type: player
   description: the player who removed the ban, otherwise returns nil.
+examples:
+- path: examples/onUnban-1.lua
+  description: This example does...
+  side: server
 canceling: If this event is canceled, the requested unban is not performed.

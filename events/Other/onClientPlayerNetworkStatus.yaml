@@ -15,3 +15,8 @@ parameters:
 - name: ticks
   type: int
   description: Number of ticks since the interruption started.
+examples:
+- path: examples/onClientPlayerNetworkStatus-1.lua
+  description: This example shows a debug message when interruption starts and stops
+    and also prevents the local player moving during the interruption.
+  side: client

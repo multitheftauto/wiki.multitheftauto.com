@@ -11,4 +11,9 @@ parameters:
 - name: theTruck
   type: vehicle
   description: the truck vehicle that got attached to this trailer.
+examples:
+- path: examples/onTrailerAttach-1.lua
+  description: This example removes a trailer from the truck it is attached to. Good
+    if you do not want people attaching trailers to vehicles
+  side: server
 canceling: If this event is canceled, the trailer will detach from the truck again.

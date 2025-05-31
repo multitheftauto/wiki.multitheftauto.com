@@ -30,3 +30,10 @@ parameters:
 - name: theDimension
   type: int
   description: the dimension the player spawned in.
+examples:
+- path: examples/onPlayerSpawn-1.lua
+  description: This example plays a sound when a player spawns.
+  side: server
+- path: examples/onPlayerSpawn-2.lua
+  description: This example gives the player a weapon whenever he spawns
+  side: server

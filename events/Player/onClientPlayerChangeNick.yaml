@@ -12,3 +12,8 @@ parameters:
 - name: newNick
   type: string
   description: the new nickname of the player.
+examples:
+- path: examples/onClientPlayerChangeNick-1.lua
+  description: This example snippet sends a lame message every time the local player
+    changes his nick.
+  side: client

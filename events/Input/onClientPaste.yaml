@@ -11,3 +11,7 @@ parameters:
 - name: clipboardText
   type: string
   description: a string representing the pasted value from clipboard.
+examples:
+- path: examples/onClientPaste-1.lua
+  description: Example show what player paste from clipboard.
+  side: client

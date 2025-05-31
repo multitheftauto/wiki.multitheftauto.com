@@ -11,3 +11,7 @@ parameters:
 - name: character
   type: string
   description: a string representing the pressed character.
+examples:
+- path: examples/onClientCharacter-1.lua
+  description: This example will output the pressed character in the chatbox.
+  side: client

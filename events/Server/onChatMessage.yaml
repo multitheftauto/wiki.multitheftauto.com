@@ -15,3 +15,7 @@ parameters:
   type: element
   description: A resource if it was done via outputChatBox or a player element if
     it was done via say, teamsay or me.
+examples:
+- path: examples/onChatMessage-1.lua
+  description: This example outputs all chat messages to debug view.
+  side: server

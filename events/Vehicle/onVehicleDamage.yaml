@@ -10,3 +10,8 @@ parameters:
 - name: loss
   type: float
   description: a float representing the amount of health the vehicle lost.
+examples:
+- path: examples/onVehicleDamage-1.lua
+  description: This example displays a message with the amount of health lost when
+    a vehicle gets damaged.
+  side: server

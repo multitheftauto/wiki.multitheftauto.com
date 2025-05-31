@@ -12,3 +12,8 @@ parameters:
 - name: currentWeaponID
   type: int
   description: an int representing the weapon that was switched to.
+examples:
+- path: examples/onPedWeaponSwitch-1.lua
+  description: This example outputs a line to the chat box whenever a ped changes
+    weapons.
+  side: server

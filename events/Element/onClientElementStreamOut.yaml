@@ -9,3 +9,8 @@ description: This event is triggered whenever a physical element is streamed out
   objects and markers when the local player is leaving the element. When this event
   is triggered, that element is no longer physical and is now virtualized by MTA.
 parameters: []
+examples:
+- path: examples/onClientElementStreamOut-1.lua
+  description: This example shows you how to tell player that another player was streamed
+    out and the distance between them and said player
+  side: client

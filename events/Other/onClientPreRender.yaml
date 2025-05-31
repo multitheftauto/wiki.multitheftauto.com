@@ -10,3 +10,7 @@ parameters:
   type: float
   description: The interval between this frame and the previous one in milliseconds
     (delta time).
+examples:
+- path: examples/onClientPreRender-1.lua
+  description: This example makes the camera follow the player in a GTA2-like way.
+  side: client

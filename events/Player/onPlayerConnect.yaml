@@ -26,6 +26,15 @@ parameters:
   type: string
   description: The player's MTA version in sortable string form. Same as the return
     value from getPlayerVersion.
+examples:
+- path: examples/onPlayerConnect-1.lua
+  description: This example cancels connection attempts of people who use the nick
+    "Player" or outputs some data about the connecting player otherwise.
+  side: server
+- path: examples/onPlayerConnect-2.lua
+  description: This example cancels connection if player uses older MTA (older than
+    1.0.3)
+  side: server
 canceling: 'If this event is canceled, the player will be disconnected with an error
   message saying the reason specified in cancelEvent or "Disconnected: server refused
   the connection" if none was specified.'

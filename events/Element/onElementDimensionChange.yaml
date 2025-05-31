@@ -13,3 +13,7 @@ parameters:
 - name: newDimension
   type: int
   description: An int representing the dimension the element is in now.
+examples:
+- path: examples/onElementDimensionChange-1.lua
+  description: This example prints the old and the new dimension of a vehicle
+  side: server

@@ -10,5 +10,9 @@ parameters:
 - name: pickupHit
   type: pickup
   description: the pickup the player hit.
+examples:
+- path: examples/onPlayerPickupHit-1.lua
+  description: This example disables the use of armour pickups.
+  side: server
 canceling: If this event is canceled, the player will not be able to pick up this
   pickup.

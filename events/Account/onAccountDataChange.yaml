@@ -16,3 +16,11 @@ parameters:
 - name: theValue
   type: string
   description: the value it is changing to.
+examples:
+- path: examples/onAccountDataChange-1.lua
+  description: This examples prevents the key of "level" being added or changed on
+    every account.
+  side: server
+- path: examples/onAccountDataChange-2.lua
+  description: This examples logs every single account data change to server log.
+  side: server

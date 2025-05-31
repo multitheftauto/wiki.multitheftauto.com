@@ -17,3 +17,7 @@ parameters:
 - name: requestResource
   type: resource
   description: the resource that called downloadFile.
+examples:
+- path: examples/onClientFileDownloadComplete-1.lua
+  description: This example plays a sound if it was downloaded successfully
+  side: client

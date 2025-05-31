@@ -16,3 +16,9 @@ parameters:
   type: int
   description: the Y position of the mouse cursor, in pixels, measured from the top
     of the screen.
+examples:
+- path: examples/onClientMouseMove-1.lua
+  description: This example creates a text label at the bottom of the screen that
+    tells player the position of mouse when moved on top of a "TEST WINDOW" (the gui
+    element).
+  side: client

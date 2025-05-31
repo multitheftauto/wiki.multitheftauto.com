@@ -31,3 +31,7 @@ parameters:
 - name: screenPosY
   type: float
   description: the Y position on the screen the player clicked on.
+examples:
+- path: examples/onPlayerClick-1.lua
+  description: This example outputs the state of the button they just pressed.
+  side: server

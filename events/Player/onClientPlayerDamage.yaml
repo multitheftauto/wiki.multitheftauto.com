@@ -21,5 +21,9 @@ parameters:
 - name: loss
   type: float
   description: A float representing the percentage of health the player lost.
+examples:
+- path: examples/onClientPlayerDamage-1.lua
+  description: This example prevents any damage from the minigun.
+  side: client
 canceling: If this event is canceled, then any damaging effects to the local player
   will cease.

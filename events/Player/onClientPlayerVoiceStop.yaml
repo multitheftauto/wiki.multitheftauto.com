@@ -7,4 +7,8 @@ source_element:
     through voice chat.
 description: This event is triggered when a player stops talking through voice chat.
 parameters: []
+examples:
+- path: examples/onClientPlayerVoiceStop-1.lua
+  description: This example outputs to the console the player that stopped talking.
+  side: client
 canceling: This example outputs to the console the player that stopped talking.

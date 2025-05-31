@@ -3,11 +3,15 @@ name: onPlayerPickupLeave
 type: server
 source_element:
   type: element
-  description: This example creates a pickup and outputs a message to the chat box
-    when a player leaves it.
+  description: The source of this event is the player that left the pickup.
 description: This event is triggered when a [player](/wiki/Player "Player") leaves
   a [pickup](/wiki/Pickup "Pickup").
 parameters:
 - name: pickupLeft
   type: pickup
   description: the pickup the player left.
+examples:
+- path: examples/onPlayerPickupLeave-1.lua
+  description: This example creates a pickup and outputs a message to the chat box
+    when a player leaves it.
+  side: server

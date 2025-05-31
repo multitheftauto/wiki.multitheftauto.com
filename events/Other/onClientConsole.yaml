@@ -11,3 +11,7 @@ parameters:
 - name: text
   type: string
   description: the text line that was entered.
+examples:
+- path: examples/onClientConsole-1.lua
+  description: This example outputs any text you input into the console.
+  side: client

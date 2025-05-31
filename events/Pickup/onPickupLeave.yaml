@@ -10,3 +10,8 @@ parameters:
 - name: thePlayer
   type: player
   description: a player element referring to the player who left the pickup.
+examples:
+- path: examples/onPickupLeave-1.lua
+  description: This example creates a pickup and outputs a message to the chat box
+    when a player leaves it.
+  side: server

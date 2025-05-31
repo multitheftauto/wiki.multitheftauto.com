@@ -11,5 +11,10 @@ parameters:
 - name: playerWhoUsed
   type: player
   description: a player element referring to the player who used the pickup.
+examples:
+- path: examples/onPickupUse-1.lua
+  description: This example outputs a message to the chatbox when a player uses a
+    pickup.
+  side: server
 canceling: If this event is canceled, the player will not be given the item they picked
   up.

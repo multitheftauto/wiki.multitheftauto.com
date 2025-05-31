@@ -39,4 +39,15 @@ parameters:
 - name: startZ
   type: float
   description: MISSING_PARAM_DESC
+examples:
+- path: examples/onClientPlayerWeaponFire-1.lua
+  description: This example implements custom gunshot sounds.
+  side: client
+- path: examples/onClientPlayerWeaponFire-2.lua
+  description: This example sends a warning to the local player if they shoot another
+    player with a minigun.
+  side: client
+- path: examples/onClientPlayerWeaponFire-3.lua
+  description: This example makes the Shotgun fire explosive rounds.
+  side: client
 incomplete: true

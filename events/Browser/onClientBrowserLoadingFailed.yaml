@@ -15,3 +15,7 @@ parameters:
 - name: errorDescription
   type: string
   description: a short description.
+examples:
+- path: examples/onClientBrowserLoadingFailed-1.lua
+  description: ''
+  side: client

@@ -12,3 +12,8 @@ parameters:
   type: int
   description: An integer representing whether the scroll was scrolled up or down.
     This can be either 1 (mouse was scrolled up) or -1 (mouse was scrolled down).
+examples:
+- path: examples/onClientMouseWheel-1.lua
+  description: The example tells player in which direction wheel was scrolled (UP
+    or DOWN) and also the type of the GUI element that wheel was scrolled on.
+  side: client

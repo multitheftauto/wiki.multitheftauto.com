@@ -7,3 +7,7 @@ source_element:
 description: This event is triggered when an [object](/wiki/Object "Object") starts
   moving.
 parameters: []
+examples:
+- path: examples/onClientObjectMoveStart-1.lua
+  description: ''
+  side: client

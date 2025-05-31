@@ -28,4 +28,8 @@ parameters:
 - name: hitElement
   type: element
   description: an element which was hit by a shot.
+examples:
+- path: examples/onClientPedWeaponFire-1.lua
+  description: ''
+  side: client
 incomplete: true

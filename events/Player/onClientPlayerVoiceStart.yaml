@@ -7,4 +7,8 @@ source_element:
     through voice chat.
 description: This event is triggered when a player starts talking through voice chat.
 parameters: []
+examples:
+- path: examples/onClientPlayerVoiceStart-1.lua
+  description: This example outputs to the console the player that started talking.
+  side: client
 canceling: This example outputs to the console the player that started talking.

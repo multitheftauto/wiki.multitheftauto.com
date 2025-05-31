@@ -14,3 +14,8 @@ parameters:
   type: bool
   description: a boolean representing whether the element is in the same dimension
     as the marker.
+examples:
+- path: examples/onMarkerHit-1.lua
+  description: This example will output a message what type of element has entered
+    a marker.
+  side: server

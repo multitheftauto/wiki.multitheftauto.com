@@ -18,3 +18,7 @@ parameters:
   type: bool
   description: a boolean representing whether the entire page (main frame) was loaded
     or an <iframe> inside the page was loaded.
+examples:
+- path: examples/onClientBrowserNavigate-1.lua
+  description: ''
+  side: client

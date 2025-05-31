@@ -9,4 +9,8 @@ parameters:
 - name: attacker
   type: element
   description: the vehicle/ped/player who is breaking the object
+examples:
+- path: examples/onClientObjectBreak-1.lua
+  description: This example prevents objects from beeing broken in interiors.
+  side: client
 canceling: If this event is canceled, the object will not break.

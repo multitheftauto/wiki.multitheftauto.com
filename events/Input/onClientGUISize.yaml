@@ -6,3 +6,8 @@ source_element:
   description: The source of this event is the GUI element that was resized.
 description: This event is triggered when the local client resizes a GUI element.
 parameters: []
+examples:
+- path: examples/onClientGUISize-1.lua
+  description: This example will output the type of GUI element that the client has
+    resized, to the chatbox.
+  side: client

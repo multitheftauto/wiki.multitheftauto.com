@@ -34,3 +34,11 @@ parameters:
     paddedMd5: md5 of the item bytes padded to 2048 byte boundary.
 
     paddedSha256: sha256 of the item bytes padded to 2048 byte boundary.'
+examples:
+- path: examples/onPlayerModInfo-1.lua
+  description: This example prints all modification information into the chatbox.
+  side: server
+- path: examples/onPlayerModInfo-2.lua
+  description: This example checks modified files against a list and prints a warning
+    in the chatbox.
+  side: server

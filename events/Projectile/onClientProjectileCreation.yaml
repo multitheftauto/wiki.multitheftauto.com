@@ -10,5 +10,19 @@ parameters:
 - name: creator
   type: element
   description: the element that created the projectile.
+examples:
+- path: examples/onClientProjectileCreation-1.lua
+  description: This will output a chatbox message when someone creates a projectile.
+  side: client
+- path: examples/onClientProjectileCreation-2.lua
+  description: This will punish a player for throwing a teargas grenade. When he throws
+    it he keeps getting warped to the location where the teargas got created, and
+    also the teargas keeps getting warped to it. This will result in  +/-60hp loss
+    for the creator.
+  side: client
+- path: examples/onClientProjectileCreation-3.lua
+  description: This will disable people from creating flares. ( Dropped by Hydras
+    )
+  side: client
 canceling: This event cannot be cancelled. To remove the projectile you can use setElementPosition
   (somewhere far away) and then destroyElement (which makes it explode).

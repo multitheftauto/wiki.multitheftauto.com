@@ -10,3 +10,7 @@ parameters:
 - name: stoppedResource
   type: resource
   description: the resource that is about to get stopped.
+examples:
+- path: examples/onClientResourceStop-1.lua
+  description: This example outputs name of resource that was stopped.
+  side: client

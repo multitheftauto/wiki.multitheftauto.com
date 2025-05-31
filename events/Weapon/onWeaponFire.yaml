@@ -7,4 +7,8 @@ source_element:
     server is the creator it returns nil.
 description: This event is triggered when a custom weapon gets fired.
 parameters: []
+examples:
+- path: examples/onWeaponFire-1.lua
+  description: ''
+  side: server
 canceling: If this event is canceled, the bullet(s) won't be synced with other players.

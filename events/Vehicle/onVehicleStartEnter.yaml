@@ -20,4 +20,9 @@ parameters:
   type: int
   description: an int of which door is being used (0-3). 0 is driver side door, 1
     is front passenger, 2 is back left, 3 is back right.
+examples:
+- path: examples/onVehicleStartEnter-1.lua
+  description: This example blocks a player out of a police vehicle if he is not a
+    policeman.
+  side: server
 canceling: If this event is canceled, the ped will not enter the vehicle.

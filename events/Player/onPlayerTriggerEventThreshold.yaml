@@ -9,4 +9,8 @@ description: During each interval (*player\_triggered\_event\_interval*), all us
   for each player. This includes registered events, non\-registered events and non\-remote
   events.
 parameters: []
+examples:
+- path: examples/onPlayerTriggerEventThreshold-1.lua
+  description: ''
+  side: server
 canceling: Canceling this event has no effect.

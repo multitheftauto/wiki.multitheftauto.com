@@ -13,3 +13,7 @@ parameters:
 - name: newInterior
   type: int
   description: an int representing the interior the element is in now.
+examples:
+- path: examples/onElementInteriorChange-1.lua
+  description: ''
+  side: server

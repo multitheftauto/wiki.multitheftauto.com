@@ -9,3 +9,11 @@ parameters:
 - name: theElement
   type: element
   description: the tab which was selected.
+examples:
+- path: examples/onClientGUITabSwitched-1.lua
+  description: First we'll create the window. Then add a tabpanel and couple tabs
+    with some labels in them. Qoute:GuiCreateWindow#Example
+  side: client
+- path: examples/onClientGUITabSwitched-2.lua
+  description: Now let's add the event handler.
+  side: client

@@ -16,6 +16,14 @@ parameters:
   type: bool
   description: a boolean representing whether the name was changed using setPlayerName
     or by the user.
+examples:
+- path: examples/onPlayerChangeNick-1.lua
+  description: ''
+  side: server
+- path: examples/onPlayerChangeNick-2.lua
+  description: This function checks if the nickname of a player was changed by a script,
+    if so, a message is shown in the server logs.
+  side: server
 canceling: Cancelling this event depends on how it is called, if it is called by the
   scripting event then it is NOT cancelable. If it is called from the /nick command
   it IS cancelable. If this event is cancelled and can be cancelled then the name

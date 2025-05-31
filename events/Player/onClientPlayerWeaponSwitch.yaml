@@ -17,4 +17,8 @@ parameters:
   type: int
   description: An integer representing the new weapon slot the player has after he
     switched.
+examples:
+- path: examples/onClientPlayerWeaponSwitch-1.lua
+  description: This example disables the use of aiming for the minigun.
+  side: client
 canceling: If this event is canceled, then the weapon will not be switched.

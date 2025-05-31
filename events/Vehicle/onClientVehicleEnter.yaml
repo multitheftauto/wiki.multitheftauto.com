@@ -14,3 +14,12 @@ parameters:
   type: int
   description: the number of the seat that the ped is now sitting on. 0 = driver,
     higher numbers are passenger seats.
+examples:
+- path: examples/onClientVehicleEnter-1.lua
+  description: This code updates a GUI label with the name of the vehicle the local
+    player is in.
+  side: client
+- path: examples/onClientVehicleEnter-2.lua
+  description: This example disables helikills & blade collisions upon entering a
+    heli
+  side: client

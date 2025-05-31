@@ -20,4 +20,9 @@ parameters:
 - name: theType
   type: int
   description: 'the type of explosion created, see: Explosion types'
+examples:
+- path: examples/onClientExplosion-1.lua
+  description: This example outputs the type of element that created the explosion
+    into the chatbox.
+  side: client
 canceling: If this event is canceled, the explosion will not occur.

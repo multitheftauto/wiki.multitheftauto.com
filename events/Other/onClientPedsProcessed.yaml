@@ -7,3 +7,11 @@ source_element:
 description: This event is triggered after GTA updates bone transformations for all
   peds. This event can be used for updating bones.
 parameters: []
+examples:
+- path: examples/onClientPedsProcessed-1.lua
+  description: ''
+  side: client
+- path: examples/onClientPedsProcessed-2.lua
+  description: This example makes the localPlayer handcuffed. The player can still
+    run/walk/jump/crouch/shoot, usetoggleControlto disable them.
+  side: client

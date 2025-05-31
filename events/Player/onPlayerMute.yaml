@@ -7,4 +7,8 @@ source_element:
 description: This event is triggered when a player has been muted by [setPlayerMuted](/wiki/SetPlayerMuted
   "SetPlayerMuted").
 parameters: []
+examples:
+- path: examples/onPlayerMute-1.lua
+  description: ''
+  side: server
 canceling: If this event is canceled, the player will not be muted.

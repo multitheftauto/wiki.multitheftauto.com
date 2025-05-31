@@ -13,3 +13,8 @@ parameters:
 - name: downloadTotalBytes
   type: float
   description: The total size of the download in bytes.
+examples:
+- path: examples/onClientTransferBoxProgressChange-1.lua
+  description: 'This example will show the percentage of the download progress, whenever
+    a resource is started:'
+  side: client

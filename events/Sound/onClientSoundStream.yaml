@@ -24,3 +24,9 @@ parameters:
   type: string
   description: A string containing the error message or an empty string if there was
     no error
+examples:
+- path: examples/onClientSoundStream-1.lua
+  description: This example outputs to the chatbox (if it was a success) "thesoundname
+    has finished in ... seconds.", if it was not a success then it would output "thesoundname
+    failed to start".
+  side: client

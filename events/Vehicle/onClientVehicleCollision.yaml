@@ -43,4 +43,11 @@ parameters:
   type: int
   description: model of the hit element (useful to detect building collisions as hitElement
     will be nil)
+examples:
+- path: examples/onClientVehicleCollision-1.lua
+  description: ''
+  side: client
+- path: examples/onClientVehicleCollision-2.lua
+  description: ''
+  side: client
 incomplete: true

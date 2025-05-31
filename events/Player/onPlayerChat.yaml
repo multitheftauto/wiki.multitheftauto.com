@@ -12,6 +12,17 @@ parameters:
 - name: messageType
   type: int
   description: 'an int value representing the message type:'
+examples:
+- path: examples/onPlayerChat-1.lua
+  description: This example limits receiving of chat messages to area around the player
+    who sent the message, also blocking action and team text.
+  side: server
+- path: examples/onPlayerChat-2.lua
+  description: This example implements colored player names in chat.
+  side: server
+- path: examples/onPlayerChat-3.lua
+  description: This is a script that kills any player that says 'kill'.
+  side: server
 canceling: If this event is canceled, the game's chat system won't deliver the posts.
   You may use outputChatBox to send the messages then. Cancelling this event also
   means the chat will not appear in the server console or logs. If you want chat logging,

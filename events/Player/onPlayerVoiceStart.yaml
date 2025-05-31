@@ -7,5 +7,9 @@ source_element:
     through voice chat.
 description: This event is triggered when a player starts talking through voice chat.
 parameters: []
+examples:
+- path: examples/onPlayerVoiceStart-1.lua
+  description: This example shows how to forbid use voice for not logged in players
+  side: server
 canceling: If this event is canceled the player will not broadcast his voice chat
   to anyone in the server.

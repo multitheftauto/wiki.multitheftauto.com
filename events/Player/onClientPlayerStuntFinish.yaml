@@ -22,3 +22,9 @@ parameters:
 - name: stuntDistance
   type: float
   description: the distance traveled while doing the stunt.
+examples:
+- path: examples/onClientPlayerStuntFinish-1.lua
+  description: This is a simple stunt script which tells player what stunt he/she
+    started and finished, time the stunt taken to perform and distance travelled while
+    stunting.
+  side: client

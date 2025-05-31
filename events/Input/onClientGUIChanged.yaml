@@ -11,3 +11,10 @@ parameters:
 - name: theElement
   type: element
   description: The GUI element which was changed.
+examples:
+- path: examples/onClientGUIChanged-1.lua
+  description: This example creates an editbox and prints a message when it has changed
+  side: client
+- path: examples/onClientGUIChanged-2.lua
+  description: Or
+  side: client

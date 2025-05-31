@@ -16,3 +16,13 @@ parameters:
 - name: jacked
   type: player
   description: a player or ped element representing who has been jacked.
+examples:
+- path: examples/onVehicleEnter-1.lua
+  description: Example 1:This example forces a player out of a police vehicle if he
+    is not a policeman.
+  side: server
+- path: examples/onVehicleEnter-2.lua
+  description: Example 2:This example adds a 'moto' helmet to a player when he gets
+    on a nrg bike, and removes it when he gets off (only works with players using
+    CJ skin).
+  side: server

@@ -10,3 +10,8 @@ parameters:
 - name: isVisible
   type: boolean
   description: A boolean, indicating the new visibility status of the transfer box.
+examples:
+- path: examples/onClientTransferBoxVisibilityChange-1.lua
+  description: 'This example prints the new visibility status of the transfer box
+    when it changes (printingtrueorfalse):'
+  side: client

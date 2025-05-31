@@ -9,3 +9,8 @@ description: This event is triggered whenever a physical element is streamed in.
   objects and markers. When this event is triggered, that element is guaranteed to
   be physically created as a GTA object.
 parameters: []
+examples:
+- path: examples/onClientElementStreamIn-1.lua
+  description: This example shows you how to tell player that another player was streamed
+    in and the distance between them and said player
+  side: client

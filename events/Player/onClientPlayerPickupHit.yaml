@@ -12,3 +12,7 @@ parameters:
 - name: matchingDimension
   type: bool
   description: true if thePickup is in the same dimension as the player, false otherwise.
+examples:
+- path: examples/onClientPlayerPickupHit-1.lua
+  description: This example outputs a message whenever the local player hits a pickup.
+  side: client

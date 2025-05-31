@@ -10,3 +10,8 @@ description: This event is triggered when a player tries to change protected ele
   "Server mtaserver.conf") from **mtaserver.conf** and the **clientChangesPolicy**
   parameter in [setElementData](/wiki/SetElementData "SetElementData").
 parameters: []
+examples:
+- path: examples/onPlayerChangesProtectedData-1.lua
+  description: The below example will ban all players who are trying to change protected
+    element data.
+  side: server

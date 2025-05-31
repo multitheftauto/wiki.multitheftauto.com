@@ -14,3 +14,8 @@ parameters:
   type: bool
   description: a boolean representing whether the element is in the same dimension
     as the marker.
+examples:
+- path: examples/onMarkerLeave-1.lua
+  description: This example shows a message in the chat box when element (in this
+    case a player) leaves a marker.
+  side: server

@@ -11,4 +11,9 @@ parameters:
 - name: theBan
   type: ban
   description: the ban which was added.
+examples:
+- path: examples/onBan-1.lua
+  description: This example outputs a simple message to all players when a player
+    added a ban.
+  side: server
 canceling: This event cannot be canceled.

@@ -19,3 +19,8 @@ parameters:
   type: var
   description: the new value of this entry after it changed. This will be equivalent
     to getElementData(source, theKey).
+examples:
+- path: examples/onClientElementDataChange-1.lua
+  description: This example tells the client whenever a player's "score" element data
+    is changed.
+  side: client

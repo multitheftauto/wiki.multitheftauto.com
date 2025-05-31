@@ -10,3 +10,7 @@ parameters:
 - name: towedBy
   type: vehicle
   description: the vehicle that is now towing the trailer.
+examples:
+- path: examples/onClientTrailerAttach-1.lua
+  description: This example shows on chat name of vehicle, what attach a trailer.
+  side: client

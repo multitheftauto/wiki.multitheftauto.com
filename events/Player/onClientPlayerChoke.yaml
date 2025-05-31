@@ -11,4 +11,8 @@ parameters:
 - name: weaponID
   type: int
   description: an int representing the ID of the weapon which caused the choking.
+examples:
+- path: examples/onClientPlayerChoke-1.lua
+  description: This example disables choking effects from the tear gas grenades.
+  side: client
 canceling: If this event is canceled, the player will not be choked.

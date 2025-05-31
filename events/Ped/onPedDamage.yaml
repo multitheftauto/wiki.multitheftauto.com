@@ -10,3 +10,8 @@ parameters:
 - name: loss
   type: float
   description: an int representing the percentage of health the ped lost.
+examples:
+- path: examples/onPedDamage-1.lua
+  description: This example outputs a message to the console when a specific ped is
+    damaged.
+  side: server

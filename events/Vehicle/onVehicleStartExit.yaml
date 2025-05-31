@@ -19,4 +19,8 @@ parameters:
 - name: door
   type: int
   description: an int representing the door that the ped is using to leave.
+examples:
+- path: examples/onVehicleStartExit-1.lua
+  description: This example locks a player inside a police vehicle if he is a policeman.
+  side: server
 canceling: If this event is canceled, the ped will not exit the vehicle.

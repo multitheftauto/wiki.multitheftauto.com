@@ -12,3 +12,10 @@ parameters:
 - name: player
   type: player
   description: The player who sent the explosion packet.
+examples:
+- path: examples/onVehicleExplode-1.lua
+  description: Example 1
+  side: server
+- path: examples/onVehicleExplode-2.lua
+  description: 'Example 2:This will show the name of any vehicle that blew up:'
+  side: server

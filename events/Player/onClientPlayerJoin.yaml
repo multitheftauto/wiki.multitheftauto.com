@@ -11,3 +11,7 @@ description: This event is triggered when a [player](/wiki/Player "Player") join
   for the two players' scripts may not receive onClientPlayerJoin events as their
   scripts wouldn't have started yet.
 parameters: []
+examples:
+- path: examples/onClientPlayerJoin-1.lua
+  description: ''
+  side: client

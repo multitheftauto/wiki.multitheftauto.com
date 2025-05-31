@@ -22,5 +22,10 @@ parameters:
 - name: messageType
   type: int
   description: The type of message as a number.
+examples:
+- path: examples/onClientChatMessage-1.lua
+  description: This example doesn't output anything to chatbox if it consists only
+    of numbers
+  side: client
 canceling: If this event is canceled, the game's chat system won't deliver the posts.
   You may use outputChatBox to send the messages then.

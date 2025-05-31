@@ -13,3 +13,7 @@ parameters:
 - name: currentElement
   type: element
   description: the new element that the player is standing on now. nil if none.
+examples:
+- path: examples/onPlayerContact-1.lua
+  description: This example outputs the element type of an element you have hit
+  side: server

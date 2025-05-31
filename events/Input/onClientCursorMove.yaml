@@ -33,4 +33,9 @@ parameters:
 - name: worldZ
   type: float
   description: MISSING_PARAM_DESC
+examples:
+- path: examples/onClientCursorMove-1.lua
+  description: This example creates a text label at the bottom of the screen which
+    displays the mouse position in pixels.
+  side: client
 incomplete: true

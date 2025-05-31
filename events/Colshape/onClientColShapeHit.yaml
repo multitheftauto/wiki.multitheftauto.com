@@ -14,3 +14,12 @@ parameters:
   type: bool
   description: a boolean referring to whether the hit collision shape was in the same
     dimension as the element.
+examples:
+- path: examples/onClientColShapeHit-1.lua
+  description: This example outputs "In." to the chatbox whenever the local user enters
+    a collision shape.
+  side: client
+- path: examples/onClientColShapeHit-2.lua
+  description: This example outputs to the chatbox if the local user is in the same
+    dimension as the collision shape or not.
+  side: client

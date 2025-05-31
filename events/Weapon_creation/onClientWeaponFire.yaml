@@ -37,3 +37,7 @@ parameters:
 - name: pieceHit
   type: int
   description: the piece of the entity it hit ( see processLineOfSight )
+examples:
+- path: examples/onClientWeaponFire-1.lua
+  description: This example prevents player damage from custom weapons.
+  side: client

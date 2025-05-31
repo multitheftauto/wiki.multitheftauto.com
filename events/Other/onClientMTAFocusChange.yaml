@@ -9,3 +9,7 @@ parameters:
 - name: windowFocused
   type: bool
   description: A boolean, indicating whether the MTA window is focused or not.
+examples:
+- path: examples/onClientMTAFocusChange-1.lua
+  description: 'This example prints message on chat with focus state:'
+  side: client

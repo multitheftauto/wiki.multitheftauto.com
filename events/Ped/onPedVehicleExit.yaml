@@ -21,3 +21,7 @@ parameters:
   type: bool
   description: A boolean representing whether the exit was forced using removePedFromVehicle
     or by the ped.
+examples:
+- path: examples/onPedVehicleExit-1.lua
+  description: 'Destroy thevehiclewhenpedhas been jacked and kick the jacker if exists:'
+  side: server

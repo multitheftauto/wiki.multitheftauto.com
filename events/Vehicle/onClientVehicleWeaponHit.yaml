@@ -27,3 +27,7 @@ parameters:
 - name: materialID
   type: int
   description: The material ID of the element that was hit.
+examples:
+- path: examples/onClientVehicleWeaponHit-1.lua
+  description: ''
+  side: client

@@ -23,3 +23,8 @@ parameters:
   type: int
   description: the Y position of the mouse cursor, in pixels, measured from the top
     of the screen.
+examples:
+- path: examples/onClientGUIDoubleClick-1.lua
+  description: This example displays in chatbox name of double-clicked player in a
+    gridlist.
+  side: client

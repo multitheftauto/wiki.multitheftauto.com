@@ -15,3 +15,8 @@ parameters:
 - name: isRemote
   type: bool
   description: An bool representing whether called event is remote.
+examples:
+- path: examples/onPlayerTriggerInvalidEvent-1.lua
+  description: This example allows you to kick/ban player which triggered invalid
+    event.
+  side: server

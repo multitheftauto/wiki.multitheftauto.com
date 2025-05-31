@@ -13,4 +13,9 @@ parameters:
 - name: responsibleElement
   type: player
   description: the player who added the ban.
+examples:
+- path: examples/onPlayerBan-1.lua
+  description: This example outputs the responsible element and the banned player's
+    name when a ban takes place.
+  side: server
 canceling: This event cannot be canceled.

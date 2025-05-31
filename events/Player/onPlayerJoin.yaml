@@ -7,3 +7,15 @@ source_element:
 description: This event is triggered when a player joins the server. This event is
   not cancellable.
 parameters: []
+examples:
+- path: examples/onPlayerJoin-1.lua
+  description: This example gets the joined client's name and sends him a welcome
+    message including his name.
+  side: server
+- path: examples/onPlayerJoin-2.lua
+  description: This example sets random color to every player who joins.
+  side: server
+- path: examples/onPlayerJoin-3.lua
+  description: This example redirects any player joins to the server automatically
+    to any other server, add the script for admin group.
+  side: server

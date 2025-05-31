@@ -15,3 +15,8 @@ parameters:
   type: bool
   description: a boolean referring to whether the hit collision shape was in the same
     dimension as the element.
+examples:
+- path: examples/onColShapeHit-1.lua
+  description: This example creates a hill area for aKing of the hillgamemode.  When
+    a player enters or leaves the area, it's announced in the chatbox.
+  side: server

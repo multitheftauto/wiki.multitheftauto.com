@@ -8,4 +8,9 @@ description: This event is triggered every time satchels are detonated \- either
   a [player](/wiki/Player "Player") or through [detonateSatchels](/wiki/DetonateSatchels
   "DetonateSatchels").
 parameters: []
+examples:
+- path: examples/onPlayerDetonateSatchels-1.lua
+  description: The below example will notify everyone on the server when someones
+    Satchel(s) get detonated
+  side: server
 canceling: If this event is canceled, the satchels will not detonate.

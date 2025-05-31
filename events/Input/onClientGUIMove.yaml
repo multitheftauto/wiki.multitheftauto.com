@@ -6,3 +6,7 @@ source_element:
   description: The source of this event is the GUI element which was moved.
 description: This event is triggered each time the user moves a GUI element.
 parameters: []
+examples:
+- path: examples/onClientGUIMove-1.lua
+  description: This example would output to the chatbox what the player moved.
+  side: client

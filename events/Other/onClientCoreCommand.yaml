@@ -10,3 +10,7 @@ parameters:
 - name: command
   type: string
   description: The command that was executed.
+examples:
+- path: examples/onClientCoreCommand-1.lua
+  description: This example outputs the name of the command used.
+  side: client

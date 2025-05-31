@@ -15,4 +15,9 @@ parameters:
   type: team
   description: An team representing the new team of the player. If there is no new
     team, this is nil.
+examples:
+- path: examples/onPlayerTeamChange-1.lua
+  description: This example prints the name of the new team of a player whenever the
+    player's team changes.
+  side: server
 canceling: If this event is canceled, then the player's team change will be prevented.

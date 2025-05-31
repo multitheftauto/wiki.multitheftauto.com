@@ -34,3 +34,10 @@ parameters:
 - name: tag
   type: string
   description: a string passed to takePlayerScreenShot.
+examples:
+- path: examples/onPlayerScreenShot-1.lua
+  description: ''
+  side: server
+- path: examples/onPlayerScreenShot-2.lua
+  description: ''
+  side: client

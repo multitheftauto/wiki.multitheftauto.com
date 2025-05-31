@@ -9,4 +9,8 @@ parameters:
 - name: pedHit
   type: ped
   description: the ped which got shot by the water cannon
+examples:
+- path: examples/onClientPedHitByWaterCannon-1.lua
+  description: This example says who got hit by a water cannon.
+  side: client
 canceling: If this event is canceled, the ped will not be knocked down

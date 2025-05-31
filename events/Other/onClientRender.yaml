@@ -8,3 +8,9 @@ description: This event is triggered every time GTA renders a new frame. It is r
   for the DirectX drawing functions, and also useful for other clientside operations
   that have to be applied repeatedly with very short time differences between them.
 parameters: []
+examples:
+- path: examples/onClientRender-1.lua
+  description: This example makes the camera follow the player in a GTA2-like way.
+    This will be a little bit laggy. If you want the camera to follow something (eg.
+    player or vehicle) then useonClientPreRenderinstead.
+  side: client

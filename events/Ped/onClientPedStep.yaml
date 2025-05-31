@@ -10,3 +10,7 @@ parameters:
 - name: leftFoot
   type: bool
   description: a bool representing if it was the left foot that moved.
+examples:
+- path: examples/onClientPedStep-1.lua
+  description: ''
+  side: client

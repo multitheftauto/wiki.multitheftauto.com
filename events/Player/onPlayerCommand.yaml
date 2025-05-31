@@ -9,3 +9,14 @@ parameters:
 - name: command
   type: string
   description: a string containing the name of the command executed.
+examples:
+- path: examples/onPlayerCommand-1.lua
+  description: This example implements an anti-flood protection timer for commands.Be
+    sure to give the resource a function.kickPlayer right.Also, note, that if the
+    server freezes for a frame and a player executes a command 2x he/she'll get kicked,
+    because those 2 commands will be processed after each other, with very little
+    delay
+  side: server
+- path: examples/onPlayerCommand-2.lua
+  description: Time limit specific commands.
+  side: server

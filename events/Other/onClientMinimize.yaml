@@ -6,3 +6,7 @@ source_element:
   description: The source of this event is root element.
 description: This event is triggered when the local player minimizes the game screen.
 parameters: []
+examples:
+- path: examples/onClientMinimize-1.lua
+  description: This example kills any player who minimizes the game.
+  side: client

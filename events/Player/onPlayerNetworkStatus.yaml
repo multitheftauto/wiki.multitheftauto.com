@@ -15,3 +15,7 @@ parameters:
 - name: ticks
   type: int
   description: an int representing the ticks since the interruption started.
+examples:
+- path: examples/onPlayerNetworkStatus-1.lua
+  description: This example shows a debug message when interruption starts and stops.
+  side: server

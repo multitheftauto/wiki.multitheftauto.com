@@ -16,3 +16,8 @@ parameters:
   type: bool
   description: a boolean referring to whether the collision shape was in the same
     dimension as the element.
+examples:
+- path: examples/onColShapeLeave-1.lua
+  description: 'This example kills the player whenever they leave a certain collision
+    shape:'
+  side: server

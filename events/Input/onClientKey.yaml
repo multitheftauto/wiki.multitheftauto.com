@@ -16,5 +16,13 @@ parameters:
   type: bool
   description: This refers to whether they were pressing or releasing the key, true
     when pressing, false when releasing.
+examples:
+- path: examples/onClientKey-1.lua
+  description: This example will say in chatbox every time the user presses down a
+    a key.
+  side: client
+- path: examples/onClientKey-2.lua
+  description: This example outputs if the client moves his mousewheel.
+  side: client
 canceling: If this event is canceled, then all GTA and MTA binds, bound to the canceled
   key, won't be triggered.

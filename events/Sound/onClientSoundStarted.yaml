@@ -9,3 +9,7 @@ parameters:
 - name: reason
   type: string
   description: the reason the sound was started, can be "play", "resumed" or "enabled".
+examples:
+- path: examples/onClientSoundStarted-1.lua
+  description: This example outputs the reason the sound started .
+  side: client

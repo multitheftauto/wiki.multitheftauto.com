@@ -9,3 +9,8 @@ parameters:
 - name: newSyncer
   type: player
   description: a player element representing the player who is now syncing the element.
+examples:
+- path: examples/onElementStartSync-1.lua
+  description: This example matches the model of the element to the player, when an
+    element receives a new syncer.
+  side: server

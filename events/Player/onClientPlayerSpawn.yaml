@@ -9,3 +9,7 @@ parameters:
 - name: hisTeam
   type: team
   description: A team element representing the team the player spawned on.
+examples:
+- path: examples/onClientPlayerSpawn-1.lua
+  description: This code will create an explosion for the local player when they spawn.
+  side: client

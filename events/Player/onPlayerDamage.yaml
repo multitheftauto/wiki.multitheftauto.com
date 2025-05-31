@@ -21,3 +21,8 @@ parameters:
 - name: loss
   type: float
   description: a float representing the percentage of health the player lost.
+examples:
+- path: examples/onPlayerDamage-1.lua
+  description: This example causes an instant kill when a player is shot in the head,
+    and announces it in the chatbox.
+  side: server

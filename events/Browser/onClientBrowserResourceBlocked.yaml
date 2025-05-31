@@ -22,3 +22,16 @@ parameters:
     1: blacklisted
 
     2: blocked protocol scheme'
+examples:
+- path: examples/onClientBrowserResourceBlocked-1.lua
+  description: This example asks the user to accept a blocked resource and reloads
+    the browser if accepted.
+  side: client
+- path: examples/onClientBrowserResourceBlocked-2.lua
+  description: 'This example sends whitelist requests on demand, which means whenever
+    a blocked domain is detected/queried by the user.
+
+    It''s also a good alternative to requesting CEF domains on server join, because
+    this is less intrusive and requests will only be sent as soon the player starts
+    interacting with a browser script.'
+  side: client

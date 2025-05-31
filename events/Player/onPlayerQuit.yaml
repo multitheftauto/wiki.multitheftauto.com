@@ -29,4 +29,9 @@ parameters:
   type: element
   description: The element that was responsible for kicking or banning the player.
     This is commonly another player, but can also be the console element.
+examples:
+- path: examples/onPlayerQuit-1.lua
+  description: This example gets a quitting player's name and outputs that they left
+    the server.
+  side: server
 canceling: This event cannot be canceled.

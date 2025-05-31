@@ -21,4 +21,12 @@ parameters:
 - name: z
   type: float
   description: a floating point number representing the Z coordinate on the map.
+examples:
+- path: examples/onClientWorldSound-1.lua
+  description: Example 1:This example will cancel every vehicle sound.
+  side: client
+- path: examples/onClientWorldSound-2.lua
+  description: Example 2:This example lets you see how many times each sound that
+    gets played has been played using '/seesoundlist'.
+  side: client
 canceling: If this event is canceled, the sound won't play at all.

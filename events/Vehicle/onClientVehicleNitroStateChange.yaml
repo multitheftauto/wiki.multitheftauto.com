@@ -9,3 +9,7 @@ parameters:
 - name: state
   type: bool
   description: current state of nitro
+examples:
+- path: examples/onClientVehicleNitroStateChange-1.lua
+  description: ''
+  side: client

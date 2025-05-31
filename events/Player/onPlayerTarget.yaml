@@ -12,3 +12,8 @@ parameters:
   type: element
   description: the element the player is targetting. false if no element is being
     targetted anymore.
+examples:
+- path: examples/onPlayerTarget-1.lua
+  description: This example destroys a haystack when a player targets it.It only works
+    with elements created by MTA.
+  side: server

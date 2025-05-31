@@ -12,3 +12,7 @@ parameters:
   description: A bool specifying whether all render targets have been cleared as part
     of the restore process. Generally, restoring in full screen mode will clear render
     targets.
+examples:
+- path: examples/onClientRestore-1.lua
+  description: This example shows how to cope with life's little upsets
+  side: client

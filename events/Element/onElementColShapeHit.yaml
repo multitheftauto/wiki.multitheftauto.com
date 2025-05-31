@@ -15,3 +15,8 @@ parameters:
   type: bool
   description: a boolean representing if the element and the colshape are in the same
     dimension.
+examples:
+- path: examples/onElementColShapeHit-1.lua
+  description: This example prints type of the element which entered the created colshape
+    to chatbox.
+  side: server

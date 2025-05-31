@@ -10,3 +10,8 @@ parameters:
   type: string
   description: string containing the tooltip text. Empty string if user is not longer
     hovering.
+examples:
+- path: examples/onClientBrowserTooltip-1.lua
+  description: 'If the user hovers the Google search input field ''Tooltip-Text: Search''
+    will be printed in the chatbox.'
+  side: client

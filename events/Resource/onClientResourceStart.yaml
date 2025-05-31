@@ -14,3 +14,7 @@ parameters:
 - name: startedResource
   type: resource
   description: the resource that was started.
+examples:
+- path: examples/onClientResourceStart-1.lua
+  description: This example outputs name of resource that was started.
+  side: client

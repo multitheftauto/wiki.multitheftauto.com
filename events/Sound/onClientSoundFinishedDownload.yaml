@@ -13,3 +13,8 @@ parameters:
 - name: length
   type: int
   description: The length of the stream in milliseconds
+examples:
+- path: examples/onClientSoundFinishedDownload-1.lua
+  description: This example would output to the chatbox after the sound is finish
+    that the sound has finished downloading in ... milliseconds.
+  side: client

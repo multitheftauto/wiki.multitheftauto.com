@@ -10,3 +10,7 @@ parameters:
 - name: theElement
   type: element
   description: the combobox that got accepted.
+examples:
+- path: examples/onClientGUIComboBoxAccepted-1.lua
+  description: This example will set the memo text to the selected combobox item text.
+  side: client

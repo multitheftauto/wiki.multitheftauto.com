@@ -14,3 +14,8 @@ parameters:
   type: int
   description: the number of the seat that the player was sitting on. 0 = driver,
     higher numbers are passenger seats.
+examples:
+- path: examples/onClientVehicleExit-1.lua
+  description: This code updates a GUI label with the name of the vehicle the local
+    player is in.
+  side: client

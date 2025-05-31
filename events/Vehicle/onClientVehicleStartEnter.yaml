@@ -18,5 +18,10 @@ parameters:
   type: int
   description: An integer of which door the ped used (0-3). 0 is driver side door,
     1 is front passenger, 2 is back left, 3 is back right.
+examples:
+- path: examples/onClientVehicleStartEnter-1.lua
+  description: This example outputs if the local player is about to enter the drivers
+    seat.
+  side: client
 canceling: This event can be canceled, but only for the local player or peds synced
   by the client. If cancelled, they will not begin to the enter the vehicle.

@@ -12,4 +12,12 @@ parameters:
 - name: theCurrentAccount
   type: account
   description: The account the player logged into just now.
+examples:
+- path: examples/onPlayerLogin-1.lua
+  description: 'This example just outputs to the player console that a player in one
+    account logged into an another account:'
+  side: server
+- path: examples/onPlayerLogin-2.lua
+  description: This example allows only hardcoded serials to access given accounts.
+  side: server
 canceling: If this event is canceled the player will not be logged in.

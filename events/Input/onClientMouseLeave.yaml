@@ -18,3 +18,8 @@ parameters:
 - name: enteredGUI
   type: element
   description: is the GUI element that was switched from, or nil if it doesn't exist.
+examples:
+- path: examples/onClientMouseLeave-1.lua
+  description: This example shows a message when you move the mouse away from a GUI
+    element.
+  side: client

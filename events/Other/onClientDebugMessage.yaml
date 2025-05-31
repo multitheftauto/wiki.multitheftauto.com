@@ -42,3 +42,11 @@ parameters:
 - name: b
   type: int
   description: Amount of blue color (0-255)
+examples:
+- path: examples/onClientDebugMessage-1.lua
+  description: This example outputs the debug message in the console.
+  side: client
+- path: examples/onClientDebugMessage-2.lua
+  description: This example tells players that they missed a debug message, if they
+    don't have debugscript enabled.
+  side: client

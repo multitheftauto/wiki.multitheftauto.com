@@ -14,3 +14,8 @@ parameters:
   type: bool
   description: true if the element is in the same dimension as the colshape, false
     otherwise.
+examples:
+- path: examples/onClientElementColShapeHit-1.lua
+  description: This example tells player when he/she entered any collision shapes
+    that were created.
+  side: client

@@ -16,3 +16,7 @@ parameters:
 - name: jacked
   type: ped
   description: A player or ped element representing who has been jacked.
+examples:
+- path: examples/onPedVehicleEnter-1.lua
+  description: 'Sending a message to everyplayerwhenpedhas entered to avehicle:'
+  side: server

@@ -33,4 +33,8 @@ parameters:
 - name: startZ
   type: float
   description: MISSING_PARAM_DESC
+examples:
+- path: examples/onPlayerWeaponFire-1.lua
+  description: This code creates explosions when the source players shoots.
+  side: server
 incomplete: true

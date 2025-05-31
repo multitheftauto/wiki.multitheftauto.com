@@ -6,3 +6,12 @@ source_element:
   description: The source of this event is the player that died or got killed.
 description: This event is triggered when a player is killed or dies.
 parameters: []
+examples:
+- path: examples/onPlayerWasted-1.lua
+  description: This example prints the killer and bodypart to the chat when a player
+    dies.
+  side: server
+- path: examples/onPlayerWasted-2.lua
+  description: And another example, this will spawn you in the middle of GTA SA world
+    (x=0, y=0, z=3) after 2 seconds of your death
+  side: server

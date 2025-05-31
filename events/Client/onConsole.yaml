@@ -11,3 +11,7 @@ parameters:
 - name: theMessage
   type: string
   description: a string representing the message entered into the console.
+examples:
+- path: examples/onConsole-1.lua
+  description: ''
+  side: server

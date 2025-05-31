@@ -10,3 +10,7 @@ parameters:
 - name: changedDomains
   type: table
   description: a table of changed domains.
+examples:
+- path: examples/onClientBrowserWhitelistChange-1.lua
+  description: ''
+  side: client

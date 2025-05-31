@@ -10,3 +10,7 @@ parameters:
 - name: cursorId
   type: int
   description: The new cursor ID. See Cursor IDs.
+examples:
+- path: examples/onClientBrowserCursorChange-1.lua
+  description: ''
+  side: client

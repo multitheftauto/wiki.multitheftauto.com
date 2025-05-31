@@ -10,5 +10,10 @@ parameters:
 - name: thePickupToUse
   type: pickup
   description: the pickup the player is standing on and is about to pick up.
+examples:
+- path: examples/onPlayerPickupUse-1.lua
+  description: This example outputs to the player that's using the pick that the pickup
+    is either available/unavailable.
+  side: server
 canceling: If this event is canceled, the player will not be able to pick up this
   pickup.

@@ -9,4 +9,19 @@ parameters:
 - name: targetPlayer
   type: element
   description: the player or ped that is being stealth killed.
+examples:
+- path: examples/onPlayerStealthKill-1.lua
+  description: ''
+  side: server
+- path: examples/onPlayerStealthKill-2.lua
+  description: ''
+  side: server
+- path: examples/onPlayerStealthKill-3.lua
+  description: 'This example will prevent the stealthkill animation of the attacker
+    as it occurs, something which is tricky to achieve (hence this example is extra
+    useful).
+
+    Note: you won''t get this to work properly without timer and ''fake'' animation.
+    Lots of scripters have broken their backs over this.'
+  side: server
 canceling: If this event is canceled, then the stealth kill is aborted.

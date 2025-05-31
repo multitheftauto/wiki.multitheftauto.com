@@ -7,4 +7,8 @@ source_element:
 description: This event is triggered when a player has been unmuted by [setPlayerMuted](/wiki/SetPlayerMuted
   "SetPlayerMuted").
 parameters: []
+examples:
+- path: examples/onPlayerUnmute-1.lua
+  description: This example outputs to chatbox the player name who's unmuted.
+  side: server
 canceling: If this event is canceled, the player will not be unmuted.

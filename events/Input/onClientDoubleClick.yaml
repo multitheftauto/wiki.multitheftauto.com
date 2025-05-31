@@ -37,3 +37,7 @@ parameters:
   type: element
   description: This represents any physical entity elements that were clicked. If
     the player clicked on no MTA element, it's set to false.
+examples:
+- path: examples/onClientDoubleClick-1.lua
+  description: ''
+  side: client

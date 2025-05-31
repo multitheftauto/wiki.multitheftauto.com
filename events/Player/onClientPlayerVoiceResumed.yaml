@@ -10,3 +10,7 @@ parameters:
 - name: reason
   type: string
   description: the reason for the pause, this can be only "resumed".
+examples:
+- path: examples/onClientPlayerVoiceResumed-1.lua
+  description: This example outputs nick of whoever's voice is resumed.
+  side: client

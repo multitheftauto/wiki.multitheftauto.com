@@ -13,4 +13,8 @@ parameters:
 - name: enabled
   type: bool
   description: The property's state
+examples:
+- path: examples/onPlayerChangesWorldSpecialProperty-1.lua
+  description: The example below bans the player if a cheat is activated
+  side: server
 canceling: This event cannot be cancelled.

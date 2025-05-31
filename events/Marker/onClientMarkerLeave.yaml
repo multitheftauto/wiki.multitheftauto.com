@@ -13,3 +13,8 @@ parameters:
 - name: matchingDimension
   type: bool
   description: true if the player is in the same dimension as the marker.
+examples:
+- path: examples/onClientMarkerLeave-1.lua
+  description: This example shows a message in the chatbox whenever a player leaves
+    any marker.
+  side: client

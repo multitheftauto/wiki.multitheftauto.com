@@ -17,3 +17,7 @@ parameters:
 - name: leftGUI
   type: element
   description: the gui element that was switched from, or nil if it doesn't exist.
+examples:
+- path: examples/onClientMouseEnter-1.lua
+  description: This example shows a message when you move over a GUI element.
+  side: client

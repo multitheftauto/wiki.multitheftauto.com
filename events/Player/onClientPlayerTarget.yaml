@@ -9,3 +9,7 @@ parameters:
 - name: target
   type: element
   description: The element the player targetted.
+examples:
+- path: examples/onClientPlayerTarget-1.lua
+  description: This example outputs the type of the target the client is aiming at
+  side: client

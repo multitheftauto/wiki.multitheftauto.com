@@ -10,4 +10,8 @@ parameters:
 - name: startingResource
   type: resource
   description: the resource that is starting.
+examples:
+- path: examples/onResourcePreStart-1.lua
+  description: This code will output the name of any resource that is starting.
+  side: server
 canceling: If this event is cancelled, the resource won't begin starting.

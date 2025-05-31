@@ -10,3 +10,8 @@ parameters:
 - name: oldSyncer
   type: player
   description: a player element representing the last player who was syncing the element.
+examples:
+- path: examples/onElementStopSync-1.lua
+  description: This script creates a vehicle in the center of the map and outputs
+    a message to its old syncer if he is not syncing the vehicle anymore.
+  side: server

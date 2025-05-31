@@ -14,3 +14,7 @@ parameters:
   type: int
   description: The seat that the ped now is on. Driver's seat = 0, higher numbers
     are passenger seats.
+examples:
+- path: examples/onClientPedVehicleEnter-1.lua
+  description: 'This example outputs a text when a ped enters a bike as a driver:'
+  side: client

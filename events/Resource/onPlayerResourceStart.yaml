@@ -10,3 +10,9 @@ parameters:
 - name: loadedResource
   type: resource
   description: The resource that was loaded on the client.
+examples:
+- path: examples/onPlayerResourceStart-1.lua
+  description: 'This example shows how you can trigger a custom event client-side
+    defined in the same resource as soon as the player is ready (resource loaded on
+    client):'
+  side: server

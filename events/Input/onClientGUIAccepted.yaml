@@ -9,3 +9,8 @@ parameters:
 - name: editBox
   type: element
   description: the editbox which had focus.
+examples:
+- path: examples/onClientGUIAccepted-1.lua
+  description: This example creates an editbox and prints a message when enter is
+    pressed.
+  side: client

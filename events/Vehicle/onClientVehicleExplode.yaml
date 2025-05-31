@@ -6,3 +6,7 @@ source_element:
   description: The source of this event is the vehicle that exploded.
 description: This event is triggered when a vehicle explodes.
 parameters: []
+examples:
+- path: examples/onClientVehicleExplode-1.lua
+  description: This example will output some text to chat on vehicle explosion
+  side: client

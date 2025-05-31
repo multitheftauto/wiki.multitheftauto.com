@@ -20,3 +20,7 @@ parameters:
   description: A float representing the percentage of health the ped lost in the final
     "hit" (only for client-side created peds.) or a boolean representing whether or
     not this was a stealth kill
+examples:
+- path: examples/onClientPedWasted-1.lua
+  description: This example outputs a message every time a player kills another player.
+  side: client

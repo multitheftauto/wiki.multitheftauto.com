@@ -8,3 +8,7 @@ source_element:
 description: This event is triggered each time a GUI element gains input focus (mainly
   useful for windows, editboxes and memos but triggered for all GUI elements nevertheless).
 parameters: []
+examples:
+- path: examples/onClientGUIFocus-1.lua
+  description: ''
+  side: client

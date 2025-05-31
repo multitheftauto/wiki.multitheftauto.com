@@ -10,4 +10,11 @@ parameters:
 - name: targetPlayer
   type: element
   description: The player or ped that is being stealth killed.
+examples:
+- path: examples/onClientPlayerStealthKill-1.lua
+  description: This example disables stealth kills.
+  side: client
+- path: examples/onClientPlayerStealthKill-2.lua
+  description: This example disables stealth kills on a specific Ped.
+  side: client
 canceling: If this event is canceled, then the stealth kill is aborted.

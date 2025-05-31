@@ -15,3 +15,7 @@ parameters:
 - name: isPopup
   type: bool
   description: ''
+examples:
+- path: examples/onClientBrowserPopup-1.lua
+  description: ''
+  side: client

@@ -10,3 +10,7 @@ description: This event is triggered before GTA renders the HUD. This is particu
   textures using [shaders](/wiki/Element/Shader "Element/Shader") before they are
   drawn onto the screen.
 parameters: []
+examples:
+- path: examples/onClientHUDRender-1.lua
+  description: ''
+  side: client

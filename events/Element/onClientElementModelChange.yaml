@@ -13,5 +13,10 @@ parameters:
 - name: newModel
   type: int
   description: an int representing the new model of the element.
+examples:
+- path: examples/onClientElementModelChange-1.lua
+  description: This example sends a message to players when their model changes telling
+    them what the model ID is and was.
+  side: client
 canceling: This event doesn't support cancellation. Use setElementModel with the old
   value to reverse.

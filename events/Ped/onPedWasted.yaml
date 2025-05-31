@@ -7,3 +7,7 @@ source_element:
 description: This event is triggered when a ped is killed or dies. It is not triggered
   for players.
 parameters: []
+examples:
+- path: examples/onPedWasted-1.lua
+  description: This example outputs to the console that the ped is now dead.
+  side: server

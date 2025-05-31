@@ -17,6 +17,7 @@ def copy_files(source_dir, target_dir):
                 src_path = os.path.join(root, file)
                 rel_path = os.path.relpath(src_path, source_dir)
                 dest_path = os.path.join(target_dir, rel_path)
+
                 # Check if destination .yaml has 'incomplete' attribute
                 if (not OVERRIDE_INCOMPLETE_PAGES) and os.path.exists(dest_path):
                     with open(dest_path, 'r', encoding='utf-8') as dest_file:
@@ -24,8 +25,20 @@ def copy_files(source_dir, target_dir):
                         if 'incomplete: true' not in content:
                             print(f"Skipping {dest_path} due to 'incomplete: true'")
                             continue
+                
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                print(f"Copying {src_path} to {dest_path}")
+                print(f"(YAML) Copying {src_path} to {dest_path}")
+                with open(src_path, 'r', encoding='utf-8') as src_file:
+                    with open(dest_path, 'w', encoding='utf-8') as dest_file:
+                        dest_file.write(src_file.read())
+
+            elif file.endswith(".lua"):
+                # Copy all .lua files too
+                src_path = os.path.join(root, file)
+                rel_path = os.path.relpath(src_path, source_dir)
+                dest_path = os.path.join(target_dir, rel_path)
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                print(f"(Lua) Copying {src_path} to {dest_path}")
                 with open(src_path, 'r', encoding='utf-8') as src_file:
                     with open(dest_path, 'w', encoding='utf-8') as dest_file:
                         dest_file.write(src_file.read())

@@ -7,3 +7,7 @@ source_element:
 description: This event is triggered each time a GUI element looses input focus (mainly
   useful for windows, editboxes and memos but triggered for all GUI elements nevertheless).
 parameters: []
+examples:
+- path: examples/onClientGUIBlur-1.lua
+  description: ''
+  side: client

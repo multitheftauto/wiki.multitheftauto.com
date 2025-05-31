@@ -15,3 +15,11 @@ parameters:
   type: boolean
   description: a boolean representing whether the resource folder was deleted, moved
     or renamed.
+examples:
+- path: examples/onResourceStop-1.lua
+  description: This example displays a message in the chatbox when a resource is stopped.
+  side: server
+- path: examples/onResourceStop-2.lua
+  description: This example only outputs message if the stopped resource is the same
+    resource where the eventHandler is.
+  side: server
