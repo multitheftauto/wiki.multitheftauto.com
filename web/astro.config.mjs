@@ -56,6 +56,9 @@ export default defineConfig({
 						{
 							label: 'Scripting Introduction', link: '/articles/Scripting_Introduction',
 						},
+						{
+							label: 'Meta.xml', link: '/articles/Meta.xml',
+						}
 					]
 				},
 				{
