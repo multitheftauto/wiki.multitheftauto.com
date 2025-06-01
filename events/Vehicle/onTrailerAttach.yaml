@@ -19,7 +19,7 @@ examples:
 canceling: If this event is canceled, the trailer will detach from the truck again.
 notes:
 - type: warning
-  content: Doesn't appear to work.
+  content: Canceling doesn't appear to work.
 meta:
 - needs_checking: Cancellation of event has no effect. detachTrailerFromVehicle in
     the event doesn't work either, 50 ms timer is effective.
