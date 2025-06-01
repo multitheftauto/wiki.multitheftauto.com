@@ -59,7 +59,7 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
     notesContent = event.data.notes;
 }
 
-const eventMeta = event.data.meta || {};
+const eventMeta = event.data.meta || [];
 const changelogEntries = eventMeta.find(m => m.changelog)?.changelog ?? [];
 const needsChecking = eventMeta.find(m => m.needs_checking)?.needs_checking ?? undefined;
 ---
