@@ -5,7 +5,25 @@ source_element:
   type: element
   description: The source of this event is the player that died.
 description: This event is triggered whenever a player, including those remote, dies.
-parameters: []
+parameters:
+- name: killer
+  type: element
+  description: A player, ped or vehicle element representing the killer.
+- name: weapon
+  type: int
+  description: An integer representing the killer weapon or the damage types.
+- name: bodypart
+  type: int
+  description: An integer representing the bodypart the player was damaged.
+- name: stealth
+  type: bool
+  description: A boolean representing whether or not this was a stealth kill.
+- name: animGroup
+  type: int
+  description: an integer representing the player's current animation group.
+- name: animID
+  type: int
+  description: an integer representing the player's current animation ID.
 examples:
 - path: examples/onClientPlayerWasted-1.lua
   description: This example outputs a mocking message when the local player dies.
