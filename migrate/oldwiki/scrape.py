@@ -1,27 +1,40 @@
+# Comments:
+# - Running without skipping cache for the 1st time will take a while, but subsequent runs will be much faster
+# - Parsing functions takes a lot longer than events because there's a lot more
+
 import requests
 from bs4 import BeautifulSoup
 from html_to_markdown import convert_to_markdown
 import yaml
 
+import time
 import os
 import shutil
 
-# 🌐 URL constants
+# Cache of event/function Wiki pages
+SKIP_CACHE = False # Set to True to skip cache and always fetch fresh pages
+PAGES_CACHE_DIR = "./cache/pages"
+
+# Function listings URLs
 URL_CLIENT_FUNCS = "https://wiki.multitheftauto.com/wiki/Client_Scripting_Functions"
 URL_SERVER_FUNCS = "https://wiki.multitheftauto.com/wiki/Server_Scripting_Functions"
 URL_SHARED_FUNCS = "https://wiki.multitheftauto.com/wiki/Shared_Scripting_Functions"
 
+# Event listings URLs
 URL_CLIENT_EVENTS = "https://wiki.multitheftauto.com/wiki/Client_Scripting_Events"
 URL_SERVER_EVENTS = "https://wiki.multitheftauto.com/wiki/Server_Scripting_Events"
 
+# Output directories
 FUNCTIONS_DIR = "./output/functions"
 EVENTS_DIR = "./output/events"
 
+# Rename some categories
 CATEGORY_CORRECTIONS = {
     'SQL': 'Database',
     'Collision_shape': 'Colshape',
 }
 
+# Don't include these items from the listings
 NAME_BLACKLIST = [
     'Matrix',
     'Vector'
@@ -41,7 +54,7 @@ def fix_category(category_name: str) -> str:
     return category_name
 
 def parse_links(source_label: str, url: str) -> dict:
-    print(f"Parsing list of {source_label} from {url}...")
+    print(f"Parsing list of {source_label} ...")
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -279,11 +292,27 @@ def parse_description(content_div):
                 break
     
     return the_description
-    
+
+def get_page_from_cache_or_fetch(page_url: str, page_name: str) -> str:
+    """Get the page content from cache or fetch it if not cached."""
+    cache_file = os.path.join(PAGES_CACHE_DIR, f"{page_name}.html")
+    if (not SKIP_CACHE) and os.path.exists(cache_file):
+        with open(cache_file, "r", encoding="utf-8") as f:
+            return f.read()
+    else:
+        # Fetch and cache the page
+        response = requests.get(page_url)
+        if response.status_code == 200:
+            with open(cache_file, "w", encoding="utf-8") as f:
+                f.write(response.text)
+            return response.text
+        else:
+            raise ValueError(f"Failed to fetch {page_url}: {response.status_code}")
 
 def parse_event_page(page_url: str, category: str, name: str, source: str) -> dict:
-    response = requests.get(page_url)
-    soup = BeautifulSoup(response.text, "html.parser")
+    response_text = get_page_from_cache_or_fetch(page_url, name)
+    
+    soup = BeautifulSoup(response_text, "html.parser")
 
     # Find first non-empty p inside mw-content-text
     content_div = soup.find("div", id="mw-content-text")
@@ -391,7 +420,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     # Examples
     examples = parse_examples(content_div)
     if len(examples) == 0:
-        print(f"Found no examples for {name}")
+        print(f"Event is missing code examples: {page_url}")
 
     # For each example, create a .lua file with the code
     # with name eventName-index.lua
@@ -409,7 +438,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
             added_examples.append({
                 "path": 'examples/' + example_filename,
                 "description": example_description,
-                "side": example.get("type") or event_type # Default to event_type if not specified
+                "side": example.get("type") or event_type # Default to this if not specified
             })
             example_index += 1
 
@@ -437,8 +466,9 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     return yaml_dict
 
 def parse_function_page(page_url: str, category: str, name: str, source: str) -> dict:
-    response = requests.get(page_url)
-    soup = BeautifulSoup(response.text, "html.parser")
+    response_text = get_page_from_cache_or_fetch(page_url, name)
+
+    soup = BeautifulSoup(response_text, "html.parser")
     content_div = soup.find("div", id="mw-content-text")
     if not content_div:
         raise ValueError(f"Could not find content in {page_url}")
@@ -450,13 +480,41 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
         raise ValueError(f"Could not find a valid description for {name} in {page_url}")
     
     func_notes, func_meta = parse_notes(content_div)
+    
+    
+    # Examples
+    examples = parse_examples(content_div)
+    # if len(examples) == 0:
+    #     print(f"Function is missing code examples: {page_url}")
+    
+
+    # For each example, create a .lua file with the code
+    # with name eventName-index.lua
+    example_index = 1
+    added_examples = []
+    for example in examples:
+        example_code = example.get("code", "").strip()
+        if example_code:
+            example_filename = f"{name}-{example_index}.lua"
+            example_path = os.path.join(FUNCTIONS_DIR, category, 'examples', example_filename)
+            os.makedirs(os.path.dirname(example_path), exist_ok=True)
+            with open(example_path, "w", encoding="utf-8") as example_file:
+                example_file.write(example_code)
+            example_description = example.get("description", "").strip()
+            added_examples.append({
+                "path": 'examples/' + example_filename,
+                "description": example_description,
+                "side": example.get("type") or func_type # Default to this if not specified
+            })
+            example_index += 1
+
 
     yaml_dict = {
         func_type: {
             "name": name,
             "description": func_description,
             "parameters": [],
-            "examples": [],
+            "examples": added_examples,
             "notes": func_notes,
             "meta": func_meta
         }
@@ -503,6 +561,7 @@ def convert_page_to_yaml(page_url: str, category: str, name: str, source: str) -
 
 def parse_items_by_source(base_dir, data_by_source):
     for source, categories in data_by_source.items():
+        started_at = time.time()
         print(f"Parsing individual pages of {source}...")
         for category, entries in categories.items():
             dir_path = os.path.join(base_dir, category)
@@ -522,16 +581,21 @@ def parse_items_by_source(base_dir, data_by_source):
                     if os.path.exists(filename):
                         os.remove(filename)
                     
-        print(f"YAML & Lua files for {source} written successfully to {base_dir}.")
+        print(f">> Parsed individual pages of {source} in {time.time() - started_at:.2f} seconds.")
 
 def main():
+    # Create cache directory if it doesn't exist
+    if not os.path.exists(PAGES_CACHE_DIR):
+        os.makedirs(PAGES_CACHE_DIR)
+    print("SKIP_CACHE is set to", SKIP_CACHE)
+    
     functions_by_source = {}
     events_by_source = {}
 
     # Functions
-    # functions_by_source["Shared functions"] = parse_links("Shared functions", URL_SHARED_FUNCS)
-    # functions_by_source["Client functions"] = parse_links("Client functions", URL_CLIENT_FUNCS)
-    # functions_by_source["Server functions"] = parse_links("Server functions", URL_SERVER_FUNCS)
+    functions_by_source["Shared functions"] = parse_links("Shared functions", URL_SHARED_FUNCS)
+    functions_by_source["Client functions"] = parse_links("Client functions", URL_CLIENT_FUNCS)
+    functions_by_source["Server functions"] = parse_links("Server functions", URL_SERVER_FUNCS)
     
     # TEST Parse only these:
     # functions_by_source["Shared functions"] = {
@@ -541,8 +605,8 @@ def main():
     # }
 
     # Events
-    events_by_source["Client events"] = parse_links("Client events", URL_CLIENT_EVENTS)
-    events_by_source["Server events"] = parse_links("Server events", URL_SERVER_EVENTS)
+    # events_by_source["Client events"] = parse_links("Client events", URL_CLIENT_EVENTS)
+    # events_by_source["Server events"] = parse_links("Server events", URL_SERVER_EVENTS)
 
     # Empty output directory
     if os.path.exists("./output"):
