@@ -20,6 +20,7 @@ examples:
 - path: examples/onPlayerCommand-2.lua
   description: Time limit specific commands.
   side: server
+canceling: The command will not be executed. (Only server-side commands can be canceled.)
 notes:
 - type: info
   content: This event triggers regardless of whether the command exists in a script
