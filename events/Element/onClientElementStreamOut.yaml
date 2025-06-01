@@ -19,3 +19,7 @@ notes:
   content: Be aware that this event triggers for local player (as itself being the
     element that got streamed out) when said local player dies and respawns, as this
     is the removal & recreation of entity local ped.
+- type: info
+  content: This event is not triggered for elements that are streamed-in at the point
+    of a destroyElement call. Use the onClientElementDestroy event in combination
+    with the isElementStreamedIn function to handle such a case.
