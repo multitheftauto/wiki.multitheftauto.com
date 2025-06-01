@@ -7,32 +7,32 @@ source_element:
 description: This event is called when a player fires a weapon. This does not trigger
   for projectiles, melee weapons, or camera.
 parameters:
-- name: weapon
+- name: weaponID
   type: int
   description: an int representing weapon used for making a shot.
 - name: endX
   type: float
-  description: float world coordinates representing an end point.
+  description: float world X coordinate representing the end point.
 - name: endY
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Y coordinate representing the end point.
 - name: endZ
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Z coordinate representing the end point.
 - name: hitElement
   type: element
   description: 'an element which was hit by a shot. Currently this can be only another
     player. Note: hitElement could be incorrect and should not be relied upon.'
 - name: startX
   type: float
-  description: 'float world coordinates representing the start of the bullet. Note:
+  description: 'float world X coordinate representing the start of the bullet. Note:
     This is not the gun muzzle.'
 - name: startY
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Y coordinate representing the start of the bullet.
 - name: startZ
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Z coordinate representing the start of the bullet.
 examples:
 - path: examples/onPlayerWeaponFire-1.lua
   description: This code creates explosions when the source players shoots.
@@ -41,4 +41,3 @@ notes:
 - type: info
   content: This event works only with weapons which have enabled bullet sync. See
     Weapons for more information.
-incomplete: true

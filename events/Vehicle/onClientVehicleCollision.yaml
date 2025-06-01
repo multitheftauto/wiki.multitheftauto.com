@@ -17,25 +17,49 @@ parameters:
     of this see below)'
 - name: bodyPart
   type: int
-  description: the bodypart that hit the other element
+  description: 'the bodypart that hit the other element
+
+    0: Frame
+
+    2: Trunk
+
+    3: Hood
+
+    4: Rear
+
+    5: Front left door
+
+    6: Front right door
+
+    7: Rear left door
+
+    8: Rear right door
+
+    13: Front Left tyre
+
+    14: Front Right tyre
+
+    15: Back Left tyre
+
+    16: Back Right tyre'
 - name: collisionX
   type: float
-  description: MISSING_PARAM_DESC
+  description: the X coordinate of the position the collision took place
 - name: collisionY
   type: float
-  description: MISSING_PARAM_DESC
+  description: the Y coordinate of the position the collision took place
 - name: collisionZ
   type: float
-  description: MISSING_PARAM_DESC
+  description: the Z coordinate of the position the collision took place
 - name: normalX
   type: float
-  description: MISSING_PARAM_DESC
+  description: the X coordinate of the surface normal of the hit object
 - name: normalY
   type: float
-  description: MISSING_PARAM_DESC
+  description: the Y coordinate of the surface normal of the hit object
 - name: normalZ
   type: float
-  description: MISSING_PARAM_DESC
+  description: the Z coordinate of the surface normal of the hit object
 - name: hitElementForce
   type: float
   description: 0 for non vehicles or the force of the other vehicle
@@ -53,4 +77,3 @@ examples:
 notes:
 - type: info
   content: This event is only triggered for vehicles that are streamed in
-incomplete: true

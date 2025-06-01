@@ -17,33 +17,41 @@ const unfinishedEvents = getUnfinishedPages('events');
     class="guidelines-link">Contribution guidelines</a></p>
 
 <h3>Unfinished Function Pages</h3>
-<p>These functions (part of the MTA Lua API) are <strong>missing documentation or code examples</strong>:</p>
 <section>
-    <details>
-    <summary>Total: {unfinishedFunctions.length}</summary>
-    <ul>
-        {unfinishedFunctions.map((func) => (
-            <li>
-                <a href={`/reference/${func}`}>{func}</a>
-            </li>
-        ))}
-    </ul>
-    </details>
+    {unfinishedFunctions.length === 0 ? (
+        <p>There are currently no unfinished function pages 😄</p>
+    ) : (
+        <p>These functions (part of the MTA Lua API) are <strong>missing documentation or code examples</strong>:</p>
+        <details>
+        <summary>Total: {unfinishedFunctions.length}</summary>
+        <ul>
+            {unfinishedFunctions.map((func) => (
+                <li>
+                    <a href={`/reference/${func}`}>{func}</a>
+                </li>
+            ))}
+        </ul>
+        </details>
+    )}
 </section>
 
 <h3>Unfinished Event Pages</h3>
-<p>These events (part of the MTA Lua API) are <strong>missing documentation or code examples</strong>:</p>
 <section>
-    <details>
-    <summary>Total: {unfinishedEvents.length}</summary>
-    <ul>
-        {unfinishedEvents.map((event) => (
-            <li>
-                <a href={`/reference/${event}`}>{event}</a>
-            </li>
-        ))}
-    </ul>
-    </details>
+    {unfinishedEvents.length === 0 ? (
+        <p>There are currently no unfinished event pages 😄</p>
+    ) : (
+        <p>These events (part of the MTA Lua API) are <strong>missing documentation or code examples</strong>:</p>
+        <details>
+        <summary>Total: {unfinishedEvents.length}</summary>
+        <ul>
+            {unfinishedEvents.map((event) => (
+                <li>
+                    <a href={`/reference/${event}`}>{event}</a>
+                </li>
+            ))}
+        </ul>
+        </details>
+    )}
 </section>
 
 </StarlightPage>

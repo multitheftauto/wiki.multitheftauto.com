@@ -19,26 +19,26 @@ parameters:
   description: an int amount of ammo left for this weapon type in clip.
 - name: hitX
   type: float
-  description: float world coordinates representing a hit point.
+  description: float world X coordinate representing the hit point.
 - name: hitY
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Y coordinate representing the hit point.
 - name: hitZ
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Z coordinate representing the hit point.
 - name: hitElement
   type: element
   description: an element which was hit by a shot.
 - name: startX
   type: float
-  description: 'float world coordinates representing the start of the bullet. Note:
+  description: 'float world X coordinate representing the start of the bullet. Note:
     This is not the gun muzzle.'
 - name: startY
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Y coordinate representing the start of the bullet.
 - name: startZ
   type: float
-  description: MISSING_PARAM_DESC
+  description: float world Z coordinate representing the start of the bullet.
 examples:
 - path: examples/onClientPlayerWeaponFire-1.lua
   description: This example implements custom gunshot sounds.
@@ -56,4 +56,3 @@ notes:
 - type: info
   content: This does not trigger for any player's melee weapons or for remote player's
     projectile weapons or cameras
-incomplete: true
