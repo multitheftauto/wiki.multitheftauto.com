@@ -95,11 +95,6 @@ const needsChecking = eventMeta.find(m => m.needs_checking)?.needs_checking ?? u
             </div>
         )}
 
-        <h4>Source</h4>
-        <p><a href={"/reference/" + event.data.source_element.type}>{event.data.source_element.type}</a>:
-            {renderInlineMarkdown(event.data.source_element.description)}
-        </p>
-
         <h4>Parameters</h4>
         {eventParameters.length > 0 ? (
             <>
@@ -115,6 +110,11 @@ const needsChecking = eventMeta.find(m => m.needs_checking)?.needs_checking ?? u
         ) : (
             <p><em>This event does not pass any parameters to the handler function.</em></p>
         )}
+
+        <h4>Source</h4>
+        <p><a href={"/reference/" + event.data.source_element.type}>{event.data.source_element.type}</a>:
+            {renderInlineMarkdown(event.data.source_element.description)}
+        </p>
 
         <!-- Canceling (optional) -->
         {event.data.canceling && (
