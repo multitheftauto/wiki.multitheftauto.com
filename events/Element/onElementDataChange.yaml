@@ -29,3 +29,9 @@ examples:
   side: server
 canceling: This event cannot be cancelled using cancelEvent. To reverse the effect,
   use setElementData with the old value. See Example.
+notes:
+- type: info
+  content: 'These predefined variables are special in this event: client : The client
+    global variable is set to the client that called setElementData , or nil if it
+    was called on the server. sourceResource : The resource which changed the element
+    data - nil , if client synced data, resource element otherwise.'
