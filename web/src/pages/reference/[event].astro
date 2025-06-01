@@ -84,8 +84,9 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         )}
 
         <h4>Source</h4>
-        <p set:html={"<strong>" + event.data.source_element.type + "</strong>: "
-            + renderInlineMarkdown(event.data.source_element.description)} />
+        <p><a href={"/reference/" + event.data.source_element.type}>{event.data.source_element.type}</a>:
+            {renderInlineMarkdown(event.data.source_element.description)}
+        </p>
 
         <h4>Parameters</h4>
         {eventParameters.length > 0 ? (
