@@ -21,7 +21,17 @@ parameters:
   description: The amount of blue in the color of the text.
 - name: messageType
   type: int
-  description: The type of message as a number.
+  description: 'The type of message as a number.
+
+    0: normal message
+
+    1: action message (/me)
+
+    2: team message
+
+    3: private message
+
+    4: internal message'
 examples:
 - path: examples/onClientChatMessage-1.lua
   description: This example doesn't output anything to chatbox if it consists only
