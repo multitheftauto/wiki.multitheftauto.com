@@ -293,6 +293,26 @@ def parse_description(content_div):
     
     return the_description
 
+def parse_issues(content_div):
+    issues = []
+    for a in content_div.find_all("a", href=True):
+        # Ignore if parent div has class "note-messagebox"
+        if "note-messagebox" in a.find_parent("div").get("class", []):
+            continue
+        href = a["href"]
+        if "github.com/multitheftauto/mtasa-blue/issues/" in href:
+            issue_number = href.split("/")[-1]
+            # Find the next td, that is the description
+            issue_desc = "TODO"
+            next_td = a.find_next("td")
+            if next_td:
+                issue_desc = next_td.get_text(strip=True)
+            issues.append({
+                "id": issue_number,
+                "description": issue_desc
+            })
+    return issues
+
 def get_page_from_cache_or_fetch(page_url: str, page_name: str) -> str:
     """Get the page content from cache or fetch it if not cached."""
     cache_file = os.path.join(PAGES_CACHE_DIR, f"{page_name}.html")
@@ -309,6 +329,31 @@ def get_page_from_cache_or_fetch(page_url: str, page_name: str) -> str:
         else:
             raise ValueError(f"Failed to fetch {page_url}: {response.status_code}")
 
+def print_additional_headers_found_in_page(content_div, handled_header_names, page_url):
+    """Print any additional headers found in the content_div that were not handled."""
+    additional_headers = []
+    # Ignore headers from see also
+    IGNORE_WORDS = [
+        "see also", "events", "functions", "changelog",
+        "game processing order", "input", "gui",
+        "browsers", "buttons", "checkboxes", "comboboxes",
+        "edit boxes", "gridlists", "memos", "progressbars", "radio buttons",
+        "scrollbars", "scrollpanes", "static images", "tab Panels", "tabs",
+        "tab panels", "text labels", "windows"
+    ]
+    for header in content_div.find_all(["h2", "h3"]):
+        header_text = header.get_text(strip=True)
+        if header_text and header_text not in handled_header_names:
+            header_text_lower = header_text.lower()
+            # Ignore some headers that are not relevant
+            if any(ignore_word in header_text_lower for ignore_word in IGNORE_WORDS):
+                continue
+            additional_headers.append(header_text)
+    
+    if additional_headers:
+        print(f"Other headers found in {page_url}:")
+        print(f" {', '.join(additional_headers)}")
+
 def parse_event_page(page_url: str, category: str, name: str, source: str) -> dict:
     response_text = get_page_from_cache_or_fetch(page_url, name)
     
@@ -318,6 +363,10 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     content_div = soup.find("div", id="mw-content-text")
     if not content_div:
         raise ValueError(f"Could not find content in {page_url}")
+    
+    stop_if_deprecated(content_div, page_url)
+
+    handled_header_names = []
 
     event_type = "client" if "Client" in source else "server"
     
@@ -330,6 +379,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     parameters_header = content_div.find("span", id="Parameters")
 
     if parameters_header:
+        handled_header_names.append("Parameters")
         params = []
         next_element = parameters_header.find_next()
 
@@ -393,6 +443,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     event_source = None
     source_header = content_div.find("span", id="Source")
     if source_header:
+        handled_header_names.append("Source")
         source_paragraph = source_header.find_next("p")
         if source_paragraph:
             source_text = source_paragraph.get_text().strip()
@@ -409,6 +460,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     event_canceling = None
     canceling_header = content_div.find("span", id="Canceling") or content_div.find("span", id="Cancelling") or content_div.find("span", id="Cancel_effect") or content_div.find("span", id="Cancel_effects") or content_div.find("span", id="Cancel_Effect") or content_div.find("span", id="Cancel_Effects")
     if canceling_header:
+        handled_header_names.append(canceling_header.text.strip())
         # Extract text
         canceling_paragraph = canceling_header.find_next("p")
         if canceling_paragraph:
@@ -419,11 +471,11 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
 
     # Examples
     examples = parse_examples(content_div)
+    handled_header_names.append("Examples")
+    handled_header_names.append("Example")
     if len(examples) == 0:
         print(f"Event is missing code examples: {page_url}")
 
-    # For each example, create a .lua file with the code
-    # with name eventName-index.lua
     example_index = 1
     added_examples = []
     for example in examples:
@@ -444,6 +496,35 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
 
     event_notes, event_meta = parse_notes(content_div)
 
+    # Parse Type section, put it into a note
+    type_header = content_div.find("span", id="Type")
+    if type_header:
+        type_paragraph = type_header.find_next("p")
+        if type_paragraph:
+            type_text = type_paragraph.get_text().strip()
+            if type_text:
+                # Remove new lines from the type text
+                type_text = type_text.replace("\n", " ")
+                # Look for any list after that paragraph
+                list_items = type_paragraph.find_next("ul")
+                if list_items:
+                    prev_header = type_paragraph.find_previous("h2") or type_paragraph.find_previous("h3")
+                    if prev_header and prev_header.getText(strip=True) == "Type":
+                        # If the header is "Type", we can safely add the list items to the type text
+                        type_text += " " + ", ".join(li.get_text(strip=True) for li in list_items.find_all("li"))
+                
+                event_notes.append({
+                    "type": "info",
+                    "content": type_text
+                })
+                handled_header_names.append("Type")
+
+    # Parse Issues
+    event_issues = parse_issues(content_div)
+    handled_header_names.append("Issues")
+
+    print_additional_headers_found_in_page(content_div, handled_header_names, page_url)
+
     yaml_dict = {
         "name": name,
         "type": event_type,
@@ -458,12 +539,26 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
         yaml_dict["notes"] = event_notes
     if event_meta:
         yaml_dict["meta"] = event_meta
+    if event_issues:
+        yaml_dict["issues"] = event_issues
 
     # Set incomplete to true if no description is found for at least one parameter
     if any(param["description"] == "MISSING_PARAM_DESC" for param in event_parameters):
         yaml_dict["incomplete"] = True
     
     return yaml_dict
+
+def stop_if_deprecated(content_div, page_url: str):
+    deprecated_texts = [
+        "This function is deprecated",
+        "Function has been disabled",
+        "This function is provided by the external",
+        "This page is marked for deletion"
+        # "BEFORE VERSION",
+    ]
+    for text in deprecated_texts:
+        if content_div.find(string=lambda s: s and text in s):
+            raise ValueError(f"Found {text} in {page_url}. Please review manually.")
 
 def parse_function_page(page_url: str, category: str, name: str, source: str) -> dict:
     response_text = get_page_from_cache_or_fetch(page_url, name)
@@ -472,6 +567,10 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     content_div = soup.find("div", id="mw-content-text")
     if not content_div:
         raise ValueError(f"Could not find content in {page_url}")
+    
+    stop_if_deprecated(content_div, page_url)
+
+    handled_header_names = []
 
     func_type = "shared" if "Shared" in source else "server" if "Server" in source else "client"
 
@@ -479,17 +578,33 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     if func_description is None:
         raise ValueError(f"Could not find a valid description for {name} in {page_url}")
     
-    func_notes, func_meta = parse_notes(content_div)
+    func_pair = None
+    counterpart_b = content_div.find("b", string="Counterpart")
+    if counterpart_b:
+        i_tag = counterpart_b.find_next("i")
+        if i_tag and i_tag.a:
+            func_pair = i_tag.a.text.strip()
     
+    func_notes, func_meta = parse_notes(content_div)
+
+    # Syntax: parameters and returns TODO
+    handled_header_names.append("Syntax")
+    handled_header_names.append("Parameters")
+    handled_header_names.append("Arguments")
+    handled_header_names.append("Required Arguments")
+    handled_header_names.append("Required arguments")
+    handled_header_names.append("Optional Arguments")
+    handled_header_names.append("Optional arguments")
+    handled_header_names.append("Returns")
+
     
     # Examples
     examples = parse_examples(content_div)
+    handled_header_names.append("Examples")
+    handled_header_names.append("Example")
     # if len(examples) == 0:
     #     print(f"Function is missing code examples: {page_url}")
     
-
-    # For each example, create a .lua file with the code
-    # with name eventName-index.lua
     example_index = 1
     added_examples = []
     for example in examples:
@@ -508,6 +623,11 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
             })
             example_index += 1
 
+    # Parse Issues
+    func_issues = parse_issues(content_div)
+    handled_header_names.append("Issues")
+
+    print_additional_headers_found_in_page(content_div, handled_header_names, page_url)
 
     yaml_dict = {
         func_type: {
@@ -515,28 +635,16 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
             "description": func_description,
             "parameters": [],
             "examples": added_examples,
-            "notes": func_notes,
-            "meta": func_meta
         }
     }
-
-    # if source.startswith("Shared"):
-    #     yaml_content = "shared: &shared\n"
-    #     yaml_content += f"  incomplete: true\n"
-    #     yaml_content += f"  name: {name}\n"
-    #     yaml_content += f"  description: TODO\n"
-    #     yaml_content += "\nserver:\n  <<: *shared"
-    #     yaml_content += "\nclient:\n  <<: *shared"
-    # elif source.startswith("Server"):
-    #     yaml_content = "server:\n"
-    #     yaml_content += f"  incomplete: true\n"
-    #     yaml_content += f"  name: {name}\n"
-    #     yaml_content += f"  description: TODO\n"
-    # elif source.startswith("Client"):
-    #     yaml_content = "client:\n"
-    #     yaml_content += f"  incomplete: true\n"
-    #     yaml_content += f"  name: {name}\n"
-    #     yaml_content += f"  description: TODO\n"
+    if func_pair:
+        yaml_dict[func_type]["pair"] = func_pair
+    if func_notes:
+        yaml_dict[func_type]["notes"] = func_notes
+    if func_meta:
+        yaml_dict[func_type]["meta"] = func_meta
+    if func_issues:
+        yaml_dict[func_type]["issues"] = func_issues
 
     return yaml_dict
 
@@ -599,8 +707,8 @@ def main():
     
     # TEST Parse only these:
     # functions_by_source["Shared functions"] = {
-    #     "Element": [
-    #         ("https://wiki.multitheftauto.com/wiki/SetElementParent", "setElementParent"),
+    #     "Player": [
+    #         ("https://wiki.multitheftauto.com/wiki/SetPlayerName", "setPlayerName"),
     #     ]
     # }
 
