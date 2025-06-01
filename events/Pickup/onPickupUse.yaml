@@ -18,3 +18,6 @@ examples:
   side: server
 canceling: If this event is canceled, the player will not be given the item they picked
   up.
+notes:
+- type: tip
+  content: '[[{{{image}}}|link=|]]'

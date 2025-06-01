@@ -23,3 +23,7 @@ examples:
   description: This example outputs to the chatbox if the local user is in the same
     dimension as the collision shape or not.
   side: client
+notes:
+- type: info
+  content: The hit won't be detected if the element that entered the colshape is a
+    colshape or projectile.

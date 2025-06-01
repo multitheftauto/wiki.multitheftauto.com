@@ -50,4 +50,10 @@ examples:
 - path: examples/onClientPlayerWeaponFire-3.lua
   description: This example makes the Shotgun fire explosive rounds.
   side: client
+notes:
+- type: info
+  content: This event is only triggered for players that are streamed in
+- type: info
+  content: This does not trigger for any player's melee weapons or for remote player's
+    projectile weapons or cameras
 incomplete: true

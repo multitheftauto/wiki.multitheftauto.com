@@ -14,3 +14,8 @@ examples:
   description: This example shows you how to tell player that another player was streamed
     out and the distance between them and said player
   side: client
+notes:
+- type: info
+  content: Be aware that this event triggers for local player (as itself being the
+    element that got streamed out) when said local player dies and respawns, as this
+    is the removal & recreation of entity local ped.

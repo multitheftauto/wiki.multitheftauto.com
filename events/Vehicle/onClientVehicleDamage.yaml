@@ -40,3 +40,6 @@ examples:
   side: client
 canceling: If this event is canceled, the vehicle health won't be reduced. Physical
   damage to the vehicle will remain.
+notes:
+- type: info
+  content: This event is only triggered for vehicles that are streamed in

@@ -20,3 +20,10 @@ examples:
 - path: examples/onPlayerCommand-2.lua
   description: Time limit specific commands.
   side: server
+notes:
+- type: info
+  content: This event triggers regardless of whether the command exists in a script
+    or is hardcoded. Also, typing anything in chat will execute the internal command
+    "say", so this event will be triggered on every chat message as well. Therefore
+    you should avoid excessive use of this function on busy servers, out of performance
+    considerations.

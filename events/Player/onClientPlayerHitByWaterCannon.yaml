@@ -14,3 +14,6 @@ examples:
   description: This example outputs a message when you are hit by a water cannon
   side: client
 canceling: If this event is canceled, the player will not be knocked down.
+notes:
+- type: info
+  content: This event is only triggered for players that are streamed in

@@ -14,3 +14,7 @@ examples:
 - path: examples/onClientBrowserWhitelistChange-1.lua
   description: ''
   side: client
+notes:
+- type: info
+  content: Attaching the event to a webbrowser won't work. Attach it to the root element
+    instead.

@@ -18,3 +18,7 @@ examples:
 - path: examples/onPlayerMarkerHit-1.lua
   description: This example outputs when a player hits a marker.
   side: server
+notes:
+- type: info
+  content: This event is triggered for players only. Attaching this event to a marker
+    does nothing.

@@ -134,6 +134,76 @@ def parse_examples(content_div):
     return examples
 
 
+def parse_note_boxes(content_div):
+    note_boxes = []
+
+    # 1. Note and warning boxes use specific class names
+    for box in content_div.select(".note-messagebox, .warning-messagebox"):
+        box_classes = box.get("class", [])
+        box_type = "note" if "note-messagebox" in box_classes else "warning"
+        
+        table = box.find("table")
+        if not table:
+            continue
+
+        rows = table.find_all("tr")
+        if not rows:
+            continue
+
+        # Get the second <td> of the first <tr>
+        cells = rows[0].find_all("td")
+        if len(cells) >= 2:
+            message_cell = cells[1]
+            text = message_cell.get_text(" ", strip=True)
+
+            # Remove prefix like "Note:" or "Warning:"
+            prefix = "Note:" if box_type == "note" else "Warning:"
+            if text.startswith(prefix):
+                text = text[len(prefix):].strip()
+
+            note_boxes.append({
+                "type": box_type,
+                "text": text
+            })
+
+
+    # 2. Tip boxes don't have a class, so we identify them by their style (border color)
+    for table in content_div.find_all("table"):
+        style = table.get("style", "")
+        if "98fb98" in style and "border-left" in style:  # distinctive green border
+            td = table.find("td")
+            if td:
+                text = td.get_text(strip=True)
+                text = text.replace("Tip:", "", 1).strip()
+                note_boxes.append({
+                    "type": "tip",
+                    "text": text
+                })
+    
+    # 3. "This article needs checking" boxes (purple border, distinct title)
+    for table in content_div.find_all("table"):
+        style = table.get("style", "")
+        if "border-left: 25px solid #8181ff" in style:
+            rows = table.find_all("tr")
+            if len(rows) >= 2:
+                # First row: check for title
+                cells_first_row = rows[0].find_all("td")
+                if len(cells_first_row) >= 2:
+                    title = cells_first_row[1].get_text(strip=True)
+                    if "This article needs checking." in title:
+                        # Second row: reason
+                        reason_cell = rows[1].find("td")
+                        if reason_cell:
+                            text = reason_cell.get_text(" ", strip=True)
+                            text = text.replace("Reason(s):", "", 1).strip()
+                            note_boxes.append({
+                                "type": "needs_checking",
+                                "text": text
+                            })
+
+    return note_boxes
+
+
 def parse_event_page(page_url: str, category: str, name: str, source: str) -> dict:
     response = requests.get(page_url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -290,6 +360,21 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
             })
             example_index += 1
 
+    note_boxes = parse_note_boxes(content_div)
+    event_notes = []
+    event_meta = []
+    for note in note_boxes:
+        if note["type"] == "note" or note["type"] == "tip" or note["type"] == "warning":
+            event_notes.append({
+                "type": "info" if note["type"] == "note" else note["type"],
+                "content": note["text"]
+            })
+        elif note["type"] == "needs_checking":
+            event_meta.append({
+                "needs_checking": note["text"]
+            })
+
+
     yaml_dict = {
         "name": name,
         "type": event_type,
@@ -300,6 +385,10 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     }
     if event_canceling:
         yaml_dict["canceling"] = event_canceling
+    if event_notes:
+        yaml_dict["notes"] = event_notes
+    if event_meta:
+        yaml_dict["meta"] = event_meta
 
     # Set incomplete to true if no description is found for at least one parameter
     if any(param["description"] == "MISSING_PARAM_DESC" for param in event_parameters):

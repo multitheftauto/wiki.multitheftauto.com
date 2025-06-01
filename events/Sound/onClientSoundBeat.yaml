@@ -14,3 +14,9 @@ examples:
   description: This code will change the vehicle color to a random value if the sound
     beats and the localPlayer is inside a vehicle
   side: client
+notes:
+- type: info
+  content: This event does not work correctly pre 1.3.1-9-04627
+- type: info
+  content: This event is triggered ahead of a sound beat the number passed is the
+    play time at which the beat occurs

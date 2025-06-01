@@ -24,3 +24,7 @@ examples:
   description: 'This example will output the file''s resource name/file name/size/state
     when downloading:'
   side: client
+notes:
+- type: warning
+  content: This event is NOT related to downloadFile and onClientFileDownloadComplete
+    !

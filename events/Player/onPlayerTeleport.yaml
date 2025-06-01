@@ -35,3 +35,7 @@ examples:
   description: This example logs unexpected teleportation events.
   side: server
 canceling: Canceling this event has no effect.
+notes:
+- type: info
+  content: 'The sensitivity threshold can be adjusted through the player_teleport_alert
+    setting, which accepts values between 5 and 500 (default: 100).'

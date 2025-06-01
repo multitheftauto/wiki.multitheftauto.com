@@ -32,4 +32,7 @@ examples:
 - path: examples/onClientPedWeaponFire-1.lua
   description: ''
   side: client
+notes:
+- type: info
+  content: This event is only triggered for peds that are streamed in
 incomplete: true

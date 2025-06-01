@@ -42,3 +42,7 @@ examples:
   description: This example checks modified files against a list and prints a warning
     in the chatbox.
   side: server
+notes:
+- type: info
+  content: Any resource using this event should call resendPlayerModInfo for each
+    player in onResourceStart .

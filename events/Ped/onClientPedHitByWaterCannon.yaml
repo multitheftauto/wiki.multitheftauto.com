@@ -14,3 +14,6 @@ examples:
   description: This example says who got hit by a water cannon.
   side: client
 canceling: If this event is canceled, the ped will not be knocked down
+notes:
+- type: info
+  content: This event is only triggered for peds that are streamed in

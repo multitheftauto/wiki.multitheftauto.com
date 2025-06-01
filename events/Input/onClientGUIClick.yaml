@@ -28,3 +28,11 @@ examples:
     the button is clicked with the left mouse button, it will output the message in
     the edit box into the chat box.
   side: client
+notes:
+- type: info
+  content: The player who clicked the gui-element is always the localPlayer .
+- type: info
+  content: If the GUI Element attached to this event has a parent element, this event
+    will be triggered once the parent element of the attached element is clicked too.
+    You can set the parameter propagate to false in the call to addEventHandler to
+    prevent this.

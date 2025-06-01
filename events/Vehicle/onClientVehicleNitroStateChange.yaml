@@ -13,3 +13,6 @@ examples:
 - path: examples/onClientVehicleNitroStateChange-1.lua
   description: ''
   side: client
+notes:
+- type: info
+  content: This event is only triggered for vehicles that are streamed in

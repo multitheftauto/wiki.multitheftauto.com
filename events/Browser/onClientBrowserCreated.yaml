@@ -13,3 +13,7 @@ examples:
 - path: examples/onClientBrowserCreated-1.lua
   description: ''
   side: client
+notes:
+- type: info
+  content: Calling loadBrowserURL right after createBrowser will not work normally
+    due to the nature of the asynchronous browser interface.

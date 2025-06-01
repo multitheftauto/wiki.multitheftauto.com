@@ -20,3 +20,7 @@ examples:
   description: This example creates a hill area for aKing of the hillgamemode.  When
     a player enters or leaves the area, it's announced in the chatbox.
   side: server
+notes:
+- type: info
+  content: The hit won't be detected if the element that entered the colshape is a
+    colshape.

@@ -30,3 +30,9 @@ examples:
     gets played has been played using '/seesoundlist'.
   side: client
 canceling: If this event is canceled, the sound won't play at all.
+notes:
+- type: info
+  content: Use setWorldSoundEnabled if you want to disable certain sounds conditionless.
+    For example, you should only cancel player emitted sounds in this event, because
+    when you cancel certain vehicle sounds, the game will try to play the same sound
+    on the next frame.

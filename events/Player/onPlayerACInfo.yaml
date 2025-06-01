@@ -38,3 +38,7 @@ examples:
     In order for this to work, it''s important that youdon''tadd SD #14 detection
     into mtaserver.conf, as this is a custom re-implementation.'
   side: server
+notes:
+- type: info
+  content: Any resource using this event should call resendPlayerACInfo for each player
+    in onResourceStart

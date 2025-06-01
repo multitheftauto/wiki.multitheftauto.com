@@ -17,3 +17,6 @@ examples:
   side: server
 canceling: Canceling this event has no effect. Cancel the client-side event onClientPedDamage
   instead.
+notes:
+- type: info
+  content: This event is not triggered prior to r21247.

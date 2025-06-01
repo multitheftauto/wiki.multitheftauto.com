@@ -31,3 +31,6 @@ examples:
 - path: examples/onClientVehicleWeaponHit-1.lua
   description: ''
   side: client
+notes:
+- type: info
+  content: This event is only triggered for elements that are streamed in

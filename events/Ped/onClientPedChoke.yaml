@@ -18,3 +18,5 @@ examples:
   description: This example disables choking effects from the tear gas grenades.
   side: client
 canceling: If this event is canceled, the ped will not be choked.
+meta:
+- needs_checking: Event is never triggered

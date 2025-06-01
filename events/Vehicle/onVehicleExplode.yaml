@@ -19,3 +19,6 @@ examples:
 - path: examples/onVehicleExplode-2.lua
   description: 'Example 2:This will show the name of any vehicle that blew up:'
   side: server
+notes:
+- type: info
+  content: This event can not be canceled.

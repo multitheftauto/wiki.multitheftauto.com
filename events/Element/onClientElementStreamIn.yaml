@@ -14,3 +14,18 @@ examples:
   description: This example shows you how to tell player that another player was streamed
     in and the distance between them and said player
   side: client
+notes:
+- type: info
+  content: This event also triggers for a remote player that dies in front of local
+    player, even if they respawn far away.. the moment they do so, this event will
+    be triggered, and if you'd measure distance between local and said remote player
+    (that spawned far away) during this event, it would output the distance at which
+    they died in front of local player, e.g 2 metres. This is bug-prone behavior and
+    likely incorrect, to be fixed in the future, but for now be aware. The 'low distance'
+    aspect of this (which could worsen your results) is caused by the split second
+    that their ped elements may 'flash' past its wasted location during the respawning
+    process. For now you can work around these side effect (both, or the distance
+    aspect.. results may vary based on randomness) by adding an isPedDead check inside
+    the event, checking source (said remote player), as this delays the onClientElementIn
+    until after full respawn has taken place. The below script example incorporates
+    this workaround

@@ -42,3 +42,9 @@ examples:
   description: This example prevents player damage from custom weapons.
   side: client
 canceling: If this event was canceled, then the weapon will not fire.
+notes:
+- type: info
+  content: This event is ONLY for custom weapons that were created with createWeapon
+    , for regular weapons use onClientPlayerWeaponFire .
+- type: info
+  content: This event is only triggered for custom weapons that are streamed in

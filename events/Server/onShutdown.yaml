@@ -19,3 +19,9 @@ examples:
   description: ''
   side: server
 canceling: This event cannot be canceled.
+notes:
+- type: info
+  content: There is no 100% guarantee that all the code and operations executed in
+    this event will finish before the server is stopped. Therefore, avoid complex
+    actions like triggers or exports, as there may not be enough time to complete
+    the operations and execute the full code

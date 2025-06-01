@@ -19,3 +19,7 @@ examples:
 - path: examples/onChatMessage-1.lua
   description: This example outputs all chat messages to debug view.
   side: server
+notes:
+- type: info
+  content: It can be used to get the element responsible for a specific outputChatBox
+    call via the second parameter.

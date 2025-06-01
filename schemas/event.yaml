@@ -25,6 +25,8 @@ properties:
     description: Description of the canceling behavior of the event, if it can be canceled.
   parameters:
     $ref: '#/$defs/parameters'
+  meta:
+    $ref: 'common-defs.yaml#/$defs/meta'
   source_element:
     $ref: '#/$defs/source_element'
   notes:

@@ -15,3 +15,6 @@ examples:
   description: This code will output the name of any resource that is starting.
   side: server
 canceling: If this event is cancelled, the resource won't begin starting.
+notes:
+- type: info
+  content: This event isn't triggered within the resource starting.

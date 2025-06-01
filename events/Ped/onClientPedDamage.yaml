@@ -24,3 +24,6 @@ examples:
   description: This example cancels any damage done to peds
   side: client
 canceling: If this event is canceled, then any damaging effects to the ped will cease.
+notes:
+- type: info
+  content: This event is only triggered for peds that are streamed in

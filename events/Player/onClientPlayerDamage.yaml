@@ -27,3 +27,6 @@ examples:
   side: client
 canceling: If this event is canceled, then any damaging effects to the local player
   will cease.
+notes:
+- type: info
+  content: This event is only triggered for players that are streamed in

@@ -50,4 +50,7 @@ examples:
 - path: examples/onClientVehicleCollision-2.lua
   description: ''
   side: client
+notes:
+- type: info
+  content: This event is only triggered for vehicles that are streamed in
 incomplete: true

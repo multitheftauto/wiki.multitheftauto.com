@@ -20,3 +20,6 @@ examples:
   description: 'This example outputs the theoretical and real loss:'
   side: client
 canceling: If this event is canceled, the object will not be damaged.
+notes:
+- type: info
+  content: This event is only triggered for objects that are streamed in.

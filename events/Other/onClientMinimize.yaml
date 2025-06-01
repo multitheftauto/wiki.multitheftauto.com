@@ -10,3 +10,8 @@ examples:
 - path: examples/onClientMinimize-1.lua
   description: This example kills any player who minimizes the game.
   side: client
+notes:
+- type: info
+  content: This event only triggers from fullscreen minimize. onClientRestore can
+    trigger even if this event didn't. isMTAWindowFocused is a more reliable way to
+    see if a player is minimized.

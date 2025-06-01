@@ -14,3 +14,6 @@ examples:
   description: This example prevents objects from beeing broken in interiors.
   side: client
 canceling: If this event is canceled, the object will not break.
+notes:
+- type: info
+  content: This event is only triggered for objects that are streamed in

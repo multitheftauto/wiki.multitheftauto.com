@@ -15,3 +15,7 @@ examples:
 - path: examples/onConsole-1.lua
   description: ''
   side: server
+notes:
+- type: info
+  content: The event will not be triggered if the message can be processed by an existing
+    command handler

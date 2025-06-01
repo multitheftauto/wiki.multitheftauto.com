@@ -10,3 +10,6 @@ examples:
 - path: examples/onClientVehicleExplode-1.lua
   description: This example will output some text to chat on vehicle explosion
   side: client
+notes:
+- type: info
+  content: This event can not be cancelled.
