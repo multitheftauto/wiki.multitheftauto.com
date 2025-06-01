@@ -14,7 +14,21 @@ parameters:
   description: An integer representing the killer weapon or the damage types.
 - name: bodypart
   type: int
-  description: An integer representing the bodypart the player was damaged.
+  description: 'An integer representing the bodypart the player was damaged.
+
+    3: Torso
+
+    4: Ass
+
+    5: Left Arm
+
+    6: Right Arm
+
+    7: Left Leg
+
+    8: Right Leg
+
+    9: Head'
 - name: stealth
   type: bool
   description: A boolean representing whether or not this was a stealth kill.

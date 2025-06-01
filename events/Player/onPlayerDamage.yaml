@@ -16,8 +16,22 @@ parameters:
     or some other types of damage.
 - name: bodypart
   type: int
-  description: an int representing the bodypart ID the player was hit on when he got
-    damaged.
+  description: 'an int representing the bodypart ID the player was hit on when he
+    got damaged.
+
+    3: Torso
+
+    4: Ass
+
+    5: Left Arm
+
+    6: Right Arm
+
+    7: Left Leg
+
+    8: Right Leg
+
+    9: Head'
 - name: loss
   type: float
   description: a float representing the percentage of health the player lost.

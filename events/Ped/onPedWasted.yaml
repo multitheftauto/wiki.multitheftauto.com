@@ -6,7 +6,44 @@ source_element:
   description: The source of this event is the ped that died or got killed.
 description: This event is triggered when a ped is killed or dies. It is not triggered
   for players.
-parameters: []
+parameters:
+- name: totalAmmo
+  type: int
+  description: an int representing the total ammo the victim had when he died.
+- name: killer
+  type: element
+  description: an element representing the player, ped or vehicle who was the killer.  If
+    there was no killer this is false.
+- name: killerWeapon
+  type: int
+  description: an int representing the killer weapon or the damage types.
+- name: bodypart
+  type: int
+  description: 'an int representing the bodypart ID the victim was hit on when he
+    died.
+
+    3: Torso
+
+    4: Ass
+
+    5: Left Arm
+
+    6: Right Arm
+
+    7: Left Leg
+
+    8: Right Leg
+
+    9: Head'
+- name: stealth
+  type: bool
+  description: a boolean representing whether or not this was a stealth kill.
+- name: animGroup
+  type: int
+  description: an integer representing the ped's current animation group.
+- name: animID
+  type: int
+  description: an integer representing the ped's current animation ID.
 examples:
 - path: examples/onPedWasted-1.lua
   description: This example outputs to the console that the ped is now dead.
