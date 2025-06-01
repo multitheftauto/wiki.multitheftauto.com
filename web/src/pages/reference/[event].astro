@@ -16,6 +16,7 @@ import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
 import ItemDescription from '@src/components/ItemDescription.astro';
 import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
 import PreviewImages from '@src/components/PreviewImages.astro';
+import ChangelogList from '@src/components/ChangelogList.astro';
 
 export async function getStaticPaths() {
     const events = await getCollection('events');
@@ -58,6 +59,9 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
     notesContent = event.data.notes;
 }
 
+const eventMeta = event.data.meta || {};
+const changelogEntries = eventMeta.find(m => m.changelog)?.changelog ?? [];
+const needsChecking = eventMeta.find(m => m.needs_checking)?.needs_checking ?? undefined;
 ---
 
 <div class={"show-type-badge-" + eventType}>
@@ -66,6 +70,14 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         title: event.id,
         tableOfContents: false,
     }}>
+        {needsChecking && (
+            <div class="notes-section">
+                <NoteBox type="needs_checking">
+                    <EnhancedMarkdown content={needsChecking}/>
+                </NoteBox>
+            </div>
+        )}
+
         <!-- Description -->
         <ItemDescription description={event.data.description} incomplete={event.data.incomplete} />
 
@@ -113,6 +125,8 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
         )}
 
         <CodeExamplesSection codeExamples={eventExamples}, examplesRequired={true} theItem={event} />
+
+        <ChangelogList entries={changelogEntries} />
 
         <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(event)} currentId={event.id} />
     </StarlightPage>

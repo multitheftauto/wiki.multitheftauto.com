@@ -1,5 +1,6 @@
 export type FunctionType = 'shared' | 'client' | 'server';
+export type NotesTypeType = 'info' | 'warning' | 'important' | 'tip' | 'needs_checking';
 export type NotesType = {
-    type: 'info' | 'warning' | 'important';
+    type: NotesTypeType
     content: string;
 }[];

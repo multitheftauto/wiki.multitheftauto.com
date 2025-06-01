@@ -73,6 +73,7 @@ if (Array.isArray(funcInfo.notes) && funcInfo.notes.length > 0) {
 
 const metaArray = func.data[funcInfo.type]?.meta ?? [];
 const changelogEntries = metaArray.find(m => m.changelog)?.changelog ?? [];
+const needsChecking = metaArray.find(m => m.needs_checking)?.needs_checking ?? undefined;
 
 let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
 ---
@@ -83,6 +84,14 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         title: func.id,
         tableOfContents: false,
     }}>
+        {needsChecking && (
+            <div class="notes-section">
+                <NoteBox type="needs_checking">
+                    <EnhancedMarkdown content={needsChecking}/>
+                </NoteBox>
+            </div>
+        )}
+
         <!-- Pair Function Ref -->
         {funcPair && (
             <p><strong>Pair:</strong> <a href={`/reference/${funcPair}`}>{ funcPair }</a></p>

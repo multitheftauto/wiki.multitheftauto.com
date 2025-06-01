@@ -1,8 +1,9 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import type { NotesTypeType } from '@src/utils/types';
 
 interface Props extends HTMLAttributes<'div'> {
-  type?: 'info' | 'warning' | 'important' | 'tip';
+  type?: NotesTypeType;
 }
 
 const { type = 'info', class: className, ...rest } = Astro.props;
@@ -16,6 +17,7 @@ const { type = 'info', class: className, ...rest } = Astro.props;
       'note-warning': type === 'warning',
       'note-important': type === 'important',
       'note-tip': type === 'tip',
+      'note-needs_checking': type === 'needs_checking',
     }, 
     className
   ]}
@@ -61,6 +63,16 @@ const { type = 'info', class: className, ...rest } = Astro.props;
     </span>
   )}
 
+  {type === 'needs_checking' && (
+    <span style="font-size: 1.2rem;"><strong>This article needs checking:</strong></span>
+    <span class="note-icon" aria-label="Important">
+      <svg width="28" height="28" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="10" fill="#008dd4"/>
+        <text x="10" y="15" text-anchor="middle" font-size="14" fill="#fff" font-family="Arial" font-weight="bold">!</text>
+      </svg>
+    </span>
+  )}
+
   <slot />
 </div>
 
@@ -78,7 +90,8 @@ const { type = 'info', class: className, ...rest } = Astro.props;
 .custom-note-box.note-info,
 .custom-note-box.note-warning,
 .custom-note-box.note-important,
-.custom-note-box.note-tip {
+.custom-note-box.note-tip,
+.custom-note-box.note-needs_checking {
   padding-left: 3.5rem;
   padding-right: 1.25rem;
 }
@@ -97,6 +110,10 @@ const { type = 'info', class: className, ...rest } = Astro.props;
 
 .custom-note-box.note-tip {
   border-left-color: #4caf50;
+}
+
+.custom-note-box.note-needs_checking {
+  border-left-color: #008dd4;
 }
 
 .note-icon {

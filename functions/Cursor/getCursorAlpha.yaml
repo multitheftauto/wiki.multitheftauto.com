@@ -17,3 +17,5 @@ client:
     - path: 'examples/getCursorAlpha.lua'
       description: |
         This example prints the cursor alpha to chatbox using */cursoralpha* command:
+  meta:
+  - needs_checking: Hello, world
