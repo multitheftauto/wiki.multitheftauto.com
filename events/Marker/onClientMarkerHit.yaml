@@ -18,3 +18,9 @@ examples:
   description: This code will output a message to the chatbox whenever any player
     walks into any marker.
   side: client
+notes:
+- type: important
+  content: The event is not triggered when only the dimension changes of the player.
+    So, if you use the `matchingDimension` when teleporting players into existing
+    markers you should always first set their dimension/interior and only then the
+    position

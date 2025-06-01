@@ -20,4 +20,5 @@ canceling: If this event is canceled, the player will not be given the item they
   up.
 notes:
 - type: tip
-  content: '[[{{{image}}}|link=|]]'
+  content: Pickups use colshapes , you can get the colshape of the pickup with getElementColShape
+    and use colshape events to it.

@@ -22,6 +22,11 @@ CATEGORY_CORRECTIONS = {
     'Collision_shape': 'Colshape',
 }
 
+NAME_BLACKLIST = [
+    'Matrix',
+    'Vector'
+]
+
 def clean_category(category_name: str) -> str:
     if category_name.endswith("events"):
         return category_name[:-7]
@@ -61,6 +66,8 @@ def parse_links(source_label: str, url: str) -> dict:
                 if a and a.get("href", "").startswith("/wiki/"):
                     name = a.text.strip()
                     name = name.replace("/wiki/", "").split("/")[-1]
+                    if any(blacklist in name for blacklist in NAME_BLACKLIST):
+                        continue
                     page_url = a.get("href")
                     page_url = f"https://wiki.multitheftauto.com{page_url}"
                     if name not in result[current_category]:
@@ -134,7 +141,7 @@ def parse_examples(content_div):
     return examples
 
 
-def parse_note_boxes(content_div):
+def parse_notes(content_div):
     note_boxes = []
 
     # 1. Note and warning boxes use specific class names
@@ -171,16 +178,44 @@ def parse_note_boxes(content_div):
     for table in content_div.find_all("table"):
         style = table.get("style", "")
         if "98fb98" in style and "border-left" in style:  # distinctive green border
-            td = table.find("td")
-            if td:
-                text = td.get_text(strip=True)
+
+            rows = table.find_all("tr")
+            if not rows:
+                continue
+            # Get the second <td> of the first <tr>
+            cells = rows[0].find_all("td")
+            if len(cells) >= 2:
+                message_cell = cells[1]
+                text = message_cell.get_text(" ", strip=True)
                 text = text.replace("Tip:", "", 1).strip()
                 note_boxes.append({
                     "type": "tip",
                     "text": text
                 })
+
+    # 3. Important Note boxes also don't have class, FFB2B2 border color
+    for table in content_div.find_all("table"):
+        # Ignore if it parent div has class "warning-messagebox" (because that's also the same color lol)
+        if "warning-messagebox" in table.parent.get("class", []):
+            continue
+        style = table.get("style", "")
+        if "FFB2B2" in style and "border-left" in style:
+
+            rows = table.find_all("tr")
+            if not rows:
+                continue
+            # Get the second <td> of the first <tr>
+            cells = rows[0].find_all("td")
+            if len(cells) >= 2:
+                message_cell = cells[1]
+                text = message_cell.get_text(" ", strip=True)
+                text = text.replace("Important Note:", "", 1).strip()
+                note_boxes.append({
+                    "type": "important",
+                    "text": text
+                })
     
-    # 3. "This article needs checking" boxes (purple border, distinct title)
+    # 4. "This article needs checking" boxes (purple border, distinct title)
     for table in content_div.find_all("table"):
         style = table.get("style", "")
         if "border-left: 25px solid #8181ff" in style:
@@ -201,8 +236,50 @@ def parse_note_boxes(content_div):
                                 "text": text
                             })
 
-    return note_boxes
+    the_notes = []
+    the_meta = []
+    for note in note_boxes:
+        if note["type"] == "note" or note["type"] == "tip" or note["type"] == "warning" or note["type"] == "important":
+            the_notes.append({
+                "type": "info" if note["type"] == "note" else note["type"],
+                "content": note["text"]
+            })
+        elif note["type"] == "needs_checking":
+            the_meta.append({
+                "needs_checking": note["text"]
+            })
 
+    return the_notes, the_meta
+
+def parse_description(content_div):
+    
+    the_description = None
+    # Find the first p before a header h2 or h3
+    for element in content_div.find_all(["p", "h2", "h3"]):
+        if element.name == "p":
+            text = element.get_text().strip()
+            if text and not text.isspace():
+                the_description = convert_to_markdown(str(element))
+                the_description = the_description.strip()
+                # print(f"Found description for {name}: {the_description}")
+                break
+        elif element.name in ["h2", "h3"]:
+            # Stop at the first header
+            break
+    
+    if not the_description:
+        # Alternatively, look for content inside a div that has style="padding: 4px 8px"
+        divs = content_div.find_all("div", style="padding: 4px 8px")
+        for div in divs:
+            text = div.get_text()
+            if text and not text.isspace():
+                the_description = convert_to_markdown(str(div))
+                the_description = the_description.strip()
+                # print(f"Found description in div for {name}: {the_description}")
+                break
+    
+    return the_description
+    
 
 def parse_event_page(page_url: str, category: str, name: str, source: str) -> dict:
     response = requests.get(page_url)
@@ -211,33 +288,11 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     # Find first non-empty p inside mw-content-text
     content_div = soup.find("div", id="mw-content-text")
     if not content_div:
-        raise ValueError(f"Could not find content in {page_url}.")
+        raise ValueError(f"Could not find content in {page_url}")
+
+    event_type = "client" if "Client" in source else "server"
     
-    event_description = None
-    # Find the first p before a header h2 or h3
-    for element in content_div.find_all(["p", "h2", "h3"]):
-        if element.name == "p":
-            text = element.get_text().strip()
-            if text and not text.isspace():
-                event_description = convert_to_markdown(str(element))
-                event_description = event_description.strip()
-                # print(f"Found description for {name}: {event_description}")
-                break
-        elif element.name in ["h2", "h3"]:
-            # Stop at the first header
-            break
-    
-    if not event_description:
-        # Alternatively, look for content inside a div that has style="padding: 4px 8px"
-        divs = content_div.find_all("div", style="padding: 4px 8px")
-        for div in divs:
-            text = div.get_text()
-            if text and not text.isspace():
-                event_description = convert_to_markdown(str(div))
-                event_description = event_description.strip()
-                # print(f"Found description in div for {name}: {event_description}")
-                break
-    
+    event_description = parse_description(content_div)
     if event_description is None:
         raise ValueError(f"Could not find a valid description for {name} in {page_url}")
 
@@ -338,8 +393,6 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     if len(examples) == 0:
         print(f"Found no examples for {name}")
 
-    event_type = "client" if "Client" in source else "server"
-
     # For each example, create a .lua file with the code
     # with name eventName-index.lua
     example_index = 1
@@ -360,20 +413,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
             })
             example_index += 1
 
-    note_boxes = parse_note_boxes(content_div)
-    event_notes = []
-    event_meta = []
-    for note in note_boxes:
-        if note["type"] == "note" or note["type"] == "tip" or note["type"] == "warning":
-            event_notes.append({
-                "type": "info" if note["type"] == "note" else note["type"],
-                "content": note["text"]
-            })
-        elif note["type"] == "needs_checking":
-            event_meta.append({
-                "needs_checking": note["text"]
-            })
-
+    event_notes, event_meta = parse_notes(content_div)
 
     yaml_dict = {
         "name": name,
@@ -396,26 +436,51 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     
     return yaml_dict
 
-def parse_function_page(page_url: str, category: str, name: str, source: str) -> str:
-    if source.startswith("Shared"):
-        yaml_content = "shared: &shared\n"
-        yaml_content += f"  incomplete: true\n"
-        yaml_content += f"  name: {name}\n"
-        yaml_content += f"  description: TODO\n"
-        yaml_content += "\nserver:\n  <<: *shared"
-        yaml_content += "\nclient:\n  <<: *shared"
-    elif source.startswith("Server"):
-        yaml_content = "server:\n"
-        yaml_content += f"  incomplete: true\n"
-        yaml_content += f"  name: {name}\n"
-        yaml_content += f"  description: TODO\n"
-    elif source.startswith("Client"):
-        yaml_content = "client:\n"
-        yaml_content += f"  incomplete: true\n"
-        yaml_content += f"  name: {name}\n"
-        yaml_content += f"  description: TODO\n"
+def parse_function_page(page_url: str, category: str, name: str, source: str) -> dict:
+    response = requests.get(page_url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    content_div = soup.find("div", id="mw-content-text")
+    if not content_div:
+        raise ValueError(f"Could not find content in {page_url}")
 
-    return yaml_content
+    func_type = "shared" if "Shared" in source else "server" if "Server" in source else "client"
+
+    func_description = parse_description(content_div)
+    if func_description is None:
+        raise ValueError(f"Could not find a valid description for {name} in {page_url}")
+    
+    func_notes, func_meta = parse_notes(content_div)
+
+    yaml_dict = {
+        func_type: {
+            "name": name,
+            "description": func_description,
+            "parameters": [],
+            "examples": [],
+            "notes": func_notes,
+            "meta": func_meta
+        }
+    }
+
+    # if source.startswith("Shared"):
+    #     yaml_content = "shared: &shared\n"
+    #     yaml_content += f"  incomplete: true\n"
+    #     yaml_content += f"  name: {name}\n"
+    #     yaml_content += f"  description: TODO\n"
+    #     yaml_content += "\nserver:\n  <<: *shared"
+    #     yaml_content += "\nclient:\n  <<: *shared"
+    # elif source.startswith("Server"):
+    #     yaml_content = "server:\n"
+    #     yaml_content += f"  incomplete: true\n"
+    #     yaml_content += f"  name: {name}\n"
+    #     yaml_content += f"  description: TODO\n"
+    # elif source.startswith("Client"):
+    #     yaml_content = "client:\n"
+    #     yaml_content += f"  incomplete: true\n"
+    #     yaml_content += f"  name: {name}\n"
+    #     yaml_content += f"  description: TODO\n"
+
+    return yaml_dict
 
 def convert_page_to_yaml(page_url: str, category: str, name: str, source: str) -> str:
     # This scrapes the page and tries to parse the MediaWiki content into a YAML format for the function/event
@@ -426,17 +491,17 @@ def convert_page_to_yaml(page_url: str, category: str, name: str, source: str) -
         raise ValueError("Source must be either a function or an event.")
     
     if is_event:
-        yaml_content = yaml.safe_dump(parse_event_page(page_url, category, name, source),
-            sort_keys=False,
-            allow_unicode=True,
-            default_flow_style=False)
+        yaml_dict = parse_event_page(page_url, category, name, source)
 
     elif is_function:
-        yaml_content = parse_function_page(page_url, category, name, source)
+        yaml_dict = parse_function_page(page_url, category, name, source)
+        
+    return yaml.safe_dump(yaml_dict,
+        sort_keys=False,
+        allow_unicode=True,
+        default_flow_style=False)
 
-    return yaml_content
-
-def write_yaml_per_entry(base_dir, data_by_source):
+def parse_items_by_source(base_dir, data_by_source):
     for source, categories in data_by_source.items():
         print(f"Parsing individual pages of {source}...")
         for category, entries in categories.items():
@@ -464,9 +529,16 @@ def main():
     events_by_source = {}
 
     # Functions
+    # functions_by_source["Shared functions"] = parse_links("Shared functions", URL_SHARED_FUNCS)
     # functions_by_source["Client functions"] = parse_links("Client functions", URL_CLIENT_FUNCS)
     # functions_by_source["Server functions"] = parse_links("Server functions", URL_SERVER_FUNCS)
-    # functions_by_source["Shared functions"] = parse_links("Shared functions", URL_SHARED_FUNCS)
+    
+    # TEST Parse only these:
+    # functions_by_source["Shared functions"] = {
+    #     "Element": [
+    #         ("https://wiki.multitheftauto.com/wiki/SetElementParent", "setElementParent"),
+    #     ]
+    # }
 
     # Events
     events_by_source["Client events"] = parse_links("Client events", URL_CLIENT_EVENTS)
@@ -476,8 +548,8 @@ def main():
     if os.path.exists("./output"):
         shutil.rmtree("./output")
 
-    write_yaml_per_entry(FUNCTIONS_DIR, functions_by_source)
-    write_yaml_per_entry(EVENTS_DIR, events_by_source)
+    parse_items_by_source(FUNCTIONS_DIR, functions_by_source)
+    parse_items_by_source(EVENTS_DIR, events_by_source)
 
 if __name__ == "__main__":
     main()

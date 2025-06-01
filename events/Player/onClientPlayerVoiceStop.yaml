@@ -17,3 +17,6 @@ notes:
   content: This event triggers inconsistently ( https://github.com/multitheftauto/mtasa-blue/issues/1700
     ). You should use onPlayerVoiceStart and trigger a custom client-sided event to
     get similar results, minus the cancelEvent effect.
+- type: important
+  content: This event should only be used as a low-level function for advanced users.  For
+    typical Voice scripting, please see the Voice Resource

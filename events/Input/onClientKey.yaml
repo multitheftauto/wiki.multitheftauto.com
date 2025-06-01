@@ -26,3 +26,6 @@ examples:
   side: client
 canceling: If this event is canceled, then all GTA and MTA binds, bound to the canceled
   key, won't be triggered.
+notes:
+- type: important
+  content: F8 key not triggered on this event!

@@ -11,3 +11,7 @@ examples:
 - path: examples/onPlayerVoiceStop-1.lua
   description: This example outputs to the world that the player stopped talking.
   side: server
+notes:
+- type: important
+  content: This event should only be used as a low-level function for advanced users.  For
+    typical Voice scripting, please see the Voice Resource
