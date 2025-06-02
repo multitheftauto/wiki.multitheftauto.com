@@ -15,7 +15,7 @@ const entities = elementsByCategory['Entity'] || [];
 }}>
     <p>An <strong>entity</strong> is an element that has a position and a physical representation in the world. The following elements are entities:</p>
     
-    <div class="mtagrid">
+    <div class="mtagrid" data-pagefind-ignore>
         {Array.from({ length: Math.ceil(entities.length / 10) }, (_, i) => (
             <ul class="mtabox">
                 {entities.slice(i * 10, i * 10 + 10).map(entity => (

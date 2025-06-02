@@ -16,7 +16,7 @@ const elementsByCategory = getElementsByCategory();
     An <strong>element</strong> is a generic class that can represent almost all in-game entities.
     The built-in element types are:</p>
   
-  <div class="mtaflex">
+  <div class="mtaflex" data-pagefind-ignore>
     {Object.entries(elementsByCategory).map(([category, elements]) => (
       <div class="mtabox">
         <span class="mtabox_title" id={category}>{category} elements <a href={"#"+category}><Icon
