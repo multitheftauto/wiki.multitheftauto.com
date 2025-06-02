@@ -46,7 +46,7 @@ export default defineConfig({
 							label: 'How you can help', link: '/articles/How_you_can_help',
 						},
 						{
-							label: 'Incomplete Pages', link: '/Incomplete_Pages',
+							label: 'Incomplete Pages', link: '/Incomplete_Pages', badge: { text: 'Help Wanted', variant: 'tip' },
 						},
 					]
 				},
@@ -56,48 +56,61 @@ export default defineConfig({
 						{
 							label: 'Scripting Introduction', link: '/articles/Scripting_Introduction',
 						},
-						{
-							label: 'Meta.xml', link: '/articles/Meta.xml',
-						}
 					]
 				},
 				{
 					label: 'Reference',
 					items: [
 						{
-							label: 'Lua API', link: '/reference/Lua_API',
-						},
-						{
-							label: 'Functions',
+							label: 'Resources',
 							items: [
-								{label: 'All Functions', link: '/reference/Scripting_Functions'},
-								{label: 'Shared Functions', link: '/reference/Shared_Scripting_Functions'},
-								{label: 'Client Functions', link: '/reference/Client_Scripting_Functions'},
-								{label: 'Server Functions', link: '/reference/Server_Scripting_Functions'},
+								{ label: 'Lua API', link: '/reference/Lua_API' },
+								{ label: 'Meta.xml', link: '/reference/Meta.xml'},
+								{
+									label: 'Functions',
+									collapsed: true,
+									items: [
+										{label: 'All Functions', link: '/reference/Scripting_Functions'},
+										{label: 'Shared Functions', link: '/reference/Shared_Scripting_Functions'},
+										{label: 'Client Functions', link: '/reference/Client_Scripting_Functions'},
+										{label: 'Server Functions', link: '/reference/Server_Scripting_Functions'},
+									]
+								},
+								{
+									label: 'Events',
+									collapsed: true,
+									items: [
+										{label: 'Event System', link: '/reference/Event_System'},
+										{label: 'All Events', link: '/reference/Scripting_Events'},
+										{label: 'Client Events', link: '/reference/Client_Scripting_Events'},
+										{label: 'Server Events', link: '/reference/Server_Scripting_Events'},
+									]
+								},
+								{
+									label: 'Elements',
+									collapsed: true,
+									items: [
+										{label: 'Element Types', link: '/reference/Element'},
+										{label: 'Element Tree', link: '/reference/Element_tree'},
+										{label: 'Entities', link: '/reference/Entity'},
+									]
+								},
+								{
+									label: 'OOP',
+									collapsed: true,
+									items: [
+										{label: 'About OOP', link: '/reference/OOP'},
+										{label: 'OOP Classes', link: '/reference/OOP_Classes'},
+									]
+								},
 							]
 						},
 						{
-							label: 'Events',
+							label: 'Configuration',
 							items: [
-								{label: 'Event System', link: '/reference/Event_System'},
-								{label: 'All Events', link: '/reference/Scripting_Events'},
-								{label: 'Client Events', link: '/reference/Client_Scripting_Events'},
-								{label: 'Server Events', link: '/reference/Server_Scripting_Events'},
-							]
-						},
-						{
-							label: 'Elements',
-							items: [
-								{label: 'Element Types', link: '/reference/Element'},
-								{label: 'Element Tree', link: '/reference/Element_tree'},
-								{label: 'Entities', link: '/reference/Entity'},
-							]
-						},
-						{
-							label: 'OOP',
-							items: [
-								{label: 'About OOP', link: '/reference/OOP'},
-								{label: 'OOP Classes', link: '/reference/OOP_Classes'},
+								{label: 'MTAServer.conf', link: '/reference/Server_mtaserver.conf'},
+								{label: 'Settings.xml', link: '/reference/Settings_System'},
+								{label: 'ACL.xml', link: '/reference/Access_Control_List'},
 							]
 						},
 					]
