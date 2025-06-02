@@ -1,0 +1,17 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'ID Lists',
+    tableOfContents: false,
+}}>
+    TODO
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:Lua_API',
+    ])} currentId='' />
+</StarlightPage>

@@ -61,11 +61,13 @@ export default defineConfig({
 				{
 					label: 'Reference',
 					items: [
+						{label: 'ID Lists', link: '/reference/ID_Lists'},
 						{
 							label: 'Resources',
 							items: [
 								{ label: 'Lua API', link: '/reference/Lua_API' },
 								{ label: 'Meta.xml', link: '/reference/Meta.xml'},
+								{ label: 'Resource Web Access', link: '/reference/Resource_Web_Access'},
 								{
 									label: 'Functions',
 									collapsed: true,

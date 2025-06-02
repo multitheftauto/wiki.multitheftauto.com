@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "predev": "node mta_highlighting/generate-lua-tmlanguage.js",
+    "predev": "node scripts/preprocess.js",
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node mta_highlighting/generate-lua-tmlanguage.js",
+    "prebuild": "node scripts/preprocess.js",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

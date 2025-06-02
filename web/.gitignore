@@ -23,3 +23,6 @@ pnpm-debug.log*
 # tmLanguage file
 src/grammars/
 public/grammars/
+
+# assets copied from outside web directory
+assets/
