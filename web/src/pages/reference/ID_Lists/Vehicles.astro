@@ -1,0 +1,490 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Code } from '@astrojs/starlight/components';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+import NoteBox from '@src/components/NoteBox.astro';
+
+const vehicles = {
+  "Aircraft": {
+    "Airplanes": [
+      { id: 592, name: "Andromada" },
+      { id: 577, name: "AT-400" },
+      { id: 511, name: "Beagle" },
+      { id: 512, name: "Cropduster" },
+      { id: 593, name: "Dodo" },
+      { id: 520, name: "Hydra" },
+      { id: 553, name: "Nevada" },
+      { id: 476, name: "Rustler" },
+      { id: 519, name: "Shamal" },
+      { id: 460, name: "Skimmer" },
+      { id: 513, name: "Stuntplane" },
+    ],
+    "Helicopters": [
+      { id: 548, name: "Cargobob" },
+      { id: 425, name: "Hunter" },
+      { id: 417, name: "Leviathan" },
+      { id: 487, name: "Maverick" },
+      { id: 488, name: "News Chopper" },
+      { id: 497, name: "Police Maverick" },
+      { id: 563, name: "Raindance" },
+      { id: 447, name: "Seasparrow" },
+      { id: 469, name: "Sparrow" },
+    ],
+  },
+  "Boats": {
+    "Uncategorized": [
+      { id: 472, name: "Coastguard" },
+      { id: 473, name: "Dinghy" },
+      { id: 493, name: "Jetmax" },
+      { id: 595, name: "Launch" },
+      { id: 484, name: "Marquis" },
+      { id: 430, name: "Predator" },
+      { id: 453, name: "Reefer" },
+      { id: 452, name: "Speeder" },
+      { id: 446, name: "Squalo" },
+      { id: 454, name: "Tropic" },
+    ],
+  },
+  "Land vehicles": {
+    "Bikes": [
+      { id: 581, name: "BF-400" },
+      { id: 509, name: "Bike" },
+      { id: 481, name: "BMX" },
+      { id: 462, name: "Faggio" },
+      { id: 521, name: "FCR-900" },
+      { id: 463, name: "Freeway" },
+      { id: 510, name: "Mountain Bike" },
+      { id: 522, name: "NRG-500" },
+      { id: 461, name: "PCJ-600" },
+      { id: 448, name: "Pizzaboy" },
+      { id: 468, name: "Sanchez" },
+      { id: 586, name: "Wayfarer" },
+    ],
+    "2-Door & Compact cars": [
+      { id: 602, name: "Alpha" },
+      { id: 496, name: "Blista Compact" },
+      { id: 401, name: "Bravura" },
+      { id: 518, name: "Buccaneer" },
+      { id: 527, name: "Cadrona" },
+      { id: 589, name: "Club" },
+      { id: 419, name: "Esperanto" },
+      { id: 587, name: "Euros" },
+      { id: 533, name: "Feltzer" },
+      { id: 526, name: "Fortune" },
+      { id: 474, name: "Hermes" },
+      { id: 545, name: "Hustler" },
+      { id: 517, name: "Majestic" },
+      { id: 410, name: "Manana" },
+      { id: 600, name: "Picador" },
+      { id: 436, name: "Previon" },
+      { id: 439, name: "Stallion" },
+      { id: 549, name: "Tampa" },
+      { id: 491, name: "Virgo" },
+    ],
+    "4-Door & Luxury cars": [
+      { id: 445, name: "Admiral" },
+      { id: 604, name: "Damaged Glendale" },
+      { id: 507, name: "Elegant" },
+      { id: 585, name: "Emperor" },
+      { id: 466, name: "Glendale" },
+      { id: 492, name: "Greenwood" },
+      { id: 546, name: "Intruder" },
+      { id: 551, name: "Merit" },
+      { id: 516, name: "Nebula" },
+      { id: 467, name: "Oceanic" },
+      { id: 426, name: "Premier" },
+      { id: 547, name: "Primo" },
+      { id: 405, name: "Sentinel" },
+      { id: 580, name: "Stafford" },
+      { id: 409, name: "Stretch" },
+      { id: 550, name: "Sunrise" },
+      { id: 566, name: "Tahoma" },
+      { id: 540, name: "Vincent" },
+      { id: 421, name: "Washington" },
+      { id: 529, name: "Willard" },
+    ],
+    "Civil service": [
+      { id: 485, name: "Baggage" },
+      { id: 431, name: "Bus" },
+      { id: 438, name: "Cabbie" },
+      { id: 437, name: "Coach" },
+      { id: 574, name: "Sweeper" },
+      { id: 420, name: "Taxi" },
+      { id: 525, name: "Towtruck" },
+      { id: 408, name: "Trashmaster" },
+      { id: 552, name: "Utility Van" },
+    ],
+    "Government vehicles": [
+      { id: 416, name: "Ambulance" },
+      { id: 433, name: "Barracks" },
+      { id: 427, name: "Enforcer" },
+      { id: 490, name: "FBI Rancher" },
+      { id: 528, name: "FBI Truck" },
+      { id: 407, name: "Fire Truck" },
+      { id: 544, name: "Fire Truck" },
+      { id: 523, name: "HPV1000" },
+      { id: 470, name: "Patriot" },
+      { id: 596, name: "Police LS" },
+      { id: 598, name: "Police LV" },
+      { id: 599, name: "Police Ranger" },
+      { id: 597, name: "Police SF" },
+      { id: 432, name: "Rhino" },
+      { id: 601, name: "S.W.A.T." },
+      { id: 428, name: "Securicar" },
+    ],
+    "Heavy & Utility trucks": [
+      { id: 499, name: "Benson" },
+      { id: 609, name: "Boxville Mission" },
+      { id: 498, name: "Boxville" },
+      { id: 524, name: "Cement Truck" },
+      { id: 532, name: "Combine Harvester" },
+      { id: 578, name: "DFT-30" },
+      { id: 486, name: "Dozer" },
+      { id: 406, name: "Dumper" },
+      { id: 573, name: "Dune" },
+      { id: 455, name: "Flatbed" },
+      { id: 588, name: "Hotdog" },
+      { id: 403, name: "Linerunner" },
+      { id: 423, name: "Mr. Whoopee" },
+      { id: 414, name: "Mule" },
+      { id: 443, name: "Packer" },
+      { id: 515, name: "Roadtrain" },
+      { id: 514, name: "Tanker" },
+      { id: 531, name: "Tractor" },
+      { id: 456, name: "Yankee" },
+    ],
+    "Light trucks & Vans": [
+      { id: 459, name: "Berkley's RC Van" },
+      { id: 422, name: "Bobcat" },
+      { id: 482, name: "Burrito" },
+      { id: 605, name: "Damaged Sadler" },
+      { id: 530, name: "Forklift" },
+      { id: 418, name: "Moonbeam" },
+      { id: 572, name: "Mower" },
+      { id: 582, name: "News Van" },
+      { id: 413, name: "Pony" },
+      { id: 440, name: "Rumpo" },
+      { id: 543, name: "Sadler" },
+      { id: 583, name: "Tug" },
+      { id: 478, name: "Walton" },
+      { id: 554, name: "Yosemite" },
+    ],
+    "SUVs & Wagons": [
+      { id: 579, name: "Huntley" },
+      { id: 400, name: "Landstalker" },
+      { id: 404, name: "Perennial" },
+      { id: 489, name: "Rancher" },
+      { id: 505, name: "Rancher Lure" },
+      { id: 479, name: "Regina" },
+      { id: 442, name: "Romero" },
+      { id: 458, name: "Solair" },
+    ],
+    "Lowriders": [
+      { id: 536, name: "Blade" },
+      { id: 575, name: "Broadway" },
+      { id: 534, name: "Remington" },
+      { id: 567, name: "Savanna" },
+      { id: 535, name: "Slamvan" },
+      { id: 576, name: "Tornado" },
+      { id: 412, name: "Voodoo" },
+    ],
+    "Muscle cars": [
+      { id: 402, name: "Buffalo" },
+      { id: 542, name: "Clover" },
+      { id: 603, name: "Phoenix" },
+      { id: 475, name: "Sabre" },
+    ],
+    "Street racers": [
+      { id: 429, name: "Banshee" },
+      { id: 541, name: "Bullet" },
+      { id: 415, name: "Cheetah" },
+      { id: 480, name: "Comet" },
+      { id: 562, name: "Elegy" },
+      { id: 565, name: "Flash" },
+      { id: 434, name: "Hotknife" },
+      { id: 494, name: "Hotring Racer" },
+      { id: 502, name: "Hotring Racer 2" },
+      { id: 503, name: "Hotring Racer 3" },
+      { id: 411, name: "Infernus" },
+      { id: 559, name: "Jester" },
+      { id: 561, name: "Stratum" },
+      { id: 560, name: "Sultan" },
+      { id: 506, name: "Super GT" },
+      { id: 451, name: "Turismo" },
+      { id: 558, name: "Uranus" },
+      { id: 555, name: "Windsor" },
+      { id: 477, name: "ZR-350" },
+    ],
+    "RC Vehicles": [
+      { id: 441, name: "RC Bandit" },
+      { id: 464, name: "RC Baron" },
+      { id: 594, name: "RC Cam" },
+      { id: 501, name: "RC Goblin" },
+      { id: 465, name: "RC Raider" },
+      { id: 564, name: "RC Tiger" },
+    ],
+    "Trailers": [
+      { id: 606, name: "Baggage Trailer" },
+      { id: 607, name: "Baggage Trailer" },
+      { id: 610, name: "Farm Trailer" },
+      { id: 584, name: "Petrol trailer" },
+      { id: 611, name: "Trailer" },
+      { id: 608, name: "Trailer" },
+      { id: 435, name: "Trailer 1" },
+      { id: 450, name: "Trailer 2" },
+      { id: 591, name: "Trailer 3" },
+    ],
+    "Trains & Railroad cars": [
+      { id: 590, name: "Box Freight" },
+      { id: 538, name: "Brown Streak" },
+      { id: 570, name: "Brown Streak Carriage" },
+      { id: 569, name: "Flat Freight" },
+      { id: 537, name: "Freight" },
+      { id: 449, name: "Tram" },
+    ],
+  },
+  "Recreational": {
+    "Uncategorized": [
+      { id: 568, name: "Bandito" },
+      { id: 424, name: "BF Injection" },
+      { id: 504, name: "Bloodring Banger" },
+      { id: 457, name: "Caddy" },
+      { id: 483, name: "Camper" },
+      { id: 508, name: "Journey" },
+      { id: 571, name: "Kart" },
+      { id: 500, name: "Mesa" },
+      { id: 444, name: "Monster" },
+      { id: 556, name: "Monster 2" },
+      { id: 557, name: "Monster 3" },
+      { id: 471, name: "Quadbike" },
+      { id: 495, name: "Sandking" },
+      { id: 539, name: "Vortex" },
+    ],
+  },
+};
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Vehicles',
+    tableOfContents: false,
+}}>
+    <p>This is a list of GTA:SA's vehicle ID numbers, as listed in the <code>vehicles.ide</code> game file.</p>
+    <p>These vehicle ID numbers are used for several vehicle scripting functions.</p>
+    <NoteBox type='tip'>Click on the model image to view the vehicle in 3D.</NoteBox>
+
+    <h5>Table of Contents</h5>
+    <ul>
+        <span>Vehicles</span>
+        <ul>
+            {Object.keys(vehicles).map(category => (
+                <li>
+                    <a href={`#${category}`}>{category}</a>
+                    <ul>
+                        {Object.keys(vehicles[category]).map(subcategory => (
+                            <>
+                                {subcategory !== 'Uncategorized' && (
+                                    <li>
+                                        <a href={`#${subcategory}`}>{subcategory}</a>
+                                    </li>
+                                )}
+                            </>
+                        ))}
+                    </ul>
+                </li>
+            ))}
+        </ul>
+        <span>Lua tables</span>
+        <ul>
+            <li><a href="#lua-all">All valid vehicle IDs listed here</a></li>
+            <li><a href="#lua-names">All vehicle names</a></li>
+            <li><a href="#lua-no-lock">Vehicles that are not lockable</a></li>
+            <li><a href="#lua-no-plate">Vehicles without number plates</a></li>
+            <li><a href="#lua-3-colors">Vehicles that support up to three different colors</a></li>
+            <li><a href="#lua-no-siren">Vehicles that don't support siren lights</a></li>
+            <li><a href="#lua-no-engine">Vehicles without engines</a></li>
+            <li><a href="#lua-2-doors">Vehicles with 2 physically enterable doors</a></li>
+            <li><a href="#lua-4-doors">Vehicles with 4 physically enterable doors</a></li>
+        </ul>
+    </ul>
+
+    {Object.entries(vehicles).map(([category, subcategories]) => (
+        <div class="vehicle-category" id={category}>
+            <h3 class="vehicle-category-title">{category}</h3>
+            {
+                Object.entries(subcategories).map(([subcategory, vehiclesList]) => (
+                    <div class="vehicle-subcategory" id={subcategory}>
+                        <h4 class="vehicle-subcategory-title">{subcategory === 'Uncategorized' ? '' : subcategory}</h4>
+                        <div class="vehicle-list">
+                        {vehiclesList.map(vehicle => (
+                            <div class="vehicle-item">
+                                <div class="vehicle-title">{vehicle.name} ({vehicle.id})</div>
+                                <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa/${vehicle.id}`}>
+                                    <Image
+                                        src={getAssetImagePath(`Vehicles/${vehicle.id}.png`)}
+                                        alt={vehicle.name}
+                                        class="vehicle-image"
+                                    />
+                                </a>
+                            </div>
+                        ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    ))}
+
+    <p id="lua-all">Lua table of all the valid vehicle IDs listed on this page:</p>
+    <Code lang="lua" code={`
+vehicleIds = {
+	400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415,
+	416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433,
+	434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451,
+	452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469,
+	470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487,
+	488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505,
+	506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523,
+	524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541,
+	542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559,
+	560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577,
+	578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595,
+	596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611
+}`}/>
+
+    <p id="lua-names">Lua table of all vehicle names:</p>
+    <Code lang="lua" code={`
+-- (when indexing just do a <vehicle model id you want the name of> - 399 to get the name)
+vehicleNames = {
+	"Landstalker", "Bravura", "Buffalo", "Linerunner", "Perennial", "Sentinel", "Dumper", "Fire Truck", "Trashmaster", "Stretch", "Manana", 
+	"Infernus", "Voodoo", "Pony", "Mule", "Cheetah", "Ambulance", "Leviathan", "Moonbeam", "Esperanto", "Taxi", "Washington", "Bobcat", 
+	"Mr. Whoopee", "BF Injection", "Hunter", "Premier", "Enforcer", "Securicar", "Banshee", "Predator", "Bus", "Rhino", "Barracks", "Hotknife", 
+	"Trailer 1", "Previon", "Coach", "Cabbie", "Stallion", "Rumpo", "RC Bandit", "Romero", "Packer", "Monster", "Admiral", "Squalo", 
+	"Seasparrow", "Pizzaboy", "Tram", "Trailer 2", "Turismo", "Speeder", "Reefer", "Tropic", "Flatbed", "Yankee", "Caddy", "Solair", 
+	"Berkley's RC Van", "Skimmer", "PCJ-600", "Faggio", "Freeway", "RC Baron", "RC Raider", "Glendale", "Oceanic", "Sanchez", "Sparrow", "Patriot", 
+	"Quadbike", "Coastguard", "Dinghy", "Hermes", "Sabre", "Rustler", "ZR-350", "Walton", "Regina", "Comet", "BMX", "Burrito", "Camper", "Marquis", 
+	"Baggage", "Dozer", "Maverick", "News Chopper", "Rancher", "FBI Rancher", "Virgo", "Greenwood", "Jetmax", "Hotring Racer", "Sandking", 
+	"Blista Compact", "Police Maverick", "Boxville", "Benson", "Mesa", "RC Goblin", "Hotring Racer 2", "Hotring Racer 3", "Bloodring Banger", 
+	"Rancher Lure", "Super GT", "Elegant", "Journey", "Bike", "Mountain Bike", "Beagle", "Cropduster", "Stuntplane", "Tanker", "Roadtrain", "Nebula", 
+	"Majestic", "Buccaneer", "Shamal", "Hydra", "FCR-900", "NRG-500", "HPV1000", "Cement Truck", "Towtruck", "Fortune", "Cadrona", "FBI Truck", 
+	"Willard", "Forklift", "Tractor", "Combine Harvester", "Feltzer", "Remington", "Slamvan", "Blade", "Freight", "Brown Streak", "Vortex", "Vincent", 
+	"Bullet", "Clover", "Sadler", "Fire Truck Ladder", "Hustler", "Intruder", "Primo", "Cargobob", "Tampa", "Sunrise", "Merit", "Utility Van", 
+	"Nevada", "Yosemite", "Windsor", "Monster 2", "Monster 3", "Uranus", "Jester", "Sultan", "Stratum", "Elegy", "Raindance", "RC Tiger", "Flash", 
+	"Tahoma", "Savanna", "Bandito", "Freight Train Flatbed", "Streak Train Trailer", "Kart", "Mower", "Dune", "Sweeper", "Broadway", "Tornado", 
+	"AT-400", "DFT-30", "Huntley", "Stafford", "BF-400", "Newsvan", "Tug", "Trailer (Tanker Commando)", "Emperor", "Wayfarer", "Euros", "Hotdog", 
+	"Club", "Box Freight", "Trailer 3", "Andromada", "Dodo", "RC Cam", "Launch", "Police LS", "Police SF", "Police LV", "Police Ranger", 
+	"Picador", "S.W.A.T.", "Alpha", "Phoenix", "Glendale Damaged", "Sadler Damaged", "Baggage Trailer (covered)", 
+	"Baggage Trailer (Uncovered)", "Trailer (Stairs)", "Boxville Mission", "Farm Trailer", "Street Clean Trailer"
+}`}/>
+
+    <p id="lua-no-lock">Lua table of vehicles that are not lockable:</p>
+    <Code lang="lua" code={`
+nonLockableVehicles = {
+	594, 606, 607, 611, 584, 608, 435, 450, 591, 539, 441, 464, 501, 465, 564, 472, 473, 493, 595, 484, 430, 453, 452, 446, 454, 581, 509, 481,
+	462, 521, 463, 510, 522, 461, 448, 468, 586, 425, 520
+}`}/>
+
+    <p id="lua-no-plate">Lua table of vehicles without number plates:</p>
+    <Code lang="lua" code={`
+noNumberPlates = {
+	592, 553, 577, 488, 511, 497, 548, 563, 512, 476, 593, 447, 425, 519, 520, 460, 417, 469, 487, 513, 509, 481, 510, 472, 473, 493, 595, 484,
+	430, 453, 452, 446, 454
+}`}/>
+
+    <p id="lua-3-colors">Lua table of vehicles that support up to three different colors:</p>
+    <Code lang="lua" code={`
+maxColorVehicles = {
+	483, 524, 446
+}`}/>
+
+    <p id="lua-no-siren">Lua table of vehicles that doesn't support siren lights:</p>
+    <Code lang="lua" code={`
+noSirenLights = {
+	400, 401, 402, 403, 404, 405, 406, 417, 420, 423, 425, 430, 432, 433, 435, 438, 441, 446, 447, 448, 452, 453, 454, 460, 461, 462, 463, 464,
+	465, 468, 469, 472, 473, 476, 481, 484, 487, 488, 493, 497, 501, 509, 510, 511, 512, 513, 519, 520, 521, 522, 523, 528, 537, 538, 539, 544,
+	548, 553, 563, 564, 569, 570, 577, 581, 586, 590, 592, 593, 595, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611
+}`}/>
+
+    <p id="lua-no-engine">Lua table of vehicles without engines:</p>
+    <Code lang="lua" code={`
+noEngineVehicles = { -- such as bicycles and trailers
+	481, 509, 510, 606, 607, 608, 610, 611, 435, 450, 584, 591, 590, 569, 570, 594
+}`}/>
+
+    <p id="lua-2-doors">Lua table of vehicles with 2 physically enterable doors:</p>
+    <Code lang="lua" code={`
+twoDoorVehicles = { -- boats and bikes not included
+	592, 577, 511, 512, 593, 460, 548, 417, 488, 563, 447, 469,
+	602, 496, 401, 518, 527, 589, 419, 587, 533, 526, 474, 545, 517, 410, 600, 436, 439, 549, 491,
+	431, 525, 408, 552,
+	433, 528, 407, 544, 599, 601,
+	499, 524, 578, 573, 455, 403, 423, 414, 443, 515, 514, 456,
+	422, 605, 543, 478, 554,
+	489, 505, 442,
+	536, 575, 534, 535, 576, 412,
+	402, 542, 603, 475,
+	429, 541, 415, 480, 562, 565, 434, 494, 502, 503, 411, 559, 506, 451, 558, 555, 477,
+	538, 537,
+	424, 504, 483, 508, 500, 444, 556, 557, 495,
+}`}/>
+
+    <p id="lua-4-doors">Lua table of vehicles with 4 physically enterable doors:</p>
+    <Code lang="lua" code={`
+fourDoorVehicles = { -- boats and bikes not included
+	487, 497,
+	445, 604, 507, 585, 466, 492, 546, 551, 516, 467, 426, 547, 405, 580, 409, 550, 566, 540, 421, 529,
+	438, 420,
+	416, 427, 490, 470, 596, 597, 598, 428,
+	609, 498, 
+	459, 482, 418, 582, 413, 440,
+	579, 400, 404, 479, 458,
+	567,
+	561, 560,
+}`}/>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .vehicle-category {
+        border: 1px solid var(--sl-color-gray-3);
+        padding: 1rem;
+    }
+    .vehicle-category-title {
+        padding-top: 0;
+        border-bottom: 3px solid var(--color-mta-orange);
+    }
+    .vehicle-list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: flex-start;
+        text-align: center;
+    }
+    .vehicle-subcategory-title {
+        border-bottom: 1px solid var(--color-mta-orange);
+    }
+    .vehicle-item {
+        padding: 0.5rem;
+        margin: 0;
+        border: 1px solid var(--sl-color-gray-4);
+    }
+    .vehicle-item .vehicle-title {
+        margin-bottom: 1rem;
+    }
+    .vehicle-item .vehicle-image {
+        width: 64px;
+        height: auto;
+        margin: 0 auto;
+    }
+</style>

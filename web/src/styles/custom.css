@@ -9,6 +9,7 @@
     --color-type-server: rgba(232, 115, 0, 1);
     --color-type-server-background: rgba(232, 115, 0, 0.05);
     --color-type-server-background-high: rgba(232, 115, 0, 0.5);
+    --color-mta-orange: rgba(232, 115, 0, 1);
     
     /* Override Starlight styling */
     --sl-content-width: 70rem;
