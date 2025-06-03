@@ -1,0 +1,97 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Code } from '@astrojs/starlight/components';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Bone IDs',
+    tableOfContents: false,
+}}>
+    <p>List of all ped <strong>Bone IDs</strong> that can be used with functions such as <a href="/reference/getElementBonePosition">getElementBonePosition</a>.</p>
+
+    <div class="bonesbox">
+        <ul>
+            <li>0: <strong>BONE_ROOT</strong></li>
+            <li>1: <strong>BONE_PELVIS1</strong></li>
+            <li>2: <strong>BONE_PELVIS</strong></li>
+            <li>3: <strong>BONE_SPINE1</strong></li>
+            <li>4: <strong>BONE_UPPERTORSO</strong></li>
+            <li>5: <strong>BONE_NECK</strong></li>
+            <li>6: <strong>BONE_HEAD2</strong></li>
+            <li>7: <strong>BONE_HEAD1</strong></li>
+            <li>8: <strong>BONE_HEAD</strong></li>
+            <li>21: <strong>BONE_RIGHTUPPERTORSO</strong></li>
+            <li>22: <strong>BONE_RIGHTSHOULDER</strong></li>
+            <li>23: <strong>BONE_RIGHTELBOW</strong></li>
+            <li>24: <strong>BONE_RIGHTWRIST</strong></li>
+            <li>25: <strong>BONE_RIGHTHAND</strong></li>
+            <li>26: <strong>BONE_RIGHTTHUMB</strong></li>
+            <li>31: <strong>BONE_LEFTUPPERTORSO</strong></li>
+            <li>32: <strong>BONE_LEFTSHOULDER</strong></li>
+            <li>33: <strong>BONE_LEFTELBOW</strong></li>
+            <li>34: <strong>BONE_LEFTWRIST</strong></li>
+            <li>35: <strong>BONE_LEFTHAND</strong></li>
+            <li>36: <strong>BONE_LEFTTHUMB</strong></li>
+            <li>41: <strong>BONE_LEFTHIP</strong></li>
+            <li>42: <strong>BONE_LEFTKNEE</strong></li>
+            <li>43: <strong>BONE_LEFTANKLE</strong></li>
+            <li>44: <strong>BONE_LEFTFOOT</strong></li>
+            <li>51: <strong>BONE_RIGHTHIP</strong></li>
+            <li>52: <strong>BONE_RIGHTKNEE</strong></li>
+            <li>53: <strong>BONE_RIGHTANKLE</strong></li>
+            <li>54: <strong>BONE_RIGHTFOOT</strong></li>
+            <li>201: <strong>BONE_BELLY</strong></li>
+            <li>301: <strong>BONE_RIGHTBREAST</strong></li>
+            <li>302: <strong>BONE_LEFTBREAST</strong></li>
+        </ul>
+
+        <Image class="bonesimage" src={getAssetImagePath("Bones/bone_ids.webp")} alt="Labeled Bone IDs" width="150"/>
+    </div>
+
+    <h4>Lua table of these Bone IDs:</h4>
+
+    <Code lang="lua" code=`
+local boneIDs = {
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 21,
+    22, 23, 24, 25, 26, 31, 32, 33,
+    34, 35, 36, 41, 42, 43, 44, 51,
+    52, 53, 54, 201, 301, 302
+}
+    `/>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .bonesbox {
+        margin-top: 2rem;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .bonesimage {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .bonesbox ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .bonesbox li {
+        margin-bottom: 0.5rem;
+    }
+</style>

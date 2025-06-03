@@ -1,0 +1,377 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Code } from '@astrojs/starlight/components';
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Vehicle Variants',
+    tableOfContents: false,
+}}>
+    <p>
+        Vehicle variants can be anything from different adverts to additional parts of the model. Related functions: <a href="/reference/setVehicleVariant">setVehicleVariant</a>, <a href="/reference/getVehicleVariant">getVehicleVariant</a> and <a href="/reference/createVehicle">createVehicle</a>.
+    </p>
+    
+    <h3>Adding Variants</h3>
+    <p>Adding variants requires modifying your <a href="https://gta.fandom.com/wiki/DFF" target="_blank">DFF</a> by adding a part of the model you wish to be a variant and naming it <strong>extra1</strong>, <strong>extra2</strong>, <strong>extra3</strong>, <strong>extra4</strong>, or <strong>extra5</strong> then setting its parent to the <strong>chassis_dummy</strong>; this tells GTA it has variant information.</p>
+
+    <h3>Spawning Custom Variants</h3>
+    <p>To spawn custom variants is to implicitly specify which variants you want in <a href="/reference/createVehicle">createVehicle</a>, or change the variant of an already existing vehicle using <a href="/reference/setVehicleVariant">setVehicleVariant</a>. Also, any invalid variant will show up as the default model with no variation.</p>
+
+    <h2>GTA: San Andreas Vehicle Variants List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Vehicle Name</th>
+                <th>Vehicle ID</th>
+                <th>Variants</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ambulance</td>
+                <td>416</td>
+                <td>Numbers: 0 = 37, 1 = 71</td>
+            </tr>
+            <tr>
+                <td>BF Injection</td>
+                <td>424</td>
+                <td>Body: 0 = Side Panels</td>
+            </tr>
+            <tr>
+                <td>BF-400</td>
+                <td>581</td>
+                <td>Exhausts: 0 = Single Type1, 1 = Single Type2, 2 = Dual Type3 - Fairings (with Windshields): 3 = Half-size, 4 = Full-size</td>
+            </tr>
+            <tr>
+                <td>Bagboxb</td>
+                <td>607</td>
+                <td>Contents: 0,1,2 = Various distributions of loose baggage</td>
+            </tr>
+            <tr>
+                <td>Baggage</td>
+                <td>485</td>
+                <td>Rear Cargo Items: 0 = Earmuffs, 1 = Small Case, 2 = Large Case</td>
+            </tr>
+            <tr>
+                <td>Barracks</td>
+                <td>433</td>
+                <td>Bed Covering: 0 = Opaque Fabric, 1 = Camo Netting</td>
+            </tr>
+            <tr>
+                <td>Benson</td>
+                <td>499</td>
+                <td>Side Ads: 0 = Shady Industries, 1 = LSD, 2 = The Uphill Gardener, 3 = Discount Furniture</td>
+            </tr>
+            <tr>
+                <td>Berkley's RC Van</td>
+                <td>459</td>
+                <td>0 = Boxes of Toys in Back</td>
+            </tr>
+            <tr>
+                <td>Bloodring Banger</td>
+                <td>504</td>
+                <td>Numbers/Roof Color: 0 = 328/White, 1 = 464/Check, 2 = 172/Check, 3 = 100/White, 4 = 284/White, 5 = 505/Check</td>
+            </tr>
+            <tr>
+                <td>Bobcat</td>
+                <td>422</td>
+                <td>Bed Items: 0 = Spare Tire, 1 = Sprunk Cans</td>
+            </tr>
+            <tr>
+                <td>Burrito</td>
+                <td>482</td>
+                <td>Roof Items: 0 = Roof Lights + Spoiler</td>
+            </tr>
+            <tr>
+                <td>Caddy</td>
+                <td>457</td>
+                <td>Rear Cargo (Driver Side): 0 = Golfbag1, 1 = Satchel1, 2 = Golfbag2, Rear Cargo (Pass Side): 3 = Satchel2, 4 = Golfbag3, 5 = Golfbag4</td>
+            </tr>
+            <tr>
+                <td>Camper</td>
+                <td>483</td>
+                <td>0 = Open Curtains & Second Bench Seat, 1 = Open Roof Vent, Closed Curtains, Bed in Back, Peace Sign</td>
+            </tr>
+            <tr>
+                <td>Cheetah</td>
+                <td>415</td>
+                <td>Side Mirrors: 0 = Single, Placed High, 1 = Dual, Placed Normally</td>
+            </tr>
+            <tr>
+                <td>Coach</td>
+                <td>437</td>
+                <td>Name on Side: 0 = Big O Tours, 1 = Bikini Line</td>
+            </tr>
+            <tr>
+                <td>Coastguard</td>
+                <td>472</td>
+                <td>Various Items 0 = Items all Over, 1 = Items Grouped in Back, 2 = Items all Over + 2 Oars in Front</td>
+            </tr>
+            <tr>
+                <td>Damaged Sadler</td>
+                <td>605</td>
+                <td>Items in Bed: 0 = Two Propane Tanks & Crate, 1 = Two Barrels, 2 = Sprunk Cans, 3 = Open Crates, 4+ = Empty bed</td>
+            </tr>
+            <tr>
+                <td>FCR-900</td>
+                <td>521</td>
+                <td>Exhausts: 0 = Single Type1, 1 = Dual Type1, 2 = Dual Type2, Fairings (with Windshields): 3 = Half-size, 4 = Full-size</td>
+            </tr>
+            <tr>
+                <td>Fire Truck</td>
+                <td>407</td>
+                <td>Numbers: 0 = 64, 1 = 16, 2 = 47</td>
+            </tr>
+            <tr>
+                <td>Flatbed</td>
+                <td>455</td>
+                <td>Numbers: 0 = 64, 1 = 16, 2 = 47</td>
+            </tr>
+            <tr>
+                <td>Hotknife</td>
+                <td>434</td>
+                <td>0 = Partial Engine Cover</td>
+            </tr>
+            <tr>
+                <td>Hotring Racer 2</td>
+                <td>502</td>
+                <td>Numbers: 0 = 82, 1 = 26, 2 = 65, 3 = 07, 4 = 36, 5 = 60</td>
+            </tr>
+            <tr>
+                <td>Hotring Racer 3</td>
+                <td>503</td>
+                <td>Numbers: 0 = 96, 1 = 67, 2 = 73, 3 = 52, 4 = 45, 5 = 14</td>
+            </tr>
+            <tr>
+                <td>Kart</td>
+                <td>571</td>
+                <td>Body Panels: 0 = Both Sides, 1 = Steering Column</td>
+            </tr>
+            <tr>
+                <td>Launch</td>
+                <td>595</td>
+                <td>Roofs: 0 = Over passenger section, 1 = Over driver section</td>
+            </tr>
+            <tr>
+                <td>Marquis</td>
+                <td>484</td>
+                <td>0 = Windshield over Cabin Entrance</td>
+            </tr>
+            <tr>
+                <td>Mesa</td>
+                <td>500</td>
+                <td>0 = Roof Over Back, 1 = Roll Bar in Back</td>
+            </tr>
+            <tr>
+                <td>Monster 2</td>
+                <td>556</td>
+                <td>0 = Roof Spoiler, 1 = Roof Lights, 2 = Roll Bar with Lights</td>
+            </tr>
+            <tr>
+                <td>Monster 3</td>
+                <td>557</td>
+                <td>0 = Couldn't Determine 1 = Roof Lights</td>
+            </tr>
+            <tr>
+                <td>Mr. Whoopee</td>
+                <td>423</td>
+                <td>Rear Sign: 0 = Cherry Popping Good, 1 = Slow Children Ahead</td>
+            </tr>
+            <tr>
+                <td>Mule</td>
+                <td>414</td>
+                <td>Side Ads: 0 = Toy Corner, 1 = Binco, 2 = Semi, 3 = Shafted Appliances</td>
+            </tr>
+            <tr>
+                <td>NRG-500</td>
+                <td>522</td>
+                <td>Exhausts: 0 = Single Pair1, 1 = Single Pair2, 2 = Dual Pair2 - Fairings (with Windshields): 3 = Smooth, 4 = With Side Cutouts</td>
+            </tr>
+            <tr>
+                <td>Patriot</td>
+                <td>470</td>
+                <td>Cargo Area 0 = Low Cover, 1 = Roof/High Cover, 2 = Roll Bar</td>
+            </tr>
+            <tr>
+                <td>Perennial</td>
+                <te>404</td>
+                <td>Cargo Area 0 = Low Cover, 1 = Roof/High Cover, 2 = Roll Bar</td>
+            </tr>
+            <tr>
+                <td>Picador</td>
+                <td>600</td>
+                <td>Items in Bed: 0 = Planks, 1 = Sprunk Cans</td>
+            </tr>
+            <tr>
+                <td>Pony</td>
+                <td>413</td>
+                <td>0 = Sound System in Back</td>
+            </tr>
+            <tr>
+                <td>Reefer</td>
+                <td>453</td>
+                <td>Items in Back: 0 = Boxes of Fish, 1 = Bench</td>
+            </tr>
+            <tr>
+                <td>Romero</td>
+                <td>442</td>
+                <td>Coffins: 0 = Brown Style1, 1 = Black Style2, 2 = Brown Style3</td>
+            </tr>
+            <tr>
+                <td>Rumpo</td>
+                <td>440</td>
+                <td>Side Ads: 0 = Cok-o-Pops, 1 = Harry Plums, 2 = Dick Goblin's, 3 = Final Build, 4 = Transfender, 5 = Wheel Arch Angels</td>
+            </tr>
+            <tr>
+                <td>S.W.A.T.</td>
+                <td>601</td>
+                <td>Number: 0 = 1, 1 = 9, 2 = 6, 3 = 7</td>
+            </tr>
+            <tr>
+                <td>Sadler</td>
+                <td>543</td>
+                <td>Items in Bed: 0 = Two Propane Tanks & Crate, 1 = Two Barrels, 2 = Sprunk Cans, 3 = Open Crates, 4+ = Empty bed</td>
+            </tr>
+            <tr>
+                <td>Securicar</td>
+                <td>428</td>
+                <td>Side Logo: 0 = Chuff, 1 = Lock&Load</td>
+            </tr>
+            <tr>
+                <td>Slamvan</td>
+                <td>535</td>
+                <td>Steering Wheel: 0 = Normal, 1 = Chain (Default has none!)</td>
+            </tr>
+            <tr>
+                <td>Stallion</td>
+                <td>439</td>
+                <td>Roof: 0 = Hardtop, 1 = Softtop (up), 2 = Softtop (folded)</td>
+            </tr>
+            <tr>
+                <td>Super GT</td>
+                <td>506</td>
+                <td>0 = Full Roof</td>
+            </tr>
+            <tr>
+                <td>Trailer 1</td>
+                <td>435</td>
+                <td>Side Ads: 0 = Cok-o-Pops, 1 = Munky Juice, 2 = Hinterland, 3 = Zip, 4 = RS Haul, 5 = Ranch</td>
+            </tr>
+            <tr>
+                <td>Trailer 2</td>
+                <td>450</td>
+                <td>Contents: 0 = Filled with gravel/coal/stone</td>
+            </tr>
+            <tr>
+                <td>Tram</td>
+                <td>449</td>
+                <td>0,1,2,3 = (4 defined extras, but I don't know what they are)</td>
+            </tr>
+            <tr>
+                <td>Trashmaster</td>
+                <td>408</td>
+                <td>0 = Some bits of trash sticking out of the back</td>
+            </tr>
+            <tr>
+                <td>Tug</td>
+                <td>583</td>
+                <td>Case in Back: 0 = Red Case, 1 = Green Case</td>
+            </tr>
+            <tr>
+                <td>Utility Van</td>
+                <td>552</td>
+                <td>0 = Cones, Barrel in back + Cone lying on passenger side rail, 1 = Cones, Barrel in back + Cone lying on driver side rail</td>
+            </tr>
+            <tr>
+                <td>Walton</td>
+                <td>478</td>
+                <td>Items in Bed: 0 = Two Propane Tanks, 1 = Open Crates, 2 = Propane Tank and Barrel</td>
+            </tr>
+            <tr>
+                <td>Windsor</td>
+                <td>555</td>
+                <td>0 = Roof, 1 = No Roof</td>
+            </tr>
+            <tr>
+                <td>Yankee</td>
+                <td>456</td>
+                <td>Side Ads: 0 = Big Gas, 1 = RS Haul, 2 = Star Balls, 3 = Flower Power</td>
+            </tr>
+            <tr>
+                <td>ZR-350</td>
+                <td>477</td>
+                <td>0 = Rear Spoiler</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Above table serialized in Lua:</p>
+
+    <Code code={`
+local vehicleModelVariants = {
+    [404] = {0, 1, 2},
+    [407] = {0, 1, 2},
+    [408] = {0},
+    [413] = {0},
+    [414] = {0, 1, 2, 3},
+    [415] = {0, 1},
+    [416] = {0, 1},
+    [422] = {0, 1},
+    [423] = {0, 1},
+    [424] = {0},
+    [428] = {0, 1},
+    [433] = {0, 1},
+    [434] = {0},
+    [435] = {0, 1, 2, 3, 4, 5},
+    [437] = {0, 1},
+    [439] = {0, 1, 2},
+    [440] = {0, 1, 2, 3, 4, 5},
+    [442] = {0, 1, 2},
+    [449] = {0, 1, 2, 3, 4},
+    [450] = {0},
+    [453] = {0, 1},
+    [455] = {0, 1, 2},
+    [456] = {0, 1, 2, 3},
+    [457] = {0, 1, 2, 3, 4, 5},
+    [459] = {0},
+    [470] = {0, 1, 2},
+    [472] = {0, 1, 2},
+    [477] = {0},
+    [478] = {0, 1, 2},
+    [482] = {0},
+    [483] = {0, 1},
+    [484] = {0},
+    [485] = {0, 1, 2},
+    [499] = {0, 1, 2, 3},
+    [500] = {0, 1},
+    [502] = {0, 1, 2, 3, 4, 5},
+    [503] = {0, 1, 2, 3, 4, 5},
+    [504] = {0, 1, 2, 3, 4, 5},
+    [506] = {0},
+    [521] = {0, 1, 2, 3, 4},
+    [522] = {0, 1, 2, 3, 4},
+    [535] = {0, 1},
+    [543] = {0, 1, 2, 3, 4},
+    [552] = {0, 1},
+    [555] = {0, 1},
+    [556] = {0, 1, 2},
+    [557] = {0, 1},
+    [571] = {0, 1},
+    [581] = {0, 1, 2, 3, 4},
+    [583] = {0, 1},
+    [595] = {0, 1},
+    [600] = {0, 1},
+    [601] = {0, 1, 2, 3},
+    [605] = {0, 1, 2, 3, 4},
+    [607] = {0, 1, 2},
+}`} lang="lua" />
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>

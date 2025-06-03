@@ -1,0 +1,290 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Weather',
+    tableOfContents: false,
+}}>
+    <p> Weather can be changed using <a href="/reference/setWeather">setWeather</a> and <a href="/reference/setWeatherBlended">setWeatherBlended</a> functions. In GTA: SA, every weather has different parameters for the sunrise, morning, midday, noon, afternoon, sunset, night and midnight, so a weather can vary a lot deppending of the time of the day.</p>
+
+    <p>Non-standard weather ID's between 20 and 255 are also supported, but they might be buggy at some moments of the day.</p>
+
+    <p>MTA has custom weather functions which can modify how a weather is rendered, but in this list the weathers are described without taking that into account. Also, using <a href="/reference/setWeatherBlended">setWeatherBlended</a> allows for more undocumented effects.</p>
+
+    <p>For a complete weather gallery, containing images of every weather ID (0 to 255) shot at every in-game hour, visit <a href="http://dev.prineside.com/en/gtasa_weather_id/" target="_blank">this external page</a>.</p>
+
+    <h3>Default GTA: SA Weathers (registered in timecyc.dat)</h3>
+
+    <table class="weathertable">
+        <thead>
+            <tr>
+                <th>Weather ID</th>
+                <th>Name from timecyc.dat</th>
+                <th>Screenshots at 12:00 PM</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>EXTRASUNNY_LA</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/0.png")} alt="Weather ID 0"/>
+                    <p class="weatherdesc">Applies a heat haze effect</p>
+                </td>
+                <td rowspan="5">
+                    In singleplayer, these are <strong>Los Santos specific weathers</strong>.<br>
+                    They are clear weathers, with blue sky and few clouds.
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>SUNNY_LA</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/1.png")} alt="Weather ID 1"/>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>EXTRASUNNY_SMOG_LA</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/2.png")} alt="Weather ID 2"/>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>SUNNY_SMOG_LA</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/3.png")} alt="Weather ID 3"/>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>CLOUDY_LA</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/4.png")} alt="Weather ID 4"/>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>SUNNY_SF</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/5.png")} alt="Weather ID 5"/>
+                </td>
+                <td rowspan="5">
+                    In singleplayer, these are <strong>San Fierro specific weathers</strong>.<br>
+                    They are more diverse than Los Santos': some of them are clear, but others are rainy or foggy.
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>EXTRASUNNY_SF</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/6.png")} alt="Weather ID 6"/>
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>CLOUDY_SF</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/7.png")} alt="Weather ID 7"/>
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>RAINY_SF</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/8.png")} alt="Weather ID 8"/>
+                    <p class="weatherdesc">Starts a thunderstorm, with rain and lightnings</p>
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>FOGGY_SF</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/9.png")} alt="Weather ID 9"/>
+                    <p class="weatherdesc">Starts a cloudy, dense fog</p>
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>SUNNY_VEGAS</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/10.png")} alt="Weather ID 10"/>
+                </td>
+                <td rowspan="3">
+                    In singleplayer, these are <strong>Las Venturas specific weathers</strong>.<br>
+                    They are clear, dry weathers.
+                </td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>EXTRASUNNY_VEGAS</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/11.png")} alt="Weather ID 11"/>
+                    <p class="weatherdesc">Applies scorching hot weather, with a heat haze effect</p>
+                </td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>CLOUDY_VEGAS</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/12.png")} alt="Weather ID 12"/>
+                </td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>EXTRASUNNY_COUNTRYSIDE</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/13.png")} alt="Weather ID 13"/>
+                </td>
+                <td rowspan="4">
+                    In singleplayer, these are <strong>Los Santos countryside specific weathers</strong>.<br>
+                    They are dull, hazy, diverse weathers, with rainy ones.
+                </td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>SUNNY_COUNTRYSIDE</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/14.png")} alt="Weather ID 14"/>
+                </td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>CLOUDY_COUNTRYSIDE</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/15.png")} alt="Weather ID 15"/>
+                </td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>RAINY_COUNTRYSIDE</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/16.png")} alt="Weather ID 16"/>
+                    <p class="weatherdesc">Starts a thunderstorm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>EXTRASUNNY_DESERT</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/17.png")} alt="Weather ID 17"/>
+                    <p class="weatherdesc">Apply a heat haze effect</p>
+                </td>
+                <td rowspan="3">
+                    In singleplayer, these are <strong>Bone County specific weathers</strong>.<br>
+                    They are clear, dry, scorching hot weathers.
+                </td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>SUNNY_DESERT</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/18.png")} alt="Weather ID 18"/>
+                    <p class="weatherdesc">Apply a heat haze effect</p>
+                </td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>SANDSTORM_DESERT</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/19.png")} alt="Weather ID 19"/>
+                    <p class="weatherdesc">Starts a dense sandstorm</p>
+                </td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>UNDERWATER</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/20.png")} alt="Weather ID 20"/>
+                </td>
+                <td>
+                    In singleplayer, this is probably the <strong>weather used internally when camera is underwater</strong>.<br>
+                    It is greenish and cloudy, so it appears to be a kind of contaminated weather.
+                </td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>EXTRACOLOURS_1</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/21.png")} alt="Weather ID 21"/>
+                    <p class="weatherdesc">Adds a purple-ish color to the sky and objects</p>
+                </td>
+                <td rowspan="2">
+                    In singleplayer, these are weathers <strong>used in interiors</strong>.<br>
+                    They are somewhat strange, dark weathers with gradiented skyline colors.
+                </td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>EXTRACOLOURS_2</td>
+                <td>
+                    <Image class="weatherimg" src={getAssetImagePath("Weather/22.png")} alt="Weather ID 22"/>
+                    <p class="weatherdesc">Adds a black-white sky and a uniform light to objects</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Other Weather IDs</h3>
+    <ul>
+        <li><strong>23 to 26:</strong> Pale orange weather.</li>
+        <li><strong>27 to 29:</strong> Fresh blue weather.</li>
+        <li><strong>30 to 32:</strong> Dark, cloudy, teal weather.</li>
+        <li><strong>33:</strong> Dark, cloudy, brown weather.</li>
+        <li><strong>34:</strong> Blue/purple, regular weather.</li>
+        <li><strong>35:</strong> Dull brown weather.</li>
+        <li><strong>36 to 38:</strong> Bright, foggy, orange weather.</li>
+        <li><strong>39:</strong> Very bright weather. Night looks like day.</li>
+        <li><strong>40 to 42:</strong> Blue/purple, cloudy weather.</li>
+        <li><strong>43:</strong> Toxic, contaminated clouds weather.</li>
+        <li><strong>44:</strong> Black/white sky weather, similar to <strong>22</strong>.</li>
+        <li><strong>45 to 60:</strong> Normal seeming weather with graphical bugs at evening.</li>
+        <li><strong>100:</strong> Strange weather which makes objects disappear.</li>
+        <li><strong>118:</strong> Stormy weather with pink sky and crystal water.</li>
+        <li><strong>126 to 150:</strong> Horrible flashing red bugged weather.</li>
+        <li><strong>151 to 175:</strong> Far draw distance weather with pink, purple and turquoise clouds.</li>
+    </ul>
+    
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .weathertable {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .weathertable td, .weathertable th {
+        padding: 0.5em;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+    }
+    .weatherimg {
+        width: 150px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .weatherdesc {
+        font-style: italic;
+        font-size: 0.9em;
+        color: var(--sl-color-gray-2);
+        margin-top: 0.5em;
+        text-align: center;
+        width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+</style>

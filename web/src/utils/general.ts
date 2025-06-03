@@ -6,7 +6,7 @@ import { getElementsByCategory, getElementCategory } from '@src/utils/elements';
 
 import type { ImageMetadata } from 'astro';
 
-const imagesFromAssets = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{jpeg,jpg,png,gif,webp}');
+const imagesFromAssets = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif,webp}');
 export function getAssetImagePath(imageFilename: string): any {
   const imagePath = `/src/assets/images/${imageFilename}`;
   if (imagesFromAssets[imagePath]) {
