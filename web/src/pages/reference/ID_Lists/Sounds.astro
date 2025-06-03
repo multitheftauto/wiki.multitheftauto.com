@@ -1,0 +1,34 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Sounds',
+    tableOfContents: false,
+}}>
+    <p>These are the sound IDs you can use with <a href="/reference/playSoundFrontEnd">playSoundFrontEnd</a>.</p>
+    <ul>
+        <li><strong>0 - 20</strong> Selection sounds</li>
+        <li><strong>27 - 30</strong> Bullet sounds</li>
+        <li><strong>32 - 33</strong> Selection sounds</li>
+        <li><strong>34</strong> Radio static</li>
+        <li><strong>35</strong> Stop Radio static</li>
+        <li><strong>37 - 38</strong> Tick</li>
+        <li><strong>40</strong> Selection sounds</li>
+        <li><strong>41 - 42</strong> Tick (no ammo)</li>
+        <li><strong>43 - 45</strong> Race countdown</li>
+        <li><strong>46</strong> Repair</li>
+        <li><strong>47</strong> White noise static</li>
+        <li><strong>48</strong> Stop White noise static</li>
+        <li><strong>49</strong> Static short</li>
+        <li><strong>101</strong> Countdown/selection</li>
+    </ul>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
