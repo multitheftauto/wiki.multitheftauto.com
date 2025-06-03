@@ -316,6 +316,24 @@ const vehicles = {
         </ul>
     </ul>
 
+    <div class="vehicle-othercategory">
+      <h3 class="vehicle-category-othertitle">Specification</h3>
+      <div class="vehicle-list">
+        <div class="vehicle-item">
+            <div class="vehicle-title">Vehicle Name</div>
+            <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa`}>
+            Preview Image
+            </a>
+            <div class="vehicle-details"><code>ID</code> <code>Model Name</code></div>
+        </div>
+      </div>
+
+      <p><strong>Vehicle Name</strong>: The friendly capitalized name of the vehicle model, which can be used in functions such as <a href="/reference/getVehicleName">getVehicleName</a>, <a href="/reference/getVehicleNameFromModel">getVehicleNameFromModel</a> and <a href="/reference/getVehicleModelFromName">getVehicleModelFromName</a>.</p>
+      <p><strong>Preview Image</strong>: A small picture of the vehicle in-game, wrapped in a link to the Vehicle 3D Model viewer site.</p>
+      <p><strong>ID</strong>: The numeric model identifier, which can be used in functions such as <a href="/reference/getVehicleNameFromModel">getVehicleNameFromModel</a>, <a href="/reference/getVehicleModelFromName">getVehicleModelFromName</a>, <a href="/reference/createVehicle">createVehicle</a>, <a href="/reference/setElementModel">setElementModel</a> and <a href="/reference/getElementModel">getElementModel</a>.</p>
+      <p><strong>Model Name</strong>: The name of the vehicle model (<code>DFF</code> and <code>TXD</code> files in <code>gta3.img</code>), which is mainly useful for modding purposes (e.g. <code>glenshit</code>).</p>
+    </div>
+
     {Object.entries(vehicles).map(([category, subcategories]) => (
         <div class="vehicle-category" id={category}>
             <h3 class="vehicle-category-title">{category}</h3>
@@ -471,12 +489,20 @@ fourDoorVehicles = { -- boats and bikes not included
 
 <style>
     .vehicle-category {
-        border: 1px solid var(--sl-color-gray-3);
+        border: 1px solid var(--color-mta-orange);
+        padding: 1rem;
+    }
+    .vehicle-othercategory {
+        border: 1px solid var(--sl-color-accent);
         padding: 1rem;
     }
     .vehicle-category-title {
         padding-top: 0;
         border-bottom: 3px solid var(--color-mta-orange);
+    }
+    .vehicle-category-othertitle {
+        padding-top: 0;
+        border-bottom: 3px solid var(--sl-color-accent);
     }
     .vehicle-list {
         display: flex;
