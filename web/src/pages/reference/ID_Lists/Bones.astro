@@ -1,0 +1,117 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Code } from '@astrojs/starlight/components';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+const boneMap: { [id: number]: string } = {
+  0: "BONE_ROOT",
+  1: "BONE_PELVIS1",
+  2: "BONE_PELVIS",
+  3: "BONE_SPINE1",
+  4: "BONE_UPPERTORSO",
+  5: "BONE_NECK",
+  6: "BONE_HEAD2",
+  7: "BONE_HEAD1",
+  8: "BONE_HEAD",
+  21: "BONE_RIGHTUPPERTORSO",
+  22: "BONE_RIGHTSHOULDER",
+  23: "BONE_RIGHTELBOW",
+  24: "BONE_RIGHTWRIST",
+  25: "BONE_RIGHTHAND",
+  26: "BONE_RIGHTTHUMB",
+  31: "BONE_LEFTUPPERTORSO",
+  32: "BONE_LEFTSHOULDER",
+  33: "BONE_LEFTELBOW",
+  34: "BONE_LEFTWRIST",
+  35: "BONE_LEFTHAND",
+  36: "BONE_LEFTTHUMB",
+  41: "BONE_LEFTHIP",
+  42: "BONE_LEFTKNEE",
+  43: "BONE_LEFTANKLE",
+  44: "BONE_LEFTFOOT",
+  51: "BONE_RIGHTHIP",
+  52: "BONE_RIGHTKNEE",
+  53: "BONE_RIGHTANKLE",
+  54: "BONE_RIGHTFOOT",
+  201: "BONE_BELLY",
+  301: "BONE_RIGHTBREAST",
+  302: "BONE_LEFTBREAST",
+};
+
+let luaTable = `local boneIDs = {\n`;
+Object.entries(boneMap).forEach(([id], index) => {
+    luaTable += `${id}`;
+    if ((index + 1) % 8 === 0) {
+        luaTable += `\n`;
+    } else {
+        luaTable += `, `;
+    }
+});
+luaTable += `}`;
+
+let luaTableNames = `local boneNames = {\n`;
+Object.entries(boneMap).forEach(([id, name]) => {
+    luaTableNames += `[${id}] = "${name}",\n`;
+});
+luaTableNames += `}`;
+
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Bone IDs',
+    tableOfContents: false,
+}}>
+    <p>List of all ped <strong>Bone IDs</strong> that can be used with functions such as <a href="/reference/getElementBonePosition">getElementBonePosition</a>.</p>
+
+    <div class="bonesbox">
+        <ul>
+            {Object.entries(boneMap).map(([id, name]) => (
+                <li>
+                    <strong>{id}</strong> - <code>{name}</code>
+                </li>
+            ))}
+        </ul>
+
+        <Image class="bonesimage" src={getAssetImagePath("Bones/bone_ids.webp")} alt="Labeled Bone IDs" width="150"/>
+    </div>
+
+    <h4>Lua tables of these Bone IDs:</h4>
+
+    <Code lang="lua" code={luaTable}/>
+    <Code lang="lua" code={luaTableNames}/>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .bonesbox {
+        margin-top: 2rem;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .bonesimage {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .bonesbox ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .bonesbox li {
+        margin-bottom: 0.5rem;
+    }
+</style>
