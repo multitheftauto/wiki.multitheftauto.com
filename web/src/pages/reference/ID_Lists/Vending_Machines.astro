@@ -148,9 +148,11 @@ luaTable += `\n}\n`;
             ))}
         </tbody>
     </table>
-    <p>Above list serialized in Lua:</p>
 
-    <Code code={luaTable} lang="lua" />
+    <section data-pagefind-ignore>
+        <p>Above list serialized in Lua:</p>
+        <Code code={luaTable} lang="lua" />
+    </section>
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:ID_Lists',

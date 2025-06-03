@@ -82,10 +82,11 @@ luaTableNames += `}`;
         <Image class="bonesimage" src={getAssetImagePath("Bones/bone_ids.webp")} alt="Labeled Bone IDs" width="150"/>
     </div>
 
-    <h4>Lua tables of these Bone IDs:</h4>
-
-    <Code lang="lua" code={luaTable}/>
-    <Code lang="lua" code={luaTableNames}/>
+    <section data-pagefind-ignore>
+        <h4>Lua tables of these Bone IDs:</h4>
+        <Code lang="lua" code={luaTable}/>
+        <Code lang="lua" code={luaTableNames}/>
+    </section>
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:ID_Lists',

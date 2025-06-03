@@ -158,9 +158,11 @@ const luaTable = `local vehicleVariantsByModel = {
             ))}
         </tbody>
     </table>
-    <p>Above table serialized in Lua:</p>
-
-    <Code code={luaTable} lang="lua" />
+    
+    <section data-pagefind-ignore>
+        <p>Above table serialized in Lua:</p>
+        <Code code={luaTable} lang="lua" />
+    </section>
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:ID_Lists',
