@@ -21,7 +21,9 @@ const { seeAlsoLinks, currentId } = Astro.props;
               {link.name === currentId ? (
                 <strong>{link.name.replace(/_/g, ' ')}</strong>
               ) : (
-                <a href={link.link}>{link.name.replace(/_/g, ' ')}</a>
+                <a target={link.newTab ? '_blank' : '_self'}
+                   rel={link.newTab ? 'noopener noreferrer' : undefined}
+                 href={link.link}>{link.name.replace(/_/g, ' ')}</a>
               )}
             </li>
           ))}

@@ -24,6 +24,7 @@ export function renderInlineMarkdown(markdown: string): string | Promise<string>
 type SeeAlsoLink = {
   name: string;
   link: string;
+  newTab?: boolean;
 };
 
 export type SeeAlsoLinkGroup = {
@@ -108,6 +109,14 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
       groupedMap.get(title)!.push({ name: refPage, link: `/reference/${refPage}` });
       continue;
     }
+    if (type === 'external') {
+      const title = rest[0];
+      const httpprefix = rest[1];
+      const url = httpprefix + ':' + rest[2];
+      if (!groupedMap.has('Links')) groupedMap.set('Links', []);
+      groupedMap.get('Links')!.push({ name: title, link: url, newTab: true });
+      continue;
+    }
 
     // Handle function/event style links
     const [subType, category] = rest;
@@ -128,6 +137,7 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
       if (!type || rest.length === 0) return null;
       if (type === 'article') return 'Articles';
       if (type === 'reference') return 'Reference';
+      if (type === 'external') return 'Links';
       return makeTitle(rest[0], rest[1], type);
     })
     .filter((title): title is string => title !== null)
