@@ -48,7 +48,7 @@ for i in interiors:
     grouped[i["id"]].append({k: i[k] for k in ("name", "x", "y", "z")})
 
 # Prepare TypeScript output
-ts_lines = ["export const interiors = {"]
+ts_lines = ["const interiors = {"]
 for interior_id in sorted(grouped.keys()):
     ts_lines.append(f"  {interior_id}: [")
     for entry in grouped[interior_id]:
