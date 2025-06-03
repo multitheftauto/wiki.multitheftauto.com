@@ -20,6 +20,11 @@ data = defaultdict(lambda: defaultdict(list))
 current_category = None
 current_subcategory = None
 
+vehicleModelNames = [
+	"landstal", "bravura", "buffalo", "linerun", "peren", "sentinel", "dumper", "firetruk", "trash", "stretch", "manana", "infernus", "voodoo", "pony", "mule", "cheetah", "ambulan", "leviathn", "moonbeam", "esperant", "taxi", "washing", "bobcat", "mrwhoop", "bfinject", "hunter", "premier", "enforcer", "securica", "banshee", "predator", "bus", "rhino", "barracks", "hotknife", "artict1", "previon", "coach", "cabbie", "stallion", "rumpo", "rcbandit", "romero", "packer", "monster", "admiral", "squalo", "seaspar", "pizzaboy", "tram", "artict2", "turismo", "speeder", "reefer", "tropic", "flatbed", "yankee", "caddy", "solair", "topfun", "skimmer", "pcj600", "faggio", "freeway", "rcbaron", "rcraider", "glendale", "oceanic", "sanchez", "sparrow", "patriot", "quad", "coastg", "dinghy", "hermes", "sabre", "rustler", "zr350", "walton", "regina", "comet", "bmx", "burrito", "camper", "marquis", "baggage", "dozer", "maverick", "vcnmav", "rancher", "fbiranch", "virgo", "greenwoo", "jetmax", "hotring", "sandking", "blistac", "polmav", "boxville", "benson", "mesa", "rcgoblin", "hotrina", "hotrinb", "bloodra", "rnchlure", "supergt", "elegant", "journey", "bike", "mtbike", "beagle", "cropdust", "stunt", "petro", "rdtrain", "nebula", "majestic", "buccanee", "shamal", "hydra", "fcr900", "nrg500", "copbike", "cement", "towtruck", "fortune", "cadrona", "fbitruck", "willard", "forklift", "tractor", "combine", "feltzer", "remingtn", "slamvan", "blade", "freight", "streak", "vortex", "vincent", "bullet", "clover", "sadler", "firela", "hustler", "intruder", "primo", "cargobob", "tampa", "sunrise", "merit", "utility", "nevada", "yosemite", "windsor", "monstera", "monsterb", "uranus", "jester", "sultan", "stratum", "elegy", "raindanc", "rctiger", "flash", "tahoma", "savanna", "bandito", "freiflat", "streakc", "kart", "mower", "duneride", "sweeper", "broadway", "tornado", "at400", "dft30", "huntley", "stafford", "bf400", "newsvan", "tug", "petrotr", "emperor", "wayfarer", "euros", "hotdog", "club", "freibox", "artict3", "androm", "dodo", "rccam", "launch", "copcarla", "copcarsf", "copcarvg", "copcarru", "picador", "swatvan", "alpha", "phoenix", "glenshit", "sadlshit", "bagboxa", "bagboxb", "tugstair", "boxburg", "farmtr1", "utiltr1"
+]
+
+
 for tag in soup.find_all(["h2", "h3", "table"]):
     if tag.name == "h2":
         headline = tag.find("span", class_="mw-headline")
@@ -59,6 +64,7 @@ for tag in soup.find_all(["h2", "h3", "table"]):
             data[current_category][subcat].append({
                 "id": id_,
                 "name": name,
+                "modelName": vehicleModelNames[id_ - 400]
                 # "image": f"./{OUTPUT_DIR}/{id_}.png",
                 # "viewer": viewer_link or "",
             })
@@ -72,7 +78,8 @@ for category, subcats in data.items():
         for v in vehicles:
             lines.append(
                 # f'      {{ id: {v["id"]}, name: "{v["name"]}", image: "{v["image"]}", viewer: "{v["viewer"]}" }},'
-                f'      {{ id: {v["id"]}, name: "{v["name"]}" }},'
+                # f'      {{ id: {v["id"]}, name: "{v["name"]}" }},'
+                f'      {{ id: {v["id"]}, name: "{v["name"]}", modelName: "{v["modelName"]}" }},'
             )
         lines.append("    ],")
     lines.append("  },")
