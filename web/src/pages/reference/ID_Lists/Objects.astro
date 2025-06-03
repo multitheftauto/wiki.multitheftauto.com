@@ -1,0 +1,163 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+import NoteBox from '@src/components/NoteBox.astro';
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Objects',
+    tableOfContents: false,
+}}>
+    <p>
+        This page displays a subset of object model IDs that can be placed using the <a href="/reference/Map_editor">Map Editor</a>, <a href="/reference/createObject">createObject</a> and <a href="/reference/createBuilding">createBuilding</a>. 
+    </p>
+    
+    <NoteBox type='tip'>
+        <h4 style="margin: 0;">Alternatives</h4>
+        <ul>
+            <li>Object model IDs can also be listed and previewed in-game using the <a href="/reference/Map_editor">Map Editor's object browser</a></li>
+            <li>The object browser's list is loaded from <a href="https://github.com/multitheftauto/mtasa-resources/blob/master/%5Beditor%5D/editor_gui/client/browser/objects.xml" target="_blank">this XML file on github.com/multitheftauto/mtasa-resources</a></li>
+            <li>Online database of GTA: San Andreas object model IDs: <a href="https://dev.prineside.com/gtasa_samp_model_id/" target="_blank">dev.prineside.com/gtasa_samp_model_id</a></li>
+        </ul>
+    </NoteBox>
+    <NoteBox type="warning">
+        None of these lists include Low LOD object models. You are able to know which Low LOD model is linked to a certain High LOD object model in-game using the <a href="/reference/Map_editor">Map Editor</a>.
+    </NoteBox>
+
+    
+    <h5>Table of Contents</h5>
+    <ul>
+        <li><a href="#cat-beach-and-sea">Beach and Sea</a></li>
+        <li><a href="#cat-buildings">Buildings</a></li>
+        <li><a href="#cat-misc">Miscellaneous</a></li>
+        <li><a href="#cat-industrial">Industrial</a></li>
+        <li><a href="#cat-nature">Nature</a></li>
+        <li><a href="#cat-structures">Structures</a></li>
+    </ul>
+
+    <h3>Objects by Category</h3>
+    
+    <h4 id="cat-beach-and-sea">Beach and Sea</h4>
+    <div class="gallery">
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/BeachandSeaGeneral.jpg`)} alt=""/><p><em>General</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/ShipsDocksandPiers1.jpg`)} alt=""/><p><em>Ships, Docks and Piers</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/ShipsDocksandPiers2.jpg`)} alt=""/><p><em>Ships, Docks and Piers</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/ShipsDocksandPiers3.jpg`)} alt=""/><p><em>Ships, Docks and Piers</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/ShipsDocksandPiers4.jpg`)} alt=""/><p><em>Ships, Docks and Piers</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/ShipsDocksandPiers5.jpg`)} alt=""/><p><em>Ships, Docks and Piers</em></p></div>
+    </div>
+
+    <h4 id="cat-buildings">Buildings</h4>
+    <div class="gallery">
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/BarsClubsandCasinos.jpg`)} alt=""/><p><em>Bars, Clubs and Casinos</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/BarsClubsandCasinos2.jpg`)} alt=""/><p><em>Bars, Clubs and Casinos</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/BarsClubsandCasinos3.jpg`)} alt=""/><p><em>Bars, Clubs and Casinos</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/FactoriesandWarehouses.jpg`)} alt=""/><p><em>Factories and Warehouses</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/FactoriesandWarehouses2.jpg`)} alt=""/><p><em>Factories and Warehouses</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/FactoriesandWarehouses3.jpg`)} alt=""/><p><em>Factories and Warehouses</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/FactoriesandWarehouses4.jpg`)} alt=""/><p><em>Factories and Warehouses</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/FactoriesandWarehouses5.jpg`)} alt=""/><p><em>Factories and Warehouses</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/FactoriesandWarehouses6.jpg`)} alt=""/><p><em>Factories and Warehouses</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/OfficesandSkyscrapers.jpg`)} alt=""/><p><em>Offices and Skyscrapers</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/OfficesandSkyscrapers2.jpg`)} alt=""/><p><em>Offices and Skyscrapers</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/OfficesandSkyscrapers3.jpg`)} alt=""/><p><em>Offices and Skyscrapers</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/OtherBuildings.jpg`)} alt=""/><p><em>Other Buildings</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/OtherBuildings2.jpg`)} alt=""/><p><em>Other Buildings</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/OtherBuildings3.jpg`)} alt=""/><p><em>Other Buildings</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/OtherBuildings4.jpg`)} alt=""/><p><em>Other Buildings</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/RestaurantsandHotels.jpg`)} alt=""/><p><em>Restaurants and Hotels</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/RestaurantsandHotels2.jpg`)} alt=""/><p><em>Restaurants and Hotels</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/SportsandStadiums.jpg`)} alt=""/><p><em>Sports and Stadiums</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/SportsandStadiums2.jpg`)} alt=""/><p><em>Sports and Stadiums</em></p></div>
+    </div>
+
+    <h4 id="cat-misc">Miscellaneous</h4>
+    <div class="gallery">
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/MiscellaneousFoodAndDrinks1.jpg`)} alt=""/><p><em>Food and Drinks</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/MiscellaneousLaddersStairsAndScaffolding1.jpg`)} alt=""/><p><em>Ladders Stairs and Scaffolding</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/MiscellaneousMilitary1.jpg`)} alt=""/><p><em>Military</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/MiscellaneousPickupsAndIcons1.jpg`)} alt=""/><p><em>Pickups and Icons</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/MiscellaneousSpecialObjects1.jpg`)} alt=""/><p><em>Special</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/MiscellaneousStreetAndRoad1.jpg`)} alt=""/><p><em>Street and Road items</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/MiscellaneousTrash1.jpg`)} alt=""/><p><em>Trash</em></p></div>
+    </div>
+
+    <h4 id="cat-industrial">Industrial</h4>
+    <div class="gallery">
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/Cranes.jpg`)} alt=""/><p><em>Cranes</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/CratesDrumsandRacks.jpg`)} alt=""/><p><em>Crates, Drums and Racks</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/CratesDrumsandRacks2.jpg`)} alt=""/><p><em>Crates, Drums and Racks</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/IndustrialGeneral.jpg`)} alt=""/><p><em>General</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/IndustrialGeneral2.jpg`)} alt=""/><p><em>General</em></p></div>
+    </div>
+
+    <h4 id="cat-nature">Nature</h4>
+    <div class="gallery">
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/Rocks.jpg`)} alt=""/><p><em>Rocks</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/Plants.jpg`)} alt=""/><p><em>Plants</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/Trees.jpg`)} alt=""/><p><em>Trees</em></p></div>
+    </div>
+
+    <h4 id="cat-structures">Structures</h4>
+    <div class="gallery">
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/Airport.jpg`)} alt=""/><p><em>Airport and Aircraft</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/Ramps.jpg`)} alt=""/><p><em>Ramps</em></p></div>
+    <div class="gallery-item"><Image src={getAssetImagePath(`Objects/Signs.jpg`)} alt=""/><p><em>Signs, Billboards and Statues</em></p></div>
+    </div>
+
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
+
+<script>
+    // Make all gallery items clickable to open the image in a new tab
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (img) {
+                window.open(img.src, '_blank');
+            }
+        });
+    });
+</script>
+
+<style>
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 1.5em;
+    }
+
+    .gallery-item {
+        flex: 1 0 500px;
+        max-width: 500px;
+        text-align: center;
+        font-size: 0.9em;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--sl-color-gray-3);
+        border-radius: 4px;
+    }
+
+    .gallery-item p {
+        margin: 0.5em 0 0;
+        font-style: italic;
+        color: var(--sl-color-gray-1);
+    }
+
+</style>

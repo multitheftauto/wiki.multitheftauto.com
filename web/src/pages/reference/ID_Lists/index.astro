@@ -10,22 +10,44 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
     tableOfContents: false,
 }}>
     <ul>
-        <li><a href="/reference/ID_Lists/Bones">Bones</a></li>
-        <li><a href="/reference/ID_Lists/Damage_Types">Damage Types</a></li>
-        <li><a href="/reference/ID_Lists/Garages">Garages</a></li>
-        <li><a href="/reference/ID_Lists/Interiors">Interiors</a></li>
-        <li><a href="/reference/ID_Lists/Sounds">Sounds</a></li>
-        <li><a href="/reference/ID_Lists/Vehicles">Vehicles</a></li>
-        <ul>
-            <li><a href="/reference/ID_Lists/Vehicle_Colors">Vehicle Colors</a></li>
-            <li><a href="/reference/ID_Lists/Vehicle_Paintjobs">Vehicle Paintjobs</a></li>
-            <li><a href="/reference/ID_Lists/Vehicle_Variants">Vehicle Variants</a></li>
-        </ul>
-        <li><a href="/reference/ID_Lists/Vending_Machines">Vending Machines</a></li>
-        <li><a href="/reference/ID_Lists/Weather">Weather</a></li>
+        <li>🦴 <a href="/reference/ID_Lists/Bones">Bones</a></li>
+        <li>💥 <a href="/reference/ID_Lists/Damage_Types">Damage Types</a></li>
+        <li>🚗 <a href="/reference/ID_Lists/Garages">Garages</a></li>
+        <li>🏠 <a href="/reference/ID_Lists/Interiors">Interiors</a></li>
+        <li>📦 <a href="/reference/ID_Lists/Objects">Objects</a></li>
+        <li>🔊 <a href="/reference/ID_Lists/Sounds">Sounds</a></li>
+        <li>🚘 <a href="/reference/ID_Lists/Vehicles">Vehicles</a>
+            <ul>
+                <li>🎨 <a href="/reference/ID_Lists/Vehicle_Colors">Vehicle Colors</a></li>
+                <li>🖌️ <a href="/reference/ID_Lists/Vehicle_Paintjobs">Vehicle Paintjobs</a></li>
+                <li>🔧 <a href="/reference/ID_Lists/Vehicle_Variants">Vehicle Variants</a></li>
+            </ul>
+        </li>
+        <li>🥤 <a href="/reference/ID_Lists/Vending_Machines">Vending Machines</a></li>
+        <li>⛅ <a href="/reference/ID_Lists/Weather">Weather</a></li>
     </ul>
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:Lua_API',
     ])} currentId='' />
 </StarlightPage>
+
+<style>
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    li a {
+        margin-left: 0.5rem;
+    }
+
+    li ul {
+        margin-top: 0.5rem;
+        padding-left: 1.5rem;
+    }
+</style>
