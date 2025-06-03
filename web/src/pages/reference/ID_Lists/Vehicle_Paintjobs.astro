@@ -6,6 +6,9 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
 import { Code } from '@astrojs/starlight/components';
 
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
 const paintjobsById = {
   536: { vehicleName: "Blade", paintjobs: [0,1,2] },
   575: { vehicleName: "Broadway", paintjobs: [0,1] },
@@ -41,17 +44,23 @@ luaTable += `\n}\n`;
     <table>
         <thead>
             <tr>
-                <th>Vehicle Name</th>
-                <th>Vehicle ID</th>
+                <th>Vehicle</th>
+                <th>Name</th>
+                <th>ID</th>
                 <th>Paintjobs</th>
             </tr>
         </thead>
         <tbody>
             {Object.entries(paintjobsById).map(([id, { vehicleName, paintjobs }]) => (
                 <tr>
+                    <td><a href={`/reference/ID_Lists/Vehicles#${vehicleName}`}><Image
+                        src={getAssetImagePath(`Vehicles/${id}.png`)}
+                        alt={vehicleName}
+                        class="vehicle-image"
+                    /></a></td>
                     <td>{vehicleName}</td>
                     <td>{id}</td>
-                    <td>{paintjobs.join(', ')}</td>
+                    <td><code>{paintjobs.join(', ')}</code></td>
                 </tr>
             ))}
         </tbody>
@@ -66,3 +75,10 @@ luaTable += `\n}\n`;
         'reference:ID_Lists',
     ])} currentId='' />
 </StarlightPage>
+
+<style>
+    .vehicle-image {
+        width: 80px;
+        height: auto;
+    }
+</style>

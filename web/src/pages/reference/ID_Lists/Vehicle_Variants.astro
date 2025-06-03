@@ -6,6 +6,9 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 
 import { Code } from '@astrojs/starlight/components';
 
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
 const variantsById = {
   416: { vehicleName: "Ambulance", variants: "Numbers: 0 = 37, 1 = 71" },
   424: { vehicleName: "BF Injection", variants: "Body: 0 = Side Panels" },
@@ -143,17 +146,23 @@ const luaTable = `local vehicleVariantsByModel = {
     <table>
         <thead>
             <tr>
-                <th>Vehicle Name</th>
-                <th>Vehicle ID</th>
+                <th>Vehicle</th>
+                <th>Name</th>
+                <th>ID</th>
                 <th>Variants</th>
             </tr>
         </thead>
         <tbody>
             {Object.entries(variantsById).map(([id, { vehicleName, variants }]) => (
                 <tr>
+                    <td><a href={`/reference/ID_Lists/Vehicles#${vehicleName}`}><Image
+                        src={getAssetImagePath(`Vehicles/${id}.png`)}
+                        alt={vehicleName}
+                        class="vehicle-image"
+                    /></a></td>
                     <td>{vehicleName}</td>
                     <td>{id}</td>
-                    <td>{variants}</td>
+                    <td><code>{variants}</code></td>
                 </tr>
             ))}
         </tbody>

@@ -324,7 +324,7 @@ const vehicles = {
                         <h4 class="vehicle-subcategory-title">{subcategory === 'Uncategorized' ? '' : subcategory}</h4>
                         <div class="vehicle-list">
                         {vehiclesList.map(vehicle => (
-                            <div class="vehicle-item">
+                            <div class="vehicle-item" id={vehicle.name}>
                                 <div class="vehicle-title">{vehicle.name} <code>{vehicle.id}</code></div>
                                 <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa/${vehicle.id}`}>
                                     <Image
