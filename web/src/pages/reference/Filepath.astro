@@ -1,5 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Code } from '@astrojs/starlight/components';
+import NoteBox from '@src/components/NoteBox.astro';
 ---
 
 <StarlightPage frontmatter={{
@@ -14,22 +16,20 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 <div>It is also possible to use special filepaths in order to reference files from other resources. This can be done with the following syntax:
   <pre><code>:&lt;resourceName&gt;/file.ext</code></pre>
   <p>So, for example:</p>
-  <pre><code>xmlLoadFile ( ":helpmanager/help.xml" )</code></pre>
+  <Code code='xmlLoadFile ( ":helpmanager/help.xml" )' lang="lua"/>
 </div>
 
-<div class="note">
-  <strong>Note:</strong> Server-side filepaths which refer to resources will work correctly even if the other resource is not running. However, client-side filepaths require the target resource to be running.
-</div>
+<NoteBox type='info'>Server side filepaths which refer to resources will work correctly even if the other resource is not running. However client side filepaths require the target resource to be running.</NoteBox>
 
 <h3>Client file security</h3>
 
 <div>
   <p>To protect a client file from being read by another server, prepend the filepath with <code>@</code> when the file is created:</p>
-  <pre><code>xmlCreateFile ( "@:myresource/someinfo.xml" )</code></pre>
-  <pre><code>fileCreate ( "@listofthings.txt" )</code></pre>
+  <Code code='xmlCreateFile ( "@:myresource/someinfo.xml" )' lang="lua"/>
+  <Code code='fileCreate ( "@listofthings.txt" )' lang="lua"/>
   <p>To read a private file, <code>@</code> must also be prepended when the file is reopened:</p>
-  <pre><code>xmlLoadFile ( "@:myresource/someinfo.xml" )</code></pre>
-  <pre><code>fileOpen ( "@listofthings.txt" )</code></pre>
+  <Code code='xmlLoadFile ( "@:myresource/someinfo.xml" )' lang="lua"/>
+  <Code code='fileOpen ( "@listofthings.txt" )' lang="lua"/>
   <p>Notes:</p>
   <ul>
     <li>The filepath without <code>@</code> is read/writeable by all servers.</li>
