@@ -12,7 +12,7 @@ import { getAssetImagePath } from '@src/utils/general';
 import NoteBox from '@src/components/NoteBox.astro';
 
 const vehicles = {
-  "Aircrafts": {
+  "Aircraft": {
     "Airplanes": [
       { id: 592, name: "Andromada", modelName: "androm" },
       { id: 577, name: "AT-400", modelName: "at400" },
@@ -276,97 +276,98 @@ const vehicles = {
     title: 'Vehicles',
     tableOfContents: false,
 }}>
-    <p>This is a list of GTA:SA's vehicle ID numbers, as listed in the <code>vehicles.ide</code> game file.</p>
-    <p>These vehicle ID numbers are used for several vehicle scripting functions.</p>
-    <NoteBox type='tip'>Click on the model image to view the vehicle in 3D.</NoteBox>
+  <p>This is a list of GTA:SA's vehicle ID numbers, as listed in the <code>vehicles.ide</code> game file.</p>
+  <p>These vehicle ID numbers are used for several <a href="/reference/Scripting_Functions#Vehicle">vehicle scripting functions</a>.</p>
+  <NoteBox type='tip'>Click on any model image to view the vehicle in 3D.</NoteBox>
+  <NoteBox type='tip'>Use your browser's search function (<strong>Ctrl+F or Cmd+F</strong>) to quickly find a vehicle by name or ID.</NoteBox>
 
-    <h5>Table of Contents</h5>
-    <ul>
-        <span>Vehicles</span>
-        <ul>
-            {Object.keys(vehicles).map(category => (
-                <li>
-                    <a href={`#${category}`}>{category}</a>
-                    <ul>
-                        {Object.keys(vehicles[category]).map(subcategory => (
-                            <>
-                                {subcategory !== 'Uncategorized' && (
-                                    <li>
-                                        <a href={`#${subcategory}`}>{subcategory}</a>
-                                    </li>
-                                )}
-                            </>
-                        ))}
-                    </ul>
-                </li>
-            ))}
-        </ul>
-        <span>Lua tables</span>
-        <ul>
-            <li><a href="#lua-all">All valid vehicle IDs listed here</a></li>
-            <li><a href="#lua-names">All vehicle names</a></li>
-            <li><a href="#lua-model-names">All vehicle model names</a></li>
-            <li><a href="#lua-no-lock">Vehicles that are not lockable</a></li>
-            <li><a href="#lua-no-plate">Vehicles without number plates</a></li>
-            <li><a href="#lua-3-colors">Vehicles that support up to three different colors</a></li>
-            <li><a href="#lua-no-siren">Vehicles that don't support siren lights</a></li>
-            <li><a href="#lua-no-engine">Vehicles without engines</a></li>
-            <li><a href="#lua-2-doors">Vehicles with 2 physically enterable doors</a></li>
-            <li><a href="#lua-4-doors">Vehicles with 4 physically enterable doors</a></li>
-        </ul>
-    </ul>
+  <h5>Table of Contents</h5>
+  <span>Vehicles:</span>
+  <ul>
+      {Object.keys(vehicles).map(category => (
+          <li>
+              <a href={`#${category}`}>{category}</a>
+              <ul>
+                  {Object.keys(vehicles[category]).map(subcategory => (
+                      <>
+                          {subcategory !== 'Uncategorized' && (
+                              <li>
+                                  <a href={`#${subcategory}`}>{subcategory}</a>
+                              </li>
+                          )}
+                      </>
+                  ))}
+              </ul>
+          </li>
+      ))}
+  </ul>
+  <span>Lua tables:</span>
+  <ul>
+      <li><a href="#lua-all">All valid vehicle IDs listed here</a></li>
+      <li><a href="#lua-names">All vehicle names</a></li>
+      <li><a href="#lua-model-names">All vehicle model names</a></li>
+      <li><a href="#lua-no-lock">Vehicles that are not lockable</a></li>
+      <li><a href="#lua-no-plate">Vehicles without number plates</a></li>
+      <li><a href="#lua-3-colors">Vehicles that support up to 3 different colors</a></li>
+      <li><a href="#lua-no-siren">Vehicles that don't support siren lights</a></li>
+      <li><a href="#lua-no-engine">Vehicles without engines</a></li>
+      <li><a href="#lua-2-doors">Vehicles with 2 physically enterable doors</a></li>
+      <li><a href="#lua-4-doors">Vehicles with 4 physically enterable doors</a></li>
+  </ul>
 
-    <div class="vehicle-othercategory">
-      <h3 class="vehicle-category-othertitle">Specification</h3>
-      <div class="vehicle-list">
-        <div class="vehicle-item">
-            <div class="vehicle-title">Vehicle Name</div>
-            <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa`}>
-            Preview Image
-            </a>
-            <div class="vehicle-details"><code>ID</code> <code>Model Name</code></div>
-        </div>
+  <div class="vehicle-othercategory">
+    <h3 class="vehicle-category-othertitle">Specification</h3>
+    <div class="vehicle-list">
+      <div class="vehicle-item">
+          <div class="vehicle-title">Vehicle Name</div>
+          <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa`}>
+          Preview Image
+          </a>
+          <div class="vehicle-details"><code>ID</code> <code>Model Name</code></div>
       </div>
-
-      <p><strong>Vehicle Name</strong>: The friendly capitalized name of the vehicle model, which can be used in functions such as <a href="/reference/getVehicleName">getVehicleName</a>, <a href="/reference/getVehicleNameFromModel">getVehicleNameFromModel</a> and <a href="/reference/getVehicleModelFromName">getVehicleModelFromName</a>.</p>
-      <p><strong>Preview Image</strong>: A small picture of the vehicle in-game, wrapped in a link to the Vehicle 3D Model viewer site.</p>
-      <p><strong>ID</strong>: The numeric model identifier, which can be used in functions such as <a href="/reference/getVehicleNameFromModel">getVehicleNameFromModel</a>, <a href="/reference/getVehicleModelFromName">getVehicleModelFromName</a>, <a href="/reference/createVehicle">createVehicle</a>, <a href="/reference/setElementModel">setElementModel</a> and <a href="/reference/getElementModel">getElementModel</a>.</p>
-      <p><strong>Model Name</strong>: The name of the vehicle model (<code>DFF</code> and <code>TXD</code> files in <code>gta3.img</code>), which is mainly useful for modding purposes (e.g. <code>glenshit</code>).</p>
     </div>
 
-    {Object.entries(vehicles).map(([category, subcategories]) => (
-        <div class="vehicle-category" id={category}>
-            <h3 class="vehicle-category-title">{category}</h3>
-            {
-                Object.entries(subcategories).map(([subcategory, vehiclesList]) => (
-                    <div class="vehicle-subcategory" id={subcategory}>
-                        {subcategory !== 'Uncategorized' && (
-                            <h4 class="vehicle-subcategory-title">{subcategory}</h4>
-                        )}
-                        <div class="vehicle-list">
-                        {vehiclesList.map(vehicle => (
-                            <div class="vehicle-item" id={vehicle.name}>
-                                <div class="vehicle-title">{vehicle.name}</div>
-                                <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa/${vehicle.id}`}>
-                                    <Image
-                                        src={getAssetImagePath(`Vehicles/${vehicle.id}.png`)}
-                                        alt={vehicle.name}
-                                        class="vehicle-image"
-                                    />
-                                </a>
-                                <div class="vehicle-details"><code>{vehicle.id}</code> <code>{vehicle.modelName}</code></div>
-                            </div>
-                        ))}
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
-    ))}
+    <p><strong>Vehicle Name</strong>: The friendly capitalized name of the vehicle model, which can be used in functions such as <a href="/reference/getVehicleName">getVehicleName</a>, <a href="/reference/getVehicleNameFromModel">getVehicleNameFromModel</a> and <a href="/reference/getVehicleModelFromName">getVehicleModelFromName</a>.</p>
+    <p><strong>Preview Image</strong>: A small picture of the vehicle in-game, wrapped in a link to the Vehicle 3D Model viewer site.</p>
+    <p><strong>ID</strong>: The numeric model identifier, which can be used in functions such as <a href="/reference/getVehicleNameFromModel">getVehicleNameFromModel</a>, <a href="/reference/getVehicleModelFromName">getVehicleModelFromName</a>, <a href="/reference/createVehicle">createVehicle</a>, <a href="/reference/setElementModel">setElementModel</a> and <a href="/reference/getElementModel">getElementModel</a>.</p>
+    <p><strong>Model Name</strong>: The name of the vehicle model (<code>DFF</code> and <code>TXD</code> files in <code>gta3.img</code>), which is mainly useful for modding purposes (e.g. <code>glenshit</code>).</p>
+  </div>
 
-    <section data-pagefind-ignore>
-        <p id="lua-all">Lua table of all the valid vehicle IDs listed on this page:</p>
-        <Code lang="lua" code={`
+  {Object.entries(vehicles).map(([category, subcategories]) => (
+      <div class="vehicle-category" id={category}>
+          <h3 class="vehicle-category-title">{category}</h3>
+          {
+              Object.entries(subcategories).map(([subcategory, vehiclesList]) => (
+                  <div class="vehicle-subcategory" id={subcategory}>
+                      {subcategory !== 'Uncategorized' && (
+                          <h4 class="vehicle-subcategory-title">{subcategory}</h4>
+                      )}
+                      <div class="vehicle-list">
+                      {vehiclesList.map(vehicle => (
+                          <div class="vehicle-item" id={vehicle.name}>
+                              <div class="vehicle-title">{vehicle.name}</div>
+                              <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa/${vehicle.id}`}>
+                                  <Image
+                                      src={getAssetImagePath(`Vehicles/${vehicle.id}.png`)}
+                                      alt={vehicle.name}
+                                      class="vehicle-image"
+                                  />
+                              </a>
+                              <div class="vehicle-details"><code>{vehicle.id}</code> <code>{vehicle.modelName}</code></div>
+                          </div>
+                      ))}
+                      </div>
+                  </div>
+              ))
+          }
+      </div>
+  ))}
+
+  <section data-pagefind-ignore>
+        
+    <details id="lua-all">
+      <summary>Lua table of all the valid vehicle IDs listed on this page</summary>
+      <Code lang="lua" code={`
 vehicleIds = {
 	400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415,
 	416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433,
@@ -381,8 +382,10 @@ vehicleIds = {
 	578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595,
 	596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611
 }`}/>
+      </details>
 
-        <p id="lua-names">Lua table of all vehicle names:</p>
+      <details id="lua-names">
+        <summary>Lua table of all vehicle names</summary>
         <Code lang="lua" code={`
 -- (when indexing just do a <vehicle model id you want the name of> - 399 to get the name)
 vehicleNames = {
@@ -406,49 +409,63 @@ vehicleNames = {
 	"Picador", "S.W.A.T.", "Alpha", "Phoenix", "Glendale Damaged", "Sadler Damaged", "Baggage Trailer (covered)", 
 	"Baggage Trailer (Uncovered)", "Trailer (Stairs)", "Boxville Mission", "Farm Trailer", "Street Clean Trailer"
 }`}/>
+      </details>
 
-        <p id="lua-model-names">Lua table of all vehicle model names:</p>
+      <details id="lua-model-names">
+        <summary>Lua table of all vehicle model names</summary>
         <Code lang="lua" code={`
 -- (when indexing just do a <vehicle model id you want the name of> - 399 to get the model name)
 vehicleModelNames {
 	"landstal", "bravura", "buffalo", "linerun", "peren", "sentinel", "dumper", "firetruk", "trash", "stretch", "manana", "infernus", "voodoo", "pony", "mule", "cheetah", "ambulan", "leviathn", "moonbeam", "esperant", "taxi", "washing", "bobcat", "mrwhoop", "bfinject", "hunter", "premier", "enforcer", "securica", "banshee", "predator", "bus", "rhino", "barracks", "hotknife", "artict1", "previon", "coach", "cabbie", "stallion", "rumpo", "rcbandit", "romero", "packer", "monster", "admiral", "squalo", "seaspar", "pizzaboy", "tram", "artict2", "turismo", "speeder", "reefer", "tropic", "flatbed", "yankee", "caddy", "solair", "topfun", "skimmer", "pcj600", "faggio", "freeway", "rcbaron", "rcraider", "glendale", "oceanic", "sanchez", "sparrow", "patriot", "quad", "coastg", "dinghy", "hermes", "sabre", "rustler", "zr350", "walton", "regina", "comet", "bmx", "burrito", "camper", "marquis", "baggage", "dozer", "maverick", "vcnmav", "rancher", "fbiranch", "virgo", "greenwoo", "jetmax", "hotring", "sandking", "blistac", "polmav", "boxville", "benson", "mesa", "rcgoblin", "hotrina", "hotrinb", "bloodra", "rnchlure", "supergt", "elegant", "journey", "bike", "mtbike", "beagle", "cropdust", "stunt", "petro", "rdtrain", "nebula", "majestic", "buccanee", "shamal", "hydra", "fcr900", "nrg500", "copbike", "cement", "towtruck", "fortune", "cadrona", "fbitruck", "willard", "forklift", "tractor", "combine", "feltzer", "remingtn", "slamvan", "blade", "freight", "streak", "vortex", "vincent", "bullet", "clover", "sadler", "firela", "hustler", "intruder", "primo", "cargobob", "tampa", "sunrise", "merit", "utility", "nevada", "yosemite", "windsor", "monstera", "monsterb", "uranus", "jester", "sultan", "stratum", "elegy", "raindanc", "rctiger", "flash", "tahoma", "savanna", "bandito", "freiflat", "streakc", "kart", "mower", "duneride", "sweeper", "broadway", "tornado", "at400", "dft30", "huntley", "stafford", "bf400", "newsvan", "tug", "petrotr", "emperor", "wayfarer", "euros", "hotdog", "club", "freibox", "artict3", "androm", "dodo", "rccam", "launch", "copcarla", "copcarsf", "copcarvg", "copcarru", "picador", "swatvan", "alpha", "phoenix", "glenshit", "sadlshit", "bagboxa", "bagboxb", "tugstair", "boxburg", "farmtr1", "utiltr1"
 }`}/>
+    </details>
 
-        <p id="lua-no-lock">Lua table of vehicles that are not lockable:</p>
+    <details id="lua-no-lock">
+      <summary>Lua table of vehicles that are not lockable</summary>
         <Code lang="lua" code={`
 nonLockableVehicles = {
 	594, 606, 607, 611, 584, 608, 435, 450, 591, 539, 441, 464, 501, 465, 564, 472, 473, 493, 595, 484, 430, 453, 452, 446, 454, 581, 509, 481,
 	462, 521, 463, 510, 522, 461, 448, 468, 586, 425, 520
 }`}/>
+    </details>
 
-        <p id="lua-no-plate">Lua table of vehicles without number plates:</p>
+    <details id="lua-no-plate">
+        <summary>Lua table of vehicles that do not have number plates</summary>
         <Code lang="lua" code={`
 noNumberPlates = {
 	592, 553, 577, 488, 511, 497, 548, 563, 512, 476, 593, 447, 425, 519, 520, 460, 417, 469, 487, 513, 509, 481, 510, 472, 473, 493, 595, 484,
 	430, 453, 452, 446, 454
 }`}/>
+    </details>
 
-        <p id="lua-3-colors">Lua table of vehicles that support up to three different colors:</p>
+    <details id="lua-3-colors">
+      <summary>Lua table of vehicles that support up to 3 different colors</summary>
         <Code lang="lua" code={`
 maxColorVehicles = {
 	483, 524, 446
 }`}/>
+    </details>
 
-        <p id="lua-no-siren">Lua table of vehicles that doesn't support siren lights:</p>
+    <details id="lua-no-siren">
+        <summary>Lua table of vehicles that do not support siren lights</summary>
         <Code lang="lua" code={`
 noSirenLights = {
 	400, 401, 402, 403, 404, 405, 406, 417, 420, 423, 425, 430, 432, 433, 435, 438, 441, 446, 447, 448, 452, 453, 454, 460, 461, 462, 463, 464,
 	465, 468, 469, 472, 473, 476, 481, 484, 487, 488, 493, 497, 501, 509, 510, 511, 512, 513, 519, 520, 521, 522, 523, 528, 537, 538, 539, 544,
 	548, 553, 563, 564, 569, 570, 577, 581, 586, 590, 592, 593, 595, 600, 601, 602, 603, 604, 605, 606, 607, 608, 610, 611
 }`}/>
+    </details>
 
-        <p id="lua-no-engine">Lua table of vehicles without engines:</p>
+    <details id="lua-no-engine">
+        <summary>Lua table of vehicles that do not have engines</summary>	
         <Code lang="lua" code={`
 noEngineVehicles = { -- such as bicycles and trailers
 	481, 509, 510, 606, 607, 608, 610, 611, 435, 450, 584, 591, 590, 569, 570, 594
 }`}/>
+    </details>
 
-        <p id="lua-2-doors">Lua table of vehicles with 2 physically enterable doors:</p>
+    <details id="lua-2-doors">
+        <summary>Lua table of vehicles with 2 physically enterable doors</summary>
         <Code lang="lua" code={`
 twoDoorVehicles = { -- boats and bikes not included
 	592, 577, 511, 512, 593, 460, 548, 417, 488, 563, 447, 469,
@@ -464,8 +481,10 @@ twoDoorVehicles = { -- boats and bikes not included
 	538, 537,
 	424, 504, 483, 508, 500, 444, 556, 557, 495,
 }`}/>
+    </details>
 
-        <p id="lua-4-doors">Lua table of vehicles with 4 physically enterable doors:</p>
+    <details id="lua-4-doors">
+      <summary>Lua table of vehicles with 4 physically enterable doors</summary>
         <Code lang="lua" code={`
 fourDoorVehicles = { -- boats and bikes not included
 	487, 497,
@@ -478,13 +497,15 @@ fourDoorVehicles = { -- boats and bikes not included
 	567,
 	561, 560,
 }`}/>
-    </section>
+    </details>
 
-    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
-        'reference:ID_Lists',
-        'reference:vehicle',
-        'external:Web Vehicle 3D Model Viewer:http://gta.rockstarvision.com/vehicleviewer/#sa'
-    ])} currentId='' />
+  </section>
+
+  <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'reference:ID_Lists',
+      'reference:vehicle',
+      'external:Web Vehicle 3D Model Viewer:http://gta.rockstarvision.com/vehicleviewer/#sa'
+  ])} currentId='' />
 </StarlightPage>
 
 <style>
@@ -512,6 +533,16 @@ fourDoorVehicles = { -- boats and bikes not included
         align-items: flex-start;
         text-align: center;
     }
+    @media (max-width: 600px) {
+        .vehicle-list {
+            justify-content: center;
+        }
+        .vehicle-category-title,
+        .vehicle-othercategory-title,
+        .vehicle-subcategory-title {
+            text-align: center;
+        }
+    }
     .vehicle-subcategory-title {
         border-bottom: 1px solid var(--color-mta-orange);
     }
@@ -519,7 +550,8 @@ fourDoorVehicles = { -- boats and bikes not included
         padding: 0.2rem;
         margin: 0;
         border: 1px solid var(--sl-color-gray-4);
-        width: 150px;
+        width: 140px;
+        font-size: 0.9rem;
     }
     .vehicle-item .vehicle-title {
         margin-bottom: 1rem;
