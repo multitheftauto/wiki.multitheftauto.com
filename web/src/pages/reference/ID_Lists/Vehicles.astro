@@ -310,7 +310,7 @@ const vehicles = {
       <li><a href="#lua-no-plate">Vehicles without number plates</a></li>
       <li><a href="#lua-3-colors">Vehicles that support up to 3 different colors</a></li>
       <li><a href="#lua-no-siren">Vehicles that don't support siren lights</a></li>
-      <li><a href="#lua-no-engine">Vehicles without engines</a></li>
+      <li><a href="#lua-no-engine">Vehicles that don't have an engine</a></li>
       <li><a href="#lua-2-doors">Vehicles with 2 physically enterable doors</a></li>
       <li><a href="#lua-4-doors">Vehicles with 4 physically enterable doors</a></li>
   </ul>
@@ -323,7 +323,7 @@ const vehicles = {
           <a target="_blank" href={`http://gta.rockstarvision.com/vehicleviewer/#sa`}>
           Preview Image
           </a>
-          <div class="vehicle-details"><code>ID</code> <code>Model Name</code></div>
+          <div class="vehicle-details"><code>ID</code><br><code>Model Name</code></div>
       </div>
     </div>
 
@@ -353,7 +353,7 @@ const vehicles = {
                                       class="vehicle-image"
                                   />
                               </a>
-                              <div class="vehicle-details"><code>{vehicle.id}</code> <code>{vehicle.modelName}</code></div>
+                              <div class="vehicle-details"><code>{vehicle.id}</code><br><code>{vehicle.modelName}</code></div>
                           </div>
                       ))}
                       </div>
@@ -364,9 +364,10 @@ const vehicles = {
   ))}
 
   <section data-pagefind-ignore>
+    <h5>Lua tables:</h5>
         
     <details id="lua-all">
-      <summary>Lua table of all the valid vehicle IDs listed on this page</summary>
+      <summary>All valid vehicle IDs listed on this page</summary>
       <Code lang="lua" code={`
 vehicleIds = {
 	400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415,
@@ -385,7 +386,7 @@ vehicleIds = {
       </details>
 
       <details id="lua-names">
-        <summary>Lua table of all vehicle names</summary>
+        <summary>All vehicle names</summary>
         <Code lang="lua" code={`
 -- (when indexing just do a <vehicle model id you want the name of> - 399 to get the name)
 vehicleNames = {
@@ -412,7 +413,7 @@ vehicleNames = {
       </details>
 
       <details id="lua-model-names">
-        <summary>Lua table of all vehicle model names</summary>
+        <summary>All vehicle model names</summary>
         <Code lang="lua" code={`
 -- (when indexing just do a <vehicle model id you want the name of> - 399 to get the model name)
 vehicleModelNames {
@@ -421,7 +422,7 @@ vehicleModelNames {
     </details>
 
     <details id="lua-no-lock">
-      <summary>Lua table of vehicles that are not lockable</summary>
+      <summary>Vehicles that are not lockable</summary>
         <Code lang="lua" code={`
 nonLockableVehicles = {
 	594, 606, 607, 611, 584, 608, 435, 450, 591, 539, 441, 464, 501, 465, 564, 472, 473, 493, 595, 484, 430, 453, 452, 446, 454, 581, 509, 481,
@@ -430,7 +431,7 @@ nonLockableVehicles = {
     </details>
 
     <details id="lua-no-plate">
-        <summary>Lua table of vehicles that do not have number plates</summary>
+        <summary>Vehicles that do not have number plates</summary>
         <Code lang="lua" code={`
 noNumberPlates = {
 	592, 553, 577, 488, 511, 497, 548, 563, 512, 476, 593, 447, 425, 519, 520, 460, 417, 469, 487, 513, 509, 481, 510, 472, 473, 493, 595, 484,
@@ -439,7 +440,7 @@ noNumberPlates = {
     </details>
 
     <details id="lua-3-colors">
-      <summary>Lua table of vehicles that support up to 3 different colors</summary>
+      <summary>Vehicles that support up to 3 different colors</summary>
         <Code lang="lua" code={`
 maxColorVehicles = {
 	483, 524, 446
@@ -447,7 +448,7 @@ maxColorVehicles = {
     </details>
 
     <details id="lua-no-siren">
-        <summary>Lua table of vehicles that do not support siren lights</summary>
+        <summary>Vehicles that do not support siren lights</summary>
         <Code lang="lua" code={`
 noSirenLights = {
 	400, 401, 402, 403, 404, 405, 406, 417, 420, 423, 425, 430, 432, 433, 435, 438, 441, 446, 447, 448, 452, 453, 454, 460, 461, 462, 463, 464,
@@ -457,7 +458,7 @@ noSirenLights = {
     </details>
 
     <details id="lua-no-engine">
-        <summary>Lua table of vehicles that do not have engines</summary>	
+        <summary>Vehicles that do not have an engine</summary>	
         <Code lang="lua" code={`
 noEngineVehicles = { -- such as bicycles and trailers
 	481, 509, 510, 606, 607, 608, 610, 611, 435, 450, 584, 591, 590, 569, 570, 594
@@ -465,7 +466,7 @@ noEngineVehicles = { -- such as bicycles and trailers
     </details>
 
     <details id="lua-2-doors">
-        <summary>Lua table of vehicles with 2 physically enterable doors</summary>
+        <summary>Vehicles with 2 physically enterable doors</summary>
         <Code lang="lua" code={`
 twoDoorVehicles = { -- boats and bikes not included
 	592, 577, 511, 512, 593, 460, 548, 417, 488, 563, 447, 469,
@@ -484,7 +485,7 @@ twoDoorVehicles = { -- boats and bikes not included
     </details>
 
     <details id="lua-4-doors">
-      <summary>Lua table of vehicles with 4 physically enterable doors</summary>
+      <summary>Vehicles with 4 physically enterable doors</summary>
         <Code lang="lua" code={`
 fourDoorVehicles = { -- boats and bikes not included
 	487, 497,
@@ -534,11 +535,13 @@ fourDoorVehicles = { -- boats and bikes not included
         text-align: center;
     }
     @media (max-width: 600px) {
+        /* Align the list items */
         .vehicle-list {
             justify-content: center;
         }
+        /* Align the titles */
         .vehicle-category-title,
-        .vehicle-othercategory-title,
+        .vehicle-category-othertitle,
         .vehicle-subcategory-title {
             text-align: center;
         }
@@ -550,8 +553,11 @@ fourDoorVehicles = { -- boats and bikes not included
         padding: 0.2rem;
         margin: 0;
         border: 1px solid var(--sl-color-gray-4);
-        width: 140px;
-        font-size: 0.9rem;
+        width: 100px;
+        font-size: 0.7rem;
+    }
+    .vehicle-item code {
+      font-size: 0.7rem;
     }
     .vehicle-item .vehicle-title {
         margin-bottom: 1rem;
@@ -560,7 +566,7 @@ fourDoorVehicles = { -- boats and bikes not included
         margin-top: 1rem;
     }
     .vehicle-item .vehicle-image {
-        width: 64px;
+        width: 90px;
         height: 32px;
         object-fit: contain;
         margin: 0 auto;
