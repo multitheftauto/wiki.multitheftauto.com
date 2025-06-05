@@ -1961,7 +1961,6 @@ export const animations = {
   ]
 };
 
-// Credits: NexiusTailer
 export const animationDescriptions: Record<string, string> = {
   "thrw_barl_thrw": "Opening a door with two hands",
   "Stepsit_in": "Sitting on the ground",
@@ -3713,4 +3712,7003 @@ export const animationDescriptions: Record<string, string> = {
   "Wuzi_grnd_chk": "Wuzi grenade chuck",
   "Wuzi_stand_loop": "Wuzi's stand animation loop",
   "Wuzi_Walk": "Wuzi's walk"
+};
+
+export const animationDetails: Record<string, { frames: number, duration: number }> = {
+  "thrw_barl_thrw": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "Stepsit_in": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "Stepsit_loop": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "Stepsit_out": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "Barcustom_get": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "Barcustom_loop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "Barcustom_order": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "BARman_idle": {
+    "frames": 500,
+    "duration": 8.33
+  },
+  "Barserve_bottle": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "Barserve_give": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "Barserve_glass": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "Barserve_in": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "Barserve_loop": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "Barserve_order": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "dnk_stndF_loop": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "dnk_stndM_loop": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "Bat_1": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "Bat_2": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Bat_3": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "Bat_4": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "Bat_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "Bat_Hit_1": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Bat_Hit_2": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "Bat_Hit_3": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Bat_IDLE": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "Bat_M": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "BAT_PART": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "BD_Fire1": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "BD_Fire2": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "BD_Fire3": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "BD_GF_Wave": {
+    "frames": 304,
+    "duration": 5.07
+  },
+  "BD_Panic_01": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BD_Panic_02": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BD_Panic_03": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BD_Panic_04": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BD_Panic_Loop": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "Grlfrd_Kiss_03": {
+    "frames": 420,
+    "duration": 7.0
+  },
+  "M_smklean_loop": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "Playa_Kiss_03": {
+    "frames": 420,
+    "duration": 7.0
+  },
+  "wash_up": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "bather": {
+    "frames": 252,
+    "duration": 4.2
+  },
+  "Lay_Bac_Loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "ParkSit_M_loop": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "ParkSit_W_loop": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "SitnWait_loop_W": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "gym_bp_celebrate": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "gym_bp_down": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "gym_bp_getoff": {
+    "frames": 520,
+    "duration": 8.67
+  },
+  "gym_bp_geton": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "gym_bp_up_A": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "gym_bp_up_B": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "gym_bp_up_smooth": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "BF_getin_LHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BF_getin_RHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BF_getout_LHS": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "BF_getout_RHS": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "BIKEd_Back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEd_drivebyFT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEd_drivebyLHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEd_drivebyRHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEd_Fwd": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEd_getoffBACK": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "BIKEd_getoffLHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BIKEd_getoffRHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BIKEd_hit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEd_jumponL": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "BIKEd_jumponR": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "BIKEd_kick": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BIKEd_Left": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEd_passenger": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEd_pushes": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "BIKEd_Ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEd_Right": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEd_shuffle": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "BIKEd_Still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEh_Back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEh_drivebyFT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEh_drivebyLHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEh_drivebyRHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEh_Fwd": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEh_getoffBACK": {
+    "frames": 102,
+    "duration": 1.7
+  },
+  "BIKEh_getoffLHS": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "BIKEh_getoffRHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "BIKEh_hit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEh_jumponL": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "BIKEh_jumponR": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "BIKEh_kick": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BIKEh_Left": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "BIKEh_passenger": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEh_pushes": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "BIKEh_Ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEh_Right": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "BIKEh_Still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "bk_blnce_in": {
+    "frames": 114,
+    "duration": 1.9
+  },
+  "bk_blnce_out": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "bk_jmp": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "bk_rdy_in": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "bk_rdy_out": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "struggle_cesar": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "struggle_driver": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "truck_driver": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "truck_getin": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "BIKEs_Back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEs_drivebyFT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEs_drivebyLHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEs_drivebyRHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEs_Fwd": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEs_getoffBACK": {
+    "frames": 146,
+    "duration": 2.43
+  },
+  "BIKEs_getoffLHS": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "BIKEs_getoffRHS": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "BIKEs_hit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEs_jumponL": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "BIKEs_jumponR": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "BIKEs_kick": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BIKEs_Left": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEs_passenger": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEs_pushes": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "BIKEs_Ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEs_Right": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEs_Snatch_L": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "BIKEs_Snatch_R": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "BIKEs_Still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEv_Back": {
+    "frames": 10,
+    "duration": 0.17
+  },
+  "BIKEv_drivebyFT": {
+    "frames": 10,
+    "duration": 0.17
+  },
+  "BIKEv_drivebyLHS": {
+    "frames": 14,
+    "duration": 0.23
+  },
+  "BIKEv_drivebyRHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEv_Fwd": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BIKEv_getoffBACK": {
+    "frames": 102,
+    "duration": 1.7
+  },
+  "BIKEv_getoffLHS": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BIKEv_getoffRHS": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BIKEv_hit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEv_jumponL": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BIKEv_jumponR": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BIKEv_kick": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BIKEv_Left": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEv_passenger": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEv_pushes": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "BIKEv_Ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BIKEv_Right": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BIKEv_Still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "Pass_Driveby_BWD": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Pass_Driveby_FWD": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Pass_Driveby_LHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Pass_Driveby_RHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "BJ_Car_End_P": {
+    "frames": 248,
+    "duration": 4.13
+  },
+  "BJ_Car_End_W": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "BJ_Car_Loop_P": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BJ_Car_Loop_W": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BJ_Car_Start_P": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "BJ_Car_Start_W": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "BJ_Couch_End_P": {
+    "frames": 460,
+    "duration": 7.67
+  },
+  "BJ_Couch_End_W": {
+    "frames": 460,
+    "duration": 7.67
+  },
+  "BJ_Couch_Loop_P": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "BJ_Couch_Loop_W": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "BJ_Couch_Start_P": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "BJ_Couch_Start_W": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "BJ_Stand_End_P": {
+    "frames": 292,
+    "duration": 4.87
+  },
+  "BJ_Stand_End_W": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "BJ_Stand_Loop_P": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BJ_Stand_Loop_W": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BJ_Stand_Start_P": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "BJ_Stand_Start_W": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "BMX_back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BMX_bunnyhop": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "BMX_drivebyFT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BMX_driveby_LHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BMX_driveby_RHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BMX_fwd": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "BMX_getoffBACK": {
+    "frames": 82,
+    "duration": 1.37
+  },
+  "BMX_getoffLHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "BMX_getoffRHS": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "BMX_jumponL": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "BMX_jumponR": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "BMX_Left": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "BMX_pedal": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "BMX_pushes": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "BMX_Ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BMX_Right": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "BMX_sprint": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BMX_still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "BOM_Plant": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "BOM_Plant_2Idle": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BOM_Plant_Crouch_In": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "BOM_Plant_Crouch_Out": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "BOM_Plant_In": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "BOM_Plant_Loop": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "boxhipin": {
+    "frames": 392,
+    "duration": 6.53
+  },
+  "boxhipup": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "boxshdwn": {
+    "frames": 366,
+    "duration": 6.1
+  },
+  "boxshup": {
+    "frames": 312,
+    "duration": 5.2
+  },
+  "bxhipwlk": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "bxhwlki": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "bxshwlk": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "bxshwlki": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "bxwlko": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "catch_box": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "BBALL_def_jump_shot": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "BBALL_def_loop": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BBALL_def_stepL": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "BBALL_def_stepR": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "BBALL_Dnk": {
+    "frames": 84,
+    "duration": 1.4
+  },
+  "BBALL_Dnk_Gli": {
+    "frames": 22,
+    "duration": 0.37
+  },
+  "BBALL_Dnk_Gli_O": {
+    "frames": 22,
+    "duration": 0.37
+  },
+  "BBALL_Dnk_Lnch": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BBALL_Dnk_Lnch_O": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BBALL_Dnk_Lnd": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "BBALL_Dnk_O": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "BBALL_idle": {
+    "frames": 146,
+    "duration": 2.43
+  },
+  "BBALL_idle2": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "BBALL_idle2_O": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "BBALL_idleloop": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BBALL_idleloop_O": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BBALL_idle_O": {
+    "frames": 146,
+    "duration": 2.43
+  },
+  "BBALL_Jump_Cancel": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BBALL_Jump_Cancel_O": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BBALL_Jump_End": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "BBALL_Jump_Shot": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "BBALL_Jump_Shot_O": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BBALL_Net_Dnk_O": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "BBALL_pickup": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "BBALL_pickup_O": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "BBALL_react_miss": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "BBALL_react_score": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "BBALL_run": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "BBALL_run_O": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "BBALL_SkidStop_L": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_SkidStop_L_O": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_SkidStop_R": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_SkidStop_R_O": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_walk": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BBALL_WalkStop_L": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_WalkStop_L_O": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_WalkStop_R": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_WalkStop_R_O": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "BBALL_walk_O": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BBALL_walk_start": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "BBALL_walk_start_O": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "buddy_crouchfire": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "buddy_crouchreload": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "buddy_fire": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "buddy_fire_poor": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "buddy_reload": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "BUS_close": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "BUS_getin_LHS": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "BUS_getin_RHS": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "BUS_getout_LHS": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "BUS_getout_RHS": {
+    "frames": 112,
+    "duration": 1.87
+  },
+  "BUS_jacked_LHS": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "BUS_open": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "BUS_open_RHS": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "BUS_pullout_LHS": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "camcrch_cmon": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "camcrch_idleloop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "camcrch_stay": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "camcrch_to_camstnd": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "camstnd_cmon": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "camstnd_idleloop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "camstnd_lkabt": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "camstnd_to_camcrch": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "piccrch_in": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "piccrch_out": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "piccrch_take": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "picstnd_in": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "picstnd_out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "picstnd_take": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "Fixn_Car_Loop": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "Fixn_Car_Out": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "flag_drop": {
+    "frames": 270,
+    "duration": 4.5
+  },
+  "Sit_relaxed": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "Tap_hand": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "Tyd2car_bump": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Tyd2car_high": {
+    "frames": 480,
+    "duration": 8.0
+  },
+  "Tyd2car_low": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "Tyd2car_med": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "Tyd2car_TurnL": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "Tyd2car_TurnR": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "crry_prtial": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "liftup": {
+    "frames": 92,
+    "duration": 1.53
+  },
+  "liftup05": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "liftup105": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "putdwn": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "putdwn05": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "putdwn105": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "carfone_in": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "carfone_loopA": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "carfone_loopA_to_B": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "carfone_loopB": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "carfone_loopB_to_A": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "carfone_out": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "CAR_Sc1_BL": {
+    "frames": 700,
+    "duration": 11.67
+  },
+  "CAR_Sc1_BR": {
+    "frames": 700,
+    "duration": 11.67
+  },
+  "CAR_Sc1_FL": {
+    "frames": 700,
+    "duration": 11.67
+  },
+  "CAR_Sc1_FR": {
+    "frames": 700,
+    "duration": 11.67
+  },
+  "CAR_Sc2_FL": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "CAR_Sc3_BR": {
+    "frames": 650,
+    "duration": 10.83
+  },
+  "CAR_Sc3_FL": {
+    "frames": 650,
+    "duration": 10.83
+  },
+  "CAR_Sc3_FR": {
+    "frames": 650,
+    "duration": 10.83
+  },
+  "CAR_Sc4_BL": {
+    "frames": 264,
+    "duration": 4.4
+  },
+  "CAR_Sc4_BR": {
+    "frames": 392,
+    "duration": 6.53
+  },
+  "CAR_Sc4_FL": {
+    "frames": 600,
+    "duration": 10.0
+  },
+  "CAR_Sc4_FR": {
+    "frames": 600,
+    "duration": 10.0
+  },
+  "car_talkm_in": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "car_talkm_loop": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "car_talkm_out": {
+    "frames": 440,
+    "duration": 7.33
+  },
+  "cards_in": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "cards_loop": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "cards_lose": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "cards_out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "cards_pick_01": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "cards_pick_02": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "cards_raise": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "cards_win": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "dealone": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "manwinb": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "manwind": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "Roulette_bet": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "Roulette_in": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Roulette_loop": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "Roulette_lose": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "Roulette_out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Roulette_win": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "Slot_bet_01": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "Slot_bet_02": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "Slot_in": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "Slot_lose_out": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "Slot_Plyr": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Slot_wait": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "Slot_win_out": {
+    "frames": 560,
+    "duration": 9.33
+  },
+  "wof": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "CSAW_1": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CSAW_2": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "CSAW_3": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "CSAW_G": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "CSAW_Hit_1": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "CSAW_Hit_2": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "CSAW_Hit_3": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "csaw_part": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "IDLE_csaw": {
+    "frames": 92,
+    "duration": 1.53
+  },
+  "WEAPON_csaw": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "WEAPON_csawlo": {
+    "frames": 114,
+    "duration": 1.9
+  },
+  "CHOPPA_back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "CHOPPA_bunnyhop": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "CHOPPA_drivebyFT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "CHOPPA_driveby_LHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "CHOPPA_driveby_RHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "CHOPPA_fwd": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "CHOPPA_getoffBACK": {
+    "frames": 76,
+    "duration": 1.27
+  },
+  "CHOPPA_getoffLHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "CHOPPA_getoffRHS": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "CHOPPA_jumponL": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "CHOPPA_jumponR": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "CHOPPA_Left": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "CHOPPA_pedal": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "CHOPPA_Pushes": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "CHOPPA_ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CHOPPA_Right": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "CHOPPA_sprint": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "CHOPPA_Still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CLO_Buy": {
+    "frames": 124,
+    "duration": 2.07
+  },
+  "CLO_In": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "CLO_Out": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "CLO_Pose_Hat": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "CLO_Pose_In": {
+    "frames": 188,
+    "duration": 3.13
+  },
+  "CLO_Pose_In_O": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "CLO_Pose_Legs": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "CLO_Pose_Loop": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "CLO_Pose_Out": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "CLO_Pose_Out_O": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "CLO_Pose_Shoes": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "CLO_Pose_Torso": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "CLO_Pose_Watch": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "COACH_inL": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "COACH_inR": {
+    "frames": 132,
+    "duration": 2.2
+  },
+  "COACH_opnL": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "COACH_opnR": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "COACH_outL": {
+    "frames": 104,
+    "duration": 1.73
+  },
+  "COACH_outR": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "2guns_crouchfire": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "colt45_crouchfire": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "colt45_crouchreload": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "colt45_fire": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "colt45_fire_2hands": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "colt45_reload": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "sawnoff_reload": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "Copbrowse_in": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "Copbrowse_loop": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "Copbrowse_nod": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "Copbrowse_out": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "Copbrowse_shake": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "Coplook_in": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Coplook_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "Coplook_nod": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "Coplook_out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Coplook_shake": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "Coplook_think": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "Coplook_watch": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "COP_Dvby_B": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "COP_Dvby_FT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "COP_Dvby_L": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "COP_Dvby_R": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Bbalbat_Idle_01": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "Bbalbat_Idle_02": {
+    "frames": 600,
+    "duration": 10.0
+  },
+  "crckdeth1": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "crckdeth2": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "crckdeth3": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "crckdeth4": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "crckidle1": {
+    "frames": 210,
+    "duration": 3.5
+  },
+  "crckidle2": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "crckidle3": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "crckidle4": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "CRIB_Console_Loop": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "CRIB_Use_Switch": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "PED_Console_Loop": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "PED_Console_Loose": {
+    "frames": 210,
+    "duration": 3.5
+  },
+  "PED_Console_Win": {
+    "frames": 210,
+    "duration": 3.5
+  },
+  "DAM_Dive_Loop": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "DAM_Land": {
+    "frames": 156,
+    "duration": 2.6
+  },
+  "DAM_Launch": {
+    "frames": 144,
+    "duration": 2.4
+  },
+  "Jump_Roll": {
+    "frames": 190,
+    "duration": 3.17
+  },
+  "SF_JumpWall": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "bd_clap": {
+    "frames": 192,
+    "duration": 3.2
+  },
+  "bd_clap1": {
+    "frames": 158,
+    "duration": 2.63
+  },
+  "dance_loop": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "DAN_Down_A": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "DAN_Left_A": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "DAN_Loop_A": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "DAN_Right_A": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "DAN_Up_A": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "dnce_M_a": {
+    "frames": 128,
+    "duration": 2.13
+  },
+  "dnce_M_b": {
+    "frames": 116,
+    "duration": 1.93
+  },
+  "dnce_M_c": {
+    "frames": 116,
+    "duration": 1.93
+  },
+  "dnce_M_d": {
+    "frames": 146,
+    "duration": 2.43
+  },
+  "dnce_M_e": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "DEALER_DEAL": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "DEALER_IDLE": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "DEALER_IDLE_01": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "DEALER_IDLE_02": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "DEALER_IDLE_03": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "DRUGS_BUY": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "shop_pay": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "DILDO_1": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "DILDO_2": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "DILDO_3": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "DILDO_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "DILDO_G": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "DILDO_Hit_1": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "DILDO_Hit_2": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "DILDO_Hit_3": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "DILDO_IDLE": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "Cover_Dive_01": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "Cover_Dive_02": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "Crushed": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "Crush_Jump": {
+    "frames": 190,
+    "duration": 3.17
+  },
+  "DOZER_Align_LHS": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "DOZER_Align_RHS": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "DOZER_getin_LHS": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "DOZER_getin_RHS": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "DOZER_getout_LHS": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "DOZER_getout_RHS": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "DOZER_Jacked_LHS": {
+    "frames": 76,
+    "duration": 1.27
+  },
+  "DOZER_Jacked_RHS": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "DOZER_pullout_LHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "DOZER_pullout_RHS": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "Gang_DrivebyLHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Gang_DrivebyLHS_Bwd": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Gang_DrivebyLHS_Fwd": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Gang_DrivebyRHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Gang_DrivebyRHS_Bwd": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Gang_DrivebyRHS_Fwd": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Gang_DrivebyTop_LHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Gang_DrivebyTop_RHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "FatIdle": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "FatIdle_armed": {
+    "frames": 92,
+    "duration": 1.53
+  },
+  "FatIdle_Csaw": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "FatIdle_Rocket": {
+    "frames": 96,
+    "duration": 1.6
+  },
+  "FatRun": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "FatRun_armed": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "FatRun_Csaw": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "FatRun_Rocket": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "FatSprint": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "FatWalk": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "FatWalkstart": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "FatWalkstart_Csaw": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "FatWalkSt_armed": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "FatWalkSt_Rocket": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "FatWalk_armed": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "FatWalk_Csaw": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "FatWalk_Rocket": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "IDLE_tired": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "FightB_1": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "FightB_2": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "FightB_3": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "FightB_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "FightB_G": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "FightB_IDLE": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "FightB_M": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "HitB_1": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "HitB_2": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "HitB_3": {
+    "frames": 86,
+    "duration": 1.43
+  },
+  "FightC_1": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "FightC_2": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "FightC_3": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "FightC_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "FightC_blocking": {
+    "frames": 192,
+    "duration": 3.2
+  },
+  "FightC_G": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "FightC_IDLE": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "FightC_M": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "FightC_Spar": {
+    "frames": 192,
+    "duration": 3.2
+  },
+  "HitC_1": {
+    "frames": 18,
+    "duration": 0.3
+  },
+  "HitC_2": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "HitC_3": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "FightD_1": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "FightD_2": {
+    "frames": 112,
+    "duration": 1.87
+  },
+  "FightD_3": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "FightD_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "FightD_G": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "FightD_IDLE": {
+    "frames": 92,
+    "duration": 1.53
+  },
+  "FightD_M": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "HitD_1": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "HitD_2": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "HitD_3": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "FightKick": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "FightKick_B": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "Hit_fightkick": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "Hit_fightkick_B": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "FIN_Climb_In": {
+    "frames": 174,
+    "duration": 2.9
+  },
+  "FIN_Cop1_ClimbOut2": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "FIN_Cop1_Loop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "FIN_Cop1_Stomp": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "FIN_Hang_L": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "FIN_Hang_Loop": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "FIN_Hang_R": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "FIN_Hang_Slip": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "FIN_Jump_On": {
+    "frames": 336,
+    "duration": 5.6
+  },
+  "FIN_Land_Car": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FIN_Land_Die": {
+    "frames": 142,
+    "duration": 2.37
+  },
+  "FIN_LegsUp": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "FIN_LegsUp_L": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "FIN_LegsUp_Loop": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "FIN_LegsUp_R": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "FIN_Let_Go": {
+    "frames": 10,
+    "duration": 0.17
+  },
+  "FIN_Cop1_ClimbOut": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "FIN_Cop1_Fall": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "FIN_Cop1_Shot": {
+    "frames": 124,
+    "duration": 2.07
+  },
+  "FIN_Cop1_Swing": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "FIN_Cop2_ClimbOut": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "FIN_Switch_P": {
+    "frames": 238,
+    "duration": 3.97
+  },
+  "FIN_Switch_S": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "FLAME_fire": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "Flower_attack": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "Flower_attack_M": {
+    "frames": 74,
+    "duration": 1.23
+  },
+  "Flower_Hit": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "EAT_Burger": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "EAT_Chicken": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "EAT_Pizza": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "EAT_Vomit_P": {
+    "frames": 480,
+    "duration": 8.0
+  },
+  "EAT_Vomit_SK": {
+    "frames": 480,
+    "duration": 8.0
+  },
+  "FF_Dam_Bkw": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Dam_Fwd": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Dam_Left": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Dam_Right": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Die_Bkw": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Die_Fwd": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Die_Left": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Die_Right": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FF_Sit_Eat1": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "FF_Sit_Eat2": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "FF_Sit_Eat3": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "FF_Sit_In": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "FF_Sit_In_L": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "FF_Sit_In_R": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "FF_Sit_Look": {
+    "frames": 480,
+    "duration": 8.0
+  },
+  "FF_Sit_Loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "FF_Sit_Out_180": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "FF_Sit_Out_L_180": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "FF_Sit_Out_R_180": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SHP_Thank": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "SHP_Tray_In": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "SHP_Tray_Lift": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "SHP_Tray_Lift_In": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "SHP_Tray_Lift_Loop": {
+    "frames": 480,
+    "duration": 8.0
+  },
+  "SHP_Tray_Lift_Out": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "SHP_Tray_Out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "SHP_Tray_Pose": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "SHP_Tray_Return": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "gym_barbell": {
+    "frames": 142,
+    "duration": 2.37
+  },
+  "gym_free_A": {
+    "frames": 116,
+    "duration": 1.93
+  },
+  "gym_free_B": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "gym_free_celebrate": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "gym_free_down": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "gym_free_loop": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "gym_free_pickup": {
+    "frames": 190,
+    "duration": 3.17
+  },
+  "gym_free_putdown": {
+    "frames": 190,
+    "duration": 3.17
+  },
+  "gym_free_up_smooth": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "drnkbr_prtl": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "drnkbr_prtl_F": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "hndshkaa": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "hndshkba": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "hndshkca": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "hndshkcb": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "hndshkda": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "hndshkea": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "hndshkfa": {
+    "frames": 250,
+    "duration": 4.17
+  },
+  "hndshkfa_swt": {
+    "frames": 250,
+    "duration": 4.17
+  },
+  "Invite_No": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "Invite_Yes": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "leanIDLE": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "leanIN": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "leanOUT": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "prtial_gngtlkA": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "prtial_gngtlkB": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "prtial_gngtlkC": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "prtial_gngtlkD": {
+    "frames": 148,
+    "duration": 2.47
+  },
+  "prtial_gngtlkE": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "prtial_gngtlkF": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "prtial_gngtlkG": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "prtial_gngtlkH": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "prtial_hndshk_01": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "prtial_hndshk_biz_01": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "shake_cara": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "shake_carK": {
+    "frames": 76,
+    "duration": 1.27
+  },
+  "shake_carSH": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "smkcig_prtl": {
+    "frames": 450,
+    "duration": 7.5
+  },
+  "smkcig_prtl_F": {
+    "frames": 450,
+    "duration": 7.5
+  },
+  "Dance_B1": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_B10": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B11": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_B12": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B13": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_B14": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B15": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_B16": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B2": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B3": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_B4": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B5": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_B6": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B7": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_B8": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_B9": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G1": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G10": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G11": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G12": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G13": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G14": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G15": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G16": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G2": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G3": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G4": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G5": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G6": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G7": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "Dance_G8": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Dance_G9": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "gsign1": {
+    "frames": 286,
+    "duration": 4.77
+  },
+  "gsign1LH": {
+    "frames": 164,
+    "duration": 2.73
+  },
+  "gsign2": {
+    "frames": 128,
+    "duration": 2.13
+  },
+  "gsign2LH": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "gsign3": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "gsign3LH": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "gsign4": {
+    "frames": 250,
+    "duration": 4.17
+  },
+  "gsign4LH": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "gsign5": {
+    "frames": 372,
+    "duration": 6.2
+  },
+  "gsign5LH": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "LHGsign1": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "LHGsign2": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "LHGsign3": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "LHGsign4": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "LHGsign5": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "RHGsign1": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "RHGsign2": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "RHGsign3": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "RHGsign4": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "RHGsign5": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "GDB_Car2_PLY": {
+    "frames": 570,
+    "duration": 9.5
+  },
+  "GDB_Car2_SMO": {
+    "frames": 570,
+    "duration": 9.5
+  },
+  "GDB_Car2_SWE": {
+    "frames": 570,
+    "duration": 9.5
+  },
+  "GDB_Car_PLY": {
+    "frames": 800,
+    "duration": 13.33
+  },
+  "GDB_Car_RYD": {
+    "frames": 800,
+    "duration": 13.33
+  },
+  "GDB_Car_SMO": {
+    "frames": 800,
+    "duration": 13.33
+  },
+  "GDB_Car_SWE": {
+    "frames": 800,
+    "duration": 13.33
+  },
+  "goggles_put_on": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "graffiti_Chkout": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "spraycan_fire": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "mrnF_loop": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "mrnM_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "prst_loopa": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "WEAPON_start_throw": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "WEAPON_throw": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "WEAPON_throwu": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "GYMshadowbox": {
+    "frames": 306,
+    "duration": 5.1
+  },
+  "gym_bike_celebrate": {
+    "frames": 116,
+    "duration": 1.93
+  },
+  "gym_bike_fast": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "gym_bike_faster": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "gym_bike_getoff": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "gym_bike_geton": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "gym_bike_pedal": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "gym_bike_slow": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "gym_bike_still": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "gym_jog_falloff": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "gym_shadowbox": {
+    "frames": 306,
+    "duration": 5.1
+  },
+  "gym_tread_celebrate": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "gym_tread_falloff": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "gym_tread_getoff": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "gym_tread_geton": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "gym_tread_jog": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "gym_tread_sprint": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "gym_tread_tired": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "gym_tread_walk": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "gym_walk_falloff": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "Pedals_fast": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "Pedals_med": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "Pedals_slow": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "Pedals_still": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "BRB_Beard_01": {
+    "frames": 270,
+    "duration": 4.5
+  },
+  "BRB_Buy": {
+    "frames": 250,
+    "duration": 4.17
+  },
+  "BRB_Cut": {
+    "frames": 102,
+    "duration": 1.7
+  },
+  "BRB_Cut_In": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "BRB_Cut_Out": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "BRB_Hair_01": {
+    "frames": 230,
+    "duration": 3.83
+  },
+  "BRB_Hair_02": {
+    "frames": 270,
+    "duration": 4.5
+  },
+  "BRB_In": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "BRB_Loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "BRB_Out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "BRB_Sit_In": {
+    "frames": 124,
+    "duration": 2.07
+  },
+  "BRB_Sit_Loop": {
+    "frames": 420,
+    "duration": 7.0
+  },
+  "BRB_Sit_Out": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "CAS_G2_GasKO": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "swt_wllpk_L": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "swt_wllpk_L_back": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "swt_wllpk_R": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "swt_wllpk_R_back": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "swt_wllshoot_in_L": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "swt_wllshoot_in_R": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "swt_wllshoot_out_L": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "swt_wllshoot_out_R": {
+    "frames": 86,
+    "duration": 1.43
+  },
+  "Use_SwipeCard": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "BED_In_L": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BED_In_R": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BED_Loop_L": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BED_Loop_R": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BED_Out_L": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "BED_Out_R": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "LOU_In": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "LOU_Loop": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "LOU_Out": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "OFF_Sit_2Idle_180": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "OFF_Sit_Bored_Loop": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "OFF_Sit_Crash": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "OFF_Sit_Drink": {
+    "frames": 250,
+    "duration": 4.17
+  },
+  "OFF_Sit_Idle_Loop": {
+    "frames": 124,
+    "duration": 2.07
+  },
+  "OFF_Sit_In": {
+    "frames": 166,
+    "duration": 2.77
+  },
+  "OFF_Sit_Read": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "OFF_Sit_Type_Loop": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "OFF_Sit_Watch": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "shop_cashier": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "shop_in": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "shop_lookA": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "shop_lookB": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "shop_loop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "shop_out": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "shop_shelf": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "girl_01": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "girl_02": {
+    "frames": 680,
+    "duration": 11.33
+  },
+  "player_01": {
+    "frames": 1490,
+    "duration": 24.83
+  },
+  "smoke_01": {
+    "frames": 1500,
+    "duration": 25.0
+  },
+  "KART_getin_LHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "KART_getin_RHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "KART_getout_LHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "KART_getout_RHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "gfwave2": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "GF_CarArgue_01": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "GF_CarArgue_02": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "GF_CarSpot": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "GF_StreetArgue_01": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "GF_StreetArgue_02": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "gift_get": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "gift_give": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "Grlfrd_Kiss_01": {
+    "frames": 250,
+    "duration": 4.17
+  },
+  "Grlfrd_Kiss_02": {
+    "frames": 346,
+    "duration": 5.77
+  },
+  "Playa_Kiss_01": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "Playa_Kiss_02": {
+    "frames": 346,
+    "duration": 5.77
+  },
+  "KILL_Knife_Ped_Damage": {
+    "frames": 134,
+    "duration": 2.23
+  },
+  "KILL_Knife_Ped_Die": {
+    "frames": 116,
+    "duration": 1.93
+  },
+  "KILL_Knife_Player": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "KILL_Partial": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "knife_1": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "knife_2": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "knife_3": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "Knife_4": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "knife_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "Knife_G": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "knife_hit_1": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "knife_hit_2": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "knife_hit_3": {
+    "frames": 96,
+    "duration": 1.6
+  },
+  "knife_IDLE": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "knife_part": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "WEAPON_knifeidle": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "LAPDAN_D": {
+    "frames": 3088,
+    "duration": 51.47
+  },
+  "LAPDAN_P": {
+    "frames": 3088,
+    "duration": 51.47
+  },
+  "F_smklean_loop": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "lrgirl_bdbnce": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "lrgirl_hair": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "lrgirl_hurry": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "lrgirl_idleloop": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "lrgirl_idle_to_l0": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "lrgirl_l0_bnce": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "lrgirl_l0_loop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "lrgirl_l0_to_l1": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "lrgirl_l12_to_l0": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "lrgirl_l1_bnce": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "lrgirl_l1_loop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "lrgirl_l1_to_l2": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "lrgirl_l2_bnce": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "lrgirl_l2_loop": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "lrgirl_l2_to_l3": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "lrgirl_l345_to_l1": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "lrgirl_l3_bnce": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "lrgirl_l3_loop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "lrgirl_l3_to_l4": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "lrgirl_l4_bnce": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "lrgirl_l4_loop": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "lrgirl_l4_to_l5": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "lrgirl_l5_bnce": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "lrgirl_l5_loop": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "M_smkstnd_loop": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "RAP_A_Loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "RAP_B_Loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "RAP_C_Loop": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "Carhit_Hangon": {
+    "frames": 92,
+    "duration": 1.53
+  },
+  "Carhit_Tumble": {
+    "frames": 122,
+    "duration": 2.03
+  },
+  "donutdrop": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "Fen_Choppa_L1": {
+    "frames": 86,
+    "duration": 1.43
+  },
+  "Fen_Choppa_L2": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "Fen_Choppa_L3": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "Fen_Choppa_R1": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "Fen_Choppa_R2": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "Fen_Choppa_R3": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "Hangon_Stun_loop": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "Hangon_Stun_Turn": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "MD_BIKE_2_HANG": {
+    "frames": 82,
+    "duration": 1.37
+  },
+  "MD_BIKE_Jmp_BL": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "MD_BIKE_Jmp_F": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "MD_BIKE_Lnd_BL": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "MD_BIKE_Lnd_Die_BL": {
+    "frames": 92,
+    "duration": 1.53
+  },
+  "MD_BIKE_Lnd_Die_F": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "MD_BIKE_Lnd_F": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "MD_BIKE_Lnd_Roll": {
+    "frames": 162,
+    "duration": 2.7
+  },
+  "MD_BIKE_Lnd_Roll_F": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "MD_BIKE_Punch": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "MD_BIKE_Punch_F": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "MD_BIKE_Shot_F": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "MD_HANG_Lnd_Roll": {
+    "frames": 162,
+    "duration": 2.7
+  },
+  "MD_HANG_Loop": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "END_SC1_PLY": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "END_SC1_RYD": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "END_SC1_SMO": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "END_SC1_SWE": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "END_SC2_PLY": {
+    "frames": 540,
+    "duration": 9.0
+  },
+  "END_SC2_RYD": {
+    "frames": 540,
+    "duration": 9.0
+  },
+  "END_SC2_SMO": {
+    "frames": 540,
+    "duration": 9.0
+  },
+  "END_SC2_SWE": {
+    "frames": 540,
+    "duration": 9.0
+  },
+  "CPR": {
+    "frames": 500,
+    "duration": 8.33
+  },
+  "bitchslap": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "BMX_celebrate": {
+    "frames": 94,
+    "duration": 1.57
+  },
+  "BMX_comeon": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "bmx_idleloop_01": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "bmx_idleloop_02": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "bmx_talkleft_in": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "bmx_talkleft_loop": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "bmx_talkleft_out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "bmx_talkright_in": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "bmx_talkright_loop": {
+    "frames": 440,
+    "duration": 7.33
+  },
+  "bmx_talkright_out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "bng_wndw": {
+    "frames": 440,
+    "duration": 7.33
+  },
+  "bng_wndw_02": {
+    "frames": 440,
+    "duration": 7.33
+  },
+  "Case_pickup": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "door_jet": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "GRAB_L": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "GRAB_R": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "Hiker_Pose": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "Hiker_Pose_L": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "Idle_Chat_02": {
+    "frames": 434,
+    "duration": 7.23
+  },
+  "KAT_Throw_K": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "KAT_Throw_O": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "KAT_Throw_P": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "PASS_Rifle_O": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "PASS_Rifle_Ped": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "PASS_Rifle_Ply": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "pickup_box": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "Plane_door": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "Plane_exit": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "Plane_hijack": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "Plunger_01": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "Plyrlean_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "plyr_shkhead": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "Run_Dive": {
+    "frames": 496,
+    "duration": 8.27
+  },
+  "Scratchballs_01": {
+    "frames": 500,
+    "duration": 8.33
+  },
+  "SEAT_LR": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "Seat_talk_01": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "Seat_talk_02": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "SEAT_watch": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "smalplane_door": {
+    "frames": 380,
+    "duration": 6.33
+  },
+  "smlplane_door": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "MTB_back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "MTB_bunnyhop": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "MTB_drivebyFT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "MTB_driveby_LHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "MTB_driveby_RHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "MTB_fwd": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "MTB_getoffBACK": {
+    "frames": 92,
+    "duration": 1.53
+  },
+  "MTB_getoffLHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "MTB_getoffRHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "MTB_jumponL": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "MTB_jumponR": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "MTB_Left": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "MTB_pedal": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "MTB_pushes": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "MTB_Ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "MTB_Right": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "MTB_sprint": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "MTB_still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "MscleWalkst_armed": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "MscleWalkst_Csaw": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "Mscle_rckt_run": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "Mscle_rckt_walkst": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "Mscle_run_Csaw": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "MuscleIdle": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "MuscleIdle_armed": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "MuscleIdle_Csaw": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "MuscleIdle_rocket": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "MuscleRun": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "MuscleRun_armed": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "MuscleSprint": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "MuscleWalk": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "MuscleWalkstart": {
+    "frames": 16,
+    "duration": 0.27
+  },
+  "MuscleWalk_armed": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "Musclewalk_Csaw": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "Musclewalk_rocket": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "NEVADA_getin": {
+    "frames": 112,
+    "duration": 1.87
+  },
+  "NEVADA_getout": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "lkaround_in": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "lkaround_loop": {
+    "frames": 420,
+    "duration": 7.0
+  },
+  "lkaround_out": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "lkup_in": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "lkup_loop": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "lkup_out": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "lkup_point": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "panic_cower": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "panic_hide": {
+    "frames": 380,
+    "duration": 6.33
+  },
+  "panic_in": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "panic_loop": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "panic_out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "panic_point": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "panic_shout": {
+    "frames": 520,
+    "duration": 8.67
+  },
+  "Pointup_in": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "Pointup_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "Pointup_out": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "Pointup_shout": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "point_in": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "point_loop": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "point_out": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "shout_01": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "shout_02": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "shout_in": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "shout_loop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "shout_out": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "wave_in": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "wave_loop": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "wave_out": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "betslp_in": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "betslp_lkabt": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "betslp_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "betslp_out": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "betslp_tnk": {
+    "frames": 336,
+    "duration": 5.6
+  },
+  "wtchrace_cmon": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "wtchrace_in": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "wtchrace_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "wtchrace_lose": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "wtchrace_out": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "wtchrace_win": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "FALL_skyDive": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "FALL_SkyDive_Accel": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "FALL_skyDive_DIE": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "FALL_SkyDive_L": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "FALL_SkyDive_R": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "PARA_decel": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "PARA_decel_O": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "PARA_float": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "PARA_float_O": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "PARA_Land": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "PARA_Land_O": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "PARA_Land_Water": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "PARA_Land_Water_O": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "PARA_open": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "PARA_open_O": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "PARA_Rip_Land_O": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "PARA_Rip_Loop_O": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "PARA_Rip_O": {
+    "frames": 14,
+    "duration": 0.23
+  },
+  "PARA_steerL": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "PARA_steerL_O": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "PARA_steerR": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "PARA_steerR_O": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "Tai_Chi_in": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "Tai_Chi_Loop": {
+    "frames": 720,
+    "duration": 12.0
+  },
+  "Tai_Chi_Out": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Piss_in": {
+    "frames": 540,
+    "duration": 9.0
+  },
+  "Piss_loop": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "Piss_out": {
+    "frames": 660,
+    "duration": 11.0
+  },
+  "PnM_Argue1_A": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "PnM_Argue1_B": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "PnM_Argue2_A": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "PnM_Argue2_B": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "PnM_Loop_A": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "PnM_Loop_B": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "wank_in": {
+    "frames": 440,
+    "duration": 7.33
+  },
+  "wank_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "wank_out": {
+    "frames": 700,
+    "duration": 11.67
+  },
+  "abseil": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "ARRESTgun": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "ATM": {
+    "frames": 730,
+    "duration": 12.17
+  },
+  "BIKE_elbowL": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "BIKE_elbowR": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "BIKE_fallR": {
+    "frames": 98,
+    "duration": 1.63
+  },
+  "BIKE_fall_off": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BIKE_pickupL": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BIKE_pickupR": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "BIKE_pullupL": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "BIKE_pullupR": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "bomber": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "CAR_alignHI_LHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "CAR_alignHI_RHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "CAR_align_LHS": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "CAR_align_RHS": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "CAR_closedoorL_LHS": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "CAR_closedoorL_RHS": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "CAR_closedoor_LHS": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "CAR_closedoor_RHS": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "CAR_close_LHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "CAR_close_RHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "CAR_crawloutRHS": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "CAR_dead_LHS": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_dead_RHS": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_doorlocked_LHS": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "CAR_doorlocked_RHS": {
+    "frames": 76,
+    "duration": 1.27
+  },
+  "CAR_fallout_LHS": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "CAR_fallout_RHS": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "CAR_getinL_LHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CAR_getinL_RHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CAR_getin_LHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CAR_getin_RHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CAR_getoutL_LHS": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "CAR_getoutL_RHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CAR_getout_LHS": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "CAR_getout_RHS": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "car_hookertalk": {
+    "frames": 258,
+    "duration": 4.3
+  },
+  "CAR_jackedLHS": {
+    "frames": 174,
+    "duration": 2.9
+  },
+  "CAR_jackedRHS": {
+    "frames": 206,
+    "duration": 3.43
+  },
+  "CAR_jumpin_LHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CAR_LB": {
+    "frames": 14,
+    "duration": 0.23
+  },
+  "CAR_LB_pro": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "CAR_LB_weak": {
+    "frames": 14,
+    "duration": 0.23
+  },
+  "CAR_LjackedLHS": {
+    "frames": 214,
+    "duration": 3.57
+  },
+  "CAR_LjackedRHS": {
+    "frames": 208,
+    "duration": 3.47
+  },
+  "CAR_Lshuffle_RHS": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "CAR_Lsit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_open_LHS": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "CAR_open_RHS": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "CAR_pulloutL_LHS": {
+    "frames": 176,
+    "duration": 2.93
+  },
+  "CAR_pulloutL_RHS": {
+    "frames": 176,
+    "duration": 2.93
+  },
+  "CAR_pullout_LHS": {
+    "frames": 138,
+    "duration": 2.3
+  },
+  "CAR_pullout_RHS": {
+    "frames": 168,
+    "duration": 2.8
+  },
+  "CAR_Qjacked": {
+    "frames": 198,
+    "duration": 3.3
+  },
+  "CAR_rolldoor": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "CAR_rolldoorLO": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "CAR_rollout_LHS": {
+    "frames": 98,
+    "duration": 1.63
+  },
+  "CAR_rollout_RHS": {
+    "frames": 76,
+    "duration": 1.27
+  },
+  "CAR_shuffle_RHS": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "CAR_sit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_sitp": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_sitpLO": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_sit_pro": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_sit_weak": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CAR_tune_radio": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "CLIMB_idle": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "CLIMB_jump": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "CLIMB_jump2fall": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "CLIMB_jump_B": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "CLIMB_Pull": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "CLIMB_Stand": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "CLIMB_Stand_finish": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "cower": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "Crouch_Roll_L": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "Crouch_Roll_R": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "DAM_armL_frmBK": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_armL_frmFT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_armL_frmLT": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "DAM_armR_frmBK": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_armR_frmFT": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "DAM_armR_frmRT": {
+    "frames": 16,
+    "duration": 0.27
+  },
+  "DAM_LegL_frmBK": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_LegL_frmFT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_LegL_frmLT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_LegR_frmBK": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_LegR_frmFT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_LegR_frmRT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_stomach_frmBK": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_stomach_frmFT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_stomach_frmLT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DAM_stomach_frmRT": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "DOOR_LHinge_O": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "DOOR_RHinge_O": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "DrivebyL_L": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "DrivebyL_R": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "Driveby_L": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "Driveby_R": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "DRIVE_BOAT": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "DRIVE_BOAT_back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "DRIVE_BOAT_L": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "DRIVE_BOAT_R": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "Drive_L": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_LO_l": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_LO_R": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_L_pro": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_L_pro_slow": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_L_slow": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_L_weak": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_L_weak_slow": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_R": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_R_pro": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_R_pro_slow": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_R_slow": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_R_weak": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_R_weak_slow": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drive_truck": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "DRIVE_truck_back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "DRIVE_truck_L": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "DRIVE_truck_R": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Drown": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "DUCK_cower": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "endchat_01": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "endchat_02": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "endchat_03": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "EV_dive": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "EV_step": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "facanger": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "facgum": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "facsurp": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "facsurpm": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "factalk": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "facurios": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "FALL_back": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "FALL_collapse": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "FALL_fall": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "FALL_front": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "FALL_glide": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "FALL_land": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "Fight2Idle": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "FightA_1": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "FightA_2": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "FightA_3": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "FightA_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "FightA_G": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "FightA_M": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "FIGHTIDLE": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "FightShB": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "FightShF": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "FightSh_BWD": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FightSh_FWD": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FightSh_Left": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "FightSh_Right": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "flee_lkaround_01": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "FLOOR_hit": {
+    "frames": 22,
+    "duration": 0.37
+  },
+  "FLOOR_hit_f": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "fucku": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "gang_gunstand": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "gas_cwr": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "getup": {
+    "frames": 82,
+    "duration": 1.37
+  },
+  "getup_front": {
+    "frames": 82,
+    "duration": 1.37
+  },
+  "gum_eat": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "GunCrouchBwd": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "GunCrouchFwd": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "GunMove_BWD": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "GunMove_FWD": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "GunMove_L": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "GunMove_R": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "Gun_2_IDLE": {
+    "frames": 16,
+    "duration": 0.27
+  },
+  "GUN_BUTT": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "GUN_BUTT_crouch": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "Gun_stand": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "handscower": {
+    "frames": 116,
+    "duration": 1.93
+  },
+  "handsup": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "HitA_1": {
+    "frames": 18,
+    "duration": 0.3
+  },
+  "HitA_2": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "HitA_3": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "HIT_back": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "HIT_behind": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "HIT_front": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "HIT_GUN_BUTT": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "HIT_L": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "HIT_R": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "HIT_walk": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "HIT_wall": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "Idlestance_fat": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "idlestance_old": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "IDLE_armed": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "IDLE_chat": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "Idle_Gang1": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "IDLE_HBHB": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "IDLE_ROCKET": {
+    "frames": 94,
+    "duration": 1.57
+  },
+  "IDLE_stance": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "IDLE_taxi": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "Jetpack_Idle": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "JOG_femaleA": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "JOG_maleA": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "JUMP_glide": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "JUMP_land": {
+    "frames": 14,
+    "duration": 0.23
+  },
+  "JUMP_launch": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "JUMP_launch_R": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "KART_drive": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "KART_L": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "KART_LB": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "KART_R": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "KD_left": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "KD_right": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "KO_shot_face": {
+    "frames": 126,
+    "duration": 2.1
+  },
+  "KO_shot_front": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "KO_shot_stom": {
+    "frames": 190,
+    "duration": 3.17
+  },
+  "KO_skid_back": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "KO_skid_front": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "KO_spin_L": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "KO_spin_R": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "pass_Smoke_in_car": {
+    "frames": 104,
+    "duration": 1.73
+  },
+  "phone_in": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "phone_out": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "phone_talk": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "Player_Sneak": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Player_Sneak_walkstart": {
+    "frames": 18,
+    "duration": 0.3
+  },
+  "roadcross": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "roadcross_female": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "roadcross_gang": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "roadcross_old": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "run_1armed": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "run_armed": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "run_civi": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "run_csaw": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "run_fat": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "run_fatold": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "run_gang1": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "run_left": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "run_old": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "run_player": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "run_right": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "run_rocket": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "Run_stop": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "Run_stopR": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "Run_Wuzi": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "SEAT_down": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "SEAT_idle": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "SEAT_up": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "SHOT_leftP": {
+    "frames": 18,
+    "duration": 0.3
+  },
+  "SHOT_partial": {
+    "frames": 22,
+    "duration": 0.37
+  },
+  "SHOT_partial_B": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHOT_rightP": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "Shove_Partial": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "Smoke_in_car": {
+    "frames": 104,
+    "duration": 1.73
+  },
+  "sprint_civi": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "sprint_panic": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "Sprint_Wuzi": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "swat_run": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Swim_Tread": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "Tap_handP": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "turn_180": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "Turn_L": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "Turn_R": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "WALK_armed": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "WALK_civi": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "WALK_csaw": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "Walk_DoorPartial": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "WALK_drunk": {
+    "frames": 236,
+    "duration": 3.93
+  },
+  "WALK_fat": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "WALK_fatold": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "WALK_gang1": {
+    "frames": 84,
+    "duration": 1.4
+  },
+  "WALK_gang2": {
+    "frames": 84,
+    "duration": 1.4
+  },
+  "WALK_old": {
+    "frames": 84,
+    "duration": 1.4
+  },
+  "WALK_player": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "WALK_rocket": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "WALK_shuffle": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "WALK_start": {
+    "frames": 16,
+    "duration": 0.27
+  },
+  "WALK_start_armed": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "WALK_start_csaw": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "WALK_start_rocket": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "Walk_Wuzi": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "WEAPON_crouch": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "woman_idlestance": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "woman_run": {
+    "frames": 46,
+    "duration": 0.77
+  },
+  "WOMAN_runbusy": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "WOMAN_runfatold": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "woman_runpanic": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "WOMAN_runsexy": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "WOMAN_walkbusy": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "WOMAN_walkfatold": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "WOMAN_walknorm": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "WOMAN_walkold": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "WOMAN_walkpro": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "WOMAN_walksexy": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "WOMAN_walkshop": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "XPRESSscratch": {
+    "frames": 238,
+    "duration": 3.97
+  },
+  "Plyr_DrivebyBwd": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Plyr_DrivebyFwd": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Plyr_DrivebyLHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Plyr_DrivebyRHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "shift": {
+    "frames": 216,
+    "duration": 3.6
+  },
+  "shldr": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "stretch": {
+    "frames": 276,
+    "duration": 4.6
+  },
+  "strleg": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "time": {
+    "frames": 312,
+    "duration": 5.2
+  },
+  "CopTraf_Away": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "CopTraf_Come": {
+    "frames": 172,
+    "duration": 2.87
+  },
+  "CopTraf_Left": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "CopTraf_Stop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "COP_getoutcar_LHS": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Cop_move_FWD": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "crm_drgbst_01": {
+    "frames": 1114,
+    "duration": 18.57
+  },
+  "Door_Kick": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "plc_drgbst_01": {
+    "frames": 1236,
+    "duration": 20.6
+  },
+  "plc_drgbst_02": {
+    "frames": 454,
+    "duration": 7.57
+  },
+  "POOL_ChalkCue": {
+    "frames": 290,
+    "duration": 4.83
+  },
+  "POOL_Idle_Stance": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "POOL_Long_Shot": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_Long_Shot_O": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_Long_Start": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "POOL_Long_Start_O": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "POOL_Med_Shot": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_Med_Shot_O": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_Med_Start": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "POOL_Med_Start_O": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "POOL_Place_White": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "POOL_Short_Shot": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_Short_Shot_O": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_Short_Start": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "POOL_Short_Start_O": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "POOL_Walk": {
+    "frames": 76,
+    "duration": 1.27
+  },
+  "POOL_Walk_Start": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "POOL_XLong_Shot": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_XLong_Shot_O": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "POOL_XLong_Start": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "POOL_XLong_Start_O": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "WINWASH_Start": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "WINWASH_Wash2Beg": {
+    "frames": 128,
+    "duration": 2.13
+  },
+  "python_crouchfire": {
+    "frames": 72,
+    "duration": 1.2
+  },
+  "python_crouchreload": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "python_fire": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "python_fire_poor": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "python_reload": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "QUAD_back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "QUAD_driveby_FT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "QUAD_driveby_LHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "QUAD_driveby_RHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "QUAD_FWD": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "QUAD_getoff_B": {
+    "frames": 98,
+    "duration": 1.63
+  },
+  "QUAD_getoff_LHS": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "QUAD_getoff_RHS": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "QUAD_geton_LHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "QUAD_geton_RHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "QUAD_hit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "QUAD_kick": {
+    "frames": 68,
+    "duration": 1.13
+  },
+  "QUAD_Left": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "QUAD_passenger": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "QUAD_reverse": {
+    "frames": 10,
+    "duration": 0.17
+  },
+  "QUAD_ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "QUAD_Right": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "Laugh_01": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "RAP_A_IN": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "RAP_A_OUT": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "RAP_B_IN": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "RAP_B_OUT": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "RIFLE_crouchfire": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "RIFLE_crouchload": {
+    "frames": 76,
+    "duration": 1.27
+  },
+  "RIFLE_fire": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "RIFLE_fire_poor": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "RIFLE_load": {
+    "frames": 84,
+    "duration": 1.4
+  },
+  "RIOT_ANGRY": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "RIOT_ANGRY_B": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "RIOT_challenge": {
+    "frames": 194,
+    "duration": 3.23
+  },
+  "RIOT_CHANT": {
+    "frames": 104,
+    "duration": 1.73
+  },
+  "RIOT_FUKU": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "RIOT_PUNCHES": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "RIOT_shout": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "CAT_Safe_End": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "CAT_Safe_Open": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "CAT_Safe_Open_O": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "CAT_Safe_Rob": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "SHP_HandsUp_Scr": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "idle_rocket": {
+    "frames": 96,
+    "duration": 1.6
+  },
+  "RocketFire": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "walk_rocket": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "Plane_align_LHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "Plane_close": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "Plane_getin": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "Plane_getout": {
+    "frames": 94,
+    "duration": 1.57
+  },
+  "Plane_open": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "RYD_Beckon_01": {
+    "frames": 74,
+    "duration": 1.23
+  },
+  "RYD_Beckon_02": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "RYD_Beckon_03": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "RYD_Die_PT1": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "RYD_Die_PT2": {
+    "frames": 476,
+    "duration": 7.93
+  },
+  "Van_Crate_L": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Van_Crate_R": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Van_Fall_L": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "Van_Fall_R": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "Van_Lean_L": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Van_Lean_R": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "VAN_PickUp_E": {
+    "frames": 110,
+    "duration": 1.83
+  },
+  "VAN_PickUp_S": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "Van_Stand": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Van_Stand_Crate": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "Van_Throw": {
+    "frames": 82,
+    "duration": 1.37
+  },
+  "scdldlp": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "scdlulp": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "scdrdlp": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "scdrulp": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "sclng_l": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "sclng_r": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "scmid_l": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "scmid_r": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "scshrtl": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "scshrtr": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "sc_ltor": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "sc_rtol": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "SEX_1to2_P": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "SEX_1to2_W": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "SEX_1_Cum_P": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "SEX_1_Cum_W": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "SEX_1_Fail_P": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "SEX_1_Fail_W": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "SEX_1_P": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SEX_1_W": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SEX_2to3_P": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "SEX_2to3_W": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "SEX_2_Fail_P": {
+    "frames": 380,
+    "duration": 6.33
+  },
+  "SEX_2_Fail_W": {
+    "frames": 380,
+    "duration": 6.33
+  },
+  "SEX_2_P": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SEX_2_W": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SEX_3to1_P": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "SEX_3to1_W": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "SEX_3_Fail_P": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "SEX_3_Fail_W": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "SEX_3_P": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SEX_3_W": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHAMAL_align": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "SHAMAL_getin_LHS": {
+    "frames": 84,
+    "duration": 1.4
+  },
+  "SHAMAL_getout_LHS": {
+    "frames": 82,
+    "duration": 1.37
+  },
+  "SHAMAL_open": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "ROB_2Idle": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "ROB_Loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "ROB_Loop_Threat": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "ROB_Shifty": {
+    "frames": 340,
+    "duration": 5.67
+  },
+  "ROB_StickUp_In": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "SHP_Duck": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "SHP_Duck_Aim": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_Duck_Fire": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "SHP_Gun_Aim": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "SHP_Gun_Duck": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "SHP_Gun_Fire": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "SHP_Gun_Grab": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "SHP_Gun_Threat": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "SHP_Jump_Glide": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_Jump_Land": {
+    "frames": 42,
+    "duration": 0.7
+  },
+  "SHP_Jump_Launch": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "SHP_Rob_GiveCash": {
+    "frames": 230,
+    "duration": 3.83
+  },
+  "SHP_Rob_HandsUp": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "SHP_Rob_React": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "SHP_Serve_End": {
+    "frames": 330,
+    "duration": 5.5
+  },
+  "SHP_Serve_Idle": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "SHP_Serve_Loop": {
+    "frames": 250,
+    "duration": 4.17
+  },
+  "SHP_Serve_Start": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Smoke_RYD": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "shotgun_crouchfire": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "shotgun_fire": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "shotgun_fire_poor": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "CrouchReload": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "SilenceCrouchfire": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "Silence_fire": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "Silence_reload": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "skate_idle": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "skate_run": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "skate_sprint": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "M_smk_drag": {
+    "frames": 220,
+    "duration": 3.67
+  },
+  "M_smk_in": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "M_smk_loop": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "M_smk_out": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "M_smk_tap": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "WEAPON_sniper": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "SnM_Caned_Idle_P": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "SnM_Caned_Idle_W": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "SnM_Caned_P": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SnM_Caned_W": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SnM_Cane_Idle_P": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "SnM_Cane_Idle_W": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "SnM_Cane_P": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SnM_Cane_W": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SpankedP": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SpankedW": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Spanked_IdleP": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Spanked_IdleW": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SpankingP": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "SpankingW": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Spanking_endP": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "Spanking_endW": {
+    "frames": 400,
+    "duration": 6.67
+  },
+  "Spanking_IdleP": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Spanking_IdleW": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Spanking_SittingIdleP": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Spanking_SittingIdleW": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "Spanking_SittingP": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "Spanking_SittingW": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "spraycan_full": {
+    "frames": 270,
+    "duration": 4.5
+  },
+  "PLY_CASH": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "PUN_CASH": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "PUN_HOLLER": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "PUN_LOOP": {
+    "frames": 116,
+    "duration": 1.93
+  },
+  "strip_A": {
+    "frames": 124,
+    "duration": 2.07
+  },
+  "strip_B": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "strip_C": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "strip_D": {
+    "frames": 114,
+    "duration": 1.9
+  },
+  "strip_E": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "strip_F": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "strip_G": {
+    "frames": 136,
+    "duration": 2.27
+  },
+  "STR_A2B": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "STR_B2A": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "STR_B2C": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "STR_C1": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "STR_C2": {
+    "frames": 360,
+    "duration": 6.0
+  },
+  "STR_C2B": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "STR_Loop_A": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "STR_Loop_B": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "STR_Loop_C": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "batherdown": {
+    "frames": 236,
+    "duration": 3.93
+  },
+  "batherup": {
+    "frames": 738,
+    "duration": 12.3
+  },
+  "Lay_Bac_in": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "Lay_Bac_out": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "ParkSit_M_IdleA": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "ParkSit_M_IdleB": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "ParkSit_M_IdleC": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "ParkSit_M_in": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "ParkSit_M_out": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "ParkSit_W_idleA": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "ParkSit_W_idleB": {
+    "frames": 300,
+    "duration": 5.0
+  },
+  "ParkSit_W_idleC": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "ParkSit_W_in": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "ParkSit_W_out": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "SBATHE_F_LieB2Sit": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "SBATHE_F_Out": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "SitnWait_in_W": {
+    "frames": 280,
+    "duration": 4.67
+  },
+  "SitnWait_out_W": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "gnstwall_injurd": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "JMP_Wall1m_180": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "Rail_fall": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "Rail_fall_crawl": {
+    "frames": 340,
+    "duration": 5.67
+  },
+  "swt_breach_01": {
+    "frames": 328,
+    "duration": 5.47
+  },
+  "swt_breach_02": {
+    "frames": 320,
+    "duration": 5.33
+  },
+  "swt_breach_03": {
+    "frames": 258,
+    "duration": 4.3
+  },
+  "swt_go": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "swt_lkt": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "swt_sty": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "swt_vent_01": {
+    "frames": 284,
+    "duration": 4.73
+  },
+  "swt_vent_02": {
+    "frames": 266,
+    "duration": 4.43
+  },
+  "swt_vnt_sht_die": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "swt_vnt_sht_in": {
+    "frames": 96,
+    "duration": 1.6
+  },
+  "swt_vnt_sht_loop": {
+    "frames": 16,
+    "duration": 0.27
+  },
+  "ho_ass_slapped": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "LaFin_Player": {
+    "frames": 1600,
+    "duration": 26.67
+  },
+  "LaFin_Sweet": {
+    "frames": 1600,
+    "duration": 26.67
+  },
+  "plyr_hndshldr_01": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "sweet_ass_slap": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "sweet_hndshldr_01": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "Sweet_injuredloop": {
+    "frames": 120,
+    "duration": 2.0
+  },
+  "Swim_Breast": {
+    "frames": 78,
+    "duration": 1.3
+  },
+  "SWIM_crawl": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "Swim_Dive_Under": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "Swim_Glide": {
+    "frames": 88,
+    "duration": 1.47
+  },
+  "Swim_jumpout": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "Swim_Under": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "sword_1": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "sword_2": {
+    "frames": 64,
+    "duration": 1.07
+  },
+  "sword_3": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "sword_4": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "sword_block": {
+    "frames": 28,
+    "duration": 0.47
+  },
+  "Sword_Hit_1": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "Sword_Hit_2": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "Sword_Hit_3": {
+    "frames": 52,
+    "duration": 0.87
+  },
+  "sword_IDLE": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "sword_part": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "TANK_align_LHS": {
+    "frames": 86,
+    "duration": 1.43
+  },
+  "TANK_close_LHS": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "TANK_doorlocked": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "TANK_getin_LHS": {
+    "frames": 26,
+    "duration": 0.43
+  },
+  "TANK_getout_LHS": {
+    "frames": 118,
+    "duration": 1.97
+  },
+  "TANK_open_LHS": {
+    "frames": 18,
+    "duration": 0.3
+  },
+  "TAT_ArmL_In_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmL_In_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmL_In_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmL_Out_O": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "TAT_ArmL_Out_P": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "TAT_ArmL_Out_T": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "TAT_ArmL_Pose_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmL_Pose_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmL_Pose_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmR_In_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmR_In_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmR_In_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmR_Out_O": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "TAT_ArmR_Out_P": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "TAT_ArmR_Out_T": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "TAT_ArmR_Pose_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmR_Pose_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_ArmR_Pose_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_In_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_In_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_In_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_Out_O": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "TAT_Back_Out_P": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "TAT_Back_Out_T": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "TAT_Back_Pose_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_Pose_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_Pose_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_Sit_In_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Back_Sit_Loop_P": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "TAT_Back_Sit_Out_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Bel_In_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Bel_In_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Bel_Out_O": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "TAT_Bel_Out_T": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "TAT_Bel_Pose_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Bel_Pose_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Che_In_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Che_In_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Che_In_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Che_Out_O": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "TAT_Che_Out_P": {
+    "frames": 150,
+    "duration": 2.5
+  },
+  "TAT_Che_Out_T": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "TAT_Che_Pose_O": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Che_Pose_P": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Che_Pose_T": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "TAT_Drop_O": {
+    "frames": 30,
+    "duration": 0.5
+  },
+  "TAT_Idle_Loop_O": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "TAT_Idle_Loop_T": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "TAT_Sit_In_O": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "TAT_Sit_In_P": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "TAT_Sit_In_T": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "TAT_Sit_Loop_O": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "TAT_Sit_Loop_P": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "TAT_Sit_Loop_T": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "TAT_Sit_Out_O": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "TAT_Sit_Out_P": {
+    "frames": 130,
+    "duration": 2.17
+  },
+  "TAT_Sit_Out_T": {
+    "frames": 170,
+    "duration": 2.83
+  },
+  "TEC_crouchfire": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "TEC_crouchreload": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "TEC_fire": {
+    "frames": 66,
+    "duration": 1.1
+  },
+  "TEC_reload": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "tran_gtup": {
+    "frames": 190,
+    "duration": 3.17
+  },
+  "tran_hng": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "tran_ouch": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "tran_stmb": {
+    "frames": 140,
+    "duration": 2.33
+  },
+  "TRUCK_ALIGN_LHS": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "TRUCK_ALIGN_RHS": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "TRUCK_closedoor_LHS": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "TRUCK_closedoor_RHS": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "TRUCK_close_LHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "TRUCK_close_RHS": {
+    "frames": 44,
+    "duration": 0.73
+  },
+  "TRUCK_getin_LHS": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "TRUCK_getin_RHS": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "TRUCK_getout_LHS": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "TRUCK_getout_RHS": {
+    "frames": 48,
+    "duration": 0.8
+  },
+  "TRUCK_jackedLHS": {
+    "frames": 104,
+    "duration": 1.73
+  },
+  "TRUCK_jackedRHS": {
+    "frames": 90,
+    "duration": 1.5
+  },
+  "TRUCK_open_LHS": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "TRUCK_open_RHS": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "TRUCK_pullout_LHS": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "TRUCK_pullout_RHS": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "TRUCK_Shuffle": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "UZI_crouchfire": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "UZI_crouchreload": {
+    "frames": 82,
+    "duration": 1.37
+  },
+  "UZI_fire": {
+    "frames": 34,
+    "duration": 0.57
+  },
+  "UZI_fire_poor": {
+    "frames": 32,
+    "duration": 0.53
+  },
+  "UZI_reload": {
+    "frames": 84,
+    "duration": 1.4
+  },
+  "VAN_close_back_LHS": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "VAN_close_back_RHS": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "VAN_getin_Back_LHS": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "VAN_getin_Back_RHS": {
+    "frames": 36,
+    "duration": 0.6
+  },
+  "VAN_getout_back_LHS": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "VAN_getout_back_RHS": {
+    "frames": 38,
+    "duration": 0.63
+  },
+  "VAN_open_back_LHS": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "VAN_open_back_RHS": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "VEND_Drink2_P": {
+    "frames": 200,
+    "duration": 3.33
+  },
+  "VEND_Drink_P": {
+    "frames": 80,
+    "duration": 1.33
+  },
+  "vend_eat1_P": {
+    "frames": 260,
+    "duration": 4.33
+  },
+  "VEND_Eat_P": {
+    "frames": 100,
+    "duration": 1.67
+  },
+  "VEND_Use": {
+    "frames": 156,
+    "duration": 2.6
+  },
+  "VEND_Use_pt2": {
+    "frames": 24,
+    "duration": 0.4
+  },
+  "CAR_jumpin_RHS": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "vortex_getout_LHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "vortex_getout_RHS": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "WF_Back": {
+    "frames": 6,
+    "duration": 0.1
+  },
+  "WF_drivebyFT": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "WF_drivebyLHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "WF_drivebyRHS": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "WF_Fwd": {
+    "frames": 12,
+    "duration": 0.2
+  },
+  "WF_getoffBACK": {
+    "frames": 104,
+    "duration": 1.73
+  },
+  "WF_getoffLHS": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "WF_getoffRHS": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "WF_hit": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "WF_jumponL": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "WF_jumponR": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "WF_kick": {
+    "frames": 62,
+    "duration": 1.03
+  },
+  "WF_Left": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "WF_passenger": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "WF_pushes": {
+    "frames": 58,
+    "duration": 0.97
+  },
+  "WF_Ride": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "WF_Right": {
+    "frames": 8,
+    "duration": 0.13
+  },
+  "WF_Still": {
+    "frames": 2,
+    "duration": 0.03
+  },
+  "SHP_1H_Lift": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "SHP_1H_Lift_End": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_1H_Ret": {
+    "frames": 50,
+    "duration": 0.83
+  },
+  "SHP_1H_Ret_S": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_2H_Lift": {
+    "frames": 56,
+    "duration": 0.93
+  },
+  "SHP_2H_Lift_End": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_2H_Ret": {
+    "frames": 54,
+    "duration": 0.9
+  },
+  "SHP_2H_Ret_S": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_Ar_Lift": {
+    "frames": 60,
+    "duration": 1.0
+  },
+  "SHP_Ar_Lift_End": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_Ar_Ret": {
+    "frames": 70,
+    "duration": 1.17
+  },
+  "SHP_Ar_Ret_S": {
+    "frames": 20,
+    "duration": 0.33
+  },
+  "SHP_G_Lift_In": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "SHP_G_Lift_Out": {
+    "frames": 40,
+    "duration": 0.67
+  },
+  "CS_Dead_Guy": {
+    "frames": 304,
+    "duration": 5.07
+  },
+  "CS_Plyr_pt1": {
+    "frames": 226,
+    "duration": 3.77
+  },
+  "CS_Plyr_pt2": {
+    "frames": 580,
+    "duration": 9.67
+  },
+  "CS_Wuzi_pt1": {
+    "frames": 226,
+    "duration": 3.77
+  },
+  "CS_Wuzi_pt2": {
+    "frames": 580,
+    "duration": 9.67
+  },
+  "Walkstart_Idle_01": {
+    "frames": 190,
+    "duration": 3.17
+  },
+  "Wuzi_follow": {
+    "frames": 180,
+    "duration": 3.0
+  },
+  "Wuzi_Greet_Plyr": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "Wuzi_Greet_Wuzi": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "Wuzi_grnd_chk": {
+    "frames": 240,
+    "duration": 4.0
+  },
+  "Wuzi_stand_loop": {
+    "frames": 160,
+    "duration": 2.67
+  },
+  "Wuzi_Walk": {
+    "frames": 70,
+    "duration": 1.17
+  }
 };

@@ -76,7 +76,7 @@ async function generateTmLanguage() {
   // Create file also in public directory for clickable keywords
   fs.copyFileSync(outputPath, publicPath);
   
-  console.log(`Done!`);
+  // console.log(`Done!`);
 }
 
 generateTmLanguage();

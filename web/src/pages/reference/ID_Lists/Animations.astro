@@ -8,7 +8,7 @@ import { Code } from '@astrojs/starlight/components';
 
 import NoteBox from '@src/components/NoteBox.astro';
 
-import { animations, animationDescriptions } from '@src/data/animations';
+import { animations, animationDescriptions, animationDetails } from '@src/data/animations';
 
 let luaTable = `local animations = {`;
 Object.entries(animations).forEach(([group, anims]) => {
@@ -27,6 +27,30 @@ function getAnimDesc(name: string): string {
     }
     return '';
 }
+function getAnimFrames(name: string): number {
+    const details = Object.entries(animationDetails).find(([animName]) => animName.toLowerCase() === name.toLowerCase());
+    if (details) {
+        return details[1].frames;
+    }
+    return 0;
+}
+function getAnimDuration(name: string): number {
+    const details = Object.entries(animationDetails).find(([animName]) => animName.toLowerCase() === name.toLowerCase());
+    if (details) {
+        return details[1].duration;
+    }
+    return 0;
+}
+
+let animationsByGroup: Record<string, { name: string, desc: string }[]> = {};
+Object.entries(animations).forEach(([group, anims]) => {
+    animationsByGroup[group] = anims.map(name => {
+        return {
+            name: name,
+            desc: getAnimDesc(name),
+        };
+    });
+});
 
 let luaTableWithDescriptions = `local animationsWithDescriptions = {`;
 Object.entries(animations).forEach(([group, anims]) => {
@@ -48,7 +72,8 @@ luaTableWithDescriptions += `\n}\n`;
     <p>These animations can be used with <a href="/reference/Scripting_Functions#Ped">Animation functions</a>. The block/group names and individual animation names are their identifiers.</p>
     <p><strong>Lua tables</strong> with this data are available at the bottom of the page.</p>
     
-    <NoteBox type="warning">Animations suffixed with <code>_o</code> (marked with <span class="important">*</span>) are meant to be applied to <strong>objects</strong> (e.g. parachute movement) in GTA:SA.<br>These will not work when applied to peds/players.</NoteBox>
+    <NoteBox type='tip'><strong>Tip</strong>: Use your browser's search function (<strong>Ctrl+F or Cmd+F</strong>) to quickly find an animation by name or group/block name.</NoteBox>
+    <NoteBox type="warning">Animations marked with <span class="important">*</span> are meant to be applied to <strong>objects</strong> (e.g. parachute movement) in GTA:SA.<br>These will not work when applied to peds/players.</NoteBox>
 
     <ul class="anims-toc">
         {Object.entries(animations).map(([group, anims]) => (
@@ -59,18 +84,38 @@ luaTableWithDescriptions += `\n}\n`;
     </ul>
     <details class="animations-list">
         <summary>All animations sorted by <strong>animation group</strong>:</summary>
-        <ul>
-            {Object.entries(animations).map(([group, anims]) => (
-                <li>
-                    <strong>{group}</strong>:
-                    <ul id={group}>
-                        {anims.map(name => (
-                            <li>{name}{name.endsWith('_o') && <span class="important"> *</span>}<span class="anim-desc">: {getAnimDesc(name)}</span></li>
+        <table class="anims-table">
+            <thead>
+                <tr>
+                    <th>Animation Name</th>
+                    <th>Description</th>
+                    <th>Number<br>of Frames</th>
+                    <th>Duration<br>(seconds)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {Object.entries(animationsByGroup).map(([group, anims]) => (
+                    <tr>
+                        <td colspan="4" class="group-name" id={group}><strong>{group}</strong> ({anims.length} animation{anims.length !== 1 ? 's' : ''})</td>
+                    </tr>
+                    <>
+                        {anims.map(anim => (
+                            <tr>
+                                <td>{anim.name}{(
+                                    anim.name.endsWith('_o')
+                                    || anim.name.endsWith('_door')
+                                    || anim.name.startsWith('bd_fire')
+                                    || anim.name === 'door_jet'
+                                ) && <span class="important"> *</span>}</td>
+                                <td class="anim-desc">{anim.desc}</td>
+                                <td>{getAnimFrames(anim.name)}</td>
+                                <td>{getAnimDuration(anim.name)}</td>
+                            </tr>
                         ))}
-                    </ul>
-                </li>
-            ))}
-        </ul>
+                    </>
+                ))}
+            </tbody>
+        </table>
     </details>
     
     <section data-pagefind-ignore>
@@ -104,6 +149,22 @@ luaTableWithDescriptions += `\n}\n`;
     }
     .anim-desc {
         font-style: italic;
-        color: var(--sl-color-gray-3);
+        color: var(--sl-color-gray-2);
+    }
+    .anims-table, .anims-toc {
+        font-family: tahoma, arial, helvetica;
+    }
+    .anims-table th {
+        color: var(--sl-color-accent-high);
+        text-align: center;
+        vertical-align: middle;
+    }
+    .anims-table th, td {
+        padding: 0.5rem;
+        border: 1px solid var(--sl-color-gray-4);
+    }
+    .group-name {
+        background-color: var(--sl-color-gray-4);
+        color: var(--sl-color-gray-1);
     }
 </style>
