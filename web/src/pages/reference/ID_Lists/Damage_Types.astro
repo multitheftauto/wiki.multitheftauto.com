@@ -42,7 +42,7 @@ luaTable += `}`;
     <p>The following damage types are used by events like <a href="/reference/onPlayerDamage">onPlayerDamage</a> or <a href="/reference/onPlayerWasted">onPlayerWasted</a> for the weapon argument to describe the reason, why a ped has been damaged or died.</p>
     
     <p>When a player was shot by a weapon, the respective weapon ID is the damage type ID. The weapon IDs can be found <a href="/reference/ID_Lists/Weapons">here</a>.</p>
-    <table>
+    <table class="damage-types-table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -70,3 +70,11 @@ luaTable += `}`;
         'reference:ID_Lists',
     ])} currentId='' />
 </StarlightPage>
+
+<style>
+    .damage-types-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+</style>

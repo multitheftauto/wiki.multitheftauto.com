@@ -143,7 +143,7 @@ const luaTable = `local vehicleVariantsByModel = {
     <p>To spawn custom variants is to implicitly specify which variants you want in <a href="/reference/createVehicle">createVehicle</a>, or change the variant of an already existing vehicle using <a href="/reference/setVehicleVariant">setVehicleVariant</a>. Also, any invalid variant will show up as the default model with no variation.</p>
 
     <h2>GTA: San Andreas Vehicle Variants List</h2>
-    <table>
+    <table class="variants-table">
         <thead>
             <tr>
                 <th>Vehicle</th>
@@ -177,3 +177,11 @@ const luaTable = `local vehicleVariantsByModel = {
         'reference:ID_Lists',
     ])} currentId='' />
 </StarlightPage>
+
+<style>
+    .variants-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+</style>

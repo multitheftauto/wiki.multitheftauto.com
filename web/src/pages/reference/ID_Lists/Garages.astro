@@ -78,7 +78,7 @@ const garages: Record<number, Garage> = {
     <p>Every openable garage in San Andreas can be opened or closed through the <a href="/reference/setGarageOpen">setGarageOpen</a> function.</p>
 
     <p>The garage IDs and their descriptions are listed below:</p>
-    <table>
+    <table class="garages-table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -123,5 +123,10 @@ const garages: Record<number, Garage> = {
 <style>
     .warningdot {
         color: red;
+    }
+    .garages-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 </style>

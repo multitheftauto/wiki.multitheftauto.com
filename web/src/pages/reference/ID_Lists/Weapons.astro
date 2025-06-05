@@ -1,0 +1,107 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Code } from '@astrojs/starlight/components';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+import NoteBox from '@src/components/NoteBox.astro';
+
+const weaponsBySlot = {
+    0: [
+        { id: 0, name: 'Fist', type: 'Hand', modelId: null, sharingSlotAmmo: false, bulletSync: false },
+        { id: 1, name: 'Brass Knuckles', type: 'Hand', modelId: 331, sharingSlotAmmo: false, bulletSync: false }
+    ],
+}
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Weapons',
+    tableOfContents: false,
+}}>
+    <p>Scripting functions that ask for a <strong>Weapon ID</strong> need an integer that refers to the GTASA weapon ID list. They are listed below. Each weapon corresponds to an object model in-game.</p>
+
+    <NoteBox type='info'>Weapon <strong>Name</strong> is compatible with functions <a href="/reference/getWeaponNameFromID">getWeaponNameFromID</a> and <a href="/reference/getWeaponIDFromName">getWeaponIDFromName</a>.</NoteBox>
+    <NoteBox type='info'><strong>Bullet Sync</strong> refers to whether they are triggered by the <a href="/reference/onPlayerWeaponFire">onPlayerWeaponFire</a> event.</NoteBox>
+    <NoteBox type='info'>For death reasons, especially in event handlers for <a href="/reference/onPlayerWasted">onPlayerWasted</a> or similar, also have a look at the <a href="/reference/ID_Lists/Damage_Types">Damage Types</a>.</NoteBox>
+    <NoteBox type='info'>GTASA <a href="/reference/ID_Lists/Weapon_skill_levels">Weapon Stats</a> will affect movement, accuracy, damage, and dual wield capability. See <a href="/reference/setPedStat">setPedStat</a> to change these stats. The default MTA server package comes with a resource called "defaultStats" that sets GTASA weapon stats to 999. See the weapon stats link for more info.</NoteBox>
+    <NoteBox type='info'>Clip size () denotes clip size when the weapon is dual wielded. Weapons without this specification are not dual wield weapons.</NoteBox>
+
+    <table class="weapon-table">
+        <thead>
+            <tr>
+                <th>Slot</th>
+                <th>Type</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Model ID</th>
+                <th>Clip</th>
+                <th>Sharing slot ammo</th>
+                <th>Bullet Sync</th>
+            </tr>
+        </thead>
+        <tbody>
+            {Object.entries(weaponsBySlot).map(([slotId, weapons]) => (
+                weapons.map((weapon) => (
+                    <tr>
+                        <td>{slotId}</td>
+                        <td>{weapon.type}</td>
+                        <td>
+                            <Image src={getAssetImagePath("Weapons/" + weapon.id + ".webp")} alt={weapon.name}
+                            class="weapon-image" />
+                        </td>
+                        <td>{weapon.name}</td>
+                        <td>{weapon.id}</td>
+                        <td>{weapon.modelId}</td>
+                        <td>{weapon.clipSize || '-'}</td>
+                        <td>{weapon.sharingSlotAmmo}</td>
+                        <td>{weapon.bulletSync ? 'Yes' : 'No'}</td>
+                    </tr>
+                ))
+            ))}
+        </tbody>
+    </table>
+
+    <section data-pagefind-ignore>
+        <h5>Lua tables with weapons:</h5>
+        <Code lang="lua" code={`
+local weaponIDs = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 23, 24, 25, 26, 27, 28, 29, 32, 30, 31, 33, 34, 35, 36, 37, 38, 16, 17, 18, 39, 41, 42, 43, 10, 11, 12, 13, 14, 15, 44, 45, 46, 40}
+local weaponIDsBySlot = {
+	[0] = {0, 1}, -- hand
+	[1] = {2, 3, 4, 5, 6, 7, 8, 9},	-- melee
+	[2] = {22, 23, 24}, -- handguns
+	[3] = {25, 26, 27}, -- shotguns
+	[4] = {28, 29, 32}, -- sub-machine guns
+	[5] = {30, 31}, -- assault rifles
+	[6] = {33, 34}, -- rifles
+	[7] = {35, 36, 37, 38}, -- heavy weapons
+	[8] = {16, 17, 18, 39}, -- projectiles
+	[9] = {41, 42, 43}, -- special 1
+	[10] = {10, 11, 12, 13, 14, 15}, -- gifts
+	[11] = {44, 45, 46}, -- special 2
+	[12] = {40}, -- satchel detonator
+}`} />
+    </section>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .weapon-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .weapon-image {
+        max-width: 50px;
+        height: auto;
+    }
+</style>

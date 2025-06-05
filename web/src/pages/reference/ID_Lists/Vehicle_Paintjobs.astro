@@ -41,7 +41,7 @@ luaTable += `\n}\n`;
         Paintjobs can be applied on a vehicle using <a href="/reference/setVehiclePaintjob">setVehiclePaintjob</a>.</p>
         <p>To remove a paintjob from a vehicle, apply paintjob number <code>3</code> to it.
     </p>
-    <table>
+    <table class="paintjobs-table"
         <thead>
             <tr>
                 <th>Vehicle</th>
@@ -77,6 +77,11 @@ luaTable += `\n}\n`;
 </StarlightPage>
 
 <style>
+    .paintjobs-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
     .vehicle-image {
         width: 80px;
         height: auto;

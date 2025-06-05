@@ -198,7 +198,7 @@ const interiors = {
     {Object.entries(interiors).map(([id, interiorsList]) => (
         <div class="interior-list">
             <h4 id={"id-"+id}>ID {id}</h4>
-            <table>
+            <table class="interior-table">
                 <thead>
                     <tr>
                         <th>Interior Name</th>
@@ -232,6 +232,11 @@ const interiors = {
     margin-bottom: 2rem;
     border: 1px solid var(--sl-color-gray-3);
     padding: 1rem;
+  }
+  .interior-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
   }
   .interior-list h4 {
     margin: 0;

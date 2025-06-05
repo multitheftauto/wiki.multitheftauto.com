@@ -124,7 +124,7 @@ luaTable += `\n}\n`;
     tableOfContents: false,
 }}>
     <p>List of San Andreas Vending machine locations (each vending machine is an object):</p>
-    <table>
+    <table class="vending-table">
         <thead>
             <tr>
                 <th>Model ID</th>
@@ -158,3 +158,11 @@ luaTable += `\n}\n`;
         'reference:ID_Lists',
     ])} currentId='' />
 </StarlightPage>
+
+<style>
+    .vending-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+</style>

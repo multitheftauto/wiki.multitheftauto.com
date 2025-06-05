@@ -46,5 +46,5 @@ import('../mta_highlighting/generate-lua-tmlanguage.js')
 .then(() => {
   deleteDirRecursive(destDir);
   copyDirRecursive(srcDir, destDir);
-  console.log(`Copied assets from "${srcDir}" to "${destDir}".`);
+  // console.log(`Copied assets from "${srcDir}" to "${destDir}".`);
 });
