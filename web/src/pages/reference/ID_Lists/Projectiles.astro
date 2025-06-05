@@ -1,0 +1,56 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+const projectiles = {
+    16: "Grenade",
+    17: "Tear Gas",
+    18: "Molotov",
+    19: "Rocket (simple)",
+    20: "Rocket (heat seeking)",
+    21: "Air Bomb",
+    39: "Satchel Charge",
+    58: "Hydra flare",
+};
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Projectiles',
+    tableOfContents: false,
+}}>
+    <p>These are the projectile ids you can use with <a href="/reference/createProjectile">createProjectile</a> and <a href="/reference/getProjectileType">getProjectileType</a>.</p>
+
+    <table class="projectiles">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name/Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {Object.entries(projectiles).map(([id, desc]) => (
+                <tr>
+                    <td>{id}</td>
+                    <td>{desc}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+        'functions:any:Projectile',
+        'events:any:Projectile',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .projectiles-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+</style>

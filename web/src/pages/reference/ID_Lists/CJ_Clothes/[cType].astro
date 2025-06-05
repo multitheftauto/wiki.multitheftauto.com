@@ -1,0 +1,84 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { clothingTypes } from '@src/data/cj_clothes';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+export async function getStaticPaths() {
+  return clothingTypes.map(cType => ({
+    params: { cType: 'Type-' + cType.id },
+    props: { cType },
+  }));
+}
+
+const { cType } = Astro.props;
+---
+<StarlightPage frontmatter={{
+  template: 'doc',
+  title: cType.name + ' (CJ Clothes Type ' + cType.id + ')',
+  tableOfContents: false,
+}}>
+  <p>» <a href="/reference/ID_Lists/CJ_Clothes">Back to CJ Clothes Index</a></p>
+  <p>Below is a list of all clothing entries for CJ Clothes <strong>Type {cType.id} - {cType.name}</strong>.</p>
+
+  <div class="clothing-grid">
+    {cType.clothes.map((item) => (
+      <div class="clothing-entry">
+        <Image
+          src={getAssetImagePath(`CJ-Clothes/${cType.id}/${item.index}.jpg`)}
+          alt={`Clothing index ${item.index}: ${item.texture} (${item.model})`}
+          class="clothing-image"
+        />
+        <div class="clothing-meta">
+          <span>Index: <code>{item.index}</code></span><br>
+          <span>Texture: <code>{item.texture}</code></span><br>
+          <span>Model: <code>{item.model}</code></span>
+        </div>
+
+      </div>
+    ))}
+  </div>
+
+  <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists/CJ_Clothes',
+        'reference:ID_Lists',
+    ])} currentId='' />
+
+  <style>
+    .clothing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    .clothing-entry {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      max-width: 140px;
+    }
+
+    .clothing-image {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f9f9f9;
+    }
+
+    .clothing-meta {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .clothing-meta span {
+      white-space: nowrap;
+    }
+
+  </style>
+</StarlightPage>

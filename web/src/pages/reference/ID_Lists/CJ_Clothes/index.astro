@@ -1,0 +1,70 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { clothingTypes } from '@src/data/cj_clothes';
+
+import { Image } from 'astro:assets';
+import { getAssetImagePath } from '@src/utils/general';
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'CJ Clothes (Index)',
+    tableOfContents: false,
+}}>
+    <p>These pages contain clothing images and details for all of CJ's apparel.</p>
+
+    <div class="clothing-type-list">
+        {clothingTypes.map(cType => (
+            <div class="clothing-type-entry">
+                <div class="clothing-image-preview-container">
+                    <Image
+                    src={getAssetImagePath(`CJ-Clothes/${cType.id}/${cType.previewIndex || 0}.jpg`)}
+                    alt={`Preview of Clothing index ${cType.previewIndex || 0} for Type ${cType.id}`}
+                    class="clothing-image-preview"
+                    />
+                </div>
+                <a href={`/reference/ID_Lists/CJ_Clothes/Type-${cType.id}`}>
+                Type {cType.id} - <strong>{cType.name}</strong>
+                </a>
+            </div>
+        ))}
+    </div>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+        'functions:any:Clothes_and_body',
+        'events:any:Clothes_and_body',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .clothing-type-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    .clothing-type-entry {
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+    }
+    .clothing-image-preview-container {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        display: inline-block;
+        margin-right: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 4px;
+    }
+    .clothing-image-preview {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+</style>
