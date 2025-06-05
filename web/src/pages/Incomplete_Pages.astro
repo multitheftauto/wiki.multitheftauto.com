@@ -2,6 +2,8 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getUnfinishedPages } from '@src/utils/general';
 
+import NoteBox from '@src/components/NoteBox.astro';
+
 const unfinishedFunctions = getUnfinishedPages('functions');
 const unfinishedEvents = getUnfinishedPages('events');
 ---
@@ -17,6 +19,10 @@ const unfinishedEvents = getUnfinishedPages('events');
     class="guidelines-link">Contribution guidelines</a></p>
 
 <h3>Unfinished Function Pages</h3>
+<NoteBox type="info">
+    We are working on migrating these pages from <code>wiki.multitheftauto.com</code> using <strong>web scraping</strong>.
+    <br>Stay up to date with the progress using our Development Discord server.
+</NoteBox>
 <section data-pagefind-ignore>
     {unfinishedFunctions.length === 0 ? (
         <p>There are currently no unfinished function pages 😄</p>
