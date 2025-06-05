@@ -1,0 +1,109 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+import { Code } from '@astrojs/starlight/components';
+
+import NoteBox from '@src/components/NoteBox.astro';
+
+import { animations, animationDescriptions } from '@src/data/animations';
+
+let luaTable = `local animations = {`;
+Object.entries(animations).forEach(([group, anims]) => {
+    luaTable += `\n  ["${group}"] = {`;
+    anims.map(name => {
+        luaTable += `\n    "${name}",`;
+    });
+    luaTable += `\n  }`;
+});
+luaTable += `\n}\n`;
+
+function getAnimDesc(name: string): string {
+    const desc = Object.entries(animationDescriptions).find(([animName]) => animName.toLowerCase() === name.toLowerCase());
+    if (desc) {
+        return desc[1];
+    }
+    return '';
+}
+
+let luaTableWithDescriptions = `local animationsWithDescriptions = {`;
+Object.entries(animations).forEach(([group, anims]) => {
+    luaTableWithDescriptions += `\n  ["${group}"] = {`;
+    anims.map(name => {
+        const desc = getAnimDesc(name);
+        luaTableWithDescriptions += `\n    ["${name}"] = "${desc}",`;
+    });
+    luaTableWithDescriptions += `\n  }`;
+});
+luaTableWithDescriptions += `\n}\n`;
+
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Animations',
+    tableOfContents: false,
+}}>
+    <p>These animations can be used with <a href="/reference/Scripting_Functions#Ped">Animation functions</a>. The block/group names and individual animation names are their identifiers.</p>
+    <p><strong>Lua tables</strong> with this data are available at the bottom of the page.</p>
+    
+    <NoteBox type="warning">Animations suffixed with <code>_o</code> (marked with <span class="important">*</span>) are meant to be applied to <strong>objects</strong> (e.g. parachute movement) in GTA:SA.<br>These will not work when applied to peds/players.</NoteBox>
+
+    <ul class="anims-toc">
+        {Object.entries(animations).map(([group, anims]) => (
+            <li>
+                <a href={`#${group}`}>{group}</a>
+            </li>
+        ))}
+    </ul>
+    <details class="animations-list">
+        <summary>All animations sorted by <strong>animation group</strong>:</summary>
+        <ul>
+            {Object.entries(animations).map(([group, anims]) => (
+                <li>
+                    <strong>{group}</strong>:
+                    <ul id={group}>
+                        {anims.map(name => (
+                            <li>{name}{name.endsWith('_o') && <span class="important"> *</span>}<span class="anim-desc">: {getAnimDesc(name)}</span></li>
+                        ))}
+                    </ul>
+                </li>
+            ))}
+        </ul>
+    </details>
+    
+    <section data-pagefind-ignore>
+        <details>
+            <summary>Lua table of animations listed here:</summary>
+            <Code lang="lua" code={luaTable}/>
+        </details>
+        <details>
+            <summary>Lua table of animations with descriptions:</summary>
+            <Code lang="lua" code={luaTableWithDescriptions}/>
+        </details>
+    </section>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</StarlightPage>
+
+<style>
+    .anims-toc {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .important {
+        color: red;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    .anim-desc {
+        font-style: italic;
+        color: var(--sl-color-gray-3);
+    }
+</style>

@@ -7,6 +7,8 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { Image } from 'astro:assets';
 import { getAssetImagePath } from '@src/utils/general';
 
+import NoteBox from '@src/components/NoteBox.astro';
+
 ---
 <StarlightPage frontmatter={{
     template: 'doc',
@@ -19,17 +21,17 @@ import { getAssetImagePath } from '@src/utils/general';
 
     <p>MTA has custom weather functions which can modify how a weather is rendered, but in this list the weathers are described without taking that into account. Also, using <a href="/reference/setWeatherBlended">setWeatherBlended</a> allows for more undocumented effects.</p>
 
-    <p>For a complete weather gallery, containing images of every weather ID (0 to 255) shot at every in-game hour, visit <a href="http://dev.prineside.com/en/gtasa_weather_id/" target="_blank">this external page</a>.</p>
-
-    <h3>Default GTA: SA Weathers (registered in timecyc.dat)</h3>
+    <NoteBox type="tip">For a <strong>complete weather gallery</strong>, containing images of every weather ID (0 to 255) shot at various in-game hours, visit <a href="http://dev.prineside.com/en/gtasa_weather_id/" target="_blank">this external site</a>.</NoteBox>
+    
+    <h3>Default GTA: SA Weathers (registered in <code>timecyc.dat</code>)</h3>
 
     <table class="weathertable">
         <thead>
             <tr>
-                <th>Weather ID</th>
-                <th>Name from timecyc.dat</th>
-                <th>Screenshots at 12:00 PM</th>
-                <th>Description</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Screenshot (noon)</th>
+                <th>Comments</th>
             </tr>
         </thead>
         <tbody>
