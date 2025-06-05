@@ -11,12 +11,7 @@ import { getAssetImagePath } from '@src/utils/general';
 
 import NoteBox from '@src/components/NoteBox.astro';
 
-const weaponsBySlot = {
-    0: [
-        { id: 0, name: 'Fist', type: 'Hand', modelId: null, sharingSlotAmmo: false, bulletSync: false },
-        { id: 1, name: 'Brass Knuckles', type: 'Hand', modelId: 331, sharingSlotAmmo: false, bulletSync: false }
-    ],
-}
+const weapons = [{'slot': 0, 'type': 'Hand', 'name': 'Fist', 'id': 0, 'modelId': null, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 0, 'type': 'Hand', 'name': 'Brassknuckle', 'id': 1, 'modelId': 331, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Golfclub', 'id': 2, 'modelId': 333, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Nightstick', 'id': 3, 'modelId': 334, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Knife', 'id': 4, 'modelId': 335, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Bat', 'id': 5, 'modelId': 336, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Shovel', 'id': 6, 'modelId': 337, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Poolstick', 'id': 7, 'modelId': 338, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Katana', 'id': 8, 'modelId': 339, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 1, 'type': 'Melee', 'name': 'Chainsaw', 'id': 9, 'modelId': 341, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 2, 'type': 'Handguns', 'name': 'Colt 45', 'id': 22, 'modelId': 346, 'clip': '17 (34)', 'sharingAmmoSlot': 'NoReplacing handgun resets slot 2 ammo', 'bulletSync': true}, {'slot': 2, 'type': 'Handguns', 'name': 'Silenced', 'id': 23, 'modelId': 347, 'clip': '17', 'sharingAmmoSlot': 'NoReplacing handgun resets slot 2 ammo', 'bulletSync': true}, {'slot': 2, 'type': 'Handguns', 'name': 'Deagle', 'id': 24, 'modelId': 348, 'clip': '7', 'sharingAmmoSlot': 'NoReplacing handgun resets slot 2 ammo', 'bulletSync': true}, {'slot': 3, 'type': 'Shotguns', 'name': 'Shotgun', 'id': 25, 'modelId': 349, 'clip': '1', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 3, 'type': 'Shotguns', 'name': 'Sawed-off', 'id': 26, 'modelId': 350, 'clip': '2 (4)', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 3, 'type': 'Shotguns', 'name': 'Combat Shotgun', 'id': 27, 'modelId': 351, 'clip': '7', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 4, 'type': 'Sub-Machine Guns', 'name': 'Uzi', 'id': 28, 'modelId': 352, 'clip': '50 (100)', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 4, 'type': 'Sub-Machine Guns', 'name': 'MP5', 'id': 29, 'modelId': 353, 'clip': '30', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 4, 'type': 'Sub-Machine Guns', 'name': 'Tec-9', 'id': 32, 'modelId': 372, 'clip': '50 (100)', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 5, 'type': 'Assault Rifles', 'name': 'AK-47', 'id': 30, 'modelId': 355, 'clip': '30', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 5, 'type': 'Assault Rifles', 'name': 'M4', 'id': 31, 'modelId': 356, 'clip': '50', 'sharingAmmoSlot': 'Yes', 'bulletSync': true}, {'slot': 6, 'type': 'Rifles', 'name': 'Rifle', 'id': 33, 'modelId': 357, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing rifle resets slot 6 ammo', 'bulletSync': true}, {'slot': 6, 'type': 'Rifles', 'name': 'Sniper', 'id': 34, 'modelId': 358, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing rifle resets slot 6 ammo', 'bulletSync': true}, {'slot': 7, 'type': 'Heavy Weapons', 'name': 'Rocket Launcher', 'id': 35, 'modelId': 359, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing heavy weapon resets slot 7 ammo', 'bulletSync': false}, {'slot': 7, 'type': 'Heavy Weapons', 'name': 'Rocket Launcher HS', 'id': 36, 'modelId': 360, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing heavy weapon resets slot 7 ammo', 'bulletSync': false}, {'slot': 7, 'type': 'Heavy Weapons', 'name': 'Flamethrower', 'id': 37, 'modelId': 361, 'clip': '50', 'sharingAmmoSlot': 'NoReplacing heavy weapon resets slot 7 ammo', 'bulletSync': false}, {'slot': 7, 'type': 'Heavy Weapons', 'name': 'Minigun', 'id': 38, 'modelId': 362, 'clip': '500', 'sharingAmmoSlot': 'NoReplacing heavy weapon resets slot 7 ammo', 'bulletSync': false}, {'slot': 8, 'type': 'Projectiles', 'name': 'Grenade', 'id': 16, 'modelId': 342, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing projectile resets slot 8 ammo', 'bulletSync': false}, {'slot': 8, 'type': 'Projectiles', 'name': 'Teargas', 'id': 17, 'modelId': 343, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing projectile resets slot 8 ammo', 'bulletSync': false}, {'slot': 8, 'type': 'Projectiles', 'name': 'Molotov', 'id': 18, 'modelId': 344, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing projectile resets slot 8 ammo', 'bulletSync': false}, {'slot': 8, 'type': 'Projectiles', 'name': 'Satchel', 'id': 39, 'modelId': 363, 'clip': '1', 'sharingAmmoSlot': 'NoReplacing projectile resets slot 8 ammo', 'bulletSync': false}, {'slot': 9, 'type': 'Special 1', 'name': 'Spraycan', 'id': 41, 'modelId': 365, 'clip': '500', 'sharingAmmoSlot': 'NoReplacing slot 9 weapon resets slot 9 ammo', 'bulletSync': false}, {'slot': 9, 'type': 'Special 1', 'name': 'Fire Extinguisher', 'id': 42, 'modelId': 366, 'clip': '500', 'sharingAmmoSlot': 'NoReplacing slot 9 weapon resets slot 9 ammo', 'bulletSync': false}, {'slot': 9, 'type': 'Special 1', 'name': 'Camera', 'id': 43, 'modelId': 367, 'clip': '36', 'sharingAmmoSlot': 'NoReplacing slot 9 weapon resets slot 9 ammo', 'bulletSync': false}, {'slot': 10, 'type': 'Gifts', 'name': 'Dildo', 'id': 10, 'modelId': 321, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 10, 'type': 'Gifts', 'name': 'Purple Dildo', 'id': 11, 'modelId': 322, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 10, 'type': 'Gifts', 'name': 'Vibrator', 'id': 12, 'modelId': 323, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 10, 'type': 'Gifts', 'name': 'Silver Vibrator', 'id': 13, 'modelId': 324, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 10, 'type': 'Gifts', 'name': 'Flower', 'id': 14, 'modelId': 325, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 10, 'type': 'Gifts', 'name': 'Cane', 'id': 15, 'modelId': 326, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 11, 'type': 'Special 2', 'name': 'Nightvision', 'id': 44, 'modelId': 368, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 11, 'type': 'Special 2', 'name': 'Infrared', 'id': 45, 'modelId': 369, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 11, 'type': 'Special 2', 'name': 'Parachute', 'id': 46, 'modelId': 371, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}, {'slot': 12, 'type': 'Satchel Detonator', 'name': 'Bomb', 'id': 40, 'modelId': 364, 'clip': null, 'sharingAmmoSlot': null, 'bulletSync': false}];
 
 ---
 <StarlightPage frontmatter={{
@@ -24,7 +19,7 @@ const weaponsBySlot = {
     title: 'Weapons',
     tableOfContents: false,
 }}>
-    <p>Scripting functions that ask for a <strong>Weapon ID</strong> need an integer that refers to the GTASA weapon ID list. They are listed below. Each weapon corresponds to an object model in-game.</p>
+    <p>Scripting functions that ask for a <strong>Weapon ID</strong> need an integer that refers to the GTASA weapon ID list, defined below. Each weapon is represented by an object that is identified by its model ID.</p>
 
     <NoteBox type='info'>Weapon <strong>Name</strong> is compatible with functions <a href="/reference/getWeaponNameFromID">getWeaponNameFromID</a> and <a href="/reference/getWeaponIDFromName">getWeaponIDFromName</a>.</NoteBox>
     <NoteBox type='info'><strong>Bullet Sync</strong> refers to whether they are triggered by the <a href="/reference/onPlayerWeaponFire">onPlayerWeaponFire</a> event.</NoteBox>
@@ -42,50 +37,56 @@ const weaponsBySlot = {
                 <th>ID</th>
                 <th>Model ID</th>
                 <th>Clip</th>
-                <th>Sharing slot ammo</th>
                 <th>Bullet Sync</th>
             </tr>
         </thead>
         <tbody>
-            {Object.entries(weaponsBySlot).map(([slotId, weapons]) => (
-                weapons.map((weapon) => (
-                    <tr>
-                        <td>{slotId}</td>
-                        <td>{weapon.type}</td>
-                        <td>
-                            <Image src={getAssetImagePath("Weapons/" + weapon.id + ".webp")} alt={weapon.name}
-                            class="weapon-image" />
-                        </td>
-                        <td>{weapon.name}</td>
-                        <td>{weapon.id}</td>
-                        <td>{weapon.modelId}</td>
-                        <td>{weapon.clipSize || '-'}</td>
-                        <td>{weapon.sharingSlotAmmo}</td>
-                        <td>{weapon.bulletSync ? 'Yes' : 'No'}</td>
-                    </tr>
-                ))
+            {weapons.map((weapon) => (
+                <tr>
+                    <td>{weapon.slot}
+                    {weapon.sharingAmmoSlot && <span class="color-special">*</span>}</td>
+                    <td>{weapon.type}</td>
+                    <td class="weapon-image-container">
+                        <Image src={getAssetImagePath("Weapons/" + weapon.id + ".png")} alt={weapon.name}
+                        class="weapon-image" />
+                    </td>
+                    <td><code>{weapon.name}</code></td>
+                    <td><code>{weapon.id}</code></td>
+                    <td><a target="_blank" href={"https://dev.prineside.com/en/gtasa_samp_model_id/model/" + weapon.modelId}>{weapon.modelId}</a></td>
+                    <td>{weapon.clip || '-'}</td>
+                    <td class={weapon.bulletSync ? 'color-yes' : ''}>{weapon.bulletSync ? 'Yes' : 'No'}</td>
+                </tr>
             ))}
         </tbody>
     </table>
+
+    <h5><span class="color-special">*</span> Sharing slot ammo:</h5>
+    <ul>
+        <li><strong>Slot 2 (Handguns)</strong>: Replacing handgun resets slot 2 ammo</li>
+        <li><strong>Slot 6 (Rifles)</strong>: Replacing rifle resets slot 6 ammo</li>
+        <li><strong>Slot 7 (Heavy Weapons)</strong>: Replacing heavy weapon resets slot 7 ammo</li>
+        <li><strong>Slot 8 (Projectiles)</strong>: Replacing projectile resets slot 8 ammo</li>
+        <li><strong>Slot 9 (Special 1)</strong>: Replacing slot 9 weapon resets slot 9 ammo</li>
+    </ul>
 
     <section data-pagefind-ignore>
         <h5>Lua tables with weapons:</h5>
         <Code lang="lua" code={`
 local weaponIDs = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 23, 24, 25, 26, 27, 28, 29, 32, 30, 31, 33, 34, 35, 36, 37, 38, 16, 17, 18, 39, 41, 42, 43, 10, 11, 12, 13, 14, 15, 44, 45, 46, 40}
 local weaponIDsBySlot = {
-	[0] = {0, 1}, -- hand
-	[1] = {2, 3, 4, 5, 6, 7, 8, 9},	-- melee
-	[2] = {22, 23, 24}, -- handguns
-	[3] = {25, 26, 27}, -- shotguns
-	[4] = {28, 29, 32}, -- sub-machine guns
-	[5] = {30, 31}, -- assault rifles
-	[6] = {33, 34}, -- rifles
-	[7] = {35, 36, 37, 38}, -- heavy weapons
-	[8] = {16, 17, 18, 39}, -- projectiles
-	[9] = {41, 42, 43}, -- special 1
-	[10] = {10, 11, 12, 13, 14, 15}, -- gifts
-	[11] = {44, 45, 46}, -- special 2
-	[12] = {40}, -- satchel detonator
+	[0] = {0, 1},                   -- Hand
+	[1] = {2, 3, 4, 5, 6, 7, 8, 9}, -- Melee
+	[2] = {22, 23, 24},             -- Handguns
+	[3] = {25, 26, 27},             -- Shotguns
+	[4] = {28, 29, 32},             -- Sub-Machine Guns
+	[5] = {30, 31},                 -- Assault Rifles
+	[6] = {33, 34},                 -- Rifles
+	[7] = {35, 36, 37, 38},         -- Heavy Weapons
+	[8] = {16, 17, 18, 39},         -- Projectiles
+	[9] = {41, 42, 43},             -- Special 1
+	[10] = {10, 11, 12, 13, 14, 15},-- Gifts
+	[11] = {44, 45, 46},            -- Special 2
+	[12] = {40},                    -- Satchel Detonator
 }`} />
     </section>
 
@@ -100,8 +101,19 @@ local weaponIDsBySlot = {
         overflow-x: auto;
         white-space: nowrap;
     }
+    .weapon-image-container {
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 10px;
+        margin: 0 auto;
+    }
     .weapon-image {
         max-width: 50px;
-        height: auto;
+    }
+    .color-special {
+        color: red;
+        font-weight: bold;
+    }
+    .color-yes {
+        color: var(--color-mta-orange);
     }
 </style>
