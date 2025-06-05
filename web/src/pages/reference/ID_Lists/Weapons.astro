@@ -46,9 +46,11 @@ const weapons = [{'slot': 0, 'type': 'Hand', 'name': 'Fist', 'id': 0, 'modelId':
                     <td>{weapon.slot}
                     {weapon.sharingAmmoSlot && <span class="color-special">*</span>}</td>
                     <td>{weapon.type}</td>
-                    <td class="weapon-image-container">
+                    <td>
+                        <div class="weapon-image-container">
                         <Image src={getAssetImagePath("Weapons/" + weapon.id + ".png")} alt={weapon.name}
                         class="weapon-image" />
+                        </div>
                     </td>
                     <td><code>{weapon.name}</code></td>
                     <td><code>{weapon.id}</code></td>
@@ -103,11 +105,13 @@ local weaponIDsBySlot = {
     }
     .weapon-image-container {
         background-color: rgba(255, 255, 255, 1);
-        border-radius: 10px;
+        border-radius: 6px;
+        padding: 6px;
         margin: 0 auto;
     }
     .weapon-image {
         max-width: 50px;
+        margin: 0 auto;
     }
     .color-special {
         color: red;
