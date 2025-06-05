@@ -15,7 +15,7 @@ import { getAssetImagePath } from '@src/utils/general';
     title: 'CJ Clothes (Index)',
     tableOfContents: false,
 }}>
-    <p>These pages contain clothing images and details for all of CJ's apparel.</p>
+    <p>The <strong>{clothingTypes.length} type pages</strong> listed here contain clothing images and details for all of CJ's apparel.</p>
 
     <div class="clothing-type-list">
         {clothingTypes.map(cType => (
@@ -27,9 +27,7 @@ import { getAssetImagePath } from '@src/utils/general';
                     class="clothing-image-preview"
                     />
                 </div>
-                <a href={`/reference/ID_Lists/CJ_Clothes/Type-${cType.id}`}>
-                Type {cType.id} - <strong>{cType.name}</strong>
-                </a>
+                <a href={`/reference/ID_Lists/CJ_Clothes/Type-${cType.id}`}>{cType.id} - <strong>{cType.name}</strong></a>
             </div>
         ))}
     </div>
