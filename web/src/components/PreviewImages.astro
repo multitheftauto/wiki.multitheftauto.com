@@ -1,22 +1,70 @@
 ---
-import { Image } from 'astro:assets';
-import { getAssetImagePath } from '@src/utils/general';
-
+import { Image } from "astro:assets";
+import { getAssetImagePath } from "@src/utils/general";
 
 interface Props {
-  images?: any;
+    images?: any[];
 }
 
 const { images } = Astro.props;
+const maxDimension = 256; // max size of preview image (256x256)
+
+if (images?.length) {
+    await Promise.all(
+        images.map(async (imageInfo) => {
+            const { default: resolvedPath } = await getAssetImagePath(imageInfo.path);
+            const { width: originalWidth, height: originalHeight, src } = resolvedPath;
+
+            const scale = Math.min(maxDimension / originalWidth, maxDimension / originalHeight, 1);
+
+            Object.assign(imageInfo, {
+                resolvedPath,
+                src,
+                width: Math.round(originalWidth * scale),
+                height: Math.round(originalHeight * scale),
+            });
+        }),
+    );
+}
 ---
 
-{images && images.length > 0 && (
+{images?.length > 0 && (
     <div class="preview-images">
-        {images.map((imageInfo: any) => (
-            <Image width={imageInfo.width || undefined}
-                height={imageInfo.height || undefined}
-                src={getAssetImagePath(imageInfo.path)}
-                alt={imageInfo.description || "Preview"} />
+        {images.map(({ src, description, resolvedPath, width, height }) => (
+            <a href={src} class="glightbox" data-description={description} data-gallery="gallery">
+                <Image
+                    width={width}
+                    height={height}
+                    src={resolvedPath}
+                    alt={description || "Preview"}
+                    loading="lazy"
+                    decoding="async"
+                />
+            </a>
         ))}
     </div>
 )}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
+
+<style is:global>
+    .gslide-description {
+        background: var(--sl-color-bg-nav) !important;
+    }
+
+    .gslide-desc {
+        color: var(--sl-color-text) !important;
+    }
+</style>
+
+<script is:client="load" type="module">
+    import "https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js";
+
+    const lightbox = GLightbox({ selector: ".glightbox" });
+
+    // Fix aria-hidden console warning
+    lightbox.on("open", () => {
+        document.querySelector(".glightbox-container")?.setAttribute("tabindex", "-1").focus();
+    });
+</script>
+
