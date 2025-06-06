@@ -28,6 +28,9 @@ export default defineConfig({
             social: [
                 { icon: 'github', label: 'GitHub', href: 'https://github.com/multitheftauto/wiki.multitheftauto.com' },
             ],
+			editLink: {
+				baseUrl: 'https://github.com/multitheftauto/wiki.multitheftauto.com/edit/main/web/',
+			},
 			components: {
 				// Override some default components
 				PageTitle: './src/overrides/PageTitle.astro',
@@ -43,7 +46,7 @@ export default defineConfig({
 							label: 'Introduction', link: '/',
 						},
 						{
-							label: 'How you can help', link: '/articles/How_you_can_help',
+							label: 'Contributing', link: '/Contributing',
 						},
 						{
 							label: 'Incomplete Pages', link: '/Incomplete_Pages', badge: { text: 'Help Wanted', variant: 'tip' },
@@ -51,20 +54,16 @@ export default defineConfig({
 					]
 				},
 				{
-					label: 'Tutorials',
-					items: [
-						{
-							label: 'Scripting Introduction', link: '/articles/Scripting_Introduction',
-						},
-					]
+					label: 'Articles',
+					autogenerate: { directory: 'articles' }
 				},
 				{
 					label: 'Reference',
 					items: [
-						{label: 'ID Lists', link: '/reference/ID_Lists'},
 						{
 							label: 'Resources',
 							items: [
+								{label: 'ID Lists', link: '/reference/ID_Lists'},
 								{ label: 'Lua API', link: '/reference/Lua_API' },
 								{ label: 'Meta.xml', link: '/reference/Meta.xml'},
 								{ label: 'Resource Web Access', link: '/reference/Resource_Web_Access'},
