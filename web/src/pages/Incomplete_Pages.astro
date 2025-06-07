@@ -1,5 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import AnchorHeading from '@astrojs/starlight/components/AnchorHeading.astro';
+
 import { SITE_CONTRIBUTING_URL } from '@src/content.constants';
 import { getUnfinishedPages } from '@src/utils/general';
 
@@ -19,7 +21,7 @@ const unfinishedEvents = getUnfinishedPages('events');
 <p><a href={SITE_CONTRIBUTING_URL}
     class="guidelines-link">Contribution guidelines</a></p>
 
-<h3>Unfinished Function Pages</h3>
+<AnchorHeading level="3" id="unfinished-functions">Unfinished Function Pages</AnchorHeading>
 <NoteBox type="info">
     We are working on migrating these pages from <code>wiki.multitheftauto.com</code> using <strong>web scraping</strong>.
     <br>Stay up to date with the progress using our Development Discord server.
@@ -42,7 +44,7 @@ const unfinishedEvents = getUnfinishedPages('events');
     )}
 </section>
 
-<h3>Unfinished Event Pages</h3>
+<AnchorHeading level="3" id="unfinished-events">Unfinished Event Pages</AnchorHeading>
 <section data-pagefind-ignore>
     {unfinishedEvents.length === 0 ? (
         <p>There are currently no unfinished event pages 😄</p>
