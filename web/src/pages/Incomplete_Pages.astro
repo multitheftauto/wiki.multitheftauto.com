@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { SITE_CONTRIBUTING_URL } from '@src/content.constants';
 import { getUnfinishedPages } from '@src/utils/general';
 
 import NoteBox from '@src/components/NoteBox.astro';
@@ -15,7 +16,7 @@ const unfinishedEvents = getUnfinishedPages('events');
 }}>
 
 <p>The following pages are not finished, and need your attention! Please help complete the MTA Wiki.</p>
-<p><a href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md"
+<p><a href={SITE_CONTRIBUTING_URL}
     class="guidelines-link">Contribution guidelines</a></p>
 
 <h3>Unfinished Function Pages</h3>

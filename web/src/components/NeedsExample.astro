@@ -1,4 +1,6 @@
 ---
+import { SITE_CONTRIBUTING_URL } from '@src/content.constants';
+
 export interface Props {
   theItem: any;
 }
@@ -19,7 +21,7 @@ itemType = itemType.charAt(0).toUpperCase() + itemType.slice(1);
   <div class="missing-example-content">
     <strong>Script Example Missing</strong>
     <p>{itemType} <code>{itemName}</code> needs a script example. Help out by writing one.</p>
-    <a href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md" class="guidelines-link">Contribution guidelines</a>
+    <a href={SITE_CONTRIBUTING_URL} class="guidelines-link">Contribution guidelines</a>
   </div>
 </div>
 

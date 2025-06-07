@@ -1,5 +1,6 @@
 ---
 import EnhancedMarkdown from './EnhancedMarkdown.astro';
+import { SITE_CONTRIBUTING_URL } from '@src/content.constants';
 
 interface Props {
   description: string;
@@ -18,7 +19,7 @@ path = path.substring(path.lastIndexOf('/'));
   {incomplete && (
       <p style="color: var(--sl-color-orange); font-size: 1.6rem;"><strong>This page is incomplete! Help wanted!</strong></p>
       <p style="color: var(--sl-color-orange); font-size: 1.25rem;">Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>.
-      <br>Go to <a target="_blank" href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md">Contribution guidelines</a> for more information.</p>
+      <br>Go to <a target="_blank" href={SITE_CONTRIBUTING_URL}>Contribution guidelines</a> for more information.</p>
       <hr>
   )}
 

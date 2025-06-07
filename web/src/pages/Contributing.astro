@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { SITE_CONTRIBUTING_URL } from '@src/content.constants';
 ---
 
 <StarlightPage frontmatter={{
@@ -10,7 +11,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
     <p><strong>Multi Theft Auto</strong> has loads of areas in which you can help. In turn, we'll be more than happy to help you get started with any ideas you have, help test them and - if they're good enough - release them to the whole community. This page outlines the key areas you could do something in, of course, there are many things we've not thought of, so think outside the box!</p>
 
     <h3>Documentation</h3>
-    <p>Before you make changes check out: <a href="https://github.com/multitheftauto/wiki.multitheftauto.com/blob/main/CONTRIBUTING.md">Contribution Guidelines</a>.</p>
+    <p>Before you make changes check out: <a href={SITE_CONTRIBUTING_URL}>Contribution Guidelines</a>.</p>
     <ul>
     <li>Finish documentation for <a href="/Incomplete_Pages">Incomplete pages</a> - ask on Discord if you're not sure of something.</li>
     <li>Add examples to <a href="/Incomplete_Pages">functions & events missing examples</a> - please <strong>test</strong> them, and again, ask if you need help.</li>
