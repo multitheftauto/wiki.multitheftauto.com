@@ -206,12 +206,9 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         <CodeExamplesSection codeExamples={funcExamples}, examplesRequired={true} theItem={func} />
 
         <!-- Preview Images -->
-        <div id="preview-images-gallery">
-            <h4>Gallery</h4>
-            <p>Click on the image to view the full preview along with the description.</p>
-            <PreviewImages images={funcInfo.preview_images} />
-        </div>
-
+        <PreviewImages images={funcInfo.preview_images} />
+        
+        <!-- Changelog -->
         <ChangelogList entries={changelogEntries} />
 
         <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(func)} currentId={func.id} />

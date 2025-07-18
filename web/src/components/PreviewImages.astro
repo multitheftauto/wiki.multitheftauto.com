@@ -29,19 +29,24 @@ if (images?.length) {
 ---
 
 {images?.length > 0 && (
-    <div class="preview-images">
-        {images.map(({ src, description, resolvedPath, width, height }) => (
-            <a href={src} class="glightbox" data-description={description} data-gallery="gallery">
-                <Image
-                    width={width}
-                    height={height}
-                    src={resolvedPath}
-                    alt={description || "Preview"}
-                    loading="lazy"
-                    decoding="async"
-                />
-            </a>
-        ))}
+    <div id="preview-images-gallery">
+        <h4>Gallery</h4>
+        <p>Click on the image to view the full preview along with the description.</p>
+
+        <div class="preview-images">
+            {images.map(({ src, description, resolvedPath, width, height }) => (
+                <a href={src} class="glightbox" data-description={description} data-gallery="gallery">
+                    <Image
+                        width={width}
+                        height={height}
+                        src={resolvedPath}
+                        alt={description || "Preview"}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </a>
+            ))}
+        </div>
     </div>
 )}
 
