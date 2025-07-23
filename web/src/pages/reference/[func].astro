@@ -18,6 +18,8 @@ import ItemDescription from '@src/components/ItemDescription.astro';
 import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
 import PreviewImages from '@src/components/PreviewImages.astro';
 
+import { marked } from 'marked';
+
 export async function getStaticPaths() {
     const functions = await getCollection('functions');
     return functions.map(func => ({
@@ -117,6 +119,10 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         <div class="function-oop">
             <h4>OOP Syntax <a class="small-text" href="/reference/OOP">Help! I don't understand this!</a></h4>
             <ul>
+
+            {funcInfo.oop.note && (
+                <li><i><Fragment set:html={marked("<b>Note:</b> " + funcInfo.oop.note)} /></i></li>
+            )}
 
             {funcInfo.oop.constructorclass ? (
                 <li>

@@ -7,6 +7,7 @@ type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
 
 type BaseOOP = {
   element: string;
+  note?: string;
 };
 
 // /!\ constructor is a reserved word in JS/TS, so we use constructorclass
