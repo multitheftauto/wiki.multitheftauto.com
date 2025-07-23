@@ -6,6 +6,7 @@ shared: &shared
   oop:
     element: file
     constructorclass: File
+    note: Static method [File](file).open() can also be used. Using [File](file)(...) to open a file will attempt to create the file, if it doesn't exist.
   description: Opens an existing file for reading and writing.
   parameters:
     - name: 'filePath'
