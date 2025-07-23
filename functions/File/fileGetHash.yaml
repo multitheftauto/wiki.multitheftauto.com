@@ -1,0 +1,42 @@
+shared: &shared
+  name: fileGetHash
+  description: |
+    This function returns a hash of the entire file in the specified algorithm.
+    This function does not move the file pointer/position. Beware though, there will always be a minuscule period of time between checking the hash and loading the contents of the file, which can be abused by a potential attacker to modify the contents.
+  oop:
+    element: file
+    method: getHash
+  version:
+    added: 1.6.0 r23289
+  parameters:
+    - name: theFile
+      type: file
+      description: A handle to the file you wish to get the hash from. Use [[fileOpen]] to obtain this handle.
+    - name: algorithm 
+      type: string
+      description: |
+        A string which must be one of these: **"md5", "sha1", "sha224", "sha256", "sha384", "sha512", "hmac"**.
+    - name: options
+      type: table
+      description: |
+        A [[table]] with options and other necessary data for the algorithm, as detailed below.
+        <ul>
+        <li>hmac (HMAC)</li>
+        <ul style='margin-top: 0;'>
+        <li><strong>key</strong>: a key to encode the input with.</li>
+        <li><strong>algorithm</strong>: a [[string]] which must be one of these: "md5", "sha1", "sha224", "sha256", "sha384", "sha512".</li>
+        </ul>
+        </ul>
+
+      default: 'nil'
+  returns:
+    values:
+      - type: string|nil
+        name: file hash
+    description: Returns the hash of the entire file on success, and nil on failure.
+  examples:
+    - path: examples/fileGetHash-1.lua
+      description: This example opens the code.lua file, computes the hash with every algorithm, and then displays them.
+    - path: examples/fileGetHash_OOP-1.lua
+      description: This example opens the code.lua file, computes the hash with every algorithm, and then displays them.
+      oop: true
