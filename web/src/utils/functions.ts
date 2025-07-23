@@ -36,6 +36,13 @@ export type FunctionInfo = {
     preview_images?: string[];
     oop?: OOPInfo;
     notes?: NotesType;
+    version?: VersionInfo
+};
+
+type VersionInfo = {
+  added?: string;
+  updated?: string;
+  removed?: string;
 };
 
 type FunctionsByCategory = {

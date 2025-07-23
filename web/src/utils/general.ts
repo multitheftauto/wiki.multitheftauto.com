@@ -236,3 +236,18 @@ export function getUnfinishedPages(pageType: 'functions' | 'events'): string[] {
   unfinishedPages.sort((a, b) => a.localeCompare(b));
   return unfinishedPages;
 }
+
+export function extractVersion(versionString: string): string | null {
+  const match = versionString?.match(/^(\d+\.\d+\.\d+)/);
+  return match ? match[1] : null;
+}
+
+export function isVersionLE(v: string, ref: string): boolean {
+  console.log(v, ref);
+  const toNums = (str: string) => str.split('.').map(n => parseInt(n, 10));
+  const [a1, a2, a3] = toNums(v);
+  const [b1, b2, b3] = toNums(ref);
+  if (a1 !== b1) return a1 < b1;
+  if (a2 !== b2) return a2 < b2;
+  return a3 <= b3;
+}

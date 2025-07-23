@@ -2,10 +2,11 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
 import { getFunctionInfo, parseFunctionSyntaxes, getFixedStaticOOPClass } from '@src/utils/functions';
-import { renderInlineMarkdown, getSeeAlsoLinksForItem } from '@src/utils/general';
+import { renderInlineMarkdown, getSeeAlsoLinksForItem, extractVersion, isVersionLE } from '@src/utils/general';
 import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
+import { MTA_CURRENT_VERSION } from '@src/content.constants';
 
 import NoteBox from '@src/components/NoteBox.astro';
 import type { NotesType } from '@src/utils/types';
@@ -80,6 +81,33 @@ const needsChecking = metaArray.find(m => m.needs_checking)?.needs_checking ?? u
 let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
 ---
 
+<style>
+    .added-updated-description-box {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--sl-color-bg-nav);
+        border-radius: 10px;
+    }
+
+    .added-updated-description-box-header {
+        padding: 0.5rem 1.0rem;
+        color: var(--sl-color-text);
+        background-color: var(--sl-color-gray-5);
+        border-radius: 10px 10px 0 0;
+    }
+
+    .added-updated-description-box.removed-box .added-updated-description-box-header {
+        background-color: var(--color-type-client-background-high);
+        color: #f85c50;
+        font-weight: bold;
+    }
+
+    .added-updated-description-box-body {
+        margin: 0;
+        padding: 1rem 1rem;
+    }
+</style>
+
 <div class={"show-type-badge-" + funcType}>
     <StarlightPage frontmatter={{
         template: 'doc',
@@ -100,7 +128,71 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         )}
 
         <!-- Description -->
-        <ItemDescription description={funcInfo.description} incomplete={funcInfo.incomplete} />
+        {funcInfo.version ? (() => {
+            const CURRENT = MTA_CURRENT_VERSION.full;
+
+            const addedVersionRaw = funcInfo.version.added || "";
+            const updatedVersionRaw = funcInfo.version.updated || "";
+            const removedVersionRaw = funcInfo.version.removed || "";
+
+            const addedVersion = extractVersion(addedVersionRaw);
+            const updatedVersion = extractVersion(updatedVersionRaw);
+
+            const showAdded = !!addedVersion && isVersionLE(CURRENT, addedVersion);
+            const showUpdated = !!updatedVersion && isVersionLE(CURRENT, updatedVersion);
+            const showRemoved = !!removedVersionRaw;
+
+            // Jeśli nie ma nic do pokazania
+            if (!showRemoved && !showAdded && !showUpdated) {
+                return (
+                    <ItemDescription
+                        description={funcInfo.description}
+                        incomplete={funcInfo.incomplete}
+                    />
+                );
+            }
+
+            return (
+                <div
+                    class={
+                        "added-updated-description-box" +
+                        (showRemoved ? " removed-box" : "")
+                    }
+                >
+                    <div class="added-updated-description-box-header">
+                        <p>
+                            {showRemoved ? (
+                                <>
+                                    <strong>Before</strong> {removedVersionRaw}
+                                </>
+                            ) : (
+                                <>
+                                    {showUpdated && (
+                                        <strong>Updated in {updatedVersionRaw}</strong>
+                                    )}
+                                    {showUpdated && showAdded && ' | '}
+                                    {showAdded && (
+                                        <strong>Added in {addedVersionRaw}</strong>
+                                    )}
+                                </>
+                            )}
+                        </p>
+                    </div>
+
+                    <div class="added-updated-description-box-body">
+                        <ItemDescription
+                            description={funcInfo.description}
+                            incomplete={funcInfo.incomplete}
+                        />
+                    </div>
+                </div>
+            );
+        })() : (
+            <ItemDescription
+                description={funcInfo.description}
+                incomplete={funcInfo.incomplete}
+            />
+        )}
 
         <!-- Notes -->
         {notesContent.length > 0 && (
