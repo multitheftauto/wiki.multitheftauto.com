@@ -25,3 +25,6 @@ shared: &shared
   examples:
     - path: 'examples/fileGetContents-1.lua'
       description: This example opens the code.lua file, checks its contents, and then runs it.
+    - path: 'examples/fileGetContents_OOP-1.lua'
+      description: This example opens the code.lua file, checks its contents, and then runs it.
+      oop: true

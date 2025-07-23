@@ -26,5 +26,11 @@ shared: &shared
   examples:
     - path: 'examples/fileOpen-1.lua'
       description: This example opens the file test.txt that is in the root of the current resource, and outputs its contents to the console.
+    - path: 'examples/fileOpen_OOP-1.lua'
+      description: This example opens the file test.txt that is in the root of the current resource, and outputs its contents to the console.
+      oop: true
     - path: 'examples/fileOpen-2.lua'
       description: This example show how to append data to an existing file
+    - path: 'examples/fileOpen_OOP-2.lua'
+      description: This example show how to append data to an existing file
+      oop: true

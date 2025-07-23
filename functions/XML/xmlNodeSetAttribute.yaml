@@ -37,3 +37,16 @@ server:
       ```
 
       Lua code
+  - path: 'examples/xmlNodeSetAttribute_OOP-1.lua'
+    description: |
+      In a gamemode, we want a command to change the marker color in the configuration file and remove a deprecated attribute.
+
+      config.xml
+      ```xml
+      <config>
+          <markers color="255,100,0" foo="deprecated" />
+      </config>
+      ```
+
+      Lua code
+    oop: true

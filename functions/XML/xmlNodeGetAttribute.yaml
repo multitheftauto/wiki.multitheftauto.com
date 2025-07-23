@@ -30,3 +30,14 @@ shared: &shared
       ```
 
       Lua code
+  - path: 'examples/xmlNodeGetAttribute_OOP-1.lua'
+    description: |
+      Suppose we have a gametype where only one type of car is used, and this type should not depend on the map but rather be set in an external configuration file and be used in all maps. Here's an example where the configuration file is an XML document:
+
+      settings.xml
+      ```xml
+      <car model="528" posX="123.4" posY="456.7" posZ="12.3" rot="90.0" />
+      ```
+
+      Lua code
+    oop: true

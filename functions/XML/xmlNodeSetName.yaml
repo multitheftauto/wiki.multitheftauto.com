@@ -22,3 +22,6 @@ shared: &shared
   examples:
   - path: 'examples/xmlNodeSetName-1.lua'
     description: This example changes the node's name from *Test1* to *Test2*.
+  - path: 'examples/xmlNodeSetName_OOP-1.lua'
+    description: This example changes the node's name from *Test1* to *Test2*.
+    oop: true

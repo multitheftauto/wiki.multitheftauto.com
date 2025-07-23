@@ -30,6 +30,17 @@ server:
         <somesubnode>somevalue</somesubnode>
       </somenode>
       ```
+  - path: 'examples/xmlNodeGetValue_OOP-1.lua'
+    description: |
+      In this example a sample value is returned from a XML file.
+
+      In order for the result to be valid, the xml file has to look like this:
+      ```xml
+      <somenode>
+        <somesubnode>somevalue</somesubnode>
+      </somenode>
+      ```
+    oop: true
 
 client:
   <<: *shared
@@ -55,3 +66,26 @@ client:
         ```
 
         This script will create the xml or load it if it exists
+    - path: 'examples/xmlNodeGetValue_OOP-2.lua'
+      description: |
+        This shows an example of a clientside XML file. You can use this to store user preferences and load them the next time the script loads. Almost always, you should have an options GUI for clients to interact with to set these values.
+
+        Since the XML will change, it should NOT be included in the resource's meta.xml file. MTA will think that file is corrupted and will download it again from the server. Instead, you should create the XML within the script, and then load it within the script on future script runs if it exists.
+
+        This xml will be created from the script following it below
+        ```xml
+        <root>
+            <hud_display>
+                <IconSizeX>60</IconSizeX>
+                <IconSizeY>60</IconSizeY>
+            </hud_display>
+            <hud_binds>
+                <weaponSlot0>tab</weaponSlot0>
+                <weaponSlot1>1</weaponSlot1>
+            </hud_binds>
+        </root>
+        ```
+
+        This script will create the xml or load it if it exists
+      oop: true
+      

@@ -19,6 +19,8 @@ shared: &shared
         name: 'xmlnode'
   examples:
   - path: 'examples/xmlLoadString-1.lua'
-    description: |
-      This example loads an XML string and loops the children while outputting to debugscript.
+    description: This example loads an XML string and loops the children while outputting to debugscript.
+  - path: 'examples/xmlLoadString_OOP-1.lua'
+    description: This example loads an XML string and loops the children while outputting to debugscript.
+    oop: true
 

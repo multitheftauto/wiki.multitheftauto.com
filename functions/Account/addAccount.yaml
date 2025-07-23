@@ -10,6 +10,7 @@ server:
         - Maximum account password length was 30 characters until version **1.5.4-11138**. Currently there is no upper limit.
   oop:
     element: Account
+    static: true
     method: add
   description: This function adds an [[account]] to the list of registered accounts of the current server.
   parameters:
@@ -30,11 +31,14 @@ server:
     description: Returns an [[account]] or false if the account already exists or an error occured.
   examples:
     - path: 'examples/addAccount-1.lua'
-      description: This enables players to register on your server by using /register <password> in the chat window.
+      description: This enables players to register on your server by using <code>/register &lt;password&gt;</code> in the chat window.
     - path: 'examples/addAccount-2.lua'
-      description: This enables players to register on your server by using /register <username> <password> in the chat window.
+      description: This enables players to register on your server by using <code>/register &lt;username&gt; &lt;password&gt;</code> in the chat window.
     - path: 'examples/addAccount-3.lua'
-      description: This code differs again so the user can only register once /register <username> <password>.
+      description: This code differs again so the user can only register once <code>/register &lt;username&gt; &lt;password&gt;</code>.
+    - path: examples/addAccount_OOP-1.lua
+      description: This enables players to register on your server by using <code>/register &lt;password&gt;</code> in the chat window.
+      oop: true
   meta:
     - changelog:
         - version: 1.5.4-11138

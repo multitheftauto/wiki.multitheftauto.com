@@ -24,4 +24,7 @@ server:
   examples:
     - path: 'examples/getAccount-1.lua'
       description: This function checks if the account mentioned exists in the internal.db database file.
+    - path: 'examples/getAccount_OOP-1.lua'
+      description: This function checks if the account mentioned exists in the internal.db database file.
+      oop: true
       

@@ -20,3 +20,6 @@ shared: &shared
   examples:
     - path: 'examples/fileClose-1.lua'
       description: This example creates a text file and writes a string to it.
+    - path: 'examples/fileClose_OOP-1.lua'
+      description: This example creates a text file and writes a string to it.
+      oop: true

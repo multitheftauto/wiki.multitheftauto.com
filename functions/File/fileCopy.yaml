@@ -31,9 +31,15 @@ client:
   examples:
     - path: 'examples/fileCopy-1.lua'
       description: This example copies a file called `test.txt` and called it `test1.txt`.
+    - path: 'examples/fileCopy_OOP-1.lua'
+      description: This example copies a file called `test.txt` and called it `test1.txt`.
+      oop: true
 
 server:
   <<: *shared
   examples:
     - path: 'examples/fileCopy-2.lua'
       description: This example copies a file called `test.txt` and called it `test1.txt`.
+    - path: 'examples/fileCopy_OOP-2.lua'
+      description: This example copies a file called `test.txt` and called it `test1.txt`.
+      oop: true

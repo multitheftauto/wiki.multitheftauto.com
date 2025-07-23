@@ -20,3 +20,6 @@ shared: &shared
   examples:
     - path: 'examples/fileExists-1.lua'
       description: This example checks if a file exists in a resource directory.
+    - path: 'examples/fileExists_OOP-1.lua'
+      description: This example checks if a file exists in a resource directory.
+      oop: true

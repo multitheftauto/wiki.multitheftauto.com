@@ -23,5 +23,7 @@ shared: &shared
         name: 'xmlnode'
   examples:
   - path: 'examples/xmlLoadFile-1.lua'
-    description: |
-      This example loads an XML file called *settings.xml* that is in a resource called *ctv*.
+    description: This example loads an XML file called *settings.xml* that is in a resource called *ctv*.
+  - path: 'examples/xmlLoadFile_OOP-1.lua'
+    description: This example loads an XML file called *settings.xml* that is in a resource called *ctv*.
+    oop: true

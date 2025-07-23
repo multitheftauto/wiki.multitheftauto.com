@@ -16,3 +16,5 @@ shared: &shared
         name: result
   examples:
     - path: 'examples/fileGetPath-1.lua'
+    - path: 'examples/fileGetPath_OOP-1.lua'
+      oop: true

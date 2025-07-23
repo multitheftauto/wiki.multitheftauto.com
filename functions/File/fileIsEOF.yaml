@@ -23,3 +23,6 @@ shared: &shared
   examples:
     - path: 'examples/fileIsEOF-1.lua'
       description: This example opens the file test.txt and outputs its contents to the console.
+    - path: 'examples/fileIsEOF_OOP-1.lua'
+      description: This example opens the file test.txt and outputs its contents to the console.
+      oop: true

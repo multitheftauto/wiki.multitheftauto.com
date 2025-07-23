@@ -20,3 +20,6 @@ shared: &shared
   examples:
     - path: 'examples/fileDelete-1.lua'
       description: This example will show us how to create a file "text.txt" spell it "This is a test file!", Close the file and delete it.
+    - path: 'examples/fileDelete_OOP-1.lua'
+      description: This example will show us how to create a file "text.txt" spell it "This is a test file!", Close the file and delete it.
+      oop: true

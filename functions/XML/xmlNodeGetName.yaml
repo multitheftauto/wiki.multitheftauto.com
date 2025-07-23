@@ -19,3 +19,6 @@ shared: &shared
   examples:
   - path: 'examples/xmlNodeGetName-1.lua'
     description: This example displays the name of the created node in the chat.
+  - path: 'examples/xmlNodeGetName_OOP-1.lua'
+    description: This example displays the name of the created node in the chat.
+    oop: true

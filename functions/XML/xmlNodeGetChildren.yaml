@@ -38,3 +38,17 @@ server:
       ```
 
       To show a random message from this list to joining players, you could use the following code:
+  - path: 'examples/xmlNodeGetChildren_OOP-1.lua'
+    description: |
+      Suppose you have an .xml file with random welcome messages:
+
+      ```xml
+      <messages>
+          <message>Welcome to the deathmatch server, enjoy your stay.</message>
+          <message>Welcome. Be sure to get your free pizza at Matt's!</message>
+          <message>Party going on at the LS beach, be there</message>
+      </messages>
+      ```
+
+      To show a random message from this list to joining players, you could use the following code:
+    oop: true

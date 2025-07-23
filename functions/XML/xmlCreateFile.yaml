@@ -31,5 +31,7 @@ client:
   <<: *shared
   examples:
   - path: 'examples/xmlCreateFile-1.lua'
-    description: |
-      This example allows a player to use the command **createfile** to create an .xml file.
+    description: This example allows a player to use the command **createfile** to create an .xml file.
+  - path: 'examples/xmlCreateFile_OOP-1.lua'
+    description: This example allows a player to use the command **createfile** to create an .xml file.
+    oop: true

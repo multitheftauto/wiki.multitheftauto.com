@@ -28,3 +28,16 @@ shared: &shared
       ```
 
       Lua code
+  - path: 'examples/xmlUnloadFile_OOP-1.lua'
+    description: |
+      Modify a configuration file.
+
+      config.xml
+      ```xml
+      <config>
+          <markers color="255,100,0" />
+      </config>
+      ```
+
+      Lua code
+    oop: true

@@ -20,5 +20,7 @@ server:
   <<: *shared
   examples:
   - path: 'examples/xmlDestroyNode-1.lua'
-    description: |
-      This example will add a command called */delnode* and it will create an xml file called *test.xml*.
+    description: This example will add a command called */delnode* and it will create an xml file called *test.xml*.
+  - path: 'examples/xmlDestroyNode_OOP-1.lua'
+    description: This example will add a command called */delnode* and it will create an xml file called *test.xml*.
+    oop: true

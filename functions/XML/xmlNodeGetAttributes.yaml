@@ -39,4 +39,26 @@ shared: &shared
       ```
 
       Code
+  - path: 'examples/xmlNodeGetAttributes_OOP-1.lua'
+    description: |
+      This example code opens the meta.xml of the resource it belongs to, and prints all attributes of the <info> node to the console.
 
+      If the meta.xml looked like this:
+      meta.xml
+      ```xml
+      <meta>
+        <info type="gamemode" name="My gamemode" author="me"/>
+        ...
+      </meta>
+      ```
+
+      Then the code would output (not necessarily in this order):
+
+      ```
+      type = gamemode
+      name = My gamemode
+      author = me
+      ```
+
+      Code
+    oop: true

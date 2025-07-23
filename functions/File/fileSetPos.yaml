@@ -1,5 +1,6 @@
 shared: &shared
   name: fileSetPos
+  pair: fileGetPos
   oop:
     element: file
     method: setPos
@@ -20,3 +21,6 @@ shared: &shared
   examples:
     - path: 'examples/fileSetPos-1.lua'
       description: This example opens a binary file and prints the value of the byte at position 8 to the console.
+    - path: 'examples/fileSetPos_OOP-1.lua'
+      description: This example opens a binary file and prints the value of the byte at position 8 to the console.
+      oop: true

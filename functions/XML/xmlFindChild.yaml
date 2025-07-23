@@ -35,3 +35,16 @@ shared: &shared
       ```
 
       You could use the following code to print the text in the instructions node to the chatbox:
+  - path: 'examples/xmlFindChild_OOP-1.lua'
+    description: |
+      If you wanted to find an instructions node in an xml file like this:
+      ```xml
+      <root version="2.0">
+        <options>
+              <instructions>Start at the beginning and keep going until the end!</instructions>
+        </options>
+      </root>
+      ```
+
+      You could use the following code to print the text in the instructions node to the chatbox:
+    oop: true

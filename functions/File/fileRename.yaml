@@ -6,6 +6,7 @@ shared: &shared
         Also with this function you can move specified file to a new location, new folder or even to another resource's folder. But for this action executing resource must have `ModifyOtherObjects` [[ACL]] right set to true.
   oop:
     element: file
+    static: true
     method: rename
   description: Renames the specified file.
   parameters:
@@ -26,3 +27,6 @@ shared: &shared
       description: This example renames the file test1.txt that is in the root of the current resource to test2.txt.
     - path: 'examples/fileRename-2.lua'
       description: This example moves the file test1.txt that is in the root of the current resource to myFolder folder. If this folder is not exists, it will be created before moving the file test1.txt.
+    - path: 'examples/fileRename_OOP-1.lua'
+      description: This example renames the file test1.txt that is in the root of the current resource to test2.txt.
+      oop: true

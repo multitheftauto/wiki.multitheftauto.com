@@ -19,3 +19,5 @@ shared: &shared
         name: result
   examples:
     - path: 'examples/fileFlush-1.lua'
+    - path: 'examples/fileFlush_OOP-1.lua'
+      oop: true

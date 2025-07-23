@@ -21,3 +21,6 @@ client:
   examples:
   - path: 'examples/xmlSaveFile-1.lua'
     description: This example allows a player to use the command 'createfile' to create an .xml file.
+  - path: 'examples/xmlSaveFile_OOP-1.lua'
+    description: This example allows a player to use the command 'createfile' to create an .xml file.
+    oop: true

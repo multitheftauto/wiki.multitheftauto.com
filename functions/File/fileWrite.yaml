@@ -27,3 +27,6 @@ shared: &shared
   examples:
     - path: 'examples/fileWrite-1.lua'
       description: This example creates a text file and writes a string to it.
+    - path: 'examples/fileWrite_OOP-1.lua'
+      description: This example creates a text file and writes a string to it.
+      oop: true

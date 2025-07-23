@@ -18,3 +18,6 @@ shared: &shared
   examples:
     - path: 'examples/fileGetPos-1.lua'
       description: This example opens the file test.txt and outputs its contents and current read position to the console.
+    - path: 'examples/fileGetPos_OOP-1.lua'
+      description: This example opens the file test.txt and outputs its contents and current read position to the console.
+      oop: true
