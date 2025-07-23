@@ -1,5 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getAccountType
 server:
   name: getAccountType
-  description: TODO
-  incomplete: true
+  description: This function returns an [[account]] type.
+  version:
+    added: 1.6.0 r22470
+  oop:
+    element: account
+    method: getType
+  parameters:
+    - name: theAccount
+      type: account
+      description: An account you want to get info from.
+  returns:
+    values:
+      - type: string
+        name: account type
+    description: Returns string containing the type **(player, guest or console)** of the account if the account is valid.
+  examples:
+    - path: examples/getAccountType-1.lua
+      description: This example adds command accountInfo that outputs provided account info.
+    - path: examples/getAccountType_OOP-1.lua
+      description: This example adds command accountInfo that outputs provided account info.
+      oop: true

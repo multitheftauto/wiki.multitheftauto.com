@@ -1,5 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getAccountIP
 server:
   name: getAccountIP
-  description: TODO
-  incomplete: true
+  description: This function retrieves the IP address of an [[account]].
+  oop:
+    element: account
+    method: getIP
+    variable: ip
+  parameters:
+    - name: theAccount
+      type: account
+      description: The [account](account) you wish to get the IP of.
+  returns:
+    values:
+      - type: string|false
+        name: account IP
+    description: Returns a string containing the account's IP, false if the account does not exist or an invalid argument was passed to the function.
+  examples:
+    - path: examples/getAccountIP-1.lua
+      description: This example announces into the *debugscript* when a player logs into his account.
+    - path: examples/getAccountIP_OOP-1.lua
+      description: This example announces into the *debugscript* when a player logs into his account.
+      oop: true

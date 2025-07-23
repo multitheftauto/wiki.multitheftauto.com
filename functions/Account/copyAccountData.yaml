@@ -1,5 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/copyAccountData
 server:
   name: copyAccountData
-  description: TODO
-  incomplete: true
+  description: This function copies all of the data from one [[account]] to another.
+  oop:
+    element: account
+    method: copyDataTo
+  parameters:
+    - name: theAccount
+      type: account 
+      description: The [account](account) you wish to copy the data to.
+    - name: fromAccount
+      type: account
+      description: The [account](account) you wish to copy the data from.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns a **true** if the accounts were valid, **false** otherwise.
+  examples:
+    - path: 'examples/copyAccountData-1.lua'
+      description: This example copies the account data from the 'guest' to a registered account when they login.
+    - path: examples/copyAccountData_OOP-1.lua
+      description: This example copies the account data from the 'guest' to a registered account when they login.
+      oop: true

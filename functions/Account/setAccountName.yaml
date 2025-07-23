@@ -1,5 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setAccountName
 server:
   name: setAccountName
-  description: TODO
-  incomplete: true
+  pair: getAccountName
+  description: This function sets the name of an [[account]].
+  oop:
+    element: account
+    method: setName
+    variable: name
+  parameters:
+    - name: theAccount
+      type: account
+      description: The account you wish to change the name.
+    - name: name
+      type: string
+      description: The new name.
+    - name: allowCaseVariations
+      type: bool
+      description: Whether the username is case sensitive (if this is set to **true**, usernames "Bob" and "bob" will refer to different accounts).
+      default: 'false'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns a true if the account name was set, false if an invalid argument was specified.
+  examples:
+    - path: examples/setAccountName-1.lua
+      description: Change the name of an account.
+    - path: examples/setAccountName_OOP-1.lua
+      description: Change the name of an account.
+      oop: true

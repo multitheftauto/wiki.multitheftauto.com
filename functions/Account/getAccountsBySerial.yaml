@@ -1,5 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getAccountsBySerial
 server:
   name: getAccountsBySerial
-  description: TODO
-  incomplete: true
+  description: This function returns a [[table]] containing all accounts that were logged onto from specified [serial](articles/serial).
+  oop:
+    element: Account
+    static: true
+    method: getAllBySerial
+  parameters:
+    - name: serial
+      type: string
+      description: The serial to get accounts from.
+  returns:
+    values:
+      - type: table|false
+        name: accounts table
+    description: Returns [[table]] containing the accounts associated with specified [[serial]]. Returns false if invalid arguments were specified.
+  examples:
+    - path: examples/getAccountsBySerial-1.lua
+      description: This example adds command <code>getAccounts</code> that outputs the number of accounts a player has in the chat box.
+    - path: examples/getAccountsBySerial_OOP-1.lua
+      description: This example adds command <code>getAccounts</code> that outputs the number of accounts a player has in the chat box.
+      oop: true

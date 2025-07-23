@@ -1,5 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getAccountsByData
 server:
   name: getAccountsByData
-  description: TODO
-  incomplete: true
+  description: This function returns a [[table]] containing all accounts with specified dataName and value (set with [[setAccountData]]).
+  oop:
+    element: Account
+    static: true
+    method: getAllByData
+  parameters:
+    - name: dataName
+      type: string
+      description: The name of the data.
+    - name: value
+      type: string
+      description: The value the dataName should have.
+  returns:
+    values:
+      - type: table|false
+        name: accounts table
+    description: Returns [[table]] containing the accounts associated with specified value at dataName. Returns false if invalid arguments were specified.
+  examples:
+    - path: examples/getAccountsByData-1.lua
+      description: This example displays in the chat how many players are working in the police in a sample RPG gamemode after typing the command <code>policecount</code>.
+    - path: examples/getAccountsByData_OOP-1.lua
+      description: This example displays in the chat how many players are working in the police in a sample RPG gamemode after typing the command <code>policecount</code>.
+      oop: true
