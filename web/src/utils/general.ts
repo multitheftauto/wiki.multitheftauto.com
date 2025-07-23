@@ -243,7 +243,6 @@ export function extractVersion(versionString: string): string | null {
 }
 
 export function isVersionLE(v: string, ref: string): boolean {
-  console.log(v, ref);
   const toNums = (str: string) => str.split('.').map(n => parseInt(n, 10));
   const [a1, a2, a3] = toNums(v);
   const [b1, b2, b3] = toNums(ref);

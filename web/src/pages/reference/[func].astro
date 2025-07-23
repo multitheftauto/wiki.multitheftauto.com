@@ -142,7 +142,6 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
             const showUpdated = !!updatedVersion && isVersionLE(CURRENT, updatedVersion);
             const showRemoved = !!removedVersionRaw;
 
-            // Jeśli nie ma nic do pokazania
             if (!showRemoved && !showAdded && !showUpdated) {
                 return (
                     <ItemDescription
@@ -261,9 +260,10 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                         {syntax.parameters
                             .filter((param: any) => !param.default)
                             .map((param: any) => (
-                            <li
-                                set:html={`<strong>${param.name}</strong>: ${renderInlineMarkdown(param.description)}`}
-                            />
+                            <li>
+                                <strong>{param.name}</strong>:
+                                <EnhancedMarkdown content={param.description} inline={true}/>
+                            </li>
                             ))}
                         </ul>
                     </>
@@ -273,15 +273,14 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                     <>
                         <h5>Optional Arguments</h5>
                         <p><strong>NOTE</strong>: When using <a href="/reference/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
-                        <ul>
+                        <ul style="margin-top: 0;">
                         {syntax.parameters
                             .filter((param: any) => param.default)
                             .map((param: any) => (
-                            <li
-                                set:html={
-                                    `<strong>${param.name}</strong> (default: <em>${param.default}</em>): ${renderInlineMarkdown(param.description)}`
-                                }
-                            />
+                            <li>
+                                <strong>{param.name}</strong> (default: <em>{param.default}</em>):
+                                <EnhancedMarkdown content={param.description} inline={true}/>
+                            </li>
                             ))}
                         </ul>
                     </>

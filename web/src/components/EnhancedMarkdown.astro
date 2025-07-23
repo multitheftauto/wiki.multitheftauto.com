@@ -4,9 +4,10 @@ import { marked } from 'marked';
 
 interface Props {
   content: string;
+  inline?: boolean;
 }
 
-const { content } = Astro.props;
+const { content, inline = false } = Astro.props;
 
 
 // We shouldn't this as we're now organizing pages in folders
@@ -23,7 +24,7 @@ function convertMediaWikiLinks(text: string): string {
 }
 
 const processedContent = convertMediaWikiLinks(content);
-const tokens = marked.lexer(processedContent);
+const tokens = inline ? marked.Lexer.lexInline(processedContent) : marked.lexer(processedContent);
 ---
 
 {
@@ -31,6 +32,11 @@ const tokens = marked.lexer(processedContent);
     if (token.type === 'code') {
       return <Code code={token.text} lang={token.lang || 'text'} />;
     }
+
+    if (inline) {
+      return <Fragment set:html={marked.parseInline(token.raw ?? token.text ?? '')} />;
+    }
+
     return <Fragment set:html={marked.parser([token])} />;
   })
 }
