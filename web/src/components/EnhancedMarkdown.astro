@@ -17,7 +17,7 @@ function convertMediaWikiLinks(text: string): string {
   return text.replace(
     /\[\[([^|\]#]+)(?:#([^\]]+))?(?:\|([^\]]+))?\]\]/g,
     (_, link, hash, text) => {
-      const url = `/${link}${hash ? `#${hash}` : ''}`;
+      const url = `/reference/${link}${hash ? `#${hash}` : ''}`;
       return `[${text || link}](${url})`;
     }
   );
