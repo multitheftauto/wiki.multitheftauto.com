@@ -1,5 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/aclDestroy
 server:
   name: aclDestroy
-  description: TODO
-  incomplete: true
+  description: This function destroys the [[ACL]] passed. The destroyed ACL will no longer be valid.
+  oop:
+    element: acl
+    method: destroy
+  parameters:
+    - name: theACL
+      type: acl
+      description: The ACL to destroy.
+  returns:
+    values:
+      - type: bool
+        name: resullt
+    description: Returns true if successfully destroyed and false if it could not be deleted (ie. it's not valid).
+  examples:
+    - path: examples/aclDestroy-1.lua
+      description: This example shows you a command to delete an ACL.
+    - path: examples/aclDestroy_OOP-1.lua
+      description: This example shows you a command to delete an ACL.
+      oop: true

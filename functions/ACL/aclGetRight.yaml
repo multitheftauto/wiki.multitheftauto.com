@@ -1,5 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/aclGetRight
 server:
   name: aclGetRight
-  description: TODO
-  incomplete: true
+  pair: aclSetRight
+  description: This function returns whether the access for the given right is set to true or false in the [[ACL]].
+  oop:
+    element: acl
+    method: getRight
+  parameters:
+    - name: theAcl
+      type: acl
+      description: The [[ACL]] to get the right from.
+    - name: rightName
+      type: string
+      description: The right name to return the access value of.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true or false if the [[ACL]] gives access or not to the given function. Returns nil if it failed for some reason, e.g. an invalid ACL was specified or the right specified does not exist in the ACL.
+  examples:
+    - path: examples/aclGetRight-1.lua
+      description: This example lets players check if an ACL group has access to something or not.
+    - path: examples/aclGetRight_OOP-1.lua
+      description: This example lets players check if an ACL group has access to something or not.
+      oop: true

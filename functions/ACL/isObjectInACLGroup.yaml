@@ -1,5 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isObjectInACLGroup
 server:
   name: isObjectInACLGroup
-  description: TODO
-  incomplete: true
+  description: This function is used to determine if an object is in a group.
+  notes:
+    - type: tip
+      content: If you want to restrict access to certain things, instead of limiting it to specific groups using this function, consider using [[hasObjectPermissionTo]]. That way, you can restrict access to features regardless of group membership.
+  oop:
+    element: aclgroup
+    method: doesContainObject
+  parameters:
+    - name: theObject
+      type: string
+      description: 'The name of the object to check. Examples: "resource.ctf", "user.Jim".'
+    - name: theGroup
+      type: aclgroup
+      description: The [ACL group](/reference/aclgroup) pointer of the group from which the object should be found.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the object is in the specified group, false otherwise.
+  examples:
+    - path: examples/isObjectInACLGroup-1.lua
+      description: This example adds a <code>jetpack</code> command that is only available to admins. When entering the command, it will toggle the player's jetpack.
+    - path: examples/isObjectInACLGroup_OOP-1.lua
+      description: This example adds a <code>jetpack</code> command that is only available to admins. When entering the command, it will toggle the player's jetpack.
+      oop: true
+    - path: examples/isObjectInACLGroup-2.lua
+      description: This example displays a list of all the online admins in the chat box (assuming your administrator's group in your ACL is called <code>Admin</code>).
+    - path: examples/isObjectInACLGroup_OOP-2.lua
+      description: This example displays a list of all the online admins in the chat box (assuming your administrator's group in your ACL is called <code>Admin</code>).
+      oop: true

@@ -1,5 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/aclCreate
 server:
   name: aclCreate
-  description: TODO
-  incomplete: true
+  description: This function creates an [[ACL]] entry in the Access Control List system with the specified name.
+  oop:
+    element: ACL
+    constructorclass: ACL
+  parameters:
+    - name: aclName
+      type: string
+      description: The name of the [[ACL]] entry to add.
+  returns:
+    values:
+      - type: acl|false
+        name: acl object
+    description: Returns the created [[ACL]] object if successful. Returns false if an ACL of the given name could not be created.
+  examples:
+    - path: examples/aclCreate-1.lua
+      description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.
+    - path: examples/aclCreate_OOP-1.lua
+      description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.
+      oop: true

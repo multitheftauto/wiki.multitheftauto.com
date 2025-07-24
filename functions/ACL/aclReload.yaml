@@ -1,5 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/aclReload
 server:
   name: aclReload
-  description: TODO
-  incomplete: true
+  description: This function reloads the ACL's and the [ACL groups](/reference/aclgroup) from the ACL XML file. All [[ACL]] and [ACL group](/reference/aclgroup) elements are invalid after a call to this and should not be used anymore.
+  oop:
+    element: ACL
+    method: reload
+    static: true
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the XML was successfully reloaded from the file, false or nil if the XML was invalid, didn't exist or could not be loaded for some other reason.
+  examples:
+    - path: examples/aclReload-1.lua
+      description: This example allows an admin to reload the ACL by typing <code>/reloadACL</code>.
+    - path: examples/aclReload_OOP-1.lua
+      description: This example allows an admin to reload the ACL by typing <code>/reloadACL</code>.
+      oop: true

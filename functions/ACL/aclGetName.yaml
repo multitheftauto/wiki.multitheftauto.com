@@ -1,5 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/aclGetName
 server:
   name: aclGetName
-  description: TODO
-  incomplete: true
+  description: Get the name of given [[ACL]].
+  oop:
+    element: acl
+    method: getName
+    variable: name
+  parameters:
+    - name: theAcl
+      type: acl
+      description: The [[ACL]] to get the name of.
+  returns:
+    values:
+      - type: string|false
+        name: acl name
+    description: Returns the name of the given [[ACL]] as a string if successful. Returns false/nil if unsuccessful, ie the ACL is invalid.
+  examples:
+    - path: examples/aclGetName-1.lua
+      description: This example adds a command listacls which prints out a name list of all ACLs to the console.
+    - path: examples/aclGetName_OOP-1.lua
+      description: This example adds a command listacls which prints out a name list of all ACLs to the console.
+      oop: true

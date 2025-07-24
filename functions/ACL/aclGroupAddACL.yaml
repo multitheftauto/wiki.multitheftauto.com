@@ -1,5 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/aclGroupAddACL
 server:
   name: aclGroupAddACL
-  description: TODO
-  incomplete: true
+  description: |
+    This function adds the given [[ACL]] to the given [ACL group](/reference/aclgroup). This makes the resources and players in the given ACL group have access to what's specified in the given ACL. The rights for something in the different ACL's in a group are OR-ed together, which means if one ACL gives access to something, this ACL group will have access to that.
+  oop:
+    element: aclgroup
+    method: addACL
+  parameters:
+    - name: theGroup
+      type: aclgroup
+      description: The group to add the [[ACL]] to.
+    - name: theAcl
+      type: acl
+      description: The [[ACL]] to add to the group.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the [[ACL]] could be successfully added to the [ACL group](/reference/aclgroup), false/nil if either of the elements are invalid, the ACL is already in that group or if something else goes wrong.
+  examples:
+    - path: examples/aclGroupAddACL-1.lua
+      description: This example adds a command <code>addAclGroup</code> with which you can easily add new access control lists to specified acl Groups.
+    - path: examples/aclGroupAddACL_OOP-1.lua
+      description: This example adds a command <code>addAclGroup</code> with which you can easily add new access control lists to specified acl Groups.
+      oop: true
