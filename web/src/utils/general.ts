@@ -250,3 +250,14 @@ export function isVersionLE(v: string, ref: string): boolean {
   if (a2 !== b2) return a2 < b2;
   return a3 <= b3;
 }
+
+export function renderRevisionLink(versionRaw: string) {
+  const match = versionRaw.match(/r(\d+)/);
+  if (!match) return versionRaw;
+
+  const revisionNumber = match[1];
+  const beforeRevision = versionRaw.slice(0, match.index);
+  const url = `https://buildinfo.mtasa.com/?Author=&Branch=&Revision=${revisionNumber}`;
+
+  return `${beforeRevision}<a href="${url}" target="_blank" rel="noopener noreferrer">r${revisionNumber}</a>`;
+}

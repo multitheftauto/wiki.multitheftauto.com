@@ -2,7 +2,7 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { getCollection } from 'astro:content';
 import { getFunctionInfo, parseFunctionSyntaxes, getFixedStaticOOPClass } from '@src/utils/functions';
-import { renderInlineMarkdown, getSeeAlsoLinksForItem, extractVersion, isVersionLE } from '@src/utils/general';
+import { renderInlineMarkdown, getSeeAlsoLinksForItem, extractVersion, isVersionLE, renderRevisionLink } from '@src/utils/general';
 import fs from "fs";
 import path from "path";
 import { Code } from '@astrojs/starlight/components';
@@ -59,6 +59,7 @@ if (func.data.server && func.data.server.examples) {
     ...func.data.server.examples.map((ex: any) => ({ ...ex, side: 'server' })),
   ];
 }
+
 funcExamples = funcExamples.map((example: any) => {
     try {
         const luaCode = fs.readFileSync(path.resolve(`${funcPath}`, example.path), "utf8"); 
@@ -134,19 +135,23 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                     <div class="added-updated-description-box-header">
                         <p>
                             {showRemoved ? (
-                                <>
-                                    <strong>Before</strong> {removedVersionRaw}
-                                </>
+                            <>
+                                <strong>Before</strong> <span set:html={renderRevisionLink(removedVersionRaw)} />
+                            </>
                             ) : (
-                                <>
-                                    {showUpdated && (
-                                        <strong>Updated in {updatedVersionRaw}</strong>
-                                    )}
-                                    {showUpdated && showAdded && ' | '}
-                                    {showAdded && (
-                                        <strong>Added in {addedVersionRaw}</strong>
-                                    )}
-                                </>
+                            <>
+                                {showUpdated && (
+                                <strong>
+                                    Updated in <span set:html={renderRevisionLink(updatedVersionRaw)} />
+                                </strong>
+                                )}
+                                {showUpdated && showAdded && ' | '}
+                                {showAdded && (
+                                <strong>
+                                    Added in <span set:html={renderRevisionLink(addedVersionRaw)} />
+                                </strong>
+                                )}
+                            </>
                             )}
                         </p>
                     </div>
