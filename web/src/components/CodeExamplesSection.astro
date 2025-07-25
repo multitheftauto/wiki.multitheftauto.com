@@ -47,12 +47,11 @@ if (codeExamples.length === 0 && !examplesRequired) {
 
       {codeExamples.map((example, index) => (
         <div
-          class="tab-content"
+          class={`tab-content side-${example.side}`}
           data-tab={index}
           style={{
             display: index === 0 ? 'flex' : 'none',
             flexDirection: 'column',
-            border: `2px solid var(--color-type-${example.side}-background-high)`
           }}
         >
           <div class={`tab-header side-${example.side} active`}>

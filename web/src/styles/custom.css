@@ -2,13 +2,16 @@
 :root {
     --color-type-shared: rgba(47, 135, 212, 1);
     --color-type-shared-background: rgba(117, 117, 255, 0.05);
-    --color-type-shared-background-high: rgba(117, 117, 255, 0.5);
+    --color-type-shared-background-high-dark: rgb(39, 112, 175);
+    --color-type-shared-background-high-light: rgba(50, 159, 255, 0.549);
     --color-type-client: rgba(221, 91, 91, 1);
     --color-type-client-background: rgba(255, 50, 50, 0.05);
-    --color-type-client-background-high: rgba(255, 50, 50, 0.5);
+    --color-type-client-background-high-dark: rgba(255, 50, 50, 0.5);
+    --color-type-client-background-high-light: rgba(255, 50, 50, 0.5);
     --color-type-server: rgba(212, 154, 47, 1);
     --color-type-server-background: rgba(232, 115, 0, 0.05);
-    --color-type-server-background-high: rgba(193, 131, 18, 1);
+    --color-type-server-background-high-dark: rgb(193, 131, 18);
+    --color-type-server-background-high-light: rgba(255, 154, 50, 0.502);
     --color-mta-orange: rgba(232, 115, 0, 1);
     
     /* Override Starlight styling */
@@ -118,7 +121,7 @@
 }
 
 .tab-btn.active {
-  color: white;
+  color: var(--sl-color-text);
   font-weight: bold;
 }
 
@@ -137,7 +140,8 @@
 .tab-content {
   display: flex;
   flex-direction: column;
-  background-color: var(--sl-color-bg-nav);
+  background-color: var(--sl-color-bg-nav) !important;
+  border: 2px solid;
   box-shadow: 0.2rem 0.2rem 0.2rem #0000005b;
 }
 
@@ -146,8 +150,12 @@
   border-color: var(--color-type-client);
 }
 
-.side-client.active {
-  background-color: var(--color-type-client-background-high);
+:root[data-theme='dark'] .side-client.active {
+  background-color: var(--color-type-client-background-high-dark);
+}
+
+:root[data-theme='light'] .side-client.active {
+  background-color: var(--color-type-client-background-high-light);
 }
 
 .side-server {
@@ -155,8 +163,12 @@
   border-color: var(--color-type-server);
 }
 
-.side-server.active {
-  background-color: var(--color-type-server-background-high);
+:root[data-theme='dark'] .side-server.active {
+  background-color: var(--color-type-server-background-high-dark);
+}
+
+:root[data-theme='light'] .side-server.active {
+  background-color: var(--color-type-server-background-high-light);
 }
 
 .side-shared {
@@ -164,6 +176,10 @@
   border-color: var(--color-type-shared);
 }
 
-.side-shared.active {
-  background-color: var(--color-type-shared-background-high);
+:root[data-theme='dark'] .side-shared.active {
+  background-color: var(--color-type-shared-background-high-dark);
+}
+
+:root[data-theme='light'] .side-shared.active {
+  background-color: var(--color-type-shared-background-high-light);
 }
