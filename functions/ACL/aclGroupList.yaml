@@ -2,7 +2,7 @@ server:
   name: aclGroupList
   description: This function returns a [[table]] of all the ACL groups.
   oop:
-    element: ACLGroup
+    element: aclgroup
     method: list
     static: true
   returns:

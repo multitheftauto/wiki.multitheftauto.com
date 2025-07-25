@@ -2,7 +2,7 @@ server:
   name: aclCreate
   description: This function creates an [[ACL]] entry in the Access Control List system with the specified name.
   oop:
-    element: ACL
+    element: acl
     constructorclass: ACL
   parameters:
     - name: aclName

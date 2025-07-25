@@ -2,7 +2,7 @@ server:
   name: aclGet
   description: Get the [[ACL]] with the given name. If need to get most of the ACL's, you should consider using [[aclList]] to get a table of them all.
   oop:
-    element: ACL
+    element: acl
     method: get
     static: true
   parameters:

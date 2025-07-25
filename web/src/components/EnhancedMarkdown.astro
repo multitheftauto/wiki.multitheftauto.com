@@ -14,10 +14,15 @@ const { content, inline = false } = Astro.props;
 // TODO let's move away from MediaWiki links in the future
 
 function convertMediaWikiLinks(text: string): string {
+  const redirects: Record<string, string> = {
+    'ACL': 'acl',
+  };
+
   return text.replace(
     /\[\[([^|\]#]+)(?:#([^\]]+))?(?:\|([^\]]+))?\]\]/g,
     (_, link, hash, text) => {
-      const url = `/reference/${link}${hash ? `#${hash}` : ''}`;
+      const redirectedLink = redirects[link] ?? link;
+      const url = `/reference/${redirectedLink}${hash ? `#${hash}` : ''}`;
       return `[${text || link}](${url})`;
     }
   );

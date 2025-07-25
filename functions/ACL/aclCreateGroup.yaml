@@ -2,7 +2,7 @@ server:
   name: aclCreateGroup
   description: This function creates a group in the [[ACL]]. An [[ACL]] group can contain objects like players and resources. They specify who has access to the ACL's in this group.
   oop:
-    element: ACLGroup
+    element: aclgroup
     constructorclass: ACLGroup
   parameters:
     - name: groupName

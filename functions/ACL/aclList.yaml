@@ -2,7 +2,7 @@ server:
   name: aclList
   description: This function returns a list of all the ACLs.
   oop:
-    element: ACL
+    element: acl
     method: list
     static: true
   returns:

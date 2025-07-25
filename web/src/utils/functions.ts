@@ -250,6 +250,10 @@ export function getFunctionsByTypeByCategory(): FunctionsByTypeByCategory {
 export function getFixedStaticOOPClass(elementName: string): string {
     if (elementName === 'xmlnode') {
       return 'XML';
+    } else if (elementName === "aclgroup") {
+      return 'ACLGroup';
+    } else if (elementName === "acl") {
+      return 'ACL';
     }
     return elementName.charAt(0).toUpperCase() + elementName.slice(1);
 }

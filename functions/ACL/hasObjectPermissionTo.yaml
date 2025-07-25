@@ -6,7 +6,7 @@ server:
     The main issue with doing this is that the Admin group is not guaranteed to exist. It also doesn't give the server admin any flexibility.
     He might want to allow his 'moderators' access to the function you're limiting access to, or he may want it disabled entirely.
   oop:
-    element: ACL
+    element: acl
     method: hasObjectPermissionTo
     static: true
   parameters:

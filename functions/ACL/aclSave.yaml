@@ -2,7 +2,7 @@ server:
   name: aclSave
   description: The ACL XML file is automatically saved whenever the [[ACL]] is modified, but the automatic save can be delayed by up to 10 seconds for performance reasons. Calling this function will force an immediate save.
   oop:
-    element: ACL
+    element: acl
     method: save
     static: true
   returns:

@@ -2,7 +2,7 @@ server:
   name: aclGetGroup
   description: This function is used to get the [[ACL]] group with the given name. If you need most of the groups you should consider using [[aclGroupList]] instead to get a [[table]] containing them all.
   oop:
-    element: ACLGroup
+    element: aclgroup
     method: get
     static: true
   parameters:
