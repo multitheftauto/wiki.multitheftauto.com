@@ -198,13 +198,6 @@
       }
     },
     {
-      "scope": "entity.name.class.lua",
-      "settings": {
-        "foreground": "#4ec9b0",
-        "fontStyle": "bold"
-      }
-    },
-    {
       "scope": "entity.other.attribute.lua",
       "settings": {
         "foreground": "#68cbe1"

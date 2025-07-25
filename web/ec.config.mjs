@@ -32,6 +32,7 @@ const hybridLightTheme = {
 
 export default {
   themes: [hybridDarkTheme, hybridLightTheme],
+  minSyntaxHighlightingColorContrast: 4.5,
   shiki: {
     langs: [
       {
