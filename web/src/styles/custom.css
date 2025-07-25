@@ -51,6 +51,17 @@
     margin-bottom: 0;
 }
 
+/* Styling for "Client-side / Server-side / Shared" */
+.side-shared {
+    color: var(--color-type-shared);
+}
+.side-client {
+    color: var(--color-type-client);
+}
+.side-server {
+    color: var(--color-type-server);
+}
+
 .mta-keyword-link {
     color: inherit;
     text-decoration: none;
