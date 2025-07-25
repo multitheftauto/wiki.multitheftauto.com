@@ -66,6 +66,10 @@
 
 .mta-keyword-link:hover {
     font-weight: 100;
+    text-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 20px currentColor;
 }
 
 .added-updated-description-box {
