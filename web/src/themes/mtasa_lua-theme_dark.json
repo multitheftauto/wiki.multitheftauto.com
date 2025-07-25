@@ -10,7 +10,7 @@
     {
       "scope": "support.function",
       "settings": {
-        "foreground": "#dcdcaa",
+        "foreground": "#5fb485",
         "fontStyle": "bold"
       }
     },
@@ -18,7 +18,7 @@
     {
       "scope": "entity.name.function.lua",
       "settings": {
-        "foreground": "#dcdcaa",
+        "foreground": "#5fb485",
         "fontStyle": "bold"
       }
     },
@@ -50,7 +50,7 @@
     {
       "scope": "keyword.mta",
       "settings": {
-        "foreground": "#6edbdb",
+        "foreground": "#10b7b7",
         "fontStyle": "bold"
       }
     },
@@ -58,7 +58,7 @@
     {
       "scope": "meta.function.lua",
       "settings": {
-        "foreground": "#dcdcaa"
+        "foreground": "#5fb485"
       }
     },
     {
@@ -76,20 +76,20 @@
     {
       "scope": "meta.parameter.lua",
       "settings": {
-        "foreground": "#9cdcfe"
+        "foreground": "#68cbe1"
       }
     },
     {
       "scope": "variable.parameter.function.lua",
       "settings": {
-        "foreground": "#9cdcfe",
+        "foreground": "#68cbe1",
         "fontStyle": "italic"
       }
     },
     {
       "scope": "punctuation.separator.arguments.lua",
       "settings": {
-        "foreground": "#d4d4d4"
+        "foreground": "#fac761"
       }
     },
     {
@@ -107,7 +107,7 @@
         "constant.numeric.integer.lua"
       ],
       "settings": {
-        "foreground": "#b5cea8",
+        "foreground": "#f9ae58",
         "fontStyle": ""
       }
     },
@@ -120,14 +120,14 @@
     {
       "scope": "comment.line.shebang.lua",
       "settings": {
-        "foreground": "#6a9955",
+        "foreground": "#9a9b9a",
         "fontStyle": "italic"
       }
     },
     {
       "scope": "comment.lua",
       "settings": {
-        "foreground": "#6a9955",
+        "foreground": "#9a9b9a",
         "fontStyle": "italic"
       }
     },
@@ -141,53 +141,53 @@
     {
       "scope": "string.tag.lua",
       "settings": {
-        "foreground": "#c586c0"
+        "foreground": "#ba84cb"
       }
     },
     {
       "scope": "storage.type.attribute.lua",
       "settings": {
-        "foreground": "#4ec9b0"
+        "foreground": "#2c10e0"
       }
     },
     {
       "scope": "storage.type.generic.lua",
       "settings": {
-        "foreground": "#9cdcfe"
+        "foreground": "#e010d2"
       }
     },
     {
       "scope": "keyword.control.lua",
       "settings": {
-        "foreground": "#c586c0",
+        "foreground": "#ba84cb",
         "fontStyle": "bold"
       }
     },
     {
       "scope": "keyword.local.lua",
       "settings": {
-        "foreground": "#c586c0",
+        "foreground": "#ba84cb",
         "fontStyle": "bold"
       }
     },
     {
       "scope": "constant.language.lua",
       "settings": {
-        "foreground": "#d42f66",
+        "foreground": "#ec5f66",
         "fontStyle": "italic"
       }
     },
     {
       "scope": "variable.language.self.lua",
       "settings": {
-        "foreground": "#9cdcfe",
+        "foreground": "#ec5f66",
         "fontStyle": "italic"
       }
     },
     {
       "scope": "entity.name.tag.lua",
       "settings": {
-        "foreground": "#c586c0",
+        "foreground": "#ba84cb",
         "fontStyle": "bold"
       }
     },
@@ -195,13 +195,6 @@
       "scope": "support.function.library.lua",
       "settings": {
         "foreground": "#d7ba7d"
-      }
-    },
-    {
-      "scope": "keyword.operator.lua",
-      "settings": {
-        "foreground": "#c586c0",
-        "fontStyle": "bold"
       }
     },
     {
@@ -214,7 +207,7 @@
     {
       "scope": "entity.other.attribute.lua",
       "settings": {
-        "foreground": "#9cdcfe"
+        "foreground": "#68cbe1"
       }
     },
     {
@@ -223,49 +216,51 @@
         "foreground": "#d4d4d4"
       }
     },
+
     {
       "scope": "keyword.operator.lua",
       "settings": {
-        "foreground": "#c586c0"
+        "foreground": "#f97b58"
       }
     },
+
     {
       "scope": "punctuation.whitespace.comment.leading.lua",
       "settings": {
-        "foreground": "#6a9955"
+        "foreground": "#9a9b9a"
       }
     },
     {
       "scope": "punctuation.whitespace.comment.trailing.lua",
       "settings": {
-        "foreground": "#6a9955"
+        "foreground": "#9a9b9a"
       }
     },
     {
       "scope": "punctuation.definition.comment.begin.lua",
       "settings": {
-        "foreground": "#57a64a",
+        "foreground": "#9a9b9a",
         "fontStyle": "bold"
       }
     },
     {
       "scope": "punctuation.definition.comment.end.lua",
       "settings": {
-        "foreground": "#57a64a",
+        "foreground": "#9a9b9a",
         "fontStyle": "bold"
       }
     },
     {
       "scope": "comment.block.lua",
       "settings": {
-        "foreground": "#6a9955",
+        "foreground": "#9a9b9a",
         "fontStyle": "italic"
       }
     },
     {
       "scope": "comment.line.double-dash.lua",
       "settings": {
-        "foreground": "#6a9955"
+        "foreground": "#9a9b9a"
       }
     },
     {
@@ -291,13 +286,13 @@
     {
       "scope": "support.type.lua",
       "settings": {
-        "foreground": "#9cdcfe"
+        "foreground": "#68cbe1"
       }
     },
     {
       "scope": "entity.name.variable.lua",
       "settings": {
-        "foreground": "#9cdcfe"
+        "foreground": "#68cbe1"
       }
     },
     {
@@ -353,31 +348,31 @@
     {
       "scope": "string.quoted.single.lua",
       "settings": {
-        "foreground": "#98c379"
+        "foreground": "#99c794"
       }
     },
     {
       "scope": "string.quoted.double.lua",
       "settings": {
-        "foreground": "#98c379"
+        "foreground": "#99c794"
       }
     },
     {
       "scope": "string.quoted.other.multiline.lua",
       "settings": {
-        "foreground": "#98c379"
+        "foreground": "#99c794"
       }
     },
     {
       "scope": "punctuation.definition.string.begin.lua",
       "settings": {
-        "foreground": "#d19a66"
+        "foreground": "#5fb4b4"
       }
     },
     {
       "scope": "punctuation.definition.string.end.lua",
       "settings": {
-        "foreground": "#d19a66"
+        "foreground": "#5fb4b4"
       }
     },
     {

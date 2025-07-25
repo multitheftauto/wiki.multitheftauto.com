@@ -1,14 +1,14 @@
 /* Custom MTA Wiki CSS */
 :root {
-    --color-type-shared: rgba(117, 117, 255, 1);
+    --color-type-shared: rgba(47, 135, 212, 1);
     --color-type-shared-background: rgba(117, 117, 255, 0.05);
     --color-type-shared-background-high: rgba(117, 117, 255, 0.5);
     --color-type-client: rgba(255, 50, 50, 1);
     --color-type-client-background: rgba(255, 50, 50, 0.05);
     --color-type-client-background-high: rgba(255, 50, 50, 0.5);
-    --color-type-server: rgba(232, 115, 0, 1);
+    --color-type-server: rgba(212, 154, 47, 1);
     --color-type-server-background: rgba(232, 115, 0, 0.05);
-    --color-type-server-background-high: rgba(232, 115, 0, 0.5);
+    --color-type-server-background-high: rgba(193, 131, 18, 1);
     --color-mta-orange: rgba(232, 115, 0, 1);
     
     /* Override Starlight styling */
