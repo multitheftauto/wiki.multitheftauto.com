@@ -1,5 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getBans
 server:
   name: getBans
-  description: TODO
-  incomplete: true
+  description: This function will return a [[table]] containing all the bans present in the server's *banlist.xml*.
+  oop:
+    element: ban
+    method: getList
+    static: true
+  returns:
+    values:
+      - type: table
+        name: bans
+    description: Returns a [[table]] containing all the bans.
+  examples:
+    - path: examples/getBans-1.lua
+      description: |
+        This example lists every [[ban]] when somebody types <code>/bans</code>. **WARNING: This will spam chat (for the player that executed the command) if the server has a lot of bans.**
+    - path: examples/getBans_OOP-1.lua
+      description: |
+        This example lists every [[ban]] when somebody types <code>/bans</code>. **WARNING: This will spam chat (for the player that executed the command) if the server has a lot of bans.**
+      oop: true

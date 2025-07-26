@@ -1,5 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getBanNick
 server:
   name: getBanNick
-  description: TODO
-  incomplete: true
+  pair: setBanNick
+  description: This function will return the nickname (**nickname that the player had when he was banned**) of the specified [[ban]].
+  oop:
+    element: ban
+    method: getNick
+    variable: nick
+  parameters:
+    - name: theBan
+      type: ban
+      description: The [[ban]] element which nickname you want to return.
+  returns:
+    values:
+      - type: string|false
+        name: nick
+    description: Returns a string of the nickname if everything was successfull, false if invalid arguments are specified if there was no nickname specified for the [[ban]] element.
+  examples:
+    - path: examples/getBanNick-1.lua
+    - path: examples/getBanNick_OOP-1.lua
+      oop: true

@@ -1,5 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/kickPlayer
 server:
   name: kickPlayer
-  description: TODO
-  incomplete: true
+  description: This function will kick the specified [[player]] from the server.
+  oop:
+    element: player
+    method: kick
+  parameters:
+    - name: kickedPlayer
+      type: player
+      description: The player that will be kicked from the server.
+    - name: responsiblePlayer
+      type: player/string
+      description: The [[player]] or [[string]] that is responsible for the event. Maximum 30 characters if using a [[string]].
+      default: "\"Console\""
+    - name: reason
+      type: string
+      description: The reason for the kick. Max 125 characters.
+      default: "\"\""
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the player was kicked succesfully, false if invalid arguments are specified.
+  examples:
+    - path: examples/kickPlayer-1.lua
+      description: This example lets a player kick anyone who has a lower level.
+    - path: examples/kickPlayer_OOP-1.lua
+      description: This example lets a player kick anyone who has a lower level.
+      oop: true

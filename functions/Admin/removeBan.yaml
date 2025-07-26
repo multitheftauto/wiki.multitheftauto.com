@@ -1,5 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeBan
 server:
   name: removeBan
-  description: TODO
-  incomplete: true
+  description: This function will remove a specific [[ban]].
+  oop:
+    element: ban
+    method: remove
+  parameters:
+    - name: theBan
+      type: ban
+      description: The ban to be removed.
+    - name: responsibleElement
+      type: player
+      description: The element that is responsible for removing the ban element. This can be a [[player]] or the [[root]].
+      default: 'nil'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the ban was removed succesfully, false if invalid arguments are specified.
+  examples:
+    - path: examples/removeBan-1.lua
+      description: This example removes all the bans when the resource is started and outputs to everyone the players.
+    - path: examples/removeBan_OOP-1.lua
+      description: This example removes all the bans when the resource is started and outputs to everyone the players.
+      oop: true
