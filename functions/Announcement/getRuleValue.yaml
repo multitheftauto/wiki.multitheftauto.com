@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getRuleValue
 server:
   name: getRuleValue
-  description: TODO
-  incomplete: true
+  pair: setRuleValue
+  description: This function gets a rule value. A rule value is a string that can be viewed by server browsers and used for filtering the server list.
+  returns:
+    values:
+      - type: string|nil
+        name: rule value
+    description: This example shows how you can check if a rule is set.
+
+  examples:
+    - path: examples/getRuleValue-1.lua
+      description: This example shows how you can check if a rule is set.

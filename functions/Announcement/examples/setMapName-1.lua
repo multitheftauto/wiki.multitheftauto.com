@@ -1,0 +1,1 @@
+setMapName("My amazing map!")
