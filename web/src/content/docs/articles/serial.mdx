@@ -1,0 +1,36 @@
+---
+title: Serial
+---
+import NoteBox from '@src/components/NoteBox.astro';
+
+<NoteBox type='important'>**NEVER** use serials for anything too critical (like handling admin rights, or automatically logging in) as they can't be guaranteed to be unique or non-fakable.</NoteBox>
+
+Serials are used by MTA and server administrators to reliably identify a PC that a player is using. Serials are 32 characters long and contain letters and numbers.
+
+They are mostly used for banning players, because a computer with a [dynamic IP](http://en.wikipedia.org/wiki/Dynamic_IP) can change IP every now and then, making IP bans ineffective. MTA wants to give server owners a more reliable way to ban players and keep out unwanted players, which is why serials were invented.
+
+Their reliability is so high that many players tend to have the same serial for 6 years or longer (in theory unlimited amount of years) unless they use a different PC at some point. This gives serials a wide range of potential uses in scripting and anti-abuse purposes and systems. But for vast reasons, please avoid using them in place of user accounts, a practise that will come with a variety of problems (some of which for security reasons we won't mention, and situations like when a player starts using a different PC and loses their account data without ability to transfer it, or somehow ends up changing their serial as per the below paragraph (intended or by accident). So basically, again, do not rely on serials for critical functions on your server. Even more so, it's not guaranteed that serials cannot be compromised (hackers using someone else's serial), hence the warning that tells you to never use serials for anything critical.
+
+### Notes
+<hr/>
+Serials are the most accurate form of identifying players that MTA has. However, you shouldn't rely on them entirely: players may change their serial, although this is very difficult to do due to MTA AC protections (serials aren't only based on hardware, but more). Besides, a player can simply use another computer with a different serial in order to fool your scripts or evade server bans.
+
+Please note that the reliability of serials isn't as high for internet cafe's. In internet cafe's, the risk of serial duplication is present (Due to technical limitations we don't want to explain for security concerns).
+This applies globally, so the PC of multiple players from around the world (in different internet cafe's) can have the same serial as eachother. If you suspect a duplication like this, please check the player for AC / SD code #34.
+This is easily done in the default Admin panel (under "AC Detected" on player info), but note that if your server has a high amount of problems due to duplicated serials from netcafe players, you could make a special script to alternate for those players or eventually put SD #34 in your mtaserver.conf (see [AC guide - CTRL + F to SD #34](https://wiki.multitheftauto.com/wiki/Anti-cheat_guide#.3Cenablesd.3E.3C.2Fenablesd.3E) but also make sure to read the warning on that entry, so as not to overuse it/only use it when you have no other choice.
+
+### Practical Examples
+<hr/>
+You can find the serial of an individual player by opening the admin panel, selecting the relevant player from list and looking at the player information tab, or by opening **server\mods\deathmatch\logs\ > server.log** and finding a relevant entry, which will look like this:
+
+<code>CONNECT: PlayerName connected (IP: 11.246.33.390 Serial: 3AE8CACD72H193D950D0T3L6373AQ144 Version: 1.5.8-9.20802.0)</code>. In this example, that player's serial would be <code>3AE8CACD72H193D950D0T3L6373AQ144</code>.
+
+In order to ban this player from your server, you'd go to 'Bans' tab in admin panel and select "Ban Serial", then enter that serial.. or the equivalent in your custom admin panel / using [addBan](/reference/addBan), [banPlayer](/reference/banPlayer), or by editing <code>banlist.xml</code> to add that entry while the server is not running.
+
+### Related scripting functions
+<hr/>
+<ul>
+    <li>[getPlayerSerial](/reference/getPlayerSerial)</li>
+    <li>[getAccountSerial](/reference/getAccountSerial)</li>
+    <li>[setAccountSerial](/reference/setAccountSerial)</li>
+</ul>

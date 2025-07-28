@@ -1,6 +1,6 @@
 server:
   name: getAccountsBySerial
-  description: This function returns a [[table]] containing all accounts that were logged onto from specified [serial](articles/serial).
+  description: This function returns a [[table]] containing all accounts that were logged onto from specified [serial](/articles/serial).
   oop:
     element: Account
     static: true

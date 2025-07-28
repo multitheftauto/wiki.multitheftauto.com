@@ -1,6 +1,6 @@
 server:
   name: getAccountSerial
-  description: This function returns the last [serial](articles/serial) that logged onto the specified [[account]].
+  description: This function returns the last [serial](/articles/serial) that logged onto the specified [[account]].
   oop:
     element: account
     method: getSerial
