@@ -58,7 +58,7 @@ async function generateTmLanguage() {
 
   if (allKeywords.length > 0) {
     patterns.push({
-      match: `\\b(${allKeywords.join('|')})\\b`,
+      match: `\\b(${allKeywords.join('|')})\\b(?!\\s*(=|,|;|\\(|\\[|\\)))`,
       name: 'keyword.mta',
     });
   }
