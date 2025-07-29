@@ -112,6 +112,7 @@ export default defineConfig({
 								{label: 'MTAServer.conf', link: '/reference/Server_mtaserver.conf'},
 								{label: 'Settings.xml', link: '/reference/Settings_System'},
 								{label: 'ACL.xml', link: '/reference/Access_Control_List'},
+								{label: 'Anti cheat guide', link: '/reference/Anti_Cheat_Guide'},
 							]
 						},
 					]
