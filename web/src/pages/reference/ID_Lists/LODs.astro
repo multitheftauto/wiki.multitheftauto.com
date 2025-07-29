@@ -1,0 +1,59 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { lod_table } from '@src/data/lod_table';
+---
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Models LOD list',
+    tableOfContents: false,
+}}>
+
+<input id="filterInput" placeholder="🔍 Filter by any column: Model ID, Model Name, LOD ID, LOD Name, TXD, IDE..." style="margin-bottom: 1rem; width: 100%;" />
+
+<div style="display: flex; justify-content: center;">
+    <table>
+      <thead>
+          <tr>
+          <th>Model ID</th>
+          <th>Model name (DFF)</th>
+          <th>Texture name (TXD)</th>
+          <th>LOD model ID</th>
+          <th>LOD model name (DFF)</th>
+          <th>LOD texture name (TXD)</th>
+          <th>IDE File</th>
+          </tr>
+      </thead>
+      <tbody id="tableBody">
+          {lod_table.map(([id, lod_id, dff, txd, lod_dff, lod_txd, ide], i) => (
+          <tr>
+              <td>{id}</td>
+              <td>{dff}</td>
+              <td>{txd}</td>
+              <td>{lod_id ?? 'N/A'}</td>
+              <td>{lod_dff ?? 'N/A'}</td>
+              <td>{lod_txd ?? 'N/A'}</td>
+              <td>{ide ?? 'N/A'}</td>
+          </tr>
+          ))}
+      </tbody>
+    </table>
+</div>
+
+<script>
+  const filterInput = document.getElementById('filterInput');
+  const tableBody = document.getElementById('tableBody');
+
+  filterInput.addEventListener('input', () => {
+    const filter = filterInput.value.toLowerCase();
+
+    [...tableBody.rows].forEach(row => {
+      const match = [...row.cells].some(cell =>
+        cell.textContent.toLowerCase().includes(filter)
+      );
+
+      row.style.display = match ? '' : 'none';
+    });
+  });
+</script>
+
+</StarlightPage>
