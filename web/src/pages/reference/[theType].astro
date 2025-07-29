@@ -5,15 +5,24 @@ import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
 
 export async function getStaticPaths() {
   const theTypes = await getCollection('types');
+
   // Remove types that don't have description
-  const filteredTypes = theTypes.filter(theType => theType.data && theType.data.description && theType.data.description.trim() !== '');
-  return filteredTypes.map(theType => ({
-    params: { theType: theType.id },
-    props: { theType },
-  }));
+  return theTypes
+    .filter((theType) => {
+      const hasDescription = theType.data?.description?.trim();
+      const hasRedirect = theType.data?.redirect?.trim();
+      return hasDescription || hasRedirect;
+    })
+    .map((theType) => ({
+      params: { theType: theType.id },
+      props: { theType },
+    }));
 }
 
 const { theType } = Astro.props;
+
+if (theType.data.redirect)
+  return Astro.redirect(theType.data.redirect);
 ---
 
 <StarlightPage frontmatter={{
