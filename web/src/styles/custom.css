@@ -194,3 +194,24 @@
 :root[data-theme='light'] .side-shared.active {
   background-color: var(--color-type-shared-background-high-light);
 }
+
+.table {
+  width: auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid var(--sl-color-gray-3);
+  padding: 8px;
+  text-align: center;
+  color: var(--sl-color-text);
+}
+    
+th {
+  background-color: var(--sl-color-hairline);
+  font-weight: bold;
+}
+    
+td {
+  background-color: var(--sl-color-bg-inline-code);
+}
