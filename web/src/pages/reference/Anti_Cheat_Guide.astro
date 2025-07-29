@@ -1,0 +1,396 @@
+---
+import NoteBox from '@src/components/NoteBox.astro';
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+---
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Anti cheat guide',
+}}>
+
+<NoteBox type='warning'>This page doesn't contain any information about the MTA AC, but just about customizing additional anti-cheat features. If you are interested, read general information at <a href="https://forum.mtasa.com/topic/66858-bounty-for-finding-security-flaws-and-working-cheats-in-mta/">forum</a> (including the spoiler) and also refer there for other things like reporting a vulnerability/working cheat.</NoteBox>
+
+<p>This guide explains how you can fine-tune MTA's anti-cheat on your server using <a href="/reference/Server_mtaserver.conf/">mtaserver.conf</a>. It does not allow players to modify their own AC settings.</p>
+
+<p>An anti-cheat helper resource, <strong>acpanel</strong>, is included as a default resource. This shows the current anti-cheat status of your server, along with an option to keep your clients up to date and a basic implementation of <a href="/reference/onPlayerModInfo/">onPlayerModInfo</a> to block modified img files.</p>
+<p>You may want to fine-tune AC to prevent certain players have from having an unfair advantage or to ensure competitive integrity. The settings you provide depends entirely on the kind of server you run. Here are some examples on what can be achieved:</p>
+
+<p><strong>Problem:</strong> Alice tries to ram the vehicle of Eve, and Alice can clearly see the collision, but Eve's vehicle is not really moving.</p>
+<strong>Explanation:</strong> Eve has changed their vehicle model to a much smaller vehicle, or a model with a tiny hitbox or (nearly absent) collisions.
+<p><strong>Solution:</strong> Disallow non-standard gta3.img.</p>
+
+<p><strong>Problem:</strong> Eve seems to be using wallhacks! She even seems to even be shooting through them!</p>
+<strong>Explanation:</strong> Eve has replaced buildings so that they are either invisible (textures) or tiny (models).
+<p><strong>Solution:</strong> Disallow non-standard gta3.img.</p>
+
+<p><strong>Problem:</strong> Mallory seems to be solving complex maths questions instantly! It should take at least a couple of seconds... for humans.</p>
+<strong>Explanation:</strong> Mallory is injecting keyboard input via something like AutoHotkey
+<p><strong>Solution:</strong> Enable <strong>SD #31</strong> to prevent users from injecting keyboard input. You can use <strong>SD #32</strong> for injected mouse input (e.g. for scripts that require natural skill from mouse input).</p>
+
+<p><strong>Problem:</strong> Mallory seems to be spamming my commands and GUI... and it lags my entire server!</p>
+<strong>Explanation:</strong> You are running expensive user-initiated code without rate limiting players.<br/>
+<strong>Solution:</strong> You should write code that prevents players from spamming certain actions.
+<p><strong>Lazy Solution:</strong> Enable <strong>SD #31/#32</strong> to make it more difficult for players to spam certain actions.</p>
+
+<h3>&lt;disableac&gt;&lt;/disableac&gt;</h3>
+<hr/>
+Comma separated list of disabled anti-cheats. This setting disables specific AC codes.
+If a detection is triggered and it's not disabled by the server, a player will get kicked and be shown the AC code corresponding to that detection.
+<strong>Note that the list is incomplete</strong> (it doesn't cover all AC codes that exist) because not all AC codes can be disabled for security reasons, e.g they are critical part of the anti-cheat and likewise we will also never provide information about what exactly they mean.
+
+<NoteBox type="important"><b>DISCLAIMER:</b> Please note that disableac will only void the AC # kick for using GTA singleplayer cheats and some very basic, outdated and patched MP cheats (such as s0beit). Hacks & cheats designed for MTA or other general hacking tools may still trigger a Global ban or kick. If you try to use a typical MTA cheat or hacktool under the belief using disableAC will save your day, and get banned for a while, it's your own fault, regardless of this setting being used to disable any of the AC classifications that it may fall under.
+There is also a good chance that disabling certain detections won't enable your players to (even) use the majority of 'basic' GTA:SA trainers, but result in a kick only. Due to the current state of MTA anti-cheat, and its advanced heuristics, it's simply not feasible to try and create a freehaven for cheaters. You can experiment, but we don't recommend using <strong>disableac</strong> for these reasons.</NoteBox>
+
+<NoteBox type="info">With trainer, cheats (for MTA or GTA) or forbidden cheat tools are meant. This is especially true for AC #4. Please note that getting kicked for anything listed here isn't neccesarily (intended) hacking, someone can open hacktools that they plan to use for another game, while both that game and MTA are opened, and be kicked. It's also possible that someone isn't aware of certain software containing hack/tamper features (making it prohibited) when they run it and get kicked. Basically, (the intent of) cheating on MTA or your server can never be proven by triggering these detections alone.</NoteBox>
+
+<h4>Available codes</h4>
+<div style="display: flex; justify-content: center;">
+    <table class="actable">
+        <tbody>
+            <tr>
+                <th scope="col">Code for &lt;disableac&gt; </th>
+                <th scope="col">Displayed on detect </th>
+                <th scope="col">Required server version </th>
+                <th scope="col">Required &lt;minclientversion&gt; </th>
+                <th scope="col">Notes </th>
+            </tr>
+            <tr>
+                <td scope="row"><b>1</b></td>
+                <td>AC #1 </td>
+                <td>any </td>
+                <td> </td>
+                <td>Classic health/armour hack detector</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>2</b></td>
+                <td>AC #2 </td>
+                <td>any </td>
+                <td> </td>
+                <td>Corrupted dll files</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>4</b></td>
+                <td>AC #4 </td>
+                <td>any </td>
+                <td> </td>
+                <td>General security violation. This is the most common AC code for attempted cheating, prohibited tools, GTA trainers, or inadvertently running a cheat for another game while MTA is opened. <br/><br/>Note: disabling this code is unlikely to produce expected results, in accordance with what is mentioned in the "DISCLAIMER" part.</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>5</b></td>
+                <td>AC #5 </td>
+                <td>any </td>
+                <td> </td>
+                <td>Detects use of trainer.</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>6</b></td>
+                <td>VF #6</td>
+                <td>any </td>
+                <td> </td>
+                <td>Detects use of trainer incl.: player movement, health/damage, weapons, money, gamespeed, game cheats, aimbot</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>7</b></td>
+                <td>VF #7</td>
+                <td>any </td>
+                <td> </td>
+                <td>Detects use of trainer.</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>8</b></td>
+                <td>VF #8</td>
+                <td>any </td>
+                <td> </td>
+                <td>Detects unauthorized mods</td>
+            </tr>
+            <tr>
+                <td scope="row" rowspan="2"><b>11</b></td>
+                <td>AC #11</td>
+                <td>any </td>
+                <td> </td>
+                <td>More trainers</td>
+            </tr>
+            <tr>
+                <td>VF #11</td>
+                <td>any </td>
+                <td> </td>
+                <td>Dll injector / Trainer</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>13</b></td>
+                <td>SD #13</td>
+                <td>any </td>
+                <td> </td>
+                <td>Data files issue</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>17</b></td>
+                <td>VF #17</td>
+                <td>any </td>
+                <td> </td>
+                <td>Speed / wall hacks</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>18</b></td>
+                <td>AC #18</td>
+                <td>any </td>
+                <td> </td>
+                <td>Modified game files</td>
+            </tr>
+            <tr>
+                <td scope="row" rowspan="2"><b>21</b></td>
+                <td>AC #21</td>
+                <td>any </td>
+                <td>1.3.1-9.05097</td>
+                <td>More trainers</td>
+            </tr>
+            <tr>
+                <td>VF #21</td>
+                <td>any </td>
+                <td>1.3.1-9.05097</td>
+                <td>Custom gta_sa.exe</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>26</b></td>
+                <td>SD #26</td>
+                <td>any </td>
+                <td>1.3.4-9.05858</td>
+                <td>Anti-cheat component blocked</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>&lt;enablesd&gt;&lt;/enablesd&gt;</h3>
+<hr/>
+Comma separated list of enabled Special Detections (SD #). A special detection is a type of anti-cheat for (usually) harmless game modifications. Competitive servers or servers dealing with a certain problem structurally may wish to enable special detections, but most servers should leave this setting blank.
+<h4>Available codes</h4>
+
+<div style="display: flex; justify-content: center;">
+    <table class="actable">
+        <tbody>
+            <tr>
+                <th scope="col">Code for &lt;enablesd&gt; </th>
+                <th scope="col">Displayed on detect </th>
+                <th scope="col">Required server version </th>
+                <th scope="col">Required &lt;minclientversion&gt; </th>
+                <th scope="col">Notes </th>
+            </tr>
+            <tr>
+                <td scope="row"><b>12</b></td>
+                <td>SD #12</td>
+                <td>any</td>
+                <td> </td>
+                <td>Disallow custom <b>D3D9.DLL</b> (Note that this will break certain GTA mods like ENB, players might not like that)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>14</b></td>
+                <td>SD #14</td>
+                <td>1.3.1-9.04605</td>
+                <td>1.3.1-9.04605</td>
+                <td>Disallow virtual machines such as VMWare</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>15</b></td>
+                <td>SD #15</td>
+                <td>1.3.1-9.04791</td>
+                <td>1.3.1-9.04791</td>
+                <td>Disallow disabled driver signing</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>16</b></td>
+                <td>SD #16</td>
+                <td>1.3.1-9.05097</td>
+                <td>1.3.1-9.05097</td>
+                <td>Disallow disabled anti-cheat components. This is triggered when an anti-cheat component can not start. It is usually due to some problem with the PC and might be fixed by a reboot. Can also be triggered by a virus.</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>20</b></td>
+                <td>SD #20</td>
+                <td>1.3.1-9.05097</td>
+                <td>1.3.1-9.05097</td>
+                <td>Disallow non-standard gta3.img or gta_int.img (For servers not using <a href="reference/onPlayerModInfo">onPlayerModInfo</a>)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>22</b></td>
+                <td>SD #22</td>
+                <td>1.3.4-9.05884</td>
+                <td>1.3.4-9.05884</td>
+                <td>Disallow resource download errors/corruption (Lua script files)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>23</b></td>
+                <td>SD #23</td>
+                <td>1.3.4-9.05884</td>
+                <td>1.5.2-9.07911</td>
+                <td>Disallow resource download errors/corruption (Non-Lua files e.g. png,dff)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>28</b></td>
+                <td>SD #28</td>
+                <td>1.3.4-9.05884</td>
+                <td>1.3.4-9.05884</td>
+                <td>Disallow Linux Wine</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>31</b></td>
+                <td>SD #31</td>
+                <td>1.5.3</td>
+                <td>1.5.3-9.11204</td>
+                <td>Ignore injected keyboard inputs (e.g. from AutoHotkey, macro's and on screen keyboard)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>32</b></td>
+                <td>SD #32</td>
+                <td>1.5.3</td>
+                <td>1.5.4-9.11528</td>
+                <td>Ignore injected mouse button inputs and movement (this detection can prevent an ambigious type of aim hacks (bullet spread/recoil manipulation)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>33</b></td>
+                <td>SD #33</td>
+                <td>1.5.6</td>
+                <td>1.5.6</td>
+                <td>Disallow software of the category 'Net limiter' (ideal for lagswitching or causing structural lag, but may also be used for benign purposes)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>34</b></td>
+                <td>SD #34</td>
+                <td>1.5.6</td>
+                <td>1.5.6</td>
+                <td>Disallow internet café users (<strong>only</strong> use as last resort to combat mass ban evasion using café PC's)</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>35</b></td>
+                <td>SD #35</td>
+                <td>1.5.6</td>
+                <td>1.5.6</td>
+                <td>Disallow certain software with "FPS locking" capabilities, for example Fraps recorder.<br/><br/>Particularly racing gamemodes are impacted by players that use FPS lock hotkey at times they need an unfair advantage (like, to drive through a loop faster) or a small speed boost.<br/><br/><strong>Note:</strong> it would be better if you use this SD in a custom implementation only (using <a href="reference/onPlayerACInfo">onPlayerACInfo</a>) instead of kick in mtaserver.conf. For example so that it would only kick when they approach a loop, or are playing a map sensitive to this abuse. Because you'll have to tread carefully, since Fraps is also a popular recording tool.</td>
+            </tr>
+            <tr>
+                <td scope="row"><b>36</b></td>
+                <td>SD #36</td>
+                <td>1.5.7</td>
+                <td>1.5.7</td>
+                <td>Disallow AutoHotKey base application (used to load .ahk files) and Ahk2Exe binaries with embedded scripts.<br/>
+The possibilities for AutoHotKey are endless and it would be futile for the MTA anti-cheat or scripts to try to cover every case. MTA does not scan the content of .ahk files loaded into the AutoHotKey application, so this special detection allows server owners to stop all uses of AutoHotKey.<br/>
+
+Most servers won't need this (cancelling the input sent into GTA with SD #31 and #32 would be sufficient), but some competitive servers have problems with AutoHotKey's interaction with Windows rather than with MTA (which is already ignored by the game). Examples of these toggling firewall rules for lag switching, or toggling of effects that can cause small freezes.<br/>
+
+The abuse scripts currently in circulation are mostly AHK-based, so keep in mind that they can easily migrate to a different system. MTA isn't guaranteed to add an SD for that as well. If you're experiencing abuse that consists of lag switching, a scripted solution (such as <a href="https://github.com/Lpsd/ConGuard">ConGuard</a>) is the recommended approach.<br/><br/>
+
+Finally, remember that the AutoHotKey base application has some legitimate uses, so only use this when you have no other options for ensuring competitive balance.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+We are constantly working on keeping the definitions for above SD (special detections) up-to-date, so as to ensure all violating software or circumstances that you opt-in to disable gets detected once used. While we are pro-actively checking if new or unknown software/tools are still being detected under the same signature, it's possible that something slips through the cracks. Therefore, you can help us if you come across anything that should be detectable using SD # but is not currently; send a forum PM to <a href="https://forum.multitheftauto.com/profile/38052-dutchman101">Dutchman101</a> or <a href="https://forum.multitheftauto.com/profile/7264-ccw/">ccw</a> with your report.
+
+<h3>&lt;client_file name="data/carmods.dat" verify="0"/&gt;</h3>
+<hr/>
+By default, clients may not join a server if they have customized GTA:SA data files. Adding one or more of the above lines excludes files from validation. The file names that can be used are:
+
+<ul><li>"anim/ped.ifp"</li>
+<li>"data/animgrp.dat"</li>
+<li>"data/ar_stats.dat"</li>
+<li>"data/carmods.dat"</li>
+<li>"data/clothes.dat"</li>
+<li>"data/default.dat"</li>
+<li>"data/default.ide"</li>
+<li>"data/furnitur.dat"</li>
+<li>"data/gta.dat"</li>
+<li><strike>"data/handling.cfg"</strike> - this is unavailable because MTA always ignores this file so that <a href="/reference/setVehicleHandling" title="SetVehicleHandling">setVehicleHandling</a> works correctly. <a href="/reference/Handling.cfg" title="Handling.cfg">Click here</a><i> if you want to load custom handling.cfg files.</i></li>
+<li>"data/maps" - this applies to all files within this folder</li>
+<li>"data/melee.dat"</li>
+<li>"data/object.dat"</li>
+<li>"data/peds.ide"</li>
+<li>"data/pedstats.dat"</li>
+<li>"data/plants.dat"</li>
+<li>"data/procobj.dat"</li>
+<li>"data/surface.dat"</li>
+<li>"data/surfinfo.dat"</li>
+<li>"data/timecyc.dat" - minimum server version 1.5.6-9.18322</li>
+<li>"data/txdcut.ide"</li>
+<li>"data/vehicles.ide"</li>
+<li>"data/water1.dat"</li>
+<li>"data/water.dat"</li>
+<li>"data/weapon.dat"</li>
+<li>"models/coll/weapons.col"</li></ul>
+
+<h3>&lt;hideac&gt;&lt;/hideac&gt;</h3>
+<hr/>
+
+You can use this setting in mtaserver.conf to hide the AC info from the client, showing the following line upon join:<br/>
+<code>Server AC info: [Undisclosed]</code><br/>
+Values: 0 - disabled, 1 - enabled; default value: 0.
+
+<h3>Client</h3>
+<hr/>
+When joining a server, the server AC info is displayed in the client console (F8), for example:<br/>
+<code>Server AC Info: [Allowed client files: None] [Disabled AC: None] [Enabled SD: None]</code><br/><br/>
+
+Disabled AC contains the contents of the server setting from <code>&lt;disableac&gt;&lt;/disableac&gt;</code>, and Enabled SD contains the contents of the server setting<br/>from <code>&lt;enablesd&gt;&lt;/enablesd&gt;</code>.<br/>
+Allowed client files contains numbers to indicate which client files the server allows to be modified. The numbers represent these files:
+
+<ul><li>1 - "data/carmods.dat"</li>
+<li>2 - "data/animgrp.dat"</li>
+<li>4 - "data/ar_stats.dat"</li>
+<li>5 - "data/melee.dat"</li>
+<li>6 - "data/clothes.dat"</li>
+<li>7 - "data/object.dat"</li>
+<li>8 - "data/default.dat"</li>
+<li>9 - "data/surface.dat"</li>
+<li>10 - "data/default.ide"</li>
+<li>12 - "data/gta.dat"</li>
+<li>13 - "data/surfinfo.dat"</li>
+<li>14 - "data/peds.ide"</li>
+<li>15 - "data/vehicles.ide"</li>
+<li>16 - "data/pedstats.dat"</li>
+<li>17 - "data/water.dat"</li>
+<li>18 - "data/txdcut.ide"</li>
+<li>19 - "data/water1.dat"</li>
+<li>20 - "models/coll/weapons.col"</li>
+<li>21 - "data/weapon.dat"</li>
+<li>22 - "data/plants.dat"</li>
+<li>23 - "anim/ped.ifp"</li>
+<li>24 - "data/furnitur.dat"</li>
+<li>25 - "data/procobj.dat"</li>
+<li>26 - "data/maps"</li>
+<li>27 - "data/timecyc.dat"</li></ul>
+
+<NoteBox type="info">If the info is marked "Undisclosed", it means that the server has decided not to disclose the AC info to the client.</NoteBox>
+
+<h4>Using modified files</h4><br/>
+If you want to use modified data files from your GTA:SA install directory, check this check box:<br/>
+<strong>Settings -> Multiplayer -> Use customized GTA:SA files</strong><br/><br/>
+The checkbox only appears if your GTA:SA data files are customized.
+
+<NoteBox type='info'>This will restrict your access to some public servers as most do not allow customized data files.</NoteBox>
+
+<style>
+    .actable {
+        width: auto;
+        border-collapse: collapse;
+    }
+
+    .actable th,
+    .actable td {
+        border: 1px solid var(--sl-color-gray-3);
+        padding: 8px;
+        text-align: center;
+        color: var(--sl-color-text);
+    }
+
+    .actable th {
+        background-color: var(--sl-color-hairline);
+        font-weight: bold;
+    }
+
+    .actable td {
+        background-color: var(--sl-color-bg-inline-code);
+    }
+</style>
+
+
+</AutoStarlightPage>
