@@ -1,0 +1,602 @@
+---
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+---
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Audio Effects Parameters',
+}}>
+
+This page contains a list of sound effects parameters. See <a href="/reference/getSoundEffectParameters/">getSoundEffectParameters</a> and <a href="/reference/setSoundEffectParameter">setSoundEffectParameter</a>.
+
+<h3>Chorus</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_CHORUS.html">http://www.un4seen.com/doc/#bass/BASS_DX8_CHORUS.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>wetDryMix</td>
+                <td>float</td>
+                <td>50</td>
+                <td>0-100</td>
+                <td>Ratio of wet (processed) signal to dry (unprocessed) signal.</td>
+            </tr>
+
+            <tr>
+                <td>depth</td>
+                <td>float</td>
+                <td>10</td>
+                <td>0-100</td>
+                <td>Percentage by which the delay time is modulated by the low-frequency oscillator (LFO).</td>
+            </tr>
+
+            <tr>
+                <td>feedback</td>
+                <td>float</td>
+                <td>25</td>
+                <td>-99-99</td>
+                <td>Percentage of output signal to feed back into the effect's input.</td>
+            </tr>
+
+            <tr>
+                <td>frequency</td>
+                <td>float</td>
+                <td>1.1</td>
+                <td>0-10</td>
+                <td>Frequency of the LFO.</td>
+            </tr>
+
+            <tr>
+                <td>waveform</td>
+                <td>int</td>
+                <td>1</td>
+                <td>0-1</td>
+                <td>Waveform of the LFO... 0 = triangle, 1 = sine.</td>
+            </tr>
+
+            <tr>
+                <td>delay</td>
+                <td>float</td>
+                <td>16</td>
+                <td>0-20 (ms)</td>
+                <td>Number of milliseconds the input is delayed before it is played back.</td>
+            </tr>
+
+            <tr>
+                <td>phase</td>
+                <td>int</td>
+                <td>1</td>
+                <td>0-4</td>
+                <td>
+                    Phase differential between left and right LFOs.
+                    
+                    <ul>
+                        <li><strong>0:</strong> -180</li>
+                        <li><strong>1:</strong> -90</li>
+                        <li><strong>2:</strong> 0</li>
+                        <li><strong>3:</strong> 90</li>
+                        <li><strong>4:</strong> 180</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Compressor</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_COMPRESSOR.html">http://www.un4seen.com/doc/#bass/BASS_DX8_COMPRESSOR.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>gain</td>
+                <td>float</td>
+                <td>0</td>
+                <td>-60-60 (dB)</td>
+                <td>Output gain of signal after compression.</td>
+            </tr>
+
+            <tr>
+                <td>attack</td>
+                <td>float</td>
+                <td>10</td>
+                <td>0.01-500 (ms)</td>
+                <td>Time before compression reaches its full value.</td>
+            </tr>
+
+            <tr>
+                <td>release</td>
+                <td>float</td>
+                <td>200</td>
+                <td>50-3000 (ms)</td>
+                <td>Speed at which compression is stopped after input drops below threshold.</td>
+            </tr>
+
+            <tr>
+                <td>threshold</td>
+                <td>float</td>
+                <td>-20</td>
+                <td>-60-0 (dB)</td>
+                <td>Point at which compression begins.</td>
+            </tr>
+
+            <tr>
+                <td>ratio</td>
+                <td>float</td>
+                <td>3</td>
+                <td>1-100</td>
+                <td>Compression ratio.</td>
+            </tr>
+
+            <tr>
+                <td>predelay</td>
+                <td>int</td>
+                <td>4 (ms)</td>
+                <td>0-4 (ms)</td>
+                <td>Time after <b>threshold</b> is reached before attack phase is started.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Distortion</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_DISTORTION.html">http://www.un4seen.com/doc/#bass/BASS_DX8_DISTORTION.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>gain</td>
+                <td>float</td>
+                <td>-18</td>
+                <td>-60-0 (dB)</td>
+                <td>Amount of signal change after distortion.</td>
+            </tr>
+
+            <tr>
+                <td>edge</td>
+                <td>float</td>
+                <td>15</td>
+                <td>0-100</td>
+                <td>Percentage of distortion intensity.</td>
+            </tr>
+
+            <tr>
+                <td>postEQCenterFrequency</td>
+                <td>float</td>
+                <td>2400</td>
+                <td>100-8000 (Hz)</td>
+                <td>Center frequency of harmonic content addition.</td>
+            </tr>
+
+            <tr>
+                <td>postEQBandwidth</td>
+                <td>float</td>
+                <td>2400</td>
+                <td>100-8000 (Hz)</td>
+                <td>Width of frequency band that determines range of harmonic content addition.</td>
+            </tr>
+
+            <tr>
+                <td>preLowpassCutoff</td>
+                <td>float</td>
+                <td>8000</td>
+                <td>100-8000 (Hz)</td>
+                <td>Filter cutoff for high-frequency harmonics attenuation.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Echo</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_ECHO.html">http://www.un4seen.com/doc/#bass/BASS_DX8_ECHO.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>wetDryMix</td>
+                <td>float</td>
+                <td>50</td>
+                <td>0-100</td>
+                <td>Ratio of wet (processed) signal to dry (unprocessed) signal.</td>
+            </tr>
+
+            <tr>
+                <td>feedback</td>
+                <td>float</td>
+                <td>50</td>
+                <td>0-100</td>
+                <td>Percentage of output fed back into input.</td>
+            </tr>
+
+            <tr>
+                <td>leftDelay</td>
+                <td>float</td>
+                <td>500</td>
+                <td>1-2000 (ms)</td>
+                <td>Delay for left channel.</td>
+            </tr>
+
+            <tr>
+                <td>rightDelay</td>
+                <td>float</td>
+                <td>500</td>
+                <td>1-2000 (ms)</td>
+                <td>Delay for right channel.</td>
+            </tr>
+
+            <tr>
+                <td>panDelay</td>
+                <td>bool</td>
+                <td>false</td>
+                <td>false, true</td>
+                <td>Value that specifies whether to swap left and right delays with each successive echo.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Flanger</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_FLANGER.html">http://www.un4seen.com/doc/#bass/BASS_DX8_FLANGER.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>wetDryMix</td>
+                <td>float</td>
+                <td>50</td>
+                <td>0-100</td>
+                <td>Ratio of wet (processed) signal to dry (unprocessed) signal.</td>
+            </tr>
+
+            <tr>
+                <td>depth</td>
+                <td>float</td>
+                <td>100</td>
+                <td>0-100</td>
+                <td>Percentage by which the delay time is modulated by the low-frequency oscillator (LFO).</td>
+            </tr>
+
+            <tr>
+                <td>feedback</td>
+                <td>float</td>
+                <td>-50</td>
+                <td>-99-99</td>
+                <td>Percentage of output signal to feed back into the effect's input.</td>
+            </tr>
+
+            <tr>
+                <td>frequency</td>
+                <td>float</td>
+                <td>0.25</td>
+                <td>0-10</td>
+                <td>Frequency of the LFO.</td>
+            </tr>
+
+            <tr>
+                <td>waveform</td>
+                <td>int</td>
+                <td>1</td>
+                <td>0-1</td>
+                <td>Waveform of the LFO... 0 = triangle, 1 = sine.</td>
+            </tr>
+
+            <tr>
+                <td>delay</td>
+                <td>float</td>
+                <td>2</td>
+                <td>0-4 (ms)</td>
+                <td>Number of milliseconds the input is delayed before it is played back.</td>
+            </tr>
+
+            <tr>
+                <td>phase</td>
+                <td>int</td>
+                <td>2</td>
+                <td>0-4</td>
+                <td>
+                    Phase differential between left and right LFOs.
+                    
+                    <ul>
+                        <li><strong>0:</strong> -180</li>
+                        <li><strong>1:</strong> -90</li>
+                        <li><strong>2:</strong> 0</li>
+                        <li><strong>3:</strong> 90</li>
+                        <li><strong>4:</strong> 180</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Gargle</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_GARGLE.html">http://www.un4seen.com/doc/#bass/BASS_DX8_GARGLE.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>rateHz</td>
+                <td>int</td>
+                <td>20</td>
+                <td>1-1000 (Hz)</td>
+                <td>Rate of modulation.</td>
+            </tr>
+
+            <tr>
+                <td>waveShape</td>
+                <td>int</td>
+                <td>0</td>
+                <td>0-1</td>
+                <td>Shape of the modulation waveform... 0 = triangle, 1 = square.</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<h3>I3DL2 Reverb</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_I3DL2REVERB.html">http://www.un4seen.com/doc/#bass/BASS_DX8_I3DL2REVERB.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>room</td>
+                <td>int</td>
+                <td>-1000</td>
+                <td>-10000-0 (mB)</td>
+                <td>Attenuation of the room effect.</td>
+            </tr>
+
+            <tr>
+                <td>roomHF</td>
+                <td>int</td>
+                <td>-100</td>
+                <td>-10000-0 (mB)</td>
+                <td>Attenuation of the room high-frequency effect.</td>
+            </tr>
+
+            <tr>
+                <td>roomRolloffFactor</td>
+                <td>float</td>
+                <td>0</td>
+                <td>0-10</td>
+                <td>Rolloff factor for the reflected signals.</td>
+            </tr>
+
+            <tr>
+                <td>decayTime</td>
+                <td>float</td>
+                <td>1.49</td>
+                <td>0.1-20 (s)</td>
+                <td>Decay time.</td>
+            </tr>
+
+            <tr>
+                <td>decayHFRatio</td>
+                <td>float</td>
+                <td>0.83</td>
+                <td>0.1-2</td>
+                <td>Ratio of the decay time at high frequencies to the decay time at low frequencies.</td>
+            </tr>
+
+            <tr>
+                <td>delay</td>
+                <td>float</td>
+                <td>2</td>
+                <td>0-4 (ms)</td>
+                <td>Number of milliseconds the input is delayed before it is played back.</td>
+            </tr>
+
+            <tr>
+                <td>reflections</td>
+                <td>int</td>
+                <td>-2602</td>
+                <td>-10000-1000 (mB)</td>
+                <td>Attenuation of early reflections relative to room.</td>
+            </tr>
+
+            <tr>
+                <td>reflectionsDelay</td>
+                <td>float</td>
+                <td>0.007</td>
+                <td>0-0.3 (s)</td>
+                <td>Delay time of the first reflection relative to the direct path.</td>
+            </tr>
+
+            <tr>
+                <td>reverb</td>
+                <td>int</td>
+                <td>200</td>
+                <td>-10000-2000 (mB)</td>
+                <td>Attenuation of late reverberation relative to room.</td>
+            </tr>
+
+            <tr>
+                <td>reverbDelay</td>
+                <td>float</td>
+                <td>0.011</td>
+                <td>0-0.1 (s)</td>
+                <td>Time limit between the early reflections and the late reverberation relative to the time of the first reflection.</td>
+            </tr>
+
+            <tr>
+                <td>diffusion</td>
+                <td>float</td>
+                <td>100</td>
+                <td>0-100</td>
+                <td>Echo density in the late reverberation decay.</td>
+            </tr>
+
+            <tr>
+                <td>density</td>
+                <td>float</td>
+                <td>100</td>
+                <td>0-100</td>
+                <td>Modal density in the late reverberation decay.</td>
+            </tr>
+
+            <tr>
+                <td>HFReference</td>
+                <td>float</td>
+                <td>5000</td>
+                <td>20-20000 (Hz)</td>
+                <td>Delay time of the first reflection relative to the direct path.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Parametric Equalizer (parameq)</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_PARAMEQ.html">http://www.un4seen.com/doc/#bass/BASS_DX8_PARAMEQ.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>center</td>
+                <td>float</td>
+                <td>0</td>
+                <td>80-16000 (Hz)</td>
+                <td>Center frequency.</td>
+            </tr>
+
+            <tr>
+                <td>bandwidth</td>
+                <td>float</td>
+                <td>12</td>
+                <td>1-36</td>
+                <td>Bandwidth, in semitones.</td>
+            </tr>
+
+            <tr>
+                <td>gain</td>
+                <td>float</td>
+                <td>0</td>
+                <td>-15-15 (dB)</td>
+                <td>Output gain of signal.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h3>Reverb</h3>
+<p>Full documentation: <a href="http://www.un4seen.com/doc/#bass/BASS_DX8_REVERB.html">http://www.un4seen.com/doc/#bass/BASS_DX8_REVERB.html</a></p>
+
+<div style="display: flex; justify-content: center;">
+    <table>
+        <tbody>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default value</th>
+                <th>Valid range</th>
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td>inGain</td>
+                <td>float</td>
+                <td>0</td>
+                <td>-96-0 (dB)</td>
+                <td>Input gain of signal.</td>
+            </tr>
+
+            <tr>
+                <td>reverbMix</td>
+                <td>float</td>
+                <td>0</td>
+                <td>-96-0 (dB)</td>
+                <td>Reverb mix.</td>
+            </tr>
+
+            <tr>
+                <td>reverbTime</td>
+                <td>float</td>
+                <td>1000</td>
+                <td>0.001-3000 (ms)</td>
+                <td>Reverb time.</td>
+            </tr>
+
+            <tr>
+                <td>highFreqRTRatio</td>
+                <td>float</td>
+                <td>0.001</td>
+                <td>0.001-0.999 (ms)</td>
+                <td>High-frequency reverb time ratio.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</AutoStarlightPage>

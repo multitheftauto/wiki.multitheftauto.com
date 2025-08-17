@@ -1,5 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/stopSound
 client:
   name: stopSound
-  description: TODO
-  incomplete: true
+  description: Stops the sound playback for specified [[sound]] element. The sound element is also destroyed.
+  oop:
+    element: sound
+    method: stop
+  parameters:
+    - name: theSound
+      type: sound
+      description: The [[sound]] element you want to stop playing.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the sound was successfully stopped, false otherwise.
+  examples:
+    - path: examples/stopSound-1.lua
+    - path: examples/stopSound_OOP-1.lua
+      oop: true

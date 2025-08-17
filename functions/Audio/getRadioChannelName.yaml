@@ -1,5 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getRadioChannelName
 client:
   name: getRadioChannelName
-  description: TODO
-  incomplete: true
+  description: This function gets the given radio channel name.
+  parameters:
+    - name: id
+      type: int
+      description: The ID of the radio station you want to get the name of. It is a number from 0 to 12.
+      templateList: 'radio-channels'
+  returns:
+    values:
+      - type: string|false
+        name: channel-name
+    description: Returns a string containing the station name if successful, false otherwise.
+  examples:
+    - path: examples/getRadioChannelName-1.lua
+      description: This example prints out the name of your current radio station to the chat box.

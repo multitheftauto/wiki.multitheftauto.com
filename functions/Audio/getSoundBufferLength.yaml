@@ -1,5 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getSoundBufferLength
 client:
   name: getSoundBufferLength
-  description: TODO
-  incomplete: true
+  description: This function gets the buffer playback length of the specified [[sound]]. Works only with streams.
+  oop:
+    element: sound
+    method: getBufferLength
+    variable: bufferLength
+  parameters:
+    - name: theSound
+      type: sound
+      description: The [[sound]] element which buffer length you want to get.
+  returns:
+    values:
+      - type: float|false
+        name: buffer-length
+    description: A [[float]] value indicating the buffer playback length of the sound in seconds. False if the sound is not a stream and [[nil]] if the sound is invalid.
+  examples:
+    - path: examples/getSoundBufferLength-1.lua
+      description: This example draws a simple player that shows the length of the downloaded part of the song.
+      oop: true
+    - path: examples/getSoundBufferLength_OOP-1.lua
+      description: This example draws a simple player that shows the length of the downloaded part of the song.
+      oop: true

@@ -1,7 +1,7 @@
 ---
 const { name } = Astro.props;
 
-const lists: Record<string, { id: number | string; label: string }[]> = {
+const lists: Record<string, { id: number | string; label?: string }[]> = {
     "message-types": [
         { id: 0, label: "normal message" },
         { id: 1, label: "action message (/me)" },
@@ -9,14 +9,88 @@ const lists: Record<string, { id: number | string; label: string }[]> = {
         { id: 3, label: "private message" },
         { id: 4, label: "internal message" },
     ],
+
+    "radio-channels": [
+        { id: 0, label: "Radio Off" },
+        { id: 1, label: "Playback FM" },
+        { id: 2, label: "K-Rose" },
+        { id: 3, label: "K-DST" },
+        { id: 4, label: "Bounce FM" },
+        { id: 5, label: "SF-UR" },
+        { id: 6, label: "Radio Los Santos" },
+        { id: 7, label: "Radio X" },
+        { id: 8, label: "CSR 103.9" },
+        { id: 9, label: "K-Jah West" },
+        { id: 10, label: "Master Sounds 98.3" },
+        { id: 11, label: "WCTR" },
+        { id: 12, label: "User Track Player" },
+    ],
+
+    "sfx-containers": [
+        { id: "feet" },
+        { id: "genrl" },
+        { id: "pain_a" },
+        { id: "script" },
+        { id: "spc_ea" },
+        { id: "spc_fa" },
+        { id: "spc_ga" },
+        { id: "spc_na" },
+        { id: "spc_pa" },
+    ],
+
+    "sound-effects": [
+        { id: "gargle" },
+        { id: "compressor" },
+        { id: "echo" },
+        { id: "i3dl2reverb" },
+        { id: "distortion" },
+        { id: "chorus" },
+        { id: "parameq" },
+        { id: "reverb" },
+        { id: "flanger" },
+    ],
+
+    "sound-meta-tags": [
+        { id: "title" },
+        { id: "artist" },
+        { id: "album" },
+        { id: "genre" },
+        { id: "year" },
+        { id: "comment" },
+        { id: "track" },
+        { id: "composer" },
+        { id: "copyright" },
+        { id: "subtitle" },
+        { id: "album_artist" },
+        { id: "stream_name" },
+        { id: "stream_title" },
+    ],
+
+    "frontend-sounds": [
+        { id: "0 - 20", label: "Selection sounds" },
+        { id: "27 - 30", label: "Bullet sounds" },
+        { id: "32 - 33", label: "Selection sounds" },
+        { id: "34", label: "Radio static" },
+        { id: "35", label: "Stop Radio static" },
+        { id: "37 - 38", label: "Tick" },
+        { id: "40", label: "Selection sounds" },
+        { id: "41 - 42", label: "Tick (no ammo)" },
+        { id: "43 - 45", label: "Race countdown" },
+        { id: "46", label: "Repair" },
+        { id: "47", label: "White noise static" },
+        { id: "48", label: "Stop White noise static" },
+        { id: "49", label: "Static short" },
+        { id: "101", label: "Countdown/selection" },
+    ],
 };
 
 const icons: Record<string, string> = {
     "message-types": "💬",
+    "radio-channels": "📻",
 };
 
 const items = lists[name] || [];
-const icon = icons[name] || "○";
+const icon = icons[name] || "●";
 ---
 
 {
@@ -24,7 +98,8 @@ const icon = icons[name] || "○";
         <ul class="template-list" style={`--icon: "${icon}"`}>
             {items.map((item) => (
                 <li>
-                    <strong>{item.id}</strong>: {item.label}
+                    <strong>{item.id}</strong>
+                    {item.label && <>: {item.label}</>}
                 </li>
             ))}
         </ul>
@@ -40,7 +115,7 @@ const icon = icons[name] || "○";
     }
 
     .template-list li::before {
-        content: var(--icon, "○");
+        content: var(--icon, "●");
         margin-right: 0.5rem;
         margin-left: 0.5rem;
     }
@@ -50,6 +125,6 @@ const icon = icons[name] || "○";
     }
 
     :root[data-theme="dark"] .template-list li::before {
-        filter:  brightness(0.8) drop-shadow(0 0 1px white);
+        filter: brightness(0.8) drop-shadow(0 0 1px white);
     }
 </style>
