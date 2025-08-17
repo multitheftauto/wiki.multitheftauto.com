@@ -1,5 +1,7 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import { getFunctionsByCategory } from '@src/utils/functions';
@@ -7,10 +9,9 @@ import CategoryList from '@src/components/CategoryList.astro';
 
 const functionsByCategory = getFunctionsByCategory();
 ---
-<StarlightPage frontmatter={{
+<AutoStarlightPage frontmatter={{
     template: 'doc',
     title: 'All Functions',
-    tableOfContents: false,
 }}>
     <p>This page lists all <span class="side-client"><strong>client-side</strong></span>, <span class="side-server"><strong>server-side</strong></span> and <span class="side-shared"><strong>shared</strong></span> functions available in the <a href="/reference/Lua_API">Lua API</a> organized by category.</p>
 
@@ -24,4 +25,4 @@ const functionsByCategory = getFunctionsByCategory();
         'reference:Client_Scripting_Events',
         'reference:Server_Scripting_Events',
     ])} currentId='' />
-</StarlightPage>
+</AutoStarlightPage>
