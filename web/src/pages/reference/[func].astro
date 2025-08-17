@@ -18,6 +18,7 @@ import ChangelogList from '@src/components/ChangelogList.astro';
 import ItemDescription from '@src/components/ItemDescription.astro';
 import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
 import PreviewImages from '@src/components/PreviewImages.astro';
+import TemplateList from '@src/components/TemplateList.astro';
 
 import { marked } from 'marked';
 
@@ -241,6 +242,9 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                             <li>
                                 <strong>{param.name}</strong>:
                                 <EnhancedMarkdown content={param.description} inline={true}/>
+                                {param.templateList && (
+                                    <TemplateList name={param.templateList}/>
+                                )}
                             </li>
                             ))}
                         </ul>
@@ -258,6 +262,9 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                             <li>
                                 <strong>{param.name}</strong> (default: <em>{param.default}</em>):
                                 <EnhancedMarkdown content={param.description} inline={true}/>
+                                {param.templateList && (
+                                    <TemplateList name={param.templateList}/>
+                                )}
                             </li>
                             ))}
                         </ul>
@@ -269,7 +276,12 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                     <h4>Returns</h4>
                     <ul>
                         {syntax.returns.values.map((ret: any) => (
-                            <li set:html={"<strong>" + ret.type + "</strong>: " + renderInlineMarkdown(ret.name)} />
+                            <li>
+                                <strong>{ret.type}</strong>: {renderInlineMarkdown(ret.name)}
+                                {ret.templateList && (
+                                    <TemplateList name={ret.templateList}/>
+                                )}
+                            </li>
                         ))}
                     </ul>
 

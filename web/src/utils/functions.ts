@@ -81,11 +81,13 @@ type Parameter = {
   type: string;
   description: string;
   default?: string;
+  templateList?: string;
 };
 
 type ReturnValue = {
   type: string;
   name: string;
+  templateList?: string;
 };
 
 type ReturnBlock = {

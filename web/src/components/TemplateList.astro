@@ -1,0 +1,57 @@
+---
+const { name } = Astro.props;
+
+const lists: Record<string, { id: number; label: string }[]> = {
+    "message-types": [
+        { id: 0, label: "normal message" },
+        { id: 1, label: "action message (/me)" },
+        { id: 2, label: "team message" },
+        { id: 3, label: "private message" },
+        { id: 4, label: "internal message" },
+    ],
+};
+
+const icons: Record<string, string> = {
+    "message-types": "💬",
+};
+
+const items = lists[name] || [];
+const icon = icons[name] || "○";
+---
+
+{
+    items.length > 0 && (
+        <ul class="template-list" style={`--icon: "${icon}"`}>
+            {items.map((item) => (
+                <li>
+                    <strong>{item.id}</strong>: {item.label}
+                </li>
+            ))}
+        </ul>
+    )
+}
+
+<style>
+    .template-list {
+        list-style: none;
+        font-style: italic;
+        border: 1px solid var(--sl-color-white);
+        padding-left: 0;
+    }
+
+    .template-list li::before {
+        content: var(--icon, "○");
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    :root[data-theme="light"] .template-list li::before {
+        filter: sepia(1) hue-rotate(-50deg) saturate(5) brightness(1.1)
+            drop-shadow(0 0 1px black);
+    }
+
+    :root[data-theme="dark"] .template-list li::before {
+        filter: sepia(1) hue-rotate(-50deg) saturate(5) brightness(0.8)
+            drop-shadow(0 0 1px white);
+    }
+</style>
