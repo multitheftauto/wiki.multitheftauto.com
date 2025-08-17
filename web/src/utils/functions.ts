@@ -110,8 +110,10 @@ function buildSyntaxString(
   parameters: Parameter[],
   returns: ReturnBlock | null,
 ): string {
+  const ZERO_WIDTH_SPACE = '\u200B';
+
   const returnString = returns
-    ? `${returns.values.map(v => v.type).join(', ')}`
+    ? `${returns.values.map(v => v.type).join(`,${ZERO_WIDTH_SPACE} `)}`
     : '';
 
   const requiredParams = parameters.filter(p => p.default === undefined);
