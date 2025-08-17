@@ -127,9 +127,9 @@ function displayCategory(category: string) {
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([category, items]) => (
     <section id={slugify(category)}>
-      <h3 style="font-size: var(--sl-text-h4);">{displayTitle(category)}
+      <h4>{displayTitle(category)}
         <a href={`#${slugify(category)}`}><Icon size="1.5rem" name="external" class="mtainfoicon"/></a>
-      </h3>
+      </h4>
       <ul>
         {items
           .slice()
