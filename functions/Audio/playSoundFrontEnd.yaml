@@ -4,7 +4,7 @@ shared: &shared
     - type: info
       content: These sounds can be disabled with [[setWorldSoundEnabled]] so if these sounds stop working you should check if you're disabling the sounds.
     - type: info
-      content: These sounds don't work when fadeCamera has been used to make the screen black.
+      content: These sounds don't work when [[fadeCamera]] has been used to make the screen black.
   description: This function plays a frontend sound for the specified player.
   oop:
     element: player
