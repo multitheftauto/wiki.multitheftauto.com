@@ -1,10 +1,75 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createBlip
 shared: &shared
   name: createBlip
-  description: TODO
-  incomplete: true
-
+  description: This function creates a [[blip]] element, which is displayed as an icon on the client's radar.
+  oop:
+    element: blip
+    constructorclass: Blip
+  parameters:
+    - name: x
+      type: float
+      description: The x position of the blip, in world coordinates.
+    - name: 'y'
+      type: float
+      description: The y position of the blip, in world coordinates.
+    - name: z
+      type: float
+      description: The z position of the blip, in world coordinates.
+    - name: icon
+      type: int
+      description: The icon that the radar blips should be. Default is 0. Valid values can be seen at [Radar Blips](/reference/ID_Lists/Blips).
+      default: '0'
+    - name: size
+      type: int
+      description: The size of the radar blip. Only applicable to the Marker icon. Default is 2. Maximum is 25.
+      default: '2'
+    - name: r
+      type: int
+      description: The amount of red in the blip's color (0-255). Only applicable to the Marker icon. Default is 255.
+      default: '255'
+    - name: g
+      type: int
+      description: The amount of green in the blip's color (0-255). Only applicable to the Marker icon. Default is 0.
+      default: '0'
+    - name: b
+      type: int
+      description: The amount of blue in the blip's color (0-255). Only applicable to the Marker icon. Default is 0.
+      default: '0'
+    - name: a
+      type: int
+      description: The amount of alpha in the blip's color (0-255). Only applicable to the Marker icon. Default is 255.
+      default: '255'
+    - name: ordering
+      type: int
+      description: This defines the blip's Z-level ordering (-32768-32767). Default is 0.
+      default: '0'
+    - name: visibleDistance
+      type: float
+      description: The maximum distance from the camera at which the blip is still visible (0-65535).
+      default: '16383.0'
+    - name: visibleTo
+      type: element
+      description: This defines which elements can see the blip. Defaults to visible to everyone. See [[visibility]].
+      default: 'getRootElement()'
+  returns:
+    values:
+      - type: blip|false
+        name: created-blip
+    description: Returns an element of the [[blip]] if it was created successfully, false otherwise.
+  preview_images:
+    - path: radar-blip.png
+      description: Example blip.
 server:
   <<: *shared
+  examples:
+    - path: examples/createBlip-1.lua
+      description: This example creates a radar [[blip]] at a random player's position and makes it so that it is only visible to that player.
+    - path: examples/createBlip_OOP-1.lua
+      description: This example creates a radar [[blip]] at a random player's position and makes it so that it is only visible to that player.
+      oop: true
+    - path: examples/createBlip-2.lua
+      description: This example attaches a blip to a player. You can attach a blip to an element by just setting the blip's parent to that element.
 client:
   <<: *shared
+  ignore_parameters:
+    - visibleTo
+  

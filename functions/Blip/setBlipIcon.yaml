@@ -1,10 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setBlipIcon
 shared: &shared
   name: setBlipIcon
-  description: TODO
-  incomplete: true
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  pair: getBlipIcon
+  description: This function sets the icon for an existing [[blip]] element.
+  oop:
+    element: blip
+    method: setIcon
+    variable: icon
+  parameters:
+    - name: theBlip
+      type: blip
+      description: The blip you wish to set the icon of.
+    - name: icon
+      type: int
+      description: A number indicating the icon you wish to change it do. Valid values are listed on the [Radar Blips](/reference/ID_Lists/Blips) page.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the icon was successfully set, false if the element passed was not a valid blip or the icon value was not a valid icon number.
+  examples:
+    - path: examples/setBlipIcon-1.lua
+      description: This example resets all blip icons to the default blip icon, 0.
+    - path: examples/setBlipIcon_OOP-1.lua
+      description: This example resets all blip icons to the default blip icon, 0.
+      oop: true

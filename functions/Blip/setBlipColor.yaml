@@ -1,10 +1,34 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setBlipColor
 shared: &shared
   name: setBlipColor
-  description: TODO
-  incomplete: true
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  pair: getBlipColor
+  description: This function will let you change the color of a [[blip]]. This color is only applicable to the marker blip icon (ID 0). All other icons will ignore this.
+  oop:
+    element: blip
+    method: setColor
+  parameters:
+    - name: theBlip
+      type: blip
+      description: The blip who's color you wish to set.
+    - name: red
+      type: int
+      description: The amount of red in the blip's color (0 - 255).
+    - name: green
+      type: int
+      description: The amount of green in the blip's color (0 - 255).
+    - name: blue
+      type: int
+      description: The amount of blue in the blip's color (0 - 255).
+    - name: alpha
+      type: int
+      description: The amount of alpha in the blip's color (0 - 255). Alpha decides transparancy where 255 is opaque and 0 is transparent.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the blip's color was set successfully. Returns false if the blip passed to the function is invalid, or any of the colors are out of the valid range.
+  examples:
+    - path: examples/setBlipColor-1.lua
+      description: This example will find all the blips that exist and set them all to white if they aren't white already.
+    - path: examples/setBlipColor_OOP-1.lua
+      description: This example will find all the blips that exist and set them all to white if they aren't white already.
+      oop: true
