@@ -1,5 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isBrowserDomainBlocked
 client:
   name: isBrowserDomainBlocked
-  description: TODO
-  incomplete: true
+  description: This function checks if the specified URL is blocked from being loaded.
+  oop:
+    element: browser
+    method: isDomainBlocked
+    static: true
+  parameters:
+    - name: address
+      type: string
+      description: A website URL.
+    - name: isURL
+      type: bool
+      description: true if address should be parsed as URL, false otherwise.
+      default: 'false'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns false if the URL is able to be loaded, true if it is blocked and nil if an invalid domain/URL was passed.
+  examples:
+    - path: examples/isBrowserDomainBlocked-1.lua
+    - path: examples/isBrowserDomainBlocked_OOP-1.lua
+      oop: true

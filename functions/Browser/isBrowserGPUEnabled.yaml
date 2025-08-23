@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isBrowserGPUEnabled
 client:
   name: isBrowserGPUEnabled
-  description: TODO
-  incomplete: true
+  description: This function checks if the client has the <code>Enable GPU rendering</code> setting enabled, which allows the usage of things like WebGL in browsers.
+  notes:
+    - type: info
+      content: This is a <b>global</b> setting, not specific to any browser instance and can only be changed by the client.
+  oop:
+    element: browser
+    method: ''
+    variable: gpuEnabled
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the client has browser GPU rendering enabled, false otherwise.

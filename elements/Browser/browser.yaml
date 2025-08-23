@@ -1,0 +1,3 @@
+name: browser
+description: |
+  A **browser** is an element representing a CEF browser instance, created with [createBrowser](/reference/createBrowser/) or [guiCreateBrowser](/reference/guiCreateBrowser/). This element also simultaneously represents the browser’s [texture](/reference/texture/), so it can be used as a texture, e.g. for rendering with [dxDrawImage](/reference/dxDrawImage/).

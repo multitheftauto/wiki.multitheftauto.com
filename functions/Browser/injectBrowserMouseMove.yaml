@@ -1,5 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/injectBrowserMouseMove
 client:
   name: injectBrowserMouseMove
-  description: TODO
-  incomplete: true
+  description: This function injects a mouse movement.
+  oop:
+    element: browser
+    method: injectMouseMove
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The [[browser]] which will retrieve the mouse movement.
+    - name: posX
+      type: int
+      description: Absolute X screen coordinate.
+    - name: posY
+      type: int
+      description: Absolute Y screen coordinate.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the movement was injected successfully, false otherwise.
+  examples:
+    - path: examples/injectBrowserMouseMove-1.lua
+    - path: examples/injectBrowserMouseMove_OOP-1.lua
+      oop: true

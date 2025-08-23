@@ -1,5 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isBrowserRenderingPaused
 client:
   name: isBrowserRenderingPaused
-  description: TODO
-  incomplete: true
+  pair: setBrowserRenderingPaused
+  description: This function gets the rendering state of a [[browser]] element.
+  oop:
+    element: browser
+    method: isRenderingPaused
+    variable: renderingPaused
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The [[browser]] element to get the rendering state of.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the browser rendering is paused, false otherwise.
+  examples:
+    - path: examples/isBrowserRenderingPaused-1.lua
+      description: This will create a [[browser]] element and a command <code>pause</code> to pause the browser rendering.
+    - path: examples/isBrowserRenderingPaused_OOP-1.lua
+      description: This will create a [[browser]] element and a command <code>pause</code> to pause the browser rendering.
+      oop: true

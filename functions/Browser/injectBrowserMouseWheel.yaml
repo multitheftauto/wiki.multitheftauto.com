@@ -1,5 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/injectBrowserMouseWheel
 client:
   name: injectBrowserMouseWheel
-  description: TODO
-  incomplete: true
+  description: This function injects mouse wheel events.
+  oop:
+    element: browser
+    method: injectMouseWheel
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The web browser.
+    - name: verticalScroll
+      type: int
+      description: Amount of units you want the browser to scroll along the Y-axe.
+    - name: horizontalScroll
+      type: int
+      description: Amount of units you want the browser to scroll along the X-axe.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the mouse action was successfully injected, false otherwise.
+  examples:
+    - path: examples/injectBrowserMouseWheel-1.lua
+    - path: examples/injectBrowserMouseWheel_OOP-1.lua
+      oop: true
+

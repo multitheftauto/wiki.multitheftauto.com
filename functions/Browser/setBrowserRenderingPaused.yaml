@@ -1,5 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setBrowserRenderingPaused
 client:
   name: setBrowserRenderingPaused
-  description: TODO
-  incomplete: true
+  pair: isBrowserRenderingPaused
+  description: This function sets the rendering state of a [[browser]].
+  notes:
+    - type: important
+      content: May cause issues with browser rendering on PC with low RAM [#1567](https://github.com/multitheftauto/mtasa-blue/issues/1567). It's might be better to completely release browser, instead of pausing it, when its not needed.
+  oop:
+    element: browser
+    method: setRenderingPaused
+    variable: renderingPaused
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The browser.
+    - name: paused
+      type: bool
+      description: true to pause rendering, false to continue.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the state was successfully changed.
+  examples:
+    - path: examples/setBrowserRenderingPaused-1.lua
+    - path: examples/setBrowserRenderingPaused_OOP-1.lua
+      oop: true
+  issues:
+    - id: 1567
+      description: May cause issues with browser rendering on PC with low RAM.
