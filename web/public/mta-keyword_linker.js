@@ -1,10 +1,17 @@
 let allFunctions = new Set();
 
+const wantedScopes = new Set([
+    "support.function.mta-shared",
+    "support.function.mta-server",
+    "support.function.mta-client",
+    "keyword.mta"
+]);
+
 function extractFunctions(tmLanguage, textContent) {
   const result = new Set();
 
   tmLanguage.patterns?.forEach(({ match, name }) => {
-    if (!match) return;
+    if (!match || !wantedScopes.has(name)) return;
 
     if (name === "keyword.mta") {
       const regex = new RegExp(match.replace(/\\\\/g, "\\"), "g");
