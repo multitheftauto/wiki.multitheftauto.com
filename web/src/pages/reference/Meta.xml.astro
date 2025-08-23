@@ -7,6 +7,9 @@ import NoteBox from '@src/components/NoteBox.astro';
 <AutoStarlightPage frontmatter={{
     template: 'doc',
     title: 'Meta.xml',
+    tableOfContents: {
+      maxHeadingLevel: 4
+    }
 }}>
 
 <p>The meta.xml file presents MTA with a set of metadata, such as the resource's name, the scripts to include, and which files to precache for sending to clients among other things.
@@ -214,7 +217,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
 
 <br/>
 <div id="glob-example">
-    <h3>Loading files via glob pattern</h3>
+    <h4>Loading files via glob pattern</h4>
     <p>Since version <strong>1.6.0 r22430</strong> and above, you can conveniently load files into your resources using <a href="https://en.wikipedia.org/wiki/Glob%20(programming)">glob library</a> - see <a href="https://github.com/p-ranav/glob">more details</a>.</p>
     <Code code={`<meta>
     <script src="shared/**/*.lua" type="shared" cache="false" />

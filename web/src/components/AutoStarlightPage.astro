@@ -39,7 +39,7 @@ function escapeHtml(str: string) {
     .replace(/>/g, '&gt;');
 }
 
-root.querySelectorAll('h2, h3').forEach((el) => {
+root.querySelectorAll('h2, h3, h4, h5, h6').forEach((el) => {
   const level = parseInt(el.tagName[1]);
   const text = el.text.trim();
   const slug = text
