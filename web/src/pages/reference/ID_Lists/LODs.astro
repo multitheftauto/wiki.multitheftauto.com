@@ -26,7 +26,7 @@ import { lod_table } from '@src/data/lod_table';
       <tbody id="tableBody">
           {lod_table.map(([id, lod_id, dff, txd, lod_dff, lod_txd, ide], i) => (
           <tr>
-              <td>{id}</td>
+              <td><a href={`https://dev.prineside.com/en/gtasa_samp_model_id/model/${id}`}>{id}</a></td>
               <td>{dff}</td>
               <td>{txd}</td>
               <td>{lod_id ?? 'N/A'}</td>
