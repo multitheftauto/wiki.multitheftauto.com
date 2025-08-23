@@ -9,7 +9,7 @@ import { Code } from '@astrojs/starlight/components';
 import { MTA_CURRENT_VERSION } from '@src/content.constants';
 
 import NoteBox from '@src/components/NoteBox.astro';
-import type { NotesType } from '@src/utils/types';
+import type { NotesType, IssuesTable } from '@src/utils/types';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
@@ -297,6 +297,26 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         
         <!-- Changelog -->
         <ChangelogList entries={changelogEntries} />
+
+        <!-- Issues -->
+        {funcInfo.issues && funcInfo.issues.length > 0 && (
+            <h4>Issues</h4>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>Description</th>
+                    </tr>
+
+                {funcInfo.issues.map((issue) => (
+                    <tr>
+                        <td><a href={`https://github.com/multitheftauto/mtasa-blue/issues/${issue.id}`}>{issue.id}</a></td>
+                        <td>{issue.description}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        )}
 
         <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(func)} currentId={func.id} />
     </StarlightPage>
