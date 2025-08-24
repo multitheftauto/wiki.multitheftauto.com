@@ -1,0 +1,108 @@
+---
+title: Cross-compiling MTASA on Linux using msvc-wine
+---
+import NoteBox from '@src/components/NoteBox.astro';
+
+This guide will walk you through how you can cross-compile MTASA on Linux targeting Windows, using [msvc-wine](https://github.com/mstorsjo/msvc-wine/). For running the game on Linux, see [Client on Linux Manual](/Client_on_Linux_Manual).
+
+## Setting up the environment
+
+### Setting up msvc-wine
+
+Clone https://github.com/mstorsjo/msvc-wine/
+
+```sh
+git clone https://github.com/mstorsjo/msvc-wine/
+cd msvc-wine
+```
+
+Run `./vsdownload.py` and `./install.sh` to download and install the default packages plus MFC. You can specify the destination directory with the `--dest` option. `--accept-license` will skip the license agreement prompt; remove it if you wish to read through Microsoft's license.
+```sh
+./vsdownload.py --dest /path/to/msvc-wine-install-dir/ --accept-license
+./vsdownload.py --dest /path/to/msvc-wine-install-dir/ --accept-license Microsoft.VisualStudio.Component.VC.ATLMFC
+./install.sh /path/to/msvc-wine-install-dir/
+```
+
+<NoteBox type='warning'>Skipping installing `Microsoft.VisualStudio.Component.VC.ATLMFC` will lead to a missing `afxres.h` include error when building.</NoteBox>
+
+### Setting up the Wine preifx
+
+<NoteBox type='info'>This guide was written with wine-10.12 in mind, using the new WoW64 mode. Your mileage may vary if you are using an older version.</NoteBox>
+
+Create or use an already existing wine prefix. **The rest of this guide assumes that you have your WINEPREFIX environment variable set correctly**.
+```sh
+# Set the wine prefix
+export WINEPREFIX="/path/to/wine-prefix"
+# If this is a new prefix, initialize it
+wineboot -i
+```
+
+Make sure you have (the correct version of) .NET SDK installed. If you have the `wine-mono` package installed on your system (distributions may have it available in their repository), newly created wine prefixes will default to using that as a .NET implementation. As a result, however, the native `MSBuild.exe` might crash because it relies on some telemetry features that `wine-mono` doesn't implement. If that's the case, run `wine uninstaller` and remove `Wine Mono Windows Support`, then run `winetricks dotnet48` to install the official .NET 4.8 package inside your wine prefix.
+
+### Installing the Microsoft DirectX SDK
+
+You will need to download and install the Microsoft DirectX SDK (August 2009) inside your wine prefix. For more information, you may check out the original [Compiling MTASA guide](/Compiling_MTASA/#Microsoft_DirectX_SDK). To obtain the installer (`DXSDK_Aug09.exe`), you can use the following mirrors:
+* [Mirror 1 (archive.org)](https://archive.org/download/dxsdk_aug09/DXSDK_Aug09.exe)
+* [Mirror 2 (mega.nz)](https://mega.nz/file/pQJCiAJY#jBcYT6ZP4DMBpnm12BLRto9EQ-RjjpP3BWkSPanpvLI)
+
+See [DXSDK Aug09 Hashes](/Compiling_MTASA/DXSDK_Aug09_Hashes) for file hashes of the installer. 
+
+<NoteBox type='warning'>Skipping this step will lead to a missing `d3dx9.h` include error when building.</NoteBox>
+<NoteBox type='info'>Unlike on Windows, here you don't have to restart anything. The next invocation of wine will already have the `DXSDK_DIR` environment variable set.</NoteBox>
+
+## Building
+
+To obtain the latest MTA source code, please refer to the original [Compiling MTASA guide](/Compiling_MTASA/#Getting_the_latest_source_code). Make sure you have your `WINEPREFIX` set correctly.
+
+### Doing a full build
+
+Specify the location of the `msbuild` wrapper script installed by msvc-wine, then execute `./wine-build.sh`. After the build completes, run `wine ./win-install-data.bat` to install the necessary binary blobs (and optionally the resources). You can find the `msbuild` wrapper script at `bin/x64/msbuild` in the directory where you installed msvc-wine to.
+```sh
+MSBUILDPATH="/path/to/msvc-wine-install-dir/bin/x64/msbuild" ./wine-build.sh
+wine ./win-install-data.bat
+```
+
+If all went well, you should now have the built Client and Server binaries sitting inside `./Bin/`. For running the Client, see [Client on Linux Manual](/Client_on_Linux_Manual).
+
+<NoteBox type='info'>You can also pass the build configuration (`Release` or `Debug`) and the target platform (`Win32`, `x64`, `ARM` or `ARM64`) as arguments to `./wine-build.sh`.</NoteBox>
+
+### Doing an incremental build
+
+Although you could, you don't need to rerun `./wine-build.sh` after every change you make in the source code. If you add, remove or move a file or a directory, you can just manually regenerate the necessary projects:
+```sh
+wine utils/premake5.exe vs2022
+```
+
+Then to do an incremental build, you can just manually invoke `msbuild`:
+```sh
+/path/to/msvc-wine-install-dir/bin/x64/msbuild Build/MTASA.sln \
+    -property:Configuration=Release \
+    -property:Platform=Win32 \
+    -maxCpuCount
+```
+
+### IDE integration
+
+premake can't generate `compile_commands.json` by itself, but there are modules for it:
+* https://github.com/MattBystrin/premake-ecc
+* https://github.com/tarruda/premake-export-compile-commands
+
+However, these might not work out of the box.
+
+TODO
+
+## Troubleshooting
+
+You may also want to check out the error troubleshooting section in the original [Compiling MTASA guide](/Compiling_MTASA/#Error_Troubleshooting).
+
+### Internal Compiler Errors
+
+If you encounter ICEs (Internal Compiler Errors) when trying to build the project, you should try to increase the file descriptor limit after killing the wine server. You may also want to remove the `./Build/{bin,obj}` directories.
+```sh
+# Kill the wine server
+wineserver -k
+# Increase the file descriptor limit
+ulimit -n $(ulimit -Hn)
+# Remove the partially built artifacts
+rm -rf ./Build/{bin,obj}
+```
