@@ -70,4 +70,4 @@ client:
       description: |
         This example shows you how to automatically create an object or building element according to certain parameters.
 
-        This script onlys works <b>CLIENTSIDE</b> due to createBuilding and [[engineGetModelPhysicalPropertiesGroup]].
+        This script onlys works <b>CLIENTSIDE</b> due to [[engineGetModelPhysicalPropertiesGroup]].
