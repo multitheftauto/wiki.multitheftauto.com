@@ -38,6 +38,7 @@ import { blips } from "@src/data/blips";
                         src={getAssetImagePath(`Blips/radar_${blip.name}.png`)}
                         alt={blip.name}
                         class="blip-image"
+                        id={blip.id}
                     />
 
                     <p><code>{blip.id}</code></p>
@@ -76,6 +77,10 @@ import { blips } from "@src/data/blips";
         margin: 0;
         border: 1px solid var(--sl-color-gray-4);
         font-size: 0.75rem;
+    }
+
+    :root[data-theme='light'] .blip-image[id="1"] {
+        border: 1px solid black;
     }
 
     .blip-image {
