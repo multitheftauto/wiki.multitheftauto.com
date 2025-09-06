@@ -1,0 +1,80 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+
+import { Image } from "astro:assets";
+import { getAssetImagePath } from "@src/utils/general";
+
+import NoteBox from '@src/components/NoteBox.astro';
+
+import { blips } from "@src/data/blips";
+---
+
+<StarlightPage
+    frontmatter={{
+        template: "doc",
+        title: "Blips",
+        tableOfContents: false,
+    }}
+>
+    <p>This is a list of blips (radar markers) you can use in <a href="/reference/createBlip">createBlip</a>, <a href="/reference/createBlipAttachedTo">createBlipAttachedTo</a> and <a href="reference/setBlipIcon">setBlipIcon</a>.</p>
+
+    <NoteBox type="info">A blip with ID 0 (marker) can automatically change its icon between marker, marker_down, and marker_up.
+        <ul>
+            <li>marker_down is used when the blip is below the player.</li>
+            <li>marker_up is used when the blip is above the player.</li>
+        </ul>
+    </NoteBox>
+
+    <div class="blips-list">
+        {
+            blips.map((blip) => (
+                <div class="blip-item" id={blip.name}>
+                    <p>{blip.name}</p>
+
+                    <Image
+                        src={getAssetImagePath(`Blips/radar_${blip.name}.png`)}
+                        alt={blip.name}
+                        class="blip-image"
+                    />
+
+                    <p><code>{blip.id}</code></p>
+                </div>
+            ))
+        }
+    </div>
+</StarlightPage>
+
+<style>
+    .blips-list {
+        display: grid;
+        grid-template-columns: repeat(8, 100px);
+        grid-auto-rows: auto;
+        justify-content: center;
+        text-align: center;
+        gap: 0.75rem 1rem;
+    }
+
+    @media (max-width: 1024px) {
+        .blips-list {
+            grid-template-columns: repeat(auto-fit, 100px);
+        }
+    }
+
+    .blip-item {
+        padding: 0.2rem;
+        margin: 0;
+        border: 1px solid var(--sl-color-gray-4);
+        font-size: 0.75rem;
+    }
+
+    .blip-image {
+        margin-left: auto;
+        margin-right: auto;
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+</style>
