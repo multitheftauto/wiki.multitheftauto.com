@@ -1,10 +1,45 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/playSoundFrontEnd
 shared: &shared
   name: playSoundFrontEnd
-  description: TODO
-  incomplete: true
+  notes:
+    - type: info
+      content: These sounds can be disabled with [[setWorldSoundEnabled]] so if these sounds stop working you should check if you're disabling the sounds.
+    - type: info
+      content: These sounds don't work when [[fadeCamera]] has been used to make the screen black.
+  description: This function plays a frontend sound for the specified player.
+  oop:
+    element: player
+    method: playSoundFrontEnd
+    note: For client-side use Sound.playFrontEnd()
+  parameters:
+    - name: thePlayer
+      type: player
+      description: The [[player]] you want the sound to play for.
+    - name: sound
+      type: int
+      description: A whole [[int]] specifying the sound id to play.
+      templateList: frontend-sounds
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the sound was successfully played, false otherwise.
 
 server:
   <<: *shared
+  examples:
+    - path: examples/playSoundFrontEnd-1.lua
+      description: This example plays a sound when a player spawns.
+    - path: examples/playSoundFrontEnd_OOP-1.lua
+      description: This example plays a sound when a player spawns.
+      oop: true
+
 client:
   <<: *shared
+  ignore_parameters:
+    - thePlayer
+  examples:
+    - path: examples/playSoundFrontEnd-2.lua
+      description: This example plays a sound when the player types the command '/sound'.
+    - path: examples/playSoundFrontEnd_OOP-2.lua
+      description: This example plays a sound when the player types the command '/sound'.
+      oop: true

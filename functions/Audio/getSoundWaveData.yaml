@@ -1,5 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getSoundWaveData
 client:
   name: getSoundWaveData
-  description: TODO
-  incomplete: true
+  description: |
+    This function gets the wave form data for an audio stream which is a [[table]] of floats representing the current audio frame as a wave. This allows things like visualisations.
+
+    If the element is a [[player]], this function will use the player's voice.
+  oop:
+    element: sound
+    method: getWaveData
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: A [[sound]] element that is created using [[playSound]] or [[playSound3D]]. Streams are also supported
+    - name: samples
+      type: int
+      description: Allowed samples are 256, 512, 1024, 2048, 4096, 8192 and 16384.
+  returns:
+    values:
+      - type: table|false
+        name: wave-data
+    description: Returns a [[table]] of <b>samples</b> floats representing the current audio frame waveform. Returns false if the sound is not playing yet or hasn't buffered in the case of streams.
+  examples:
+    - path: examples/getSoundWaveData-1.lua
+      description: This example creates a sound visualizer on the top left corner of the screen.
+    - path: examples/getSoundWaveData_OOP-1.lua
+      description: This example creates a sound visualizer on the top left corner of the screen.
+      oop: true
+    - path: examples/getSoundWaveData-2.lua
+      description: This example creates a sound viewer, but only with bars down.
+    - path: examples/getSoundWaveData-3.lua
+      description: This example creates a sound viewer, but only with bars up.
+    - path: examples/getSoundWaveData-4.lua
+      description: This example creates a sound viewer on the bottom right corner of the screen.
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element to use a players voice.

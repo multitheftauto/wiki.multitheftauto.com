@@ -1,20 +1,33 @@
 let allFunctions = new Set();
 
-function extractFunctions(tmLanguage) {
-  const wantedScopes = new Set([
+const wantedScopes = new Set([
     "support.function.mta-shared",
     "support.function.mta-server",
     "support.function.mta-client",
     "keyword.mta"
-  ]);
+]);
 
-  return tmLanguage.patterns?.reduce((funcs, { match, name }) => {
-    if (match && wantedScopes.has(name)) {
-      funcs.push(...match.match(/\\b\(([^)]+)\)\\b/)?.[1]?.split("|") || []);
+function extractFunctions(tmLanguage, textContent) {
+  const result = new Set();
+
+  tmLanguage.patterns?.forEach(({ match, name }) => {
+    if (!match || !wantedScopes.has(name)) return;
+
+    if (name === "keyword.mta") {
+      const regex = new RegExp(match.replace(/\\\\/g, "\\"), "g");
+      let m;
+      while ((m = regex.exec(textContent)) !== null) {
+        if (m[0]) result.add(m[0]);
+      }
+    } else {
+      const matches = match.match(/\\b\(([^)]+)\)\\b/)?.[1]?.split("|") || [];
+      matches.forEach(w => result.add(w));
     }
-    return funcs;
-  }, []) || [];
+  });
+
+  return Array.from(result);
 }
+
 
 function initKeywordLinker() {
   function onDomReady() {
@@ -34,7 +47,12 @@ function initKeywordLinker() {
   fetch('/grammars/lua-mta.tmLanguage.json')
     .then(res => res.json())
     .then(json => {
-      allFunctions = new Set(extractFunctions(json));
+      const allText = Array.from(
+        document.querySelectorAll(".examples-section .code-example pre code, .function-syntax, .expressive-code")
+      ).map(el => el.textContent).join("\n");
+
+      allFunctions = new Set(extractFunctions(json, allText));
+
       document.readyState === "loading"
         ? window.addEventListener("DOMContentLoaded", onDomReady)
         : onDomReady();

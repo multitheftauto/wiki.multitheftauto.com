@@ -1,5 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setBrowserAjaxHandler
 client:
   name: setBrowserAjaxHandler
-  description: TODO
-  incomplete: true
+  description: This function provides a requestable ajax resource for Lua/Javascript communication for a [[browser]].
+  notes:
+    - type: warning
+      content: Do not use the same path as an existing file as url parameter. Ajax handlers have a higher priority than regular files, which will lead to inaccesibility of the original file if an ajax handler is attached to the same path.
+    - type: info
+      content: The handling function (if given), will be called with two tables, representing GET and POST parameters. The handling function may return a string which will be provided to the browser as file content.
+  oop:
+    element: browser
+    method: setAjaxHandler
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The web [[browser]] which will execute the Javascript code.
+    - name: url
+      type: string
+      description: The URL endpoint to handle.
+    - name: handler ( get_table, post_table )
+      type: function
+      description: The function to call if the webBrowser attempts to open the ajax endpoint. If this parameter is nil or omitted, the ajax handler for the url will be deleted.
+      default: 'nil'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the ajax handler could be created/removed.
+  examples:
+    - path: examples/setBrowserAjaxHandler-1.lua
+      description: This example will output all GET Parameters as well the number of requests made to the ajax endpoint.
+    - path: examples/setBrowserAjaxHandler_OOP-1.lua
+      description: This example will output all GET Parameters as well the number of requests made to the ajax endpoint.
+      oop: true

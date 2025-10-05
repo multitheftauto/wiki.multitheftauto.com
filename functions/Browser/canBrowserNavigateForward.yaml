@@ -1,5 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/canBrowserNavigateForward
 client:
   name: canBrowserNavigateForward
-  description: TODO
-  incomplete: true
+  description: This function checks if the [[browser]] can go to the next page.
+  oop:
+    element: browser
+    method: canNavigateForward
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The [[browser]] you want check for a next page.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the browser can go to the next page, false otherwise.
+  examples:
+    - path: examples/canBrowserNavigateForward-1.lua
+      description: This example creates a browser that can return to the last and previous pages and can also be refreshed.

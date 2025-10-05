@@ -1,0 +1,44 @@
+---
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+---
+
+<AutoStarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Dimension',
+  tableOfContents: false,
+}}>
+
+<p>An interior in GTA is an area that isn't 'outside'. For example, inside houses, casinos, restaurants, shops etc. Players can not, by default, access these. You can use various scripting functions to move elements into these interiors. When you change the interior a player is in, they can only see the non-player elements in that interior. Players can see each other in whatever interior they are in.</p>
+
+<p>You can have up to 255 interiors, interior 0 being the first one and referring to the normal GTA world.</p>
+
+<p>The camera's interior is updated when:</p>
+<ul>
+    <li>The local player joins the server (set to 0)</li>
+    <li><a href="/reference/resetMapInfo/">resetMapInfo</a> is called (set to 0)</li>
+    <li>The local player spawns (set to the player's interior)</li>
+    <li><a href="/reference/setElementInterior/">setElementInterior</a> is called</li>
+</ul>
+
+<h3>Uses</h3>
+<p>To allow a player to enter an interior, you should use the <a href="/reference/setElementInterior/">setElementInterior</a> function on the player you wish to move. You can also use this function on other elements, for example to make a vehicle or object appear in the interior.</p>
+
+<h3>Dimensions</h3>
+<p>The original GTA interiors are reused in a number of places throughout the game - e.g. each fast food restaurant interior is used many times. <a href="/reference/Dimension/">Dimensions</a> are a feature that was added to MTA to solve this problem. You can allocate each instance of the interior a separate dimension which will mean that the players in each dimension won't be able to see each other or interact with each other. This will mean that the interiors appear to be entirely separate, despite physically being in the same place.</p>
+
+<h3>Relevant scripting functions</h3>
+<ul>
+    <li><a href="/reference/setElementInterior/">setElementInterior</a></li>
+    <li><a href="/reference/getElementInterior/">getElementInterior</a></li>
+    <li><a href="/reference/spawnPlayer/">spawnPlayer</a></li>
+</ul>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'reference:Dimension',
+      'reference:ID_Lists/Interiors',
+      'reference:Entity',
+])} currentId='' />
+
+</AutoStarlightPage>

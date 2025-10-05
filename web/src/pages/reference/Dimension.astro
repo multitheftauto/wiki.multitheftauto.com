@@ -1,0 +1,57 @@
+---
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+---
+
+<AutoStarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Dimension',
+  tableOfContents: false,
+}}>
+
+<p>Dimensions are a way of separating parts of the game world from each other. Each dimension can contain elements of the types listed below. These are are only visible to players in the same dimension. You can, in theory, have up to 65535 dimensions.</p>
+
+<p>The following <a href="/reference/Element/">Element</a> types can be used in the Dimension system:</p>
+<ul>
+    <li><a href="/reference/player/">Player</a></li>
+    <li><a href="/reference/ped/">Ped</a></li>
+    <li><a href="/reference/vehicle/">Vehicle</a></li>
+    <li><a href="/reference/object/">Object</a></li>
+    <li><a href="/reference/pickup/">Pickup</a></li>
+    <li><a href="/reference/marker/">Marker</a></li>
+    <li><a href="/reference/colshape/">Collision shape</a></li>
+    <li><a href="/reference/blip/">Blip</a></li>
+    <li><a href="/reference/radararea/">Radar area</a></li>
+    <li><a href="/reference/team/">Team</a></li>
+    <li><a href="/reference/sound/">Sound</a></li>
+    <li><a href="/reference/weapon/">Weapon</a></li>
+    <li><a href="/reference/light/">Light</a></li>
+    <li><a href="/reference/water/">Water</a></li>
+    <li>Custom dummy elements (<a href="/reference/createElement/">createElement</a>)</li>
+</ul>
+
+<p>The camera's dimension is updated when:</p>
+<ul>
+    <li>The local player joins the server (set to 0)</li>
+    <li><a href="/reference/resetMapInfo/">resetMapInfo</a> is called (set to 0)</li>
+    <li>The local player spawns (set to the player's dimension)</li>
+    <li><a href="/reference/setElementDimension/">setElementDimension</a> is called</li>
+</ul>
+
+<h3>Uses</h3>
+<p>A useful use of this is for unique <a href="/reference/interior/">interiors</a>. For example, there is only one actual Pizza restaurant in San Andreas, with each warp point going to the same place. This works fine in single player games (as you aren't going to be in two places at once), but with multiplayer this can be confusing, as you could enter in one place and see all the players who entered in another. To avoid this, you can split the players into dimensions, so they will only see players who entered in the same place, duplicating the Pizza restaurant interior as many times as you want with different dimensions.</p>
+
+<h3>Relevant scripting functions</h3>
+<ul>
+    <li><a href="/reference/setElementDimension/">setElementDimension</a></li>
+    <li><a href="/reference/getElementDimension/">getElementDimension</a></li>
+    <li><a href="/reference/spawnPlayer/">spawnPlayer</a></li>
+</ul>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'reference:Interior',
+      'reference:Entity',
+])} currentId='' />
+
+</AutoStarlightPage>

@@ -1,20 +1,22 @@
 ---
-import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { Code } from '@astrojs/starlight/components';
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
 import NoteBox from '@src/components/NoteBox.astro';
 ---
 
-<StarlightPage frontmatter={{
+<AutoStarlightPage frontmatter={{
     template: 'doc',
     title: 'Meta.xml',
-    tableOfContents: false,
+    tableOfContents: {
+      maxHeadingLevel: 4
+    }
 }}>
 
 <p>The meta.xml file presents MTA with a set of metadata, such as the resource's name, the scripts to include, and which files to precache for sending to clients among other things.
-It is also the scope of "elements". It is written in XML, which is based on HTML and is the parent of XHTML.</p>
+It is also the scope of "elements". It is written in XML, which is based on HTML and is the parent of XHTML.</p><br/>
 
 <div id="tags">
-    <h4>Tags</h4>
+    <h3>Tags</h3>
     <p>XML is a textual data format which is widely used for the representation of data. MTA uses an XML-based language to describe the metadata for resources by using the tags below:</p>
     <ul>
         <li><strong>&lt;info/&gt;</strong> Information about this resource, possible parameters include (any arbitrary parameters can be used and read using <a href="/reference/getResourceInfo">getResourceInfo</a>).</li>
@@ -122,8 +124,9 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
     </ul>
 </div>
 
+<br/>
 <div id="Example">
-    <h4>Examples</h4>
+    <h3>Examples</h3>
     <p>Quick start template:</p>
     <Code code={`<meta>
     <script src="server.lua" type="server" />
@@ -212,6 +215,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
 </meta>`} lang="xml"/>
 </div>
 
+<br/>
 <div id="glob-example">
     <h4>Loading files via glob pattern</h4>
     <p>Since version <strong>1.6.0 r22430</strong> and above, you can conveniently load files into your resources using <a href="https://en.wikipedia.org/wiki/Glob%20(programming)">glob library</a> - see <a href="https://github.com/p-ranav/glob">more details</a>.</p>
@@ -226,4 +230,4 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
 </meta>`} lang="xml"/>
 </div>
 
-</StarlightPage>
+</AutoStarlightPage>

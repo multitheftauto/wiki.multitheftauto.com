@@ -1,5 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setRadioChannel
 client:
   name: setRadioChannel
-  description: TODO
-  incomplete: true
+  pair: getRadioChannel
+  description: This function sets the heard radio channel, even while not in a vehicle.
+  notes:
+    - type: tip
+      content: This function sometimes doesn't work when setting the radio channel to another different from the current one due to unknown reasons. If you experience this issue, simply add <code>setRadioChannel(0)</code> at the beginning of the script, outside any function.
+  parameters:
+    - name: ID
+      type: int
+      description: The ID of the radio station you want to play.
+      templateList: 'radio-channels'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if channel was set successfully, false otherwise.
+  examples:
+    - path: examples/setRadioChannel-1.lua
+      description: This example adds a command setradio which can be used to change the current radio station by ID.
+  issues:
+    - id: 423
+      description: setRadioChannel doesn't work when outside a vehicle.

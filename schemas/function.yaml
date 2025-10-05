@@ -121,6 +121,10 @@ $defs:
           description: |
             The default value for this parameter, if none was given in the call to the function.
             This property automatically implicitly marks this parameter as optional.
+        templateList:
+          type: string
+          description: It allows to display a list of possible values (radio station IDs, bone IDs, onPlayerChat message types, etc.).
+
   ignore_parameters:
     type: array
     description: |
@@ -153,3 +157,6 @@ $defs:
             name:
               type: string
               description: Name of the return value.
+            templateList:
+              type: string
+              description: It allows to display a list of possible values (radio station IDs, bone IDs, onPlayerChat message types, etc.).

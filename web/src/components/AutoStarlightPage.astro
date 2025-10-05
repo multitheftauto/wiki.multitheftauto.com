@@ -14,12 +14,12 @@ const root = parse(slot ?? '', { lowerCaseTagName: false });
 const headings = [];
 
 // AnchorHeading component source
-function renderAnchorHeading(level, id, text) {
+function renderAnchorHeading(level, id, text, classAttr = '', styleAttr = '') {
   const accessibleLabel = `Section ${text}`;
 
   return `
   <div class="sl-heading-wrapper level-h${level}">
-    <h${level} id="${id}">${text}</h${level}>
+    <h${level} id="${id}" class="${classAttr}" style="${styleAttr}">${text}</h${level}>
     <a class="sl-anchor-link" href="#${id}">
       <span aria-hidden="true" class="sl-anchor-icon">
         <svg width="16" height="16" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@ function escapeHtml(str: string) {
     .replace(/>/g, '&gt;');
 }
 
-root.querySelectorAll('h2, h3').forEach((el) => {
+root.querySelectorAll('h2, h3, h4, h5, h6').forEach((el) => {
   const level = parseInt(el.tagName[1]);
   const text = el.text.trim();
   const slug = text
@@ -49,7 +49,10 @@ root.querySelectorAll('h2, h3').forEach((el) => {
 
   headings.push({ depth: level, slug, text });
 
-  el.replaceWith(renderAnchorHeading(level, slug, escapeHtml(text)));
+  const classAttr = el.getAttribute('class') || '';
+  const styleAttr = el.getAttribute('style') || '';
+
+  el.replaceWith(renderAnchorHeading(level, slug, escapeHtml(text), classAttr, styleAttr));
 });
 
 const finalHtml = root.toString();

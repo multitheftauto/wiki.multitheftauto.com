@@ -1,5 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setBrowserVolume
 client:
   name: setBrowserVolume
-  description: TODO
-  incomplete: true
+  pair: getBrowserVolume
+  description: This function sets either a specific [[browser]]'s volume, or the overall volume for browsers.
+  oop:
+    element: browser
+    method: setVolume
+    variable: volume
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: A browser element.
+      default: 'nil'
+    - name: volume
+      type: float
+      description: A floating point number representing the desired volume level. Range is from 0.0 to 1.0.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if successfully, false if there's something wrong.
+  examples:
+    - path: examples/setBrowserVolume-1.lua
+    - path: examples/setBrowserVolume_OOP-1.lua
+      oop: true
+      

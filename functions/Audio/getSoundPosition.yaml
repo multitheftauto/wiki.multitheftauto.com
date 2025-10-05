@@ -1,5 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getSoundPosition
 client:
   name: getSoundPosition
-  description: TODO
-  incomplete: true
+  pair: setSoundPosition
+  description: This function is used to return the current seek position of the specified [[sound]] element. If the element is a player, this function will use the player's voice.
+  oop:
+    element: sound
+    method: getPlaybackPosition
+    variable: playbackPosition
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which seek position you want to return.
+  returns:
+    values:
+      - type: float|false
+        name: position
+    description: Returns a [[float]] value indicating the seek position of the sound element in seconds.
+  examples:
+    - path: examples/getSoundPosition-1.lua
+      description: Plays a sound then outputs the seek position.
+    - path: examples/getSoundPosition_OOP-1.lua
+      description: Plays a sound then outputs the seek position.
+      oop: true
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element to use a players voice.

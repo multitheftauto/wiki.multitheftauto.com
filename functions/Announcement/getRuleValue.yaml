@@ -6,7 +6,7 @@ server:
     values:
       - type: string|nil
         name: rule value
-    description: This example shows how you can check if a rule is set.
+    description: Returns a [[string]] containing the value set for the specified key, false if invalid arguments were specified.
 
   examples:
     - path: examples/getRuleValue-1.lua

@@ -1,63 +1,7 @@
 import { getCollection } from 'astro:content';
 import path from 'path';
 
-import type { FunctionType, NotesType } from './types';
-
-type FunctionItem = Awaited<ReturnType<typeof getCollection>>[number];
-
-type BaseOOP = {
-  element: string;
-  note?: string;
-};
-
-// /!\ constructor is a reserved word in JS/TS, so we use constructorclass
-type MethodOOP = BaseOOP & {
-  method: string;
-  static: boolean;
-  variable?: string;
-  constructorclass?: never; // mutually exclusive with constructor
-};
-
-type ConstructorOOP = BaseOOP & {
-  constructorclass: string;
-  method?: never;      // mutually exclusive with method
-  static?: never;
-  variable?: never;
-};
-
-export type OOPInfo = MethodOOP | ConstructorOOP;
-
-export type FunctionInfo = {
-    description: string;
-    incomplete?: boolean;
-    type: FunctionType;
-    typePretty: string;
-    pair?: string;
-    preview_images?: string[];
-    oop?: OOPInfo;
-    notes?: NotesType;
-    version?: VersionInfo
-};
-
-type VersionInfo = {
-  added?: string;
-  updated?: string;
-  removed?: string;
-};
-
-type FunctionsByCategory = {
-    [folder: string]: FunctionItem[];
-};
-type FunctionsByTypeByCategory = {
-    [key in FunctionType]: FunctionsByCategory;
-};
-
-
-export type FunctionData = {
-    shared?: any;
-    client?: any;
-    server?: any;
-};
+import type { FunctionData, FunctionInfo, FunctionsByCategory, FunctionsByTypeByCategory, FunctionType, Parameter, ReturnBlock, Syntax } from './types';
 
 export const functionTypePrettyName = {
     'client': 'Client-side',
@@ -75,32 +19,6 @@ function getFunctionTypePretty(data: FunctionData): string {
     return functionTypePrettyName[funcType];
 }
 
-
-type Parameter = {
-  name: string;
-  type: string;
-  description: string;
-  default?: string;
-};
-
-type ReturnValue = {
-  type: string;
-  name: string;
-};
-
-type ReturnBlock = {
-  description?: string;
-  values: ReturnValue[];
-};
-
-type Syntax = {
-  type: 'shared' | 'server' | 'client';
-  parameters: Parameter[];
-  returns: ReturnBlock | null;
-  syntaxString: string;
-};
-
-
 // return_type func_name ( param1, param2, [ optional param1 ] )
 // e.g. bool setCursorPosition ( int cursorX, int cursorY )
 function buildSyntaxString(
@@ -108,8 +26,10 @@ function buildSyntaxString(
   parameters: Parameter[],
   returns: ReturnBlock | null,
 ): string {
+  const ZERO_WIDTH_SPACE = '\u200B';
+
   const returnString = returns
-    ? `${returns.values.map(v => v.type).join(', ')}`
+    ? `${returns.values.map(v => v.type).join(`,${ZERO_WIDTH_SPACE} `)}`
     : '';
 
   const requiredParams = parameters.filter(p => p.default === undefined);

@@ -1,5 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/loadBrowserURL
 client:
   name: loadBrowserURL
-  description: TODO
-  incomplete: true
+  pair: getBrowserURL
+  description: This function loads the specified URL.
+  notes:
+    - type: info
+      content: You should use [[requestBrowserDomains]] first to request permission to load the url on the client.
+    - type: info
+      content: Calling <b>loadBrowserURL</b> right after [[createBrowser]] will not work normally due to the nature of the asynchronous browser interface. Refer to [[onClientBrowserCreated]] for more information.
+  oop:
+    element: browser
+    method: loadURL
+    variable: url
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The [[browser]] element which will load the URL.
+    - name: url
+      type: string
+      description: The url you want to load. It can either contain a remote website ("http://" prefix) or a website stored within a local resource ("http://mta/local/gui.html" for example, see [Local Scheme Handler](/reference/Local_Scheme_Handler/) for details).
+    - name: postData
+      type: string
+      description: The post data passed to the website. Its content type can be any type (e.g. JSON) if <b>urlEncoded</b> is set to false.
+      default: '""'
+    - name: urlEncoded
+      type: bool
+      description: If set to true, it will be available f.e. in PHP's $_POST variable (the content type is <i>application/x-www-form-urlencoded</i>).
+      default: 'true'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the URL was successfully loaded.
+  examples:
+    - path: examples/loadBrowserURL-1.lua
+    - path: examples/loadBrowserURL_OOP-1.lua
+      oop: true

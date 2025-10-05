@@ -1,10 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setBlipVisibleDistance
 shared: &shared
   name: setBlipVisibleDistance
-  description: TODO
-  incomplete: true
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  pair: getBlipVisibleDistance
+  description: This function will set the visible distance of a [[blip]].
+  oop:
+    element: blip
+    method: setVisibleDistance
+    variable: visibleDistance
+  parameters:
+    - name: theBlip
+      type: blip
+      description: The [[blip]] whose visible distance you wish to set.
+    - name: theDistance
+      type: float
+      description: The distance you want the blip to be visible for. Value gets clamped between 0 and 65535.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if successful, false otherwise.
+  examples:
+    - path: examples/setBlipVisibleDistance-1.lua
+      description: This example will set the visible distance of all blips to half the original value.
+    - path: examples/setBlipVisibleDistance_OOP-1.lua
+      description: This example will set the visible distance of all blips to half the original value.
+      oop: true

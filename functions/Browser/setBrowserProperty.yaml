@@ -1,5 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setBrowserProperty
 client:
   name: setBrowserProperty
-  description: TODO
-  incomplete: true
+  pair: getBrowserProperty
+  description: This function sets a given property of a specified [[browser]].
+  oop:
+    element: browser
+    method: setProperty
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The browser element you want to set a property of.
+    - name: key
+      type: string
+      description: The browser property key.
+      templateList: browser-properties
+    - name: value
+      type: string
+      description: A value indicating whether to enable ("1") the property or not ("0").
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the property was successfully set, false otherwise.
+  examples:
+    - path: examples/setBrowserProperty-1.lua
+      description: This example will add a command handler for 'mobile' that will toggle mobile browsing for all browsers.
+    - path: examples/setBrowserProperty_OOP-1.lua
+      description: This example will add a command handler for 'mobile' that will toggle mobile browsing for all browsers.
+      oop: true

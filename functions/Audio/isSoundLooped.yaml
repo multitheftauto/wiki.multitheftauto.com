@@ -1,5 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isSoundLooped
 client:
   name: isSoundLooped
-  description: TODO
-  incomplete: true
+  pair: setSoundLooped
+  description: This function is used to return the current loop state of the [[sound]] element.
+  oop:
+    element: sound
+    method: isLooped
+    variable: looped
+  parameters:
+    - name: theSound
+      type: sound
+      description: The [[sound]] element which you want to get the loop state.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the [[sound]] element is looped, false otherwise.
+  examples:
+    - path: examples/isSoundLooped-1.lua
+      description: This will create a sound element and change its state to looped, with a command to switch the loop state and output its state.
+    - path: examples/isSoundLooped_OOP-1.lua
+      description: This will create a sound element and change its state to looped, with a command to switch the loop state and output its state.
+      oop: true

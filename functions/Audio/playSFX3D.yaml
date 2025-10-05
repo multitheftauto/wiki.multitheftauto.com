@@ -1,5 +1,44 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/playSFX3D
 client:
   name: playSFX3D
-  description: TODO
-  incomplete: true
+  description: This function plays a sound in the GTA world from GTA's big sound containers.
+  notes:
+    - type: tip
+      content: There is a tool available which allows you to find bank and sound IDs easily [sfxBrowser](https://community.mtasa.com/index.php?p=resources&s=details&id=7549).
+    - type: info
+      content: PlaySFX sounds are MTA driven sounds, so MTA volume affects the volume.
+    - type: warning
+      content: |
+        Many players use versions of GTA:SA (especially pirated versions) that have audio files full of zeros so that they can compress better in their <b>AUDIO\\SFX\\</b> folder. (They lack any data).
+        
+        In case of these invalid audio files, this function returns false. It also returns false when trying to play a track deleted in the recent GTA: SA Steam patches (and if the client is using a Steam GTA: SA copy).
+  parameters:
+    - name: containerName
+      type: string
+      description: The name of the audio container. Possible values are "feet", "genrl", "pain_a", "script", "spc_ea", "spc_fa", "spc_ga", spc_na", "spc_pa", "radio".
+    - name: bankId/radioStation
+      type: int/string
+      description: The audio bank id. If <b>containerName</b> is "radio", then this argument is of type [[string]] and specifies the radio station name. Possible values "Adverts", "Ambience", "Police", "Playback FM", "K-Rose", "K-DST", "Cutscene", "Beats", "Bounce FM", "SF-UR", "Radio Los Santos", "Radio X", "CSR 103.9", "K-Jah West", "Master Sounds 98.3", "WCTR".
+    - name: soundId/trackId
+      type: int
+      description: The sound id within the audio bank. If <b>containerName</b> is "radio", then this argument specifies the radio track id within the radio station audio file.
+    - name: looped
+      type: bool
+      description: A [[boolean]] representing whether the sound will be looped.
+      default: 'false'
+    - name: x
+      type: float
+      description: A floating point number representing the X coordinate on the map.
+    - name: 'y'
+      type: float
+      description: A floating point number representing the Y coordinate on the map.
+    - name: z
+      type: float
+      description: A floating point number representing the Z coordinate on the map.
+  returns:
+    values:
+      - type: sound
+        name: sound-element
+    description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+  examples:
+    - path: examples/playSFX3D-1.lua
+      description: The following example plays a fire alarm sound near you (looped).
