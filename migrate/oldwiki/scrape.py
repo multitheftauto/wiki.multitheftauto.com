@@ -267,13 +267,20 @@ def parse_notes(content_div):
                                 "text": text
                             })
 
-    # Additional hack: find section 'Remarks' and extract content into an info note
+    # Additional hack: find section 'Remarks' and extract content into info notes
     remarks_header = content_div.find("span", id="Remarks")
     if remarks_header:
-        remarks_paragraph = remarks_header.find_next("p")
-        if remarks_paragraph:
-            remarks_text = remarks_paragraph.get_text(" ", strip=True)
-            if remarks_text:
+        # get all p next to it before the following header
+        current = remarks_header.find_parent(["h2", "h3"]).find_next_sibling()
+        remarks_texts = []
+        while current:
+            if current.name in ["h2", "h3"]:
+                break
+            if current.name == "p":
+                remarks_texts.append(current.get_text(" ", strip=True))
+            current = current.find_next_sibling()
+        if remarks_texts:
+            for remarks_text in remarks_texts:
                 note_boxes.append({
                     "type": "note",
                     "text": remarks_text
