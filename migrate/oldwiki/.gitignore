@@ -2,4 +2,5 @@ output/
 cache/
 images/
 logs/
+temp_copy/
 __pycache__/
