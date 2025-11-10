@@ -102,7 +102,7 @@ def parse_links(source_label: str, url: str) -> dict:
                     if not foundInCat:
                         result[current_category].append((page_url, name))
                     else:
-                        log(f"!!! Duplicate found in {foundInCat} when parsing {current_category}: {page_url}")
+                        log(f"=> Function {name} already found in category {foundInCat}, skipping duplicate in {current_category}.")
 
     return result
 
@@ -266,6 +266,18 @@ def parse_notes(content_div):
                                 "type": "needs_checking",
                                 "text": text
                             })
+
+    # Additional hack: find section 'Remarks' and extract content into an info note
+    remarks_header = content_div.find("span", id="Remarks")
+    if remarks_header:
+        remarks_paragraph = remarks_header.find_next("p")
+        if remarks_paragraph:
+            remarks_text = remarks_paragraph.get_text(" ", strip=True)
+            if remarks_text:
+                note_boxes.append({
+                    "type": "note",
+                    "text": remarks_text
+                })
 
     the_notes = []
     the_meta = []
@@ -604,6 +616,7 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
             func_pair = i_tag.a.text.strip()
     
     func_notes, func_meta = parse_notes(content_div)
+    handled_header_names.append("Remarks")
 
     # Syntax: parameters and returns TODO
     handled_header_names.append("Syntax")
