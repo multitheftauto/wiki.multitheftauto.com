@@ -1,4 +1,5 @@
 import os
+import shutil
 
 MIGRATE_FUNCTIONS = "./output/functions"
 MIGRATE_EVENTS = "./output/events"
@@ -62,6 +63,11 @@ def copy_files(page_type, source_dir, target_dir):
 
 if __name__ == "__main__":
     # Copy all generated YAML files from the old wiki migration to the definitive folders
+
+    if COPY_TO_TEMP_DIR:
+        if os.path.exists(TEMP_DIR):
+            shutil.rmtree(TEMP_DIR)
+        os.makedirs(TEMP_DIR, exist_ok=True)
     
     print("Copying functions...")
     copy_files('functions', MIGRATE_FUNCTIONS, OUTPUT_FUNCTIONS)
