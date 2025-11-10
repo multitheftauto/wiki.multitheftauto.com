@@ -6,11 +6,7 @@ MIGRATE_EVENTS = "./output/events"
 OUTPUT_FUNCTIONS = "../../functions"
 OUTPUT_EVENTS = "../../events"
 
-# Set to false so that the script doesn't override .yaml
-# files that have the 'incomplete: true'
-OVERRIDE_INCOMPLETE_PAGES = True
-
-def copy_files(source_dir, target_dir):
+def copy_files(page_type, source_dir, target_dir):
     for root, dirs, files in os.walk(source_dir):
         for file in files:
             if file.endswith(".yaml"):
@@ -18,12 +14,15 @@ def copy_files(source_dir, target_dir):
                 rel_path = os.path.relpath(src_path, source_dir)
                 dest_path = os.path.join(target_dir, rel_path)
 
-                # Check if destination .yaml has 'incomplete' attribute
-                if (not OVERRIDE_INCOMPLETE_PAGES) and os.path.exists(dest_path):
+                if not os.path.exists(dest_path):
+                    # Don't copy because it doesn't exist in the output
+                    print(f"(YAML) Skipping {dest_path} because it doesn't exist in the output")
+                    continue
+                else:
                     with open(dest_path, 'r', encoding='utf-8') as dest_file:
                         content = dest_file.read()
                         if 'incomplete: true' not in content:
-                            print(f"Skipping {dest_path} due to 'incomplete: true'")
+                            print(f"(YAML) Skipping {dest_path} because it's not marked as incomplete")
                             continue
                 
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
@@ -49,10 +48,11 @@ def copy_files(source_dir, target_dir):
 
 if __name__ == "__main__":
     # Copy all generated YAML files from the old wiki migration to the definitive folders
-    # print("Copying functions...")
-    # copy_files(MIGRATE_FUNCTIONS, OUTPUT_FUNCTIONS)
+    
+    print("Copying functions...")
+    copy_files('functions', MIGRATE_FUNCTIONS, OUTPUT_FUNCTIONS)
 
-    print("Copying events...")
-    copy_files(MIGRATE_EVENTS, OUTPUT_EVENTS)
+    # print("Copying events...")
+    # copy_files('events', MIGRATE_EVENTS, OUTPUT_EVENTS)
     
     print("Copy completed.")

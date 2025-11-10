@@ -40,6 +40,16 @@ NAME_BLACKLIST = [
     'Vector'
 ]
 
+log_filename = f"./logs/scrape_log_{time.strftime('%Y%m%d_%H%M%S', time.localtime())}.log"
+log_file = open(log_filename, "a", encoding="utf-8")
+
+def log(message: str):
+    global log_file
+    timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    log_entry = f"[{timestamp}] {message}"
+    print(log_entry)
+    log_file.write(log_entry + "\n")
+
 def clean_category(category_name: str) -> str:
     if category_name.endswith("events"):
         return category_name[:-7]
@@ -54,7 +64,7 @@ def fix_category(category_name: str) -> str:
     return category_name
 
 def parse_links(source_label: str, url: str) -> dict:
-    print(f"Parsing list of {source_label} ...")
+    log(f"Parsing list of {source_label} ...")
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -83,8 +93,16 @@ def parse_links(source_label: str, url: str) -> dict:
                         continue
                     page_url = a.get("href")
                     page_url = f"https://wiki.multitheftauto.com{page_url}"
-                    if name not in result[current_category]:
+                    # Check if name not in any result category
+                    foundInCat = False
+                    for cat, entries in result.items():
+                        if any(entry[1] == name for entry in entries):
+                            foundInCat = cat
+                            break
+                    if not foundInCat:
                         result[current_category].append((page_url, name))
+                    else:
+                        log(f"!!! Duplicate found in {foundInCat} when parsing {current_category}: {page_url}")
 
     return result
 
@@ -274,7 +292,7 @@ def parse_description(content_div):
             if text and not text.isspace():
                 the_description = convert_to_markdown(str(element))
                 the_description = the_description.strip()
-                # print(f"Found description for {name}: {the_description}")
+                # log(f"Found description for {name}: {the_description}")
                 break
         elif element.name in ["h2", "h3"]:
             # Stop at the first header
@@ -288,7 +306,7 @@ def parse_description(content_div):
             if text and not text.isspace():
                 the_description = convert_to_markdown(str(div))
                 the_description = the_description.strip()
-                # print(f"Found description in div for {name}: {the_description}")
+                # log(f"Found description in div for {name}: {the_description}")
                 break
     
     return the_description
@@ -351,8 +369,8 @@ def print_additional_headers_found_in_page(content_div, handled_header_names, pa
             additional_headers.append(header_text)
     
     if additional_headers:
-        print(f"Other headers found in {page_url}:")
-        print(f" {', '.join(additional_headers)}")
+        log(f"Other headers found in {page_url}:")
+        log(f" {', '.join(additional_headers)}")
 
 def parse_event_page(page_url: str, category: str, name: str, source: str) -> dict:
     response_text = get_page_from_cache_or_fetch(page_url, name)
@@ -474,7 +492,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     handled_header_names.append("Examples")
     handled_header_names.append("Example")
     if len(examples) == 0:
-        print(f"Event is missing code examples: {page_url}")
+        log(f"Event is missing code examples: {page_url}")
 
     example_index = 1
     added_examples = []
@@ -603,7 +621,7 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     handled_header_names.append("Examples")
     handled_header_names.append("Example")
     # if len(examples) == 0:
-    #     print(f"Function is missing code examples: {page_url}")
+    #     log(f"Function is missing code examples: {page_url}")
     
     example_index = 1
     added_examples = []
@@ -670,7 +688,7 @@ def convert_page_to_yaml(page_url: str, category: str, name: str, source: str) -
 def parse_items_by_source(base_dir, data_by_source):
     for source, categories in data_by_source.items():
         started_at = time.time()
-        print(f"Parsing individual pages of {source}...")
+        log(f"»»» Parsing individual pages of {source}...")
         for category, entries in categories.items():
             dir_path = os.path.join(base_dir, category)
             os.makedirs(dir_path, exist_ok=True)
@@ -684,18 +702,18 @@ def parse_items_by_source(base_dir, data_by_source):
                         file_content += convert_page_to_yaml(page_url, category, name, source)
                         f.write(file_content)
                 except Exception as e:
-                    print(e)
+                    log(e)
                     # Cancel and continue to next entry, closing/deleting file if needed
                     if os.path.exists(filename):
                         os.remove(filename)
                     
-        print(f">> Parsed individual pages of {source} in {time.time() - started_at:.2f} seconds.")
+        log(f">> Parsed individual pages of {source} in {time.time() - started_at:.2f} seconds.\n")
 
 def main():
     # Create cache directory if it doesn't exist
     if not os.path.exists(PAGES_CACHE_DIR):
         os.makedirs(PAGES_CACHE_DIR)
-    print("SKIP_CACHE is set to", SKIP_CACHE)
+    log(f"SKIP_CACHE is set to {SKIP_CACHE}")
     
     functions_by_source = {}
     events_by_source = {}
@@ -720,8 +738,14 @@ def main():
     if os.path.exists("./output"):
         shutil.rmtree("./output")
 
+    log(" ")
+
     parse_items_by_source(FUNCTIONS_DIR, functions_by_source)
     parse_items_by_source(EVENTS_DIR, events_by_source)
 
+    # Close log file
+    log_file.close()
+
 if __name__ == "__main__":
     main()
+
