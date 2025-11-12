@@ -71,6 +71,8 @@ funcExamples = funcExamples.map((example: any) => {
     }
 });
 
+const isDocIncomplete = funcInfo.incomplete === true || funcExamples.length === 0;
+
 let notesContent: NotesType = [];
 if (Array.isArray(funcInfo.notes) && funcInfo.notes.length > 0) {
     notesContent = funcInfo.notes;
@@ -121,7 +123,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                 return (
                     <ItemDescription
                         description={funcInfo.description}
-                        incomplete={funcInfo.incomplete}
+                        incomplete={isDocIncomplete}
                     />
                 );
             }
@@ -160,7 +162,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                     <div class="added-updated-description-box-body">
                         <ItemDescription
                             description={funcInfo.description}
-                            incomplete={funcInfo.incomplete}
+                            incomplete={isDocIncomplete}
                         />
                     </div>
                 </div>
@@ -168,7 +170,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
         })() : (
             <ItemDescription
                 description={funcInfo.description}
-                incomplete={funcInfo.incomplete}
+                incomplete={isDocIncomplete}
             />
         )}
 
