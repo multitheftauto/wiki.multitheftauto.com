@@ -1,0 +1,115 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+
+import { Code } from "@astrojs/starlight/components";
+
+import { materials } from "@src/data/materials";
+
+// Group materials by category
+const materialsByCategory: Record<string, typeof materials> = {};
+materials.forEach((material) => {
+  if (!materialsByCategory[material.category]) {
+    materialsByCategory[material.category] = [];
+  }
+  materialsByCategory[material.category].push(material);
+});
+
+// Sort categories alphabetically
+const sortedCategories = Object.keys(materialsByCategory).sort();
+
+// Generate Lua table
+let luaTable = `local materials = {\n`;
+materials.forEach((material) => {
+  luaTable += `\t[${material.id}] = "${material.name}", -- ${material.category}\n`;
+});
+luaTable += `}`;
+---
+
+<StarlightPage
+  frontmatter={{
+    template: "doc",
+    title: "Surface Materials",
+    tableOfContents: false,
+  }}
+>
+  <p>
+    This is a list San Andreas surface materials that are initialized in the
+    game's <em>surfinfo.dat</em> file. These IDs can be used with functions such
+    as <a href="/reference/engineSetSurfaceProperties"
+      >engineSetSurfaceProperties</a
+    >.
+  </p>
+  <!-- The sounds of walking on each surface are available on the Collision surface sounds page -->
+
+  <p>
+    The group names and readable material names have been extracted from
+    Collision File Editor II by Steve M.
+  </p>
+
+  {
+    sortedCategories.map((category) => (
+      <section>
+        <h3>{category}</h3>
+        <table class="materials-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {materialsByCategory[category].map((material) => (
+              <tr>
+                <td>
+                  <code>{material.id}</code>
+                </td>
+                <td>{material.name}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    ))
+  }
+
+  <section data-pagefind-ignore>
+    <h4>All materials in a Lua table:</h4>
+    <Code lang="lua" code={luaTable} />
+  </section>
+
+  <SeeAlsoSection
+    seeAlsoLinks={getSeeAlsoLinksFromList(["reference:ID_Lists"])}
+    currentId=""
+  />
+</StarlightPage>
+
+<style>
+  .materials-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+
+  .materials-table th,
+  .materials-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--sl-color-gray-4);
+  }
+
+  .materials-table th {
+    background-color: var(--sl-color-gray-5);
+    font-weight: 600;
+  }
+
+  .materials-table tbody tr:hover {
+    background-color: var(--sl-color-gray-5);
+  }
+
+  .materials-table code {
+    font-size: 0.9em;
+  }
+</style>
