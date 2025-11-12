@@ -16,15 +16,18 @@ const unfinishedEvents = getUnfinishedPages('events');
     title: 'Incomplete Pages',
     tableOfContents: false,
 }}>
+<NoteBox type="tip">
+    Stay up to date with the progress by connecting with us on the <strong>MTA Development Discord server</strong>.
+</NoteBox>
 
-<p>The following pages are not finished, and need your attention! Please help complete the MTA Wiki.</p>
+<p>The following pages are not finished, and need your attention! Please help complete the new MTA Wiki.</p>
 <p><a href={SITE_CONTRIBUTING_URL}
     class="guidelines-link">Contribution guidelines</a></p>
 
 <AnchorHeading level="3" id="unfinished-functions">Unfinished Function Pages</AnchorHeading>
 <NoteBox type="info">
-    We are working on migrating these pages from <code>wiki.multitheftauto.com</code> using <strong>web scraping</strong>.
-    <br>Stay up to date with the progress using our Development Discord server.
+    Please help review and complete these pages by adding missing documentation or code examples.
+    <br>In most cases, the page is missing extra information that couldn't be automatically migrated from the old wiki.
 </NoteBox>
 <section data-pagefind-ignore>
     {unfinishedFunctions.length === 0 ? (
