@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPlayerMuted
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerMuted
 server:
   name: setPlayerMuted
-  description: TODO
-  incomplete: true
+  description: Use this function to mute or unmute the player. Muted player won't
+    be able to say anything in chat.
+  parameters: []
+  examples:
+  - path: examples/setPlayerMuted-1.lua
+    description: This adds a /mute command that can be used to mute a player.
+    side: server
+  pair: isPlayerMuted

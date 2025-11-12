@@ -1,18 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclList
 server:
   name: aclList
   description: This function returns a list of all the ACLs.
-  oop:
-    element: acl
-    method: list
-    static: true
-  returns:
-    values:
-      - type: table
-        name: acl's list
-    description: Returns a [[table]] of all the ACLs. This table can be empty if no ACLs exist. It can also return false/nil if it failed for some reason.
+  parameters: []
   examples:
-    - path: examples/aclList-1.lua
-      description: This example adds a command <code>listacls</code> which prints out a name list of all ACLs to the console.
-    - path: examples/aclList_OOP-1.lua
-      description: This example adds a command <code>listacls</code> which prints out a name list of all ACLs to the console.
-      oop: true
+  - path: examples/aclList-1.lua
+    description: This example adds a commandlistaclswhich prints out a name list of
+      all ACLs to the console.
+    side: server

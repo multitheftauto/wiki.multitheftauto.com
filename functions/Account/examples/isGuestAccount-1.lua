@@ -1,6 +1,6 @@
 function callAdmin ( playerSource )
     -- get the account of the user trying to use this function first
-    local sourceAccount = getPlayerAccount ( playerSource )
+    sourceAccount = getPlayerAccount ( playerSource )
     -- if they're a guest
     if isGuestAccount ( sourceAccount ) then
         -- tell them to register

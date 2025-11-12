@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setCloudsEnabled
-shared: &shared
-  name: setCloudsEnabled
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetCloudsEnabled
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setCloudsEnabled
+  description: This function will enable or disable clouds. This is useful for race
+    maps which are placed high up as clouds can cause low FPS.
+  parameters: []
+  examples:
+  - path: examples/setCloudsEnabled-1.lua
+    description: This example disables clouds for all players when resource starts.
+    side: server

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleRotorSpeed
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRotorSpeed
 client:
   name: getVehicleRotorSpeed
-  description: TODO
-  incomplete: true
+  description: Retrieves the speed at which the rotor of a helicopter or plane rotates.
+  parameters: []
+  examples:
+  - path: examples/getVehicleRotorSpeed-1.lua
+    description: ''
+    side: client
+  pair: setVehicleRotorSpeed

@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListSetSelectionMode
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetSelectionMode
 client:
   name: guiGridListSetSelectionMode
-  description: TODO
-  incomplete: true
+  description: This function sets the selection mode of a gui gridlist. For example,
+    the MTA *server browser* selects a whole row, while the *Controls* dialog selects
+    a single cell. To select multiple items you must be holding down 'ctrl'.
+  parameters: []
+  examples:
+  - path: examples/guiGridListSetSelectionMode-1.lua
+    description: 'This example creates a grid list with 3 columns and 3 rows, each
+      with text describing its position in the grid list. Also, the cursor is turned
+      on. The player can use the command ''setmode #'' to change how the grid list
+      can be selected.'
+    side: client

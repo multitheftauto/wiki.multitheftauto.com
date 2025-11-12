@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleRespawnRotation
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRespawnRotation
 server:
   name: getVehicleRespawnRotation
-  description: TODO
-  incomplete: true
+  description: This function retrieves the respawn rotation of a [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/getVehicleRespawnRotation-1.lua
+    description: ''
+    side: server

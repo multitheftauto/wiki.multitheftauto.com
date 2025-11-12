@@ -1,20 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclObjectGetGroups
 server:
   name: aclObjectGetGroups
-  description: This function returns a [[table]] of all groups the object is in.
-  version:
-    added: 1.6.0 r22273
-  parameters:
-    - name: theObject
-      type: string
-      description: The name of the [[ACL]] entry to get groups of.
-  returns:
-    values:
-      - type: table
-        name: groups list
-    description: Returns a [[table]] of all groups the object is in on success, false if something went wrong.
+  description: This function returns a table of all groups the object is in.
+  parameters: []
   examples:
-    - path: examples/aclObjectGetGroups-1.lua
-      description: This example outputs a list of all groups of the calling user.
-    - path: examples/aclObjectGetGroups_OOP-1.lua
-      description: This example outputs a list of all groups of the calling user.
-      oop: true
+  - path: examples/aclObjectGetGroups-1.lua
+    description: ''
+    side: server

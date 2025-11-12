@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleSirensOn
-shared: &shared
-  name: getVehicleSirensOn
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleSirensOn
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleSirensOn
+  description: This function returns whether the sirens are turned on for the specified
+    vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehicleSirensOn-1.lua
+    description: This example toggles siren state when a player enters a vehicle as
+      a driver.
+    side: server
+  pair: setVehicleSirensOn

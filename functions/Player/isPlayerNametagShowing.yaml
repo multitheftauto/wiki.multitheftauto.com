@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isPlayerNametagShowing
-shared: &shared
-  name: isPlayerNametagShowing
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPlayerNametagShowing
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isPlayerNametagShowing
+  description: This function will allow you to determine if a player's name tag is
+    currently showing.
+  parameters: []
+  examples:
+  - path: examples/isPlayerNametagShowing-1.lua
+    description: This example toggles a player's nametag. If no playername is given,
+      it toggles the nametag of the player who entered the command.
+    side: server
+  pair: setPlayerNametagShowing

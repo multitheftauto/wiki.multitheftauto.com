@@ -1,10 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehiclePaintjob
-shared: &shared
-  name: getVehiclePaintjob
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehiclePaintjob
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehiclePaintjob
+  description: This function gets the current paintjob on the specified vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehiclePaintjob-1.lua
+    description: This example will set the paintjob of a new sultan to '2', then check
+      it was set.
+    side: server
+  pair: setVehiclePaintjob
+  notes:
+  - type: info
+    content: Always returns 3 if paintjobs are not supported for the vehicle.

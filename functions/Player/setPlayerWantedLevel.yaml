@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPlayerWantedLevel
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerWantedLevel
 server:
   name: setPlayerWantedLevel
-  description: TODO
-  incomplete: true
+  description: This function is used to set a player's wanted level. The wanted level
+    is indicated by the amount of stars a player has on the GTA HUD.
+  parameters: []
+  examples:
+  - path: examples/setPlayerWantedLevel-1.lua
+    description: 'This example sets a player''s wanted level to six stars if they
+      enter a certain colshape:'
+    side: server
+  pair: getPlayerWantedLevel

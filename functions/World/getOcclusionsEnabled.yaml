@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getOcclusionsEnabled
-shared: &shared
-  name: getOcclusionsEnabled
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetOcclusionsEnabled
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getOcclusionsEnabled
+  description: This function is used to get "occlusions enabled" state.
+  parameters: []
+  examples:
+  - path: examples/getOcclusionsEnabled-1.lua
+    description: 'This example shows how to disable occlusions after the whole map
+      has been cleared:'
+    side: server
+  notes:
+  - type: info
+    content: Occlusions are used by GTA to enhance performance by hiding objects that
+      are (normally) obscured by certain large buildings. However when removeWorldModel
+      is used they may also have the undesired effect of making parts of the map disappear.
+      Disabling occlusions will fix that.

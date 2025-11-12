@@ -1,0 +1,1 @@
+triggerEvent ( "onSpecialEvent", root, "test" )

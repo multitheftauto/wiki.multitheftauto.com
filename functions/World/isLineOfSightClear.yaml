@@ -1,5 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isLineOfSightClear
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsLineOfSightClear
 client:
   name: isLineOfSightClear
-  description: TODO
-  incomplete: true
+  description: This function checks if there are obstacles between two points of the
+    game world, optionally ignoring certain kinds of elements. Use [processLineOfSight](/wiki/ProcessLineOfSight
+    "ProcessLineOfSight") if you want more information about what the ray hits.
+  parameters: []
+  examples:
+  - path: examples/isLineOfSightClear-1.lua
+    description: "isLineOfSightClear is the economical way to cast a ray in the world.\
+      \ \nThis example demonstrates how you can easily implement basic NPC behaviour\
+      \ such as jumping obstacles. A 3D line is drawn connecting the two points in\
+      \ the ray."
+    side: client
+  notes:
+  - type: info
+    content: 'This function does currently NOT support collisions with the "shootthrough"
+      flag enabled. That means: isLineOfSightClear will never collide with such collisions
+      and this can lead to unreliabilities. The "shootthrough" flag is used by many
+      beach/sand/underwater objects.'

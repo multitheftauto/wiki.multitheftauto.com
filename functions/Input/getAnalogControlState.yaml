@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getAnalogControlState
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAnalogControlState
 client:
   name: getAnalogControlState
-  description: TODO
-  incomplete: true
+  description: This retrieves the analog control state of a control. This is useful
+    for detecting sensitive controls, such as those used on a joypad.
+  parameters: []
+  examples:
+  - path: examples/getAnalogControlState-1.lua
+    description: This creates an/forwardscommand, which toggles yourforwardscontrol
+      state between 0 and 1.
+    side: client

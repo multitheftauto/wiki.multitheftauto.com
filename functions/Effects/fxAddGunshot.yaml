@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fxAddGunshot
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddGunshot
 client:
   name: fxAddGunshot
-  description: TODO
-  incomplete: true
+  description: This function creates a gunshot particle effect.
+  parameters: []
+  examples:
+  - path: examples/fxAddGunshot-1.lua
+    description: This example adds a gunshot with sparks in front of your face.
+    side: client

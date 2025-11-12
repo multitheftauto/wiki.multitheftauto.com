@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateScrollPane
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateScrollPane
 client:
   name: guiCreateScrollPane
-  description: TODO
-  incomplete: true
+  description: This creates a GUI scroll pane.
+  parameters: []
+  examples:
+  - path: examples/guiCreateScrollPane-1.lua
+    description: This example creates a small window with a scrollpane on. Using the
+      /fill command you can populate the scrollpane with the names of every player
+      in the server.
+    side: client

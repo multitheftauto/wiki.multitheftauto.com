@@ -1,0 +1,2 @@
+local distance = getElementDistanceFromCentreOfMassToBaseOfModel(localPlayer)
+outputChatBox(tostring(distance))

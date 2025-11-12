@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/tocolor
-shared: &shared
-  name: tocolor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Tocolor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: tocolor
+  description: 'This function retrieves the hex number of a specified color, useful
+    for the dx functions.
+
+    Added server\-side.'
+  parameters: []
+  examples:
+  - path: examples/tocolor-1.lua
+    description: This example displays the text "Tuna" in small at the top left side
+      of your screen. The color of this text can be changed using the command /tunaColor.
+    side: client

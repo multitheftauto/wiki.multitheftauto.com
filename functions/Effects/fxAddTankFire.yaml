@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fxAddTankFire
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddTankFire
 client:
   name: fxAddTankFire
-  description: TODO
-  incomplete: true
+  description: This function creates a tank firing particle effect.
+  parameters: []
+  examples:
+  - path: examples/fxAddTankFire-1.lua
+    description: This example will create a Tank Fire Effect at your weapon's muzzle
+      position
+    side: client

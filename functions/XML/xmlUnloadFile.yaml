@@ -1,43 +1,12 @@
-shared: &shared
-  name: 'xmlUnloadFile'
-  oop:
-    element: xmlnode
-    method: unload
-  description: |
-    Unloads an XML document from memory.
-  parameters:
-    - name: 'rootNode'
-      type: 'xmlnode'
-      description: The root of the XML document to unload.
-  returns:
-    description: |
-      Returns true if the document was unloaded successfully, false otherwise.
-    values:
-      - type: 'boolean'
-        name: 'result'
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlUnloadFile
+server:
+  name: xmlUnloadFile
+  description: Unloads an XML document from memory.
+  parameters: []
   examples:
-  - path: 'examples/xmlUnloadFile-1.lua'
-    description: |
-      Modify a configuration file.
-
-      config.xml
-      ```xml
-      <config>
-          <markers color="255,100,0" />
-      </config>
-      ```
-
-      Lua code
-  - path: 'examples/xmlUnloadFile_OOP-1.lua'
-    description: |
-      Modify a configuration file.
-
-      config.xml
-      ```xml
-      <config>
-          <markers color="255,100,0" />
-      </config>
-      ```
-
-      Lua code
-    oop: true
+  - path: examples/xmlUnloadFile-1.lua
+    description: 'config.xml:'
+    side: server
+  - path: examples/xmlUnloadFile-2.lua
+    description: 'Lua code:'
+    side: server

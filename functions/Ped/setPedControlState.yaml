@@ -1,5 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPedControlState
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedControlState
 client:
   name: setPedControlState
-  description: TODO
-  incomplete: true
+  description: This function makes a [ped](/wiki/Ped "Ped") or [player](/wiki/Player
+    "Player") press or release a certain [control](/wiki/Control_names "Control names").
+  parameters: []
+  examples:
+  - path: examples/setPedControlState-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: You can't use enter_exit or enter_passenger on a ped. Please use setPedEnterVehicle
+      and setPedExitVehicle .
+  - type: info
+    content: To make a ped crouch, set the control to true and reset to false after
+      one frame. Use setTimer with 0ms. Do the same to make the ped stand again.
+  - type: info
+    content: If you set the control state on the localPlayer element, then the control
+      state is synchronized to every other client as if the input was made through
+      the game input. But if you set any control states to server-side peds then the
+      control state is not automatically synchronized. This behaviour is unaffected
+      by being the syncer of the server-side ped or not. Let's assume that the syncer
+      client calls setPedControlState on the ped. The other game clients - the ones
+      where setPedControlState was not manually called by scripts - will see the ped
+      teleport around. It will clearly look as if synchronization were broken.

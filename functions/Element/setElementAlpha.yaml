@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementAlpha
-shared: &shared
-  name: setElementAlpha
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementAlpha
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setElementAlpha
+  description: This function sets the alpha (transparency) value for the specified
+    [element](/wiki/Element "Element"). This can be a [player](/wiki/Player "Player"),
+    [ped](/wiki/Ped "Ped"), [object](/wiki/Object "Object"), [vehicle](/wiki/Vehicle
+    "Vehicle") or [weapon](/wiki/Element/Weapon "Element/Weapon").
+  parameters: []
+  examples:
+  - path: examples/setElementAlpha-1.lua
+    description: This example makes the player invisible.
+    side: client
+  - path: examples/setElementAlpha-2.lua
+    description: This example lets you toggle invisibility when you write /invis.
+    side: server
+  pair: getElementAlpha

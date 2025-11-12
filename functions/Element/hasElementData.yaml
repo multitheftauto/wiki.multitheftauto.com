@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/hasElementData
-shared: &shared
-  name: hasElementData
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/HasElementData
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: hasElementData
+  description: This function checks if an element has [element data](/wiki/Element_data
+    "Element data") available under a certain key.
+  parameters: []
+  examples:
+  - path: examples/hasElementData-1.lua
+    description: ''
+    side: server

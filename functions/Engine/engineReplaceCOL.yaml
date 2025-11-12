@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineReplaceCOL
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineReplaceCOL
 client:
   name: engineReplaceCOL
-  description: TODO
-  incomplete: true
+  description: This function replaces the collision file of the given model id to
+    the collision file passed. Use [engineLoadCOL](/wiki/EngineLoadCOL "EngineLoadCOL")
+    to load the collision file first.
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
+      - as other orders can cause collisions, textures or the DFF not to load due
+      to technical limitations. Collision libraries (.col files containing multiple
+      collision models) are not supported. See COL for details. Object models are
+      supported only (no vehicles or players).

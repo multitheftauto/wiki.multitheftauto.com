@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/textDestroyDisplay
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextDestroyDisplay
 server:
   name: textDestroyDisplay
-  description: TODO
-  incomplete: true
+  description: This function destroys a text display and will unlink all the [textitems](/wiki/Textitem
+    "Textitem") on it. This does not stop the textitems existing, but anyone who was
+    observing the textitems through this display will stop seeing them.
+  parameters: []
+  examples:
+  - path: examples/textDestroyDisplay-1.lua
+    description: This example creates a display then destroys it again straight away.
+    side: server

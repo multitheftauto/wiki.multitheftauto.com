@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPlayerNametagShowing
-shared: &shared
-  name: setPlayerNametagShowing
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerNametagShowing
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setPlayerNametagShowing
+  description: This function allows you to set whether a player's nametag visibility
+    both clientside and serverside
+  parameters: []
+  examples:
+  - path: examples/setPlayerNametagShowing-1.lua
+    description: This script will turn off player tags for everyone
+    side: server
+  pair: isPlayerNametagShowing

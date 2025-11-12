@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineGetPoolCapacity
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetPoolCapacity
 client:
   name: engineGetPoolCapacity
-  description: TODO
+  description: This function returns the capacity of the provided pool.
+  parameters: []
+  examples: []
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Engine pools
+
+      '

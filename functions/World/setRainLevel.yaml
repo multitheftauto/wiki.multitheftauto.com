@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setRainLevel
-shared: &shared
-  name: setRainLevel
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetRainLevel
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setRainLevel
+  description: This function sets the rain level to any weather available in GTA.
+    Use [resetRainLevel](/wiki/ResetRainLevel "ResetRainLevel") to undo the changes.
+  parameters: []
+  examples:
+  - path: examples/setRainLevel-1.lua
+    description: This example will make it rain when player or ped enters a vehicle,
+      and stop once it leaves.
+    side: client

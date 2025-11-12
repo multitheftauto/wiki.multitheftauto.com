@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getAlivePlayers
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAlivePlayers
 server:
   name: getAlivePlayers
-  description: TODO
-  incomplete: true
+  description: This function returns a table of all the alive players on the server.
+    Opposite function of [getDeadPlayers](/wiki/GetDeadPlayers "GetDeadPlayers").
+  parameters: []
+  examples:
+  - path: examples/getAlivePlayers-1.lua
+    description: This example prints a list of all alive players in a "name, name2,
+      name3" format.  If no players are alive then it outputs "none".
+    side: server

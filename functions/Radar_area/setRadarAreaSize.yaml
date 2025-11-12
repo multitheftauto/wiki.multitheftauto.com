@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setRadarAreaSize
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetRadarAreaSize
 server:
   name: setRadarAreaSize
-  description: TODO
-  incomplete: true
+  description: This function changes the size of an existing [radar area](/wiki/Radararea
+    "Radararea").
+  parameters: []
+  examples:
+  - path: examples/setRadarAreaSize-1.lua
+    description: 'Example 1:This example decreases the size of a team''s radar area
+      whenever a player from that team dies:'
+    side: server
+  - path: examples/setRadarAreaSize-2.lua
+    description: 'Example 2:This example creates a radar area and resets its size
+      right away:'
+    side: server

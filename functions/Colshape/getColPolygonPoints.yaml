@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getColPolygonPoints
-shared: &shared
-  name: getColPolygonPoints
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetColPolygonPoints
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getColPolygonPoints
+  description: This function is used to get all bound points in a [colshape polygon](/wiki/CreateColPolygon
+    "CreateColPolygon").
+  parameters: []
+  examples:
+  - path: examples/getColPolygonPoints-1.lua
+    description: ''
+    side: server

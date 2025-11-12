@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/pregFind
-shared: &shared
-  name: pregFind
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/PregFind
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: pregFind
+  description: This function stops at the first occurrence of the pattern in the input
+    string and returns the result of the search.
+  parameters: []
+  examples:
+  - path: examples/pregFind-1.lua
+    description: 'Some examples:'
+    side: server
+  notes:
+  - type: warning
+    content: When declaring a pattern string in quotes, the backslash character should
+      be doubled up. e.g. "\\(" will match a single bracket.
+  - type: warning
+    content: Multiline flag does not work correctly

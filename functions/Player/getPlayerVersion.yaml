@@ -1,5 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerVersion
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerVersion
 server:
   name: getPlayerVersion
-  description: TODO
-  incomplete: true
+  description: "mta \\-\\> 1\\.6  \n\nnetcode \\-\\> 474  \n\nnumber \\-\\> 352  \n\
+    \nsortable \\-\\> 1\\.6\\.0\\-9\\.22279\\.0  \n\ntag \\-\\> 1\\.6\\-release\\\
+    -22279  \n\ntype \\-\\> Release"
+  parameters: []
+  examples:
+  - path: examples/getPlayerVersion-1.lua
+    description: This example adds a command that allows players to see their own
+      client version.
+    side: server
+  notes:
+  - type: info
+    content: You can also compare if a version is higher than another using the <
+      or > operators.
+  - type: info
+    content: 'Current MTA version: mta -> 1.6 netcode -> 474 number -> 352 sortable
+      -> 1.6.0-9.22279.0 tag -> 1.6-release-22279 type -> Release'
+  - type: info
+    content: Alternatively, you can use getVersion on the server or client to obtain
+      more information.

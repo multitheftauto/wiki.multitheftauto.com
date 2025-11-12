@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleRotorState
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRotorState
 client:
   name: getVehicleRotorState
-  description: TODO
-  incomplete: true
+  description: This function returns a vehicle's (plane or helicopter) rotor state
+    (on or off).
+  parameters: []
+  examples:
+  - path: examples/getVehicleRotorState-1.lua
+    description: This code adds a simple command that allows you to check a vehicle's
+      rotor state keeping in mind you have to be in either a plane or helicopter.
+    side: client
+  pair: setVehicleRotorState
+  notes:
+  - type: info
+    content: The function should not be confused with getVehicleEngineState .

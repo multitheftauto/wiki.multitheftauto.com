@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiStaticImageGetNativeSize
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiStaticImageGetNativeSize
 client:
   name: guiStaticImageGetNativeSize
-  description: TODO
-  incomplete: true
+  description: This function gets the native size of image. That means the original
+    size in pixels of the image file.
+  parameters: []
+  examples:
+  - path: examples/guiStaticImageGetNativeSize-1.lua
+    description: This example creates an image at the resource's start and changes
+      its size to the original size so it keeps the best quality.
+    side: client

@@ -1,57 +1,25 @@
-shared: &shared
-  name: 'setElementHealth'
-  oop:
-    element: element
-    method: setHealth
-    variable: health
-  pair: 'getElementHealth'
-  description: |
-    This function sets the health of a [player](/player), [ped](/ped), [vehicle](/vehicle), or [object](/object) element.
-  notes:
-    - type: 'info'
-      content: |
-        In the case of the [vehicle](/vehicle) element, the health ranges from 0 to 1000.
-        
-        - *1000:* no damage at all
-        - *650:* white steam 0%, black smoke 0%
-        - *450:* white steam 100%, black smoke 50%
-        - *250:* white steam 0%, black smoke 100%
-        - *249:* fire with big black smoke (blowing up)
-  parameters:
-    - name: 'theElement'
-      type: 'element'
-      description: 'The [player](/player), [ped](/ped), [vehicle](/vehicle), or [object](/object) element whose health you want to set.'
-    - name: 'newHealth'
-      type: 'float'
-      description: 'A float indicating the new health to set for the element.'
-  returns:
-    description: |
-      Returns *true* if the new health was set successfully, *false* otherwise.
-    values:
-      - type: 'bool'
-        name: 'result'
-  issues:
-    - id: 3807
-      description: 'hpbar on hud is not compatible visually with MAX_HEALTH stat'
-    - id: 3791
-      description: 'setPedArmor and setElementHealth synchronization problems from Client to Server'
-    - id: 2223
-      description: 'setElementHealth in onClientPlayerDamage bug'
-    - id: 1423
-      description: 'When you setElementHealth under onClientPlayerDamage, the local (hit) player rotates automatically'
-    - id: 448
-      description: 'Crash when plane explode'
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementHealth
 server:
-  <<: *shared
+  name: setElementHealth
+  description: This function sets the health for the specified [element](/wiki/Element
+    "Element"). This can be a [ped](/wiki/Ped "Ped"), [object](/wiki/Object "Object")
+    or a [vehicle](/wiki/Vehicle "Vehicle").
+  parameters: []
   examples:
-    - path: 'examples/setElementHealth-1.lua'
-      description: |
-        This example changes the player health to new specified value using */sethealth <value>* command:
-
-client:
-  <<: *shared
-  examples:
-    - path: 'examples/setElementHealth-2.lua'
-      description: |
-        This example heals the player vehicle using the command */repairvehicle* if it's below 1000 HP:
+  - path: examples/setElementHealth-1.lua
+    description: This example adds a 'hpslap' console command that lets players "slap"
+      others (doing 20 damage).
+    side: server
+  - path: examples/setElementHealth-2.lua
+    description: This example setting health by a command.
+    side: server
+  pair: getElementHealth
+  notes:
+  - type: info
+    content: 'In the case of the vehicle element, the following effects appear, depending
+      on the health value: 650: white steam 0%, black smoke 0% 450: white steam 100%,
+      black smoke 50% 250: white steam 0%, black smoke 100% 249: fire with big black
+      smoke'
+  issues:
+  - id: '414'
+    description: Using setElementHealth on a dead ped makes it invincible

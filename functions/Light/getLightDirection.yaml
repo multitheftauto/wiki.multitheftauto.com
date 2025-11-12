@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getLightDirection
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLightDirection
 client:
   name: getLightDirection
-  description: TODO
-  incomplete: true
+  description: This function returns the direction for a [light](/wiki/Element/Light
+    "Element/Light") element.
+  parameters: []
+  examples:
+  - path: examples/getLightDirection-1.lua
+    description: ''
+    side: client
+  pair: setLightDirection

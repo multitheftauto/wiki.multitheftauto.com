@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiComboBoxIsOpen
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxIsOpen
 client:
   name: guiComboBoxIsOpen
-  description: TODO
-  incomplete: true
+  description: This function returns the state of combobox.
+  parameters: []
+  examples:
+  - path: examples/guiComboBoxIsOpen-1.lua
+    description: This example opens/closes the combobox after clicking the button.
+      Checking if combobox is opened and change button text.
+    side: client
+  pair: guiComboBoxSetOpen

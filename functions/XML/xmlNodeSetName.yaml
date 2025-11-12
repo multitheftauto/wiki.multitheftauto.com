@@ -1,27 +1,10 @@
-shared: &shared
-  name: 'xmlNodeSetName'
-  pair: 'xmlNodeGetName'
-  oop:
-    element: xmlnode
-    method: setName
-    variable: name
-  description: |
-    Sets the tag name of the specified XML node.
-  parameters:
-    - name: 'node'
-      type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) to change the tag name of.
-    - name: 'name'
-      type: 'string'
-      description: The name of the attribute.
-  returns:
-    description: Returns true if successful, false otherwise.
-    values:
-      - type: 'bool'
-        name: 'result'
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeSetName
+server:
+  name: xmlNodeSetName
+  description: Sets the tag name of the specified XML node.
+  parameters: []
   examples:
-  - path: 'examples/xmlNodeSetName-1.lua'
-    description: This example changes the node's name from *Test1* to *Test2*.
-  - path: 'examples/xmlNodeSetName_OOP-1.lua'
-    description: This example changes the node's name from *Test1* to *Test2*.
-    oop: true
+  - path: examples/xmlNodeSetName-1.lua
+    description: ''
+    side: server
+  pair: xmlNodeGetName

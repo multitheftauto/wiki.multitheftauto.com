@@ -1,10 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleHandling
-shared: &shared
-  name: setVehicleHandling
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleHandling
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setVehicleHandling
+  description: This function is used to change the handling data of a vehicle.
+  parameters: []
+  examples:
+  - path: examples/setVehicleHandling-1.lua
+    description: ''
+    side: server
+  - path: examples/setVehicleHandling-2.lua
+    description: ''
+    side: server
+  - path: examples/setVehicleHandling-3.lua
+    description: ''
+    side: server
+  notes:
+  - type: info
+    content: For functionality reasons, suspension modification is disabled on monster
+      trucks, trains, boats and trailers. Additionally, helicopters are not affected
+      by custom handling. The vehicle-on-wheels handling does not affect planes when
+      they are on the ground either. For more information on this, see issue 2426
+  - type: warning
+    content: To change handling values of aircraft like maxVelocity , you must first
+      set setAircraftMaxVelocity .

@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.len
-shared: &shared
-  name: utf8.len
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.len
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.len
+  description: Returns the length of the string passed.
+  parameters: []
+  examples:
+  - path: examples/utf8.len-1.lua
+    description: This example calculates the length of the input of the command /length
+      and shows it in the chatbox.
+    side: client

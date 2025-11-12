@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxDrawMaterialSectionLine3D
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialSectionLine3D
 client:
   name: dxDrawMaterialSectionLine3D
-  description: TODO
-  incomplete: true
+  description: This function draws a textured 3D line between two points in the 3D
+    world \- rendered for one frame. This should be used in conjunction with [onClientPreRender](/wiki/OnClientPreRender
+    "OnClientPreRender") in order to display continuously.
+  parameters: []
+  examples:
+  - path: examples/dxDrawMaterialSectionLine3D-1.lua
+    description: This example draws corona like effects near the player
+    side: client

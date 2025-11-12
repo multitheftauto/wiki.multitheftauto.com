@@ -366,7 +366,7 @@ def get_page_from_cache_or_fetch(page_url: str, page_name: str) -> str:
         else:
             raise ValueError(f"Failed to fetch {page_url}: {response.status_code}")
 
-def print_additional_headers_found_in_page(content_div, handled_header_names, page_url):
+def get_additional_headers_found_in_page(content_div, handled_header_names, page_url):
     """Print any additional headers found in the content_div that were not handled."""
     additional_headers = []
     # Ignore headers from see also
@@ -390,6 +390,8 @@ def print_additional_headers_found_in_page(content_div, handled_header_names, pa
     if additional_headers:
         log(f"Other headers found in {page_url}:")
         log(f" {', '.join(additional_headers)}")
+        return additional_headers
+    return False
 
 def parse_event_page(page_url: str, category: str, name: str, source: str) -> dict:
     response_text = get_page_from_cache_or_fetch(page_url, name)
@@ -560,7 +562,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     event_issues = parse_issues(content_div)
     handled_header_names.append("Issues")
 
-    print_additional_headers_found_in_page(content_div, handled_header_names, page_url)
+    get_additional_headers_found_in_page(content_div, handled_header_names, page_url)
 
     yaml_dict = {
         "name": name,
@@ -579,8 +581,7 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     if event_issues:
         yaml_dict["issues"] = event_issues
 
-    # Set incomplete to true if no description is found for at least one parameter
-    if any(param["description"] == "MISSING_PARAM_DESC" for param in event_parameters):
+    if (any(param["description"] == "MISSING_PARAM_DESC" for param in event_parameters)):
         yaml_dict["incomplete"] = True
     
     return yaml_dict
@@ -665,7 +666,7 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     func_issues = parse_issues(content_div)
     handled_header_names.append("Issues")
 
-    print_additional_headers_found_in_page(content_div, handled_header_names, page_url)
+    extra_headers = get_additional_headers_found_in_page(content_div, handled_header_names, page_url)
 
     yaml_dict = {
         func_type: {
@@ -683,6 +684,16 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
         yaml_dict[func_type]["meta"] = func_meta
     if func_issues:
         yaml_dict[func_type]["issues"] = func_issues
+
+    if extra_headers:
+        yaml_dict[func_type]["incomplete"] = True
+        yaml_dict[func_type]["meta"] = yaml_dict.get("meta", [])
+        headears_missing = "This function was partially migrated from the old wiki. Please review manually:\n"
+        for header in extra_headers:
+            headears_missing += f"- Missing section: {header}\n"
+        yaml_dict[func_type]["meta"].append({
+            "needs_checking": headears_missing
+        })
 
     return yaml_dict
 

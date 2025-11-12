@@ -1,5 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineGetModelFlags
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelFlags
 client:
   name: engineGetModelFlags
-  description: TODO
-  incomplete: true
+  description: This function returns [model flags](/wiki/Model_flags "Model flags").
+  parameters: []
+  examples: []

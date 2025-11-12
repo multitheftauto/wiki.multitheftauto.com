@@ -1,5 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementLighting
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementLighting
 client:
   name: setElementLighting
-  description: TODO
-  incomplete: true
+  description: This function changes the lighting value for the specified [element](/wiki/Element
+    "Element"). This can be a [player](/wiki/Player "Player"), [ped](/wiki/Ped "Ped"),
+    [vehicle](/wiki/Vehicle "Vehicle"), [object](/wiki/Object "Object"), [weapon](/wiki/Element/Weapon
+    "Element/Weapon").
+  parameters: []
+  examples:
+  - path: examples/setElementLighting-1.lua
+    description: This example sets the lighting value of all players and vehicles
+      to 10
+    side: client
+  - path: examples/setElementLighting-2.lua
+    description: This example sets the lighting value to 10 only for our player, while
+      keeping other players at the default value.
+    side: client
+  pair: getElementLighting
+  notes:
+  - type: info
+    content: Lighting is calculated in real-time every frame. Therefore, to correctly
+      override the lighting, you should use this function in combination with the
+      onClientPedsProcessed event, not only for peds, but also for vehicles and objects.

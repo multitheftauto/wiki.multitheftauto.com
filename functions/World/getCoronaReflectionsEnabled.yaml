@@ -1,5 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getCoronaReflectionsEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCoronaReflectionsEnabled
 client:
   name: getCoronaReflectionsEnabled
-  description: TODO
-  incomplete: true
+  description: This function gets visibility of corona reflections.
+  parameters: []
+  examples: []

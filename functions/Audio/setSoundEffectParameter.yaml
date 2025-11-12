@@ -1,33 +1,25 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundEffectParameter
 client:
   name: setSoundEffectParameter
-  description: This function sets the parameter of a [[sound]] effect. See [effects parameters](/reference/Sound_Effects_Parameters/).
-  oop:
-    element: sound
-    method: setEffectParameter
-  parameters:
-    - name: theSound
-      type: sound/player
-      description: The [[sound]] element.
-    - name: effectName
-      type: string
-      description: The name of the effect whose parameter you want to change
-      templateList: 'sound-effects'
-    - name: effectParam
-      type: string
-      description: The parameter name.
-    - name: paramValue
-      type: var
-      description: The parameter value.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if effect have been set successfully, false otherwise.
+  description: This function sets the parameter of a [sound](/wiki/Sound "Sound")
+    effect.
+  parameters: []
   examples:
-    - path: examples/setSoundEffectParameter-1.lua
-    - path: examples/setSoundEffectParameter_OOP-1.lua
-      oop: true
+  - path: examples/setSoundEffectParameter-1.lua
+    description: 'NOTE: This function will only work if it''s executed within a timer.'
+    side: client
+  - path: examples/setSoundEffectParameter-2.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: Using this function on a player voice sound element is not supported
+      at this time.
+  incomplete: true
   meta:
-    - changelog:
-        - version: '1.6.0 r23232'
-          description: Allow fx parameters for a player's voice.
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Effects Parameters
+
+      '

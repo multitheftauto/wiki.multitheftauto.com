@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setTrafficLightsLocked
-shared: &shared
-  name: setTrafficLightsLocked
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetTrafficLightsLocked
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setTrafficLightsLocked
+  description: Toggles whether you want the traffic lights to be locked. If the lights
+    are locked, it means they won't change unless you do [setTrafficLightState](/wiki/SetTrafficLightState
+    "SetTrafficLightState").
+  parameters: []
+  examples:
+  - path: examples/setTrafficLightsLocked-1.lua
+    description: This example toggles traffic lights between 'locked' and 'unlocked'.
+    side: server

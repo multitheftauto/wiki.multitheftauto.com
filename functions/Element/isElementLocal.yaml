@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementLocal
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementLocal
 client:
   name: isElementLocal
-  description: TODO
-  incomplete: true
+  description: This function checks whether a clientside [element](/wiki/Element "Element")
+    is local to the client (doesn't exist in the server) or not.
+  parameters: []
+  examples:
+  - path: examples/isElementLocal-1.lua
+    description: This clientside function destroys all local radar blips.
+    side: client

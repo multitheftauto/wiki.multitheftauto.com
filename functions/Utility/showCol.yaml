@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/showCol
+# Scraped from: https://wiki.multitheftauto.com/wiki/ShowCol
 client:
   name: showCol
-  description: TODO
-  incomplete: true
+  description: Shows collision previews for developers ([colshapes](/wiki/Colshape
+    "Colshape") in wireframe, useful when writing scripts).
+  parameters: []
+  examples:
+  - path: examples/showCol-1.lua
+    description: 'You can refer to the example below:'
+    side: client
+  notes:
+  - type: info
+    content: This function only works in development mode.

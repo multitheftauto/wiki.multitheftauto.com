@@ -1,5 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setNearClipDistance
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetNearClipDistance
 client:
   name: setNearClipDistance
-  description: TODO
-  incomplete: true
+  description: 'This function sets the distance from the [camera](/wiki/Camera "Camera")
+    at which the world starts rendering. Do not use this function unless you have
+    a specific reason to do so, as any values can cause artifacts and flickering problems.
+    It can be used in many ways, including: reducing Z\-fighting, creating more sophisticated
+    first person views, allowing the camera to fly closer to the ground without passing
+    through it, etcetera.'
+  parameters: []
+  examples:
+  - path: examples/setNearClipDistance-1.lua
+    description: This example allows the camera to be nearer to ground level without
+      viewing what is under it.
+    side: client
+  notes:
+  - type: info
+    content: setNearClipDistance should only be used when the camera orientation is
+      controlled by setCameraMatrix , because GTA automatically adjusts this value
+      for the optimum setting when the camera is attached to a player. Therefore ensure
+      resetNearClipDistance is called when returning camera control back to GTA.

@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetCoronaReflectionsEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetCoronaReflectionsEnabled
 client:
   name: resetCoronaReflectionsEnabled
-  description: TODO
-  incomplete: true
+  description: This function resets visibility of corona reflections. Default value
+    depends on client setting. If client has enabled *corona rain reflections* in
+    video options, value will be reset to **1**, otherwise to **0**. You can check
+    value of this option using [dxGetStatus](/wiki/DxGetStatus "DxGetStatus") (*SettingCoronaReflections*).
+  parameters: []
+  examples: []
+  issues:
+  - id: '2755'
+    description: Corona reflections do not render on custom placed objects
+  - id: '2750'
+    description: Corona reflections do not render on all roads

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerMapOpacity
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerMapOpacity
 client:
   name: getPlayerMapOpacity
-  description: TODO
-  incomplete: true
+  description: This function allows to get the opacity of the player map (F11\).
+  parameters: []
+  examples:
+  - path: examples/getPlayerMapOpacity-1.lua
+    description: This example implements a command that tells you what your current
+      map opacity is.
+    side: client

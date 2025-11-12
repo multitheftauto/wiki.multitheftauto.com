@@ -1,5 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getWaterLevel
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWaterLevel
 client:
   name: getWaterLevel
-  description: TODO
-  incomplete: true
+  description: This function allows you to retrieve the water level from a certain
+    location. The water level is 0 in most places though it can vary (e.g. it's higher
+    near the dam).
+  parameters: []
+  examples:
+  - path: examples/getWaterLevel-1.lua
+    description: This example will tell you what's the water level where the specified
+      player is located.
+    side: client
+  notes:
+  - type: info
+    content: Some small water areas within parts of the city do not count as water
+      to be used with this function. For example, the shallow water area in Northwest
+      San Fierro.

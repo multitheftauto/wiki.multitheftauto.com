@@ -1,5 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateEdit
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateEdit
 client:
   name: guiCreateEdit
-  description: TODO
-  incomplete: true
+  description: This function is for creating a new GUI edit box. This is a text box
+    in which the user can input text. Edit boxes only allow a single line of text.
+    If you want to allow multiple lines of text create a memo box using [guiCreateMemo](/wiki/GuiCreateMemo
+    "GuiCreateMemo").
+  parameters: []
+  examples:
+  - path: examples/guiCreateEdit-1.lua
+    description: This example creates an edit box alongside an "Output!" button.  When
+      the button is clicked, it will output the message in the edit box into the Chat
+      Box.
+    side: client
+  - path: examples/guiCreateEdit-2.lua
+    description: 'This example creates an edit box and sets the input focus so the
+      player does not have to click before typing:'
+    side: client

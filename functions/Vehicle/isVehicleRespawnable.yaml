@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isVehicleRespawnable
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleRespawnable
 server:
   name: isVehicleRespawnable
-  description: TODO
-  incomplete: true
+  description: This function check if the vehicle is respawnable.
+  parameters: []
+  examples:
+  - path: examples/isVehicleRespawnable-1.lua
+    description: ''
+    side: server
+  pair: toggleVehicleRespawn

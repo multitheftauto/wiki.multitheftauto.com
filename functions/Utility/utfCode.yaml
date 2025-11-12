@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utfCode
-shared: &shared
-  name: utfCode
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/UtfCode
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utfCode
+  description: The function returns the UTF codes of the given string.
+  parameters: []
+  examples:
+  - path: examples/utfCode-1.lua
+    description: ''
+    side: server

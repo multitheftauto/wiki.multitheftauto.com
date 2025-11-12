@@ -1,10 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerMoney
-shared: &shared
-  name: getPlayerMoney
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerMoney
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPlayerMoney
+  description: Returns the amount of money a player currently has.
+  parameters: []
+  examples:
+  - path: examples/getPlayerMoney-1.lua
+    description: When a player types '/checkMoney' this example retrieves the player's
+      money and outputs a message according to the value.
+    side: server
+  pair: setPlayerMoney
+  notes:
+  - type: info
+    content: The amount may vary between the server and client, you shouldn't trust
+      the client side value to always be accurate.

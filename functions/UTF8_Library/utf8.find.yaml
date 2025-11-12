@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.find
-shared: &shared
-  name: utf8.find
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.find
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.find
+  description: Finds the first occurrence of the [pattern](http://lua-users.org/wiki/PatternsTutorial)
+    in the string passed. If an instance of the pattern is found, a pair of values
+    representing the start and the end of the matched string is returned.
+  parameters: []
+  examples:
+  - path: examples/utf8.find-1.lua
+    description: This example shows how to search for parts of a string.
+    side: server

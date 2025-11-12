@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListInsertRowAfter
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListInsertRowAfter
 client:
   name: guiGridListInsertRowAfter
-  description: TODO
-  incomplete: true
+  description: This allows you to insert a new row after a specified row, and simultaneously
+    set text. Good for inserting new rows in the middle of existing rows. To insert
+    at the top use \-1 as row index.
+  parameters: []
+  examples:
+  - path: examples/guiGridListInsertRowAfter-1.lua
+    description: This example would create a gridlist then add the current players
+      in the server and if anyone joins, it would insert a row at the bottom.
+    side: client

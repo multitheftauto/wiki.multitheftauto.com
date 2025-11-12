@@ -1,10 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getCameraInterior
-shared: &shared
-  name: getCameraInterior
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraInterior
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getCameraInterior
+  description: Returns the interior of the local camera (independent of the interior
+    of the local player).
+  parameters: []
+  examples:
+  - path: examples/getCameraInterior-1.lua
+    description: ''
+    side: server
+  pair: setCameraInterior
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Procedural
+
+      - Missing section: Object-oriented
+
+      '

@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getWeaponIDFromName
-shared: &shared
-  name: getWeaponIDFromName
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponIDFromName
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getWeaponIDFromName
+  description: This function will obtain the ID of a particular weapon from its name.
+  parameters: []
+  examples:
+  - path: examples/getWeaponIDFromName-1.lua
+    description: This example will give the player the weapon they specify 20 ammo
+      whenever they type "weaponname" into the console.
+    side: server

@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createSWATRope
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateSWATRope
 client:
   name: createSWATRope
-  description: TODO
-  incomplete: true
+  description: Creates a SWAT rope like that of the rope in single player used by
+    SWAT Teams abseiling from the Police Maverick.
+  parameters: []
+  examples:
+  - path: examples/createSWATRope-1.lua
+    description: This example creates a Swat rope in police maverick when you use
+      the command /createrope
+    side: client

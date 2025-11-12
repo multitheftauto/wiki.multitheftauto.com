@@ -1,24 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ExecuteBrowserJavascript
 client:
   name: executeBrowserJavascript
-  description: This function executes a <i>Javascript</i> string to the specified [[browser]]. Works only with local browsers.
-  oop:
-    element: browser
-    method: executeJavascript
-  parameters:
-    - name: webBrowser
-      type: browser
-      description: The web [[browser]] which will execute the Javascript code.
-    - name: jsCode
-      type: string
-      description: The Javascript code string.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if executing Javascript is allowed in the current context, false otherwise.
+  description: This function executes a Javascript string to the specified [browser](/wiki/Element/Browser
+    "Element/Browser"). Works only with local browsers.
+  parameters: []
   examples:
-    - path: examples/executeBrowserJavascript-1.lua
-      description: This example shows how to display the name (nick) of the local player on the webpage.
-    - path: examples/executeBrowserJavascript_OOP-1.lua
-      description: This example shows how to display the name (nick) of the local player on the webpage.
-      oop: true
+  - path: examples/executeBrowserJavascript-1.lua
+    description: This example shows how to display the name (nick) of the local player
+      on the webpage.
+    side: client

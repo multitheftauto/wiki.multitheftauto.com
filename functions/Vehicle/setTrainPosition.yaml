@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setTrainPosition
-shared: &shared
-  name: setTrainPosition
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainPosition
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setTrainPosition
+  description: Sets the position the train is currently on the track
+  parameters: []
+  examples:
+  - path: examples/setTrainPosition-1.lua
+    description: This example adds a command called "/settrainpos", allowing you to
+      set the position of the train.
+    side: server
+  pair: getTrainPosition

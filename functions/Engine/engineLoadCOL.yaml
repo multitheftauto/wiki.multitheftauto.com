@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineLoadCOL
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadCOL
 client:
   name: engineLoadCOL
-  description: TODO
-  incomplete: true
+  description: This function loads a RenderWare Collision (COL 1/2/3\) file into GTA.
+    The collisions can then be used to provide collisions for in\-game objects.
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
+      - as other orders can cause collisions, textures or the DFF not to load due
+      to technical limitations. Collision libraries (.col files containing multiple
+      collision models) are not supported. See COL for details. Or you can try engineGetCOLsFromLibrary
+      , if you'd like.

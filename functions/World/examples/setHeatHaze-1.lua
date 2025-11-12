@@ -1,0 +1,1 @@
+setHeatHaze ( 0 )

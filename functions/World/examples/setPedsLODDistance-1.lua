@@ -1,0 +1,1 @@
+setPedsLODDistance( 120 )

@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPedDoingGangDriveby
-shared: &shared
-  name: setPedDoingGangDriveby
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedDoingGangDriveby
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setPedDoingGangDriveby
+  description: This function sets the driveby state of a ped.
+  parameters: []
+  examples:
+  - path: examples/setPedDoingGangDriveby-1.lua
+    description: This example turns on driveby mode when the local player typesdrivebyin
+      the console.
+    side: client

@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiLabelSetVerticalAlign
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelSetVerticalAlign
 client:
   name: guiLabelSetVerticalAlign
-  description: TODO
-  incomplete: true
+  description: This function sets the vertical alignment of a text label.
+  parameters: []
+  examples:
+  - path: examples/guiLabelSetVerticalAlign-1.lua
+    description: ''
+    side: client

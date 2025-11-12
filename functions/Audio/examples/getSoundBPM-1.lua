@@ -1,4 +1,4 @@
-local function getBPM()
+function getBPM()
     local soundElement = playSound("song.mp3") -- Play the song
     local beatsValue = getSoundBPM(soundElement) -- Get the beats per minute of the song
 

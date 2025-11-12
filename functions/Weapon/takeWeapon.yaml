@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/takeWeapon
+# Scraped from: https://wiki.multitheftauto.com/wiki/TakeWeapon
 server:
   name: takeWeapon
-  description: TODO
-  incomplete: true
+  description: This function removes a specified weapon or ammo from a certain player's
+    inventory.
+  parameters: []
+  examples:
+  - path: examples/takeWeapon-1.lua
+    description: This example removes teargas from player.
+    side: server

@@ -1,0 +1,1 @@
+resetPlayerHudComponentProperty('clock', 'fillColor')

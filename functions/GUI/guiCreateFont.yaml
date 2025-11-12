@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateFont
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateFont
 client:
   name: guiCreateFont
-  description: TODO
-  incomplete: true
+  description: This function creates a [GUI font](/wiki/GUI_font "GUI font") element
+    that can be used in [guiSetFont](/wiki/GuiSetFont "GuiSetFont"). Successful font
+    creation is not guaranteed, and may fail due to hardware or memory limitations.
+  parameters: []
+  examples:
+  - path: examples/guiCreateFont-1.lua
+    description: ''
+    side: client

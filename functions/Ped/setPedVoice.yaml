@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPedVoice
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedVoice
 client:
   name: setPedVoice
-  description: TODO
-  incomplete: true
+  description: Changes the voice of a ped.
+  parameters: []
+  examples:
+  - path: examples/setPedVoice-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: A ped voice is one of the GTA built in voice character types. Not to
+      be confused with a player voice .

@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isMainMenuActive
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsMainMenuActive
 client:
   name: isMainMenuActive
-  description: TODO
-  incomplete: true
+  description: This function returns whether the user is in the mainmenu or not.
+  parameters: []
+  examples:
+  - path: examples/isMainMenuActive-1.lua
+    description: This example check if the player is afk.
+    side: client

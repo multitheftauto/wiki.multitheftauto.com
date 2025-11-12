@@ -1,52 +1,12 @@
-shared: &shared
-  name: 'xmlNodeSetAttribute'
-  pair: 'xmlNodeGetAttribute'
-  oop:
-    element: xmlnode
-    method: setAttribute
-  description: |
-    This function is used to edit an attribute of a node in a configuration file.
-  parameters:
-    - name: 'node'
-      type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) of which you wish to edit an attribute.
-    - name: 'name'
-      type: 'string'
-      description: The name of the attribute.
-    - name: 'value'
-      type: 'string|number|nil'
-      description: The value which you wish to change the attribute to. (Note - **nil** will delete the attribute).
-  returns:
-    description: Returns true if the attribute was set successfully, false if the node and/or attribute do not exist, or if they're faulty.
-    values:
-      - type: 'bool'
-        name: 'result'
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeSetAttribute
 server:
-  <<: *shared
+  name: xmlNodeSetAttribute
+  description: This function is used to edit an attribute of a node in a configuration
+    file.
+  parameters: []
   examples:
-  - path: 'examples/xmlNodeSetAttribute-1.lua'
-    description: |
-      In a gamemode, we want a command to change the marker color in the configuration file and remove a deprecated attribute.
-
-      config.xml
-      ```xml
-      <config>
-          <markers color="255,100,0" foo="deprecated" />
-      </config>
-      ```
-
-      Lua code
-  - path: 'examples/xmlNodeSetAttribute_OOP-1.lua'
-    description: |
-      In a gamemode, we want a command to change the marker color in the configuration file and remove a deprecated attribute.
-
-      config.xml
-      ```xml
-      <config>
-          <markers color="255,100,0" foo="deprecated" />
-      </config>
-      ```
-
-      Lua code
-    oop: true
+  - path: examples/xmlNodeSetAttribute-1.lua
+    description: In a gamemode, we want a command to change the marker color in the
+      configuration file and remove a deprecated attribute.
+    side: server
+  pair: xmlNodeGetAttribute

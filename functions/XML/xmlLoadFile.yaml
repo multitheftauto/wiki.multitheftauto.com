@@ -1,29 +1,19 @@
-shared: &shared
-  name: 'xmlLoadFile'
-  oop:
-    element: xmlnode # This will actually show as XML
-    static: true
-    method: load
-  description: |
-    This function provides an alternative way to load XML files to [getResourceConfig](/getResourceConfig). This function loads an XML file and returns the node by specifying a specific file path, while [getResourceConfig](/getResourceConfig) allows for loading an XML file from a resource.
-  parameters:
-    - name: 'filePath'
-      type: 'string'
-      description: |
-        The [Filepath](/reference/Filepath) of the file in the following format: **":resourceName/path"**. *resourceName* is the name of the resource the file will be in, and *path* is the path from the root directory of the resource to the file. For example, if you want to create a file named *new.xml* in the resource *ctf*, it can be created from another resource this way [xmlCreateFile](/xmlCreateFile)(":ctf/new.xml", "newroot"). If the file is in the current resource, only the file path is necessary, e.g. [xmlCreateFile](/xmlCreateFile)("new.xml", "newroot"). Note that if a different resource than default is being accessed, the caller resource needs access to **general.ModifyOtherObjects** in the [ACL](/ACL).
-    - name: 'readOnly'
-      type: 'boolean'
-      default: 'false'
-      description: By default, the XML file is opened with reading and writing access. You can specify true for this parameter if you only need reading access.
-  returns:
-    description: |
-      Returns the root [xmlnode](/xmlnode) object of an xml file if successful, or false otherwise.
-    values:
-      - type: 'xmlnode|false'
-        name: 'xmlnode'
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlLoadFile
+server:
+  name: xmlLoadFile
+  description: 'This function provides an alternative way to load XML files to [getResourceConfig](/wiki/GetResourceConfig
+    "GetResourceConfig").
+
+    This function loads an XML file and returns the node by specifying a specific
+    file path, while [getResourceConfig](/wiki/GetResourceConfig "GetResourceConfig")
+    allows for loading an XML file from a resource.'
+  parameters: []
   examples:
-  - path: 'examples/xmlLoadFile-1.lua'
-    description: This example loads an XML file called *settings.xml* that is in a resource called *ctv*.
-  - path: 'examples/xmlLoadFile_OOP-1.lua'
-    description: This example loads an XML file called *settings.xml* that is in a resource called *ctv*.
-    oop: true
+  - path: examples/xmlLoadFile-1.lua
+    description: This example loads an XML file calledsettings.xmlthat is in a resource
+      calledctv.
+    side: server
+  notes:
+  - type: info
+    content: To prevent memory leaks, ensure each call to xmlLoadFile has a matching
+      call to xmlUnloadFile

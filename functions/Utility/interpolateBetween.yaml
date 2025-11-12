@@ -1,10 +1,40 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/interpolateBetween
-shared: &shared
-  name: interpolateBetween
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/InterpolateBetween
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: interpolateBetween
+  description: 'Interpolates a 3D Vector between a source value and a target value
+    using either linear interpolation or any other [easing function](/wiki/Easing
+    "Easing").
+
+    It can also be used to interpolate 2D vectors or scalars by only setting some
+    of the x, y, z values and putting 0 to the others.'
+  parameters: []
+  examples:
+  - path: examples/interpolateBetween-1.lua
+    description: 'This clientside example uses interpolateBetween to create position
+      and color interpolation(with effect) on a marker.
+
+      The command to test it is "/marker".
+
+      The position is interpolated with "OutBounce" as strEasingType to make the marker
+      bounce off the ground and "Linear" interpolation for the color.'
+    side: client
+  - path: examples/interpolateBetween-2.lua
+    description: 'This clientside example uses interpolateBetween to create size and
+      position interpolation (with effect) on a gui-window.
+
+      The command to test it is "/window".
+
+      When the window pops up it uses "OutElastic" as the strEasingType to create
+      the bouncing/elastic effect.
+
+      When it fades away, it uses "InQuad" to have an accelerating fading.'
+    side: client
+  - path: examples/interpolateBetween-3.lua
+    description: 'This clientside example uses interpolateBetween to create and position
+      interpolation (with effect) on a camera.
+
+      The command to test it is "/ccam".
+
+      When the camera pops up it uses "OutQuad" as the strEasingType to create the
+      slow down effect.'
+    side: client

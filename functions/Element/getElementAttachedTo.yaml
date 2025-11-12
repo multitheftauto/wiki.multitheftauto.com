@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementAttachedTo
-shared: &shared
-  name: getElementAttachedTo
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAttachedTo
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementAttachedTo
+  description: This function determines the element that the specified element is
+    attached to.
+  parameters: []
+  examples:
+  - path: examples/getElementAttachedTo-1.lua
+    description: This example defines a console command that outputs the type of the
+      element that the player is attached to.
+    side: server

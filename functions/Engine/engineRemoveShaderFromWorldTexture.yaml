@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineRemoveShaderFromWorldTexture
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRemoveShaderFromWorldTexture
 client:
   name: engineRemoveShaderFromWorldTexture
-  description: TODO
-  incomplete: true
+  description: This function removes a [shader](/wiki/Shader "Shader") from one or
+    more world textures.
+  parameters: []
+  examples:
+  - path: examples/engineRemoveShaderFromWorldTexture-1.lua
+    description: This example will remove a previously created shader from the "des_logwall"
+      world texture
+    side: client

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getResources
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResources
 server:
   name: getResources
-  description: TODO
-  incomplete: true
+  description: This function retrieves a table of all the resources that exist on
+    the server.
+  parameters: []
+  examples:
+  - path: examples/getResources-1.lua
+    description: This function lists all loaded resources in the console.
+    side: server

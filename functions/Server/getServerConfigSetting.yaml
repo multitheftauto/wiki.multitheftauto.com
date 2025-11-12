@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getServerConfigSetting
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetServerConfigSetting
 server:
   name: getServerConfigSetting
-  description: TODO
-  incomplete: true
+  description: This function retrieves server settings which are usually stored in
+    the **mtaserver.conf** file.
+  parameters: []
+  examples:
+  - path: examples/getServerConfigSetting-1.lua
+    description: This example prints the server minimum allowed client version to
+      the chatbox
+    side: server
+  - path: examples/getServerConfigSetting-2.lua
+    description: 'This example creates agetServerIPhelper function:'
+    side: server

@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineRestoreCOL
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreCOL
 client:
   name: engineRestoreCOL
-  description: TODO
-  incomplete: true
+  description: This function restores the original collision model of the given model
+    ID. Reverses the effect of [engineReplaceCOL](/wiki/EngineReplaceCOL "EngineReplaceCOL").
+  parameters: []
+  examples:
+  - path: examples/engineRestoreCOL-1.lua
+    description: Client-Side example for restoring object collision with default one.
+    side: client
+  - path: examples/engineRestoreCOL-2.lua
+    description: Server-side example function for triggering the restore.
+    side: server

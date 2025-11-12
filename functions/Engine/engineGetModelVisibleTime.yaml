@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineGetModelVisibleTime
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelVisibleTime
 client:
   name: engineGetModelVisibleTime
-  description: TODO
-  incomplete: true
+  description: This function returns a model's visibility time, this is used for example
+    for building lights being shown after 23:00\.
+  parameters: []
+  examples:
+  - path: examples/engineGetModelVisibleTime-1.lua
+    description: Make Los Santos Tower visible only between 10 and 12 AM.
+    side: client

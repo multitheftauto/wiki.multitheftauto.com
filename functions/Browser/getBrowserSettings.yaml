@@ -1,19 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBrowserSettings
 client:
   name: getBrowserSettings
-  description: This function returns a [[table]] containing the [[browser]] settings.
-  oop:
-    element: Browser
-    method: getSettings
-    static: true
-  returns:
-    values:
-      - type: table
-        name: settings
-        templateList: browser-settings
-    description: A [[table]] of settings.
+  description: This function returns a table containing the browser settings.
+  parameters: []
   examples:
-    - path: examples/getBrowserSettings-1.lua
-      description: This creates a [[browser]] and get the browser settings when the browser has been created.
-    - path: examples/getBrowserSettings_OOP-1.lua
-      description: This creates a [[browser]] and get the browser settings when the browser has been created.
-      oop: true
+  - path: examples/getBrowserSettings-1.lua
+    description: This creates a browser and get the browser settings when the browser
+      has been created
+    side: client

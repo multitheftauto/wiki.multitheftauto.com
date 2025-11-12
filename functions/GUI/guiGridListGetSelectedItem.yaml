@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListGetSelectedItem
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetSelectedItem
 client:
   name: guiGridListGetSelectedItem
-  description: TODO
-  incomplete: true
+  description: This function returns the row and column indexes of the selected item
+    in a grid list. First selected row and column is (0, 0\).
+  parameters: []
+  examples:
+  - path: examples/guiGridListGetSelectedItem-1.lua
+    description: This code creates a grid list and fills it with the names of the
+      connected players. When the user selects an item, its text (the player name)
+      will be output in the chat box.
+    side: client

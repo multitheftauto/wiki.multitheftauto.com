@@ -1,5 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineStreamingGetModelLoadState
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetModelLoadState
 client:
   name: engineStreamingGetModelLoadState
-  description: TODO
-  incomplete: true
+  description: This function returns load state of model.
+  parameters: []
+  examples: []

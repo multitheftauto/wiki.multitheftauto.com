@@ -1,45 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BanPlayer
 server:
   name: banPlayer
-  description: This function will ban the specified player by either IP, serial or username.
-  oop:
-    element: player
-    method: ban
-  parameters:
-    - name: bannedPlayer
-      type: player
-      description: The [[player]] that will be banned from the server.
-    - name: IP
-      type: bool
-      description: Will player be banned by IP?
-      default: 'true'
-    - name: username
-      type: bool
-      description: Will player be banned by username? (Preferred **false**).
-      default: 'false'
-    - name: serial
-      type: bool
-      description: Will player be banned by serial?
-      default: 'false'
-    - name: responsibleElement
-      type: player/string
-      description: The element that is responsible for banning the [[player]]. This can be a player or the root. This also can be a [[string]] - max 30 characters.
-      default: "\"Console\""
-    - name: reason
-      type: string
-      description: The reason the [[player]] will be banned from the server.
-      default: "\"\""
-    - name: seconds
-      type: int
-      description: The amount of seconds the [[player]] will be banned from the server for. This can be 0 for an infinite amount of time.
-      default: '0'
-  returns:
-    values:
-      - type: ban|false
-        name: ban
-    description: Returns a [[ban]] object if banned successfully, or false if unsuccessful.
+  description: This function will ban the specified player by either IP, [serial](/wiki/Serial
+    "Serial") or username
+  parameters: []
   examples:
-    - path: examples/banPlayer-1.lua
-      description: This example lets a player ban anyone if he has ACL rights.
-    - path: examples/banPlayer_OOP-1.lua
-      description: This example lets a player ban anyone if he has ACL rights.
-      oop: true
+  - path: examples/banPlayer-1.lua
+    description: This example lets a player ban anyone if he has ACL rights.
+    side: server
+  - path: examples/banPlayer-2.lua
+    description: This example is Firewall Account Player by serial on Login
+    side: server
+  notes:
+  - type: info
+    content: Don't forget to give admin rights to the resource, in which you are using
+      banPlayer function or it won't work.

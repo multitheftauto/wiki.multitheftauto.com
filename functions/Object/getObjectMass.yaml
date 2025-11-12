@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getObjectMass
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetObjectMass
 client:
   name: getObjectMass
-  description: TODO
-  incomplete: true
+  description: This function returns the mass of a specified object.
+  parameters: []
+  examples:
+  - path: examples/getObjectMass-1.lua
+    description: This script basically creates an object then get's the mass and set's
+      its mass 300 more than it's original mass, then tell the client the old and
+      new mass of the object.
+    side: client
+  pair: setObjectMass

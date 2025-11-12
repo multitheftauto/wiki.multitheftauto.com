@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setGrainMultiplier
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetGrainMultiplier
 client:
   name: setGrainMultiplier
-  description: TODO
-  incomplete: true
+  description: This function is used to adjust an intensity of the grain effect in
+    different situations. It separately modulates an intensity of effect for infrared
+    goggles, night vision goggles, rain and screen overlay.
+  parameters: []
+  examples:
+  - path: examples/setGrainMultiplier-1.lua
+    description: This example disables a grain effect for the rain.
+    side: client

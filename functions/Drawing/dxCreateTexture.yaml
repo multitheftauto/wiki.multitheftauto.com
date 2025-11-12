@@ -1,5 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxCreateTexture
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateTexture
 client:
   name: dxCreateTexture
-  description: TODO
-  incomplete: true
+  description: This function creates a [texture](/wiki/Texture "Texture") element
+    that can be used in the dxDraw functions.
+  parameters: []
+  examples:
+  - path: examples/dxCreateTexture-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: The times shown at the right of the page are only the time needed to
+      add the thing to the draw queue, its not the actual time it takes to draw them.
+  - type: tip
+    content: 'It is recommended to pre-convert textures to whatever format you want
+      to load them as. ARGB should be PNG, all other formats are self explanatory.
+      By doing this you can load textures on the fly without any hickups (Note: There
+      might still be some if the user has a slow HHD). See DirectXTex texconv tool
+      .'
+  - type: important
+    content: This function uses significant process RAM, make sure you don't load
+      a lot of textures, because you'll run out of memory and crash MTA on your gaming
+      PC beyond the technical limit of 3.5 GB (weak PC users much earlier). Besides
+      that, don't make the common mistake of causing a memory leak by not destroying
+      textures (causing dxTextures to pile up) when they should no longer display
+      per your script, which causes FPS lag and crashes all over MTA due to so many
+      scripters missing it

@@ -1,5 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isCoronaReflectionEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsCoronaReflectionEnabled
 client:
   name: isCoronaReflectionEnabled
-  description: TODO
-  incomplete: true
+  description: This function gets visibility of corona reflection.
+  parameters: []
+  examples: []
+  pair: setCoronaReflectionEnabled

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiComboBoxAddItem
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxAddItem
 client:
   name: guiComboBoxAddItem
-  description: TODO
-  incomplete: true
+  description: Adds an item to a combobox.
+  parameters: []
+  examples:
+  - path: examples/guiComboBoxAddItem-1.lua
+    description: This Example will add an item to comboBox when player use commandaddItemfollowed
+      by the value of the item.
+    side: client

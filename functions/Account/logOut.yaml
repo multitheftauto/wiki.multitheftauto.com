@@ -1,22 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/LogOut
 server:
   name: logOut
-  description: This function logs the given [[player]] out of his current [[account]].
-  pair: logIn
-  oop:
-    element: player
-    method: logOut
-  parameters:
-    - name: thePlayer
-      type: player
-      description: The player to log out of his current account.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the player was successfully logged out, false or nil if it failed for some reason, ie. the player was never logged in.
+  description: This function logs the given player out of his current [account](/wiki/Account
+    "Account").
+  parameters: []
   examples:
-    - path: examples/logOut-1.lua
-      description: This example logs every player out of their [[account]] when the resource is (re)started. This would be handy for resources that show a login screen [[onClientResourceStart]].
-    - path: examples/logOut_OOP-1.lua
-      description: This example logs every player out of their [[account]] when the resource is (re)started. This would be handy for resources that show a login screen [[onClientResourceStart]].
-      oop: true
+  - path: examples/logOut-1.lua
+    description: This example logs every player out of their account when the resource
+      is (re)started. This would be handy for resources that show a login screen onClientResourceStart.
+    side: server

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateProgressBar
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateProgressBar
 client:
   name: guiCreateProgressBar
-  description: TODO
-  incomplete: true
+  description: This function creates a [progress bar](/wiki/Element/GUI/Progress_bar
+    "Element/GUI/Progress bar").
+  parameters: []
+  examples:
+  - path: examples/guiCreateProgressBar-1.lua
+    description: ''
+    side: client

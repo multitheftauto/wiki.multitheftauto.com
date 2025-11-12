@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleNitroLevel
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleNitroLevel
 client:
   name: setVehicleNitroLevel
-  description: TODO
-  incomplete: true
+  description: This function sets the nitro level of the [vehicle](/wiki/Vehicle "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/setVehicleNitroLevel-1.lua
+    description: This function installs nitrous to the vehicle and sets the level
+      of it to 0.1 when a player enters the vehicle.
+    side: client
+  notes:
+  - type: warning
+    content: Only works if the vehicle is streamed in.

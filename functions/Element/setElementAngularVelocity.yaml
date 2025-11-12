@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementAngularVelocity
-shared: &shared
-  name: setElementAngularVelocity
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementAngularVelocity
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setElementAngularVelocity
+  description: Sets the angular velocity of a specified, supported element (Applies
+    a spin to it).
+  parameters: []
+  examples:
+  - path: examples/setElementAngularVelocity-1.lua
+    description: ''
+    side: server
+  pair: getElementAngularVelocity

@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementWithinMarker
-shared: &shared
-  name: isElementWithinMarker
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementWithinMarker
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementWithinMarker
+  description: This function is used to determine if an [element](/wiki/Element "Element")
+    is within a [marker](/wiki/Marker "Marker").
+  parameters: []
+  examples:
+  - path: examples/isElementWithinMarker-1.lua
+    description: ''
+    side: server

@@ -1,24 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupRemoveObject
 server:
   name: aclGroupRemoveObject
-  description: This function removes the given object from the given [ACL group](/reference/aclgroup). The object can be a [[resource]] or a [[player]]. See [[aclGroupAddObject]] for more details.
-  oop:
-    element: aclgroup
-    method: removeObject
-  parameters:
-    - name: theGroup
-      type: aclgroup
-      description: The ACL group to remove the object string from.
-    - name: theObject
-      type: string
-      description: The object to remove from the ACL group.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the object existed in the ACL and could be removed, false if it could not be removed for some reason, ie. it did not exist in the given ACL group.
+  description: This function removes the given object from the given ACL group. The
+    object can be a resource or a player. See [aclGroupAddObject](/wiki/AclGroupAddObject
+    "AclGroupAddObject") for more details.
+  parameters: []
   examples:
-    - path: examples/aclGroupRemoveObject-1.lua
-      description: This example adds the command <code>deladmin</code>, which allows removing the specified account from the **Admin** group.
-    - path: examples/aclGroupRemoveObject_OOP-1.lua
-      description: This example adds the command <code>deladmin</code>, which allows removing the specified account from the **Admin** group.
-      oop: true
+  - path: examples/aclGroupRemoveObject-1.lua
+    description: This example does...
+    side: server

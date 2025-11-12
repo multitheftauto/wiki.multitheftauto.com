@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiComboBoxGetItemText
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxGetItemText
 client:
   name: guiComboBoxGetItemText
-  description: TODO
-  incomplete: true
+  description: This function retrieves the text from a specific combobox item.
+  parameters: []
+  examples:
+  - path: examples/guiComboBoxGetItemText-1.lua
+    description: This outputs selected item's text to the chatbox.
+    side: client

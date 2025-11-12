@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListGetItemData
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetItemData
 client:
   name: guiGridListGetItemData
-  description: TODO
-  incomplete: true
+  description: "With this function you can retrieve the [string](/wiki/String \"String\"\
+    ) data associated with an item in a [grid list](/wiki/Element/GUI/Gridlist \"\
+    Element/GUI/Gridlist\"). This is not the text that is displayed on the item, but\
+    \ an internal string that you can use to hold extra information about the item.\
+    \  \n\n**Note:** This function will only work **after** you set the item's text\
+    \ using [guiGridListSetItemText](/wiki/GuiGridListSetItemText \"GuiGridListSetItemText\"\
+    )!"
+  parameters: []
+  examples:
+  - path: examples/guiGridListGetItemData-1.lua
+    description: This example displays a random item data from the gridlist.
+    side: client

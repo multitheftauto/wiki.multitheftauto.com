@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeResourceFile
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveResourceFile
 server:
   name: removeResourceFile
-  description: TODO
-  incomplete: true
+  description: This function removes a file from the resource.
+  parameters: []
+  examples:
+  - path: examples/removeResourceFile-1.lua
+    description: This example removes a .txt file from the resource sx_remanager (in-game
+      script editor) when started.
+    side: server

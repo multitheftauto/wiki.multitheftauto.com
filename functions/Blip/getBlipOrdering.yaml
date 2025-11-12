@@ -1,21 +1,13 @@
-shared: &shared
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBlipOrdering
+server:
   name: getBlipOrdering
-  pair: setBlipOrdering
-  description: This function gets the Z ordering value of a [[blip]]. The Z ordering determines if a blip appears on top of or below other blips. Blips with a higher Z ordering value appear on top of blips with a lower value. The default value for all blips is 0.
-  oop:
-    element: blip
-    method: getOrdering
-    variable: ordering
-  parameters:
-    - name: theBlip
-      type: blip
-      description: The [[blip]] to retrieve the Z ordering value of.
-  returns:
-    values:
-      - type: int|false
-        name: z-ordering
-    description: Returns the Z ordering value of the [[blip]] if successful, false otherwise.
+  description: This function gets the Z ordering value of a blip. The Z ordering determines
+    if a blip appears on top of or below other blips. Blips with a higher Z ordering
+    value appear on top of blips with a lower value. The default value for all blips
+    is 0\.
+  parameters: []
   examples:
-    - path: examples/getBlipOrdering-1.lua
-    - path: examples/getBlipOrdering_OOP-1.lua
-      oop: true
+  - path: examples/getBlipOrdering-1.lua
+    description: ''
+    side: server
+  pair: setBlipOrdering

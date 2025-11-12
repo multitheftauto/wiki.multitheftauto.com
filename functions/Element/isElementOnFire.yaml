@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementOnFire
-shared: &shared
-  name: isElementOnFire
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementOnFire
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementOnFire
+  description: This function checks if the specified [element](/wiki/Element "Element")
+    is on fire or not.
+  parameters: []
+  examples:
+  - path: examples/isElementOnFire-1.lua
+    description: ''
+    side: server
+  pair: setElementOnFire

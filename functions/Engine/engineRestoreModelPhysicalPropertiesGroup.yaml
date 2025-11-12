@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineRestoreModelPhysicalPropertiesGroup
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreModelPhysicalPropertiesGroup
 client:
   name: engineRestoreModelPhysicalPropertiesGroup
-  description: TODO
-  incomplete: true
+  description: This function restores original physical properties group used by given
+    model.
+  parameters: []
+  examples:
+  - path: examples/engineRestoreModelPhysicalPropertiesGroup-1.lua
+    description: ''
+    side: client

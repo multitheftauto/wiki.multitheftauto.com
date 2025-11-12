@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getMinuteDuration
-shared: &shared
-  name: getMinuteDuration
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetMinuteDuration
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getMinuteDuration
+  description: Tells you how long an ingame minute takes in real\-world milliseconds.
+    The default GTA value is 1000\.
+  parameters: []
+  examples:
+  - path: examples/getMinuteDuration-1.lua
+    description: This example prints the server's minute duration
+    side: server

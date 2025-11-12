@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/bitReplace
-shared: &shared
-  name: bitReplace
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitReplace
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: bitReplace
+  description: This function returns the unsigned number formed by var value with
+    replacement specified at bits field to field \+ width \- 1
+  parameters: []
+  examples:
+  - path: examples/bitReplace-1.lua
+    description: ''
+    side: server

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setInteriorFurnitureEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetInteriorFurnitureEnabled
 client:
   name: setInteriorFurnitureEnabled
-  description: TODO
-  incomplete: true
+  description: This function toggles furniture generation in interiors with the specified
+    room ID.
+  parameters: []
+  examples:
+  - path: examples/setInteriorFurnitureEnabled-1.lua
+    description: ''
+    side: client

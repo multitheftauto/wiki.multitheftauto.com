@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleLightState
-shared: &shared
-  name: setVehicleLightState
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleLightState
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setVehicleLightState
+  description: This function sets the state of the light on the vehicle.
+  parameters: []
+  examples:
+  - path: examples/setVehicleLightState-1.lua
+    description: ''
+    side: server
+  pair: getVehicleLightState

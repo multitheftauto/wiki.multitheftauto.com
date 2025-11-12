@@ -1,45 +1,27 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddAccount
 server:
   name: addAccount
-  pair: removeAccount
-  notes:
-    - type: info
-      content: |
-        - Minimal account name/password length is 1 character.
-        - Account name/password can not be equal to <code>*****</code>.
-        - Account names are case-sensitive if *allowCaseVariations* is **true**.
-        - Maximum account password length was 30 characters until version **1.5.4-11138**. Currently there is no upper limit.
-  oop:
-    element: Account
-    static: true
-    method: add
-  description: This function adds an [[account]] to the list of registered accounts of the current server.
-  parameters:
-    - name: name
-      type: string
-      description: The name of the [account](account) you wish to make, this normally is the player's name.
-    - name: pass
-      type: string
-      description: The password to set for this [account](account) for future logins.
-    - name: allowCaseVariations
-      type: bool
-      description: Whether the username is case sensitive (if this is set to true, usernames "Bob" and "bob" will refer to different accounts).
-      default: 'false'
-  returns:
-    values:
-      - type: account|false
-        name: result
-    description: Returns an [[account]] or false if the account already exists or an error occured.
+  description: This function adds an account to the list of registered accounts of
+    the current server.
+  parameters: []
   examples:
-    - path: 'examples/addAccount-1.lua'
-      description: This enables players to register on your server by using <code>/register &lt;password&gt;</code> in the chat window.
-    - path: 'examples/addAccount-2.lua'
-      description: This enables players to register on your server by using <code>/register &lt;username&gt; &lt;password&gt;</code> in the chat window.
-    - path: 'examples/addAccount-3.lua'
-      description: This code differs again so the user can only register once <code>/register &lt;username&gt; &lt;password&gt;</code>.
-    - path: examples/addAccount_OOP-1.lua
-      description: This enables players to register on your server by using <code>/register &lt;password&gt;</code> in the chat window.
-      oop: true
+  - path: examples/addAccount-1.lua
+    description: Example 1:This enables players to register on your server by using
+      /register <password> in the chat window.
+    side: server
+  - path: examples/addAccount-2.lua
+    description: Example 2:This enables players to register on your server by using
+      /register <username> <password> in the chat window.
+    side: server
+  - path: examples/addAccount-3.lua
+    description: Example 3:This code differs again so the user can only register once
+      /register <username> <password>.
+    side: server
+  incomplete: true
   meta:
-    - changelog:
-        - version: 1.5.4-11138
-          description: The 30-character password length limit has been removed.
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Limits
+
+      '

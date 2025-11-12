@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTrafficLightState
-shared: &shared
-  name: getTrafficLightState
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTrafficLightState
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTrafficLightState
+  description: Gets the current traffic light state. This state controls the traffic
+    light colors. For instance, state **1** will cause the north and south traffic
+    lights to be amber, and the ones left and east will turn red.
+  parameters: []
+  examples:
+  - path: examples/getTrafficLightState-1.lua
+    description: This example causes all traffic lights to be out of order. (flashing
+      amber)
+    side: server

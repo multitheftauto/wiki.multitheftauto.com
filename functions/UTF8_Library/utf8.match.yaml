@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.match
-shared: &shared
-  name: utf8.match
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.match
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.match
+  description: Extract substrings by matching patterns in the input string. This function
+    can be used to extract specific information from a string.
+  parameters: []
+  examples:
+  - path: examples/utf8.match-1.lua
+    description: This example shows how to extract values from an input string by
+      using a pattern to match the value parts.
+    side: server

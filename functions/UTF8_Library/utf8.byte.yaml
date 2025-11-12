@@ -1,10 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.byte
-shared: &shared
-  name: utf8.byte
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.byte
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.byte
+  description: Returns the codepoints for the i\-th through j\-th character of the
+    string passed.
+  parameters: []
+  examples:
+  - path: examples/utf8.byte-1.lua
+    description: This example will print every codepoint in the input string to the
+      server console.
+    side: server
+  - path: examples/utf8.byte-2.lua
+    description: 'This example will print the codepoint of the first character (read:
+      ''M'') in the string literal.'
+    side: client

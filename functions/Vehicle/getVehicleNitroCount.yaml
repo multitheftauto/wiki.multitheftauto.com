@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleNitroCount
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleNitroCount
 client:
   name: getVehicleNitroCount
-  description: TODO
-  incomplete: true
+  description: This function gets the nitro count of the [vehicle](/wiki/Vehicle "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/getVehicleNitroCount-1.lua
+    description: This example draws the nitro count on vehicle on the player's screen.
+    side: client
+  notes:
+  - type: warning
+    content: Only works if the vehicle is streamed in, use isElementStreamedIn to
+      check.

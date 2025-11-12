@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/textDisplayRemoveObserver
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextDisplayRemoveObserver
 server:
   name: textDisplayRemoveObserver
-  description: TODO
-  incomplete: true
+  description: This function removes a [player](/wiki/Player "Player") observer of
+    a [textdisplay](/wiki/Textdisplay "Textdisplay"). This stops the [player](/wiki/Player
+    "Player") from being able to see [textitems](/wiki/Textitem "Textitem") that the
+    [textdisplay](/wiki/Textdisplay "Textdisplay") contains.
+  parameters: []
+  examples:
+  - path: examples/textDisplayRemoveObserver-1.lua
+    description: This example creates a new display and a "Hello World" text item
+      for a player.  It then removes it from his screen 5 seconds later
+    side: server

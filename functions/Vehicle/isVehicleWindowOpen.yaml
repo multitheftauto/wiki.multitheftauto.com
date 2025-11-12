@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isVehicleWindowOpen
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleWindowOpen
 client:
   name: isVehicleWindowOpen
-  description: TODO
-  incomplete: true
+  description: This function gets the vehicle window state.
+  parameters: []
+  examples:
+  - path: examples/isVehicleWindowOpen-1.lua
+    description: This example opens the vehicle windows when the local player use
+      /openwindow <window number>.
+    side: client

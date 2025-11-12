@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setCoronaReflectionEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetCoronaReflectionEnabled
 client:
   name: setCoronaReflectionEnabled
-  description: TODO
-  incomplete: true
+  description: This function sets visibility of corona reflection.
+  parameters: []
+  examples: []
+  pair: isCoronaReflectionEnabled
+  issues:
+  - id: '2755'
+    description: Corona reflections do not render on custom placed objects
+  - id: '2750'
+    description: Corona reflections do not render on all roads

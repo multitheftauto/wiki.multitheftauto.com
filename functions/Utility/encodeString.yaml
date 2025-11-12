@@ -1,10 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/encodeString
-shared: &shared
-  name: encodeString
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/EncodeString
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: encodeString
+  description: This function encodes a [string](/wiki/String "String") using the specified
+    algorithm. The counterpart of this function is [decodeString](/wiki/DecodeString
+    "DecodeString").
+  parameters: []
+  examples:
+  - path: examples/encodeString-1.lua
+    description: Adds an/encodecommand in which you can provide an algorithm, key
+      and data to encode. Below is the example provided as both server-side and client-side
+      variations.
+    side: server
+  - path: examples/encodeString-2.lua
+    description: This example shows you how to use the RSA encryption with a simple
+      string message.
+    side: server
+  notes:
+  - type: tip
+    content: If it doesn't matter which algorithm you use for the encoding, keep in
+      mind that aes128 uses hardware acceleration so it may outperform the tea algorithm
+      on most processors.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Options for each algorithm
+
+      - Missing section: Returns for each algorithm
+
+      '

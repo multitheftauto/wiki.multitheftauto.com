@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPedControlState
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedControlState
 client:
   name: getPedControlState
-  description: TODO
-  incomplete: true
+  description: Checks whether a ped or the localplayer has a certain control pressed.
+  parameters: []
+  examples:
+  - path: examples/getPedControlState-1.lua
+    description: ''
+    side: client

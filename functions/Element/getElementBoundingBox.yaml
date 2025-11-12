@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementBoundingBox
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBoundingBox
 client:
   name: getElementBoundingBox
-  description: TODO
-  incomplete: true
+  description: This function returns the minimum and maximum coordinates of an element's
+    bounding box.
+  parameters: []
+  examples:
+  - path: examples/getElementBoundingBox-1.lua
+    description: This example outputs to chatbox the minimum and the maximum coordinates
+      of an element.
+    side: client
+  notes:
+  - type: info
+    content: The element must be streamed in for this function to work.

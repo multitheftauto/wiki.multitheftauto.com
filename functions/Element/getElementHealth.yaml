@@ -1,39 +1,13 @@
-shared: &shared
-  name: 'getElementHealth'
-  oop:
-    element: element
-    method: getHealth
-    variable: health
-  pair: 'setElementHealth'
-  description: |
-    This function returns the current health for the specified element. This can be a [player](/player), [ped](/ped), [vehicle](/vehicle), or [object](/object). 
-  parameters:
-    - name: 'theElement'
-      type: 'element'
-      description: "The [player](/player), [ped](/ped), [vehicle](/vehicle), or [object](/object) whose health you want to get."
-  returns:
-    description: |
-      Returns a *float* indicating the element's health, *false* otherwise.
-    values:
-      - type: 'float|false'
-        name: 'health'
-  issues:
-    - id: 3791
-      description: 'setPedArmor and setElementHealth synchronization problems from Client to Server'
-    - id: 2223
-      description: 'setElementHealth in onClientPlayerDamage bug'
-    - id: 1423
-      description: 'When you setElementHealth under onClientPlayerDamage, the local (hit) player rotates automatically'
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementHealth
 server:
-  <<: *shared
-
-client:
-  <<: *shared
+  name: getElementHealth
+  description: This function returns the current health for the specified [element](/wiki/Element
+    "Element"). This can be a [player](/wiki/Player "Player"), a [ped](/wiki/Ped "Ped"),
+    a [vehicle](/wiki/Vehicle "Vehicle"), or an [object](/wiki/Object "Object").
+  parameters: []
   examples:
-    - path: 'examples/getElementHealth-1.lua'
-      description: |
-        This example outputs the player and vehicle health (if player is in a vehicle) to chatbox using */health* command:
-    - path: 'examples/getElementHealth-2.lua'
-      description: |
-        This example heals the player to 100 HP using */healme* command if he's at 50 HP or lower:
+  - path: examples/getElementHealth-1.lua
+    description: This example outputs the health of the player who enters the command
+      'showhealth', and their vehicle's health.
+    side: client
+  pair: setElementHealth

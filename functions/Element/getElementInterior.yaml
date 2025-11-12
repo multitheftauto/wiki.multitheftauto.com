@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementInterior
-shared: &shared
-  name: getElementInterior
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementInterior
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementInterior
+  description: This function allows you to retrieve the interior of any element. An
+    interior is the current loaded place, 0 being outside.
+  parameters: []
+  examples:
+  - path: examples/getElementInterior-1.lua
+    description: This example shows a player if he is outside or not, when he enters
+      the command 'AmIOutside'.
+    side: server
+  pair: setElementInterior

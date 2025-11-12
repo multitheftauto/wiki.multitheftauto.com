@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setJetpackMaxHeight
-shared: &shared
-  name: setJetpackMaxHeight
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetJetpackMaxHeight
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setJetpackMaxHeight
+  description: This function changes the maximum flying height of jetpack.
+  parameters: []
+  examples:
+  - path: examples/setJetpackMaxHeight-1.lua
+    description: This example shows you a command to set your maximum jetpack height.
+    side: client

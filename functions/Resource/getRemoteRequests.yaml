@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getRemoteRequests
-shared: &shared
-  name: getRemoteRequests
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetRemoteRequests
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getRemoteRequests
+  description: Gets all [fetchRemote](/wiki/FetchRemote "FetchRemote") and [callRemote](/wiki/CallRemote
+    "CallRemote") requests currently running.
+  parameters: []
+  examples:
+  - path: examples/getRemoteRequests-1.lua
+    description: This example prints how many request are currently pending.
+    side: server
+  - path: examples/getRemoteRequests-2.lua
+    description: This example prints how many request are currently pending.
+    side: client

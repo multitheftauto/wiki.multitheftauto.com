@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getResourceLastStartTime
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceLastStartTime
 server:
   name: getResourceLastStartTime
-  description: TODO
-  incomplete: true
+  description: Used to check the last starting time and date of a resource
+  parameters: []
+  examples:
+  - path: examples/getResourceLastStartTime-1.lua
+    description: This function outputs to chatbox when the current resource was started.
+    side: server

@@ -1,5 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isWorldSoundEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsWorldSoundEnabled
 client:
   name: isWorldSoundEnabled
-  description: TODO
+  description: This function allows you to check if certain world sound effects have
+    not been disabled by [setWorldSoundEnabled](/wiki/SetWorldSoundEnabled "SetWorldSoundEnabled")
+  parameters: []
+  examples:
+  - path: examples/isWorldSoundEnabled-1.lua
+    description: This is a simplified example that lets the client toggle their weapon
+      sounds.
+    side: client
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: OptionalArguments
+
+      '

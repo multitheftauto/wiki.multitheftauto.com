@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleOccupant
-shared: &shared
-  name: getVehicleOccupant
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleOccupant
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleOccupant
+  description: This function gets the player sitting/trying to enter the specified
+    vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehicleOccupant-1.lua
+    description: 'This example announces the driver of a certain vehicle whenever
+      it is damaged:'
+    side: server

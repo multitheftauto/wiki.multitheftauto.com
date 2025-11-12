@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/cancelEvent
-shared: &shared
-  name: cancelEvent
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/CancelEvent
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: cancelEvent
+  description: This function is used to stop the automatic internal handling of events,
+    for example this can be used to prevent an item being given to a player when they
+    walk over a pickup, by canceling the [onPickupUse](/wiki/OnPickupUse "OnPickupUse")
+    event.
+  parameters: []
+  examples:
+  - path: examples/cancelEvent-1.lua
+    description: This example stops the player from entering a vehicle.
+    side: server
+  - path: examples/cancelEvent-2.lua
+    description: This example prevents any damage to a player clientside by makingcancelEventan
+      event handler for theonClientPlayerDamageevent.
+    side: client

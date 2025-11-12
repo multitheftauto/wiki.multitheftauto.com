@@ -1,32 +1,11 @@
-shared: &shared
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileWrite
+server:
   name: fileWrite
-  notes:
-    - type: 'important'
-      content: |
-        It is important to remember to close a file after you've finished all your operations on it, especially if you've been writing to the file. If you don't close a file and your resource crashes, all changes to the file may be lost.
-  oop:
-    element: file
-    method: write
-  description: Writes one or more strings to a given file, starting at the current read/write position. Advances the position over the number of bytes that were written.
-  parameters:
-    - name: 'theFile'
-      type: 'file'
-      description: A handle to the file you wish to write to. The file must have been opened with write access, i.e. the file handle must be a result of [fileCreate](/fileCreate) or [fileOpen](/fileOpen) with the readonly parameter set to false.
-    - name: 'string1'
-      type: 'string'
-      description: 'The string to write.'
-    - name: 'string2'
-      type: 'string'
-      description: 'You can provide any number of additional strings to write after string1. These will be written in the order in which they are specified.'
-      default: "nil"
-  returns:
-    description: Returns the number of bytes successfully written to the file, returns false if invalid arguments were specified.
-    values:
-      - type: int|false
-        name: result
+  description: Writes one or more strings to a given file, starting at the current
+    read/write position. Advances the position over the number of bytes that were
+    written.
+  parameters: []
   examples:
-    - path: 'examples/fileWrite-1.lua'
-      description: This example creates a text file and writes a string to it.
-    - path: 'examples/fileWrite_OOP-1.lua'
-      description: This example creates a text file and writes a string to it.
-      oop: true
+  - path: examples/fileWrite-1.lua
+    description: This example creates a text file and writes a string to it.
+    side: server

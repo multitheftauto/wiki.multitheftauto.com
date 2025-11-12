@@ -1,26 +1,10 @@
-shared: &shared
-  name: 'xmlSaveFile'
-  oop:
-    element: xmlnode
-    method: saveFile
-  description: |
-    This function saves a loaded XML file.
-  parameters:
-    - name: 'rootNode'
-      type: 'xmlnode'
-      description: The root [xmlnode](/xmlnode) of the loaded XML file.
-  returns:
-    description: |
-      Returns true if save was successful, false if the XML file does not exist.
-    values:
-      - type: 'boolean'
-        name: 'result'
-
-client:
-  <<: *shared
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlSaveFile
+server:
+  name: xmlSaveFile
+  description: This function saves a loaded XML file.
+  parameters: []
   examples:
-  - path: 'examples/xmlSaveFile-1.lua'
-    description: This example allows a player to use the command 'createfile' to create an .xml file.
-  - path: 'examples/xmlSaveFile_OOP-1.lua'
-    description: This example allows a player to use the command 'createfile' to create an .xml file.
-    oop: true
+  - path: examples/xmlSaveFile-1.lua
+    description: This example allows a player to use the command 'createfile' to create
+      an .xml file.
+    side: client

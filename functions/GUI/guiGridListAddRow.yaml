@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListAddRow
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListAddRow
 client:
   name: guiGridListAddRow
-  description: TODO
-  incomplete: true
+  description: Adds a row to a grid list, and optionally add simple text items with
+    your rows. Use [guiGridListSetItemText](/wiki/GuiGridListSetItemText "GuiGridListSetItemText")
+    to add row headers.
+  parameters: []
+  examples:
+  - path: examples/guiGridListAddRow-1.lua
+    description: This example creates a player list on the right side of the screen
+      and fills it with the names of the connected players.
+    side: client

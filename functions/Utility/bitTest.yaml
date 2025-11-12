@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/bitTest
-shared: &shared
-  name: bitTest
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitTest
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: bitTest
+  description: This function performs an AND\-conjunction on two or more (unsigned)
+    32\-bit [integers](/wiki/Int "Int") and checks, whether the conjuncted value is
+    zero or not. See [Bitwise operation](http://en.wikipedia.org/wiki/Bitwise_operation#AND)
+    for more details.
+  parameters: []
+  examples:
+  - path: examples/bitTest-1.lua
+    description: ''
+    side: server

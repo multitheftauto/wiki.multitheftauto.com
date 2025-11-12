@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPlayerNametagText
-shared: &shared
-  name: setPlayerNametagText
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerNametagText
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setPlayerNametagText
+  description: This will change the text of a player's nickname in the world to something
+    besides the nickname he chose. This will not change the player's actual nickname,
+    it only changes the visible aspect inside the world (you will see his original
+    nickname in the scoreboard and will refer to his original name in scripts).
+  parameters: []
+  examples:
+  - path: examples/setPlayerNametagText-1.lua
+    description: This console command lets you change the name tag of lamers.
+    side: server
+  pair: getPlayerNametagText

@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehiclePanelState
-shared: &shared
-  name: setVehiclePanelState
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehiclePanelState
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setVehiclePanelState
+  description: This function allows you to change the state of one of the six panels
+    vehicle's can have. When executed on the server\-side resources, the damage will
+    be synched for all players, whereas the change is only client\-side if the function
+    is used in a client resource.
+  parameters: []
+  examples:
+  - path: examples/setVehiclePanelState-1.lua
+    description: ''
+    side: server
+  pair: getVehiclePanelState

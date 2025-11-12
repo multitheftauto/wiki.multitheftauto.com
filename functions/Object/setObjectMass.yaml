@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setObjectMass
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetObjectMass
 client:
   name: setObjectMass
-  description: TODO
-  incomplete: true
+  description: This function sets the mass of a specified object. Changing the mass
+    leads to a different movement behavior for especially dynamic objects.
+  parameters: []
+  examples:
+  - path: examples/setObjectMass-1.lua
+    description: This script basically creates an object then get's the mass and set's
+      its mass 300 more than it's original mass, then tell the client the old and
+      new mass of the object.
+    side: client
+  pair: getObjectMass

@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetFarClipDistance
-shared: &shared
-  name: resetFarClipDistance
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetFarClipDistance
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: resetFarClipDistance
+  description: This function resets the far clip distance to its default state.
+  parameters: []
+  examples:
+  - path: examples/resetFarClipDistance-1.lua
+    description: This example will demonstrate basic functionality of the function.
+    side: server
+  notes:
+  - type: info
+    content: The function will not reset far clip distance client-side, unless it
+      is relying on a value set by the server.
+  - type: info
+    content: The function will reset the far clip distance to false server-side, as
+      there is no default value to begin with.

@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setControlState
-shared: &shared
-  name: setControlState
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetControlState
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setControlState
+  description: Sets a state of a specified player's control, as if they pressed or
+    released it.
+  parameters: []
+  examples:
+  - path: examples/setControlState-1.lua
+    description: This example will disable the use of the accelerate, brake/reverse
+      and handbrake keys, then force the accelerate on for any player who enters a
+      vehicle.
+    side: server

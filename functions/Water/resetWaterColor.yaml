@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetWaterColor
-shared: &shared
-  name: resetWaterColor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetWaterColor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: resetWaterColor
+  description: This function reset the water color of the GTA world to default.
+  parameters: []
+  examples:
+  - path: examples/resetWaterColor-1.lua
+    description: This example adds a commandresetwatercolorwith which a player can
+      reset the water colour.
+    side: server

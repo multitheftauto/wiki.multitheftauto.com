@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPedAnalogControlState
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedAnalogControlState
 client:
   name: getPedAnalogControlState
-  description: TODO
-  incomplete: true
+  description: This function retrieves the analog control state of a [ped](/wiki/Ped
+    "Ped"), as set by [setPedAnalogControlState](/wiki/SetPedAnalogControlState "SetPedAnalogControlState").
+  parameters: []
+  examples:
+  - path: examples/getPedAnalogControlState-1.lua
+    description: This exmaple creating a ped can drive with command/drive
+    side: client

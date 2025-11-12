@@ -1,10 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/decodeString
-shared: &shared
-  name: decodeString
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/DecodeString
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: decodeString
+  description: This function decodes an encoded [string](/wiki/String "String") using
+    the specified algorithm. The counterpart of this function is [encodeString](/wiki/EncodeString
+    "EncodeString").
+  parameters: []
+  examples:
+  - path: examples/decodeString-1.lua
+    description: Adds a/decodecommand in which you can provide an algorithm, key and
+      data to decode.
+    side: server
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Options for each algorithm
+
+      '

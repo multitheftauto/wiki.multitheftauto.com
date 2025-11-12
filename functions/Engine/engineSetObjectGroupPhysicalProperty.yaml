@@ -1,5 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineSetObjectGroupPhysicalProperty
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetObjectGroupPhysicalProperty
 client:
   name: engineSetObjectGroupPhysicalProperty
-  description: TODO
+  description: This function sets physical property of given properties group.
+  parameters: []
+  examples:
+  - path: examples/engineSetObjectGroupPhysicalProperty-1.lua
+    description: ''
+    side: client
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Properties
+
+      - Missing section: Physical properties
+
+      - Missing section: Damage effect
+
+      - Missing section: Collision Response
+
+      - Missing section: Fx Type
+
+      - Missing section: Break Mode
+
+      - Missing section: Fx Effect
+
+      '

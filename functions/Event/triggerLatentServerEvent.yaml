@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/triggerLatentServerEvent
+# Scraped from: https://wiki.multitheftauto.com/wiki/TriggerLatentServerEvent
 client:
   name: triggerLatentServerEvent
-  description: TODO
-  incomplete: true
+  description: This function is the same as [triggerServerEvent](/wiki/TriggerServerEvent
+    "TriggerServerEvent") except the transmission rate of the data contained in the
+    arguments can be limited and other network traffic is not blocked while the data
+    is being transferred.
+  parameters: []
+  examples:
+  - path: examples/triggerLatentServerEvent-1.lua
+    description: ''
+    side: client
+  - path: examples/triggerLatentServerEvent-2.lua
+    description: ''
+    side: server

@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetMoonSize
-shared: &shared
-  name: resetMoonSize
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetMoonSize
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: resetMoonSize
+  description: This function is used to reset the size of the moon to its normal size.
+  parameters: []
+  examples:
+  - path: examples/resetMoonSize-1.lua
+    description: This example lets any player reset the size of the moon like /resetmoonsize
+    side: server

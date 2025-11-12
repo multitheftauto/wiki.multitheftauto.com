@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCheckBoxGetSelected
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCheckBoxGetSelected
 client:
   name: guiCheckBoxGetSelected
-  description: TODO
-  incomplete: true
+  description: This function gets a checkbox's selection state.
+  parameters: []
+  examples:
+  - path: examples/guiCheckBoxGetSelected-1.lua
+    description: This example makes a different beep based on the state when any checkbox
+      has been clicked.
+    side: client
+  pair: guiCheckBoxSetSelected

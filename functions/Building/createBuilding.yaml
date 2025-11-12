@@ -1,73 +1,29 @@
-shared: &shared
-  name: createBuilding
-  description: Creates a [[building]] element at a given position & interior with a certain rotation.
-  notes:
-    - type: info
-      content: Unlike [[createObject]], this function does not have an **isLowLOD** argument. When using [[setLowLODElement]], the system will automatically define the building as a LOD.
-    - type: info
-      content: |
-        - Some objects/buildings in interior 13 show in all interiors.
-        - Buildings can only be created inside regular GTA:SA Map Boundaries (X between -3000 and 3000; Y between -3000 and 3000). Use [[createObject]] to spawn objects outside these normal limits. **This limitation is probably going to stop existing in the near future.**
-        - Buildings cannot appear in certain a [[Dimension]], and not show in others. Function [[setElementDimension]] returns false on any building. A building is created in a specific [[Interior]] world (such as 0, the main world), like the default GTA:SA landscape objects. All buildings appear in **EVERY DIMENSION**.
-        - There is a distinction in GTA: San Andreas between static and dynamic models (these use a separate streaming system). Examples of buildings include building models, roads, and terrain. Objects created as [[building]]s **can contain glass and shadows**, unlike those created as [[object]]s (which are missing these features).
-        - Buildings can be created with dynamic object model IDs, but they won't have any physical interaction. For example, [object ID 1502 (Gen_doorINT04)](https://dev.prineside.com/en/gtasa_samp_model_id/model/1502-Gen_doorINT04/) is a door that can only be opened if created with [[createObject]].
-    - type: tip
-      content: |
-        - Using buildings for mapping is more optimized than using objects. Gains in FPS can be noticed in areas where a lot of objects were replaced with buildings of this new system.
-        - Created buildings can have <b>LOD models</b>. The procedure is as follows: spawn the LOD building using <b>createBuilding</b>, then use [[setLowLODElement]] to associate it with the non-LOD building element you created beforehand. LOD model distance changed with [[engineSetModelLODDistance]] works for buildings.
-  oop:
-    element: building
-    constructorclass: Building
-  parameters:
-    - name: modelId
-      type: int
-      description: A whole integer specifying the GTA:SA object model ID. See [Object IDs](/reference/ID_Lists/Objects) for a list of model IDs.
-    - name: x
-      type: float
-      description: A floating point number representing the X coordinate on the map.
-    - name: 'y'
-      type: float
-      description: A floating point number representing the Y coordinate on the map.
-    - name: z
-      type: float
-      description: A floating point number representing the Z coordinate on the map.
-    - name: rx
-      type: float
-      description: A floating point number representing the rotation about the X axis in degrees.
-      default: '0'
-    - name: ry
-      type: float
-      description: A floating point number representing the rotation about the Y axis in degrees.
-      default: '0'
-    - name: rz
-      type: float
-      description: A floating point number representing the rotation about the Z axis in degrees.
-      default: '0'
-    - name: interior
-      type: int
-      description: The interior you want to set the building to. Valid values are 0 to 255.
-      default: '0'
-  returns:
-    values:
-      - type: building
-        name: building element
-    description: Returns the [[building]] element if the creation was successful, throws an error otherwise.
-  examples:
-    - path: examples/createBuilding-2.lua
-      description: This example creates a building when the resource starts.
-    - path: examples/createBuilding_OOP-2.lua
-      description: This example creates a building when the resource starts.
-      oop: true
-  meta:
-    - changelog:
-        - version: '1.6.0 r23232'
-          description: Added to the server side, thus the function is now shared.
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateBuilding
 client:
-  <<: *shared
+  name: createBuilding
+  description: Creates a [building](/wiki/Building "Building") [element](/wiki/Element
+    "Element") at a given position \& interior with a certain rotation.
+  parameters: []
   examples:
-    - path: examples/createBuilding-1.lua
-      description: |
-        This example shows you how to automatically create an object or building element according to certain parameters.
+  - path: examples/createBuilding-1.lua
+    description: This example shows you how to automatically create an object or building
+      element according to certain parameters.
+    side: client
+  - path: examples/createBuilding-2.lua
+    description: 'This example creates a building when the resource starts:'
+    side: client
+  notes:
+  - type: info
+    content: Some objects / buildings in interior 13 show in all interiors.
+  - type: info
+    content: Unlike createObject , this function does not have an isLowLOD argument.
+      When using setLowLODElement , the system will automatically define the building
+      as a LOD.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
 
-        This script onlys works <b>CLIENTSIDE</b> due to [[engineGetModelPhysicalPropertiesGroup]].
+      - Missing section: Important info aboutBuildings
+
+      '

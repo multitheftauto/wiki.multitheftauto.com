@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementCollidableWith
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementCollidableWith
 client:
   name: setElementCollidableWith
-  description: TODO
-  incomplete: true
+  description: "This function can be used to set an element to collide with another\
+    \ element. An element with collisions disabled does not interact physically with\
+    \ the other element.  \n\n**Note:** You can only use this function with the element\
+    \ types listed below."
+  parameters: []
+  examples:
+  - path: examples/setElementCollidableWith-1.lua
+    description: ''
+    side: client
+  pair: isElementCollidableWith

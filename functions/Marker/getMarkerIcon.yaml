@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getMarkerIcon
-shared: &shared
-  name: getMarkerIcon
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerIcon
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getMarkerIcon
+  description: This function returns the icon name for a marker.
+  parameters: []
+  examples:
+  - path: examples/getMarkerIcon-1.lua
+    description: ''
+    side: server
+  pair: setMarkerIcon

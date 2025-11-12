@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utfSeek
-shared: &shared
-  name: utfSeek
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/UtfSeek
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utfSeek
+  description: The function returns the byte position at specified character position.
+  parameters: []
+  examples:
+  - path: examples/utfSeek-1.lua
+    description: ''
+    side: server

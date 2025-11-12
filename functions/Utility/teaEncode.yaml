@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/teaEncode
-shared: &shared
-  name: teaEncode
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/TeaEncode
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: teaEncode
+  description: This functions performs the [Tiny Encryption Algorithm](https://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm)
+    on the given string and returns the [base64](https://en.wikipedia.org/wiki/Base64)
+    representation of the encrypted string.
+  parameters: []
+  examples:
+  - path: examples/teaEncode-1.lua
+    description: This example creates a /teaencrypt command, which performs the TEA
+      on a given string with the specified key, if any.
+    side: client
+  notes:
+  - type: important
+    content: Use encodeString instead, because teaEncode inflates the file size by
+      as high as ~77% (or by ~33% if the input isn't binary converted to base64 string).

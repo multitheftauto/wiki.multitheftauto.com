@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/textDisplayRemoveText
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextDisplayRemoveText
 server:
   name: textDisplayRemoveText
-  description: TODO
-  incomplete: true
+  description: This function removes a [textitem](/wiki/Textitem "Textitem") from
+    a [textdisplay](/wiki/Textdisplay "Textdisplay"). This stops any observers of
+    the [textdisplay](/wiki/Textdisplay "Textdisplay") from being able to see the
+    [textitem](/wiki/Textitem "Textitem").
+  parameters: []
+  examples:
+  - path: examples/textDisplayRemoveText-1.lua
+    description: This example creates a text display and adds a "Hello World" text
+      item to it.  It then removes that text item 5 seconds later.
+    side: server

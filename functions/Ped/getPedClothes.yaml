@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPedClothes
-shared: &shared
-  name: getPedClothes
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedClothes
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPedClothes
+  description: This function is used to get the current clothes texture and model
+    of a certain type on a [ped](/wiki/Ped "Ped").
+  parameters: []
+  examples:
+  - path: examples/getPedClothes-1.lua
+    description: 'This example prints the model and texture of the current clothing
+      on the player who enters the "clothes" command. For example: "clothes 3" for
+      the shoes.'
+    side: server
+  pair: addPedClothes

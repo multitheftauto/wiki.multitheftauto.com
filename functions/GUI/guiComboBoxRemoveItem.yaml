@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiComboBoxRemoveItem
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxRemoveItem
 client:
   name: guiComboBoxRemoveItem
-  description: TODO
-  incomplete: true
+  description: This function removes an item from a combobox.
+  parameters: []
+  examples:
+  - path: examples/guiComboBoxRemoveItem-1.lua
+    description: This example removes selected item.
+    side: client

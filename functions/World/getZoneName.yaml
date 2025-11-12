@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getZoneName
-shared: &shared
-  name: getZoneName
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetZoneName
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getZoneName
+  description: This function allows you to retrieve the zone name of a certain location.
+  parameters: []
+  examples:
+  - path: examples/getZoneName-1.lua
+    description: Example 1:This example returns the player's City & Zone.
+    side: server

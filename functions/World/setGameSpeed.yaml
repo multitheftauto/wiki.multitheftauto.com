@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setGameSpeed
-shared: &shared
-  name: setGameSpeed
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetGameSpeed
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setGameSpeed
+  description: This function sets the game speed to the given value.
+  parameters: []
+  examples:
+  - path: examples/setGameSpeed-1.lua
+    description: ''
+    side: server
+  - path: examples/setGameSpeed-2.lua
+    description: ''
+    side: client

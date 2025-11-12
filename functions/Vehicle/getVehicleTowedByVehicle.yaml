@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleTowedByVehicle
-shared: &shared
-  name: getVehicleTowedByVehicle
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleTowedByVehicle
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleTowedByVehicle
+  description: This function is used to get the vehicle being towed by another.
+  parameters: []
+  examples:
+  - path: examples/getVehicleTowedByVehicle-1.lua
+    description: This example will create a trailer and a trailer-tower, attach them,
+      then check if they attached.
+    side: server

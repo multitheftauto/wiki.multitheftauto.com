@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerNametagColor
-shared: &shared
-  name: getPlayerNametagColor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerNametagColor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPlayerNametagColor
+  description: This function gets the current color of a player's name tag as RGB
+    values. These are in the range 0\-255\.
+  parameters: []
+  examples:
+  - path: examples/getPlayerNametagColor-1.lua
+    description: This console command will tell the player what his tag color is.
+      The color is composed of a red, a green and a blue component, each ranging from
+      0-255.
+    side: server
+  pair: setPlayerNametagColor

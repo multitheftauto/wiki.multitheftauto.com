@@ -1,5 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineLoadTXD
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadTXD
 client:
   name: engineLoadTXD
-  description: TODO
-  incomplete: true
+  description: This function loads a RenderWare Texture Dictionary (TXD) file into
+    GTA. The texture dictionary can then be used to provide textures.
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
+      - as other orders can cause collisions, textures or the DFF not to load due
+      to technical limitations.
+  - type: tip
+    content: Do your TXD files take megabytes of disk space? You can read some tips
+      on reducing the size of TXD files to compress them without ruining texture quality.
+  - type: info
+    content: The filteringEnabled property overrides the filtering modes in each texture
+      of the TXD with point filtering. It also sets the uAddressing and vAddressing
+      to WRAP. If textures come with mipmaps then they are disabled which is especially
+      visible without anisotropic filtering . It is recommended to set filteringEnabled
+      to false if the TXD was created with mipmaps (the filtering mode can be changed
+      in a TXD editor).

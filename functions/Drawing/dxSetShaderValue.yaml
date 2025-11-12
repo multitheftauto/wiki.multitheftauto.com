@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxSetShaderValue
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetShaderValue
 client:
   name: dxSetShaderValue
-  description: TODO
-  incomplete: true
+  description: This sets a named parameter for a [shader](/wiki/Shader "Shader") element
+  parameters: []
+  examples:
+  - path: examples/dxSetShaderValue-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: important
+    content: It's enough to set the texture only once if it's a render target

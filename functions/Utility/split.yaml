@@ -1,10 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/split
-shared: &shared
-  name: split
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Split
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: split
+  description: This function splits a string into substrings. You specify a character
+    that will act as a separating character; this will determine where to split the
+    sub\-strings. For example, it can split the string "Hello World" into two strings
+    containing the two words, by spliting using a space as a separator.
+  parameters: []
+  examples:
+  - path: examples/split-1.lua
+    description: 'This example gives the specified weapons to the given player, while
+      the weapons are a string in the form: ''weaponId,ammo;weaponId2,ammo2;weaponId3,ammo3;..''.
+      This is especially for data read from a .map file attribute.'
+    side: server
+  notes:
+  - type: info
+    content: 'Unicode characters work but when combined with others do not. E.g: #split("a€cb†",
+      "€") returns 3 but #split("a€cb", "€") returns 2.'
+  - type: info
+    content: 'You can''t use same char twice as a separator. Eg.:'

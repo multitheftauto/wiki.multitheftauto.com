@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTeamName
-shared: &shared
-  name: getTeamName
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTeamName
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTeamName
+  description: This function gets the team name of a team object.
+  parameters: []
+  examples:
+  - path: examples/getTeamName-1.lua
+    description: This example gets the current team of a player, then prints its name
+      to the chatbox.
+    side: server
+  pair: setTeamName

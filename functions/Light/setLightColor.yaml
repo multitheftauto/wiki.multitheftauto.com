@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setLightColor
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetLightColor
 client:
   name: setLightColor
-  description: TODO
-  incomplete: true
+  description: This function sets the color for a [light](/wiki/Element/Light "Element/Light")
+    element.
+  parameters: []
+  examples:
+  - path: examples/setLightColor-1.lua
+    description: ''
+    side: client
+  pair: getLightColor

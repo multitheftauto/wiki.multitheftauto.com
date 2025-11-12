@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getWaterVertexPosition
-shared: &shared
-  name: getWaterVertexPosition
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWaterVertexPosition
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getWaterVertexPosition
+  description: Gets the world position of a vertex (i.e. corner) of a [water](/wiki/Water
+    "Water") area. Each water area is either a triangle or quad (rectangle) so each
+    has 3 or 4 corners.
+  parameters: []
+  examples:
+  - path: examples/getWaterVertexPosition-1.lua
+    description: ''
+    side: server
+  pair: setWaterVertexPosition

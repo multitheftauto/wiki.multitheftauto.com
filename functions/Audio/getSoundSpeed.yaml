@@ -1,21 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundSpeed
 client:
   name: getSoundSpeed
-  pair: setSoundSpeed
-  description: This function is used to return the playback speed of the specified [[sound]] element.
-  oop:
-    element: sound
-    method: getSpeed
-    variable: speed
-  parameters:
-    - name: theSound
-      type: sound/player
-      description: The [[sound]] element which playback speed you want to return.
-  returns:
-    values:
-      - type: float|false
-        name: speed
-    description: Returns an [[float]] value indicating the playback speed of the [[sound]] element. Default sound playback speed is 1.0.
+  description: This function is used to return the playback speed of the specified
+    [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element").
+  parameters: []
   examples:
-    - path: examples/getSoundSpeed-1.lua
-    - path: examples/getSoundSpeed_OOP-1.lua
-      oop: true
+  - path: examples/getSoundSpeed-1.lua
+    description: ''
+    side: client
+  pair: setSoundSpeed

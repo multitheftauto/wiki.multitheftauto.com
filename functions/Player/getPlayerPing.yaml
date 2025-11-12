@@ -1,10 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerPing
-shared: &shared
-  name: getPlayerPing
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerPing
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPlayerPing
+  description: This function returns the ping of a specified [player](/wiki/Player
+    "Player"). The ping is the number of milliseconds that data takes to travel from
+    the player's client to the server or vice versa. If a player is using a VPN their
+    ping will still be returned correctly.
+  parameters: []
+  examples:
+  - path: examples/getPlayerPing-1.lua
+    description: This example checks every players ping every 5 seconds and if it's
+      over 500 they get kicked.
+    side: server
+  - path: examples/getPlayerPing-2.lua
+    description: This example checks the ping of every player entering the 'ping'
+      command and warns him if it's over 100.
+    side: client

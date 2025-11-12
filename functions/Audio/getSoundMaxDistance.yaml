@@ -1,21 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundMaxDistance
 client:
   name: getSoundMaxDistance
-  pair: setSoundMaxDistance
-  description: Gets a custom sound max distance at which the sound stops.
-  oop:
-    element: sound
-    method: getMaxDistance
-    variable: maxDistance
-  parameters:
-    - name: theSound
-      type: sound
-      description: A [[sound]] element.
-  returns:
-    values:
-      - type: int|false
-        name: max-distance
-    description: Returns an integer of the max distance, false if invalid arguments where passed.
+  description: Gets a custom [sound](/wiki/Sound "Sound") max distance at which the
+    sound stops.
+  parameters: []
   examples:
-    - path: examples/getSoundMaxDistance-1.lua
-    - path: examples/getSoundMaxDistance_OOP-1.lua
-      oop: true
+  - path: examples/getSoundMaxDistance-1.lua
+    description: ''
+    side: client
+  pair: setSoundMaxDistance

@@ -1,5 +1,5 @@
 local webbrowser = createBrowser(1000, 1000, false, false)
-loadBrowserURL(webbrowser, "https://www.youtube.com/watch?v=jofNR_WkoCE")
+loadBrowserUrl(webbrowser, "https://www.youtube.com/watch?v=jofNR_WkoCE")
 addCommandHandler("checkload",
       function()
             if isBrowserLoading(webbrowser) then  

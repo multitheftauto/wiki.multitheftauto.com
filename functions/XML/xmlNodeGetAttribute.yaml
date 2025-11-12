@@ -1,43 +1,14 @@
-shared: &shared
-  name: 'xmlNodeGetAttribute'
-  pair: 'xmlNodeSetAttribute'
-  oop:
-    element: xmlnode
-    method: getAttribute
-  description: |
-    This function is used to return an attribute of a node in a configuration file.
-  parameters:
-    - name: 'node'
-      type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) from which you wish to return the attribute.
-    - name: 'name'
-      type: 'string'
-      description: The name of the attribute.
-  returns:
-    description: |
-      Returns the attribute in string form or false, if the attribute is not defined.
-    values:
-      - type: 'string|false'
-        name: 'attribute'
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeGetAttribute
+server:
+  name: xmlNodeGetAttribute
+  description: This function is used to return an attribute of a node in a configuration
+    file.
+  parameters: []
   examples:
-  - path: 'examples/xmlNodeGetAttribute-1.lua'
-    description: |
-      Suppose we have a gametype where only one type of car is used, and this type should not depend on the map but rather be set in an external configuration file and be used in all maps. Here's an example where the configuration file is an XML document:
-
-      settings.xml
-      ```xml
-      <car model="528" posX="123.4" posY="456.7" posZ="12.3" rot="90.0" />
-      ```
-
-      Lua code
-  - path: 'examples/xmlNodeGetAttribute_OOP-1.lua'
-    description: |
-      Suppose we have a gametype where only one type of car is used, and this type should not depend on the map but rather be set in an external configuration file and be used in all maps. Here's an example where the configuration file is an XML document:
-
-      settings.xml
-      ```xml
-      <car model="528" posX="123.4" posY="456.7" posZ="12.3" rot="90.0" />
-      ```
-
-      Lua code
-    oop: true
+  - path: examples/xmlNodeGetAttribute-1.lua
+    description: settings.xml
+    side: server
+  - path: examples/xmlNodeGetAttribute-2.lua
+    description: Lua code
+    side: server
+  pair: xmlNodeSetAttribute

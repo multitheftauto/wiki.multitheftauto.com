@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isWaterDrawnLast
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsWaterDrawnLast
 client:
   name: isWaterDrawnLast
-  description: TODO
-  incomplete: true
+  description: This function determines whether [water](/wiki/Water "Water") is drawn
+    last in the rendering order.
+  parameters: []
+  examples:
+  - path: examples/isWaterDrawnLast-1.lua
+    description: This example toggles water to be drawn last.
+    side: client

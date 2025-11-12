@@ -1,5 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxSetTexturePixels
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetTexturePixels
 client:
   name: dxSetTexturePixels
-  description: TODO
-  incomplete: true
+  description: This function sets the [pixels](/wiki/Texture_pixels "Texture pixels")
+    of a [texture](/wiki/Texture "Texture") element. It can be used with a standard
+    texture, render target or screen source. Only '**plain'** format pixels please.
+  parameters: []
+  examples:
+  - path: examples/dxSetTexturePixels-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: This function is slow and not something you want to be doing once a frame.
+      It is very slow when setting pixels to a render target or screen source. And
+      is very slow indeed if the texture format is not "argb" .

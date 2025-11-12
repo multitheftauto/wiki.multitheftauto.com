@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementBonePosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBonePosition
 client:
   name: getElementBonePosition
-  description: TODO
-  incomplete: true
+  description: Returns the 3D world coordinates of a specific bone of a given [element](/wiki/Element
+    "Element"). Currently the [Player](/wiki/Element/Player "Element/Player") and
+    [Ped](/wiki/Element/Ped "Element/Ped") element types are accepted.
+  parameters: []
+  examples:
+  - path: examples/getElementBonePosition-1.lua
+    description: 'This example outputs the X, Y, Z world position of the local player
+      bone specified through a command:'
+    side: client
+  notes:
+  - type: tip
+    content: If you want to attach an element to a bone, see attachElementToBone .

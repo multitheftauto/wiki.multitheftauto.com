@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiSetFont
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetFont
 client:
   name: guiSetFont
-  description: TODO
-  incomplete: true
+  description: This function sets the font of a [GUI element](/wiki/GUI_widgets "GUI
+    widgets") to be used when drawing text.
+  parameters: []
+  examples:
+  - path: examples/guiSetFont-1.lua
+    description: This example sets and gets the font of a pre-made gui element and
+      outputs it to chat box.
+    side: client
+  pair: guiGetFont

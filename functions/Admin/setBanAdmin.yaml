@@ -1,26 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetBanAdmin
 server:
   name: setBanAdmin
-  pair: getBanAdmin
-  description: This function sets a new admin for a [[ban]].
-  oop:
-    element: ban
-    method: setAdmin
-    variable: admin
-  parameters:
-    - name: theBan
-      type: ban
-      description: The [[ban]] you want to change the admin of.
-    - name: theAdmin
-      type: string
-      description: The new admin.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if changed, false otherwise.
+  description: This function sets a new admin for a [ban](/wiki/Ban "Ban").
+  parameters: []
   examples:
-    - path: examples/setBanAdmin-1.lua
-      description: This example changes the [[ban]] admin to the admin's IP (If it's a player), when someone gets banned.
-    - path: examples/setBanAdmin_OOP-1.lua
-      description: This example changes the [[ban]] admin to the admin's IP (If it's a player), when someone gets banned.
-      oop: true
+  - path: examples/setBanAdmin-1.lua
+    description: This example changes the ban admin to the admin's IP (If it's a player),
+      when someone gets banned.
+    side: server
+  pair: getBanAdmin

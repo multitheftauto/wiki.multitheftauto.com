@@ -1,0 +1,1 @@
+<vehicle id="vipVehicle" posX="10" posY="10" posZ="4" model="602" />

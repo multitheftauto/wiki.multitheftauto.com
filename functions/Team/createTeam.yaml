@@ -1,5 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createTeam
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateTeam
 server:
   name: createTeam
-  description: TODO
-  incomplete: true
+  description: This function is for creating a new [team](/wiki/Team "Team"), which
+    can be used to group players. Players will not join the team until they are respawned.
+  parameters: []
+  examples:
+  - path: examples/createTeam-1.lua
+    description: Example 1:This example creates a new team for a player, then adds
+      him to it.
+    side: server
+  - path: examples/createTeam-2.lua
+    description: Example 2:This example creates two teams, one for Admin and one for
+      Freeroamers, when the resource this script is in is started.
+    side: server
+  - path: examples/createTeam-3.lua
+    description: Example 3:This example creates a team for Admin and when an admin
+      logs in, he will be set in the Admin team.
+    side: server

@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxGetPixelsFormat
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetPixelsFormat
 client:
   name: dxGetPixelsFormat
-  description: TODO
-  incomplete: true
+  description: This function returns the format of [pixels](/wiki/Texture_pixels "Texture
+    pixels") contained in a string.
+  parameters: []
+  examples:
+  - path: examples/dxGetPixelsFormat-1.lua
+    description: The example loads an image, gets its pixels, and outputs the pixels
+      format. (You can usethisimage to test.)
+    side: client

@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getWorldFromScreenPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWorldFromScreenPosition
 client:
   name: getWorldFromScreenPosition
-  description: TODO
-  incomplete: true
+  description: This function allows you to retrieve the world position corresponding
+    to a 2D position on the screen, at a certain depth.
+  parameters: []
+  examples:
+  - path: examples/getWorldFromScreenPosition-1.lua
+    description: This example binds the local player's "i" key to a function that
+      creates an explosion in the middle of the screen.
+    side: client

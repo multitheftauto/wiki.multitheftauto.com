@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxSetTestMode
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetTestMode
 client:
   name: dxSetTestMode
-  description: TODO
-  incomplete: true
+  description: This function is used for testing scripts written using [guiCreateFont](/wiki/GuiCreateFont
+    "GuiCreateFont"), [dxCreateFont](/wiki/DxCreateFont "DxCreateFont"), [dxCreateShader](/wiki/DxCreateShader
+    "DxCreateShader") and [dxCreateRenderTarget](/wiki/DxCreateRenderTarget "DxCreateRenderTarget").
+  parameters: []
+  examples:
+  - path: examples/dxSetTestMode-1.lua
+    description: With this example you can use /setmode command to set the test mode.
+    side: client

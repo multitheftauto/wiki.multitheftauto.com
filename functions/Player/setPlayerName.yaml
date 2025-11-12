@@ -1,5 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPlayerName
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerName
 server:
   name: setPlayerName
-  description: TODO
+  description: This function changes the specified [player](/wiki/Player "Player")'s
+    name. Note that any change made to a players name with this function is not saved
+    in their settings so the name change only lasts till they disconnect.
+  parameters: []
+  examples:
+  - path: examples/setPlayerName-1.lua
+    description: This example adds a tag before a player's nickname via a /changetag
+      command
+    side: server
+  - path: examples/setPlayerName-2.lua
+    description: This example allows you to check if string is valid mta nickname
+    side: server
+  pair: getPlayerName
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Limits
+
+      '

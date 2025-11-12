@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getCommandsBoundToKey
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCommandsBoundToKey
 client:
   name: getCommandsBoundToKey
-  description: TODO
-  incomplete: true
+  description: Gets the commands bound to a key.
+  parameters: []
+  examples:
+  - path: examples/getCommandsBoundToKey-1.lua
+    description: This example adds the command /keycommands <theKey> <keyState>
+    side: client

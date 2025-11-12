@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getWaterColor
-shared: &shared
-  name: getWaterColor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWaterColor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getWaterColor
+  description: This function returns the water color of the GTA world.
+  parameters: []
+  examples:
+  - path: examples/getWaterColor-1.lua
+    description: ''
+    side: client
+  - path: examples/getWaterColor-2.lua
+    description: ''
+    side: server
+  pair: setWaterColor

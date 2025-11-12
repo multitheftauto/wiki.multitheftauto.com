@@ -1,10 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementCollisionsEnabled
-shared: &shared
-  name: setElementCollisionsEnabled
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementCollisionsEnabled
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setElementCollisionsEnabled
+  description: This function can disable or enable an element's collisions. An element
+    without collisions does not interact with the physical environment and remains
+    static.
+  parameters: []
+  examples:
+  - path: examples/setElementCollisionsEnabled-1.lua
+    description: 'This example disables collisions for all vehicles within a certain
+      radius of a player:'
+    side: server
+  pair: getElementCollisionsEnabled
+  notes:
+  - type: info
+    content: Vehicles that are collisionless and have a driver will cause bugs.
+  - type: info
+    content: Enabling a players collisions when they're inside a vehicle will cause
+      bugs.
+  - type: info
+    content: Disabling a peds collisions will cause some problems, such as it being
+      unable to move or wrong rotation after creation.

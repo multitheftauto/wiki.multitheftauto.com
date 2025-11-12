@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiEditSetReadOnly
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditSetReadOnly
 client:
   name: guiEditSetReadOnly
-  description: TODO
-  incomplete: true
+  description: This function allows you to set or remove read\-only status for an
+    edit box. If read\-only is set to *true*, the box is not editable.
+  parameters: []
+  examples:
+  - path: examples/guiEditSetReadOnly-1.lua
+    description: This example creates a little advert field on the bottom right corner
+      of the screen and sets it to read only.
+    side: client
+  pair: guiEditIsReadOnly

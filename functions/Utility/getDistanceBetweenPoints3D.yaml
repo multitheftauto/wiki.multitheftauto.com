@@ -1,10 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getDistanceBetweenPoints3D
-shared: &shared
-  name: getDistanceBetweenPoints3D
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetDistanceBetweenPoints3D
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getDistanceBetweenPoints3D
+  description: This function returns the distance between two 3 dimensional points
+    using the pythagorean theorem.
+  parameters: []
+  examples:
+  - path: examples/getDistanceBetweenPoints3D-1.lua
+    description: ''
+    side: server
+  - path: examples/getDistanceBetweenPoints3D-2.lua
+    description: ''
+    side: server
+  - path: examples/getDistanceBetweenPoints3D-3.lua
+    description: 'getDistanceBetweenPoints3Dcan also be used to measure the length
+      of 3 dimensional vectors. This example calculates the speed of a vehicle by
+      measuring the size of the it''s velocity vector:'
+    side: server
+  notes:
+  - type: info
+    content: This function is equivalent to the Vector3 class getLength method when
+      used with a vector that holds the direction and distance between two points.
+      In other words, it produces exactly the same result as substracting the points'
+      coordinates and getting the length of the result vector.

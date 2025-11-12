@@ -1,10 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementLowLOD
-shared: &shared
-  name: isElementLowLOD
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementLowLOD
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementLowLOD
+  description: This function reveals if an element is low LOD.
+  parameters: []
+  examples:
+  - path: examples/isElementLowLOD-1.lua
+    description: This example will show how many low lods objects is around you.
+    side: client
+  - path: examples/isElementLowLOD-2.lua
+    description: This example will show how many low lods objects is around all the
+      world.
+    side: server
+  notes:
+  - type: info
+    content: See setLowLODElement for the list of valid element types that can be
+      assigned with that function.

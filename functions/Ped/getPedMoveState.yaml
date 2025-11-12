@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPedMoveState
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedMoveState
 client:
   name: getPedMoveState
-  description: TODO
-  incomplete: true
+  description: This function returns the current move state for the specified [ped](/wiki/Ped
+    "Ped").
+  parameters: []
+  examples:
+  - path: examples/getPedMoveState-1.lua
+    description: Example 1:This example shows how you can output a players current
+      movestate.
+    side: client

@@ -1,0 +1,1 @@
+setVehicleModelWheelSize(568, "rear_axle", 1.8) -- 0.7 is the usual value

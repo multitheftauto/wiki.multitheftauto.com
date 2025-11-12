@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementAngularVelocity
-shared: &shared
-  name: getElementAngularVelocity
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAngularVelocity
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementAngularVelocity
+  description: Gets the current angular velocity of a specified, supported element.
+  parameters: []
+  examples:
+  - path: examples/getElementAngularVelocity-1.lua
+    description: ''
+    side: server
+  pair: setElementAngularVelocity

@@ -1,23 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerAccount
 server:
   name: getPlayerAccount
-  description: This function returns the specified player's [[account]] object.
-  oop:
-    element: player
-    note: Static method [Account](account).getFromPlayer() can also be used.
-    method: getAccount
-    variable: account
-  parameters:
-    - name: thePlayer
-      type: player
-      description: The [player](player) element you want to get the [[account]] of.
-  returns:
-    values:
-      - type: account|false
-        name: player's account
-    description: Returns the player's account object, or false if the player passed to the function is invalid.
+  description: This function returns the specified player's [account](/wiki/Account
+    "Account") object.
+  parameters: []
   examples:
-    - path: examples/getPlayerAccount-1.lua
-      description: This example sets a player's money and also stores the value is his account.
-    - path: examples/getPlayerAccount_OOP-1.lua
-      description: This example sets a player's money and also stores the value is his account.
-      oop: true
+  - path: examples/getPlayerAccount-1.lua
+    description: This example sets a player's money and also stores the value is his
+      account.
+    side: server

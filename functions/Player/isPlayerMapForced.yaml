@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isPlayerMapForced
-shared: &shared
-  name: isPlayerMapForced
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPlayerMapForced
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isPlayerMapForced
+  description: This function checks if the specified player's map (F11\) has been
+    forced on or not.
+  parameters: []
+  examples:
+  - path: examples/isPlayerMapForced-1.lua
+    description: This example forces a player's map on for 10 seconds if it hasn't
+      been already.
+    side: server
+  pair: forcePlayerMap

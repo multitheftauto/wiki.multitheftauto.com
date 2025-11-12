@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/httpSetResponseHeader
+# Scraped from: https://wiki.multitheftauto.com/wiki/HttpSetResponseHeader
 server:
   name: httpSetResponseHeader
-  description: TODO
-  incomplete: true
+  description: This function sets the value for the specified HTTP response header
+    of the current HTML page.
+  parameters: []
+  examples:
+  - path: examples/httpSetResponseHeader-1.lua
+    description: Using httpSetResponseHeader to set the content type. (Example fromhttpWrite)
+    side: server

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetWorldSounds
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetWorldSounds
 client:
   name: resetWorldSounds
-  description: TODO
-  incomplete: true
+  description: This function is used to reset the world sounds to the default setting.
+  parameters: []
+  examples:
+  - path: examples/resetWorldSounds-1.lua
+    description: By this command player can choose to reset world sounds to the default
+      setting if it has been changed before usingsetWorldSoundEnabled
+    side: client

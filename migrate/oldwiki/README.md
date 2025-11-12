@@ -15,4 +15,4 @@
 
 - **Copy files**: `python copy_files.py`
 
-  This will copy the generated .yaml files to the `/functions` and `/events` directories in the repository root, overriding existing pages **marked as incomplete** unless you set `OVERRIDE_INCOMPLETE_PAGES` to `False`.
+  This will copy the generated .yaml files to the `/functions` and `/events` directories in the repository root, but before the files are placed in a temporary location for review.

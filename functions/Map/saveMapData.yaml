@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/saveMapData
+# Scraped from: https://wiki.multitheftauto.com/wiki/SaveMapData
 server:
   name: saveMapData
-  description: TODO
-  incomplete: true
+  description: This converts a set of elements in the element tree into XML. This
+    is a format that can then be loaded as a map file. Each element represents a single
+    XML node.
+  parameters: []
+  examples:
+  - path: examples/saveMapData-1.lua
+    description: Saving your resource's data to anmap file(untested)
+    side: server

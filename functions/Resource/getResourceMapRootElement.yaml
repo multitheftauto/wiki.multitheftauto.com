@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getResourceMapRootElement
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceMapRootElement
 server:
   name: getResourceMapRootElement
-  description: TODO
-  incomplete: true
+  description: This function retrieves the root element of a certain [map](/wiki/Map?action=edit&redlink=1
+    "Map (page does not exist)") in a specified [resource](/wiki/Resource "Resource").
+  parameters: []
+  examples:
+  - path: examples/getResourceMapRootElement-1.lua
+    description: This example shows how to get all elements of specific type only
+      from one map.
+    side: server

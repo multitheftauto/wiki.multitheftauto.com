@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVolumetricShadowsEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVolumetricShadowsEnabled
 client:
   name: setVolumetricShadowsEnabled
-  description: TODO
-  incomplete: true
+  description: This function used to enable or disable volumetric shadows.
+  parameters: []
+  examples:
+  - path: examples/setVolumetricShadowsEnabled-1.lua
+    description: This example check if volumetric shadows enabled, if not enabled
+      then enable it and set the shadow alpha.
+    side: client

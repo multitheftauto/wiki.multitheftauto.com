@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getKeyboardLayout
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetKeyboardLayout
 client:
   name: getKeyboardLayout
-  description: TODO
-  incomplete: true
+  description: This function gets the player's keyboard layout settings, which they
+    are currently (keyboard layout can be changed at any moment) using at the time
+    of invocation.
+  parameters: []
+  examples:
+  - path: examples/getKeyboardLayout-1.lua
+    description: ''
+    side: client

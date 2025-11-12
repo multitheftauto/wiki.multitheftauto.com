@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getResourceExportedFunctions
-shared: &shared
-  name: getResourceExportedFunctions
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceExportedFunctions
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getResourceExportedFunctions
+  description: Returns a table containing the names of the functions that a resource
+    exports. It will return the exports of the current resource if there is no argument
+    passed in.
+  parameters: []
+  examples:
+  - path: examples/getResourceExportedFunctions-1.lua
+    description: This simple example will output the names of the functions that the
+      "scoreboard" resource exports.
+    side: server

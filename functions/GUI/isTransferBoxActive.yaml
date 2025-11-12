@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isTransferBoxActive
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsTransferBoxActive
 client:
   name: isTransferBoxActive
-  description: TODO
-  incomplete: true
+  description: This function returns whether the file downloading dialog box is active
+    or not. This appears when a resource is started and the client doesn't have all
+    the files that resource requires the client to have.
+  parameters: []
+  examples:
+  - path: examples/isTransferBoxActive-1.lua
+    description: This makes the camera fade in, once all resource downloads are finished.
+    side: client

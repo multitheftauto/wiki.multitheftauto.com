@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxDrawMaterialLine3D
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialLine3D
 client:
   name: dxDrawMaterialLine3D
-  description: TODO
-  incomplete: true
+  description: This function draws a textured 3D line between two points in the 3D
+    world \- rendered for one frame. This should be used in conjunction with [onClientPreRender](/wiki/OnClientPreRender
+    "OnClientPreRender") in order to display continuously.
+  parameters: []
+  examples:
+  - path: examples/dxDrawMaterialLine3D-1.lua
+    description: 'Drawsan imagein coordiantes -2422.68555, -608.78986, 132.56250:'
+    side: client

@@ -1,29 +1,10 @@
-shared: &shared
-  name: 'xmlCreateChild'
-  oop:
-    element: xmlnode
-    method: createChild
-  description: |
-    This function creates a new child node under an XML node.
-  parameters:
-    - name: 'parentNode'
-      type: 'xmlnode'
-      description: "The [xmlnode](/xmlnode) you want to create a new child node under."
-    - name: 'tagName'
-      type: 'string'
-      description: 'The type of the child node that will be created.'
-  returns:
-    description: |
-      Returns the created [xmlnode](/xmlnode) if successful, false otherwise.
-    values:
-      - type: 'xmlnode|false'
-        name: 'xmlnode'
-
-client:
-  <<: *shared
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlCreateChild
+server:
+  name: xmlCreateChild
+  description: This function creates a new child node under an XML node.
+  parameters: []
   examples:
-  - path: 'examples/xmlCreateChild-1.lua'
-    description: This example allows a player to use the command **createfile** to create an .xml file.
-  - path: 'examples/xmlCreateChild_OOP-1.lua'
-    description: This example allows a player to use the command **createfile** to create an .xml file.
-    oop: true
+  - path: examples/xmlCreateChild-1.lua
+    description: This example allows a player to use the command 'createfile' to create
+      an .xml file.
+    side: server

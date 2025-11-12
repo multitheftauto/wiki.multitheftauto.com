@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/set
+# Scraped from: https://wiki.multitheftauto.com/wiki/Set
 server:
   name: set
-  description: TODO
-  incomplete: true
+  description: This function is used to save arbitrary data under a certain name on
+    the [settings registry](/wiki/Settings_system "Settings system").
+  parameters: []
+  examples:
+  - path: examples/set-1.lua
+    description: This example sets a specified setting with a Value. This is alocalsetting
+      belonging to the resource that the code is run in.
+    side: server

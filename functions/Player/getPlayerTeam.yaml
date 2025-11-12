@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerTeam
-shared: &shared
-  name: getPlayerTeam
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerTeam
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPlayerTeam
+  description: This function gets the current [team](/wiki/Team "Team") a [player](/wiki/Player
+    "Player") is on.
+  parameters: []
+  examples:
+  - path: examples/getPlayerTeam-1.lua
+    description: This example finds the team a player is on, and then changes its
+      name.
+    side: server
+  pair: setPlayerTeam

@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setColPolygonHeight
-shared: &shared
-  name: setColPolygonHeight
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetColPolygonHeight
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setColPolygonHeight
+  description: 'This function is used to change the height of an existing [colshape
+    polygon](/wiki/CreateColPolygon "CreateColPolygon").
+
+    By default, a colshape polygon is infinitely tall.'
+  parameters: []
+  examples:
+  - path: examples/setColPolygonHeight-1.lua
+    description: ''
+    side: server

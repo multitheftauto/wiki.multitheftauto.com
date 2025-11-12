@@ -1,10 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/debugSleep
-shared: &shared
-  name: debugSleep
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/DebugSleep
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: debugSleep
+  description: debugSleep freezes the client/server for the specified time. This means
+    that all synchronization, rendering and script execution will stop except HTTP
+    processing invoked by [fetchRemote](/wiki/FetchRemote "FetchRemote"). This function
+    only works, if development mode is enabled by [setDevelopmentMode](/wiki/SetDevelopmentMode
+    "SetDevelopmentMode") and can be utilised to build a debugger that communicates
+    via HTTP requests with the editor/IDE.
+  parameters: []
+  examples:
+  - path: examples/debugSleep-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: warning
+    content: Only use this function if you know what you are doing!

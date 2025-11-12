@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setObjectProperty
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetObjectProperty
 client:
   name: setObjectProperty
-  description: TODO
-  incomplete: true
+  description: This function sets a property of the specified [object](/wiki/Object
+    "Object").
+  parameters: []
+  examples:
+  - path: examples/setObjectProperty-1.lua
+    description: ''
+    side: client
+  pair: getProperty

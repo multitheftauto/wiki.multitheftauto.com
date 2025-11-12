@@ -1,24 +1,10 @@
-shared: &shared
-  name: 'xmlNodeGetName'
-  pair: 'xmlNodeSetName'
-  oop:
-    element: xmlnode
-    method: getName
-    variable: name
-  description: |
-    Gets the tag name of the specified XML node.
-  parameters:
-    - name: 'node'
-      type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) to get the tag name of.
-  returns:
-    description: Returns the tag name of the node if successful, false otherwise.
-    values:
-      - type: 'string|false'
-        name: 'name'
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeGetName
+server:
+  name: xmlNodeGetName
+  description: Gets the tag name of the specified XML node.
+  parameters: []
   examples:
-  - path: 'examples/xmlNodeGetName-1.lua'
-    description: This example displays the name of the created node in the chat.
-  - path: 'examples/xmlNodeGetName_OOP-1.lua'
-    description: This example displays the name of the created node in the chat.
-    oop: true
+  - path: examples/xmlNodeGetName-1.lua
+    description: ''
+    side: server
+  pair: xmlNodeSetName

@@ -1,21 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBanReason
 server:
   name: getBanReason
-  pair: setBanReason
-  description: This function will return the ban reason of the specified [[ban]].
-  oop:
-    element: ban
-    method: getReason
-    variable: reason
-  parameters:
-    - name: theBan
-      type: ban
-      description: The [[ban]] in which you want to return the reason of.
-  returns:
-    values:
-      - type: string|false
-        name: reason
-    description: Returns a string of the reason if everything was successful, false if invalid arguments are specified if there was no reason specified for the [[ban]].
+  description: This function will return the ban reason of the specified [ban](/wiki/Ban
+    "Ban").
+  parameters: []
   examples:
-    - path: examples/getBanReason-1.lua
-    - path: examples/getBanReason_OOP-1.lua
-      oop: true
+  - path: examples/getBanReason-1.lua
+    description: ''
+    side: server
+  pair: setBanReason

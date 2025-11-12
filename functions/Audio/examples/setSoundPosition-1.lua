@@ -1,4 +1,4 @@
-local theSound = playSound("music/song.mp3")
+theSound = playSound("music/song.mp3")
 function setSongPos(cmd, tm)
     tm = tonumber(tm)
     local ssp = setSoundPosition(theSound,tm)

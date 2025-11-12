@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementCallPropagationEnabled
-shared: &shared
-  name: isElementCallPropagationEnabled
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementCallPropagationEnabled
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementCallPropagationEnabled
+  description: This functions checks if certain element has call propagation enabled.
+  parameters: []
+  examples:
+  - path: examples/isElementCallPropagationEnabled-1.lua
+    description: ''
+    side: server

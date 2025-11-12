@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isVolumetricShadowsEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsVolumetricShadowsEnabled
 client:
   name: isVolumetricShadowsEnabled
-  description: TODO
-  incomplete: true
+  description: This function is used to check whether the shadow enabled or not.
+  parameters: []
+  examples:
+  - path: examples/isVolumetricShadowsEnabled-1.lua
+    description: This example used a command to check if volumetric shadows enabled
+      or not.
+    side: client

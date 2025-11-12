@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isTrainDerailable
-shared: &shared
-  name: isTrainDerailable
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsTrainDerailable
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isTrainDerailable
+  description: This function will check if a train or tram is derailable.
+  parameters: []
+  examples:
+  - path: examples/isTrainDerailable-1.lua
+    description: ''
+    side: client
+  pair: setTrainDerailable

@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementAttached
-shared: &shared
-  name: isElementAttached
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementAttached
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementAttached
+  description: This functions checks whether or not an element is attached to another
+    element.
+  parameters: []
+  examples:
+  - path: examples/isElementAttached-1.lua
+    description: 'This examples checks if a player is attached to anything when they
+      enter a console command:'
+    side: server

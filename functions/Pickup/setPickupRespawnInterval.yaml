@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPickupRespawnInterval
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPickupRespawnInterval
 server:
   name: setPickupRespawnInterval
-  description: TODO
-  incomplete: true
+  description: Sets the time it takes for a pickup to respawn after a player picked
+    it up.
+  parameters: []
+  examples:
+  - path: examples/setPickupRespawnInterval-1.lua
+    description: This example adds 3000ms to the current pickup respawn time.
+    side: server

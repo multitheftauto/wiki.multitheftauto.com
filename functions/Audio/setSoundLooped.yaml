@@ -1,29 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundLooped
 client:
   name: setSoundLooped
-  pair: isSoundLooped
-  description: This function is used to change the loop state of the [[sound]] element.
-  notes:
-    - type: info
-      content: If the [[sound]] element is destroyed by [[destroyElement]] the loop will not happen.
-  oop:
-    element: sound
-    method: setLooped
-    variable: looped
-  parameters:
-    - name: theSound
-      type: sound
-      description: The [[sound]] element to set the loop.
-    - name: loop
-      type: bool
-      description: A [[boolean]] representing whether the sound will be looped.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the [[sound]] element loop state was successfully changed, false otherwise.
+  description: This function is used to change the loop state of the [sound](/wiki/Sound
+    "Sound") [element](/wiki/Element "Element").
+  parameters: []
   examples:
-    - path: examples/setSoundLooped-1.lua
-      description: This example creates a sound element and turn on its looping.
-    - path: examples/setSoundLooped_OOP-1.lua
-      description: This example creates a sound element and turn on its looping.
-      oop: true
+  - path: examples/setSoundLooped-1.lua
+    description: 'This example creates asoundelementand turn on its looping:'
+    side: client
+  pair: isSoundLooped
+  notes:
+  - type: info
+    content: If the sound element is destroyed by destroyElement the loop will not
+      happen.

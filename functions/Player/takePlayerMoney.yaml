@@ -1,10 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/takePlayerMoney
-shared: &shared
-  name: takePlayerMoney
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/TakePlayerMoney
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: takePlayerMoney
+  description: This function subtracts money from a [player](/wiki/Player "Player")'s
+    current money amount.
+  parameters: []
+  examples:
+  - path: examples/takePlayerMoney-1.lua
+    description: This example takes money from a player when he types "takecashnumber"
+      in the console.
+    side: server
+  notes:
+  - type: info
+    content: Using this function client side (not recommended) will not change a players
+      money server side.

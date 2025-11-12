@@ -1,0 +1,2 @@
+executeSQLQuery("CREATE TABLE IF NOT EXISTS players (clothes_head_texture TEXT, clothes_head_model TEXT, name TEXT)")
+executeSQLQuery("CREATE TABLE IF NOT EXISTS `players` (`clothes_head_texture` TEXT, `clothes_head_model` TEXT, `name` TEXT)")

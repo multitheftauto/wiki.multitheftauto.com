@@ -1,10 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/generateKeyPair
-shared: &shared
-  name: generateKeyPair
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GenerateKeyPair
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: generateKeyPair
+  description: This function creates a new public key and private key for encrypting
+    data
+  parameters: []
+  examples:
+  - path: examples/generateKeyPair-1.lua
+    description: ''
+    side: server
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Options for each hashing algorithm
+
+      '

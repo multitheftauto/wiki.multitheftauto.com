@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/stopObject
-shared: &shared
-  name: stopObject
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/StopObject
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: stopObject
+  description: This will allow you to stop an object that is currently moving.
+  parameters: []
+  examples:
+  - path: examples/stopObject-1.lua
+    description: This will allow you to toggle the random movement of a staircase
+      object model using arandomObjectMovementfunction and stop it immediately with
+      the stopObject command.  This is achieved by using a "toggleobjectmove" command
+      with a "on" or "off" parameter.
+    side: server

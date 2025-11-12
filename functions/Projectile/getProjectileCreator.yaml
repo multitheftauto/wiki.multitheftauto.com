@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getProjectileCreator
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileCreator
 client:
   name: getProjectileCreator
-  description: TODO
-  incomplete: true
+  description: This function returns the creator of the specified projectile.
+  parameters: []
+  examples:
+  - path: examples/getProjectileCreator-1.lua
+    description: 'This example will output a message in the chatbox saying who created
+
+      the projectile.'
+    side: client

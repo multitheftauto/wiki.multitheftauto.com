@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isShowSoundEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsShowSoundEnabled
 client:
   name: isShowSoundEnabled
-  description: TODO
-  incomplete: true
+  description: This function indicates if world [sound](/wiki/Sound "Sound") IDs should
+    be printed in the debug window or not.
+  parameters: []
+  examples:
+  - path: examples/isShowSoundEnabled-1.lua
+    description: 'You can refer to the example below:'
+    side: client
+  notes:
+  - type: info
+    content: This function only works in development mode.

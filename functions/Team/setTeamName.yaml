@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setTeamName
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetTeamName
 server:
   name: setTeamName
-  description: TODO
-  incomplete: true
+  description: This function is used to set a team's name.
+  parameters: []
+  examples:
+  - path: examples/setTeamName-1.lua
+    description: This example gets the current team of a player, then changes its
+      name.
+    side: server
+  pair: getTeamName

@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPedWearingJetpack
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedWearingJetpack
 server:
   name: setPedWearingJetpack
-  description: TODO
-  incomplete: true
+  description: This function is used to give or take a jetpack from a ped, it won't
+    work if the ped is in a vehicle.
+  parameters: []
+  examples:
+  - path: examples/setPedWearingJetpack-1.lua
+    description: This examples adds a "jetpack" console command, which toggles a jetpack
+      for the player.
+    side: server

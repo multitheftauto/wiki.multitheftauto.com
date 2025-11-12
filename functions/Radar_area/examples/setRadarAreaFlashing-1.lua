@@ -1,0 +1,6 @@
+local isFlashing = isRadarAreaFlashing ( someArea )
+if isFlashing then                                           -- if the area is already flashing...
+    outputChatBox ( "The radar area is already flashing." )
+else                                                         -- if it isn't...
+    setRadarAreaFlashing ( someArea, true )                  -- make the area flash
+end

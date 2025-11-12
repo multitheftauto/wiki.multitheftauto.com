@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleSirenParams
-shared: &shared
-  name: getVehicleSirenParams
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleSirenParams
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleSirenParams
+  description: This function get the parameters of a vehicles siren.
+  parameters: []
+  examples:
+  - path: examples/getVehicleSirenParams-1.lua
+    description: This example returns the vehicle parameters when the players presses
+      g.
+    side: server

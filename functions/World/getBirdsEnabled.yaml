@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getBirdsEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBirdsEnabled
 client:
   name: getBirdsEnabled
-  description: TODO
-  incomplete: true
+  description: This function will tell you if the birds are enabled or disabled.
+  parameters: []
+  examples:
+  - path: examples/getBirdsEnabled-1.lua
+    description: ''
+    side: client

@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTeamColor
-shared: &shared
-  name: getTeamColor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTeamColor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTeamColor
+  description: This function retrieves the color of a team.
+  parameters: []
+  examples:
+  - path: examples/getTeamColor-1.lua
+    description: This example defines a console command that outputs the player's
+      team name and colors if he is on a team.
+    side: server

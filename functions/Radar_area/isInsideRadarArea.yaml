@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isInsideRadarArea
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsInsideRadarArea
 server:
   name: isInsideRadarArea
-  description: TODO
-  incomplete: true
+  description: This function checks if a 2D position is inside a [radar area](/wiki/Radararea
+    "Radararea") or not.
+  parameters: []
+  examples:
+  - path: examples/isInsideRadarArea-1.lua
+    description: This function checks if an element is within a radar area.
+    side: server

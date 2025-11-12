@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleUpgrades
-shared: &shared
-  name: getVehicleUpgrades
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleUpgrades
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleUpgrades
+  description: This function returns a table of all the upgrades on a specifed vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehicleUpgrades-1.lua
+    description: This example prints the name and upgrades on each slot of an entered
+      vehicle to the chat.
+    side: server

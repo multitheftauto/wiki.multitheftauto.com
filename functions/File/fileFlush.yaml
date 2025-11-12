@@ -1,23 +1,15 @@
-shared: &shared
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileFlush
+server:
   name: fileFlush
-  notes:
-    - type: 'info'
-      content: '[[fileClose]] automatically flushes the file.'
-  oop:
-    element: file
-    method: flush
-  description: |
-    Forces pending disk writes to be executed. [[fileWrite]] doesn't directly write to the hard disk but places the data in a temporary buffer; only when there is enough data in the buffer it is actually written to disk. Call this function if you need the data written right now without closing the file. This is useful for log files that might want to be read while the resource is still executing. `fileFlush` can be called after each log entry is written. Without this, the file may appear empty or outdated to the user.
-  parameters:
-    - name: 'theFile'
-      type: 'file'
-      description: The file handle of the file you wish to flush.
-  returns:
-    description: Returns true if succeeded, false in case of failure (e.g. the file handle is invalid).
-    values:
-      - type: bool
-        name: result
+  description: Forces pending disk writes to be executed. [fileWrite](/wiki/FileWrite
+    "FileWrite") doesn't directly write to the hard disk but places the data in a
+    temporary buffer; only when there is enough data in the buffer it is actually
+    written to disk. Call this function if you need the data written right now without
+    closing the file. This is useful for log files that might want to be read while
+    the resource is still executing. fileFlush can be called after each log entry
+    is written. Without this, the file may appear empty or outdated to the user.
+  parameters: []
   examples:
-    - path: 'examples/fileFlush-1.lua'
-    - path: 'examples/fileFlush_OOP-1.lua'
-      oop: true
+  - path: examples/fileFlush-1.lua
+    description: ''
+    side: server

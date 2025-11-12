@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setDiscordRichPresenceEndTime
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceEndTime
 client:
   name: setDiscordRichPresenceEndTime
-  description: TODO
-  incomplete: true
+  description: This function sets the remaining time of Discord Rich Presence.
+  parameters: []
+  examples:
+  - path: examples/setDiscordRichPresenceEndTime-1.lua
+    description: This example shows how to change the remaining timer of the Discord
+      Rich Presence application.
+    side: client
+  notes:
+  - type: important
+    content: To use this function, you must set up your own application setDiscordApplicationID

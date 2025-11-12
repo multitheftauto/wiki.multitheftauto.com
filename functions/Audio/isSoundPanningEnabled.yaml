@@ -1,26 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsSoundPanningEnabled
 client:
   name: isSoundPanningEnabled
-  pair: setSoundPanningEnabled
-  description: This function checks whether panning is enabled in a [[sound]] element or not.
-  notes:
-    - type: tip
-      content: Although this function works in no-3D sounds (those created by [[playSound]]), it only makes sense to use it with 3D sounds (created by [[playSound3D]]). Please refer to [[setSoundPanningEnabled]] for a explanation of what this property does.
-  oop:
-    element: sound
-    method: isPanningEnabled
-    variable: panningEnabled
-  parameters:
-    - name: theSound
-      type: sound
-      description: A valid [[sound]] element.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the sound is valid and it has panning enabled, false if it does not or is not valid.
+  description: This function checks whether panning is enabled in a [sound](/wiki/Sound
+    "Sound") [element](/wiki/Element "Element") or not.
+  parameters: []
   examples:
-    - path: examples/isSoundPanningEnabled-1.lua
-      description: This example plays a xy.mp3 file in the root folder of the resource which contains it at the center of the map, and proves that by default a sound enables panning by outputting the result of this function to the chatbox right after creating it. Then it disables the panning of the sound.
-    - path: examples/isSoundPanningEnabled_OOP-1.lua
-      description: This example plays a xy.mp3 file in the root folder of the resource which contains it at the center of the map, and proves that by default a sound enables panning by outputting the result of this function to the chatbox right after creating it. Then it disables the panning of the sound.
-      oop: true
+  - path: examples/isSoundPanningEnabled-1.lua
+    description: This example plays axy.mp3file in the root folder of the resource
+      which contains it at the center of the map, and proves that by default a sound
+      enables panning by outputting the result of this function to the chatbox right
+      after creating it. Then it disables the panning of the sound.
+    side: client
+  pair: setSoundPanningEnabled
+  notes:
+  - type: tip
+    content: Although this function works in no-3D sounds (those created by playSound
+      ), it only makes sense to use it with 3D sounds (created by playSound3D ). Please
+      refer to setSoundPanningEnabled for a explanation of what this property does.

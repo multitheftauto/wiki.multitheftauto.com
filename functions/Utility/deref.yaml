@@ -1,10 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/deref
-shared: &shared
-  name: deref
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Deref
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: deref
+  description: This function will take a reference obtained by the [ref](/wiki/Ref
+    "Ref") function and returns its Lua element.
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: This function was originally created to prevent garbage-collection of
+      specific Lua objects/elements which should persist even though no script would
+      reference them. The storage of those references can be obtained by a call to
+      the debug.getregistry function. The ref and deref template can easily be remade
+      using a locally-hidden Lua table and two such function implementations.

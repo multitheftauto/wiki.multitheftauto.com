@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetWorldProperties
-shared: &shared
-  name: resetWorldProperties
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetWorldProperties
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: resetWorldProperties
+  description: 'Regardless of the value of the arguments, the following properties
+    are reset:'
+  parameters: []
+  examples:
+  - path: examples/resetWorldProperties-1.lua
+    description: ''
+    side: server

@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleRespawnPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRespawnPosition
 server:
   name: getVehicleRespawnPosition
-  description: TODO
-  incomplete: true
+  description: This function retrieves the respawn coordinates of a [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/getVehicleRespawnPosition-1.lua
+    description: ''
+    side: server
+  pair: setVehicleRespawnPosition

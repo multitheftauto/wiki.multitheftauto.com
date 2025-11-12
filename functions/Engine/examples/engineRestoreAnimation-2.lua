@@ -1,0 +1,1 @@
+engineRestoreAnimation( localPlayer, "ped" )

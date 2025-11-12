@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setSkyGradient
-shared: &shared
-  name: setSkyGradient
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSkyGradient
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setSkyGradient
+  description: This function changes the sky color to a two\-color gradient.
+  parameters: []
+  examples:
+  - path: examples/setSkyGradient-1.lua
+    description: ''
+    side: client
+  - path: examples/setSkyGradient-2.lua
+    description: ''
+    side: client

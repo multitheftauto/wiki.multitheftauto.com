@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/pathIsFile
-shared: &shared
+# Scraped from: https://wiki.multitheftauto.com/wiki/PathIsFile
+shared:
   name: pathIsFile
-  description: TODO
-  incomplete: true
-
-server:
-  <<: *shared
-client:
-  <<: *shared
+  description: Checks if a specified path points to a file.
+  parameters: []
+  examples:
+  - path: examples/pathIsFile-1.lua
+    description: This example lists all files in a directory
+    side: shared

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetNearClipDistance
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetNearClipDistance
 client:
   name: resetNearClipDistance
-  description: TODO
-  incomplete: true
+  description: This function resets near clip distance set by [setNearClipDistance](/wiki/SetNearClipDistance
+    "SetNearClipDistance").
+  parameters: []
+  examples:
+  - path: examples/resetNearClipDistance-1.lua
+    description: This example will reset near clip distance.
+    side: client

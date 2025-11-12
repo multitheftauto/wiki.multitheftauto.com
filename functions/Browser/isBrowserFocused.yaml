@@ -1,21 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsBrowserFocused
 client:
   name: isBrowserFocused
-  description: This function checks if a [[browser]] is focused.
-  oop:
-    element: browser
-    method: isFocused
-  parameters:
-    - name: webBrowser
-      type: browser
-      description: The browser.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the browser is focused, false otherwise and nil if invalid arguments were passed.
+  description: This function checks if a browser is focused.
+  parameters: []
   examples:
-    - path: examples/isBrowserFocused-1.lua
-      description: This example creates a browser. If you press left control it will output to chatbox if the browser is focused or not.
-    - path: examples/isBrowserFocused_OOP-1.lua
-      description: This example creates a browser. If you press left control it will output to chatbox if the browser is focused or not.
-      oop: true
+  - path: examples/isBrowserFocused-1.lua
+    description: ''
+    side: client

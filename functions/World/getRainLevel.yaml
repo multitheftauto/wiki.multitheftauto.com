@@ -1,10 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getRainLevel
-shared: &shared
-  name: getRainLevel
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetRainLevel
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getRainLevel
+  description: This function is used to get the current rain level.
+  parameters: []
+  examples:
+  - path: examples/getRainLevel-1.lua
+    description: Example:Sets the rain (So it can detect it) before returning it.
+      (In this case, when resource starts.)
+    side: client
+  - path: examples/getRainLevel-2.lua
+    description: Example:Sets the rain (So it can detect it) before returning it.
+      (In this case, when resource starts.)
+    side: server
+  notes:
+  - type: info
+    content: The function will return false server-side if rain level has not been
+      set before the function is called.

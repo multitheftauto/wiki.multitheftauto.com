@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resendPlayerModInfo
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResendPlayerModInfo
 server:
   name: resendPlayerModInfo
-  description: TODO
-  incomplete: true
+  description: This function will force the specified player to resend their mod info,
+    triggering the [onPlayerModInfo](/wiki/OnPlayerModInfo "OnPlayerModInfo") event
+    again.
+  parameters: []
+  examples:
+  - path: examples/resendPlayerModInfo-1.lua
+    description: This example shows how to resend each players mod info duringonResourceStart
+    side: server

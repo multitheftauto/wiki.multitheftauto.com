@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxDrawLine3D
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawLine3D
 client:
   name: dxDrawLine3D
-  description: TODO
-  incomplete: true
+  description: This function draws a 3D line between two points in the 3D world \-
+    rendered for **one** frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
+    "OnClientRender") in order to display continuously.
+  parameters: []
+  examples:
+  - path: examples/dxDrawLine3D-1.lua
+    description: This is a small example of creating 3D Line / "Rope" between vehicle
+      and player.
+    side: client

@@ -1,5 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementDistanceFromCentreOfMassToBaseOfModel
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementDistanceFromCentreOfMassToBaseOfModel
 client:
   name: getElementDistanceFromCentreOfMassToBaseOfModel
-  description: TODO
+  description: This function is used to retrieve the distance between a [element](/wiki/Element
+    "Element")'s centre of mass to the base of the model. This can be used to calculate
+    the position the [element](/wiki/Element "Element") has to be set to, to have
+    it on ground level.
+  parameters: []
+  examples:
+  - path: examples/getElementDistanceFromCentreOfMassToBaseOfModel-1.lua
+    description: This example outputs the value for the local player.
+    side: client
+  notes:
+  - type: info
+    content: The distance value is only available when the element is streamed in,
+      otherwise 0 is returned. If you create an element at the player's position which
+      is going to be streamed in, call the function in the next frame to obtain the
+      correct value (with setTimer 0ms, for example).
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Required Parameters
+
+      '

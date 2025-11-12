@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fxAddWaterSplash
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddWaterSplash
 client:
   name: fxAddWaterSplash
-  description: TODO
-  incomplete: true
+  description: This function creates a water splash particle effect.
+  parameters: []
+  examples:
+  - path: examples/fxAddWaterSplash-1.lua
+    description: This example will create a Water Splash at the position of the bullet
+      impact whenever you shoot.
+    side: client

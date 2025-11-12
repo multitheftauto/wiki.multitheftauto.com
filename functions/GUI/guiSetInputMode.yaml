@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiSetInputMode
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetInputMode
 client:
   name: guiSetInputMode
-  description: TODO
-  incomplete: true
+  description: 'This function controls the input mode to define whether or not (and
+    when) keybinds or MTA binds are overridden (disabled) so that text can be input
+    into an editbox, for example.
+
+    Available input modes are:'
+  parameters: []
+  examples:
+  - path: examples/guiSetInputMode-1.lua
+    description: ''
+    side: client
+  pair: guiGetInputMode

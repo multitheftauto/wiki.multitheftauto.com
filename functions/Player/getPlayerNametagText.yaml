@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerNametagText
-shared: &shared
-  name: getPlayerNametagText
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerNametagText
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPlayerNametagText
+  description: This will allow you to retrieve the name tag a player is currently
+    using.
+  parameters: []
+  examples:
+  - path: examples/getPlayerNametagText-1.lua
+    description: This will output the nametag text of the player who enters the command
+      'myNametag'.
+    side: server
+  pair: setPlayerNametagText

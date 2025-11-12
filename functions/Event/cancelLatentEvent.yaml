@@ -1,10 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/cancelLatentEvent
-shared: &shared
-  name: cancelLatentEvent
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/CancelLatentEvent
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: cancelLatentEvent
+  description: Stops a latent event from completing
+  parameters: []
+  examples:
+  - path: examples/cancelLatentEvent-1.lua
+    description: ''
+    side: client
+  - path: examples/cancelLatentEvent-2.lua
+    description: ''
+    side: server
+  - path: examples/cancelLatentEvent-3.lua
+    description: ''
+    side: server
+  - path: examples/cancelLatentEvent-4.lua
+    description: ''
+    side: client

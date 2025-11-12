@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getEffectDensity
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetEffectDensity
 client:
   name: getEffectDensity
-  description: TODO
-  incomplete: true
+  description: This function gets the density of certain [effect](/wiki/Effect "Effect").
+  parameters: []
+  examples:
+  - path: examples/getEffectDensity-1.lua
+    description: ''
+    side: client
+  pair: setEffectDensity

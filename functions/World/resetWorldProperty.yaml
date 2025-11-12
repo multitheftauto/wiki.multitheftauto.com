@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetWorldProperty
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetWorldProperty
 client:
   name: resetWorldProperty
-  description: TODO
-  incomplete: true
+  description: This function is used to reset the values of time cycle and weather
+    related properties.
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: Some properties (like RainFog and Sandstorm ) are not reset immediately.
+      The game resets it smoothly over small period of time.

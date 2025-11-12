@@ -1,19 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetRuleValue
 server:
   name: setRuleValue
-  pair: getRuleValue
   description: This function sets a rule value that can be viewed by server browsers.
-  parameters:
-    - name: key
-      type: string
-      description: The name of the rule (Max 200 characters).
-    - name: value
-      type: string
-      description: The value you wish to set for the rule (Max 200 characters).
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the rule value was set, false if invalid arguments were specified.
+  parameters: []
   examples:
-    - path: examples/setRuleValue-1.lua
-      description: This example shows how you could set a rule that shows that your script is running on the server.
+  - path: examples/setRuleValue-1.lua
+    description: This example shows how you could set a rule that shows that your
+      script is running on the server.
+    side: server

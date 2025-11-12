@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fireWeapon
+# Scraped from: https://wiki.multitheftauto.com/wiki/FireWeapon
 client:
   name: fireWeapon
-  description: TODO
-  incomplete: true
+  description: Fires one shot from a [custom weapon](/wiki/Element/Weapon "Element/Weapon").
+  parameters: []
+  examples:
+  - path: examples/fireWeapon-1.lua
+    description: This function creates and fires a weapon.
+    side: client
+  - path: examples/fireWeapon-2.lua
+    description: This example will create an M4, attach it to the local player and
+      fire it every frame. Be aware that neither the weapon nor the shots are synced
+      between players and that normally weapons don't fire every frame.
+    side: client

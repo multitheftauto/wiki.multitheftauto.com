@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleEngineState
-shared: &shared
-  name: setVehicleEngineState
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleEngineState
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setVehicleEngineState
+  description: This function turns a vehicle's engine on or off. Note that the engine
+    will always be turned on when someone enters the driver seat, unless you override
+    that behaviour with scripts.
+  parameters: []
+  examples:
+  - path: examples/setVehicleEngineState-1.lua
+    description: This example lets the driver toggle vehicle engine on/off.
+    side: client
+  - path: examples/setVehicleEngineState-2.lua
+    description: This example will turn off a vehicle's engine when the driver gets
+      out of the car.
+    side: server
+  pair: getVehicleEngineState

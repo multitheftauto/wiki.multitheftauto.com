@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/startResource
+# Scraped from: https://wiki.multitheftauto.com/wiki/StartResource
 server:
   name: startResource
-  description: TODO
-  incomplete: true
+  description: This function starts a resource either persistently or as a dependency
+    of the current resource. If you start the resource persistently, the resource
+    will run until stopped either using [stopResource](/wiki/StopResource "StopResource")
+    or by the server admin. A resource started as a dependency will stop when your
+    resource stops, if no other resources have it as a depdendency. This is the same
+    effect as using an *include* in your [meta.xml](/wiki/Meta.xml "Meta.xml") file.
+  parameters: []
+  examples:
+  - path: examples/startResource-1.lua
+    description: This example starts a specified resource with the command; "/resource-start".
+    side: server

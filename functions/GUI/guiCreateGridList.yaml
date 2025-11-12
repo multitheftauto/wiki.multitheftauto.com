@@ -1,5 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateGridList
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateGridList
 client:
   name: guiCreateGridList
-  description: TODO
-  incomplete: true
+  description: This function creates a grid list GUI element. These are menu's which
+    are designed in lists and can have multiple columns. A good example of a gridlist
+    element can be found in MTA's settings box, under *Controls*.
+  parameters: []
+  examples:
+  - path: examples/guiCreateGridList-1.lua
+    description: Example 1:This example creates a player list on the right of the
+      screen with 1 column and fills it
+    side: client
+  - path: examples/guiCreateGridList-2.lua
+    description: Example 2:UsingOOPwe can write shorter and cleaner code (Requires
+      <oop>true<oop> in the meta file). This creates a player list with 2 columns.
+    side: client

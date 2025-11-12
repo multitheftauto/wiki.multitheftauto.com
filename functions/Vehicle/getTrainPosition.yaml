@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTrainPosition
-shared: &shared
-  name: getTrainPosition
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTrainPosition
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTrainPosition
+  description: Gets the position the train is currently on the track
+  parameters: []
+  examples:
+  - path: examples/getTrainPosition-1.lua
+    description: This example adds a command called "/getpos", allowing you to get
+      the position of the train.
+    side: server
+  pair: setTrainPosition

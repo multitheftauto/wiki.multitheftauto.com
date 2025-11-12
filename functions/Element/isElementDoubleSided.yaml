@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementDoubleSided
-shared: &shared
-  name: isElementDoubleSided
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementDoubleSided
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementDoubleSided
+  description: This function checks whether an element is double\-sided as set by
+    [setElementDoubleSided](/wiki/SetElementDoubleSided "SetElementDoubleSided") or
+    not.
+  parameters: []
+  examples:
+  - path: examples/isElementDoubleSided-1.lua
+    description: ''
+    side: server
+  pair: setElementDoubleSided

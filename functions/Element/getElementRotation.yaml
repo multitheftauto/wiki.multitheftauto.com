@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementRotation
-shared: &shared
-  name: getElementRotation
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementRotation
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementRotation
+  description: Retrieve the rotation of elements.
+  parameters: []
+  examples:
+  - path: examples/getElementRotation-1.lua
+    description: ''
+    side: client
+  pair: setElementRotation

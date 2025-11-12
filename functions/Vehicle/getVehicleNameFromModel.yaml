@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleNameFromModel
-shared: &shared
-  name: getVehicleNameFromModel
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleNameFromModel
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleNameFromModel
+  description: Gets the name of a vehicle by its model ID.
+  parameters: []
+  examples:
+  - path: examples/getVehicleNameFromModel-1.lua
+    description: This will retrieve the name of a car so its name can be displayed
+      when the player chooses to spawn a car by model ID.
+    side: server

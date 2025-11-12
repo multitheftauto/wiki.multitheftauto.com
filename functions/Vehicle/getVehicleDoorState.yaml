@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleDoorState
-shared: &shared
-  name: getVehicleDoorState
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleDoorState
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleDoorState
+  description: This function returns the current state of the specifed door on the
+    vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehicleDoorState-1.lua
+    description: This example implements a doesVehicleHaveDoorOpen() function, that
+      returns true if any of the doors on a vehicle are open.
+    side: server
+  pair: setVehicleDoorState

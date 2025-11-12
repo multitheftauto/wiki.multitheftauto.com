@@ -1,10 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setObjectScale
-shared: &shared
-  name: setObjectScale
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetObjectScale
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setObjectScale
+  description: This function changes the visible size of an object.
+  parameters: []
+  examples:
+  - path: examples/setObjectScale-1.lua
+    description: ''
+    side: client
+  pair: getObjectScale
+  notes:
+  - type: info
+    content: setObjectScale does not affect the collision models for the object, as
+      such is unsuitable for use for interaction with players, vehicles or other objects.

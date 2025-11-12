@@ -1,5 +1,34 @@
-function teleportPlayerToMapCenter()
-    -- teleport player to 0,0,0 coordinates (map origin/center)
-    setElementPosition(localPlayer, 0, 0, 0 + 3);	-- add +3 to z coordinate to not fall below map!
+function randomPlayersToLocation(p)
+    if not isPlayerStaff(p) then return end
+
+	local playersOnline = getElementsByType("player")
+	local amount = #playersOnline
+
+	if amount == 0 then return end
+
+	for index = 1,(amount > 5 and 5 or amount) do
+		local player = playersOnline[index]
+		setElementPosition(player, getElementPosition(p))
+	end
 end
-addCommandHandler("zero", teleportPlayerToMapCenter);
+addCommandHandler("randomtp", randomPlayersToLocation)
+addCommandHandler("playershere", randomPlayersToLocation)
+
+-- Utility function
+local staffACLs = {
+    aclGetGroup("Admin"),
+    aclGetGroup("Moderator")
+}
+
+function isPlayerStaff(p)
+	if isElement(p) and getElementType(p) == "player" and not isGuestAccount(getPlayerAccount(p)) then
+		local object = getAccountName(getPlayerAccount(p))
+
+		for _, group in ipairs(staffACLs) do
+			if isObjectInACLGroup("user." .. object, group) then
+				return true
+			end
+		end
+	end
+	return false
+end

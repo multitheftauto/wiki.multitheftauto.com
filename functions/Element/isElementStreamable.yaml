@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementStreamable
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementStreamable
 client:
   name: isElementStreamable
-  description: TODO
-  incomplete: true
+  description: This function checks whether an [element](/wiki/Element "Element")
+    is streamable as set by [setElementStreamable](/wiki/SetElementStreamable "SetElementStreamable")
+    or not.
+  parameters: []
+  examples:
+  - path: examples/isElementStreamable-1.lua
+    description: Check if
+    side: client
+  pair: setElementStreamable

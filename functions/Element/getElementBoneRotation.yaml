@@ -1,5 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementBoneRotation
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBoneRotation
 client:
   name: getElementBoneRotation
-  description: TODO
-  incomplete: true
+  description: Returns the orientation of a specific bone relative to the [element](/wiki/Element
+    "Element"). Currently the [Player](/wiki/Element/Player "Element/Player") and
+    [Ped](/wiki/Element/Ped "Element/Ped") element types are accepted.
+  parameters: []
+  examples:
+  - path: examples/getElementBoneRotation-1.lua
+    description: 'This example outputs the yaw, pitch and roll orientation of a specific
+      bone relative to the local player bone specified through a command:'
+    side: client
+  - path: examples/getElementBoneRotation-2.lua
+    description: This example takes the current rotation of all player bones. by ThigasDEV
+    side: client
+  notes:
+  - type: tip
+    content: If you want to attach an element to a bone, see attachElementToBone .

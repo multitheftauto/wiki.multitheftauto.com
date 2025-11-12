@@ -1,21 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBanAdmin
 server:
   name: getBanAdmin
-  pair: setBanAdmin
-  description: This function will return the responsible admin (nickname of the admin) of the specified [[ban]].
-  oop:
-    element: ban
-    method: getAdmin
-    variable: admin
-  parameters:
-    - name: theBan
-      type: ban
-      description: The [[ban]] you want to return the admin of.
-  returns:
-    values:
-      - type: string|false
-        name: admin name
-    description: Returns a [[string]] of the admin if everything was successful, false if invalid arguments are specified if there was no admin specified for the ban.
+  description: This function will return the responsible admin (nickname of the admin)
+    of the specified [ban](/wiki/Ban "Ban").
+  parameters: []
   examples:
-    - path: examples/getBanAdmin-1.lua
-    - path: examples/getBanAdmin_OOP-1.lua
-      oop: true
+  - path: examples/getBanAdmin-1.lua
+    description: ''
+    side: server
+  pair: setBanAdmin

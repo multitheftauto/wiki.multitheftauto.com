@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setDiscordRichPresenceButton
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceButton
 client:
   name: setDiscordRichPresenceButton
-  description: TODO
-  incomplete: true
+  description: The function sets a custom button through which we can access the website
+    on Discord.
+  parameters: []
+  examples:
+  - path: examples/setDiscordRichPresenceButton-1.lua
+    description: This example creates two custom buttons in our Discord Rich Presence
+      application.
+    side: client
+  notes:
+  - type: important
+    content: To use this function, you must set up your own application setDiscordApplicationID

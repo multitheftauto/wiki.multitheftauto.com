@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiEditGetCaretIndex
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditGetCaretIndex
 client:
   name: guiEditGetCaretIndex
-  description: TODO
-  incomplete: true
+  description: This function returns the caret (the text cursor) position within the
+    editbox.
+  parameters: []
+  examples:
+  - path: examples/guiEditGetCaretIndex-1.lua
+    description: This example outputs the caret position of the edit field to the
+      chat
+    side: client
+  pair: guiEditSetCaretIndex

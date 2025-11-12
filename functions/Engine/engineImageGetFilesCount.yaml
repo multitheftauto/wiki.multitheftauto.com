@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineImageGetFilesCount
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineImageGetFilesCount
 client:
   name: engineImageGetFilesCount
-  description: TODO
-  incomplete: true
+  description: This function returns the number of files an IMG file has.
+  parameters: []
+  examples:
+  - path: examples/engineImageGetFilesCount-1.lua
+    description: 'You could use the following code:'
+    side: client

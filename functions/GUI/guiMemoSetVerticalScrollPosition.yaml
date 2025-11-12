@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiMemoSetVerticalScrollPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiMemoSetVerticalScrollPosition
 client:
   name: guiMemoSetVerticalScrollPosition
-  description: TODO
-  incomplete: true
+  description: This function is used to set the vertical scroll position of a memo
+    as a percentage.
+  parameters: []
+  examples:
+  - path: examples/guiMemoSetVerticalScrollPosition-1.lua
+    description: This example sets the position of a memo called "theMemo" created
+      withguiCreateMemo, and outputs it to the chatbox.
+    side: client
+  pair: guiMemoGetVerticalScrollPosition

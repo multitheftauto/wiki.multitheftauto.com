@@ -1,22 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FocusBrowser
 client:
   name: focusBrowser
-  description: This function will attempt to focus the [[browser]] or unfocus all browsers. The browser that is focused will retrieve keyboard input.
-  oop:
-    element: browser
-    method: focus
-  parameters:
-    - name: webBrowser
-      type: browser
-      description: The web browser to be focused - if this is [[nil]], it will unfocus all browsers.
-      default: 'nil'
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the [[browser]] was focused or if nil was passed, false if it failed to focus or the browser does not exist.
+  description: This function will attempt to focus the [browser](/wiki/Element/Browser
+    "Element/Browser") or unfocus all browsers. The browser that is focused will retrieve
+    keyboard input.
+  parameters: []
   examples:
-    - path: examples/focusBrowser-1.lua
-      description: This example creates browser and focus it.
-    - path: examples/focusBrowser_OOP-1.lua
-      description: This example creates browser and focus it.
-      oop: true
+  - path: examples/focusBrowser-1.lua
+    description: This example creates browser and focus it
+    side: client

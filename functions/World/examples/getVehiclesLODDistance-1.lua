@@ -1,0 +1,5 @@
+addEventHandler("onClientResourceStart",resourceRoot,function()
+	local vehicles,planes_trains = getVehiclesLODDistance()
+	outputChatBox("general distance of most vehicles: "..math.floor(vehicles),0,255,0)
+	outputChatBox("distance of planes and trains: "..math.floor(planes_trains),0,255,0)
+end)

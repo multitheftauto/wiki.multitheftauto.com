@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/respawnVehicle
+# Scraped from: https://wiki.multitheftauto.com/wiki/RespawnVehicle
 server:
   name: respawnVehicle
-  description: TODO
-  incomplete: true
+  description: This function respawns a vehicle according to its set respawn position,
+    set by [setVehicleRespawnPosition](/wiki/SetVehicleRespawnPosition "SetVehicleRespawnPosition")
+    or the position and rotation it was created on. To spawn a vehicle to a specific
+    location just once, [spawnVehicle](/wiki/SpawnVehicle "SpawnVehicle") can be used.
+  parameters: []
+  examples:
+  - path: examples/respawnVehicle-1.lua
+    description: This example makes an exploded vehicle re-spawn after 5 seconds.
+    side: server

@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utfChar
-shared: &shared
-  name: utfChar
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/UtfChar
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utfChar
+  description: The function returns the string of the specified UTF code.
+  parameters: []
+  examples:
+  - path: examples/utfChar-1.lua
+    description: ''
+    side: server

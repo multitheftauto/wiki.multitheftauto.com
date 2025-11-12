@@ -47,15 +47,20 @@ def copy_files(page_type, source_dir, target_dir):
         for file in files:
             if file.endswith(".lua"):
                 # Ignore if we haven't copied the corresponding YAML file
-                function_name = file[:-4]  # Remove .lua extension
-                if function_name not in copied_function_names:
+                # Loop function names and find if Lua file contains it
+                found = False
+                for func_name in copied_function_names:
+                    if func_name in file:
+                        found = True
+                        break
+                if not found:
                     print(f"(Lua) Skipping {file} because corresponding YAML was not copied")
                     continue
                 src_path = os.path.join(root, file)
                 rel_path = os.path.relpath(src_path, source_dir)
                 dest_path = os.path.join(target_dir, rel_path)
                 copy_to_dest_path = os.path.join(TEMP_DIR, page_type, rel_path) if COPY_TO_TEMP_DIR else dest_path
-                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                os.makedirs(os.path.dirname(copy_to_dest_path), exist_ok=True)
                 print(f"(Lua) Copying {src_path} to {copy_to_dest_path}")
                 with open(src_path, 'r', encoding='utf-8') as src_file:
                     with open(copy_to_dest_path, 'w', encoding='utf-8') as dest_file:

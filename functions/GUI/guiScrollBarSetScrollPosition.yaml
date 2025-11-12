@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiScrollBarSetScrollPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiScrollBarSetScrollPosition
 client:
   name: guiScrollBarSetScrollPosition
-  description: TODO
-  incomplete: true
+  description: This function is used to set the scroll amount of a scrollbar as a
+    percentage.
+  parameters: []
+  examples:
+  - path: examples/guiScrollBarSetScrollPosition-1.lua
+    description: In this example, you can set the scrolling position using the command
+      /pos <amount>
+    side: client

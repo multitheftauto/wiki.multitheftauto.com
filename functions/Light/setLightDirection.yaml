@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setLightDirection
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetLightDirection
 client:
   name: setLightDirection
-  description: TODO
-  incomplete: true
+  description: This function sets the direction for a [light](/wiki/Element/Light
+    "Element/Light") element.
+  parameters: []
+  examples:
+  - path: examples/setLightDirection-1.lua
+    description: ''
+    side: client
+  pair: getLightDirection

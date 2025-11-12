@@ -1,33 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundPosition
 client:
   name: setSoundPosition
-  pair: getSoundPosition
-  description: This function is used to change the seek position of the specified [[sound]] element. Use a player element to control a players voice with this function.
-  notes:
-    - type: info
-      content: To set position of a remote audio file, you must pause the sound within an [[onClientSoundStream]] event after creation, set the sound position and then unpause it again. The sound can also not be throttled (see [[playSound]] arguments).
-  oop:
-    element: sound
-    method: setPlaybackPosition
-    variable: playbackPosition
-  parameters:
-    - name: theSound
-      type: sound/player
-      description: The [[sound]] element which seek position you want to modify.
-    - name: pos
-      type: float
-      description: A [[float]] value representing the new seek position of the sound element in seconds.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the [[sound]] element's seek position was successfully changed, false otherwise.
+  description: 'This function is used to change the seek position of the specified
+    [sound](/wiki/Sound "Sound") element.
+
+    Use a player element to control a players voice with this function.'
+  parameters: []
   examples:
-    - path: examples/setSoundPosition-1.lua
-      description: This example allows the player to set how many milliseconds into the song he wants it to play from
-    - path: examples/setSoundPosition_OOP-1.lua
-      description: This example allows the player to set how many milliseconds into the song he wants it to play from
-      oop: true
-  meta:
-    - changelog:
-        - version: '1.3.2'
-          description: Added player element for voice control.
+  - path: examples/setSoundPosition-1.lua
+    description: This example allows the player to set how many milliseconds into
+      the song he wants it to play from
+    side: client
+  pair: getSoundPosition
+  notes:
+  - type: info
+    content: To set position of a remote audio file, you must pause the sound within
+      an onClientSoundStream event after creation, set the sound position and then
+      unpause it again. The sound can also not be throttled (see playSound arguments)

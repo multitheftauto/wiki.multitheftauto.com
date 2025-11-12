@@ -1,5 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeElementData
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveElementData
 server:
   name: removeElementData
-  description: TODO
-  incomplete: true
+  description: This function removes the [element data](/wiki/Element_data "Element
+    data") with the given key for that element. The element data removal is synced
+    with all the clients.
+  parameters: []
+  examples:
+  - path: examples/removeElementData-1.lua
+    description: This will set element data for player which spawned, and then remove
+      it on death.
+    side: server
+  notes:
+  - type: info
+    content: If you want to remove the data in client side you can use 'setElementData(element,
+      key, nil)'.

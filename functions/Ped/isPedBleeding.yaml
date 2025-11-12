@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isPedBleeding
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPedBleeding
 client:
   name: isPedBleeding
-  description: TODO
-  incomplete: true
+  description: This function gets the state of a [player's](/wiki/Player "Player")
+    or [ped's](/wiki/Ped "Ped") bleeding effect.
+  parameters: []
+  examples:
+  - path: examples/isPedBleeding-1.lua
+    description: ''
+    side: client
+  pair: setPedBleeding

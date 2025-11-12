@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxSetShaderTessellation
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetShaderTessellation
 client:
   name: dxSetShaderTessellation
-  description: TODO
-  incomplete: true
+  description: This function sets the amount of geometric sub\-division to use when
+    drawing a [shader](/wiki/Shader "Shader") element with [dxDrawImage](/wiki/DxDrawImage
+    "DxDrawImage").
+  parameters: []
+  examples:
+  - path: examples/dxSetShaderTessellation-1.lua
+    description: ''
+    side: client
+  meta:
+  - needs_checking: The example should depict better how does this function actually
+      work with a texture.

@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/addVehicleSirens
-shared: &shared
-  name: addVehicleSirens
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddVehicleSirens
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: addVehicleSirens
+  description: This function adds sirens to a vehicle.
+  parameters: []
+  examples:
+  - path: examples/addVehicleSirens-1.lua
+    description: This example adds a siren for the vehicle, then sets two custom sirens
+      at the top of the vehicle. And then removes the siren when getting out the vehicle.
+    side: server

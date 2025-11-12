@@ -1,23 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBrowserURL
 client:
   name: getBrowserURL
-  pair: loadBrowserURL
-  description: This function returns the URL of the specified [[browser]].
-  oop:
-    element: browser
-    method: getURL
-    variable: url
-  parameters:
-    - name: webBrowser
-      type: browser
-      description: The browser.
-  returns:
-    values:
-      - type: string|false
-        name: url
-    description: Returns the web browser URL.
+  description: This function returns the URL of the specified [browser](/wiki/Element/Browser
+    "Element/Browser").
+  parameters: []
   examples:
-    - path: examples/getBrowserURL-1.lua
-      description: This example creates a command <code>/isyoutubeloaded</code> to check if the browser created have youtube loaded, if it isnt it loads youtube.
-    - path: examples/getBrowserURL_OOP-1.lua
-      description: This example creates a command <code>/isyoutubeloaded</code> to check if the browser created have youtube loaded, if it isnt it loads youtube.
-      oop: true
+  - path: examples/getBrowserURL-1.lua
+    description: ''
+    side: client
+  pair: loadBrowserURL

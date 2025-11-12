@@ -1,5 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineSetModelFlags
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelFlags
 client:
   name: engineSetModelFlags
-  description: TODO
-  incomplete: true
+  description: This function changes [model flags](/wiki/Model_flags "Model flags").
+  parameters: []
+  examples: []

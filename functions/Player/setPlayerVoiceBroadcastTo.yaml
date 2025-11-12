@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPlayerVoiceBroadcastTo
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerVoiceBroadcastTo
 server:
   name: setPlayerVoiceBroadcastTo
-  description: TODO
-  incomplete: true
+  description: This function allows you to change who can hear the voice of a player.
+  parameters: []
+  examples:
+  - path: examples/setPlayerVoiceBroadcastTo-1.lua
+    description: ''
+    side: server
+  notes:
+  - type: important
+    content: This function should only be used as a low-level function for advanced
+      users.  For typical Voice scripting, please see the Voice Resource

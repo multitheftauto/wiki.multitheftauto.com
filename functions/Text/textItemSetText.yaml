@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/textItemSetText
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextItemSetText
 server:
   name: textItemSetText
-  description: TODO
-  incomplete: true
+  description: Overwrites a previously created text item with the specified text.
+  parameters: []
+  examples:
+  - path: examples/textItemSetText-1.lua
+    description: 'Here, it is being used to update a scoreboard:'
+    side: server

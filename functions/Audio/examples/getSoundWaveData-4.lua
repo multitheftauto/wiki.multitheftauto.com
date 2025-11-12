@@ -1,4 +1,4 @@
-local soundHandler = playSound ("audio.mp3")
+soundHandler = playSound ("audio.mp3")
 local x, y = guiGetScreenSize ()
 local samples = 256
 

@@ -1,40 +1,23 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateBrowser
 client:
   name: createBrowser
-  description: This function creates a new web [[browser]] element.
-  notes:
-    - type: tip
-      content: You can also enable CEF development tools using [[toggleBrowserDevTools]].
-    - type: info
-      content: For local files as url please read [Local Scheme Handler](/reference/Local_Scheme_Handler/).
-  oop:
-    element: browser
-    constructorclass: browser
-  parameters:
-    - name: width
-      type: int
-      description: The browser's native width. This should be greater than or equal to 1.
-    - name: height
-      type: int
-      description: The browser's native height. This should be greater than or equal to 1.
-    - name: isLocal
-      type: bool
-      description: Sets whether the browser can only show local content or content from the internet (see examples for more information).
-    - name: transparent
-      type: bool
-      description: true if you want the browser transparent, false for opaque.
-      default: 'false'
-  returns:
-    values:
-      - type: element|false
-        name: new browser
-    description: Returns a [[texture]] of the [[browser]] if it was created successfully, false otherwise. Returns also false, if the user disabled remote pages and isLocal was set to false.
+  description: This function creates a new web [browser](/wiki/Element/Browser "Element/Browser")
+    element.
+  parameters: []
   examples:
-    - path: examples/createBrowser-1.lua
-      description: This example shows you how to create a fullscreen web browser (showing a local html file) without input-handling.
-    - path: examples/createBrowser_OOP-1.lua
-      description: This example shows you how to create a fullscreen web browser (showing a local html file) without input-handling.
-      oop: true
-    - path: examples/createBrowser-2.lua
-      description: |
-        This example shows you how to create a fullscreen web browser (showing youtube.com) without input-handling.
-        Remember, that youtube.com is on the global whitelist. If you want to load a domain/page that is not on the global whitelist, you have to request it with [[requestBrowserDomains]].
+  - path: examples/createBrowser-1.lua
+    description: 'Local Example: This example shows you how to create a fullscreen
+      web browser (showing a local html file) without input-handling.'
+    side: client
+  - path: examples/createBrowser-2.lua
+    description: 'Remote Example: This example shows you how to create a fullscreen
+      web browser (showing youtube.com) without input-handling.Remember, that youtube.com
+      is on the global whitelist. If you want to load a domain/page that is not on
+      the global whitelist, you have to request it withrequestBrowserDomains.'
+    side: client
+  notes:
+  - type: info
+    content: You can also enable CEF development tools using toggleBrowserDevTools
+  - type: warning
+    content: The scheme for local files has changed. Please read Local Scheme Handler
+      for details.

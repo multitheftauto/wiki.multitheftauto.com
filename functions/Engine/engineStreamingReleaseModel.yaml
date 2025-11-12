@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineStreamingReleaseModel
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingReleaseModel
 client:
   name: engineStreamingReleaseModel
-  description: TODO
-  incomplete: true
+  description: This function sends a unloading request to the game model streamer.
+  parameters: []
+  examples:
+  - path: examples/engineStreamingReleaseModel-1.lua
+    description: This example draws a model
+    side: client

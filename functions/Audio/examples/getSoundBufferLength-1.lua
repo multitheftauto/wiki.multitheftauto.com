@@ -37,8 +37,8 @@ addEventHandler("onClientRender", root, function ()
             dxDrawText(meta.artist, ARTIST_POSITION, 0, 0, tocolor(255, 255, 255, 255), 1.0, 1.0, "clear")
         end
 
-        dxDrawText(("%d:%02d"):format(soundPosition / 60, soundPosition % 60), BOX_POSITION + Vector2(8, BOX_SIZE.y - 32), BOX_POSITION + BOX_SIZE - Vector2(8, 0), tocolor(255, 255, 255, 255), 1.0, 1.0, "clear", "left", "top")
-        dxDrawText(("%d:%02d"):format(soundLength / 60, soundLength % 60), BOX_POSITION + Vector2(8, BOX_SIZE.y - 32), BOX_POSITION + BOX_SIZE - Vector2(8, 0), tocolor(255, 255, 255, 255), 1.0, 1.0, "clear", "right", "top")
+        dxDrawText(("%d:%02d"):format(soundPosition / 60, soundPosition % 60), BOX_POSITION + Vector2(8, BOX_SIZE.y - 32), BOX_POSITION + BOX_SIZE - Vector2(8, 0), tocolor(255, 255, 255, 255), 1.0, 1.0, "clear", "left", "top")
+        dxDrawText(("%d:%02d"):format(soundLength / 60, soundLength % 60), BOX_POSITION + Vector2(8, BOX_SIZE.y - 32), BOX_POSITION + BOX_SIZE - Vector2(8, 0), tocolor(255, 255, 255, 255), 1.0, 1.0, "clear", "right", "top")
         
         -- draw seek bar
         local linePosition = Vector2(BOX_POSITION.x, BOX_POSITION.y + BOX_SIZE.y - LINE_SIZE.y)

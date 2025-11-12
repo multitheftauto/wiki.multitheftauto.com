@@ -15,8 +15,9 @@ addEventHandler("onClientBrowserCreated", theBrowser,
 	end
 )
 
+
 addCommandHandler ("pause", -- Add command named 'pause'
   function (player, command, value)
-      setBrowserRenderingPaused (theBrowser, value == 'true')
+      setBrowserRenderingPaused (theBrowser, value)
   end
 )

@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleComponents
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleComponents
 client:
   name: getVehicleComponents
-  description: TODO
-  incomplete: true
+  description: This function gets a table of the components currently on a [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/getVehicleComponents-1.lua
+    description: ''
+    side: client
+  - path: examples/getVehicleComponents-2.lua
+    description: This example draw all components names on the player screen.
+    side: client

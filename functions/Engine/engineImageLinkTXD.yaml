@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineImageLinkTXD
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineImageLinkTXD
 client:
   name: engineImageLinkTXD
-  description: TODO
-  incomplete: true
+  description: This function links TXD file with an IMG container. This function does
+    not change a model immediately. You should use [engineRestreamWorld](/wiki/EngineRestreamWorld
+    "EngineRestreamWorld") to reload models.
+  parameters: []
+  examples:
+  - path: examples/engineImageLinkTXD-1.lua
+    description: 'You could use the following code:'
+    side: client

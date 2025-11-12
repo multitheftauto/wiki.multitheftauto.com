@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTimerDetails
-shared: &shared
-  name: getTimerDetails
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTimerDetails
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTimerDetails
+  description: This function is for getting the details of a running timer.
+  parameters: []
+  examples:
+  - path: examples/getTimerDetails-1.lua
+    description: 'This example creates a 1 second (1000 ms) timer that will run 10
+      times, and you can see the timer details by using the command: timerdetails.'
+    side: server

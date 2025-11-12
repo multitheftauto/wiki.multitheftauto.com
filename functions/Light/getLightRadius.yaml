@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getLightRadius
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLightRadius
 client:
   name: getLightRadius
-  description: TODO
-  incomplete: true
+  description: This function returns the radius for a [light](/wiki/Element/Light
+    "Element/Light") element.
+  parameters: []
+  examples:
+  - path: examples/getLightRadius-1.lua
+    description: ''
+    side: client
+  pair: setLightRadius

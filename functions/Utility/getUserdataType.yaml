@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getUserdataType
-shared: &shared
-  name: getUserdataType
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetUserdataType
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getUserdataType
+  description: This function gets the type of a userdata value, which is not always
+    a [element](/wiki/Element "Element") in the element tree.
+  parameters: []
+  examples:
+  - path: examples/getUserdataType-1.lua
+    description: This example shows a function that can be used to work around the
+      impossibility to transfer vectors as arguments when usingtriggerClientEventandtriggerServerEvent,
+      by converting them into a table which can be used safely.
+    side: server

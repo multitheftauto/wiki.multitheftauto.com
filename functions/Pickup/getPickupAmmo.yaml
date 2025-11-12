@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPickupAmmo
-shared: &shared
-  name: getPickupAmmo
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPickupAmmo
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPickupAmmo
+  description: This function retrieves the amount of ammo in a weapon pickup.
+  parameters: []
+  examples:
+  - path: examples/getPickupAmmo-1.lua
+    description: ''
+    side: server

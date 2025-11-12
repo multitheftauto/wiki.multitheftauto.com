@@ -1,5 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleDummyPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleDummyPosition
 client:
   name: getVehicleDummyPosition
-  description: TODO
+  description: This function returns the position of the dummy for the given [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/getVehicleDummyPosition-1.lua
+    description: This is a command to get the position of the player's vehicle dummy
+      position specified as an argument.
+    side: client
+  pair: setVehicleDummyPosition
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Allowed Dummies
+
+      '

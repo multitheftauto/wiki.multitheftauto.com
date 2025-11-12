@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeVehicleSirens
-shared: &shared
-  name: removeVehicleSirens
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveVehicleSirens
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: removeVehicleSirens
+  description: This function removes sirens from a vehicle.
+  parameters: []
+  examples:
+  - path: examples/removeVehicleSirens-1.lua
+    description: This example adds a vehicle siren on entering a vehicle and removes
+      a vehicle siren on exiting.
+    side: server

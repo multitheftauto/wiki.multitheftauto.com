@@ -1,10 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setWaterLevel
-shared: &shared
-  name: setWaterLevel
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWaterLevel
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setWaterLevel
+  description: Sets the height of some or all the water in the game world.
+  parameters: []
+  examples:
+  - path: examples/setWaterLevel-1.lua
+    description: This example code will slowly drain away all rivers and seas.
+    side: client
+  - path: examples/setWaterLevel-2.lua
+    description: This example code will slowly drain away all rivers and seas.
+    side: server
+  pair: getWaterLevel
+  notes:
+  - type: info
+    content: When the water level is 0, the standard GTA rendering is performed so
+      that water is visible when viewed through translucent surfaces, such as vehicle
+      windows. However, some MTA custom objects placed underwater will appear in front
+      of the water. Setting the water level to any non-zero value (i.e. setWaterLevel(0.001)
+      ) forces alternative rendering and MTA custom objects placed underwater will
+      be drawn correctly.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Alternate client-only syntax
+
+      '

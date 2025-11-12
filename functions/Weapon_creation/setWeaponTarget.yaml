@@ -1,5 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setWeaponTarget
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponTarget
 client:
   name: setWeaponTarget
-  description: TODO
+  description: This function sets the target of a [custom weapon](/wiki/Element/Weapon
+    "Element/Weapon"). There are 3 different targeting modes, which are explained
+    below.
+  parameters: []
+  examples:
+  - path: examples/setWeaponTarget-1.lua
+    description: This example creates a Uzi and a pedestrian in the center of the
+      map when the resource which contains it starts and makes the weapon fire the
+      new ped's head non-stop.
+    side: client
+  pair: getWeaponTarget
+  notes:
+  - type: info
+    content: Custom weapons fire targets with no recoil (so they never miss a shot).
+      If you want a custom weapon to take into account recoil, you will have to script
+      it by firing at fixed coordinates.
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Syntax (target an element)
+
+      - Missing section: Syntax (target a position)
+
+      - Missing section: Syntax (rotational target)
+
+      '

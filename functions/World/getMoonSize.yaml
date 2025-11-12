@@ -1,10 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getMoonSize
-shared: &shared
-  name: getMoonSize
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetMoonSize
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getMoonSize
+  description: This function returns the moon size.
+  parameters: []
+  examples:
+  - path: examples/getMoonSize-1.lua
+    description: This example will tell the moon size to everyone when the resource
+      is started.
+    side: server
+  notes:
+  - type: info
+    content: The function will return false server-side if moon size has not been
+      set before the function is called.

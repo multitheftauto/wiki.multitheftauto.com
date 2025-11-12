@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineImageGetFile
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineImageGetFile
 client:
   name: engineImageGetFile
-  description: TODO
-  incomplete: true
+  description: This function gets a file from an IMG container.
+  parameters: []
+  examples:
+  - path: examples/engineImageGetFile-1.lua
+    description: 'You could use the following code:'
+    side: client

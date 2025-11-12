@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isControlEnabled
-shared: &shared
-  name: isControlEnabled
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsControlEnabled
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isControlEnabled
+  description: Checks whether a GTA control is enabled or disabled for a certain player.
+  parameters: []
+  examples:
+  - path: examples/isControlEnabled-1.lua
+    description: This example uses a command handler to allow a player to toggle whether
+      he can use vehicle weapons by disabling or enabling the primary and secondary
+      vehicle fire keys. The command handler is trigged with 'toggleweapons'
+    side: server

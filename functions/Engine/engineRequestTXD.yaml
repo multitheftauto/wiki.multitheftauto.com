@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineRequestTXD
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRequestTXD
 client:
   name: engineRequestTXD
-  description: TODO
-  incomplete: true
+  description: This function is used to register the next available TXD ID.
+  parameters: []
+  examples:
+  - path: examples/engineRequestTXD-1.lua
+    description: This example replaces textures for some Grove Street buildings.
+    side: client

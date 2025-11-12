@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isObjectRespawnable
-shared: &shared
-  name: isObjectRespawnable
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsObjectRespawnable
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isObjectRespawnable
+  description: This function checks if the object has respawn enabled, which can be
+    toggled using [toggleObjectRespawn](/wiki/ToggleObjectRespawn "ToggleObjectRespawn").
+  parameters: []
+  examples:
+  - path: examples/isObjectRespawnable-1.lua
+    description: ''
+    side: server

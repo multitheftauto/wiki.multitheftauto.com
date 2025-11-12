@@ -1,0 +1,5 @@
+addCommandHandler("pimpact", function()
+    local x, y, z = getElementPosition(localPlayer)
+    local gz = getGroundPosition(x, y, z)
+    fxAddPunchImpact(x, y, gz, 0, 0, 0)
+end)

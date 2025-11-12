@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineRestoreObjectGroupPhysicalProperties
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreObjectGroupPhysicalProperties
 client:
   name: engineRestoreObjectGroupPhysicalProperties
-  description: TODO
-  incomplete: true
+  description: This function restores all physical properties of given properties
+    group.
+  parameters: []
+  examples:
+  - path: examples/engineRestoreObjectGroupPhysicalProperties-1.lua
+    description: ''
+    side: client

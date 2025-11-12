@@ -1,4 +1,4 @@
-local function ReBan(player)
+function ReBan (player)
    if (reloadBans()) then
       outputChatBox("Bans has been reloaded successfully.",player)
    else

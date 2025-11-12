@@ -1,10 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleColor
-shared: &shared
-  name: setVehicleColor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleColor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setVehicleColor
+  description: This function will set the color of a vehicle using either a RGB format,
+    or the [standard San Andreas color IDs.](/wiki/Vehicle_Colors "Vehicle Colors")
+    Vehicles can have up to 3 colors, most of the vehicles have 2 colors only.
+  parameters: []
+  examples:
+  - path: examples/setVehicleColor-1.lua
+    description: This example implements a serversiderandom_colorconsole command.
+    side: server
+  - path: examples/setVehicleColor-2.lua
+    description: This example implements a serverside command for the player to spawn
+      a red and white Banshee, using the palette colors.
+    side: server
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Optional Arguments (RGB format only)
+
+      '

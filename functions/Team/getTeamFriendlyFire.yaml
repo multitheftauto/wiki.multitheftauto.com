@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTeamFriendlyFire
-shared: &shared
-  name: getTeamFriendlyFire
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTeamFriendlyFire
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTeamFriendlyFire
+  description: This function tells you if friendly fire is turned on for the specified
+    team.
+  parameters: []
+  examples:
+  - path: examples/getTeamFriendlyFire-1.lua
+    description: This example makes a command that checks if friendly fire is on for
+      each team, and toggles it on if it isn't.
+    side: server
+  pair: setTeamFriendlyFire

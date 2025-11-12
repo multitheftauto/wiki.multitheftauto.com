@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementDimension
-shared: &shared
-  name: getElementDimension
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementDimension
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementDimension
+  description: This function allows you to retrieve the dimension of an element. See
+    [Dimension](/wiki/Dimension "Dimension") for the list of valid element types.
+    The dimension determines what/who the element is visible to.
+  parameters: []
+  examples:
+  - path: examples/getElementDimension-1.lua
+    description: ''
+    side: server
+  pair: setElementDimension

@@ -1,5 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/textItemSetPriority
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextItemSetPriority
 server:
   name: textItemSetPriority
-  description: TODO
-  incomplete: true
+  description: This function sets the priority for a text item. Priority is the importance
+    of sending updated text to the client. The system is implemented as 3 queues,
+    with the *high* queue being emptied before the *medium* queue is processed, and
+    with one update sent per server frame. Hence, if you set all your text items to
+    *medium* priority it has the same effect as if you set them all to *high* or *low*.
+  parameters: []
+  examples:
+  - path: examples/textItemSetPriority-1.lua
+    description: This page does not have an example
+    side: server

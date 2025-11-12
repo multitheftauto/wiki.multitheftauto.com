@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fxAddGlass
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddGlass
 client:
   name: fxAddGlass
-  description: TODO
-  incomplete: true
+  description: This function creates a glass particle effect.
+  parameters: []
+  examples:
+  - path: examples/fxAddGlass-1.lua
+    description: This example creates a glass particle effect at the position of the
+      player who use /addGlass command.
+    side: client

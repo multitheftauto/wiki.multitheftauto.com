@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getProjectileForce
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileForce
 client:
   name: getProjectileForce
-  description: TODO
-  incomplete: true
+  description: This function returns the force of the specified projectile.
+  parameters: []
+  examples:
+  - path: examples/getProjectileForce-1.lua
+    description: Example 1:This example would outputs the force of the projectile
+      on 1-100 scale. This function just works with projectiles which you throw so
+      just grenades, satchel charge etc
+    side: client

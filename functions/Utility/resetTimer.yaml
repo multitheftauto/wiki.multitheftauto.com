@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetTimer
-shared: &shared
-  name: resetTimer
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetTimer
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: resetTimer
+  description: This function allows you to reset the value of the elapsed time in
+    existing timers. The function resets the "execution time" value for timers with
+    a limited number of repetitions.
+  parameters: []
+  examples:
+  - path: examples/resetTimer-1.lua
+    description: ''
+    side: server

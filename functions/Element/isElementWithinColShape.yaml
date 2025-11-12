@@ -1,10 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementWithinColShape
-shared: &shared
-  name: isElementWithinColShape
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementWithinColShape
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementWithinColShape
+  description: This function is used to determine if an element is within a collision
+    shape. Please note that for legacy reasons, a colshape created on the client does
+    not collide with elements already existing at that location until they first move.
+    Please also note that before 1\.0\.3, this did not function correctly when moving
+    a colshape.
+  parameters: []
+  examples:
+  - path: examples/isElementWithinColShape-1.lua
+    description: This small script is an example of detecting if a player is within
+      a certain defined colshape. This could serve as a base to perform many functions,
+      rather than just an output.
+    side: server

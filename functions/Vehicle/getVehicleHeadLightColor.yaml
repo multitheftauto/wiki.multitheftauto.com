@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleHeadLightColor
-shared: &shared
-  name: getVehicleHeadLightColor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleHeadLightColor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleHeadLightColor
+  description: This function will get the headlight color of a vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehicleHeadLightColor-1.lua
+    description: ''
+    side: client
+  - path: examples/getVehicleHeadLightColor-2.lua
+    description: ''
+    side: server
+  pair: setVehicleHeadLightColor

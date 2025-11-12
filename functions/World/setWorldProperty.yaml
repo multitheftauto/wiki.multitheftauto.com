@@ -1,5 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setWorldProperty
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWorldProperty
 client:
   name: setWorldProperty
-  description: TODO
-  incomplete: true
+  description: The downside of overriding is the need to implement custom blending
+    (to change weather properties over time creating night / day cycle).
+  parameters: []
+  examples:
+  - path: examples/setWorldProperty-1.lua
+    description: 'This example makes volumetric shadows darker:'
+    side: client
+  - path: examples/setWorldProperty-2.lua
+    description: 'This example turns off street lights:'
+    side: client
+  pair: getWorldProperty
+  notes:
+  - type: info
+    content: This function only adds remaining time cycle properties. You need to
+      use existing world functions to override other properties (like sun color).
+  - type: tip
+    content: This function can be used to implement custom time cycles and other advanced
+      weather features. It allows you to override values set by the game for weathers
+      (timecyc.dat). The downside of overriding is the need to implement custom blending
+      (to change weather properties over time creating night / day cycle).
+  - type: tip
+    content: 'Test resource: worldprops.zip'

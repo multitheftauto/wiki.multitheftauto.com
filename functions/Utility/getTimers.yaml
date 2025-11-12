@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTimers
-shared: &shared
-  name: getTimers
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTimers
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTimers
+  description: This function returns a table of all active timers that the resource
+    that calls it has created. Alternatively, only the timers with a remaining time
+    less than or equal to a certain value can be retrieved.
+  parameters: []
+  examples:
+  - path: examples/getTimers-1.lua
+    description: This example kills timers with a remaining time of less than 1 minute.
+    side: server

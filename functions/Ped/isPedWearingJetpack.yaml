@@ -1,10 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isPedWearingJetpack
-shared: &shared
-  name: isPedWearingJetpack
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPedWearingJetpack
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isPedWearingJetpack
+  description: Checks whether or not a ped is currently wearing a jetpack.
+  parameters: []
+  examples:
+  - path: examples/isPedWearingJetpack-1.lua
+    description: Example 1:This examples adds a "jetpack" console command, which toggles
+      a jetpack for the player.
+    side: server
+  - path: examples/isPedWearingJetpack-2.lua
+    description: Example 2:This example provides a check to see if players have a
+      jetpack when they enter a particular marker.
+    side: server

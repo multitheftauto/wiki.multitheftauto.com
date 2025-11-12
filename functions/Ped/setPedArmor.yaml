@@ -1,10 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPedArmor
-shared: &shared
-  name: setPedArmor
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedArmor
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setPedArmor
+  description: 'This function allows you to set the armor value of a [ped](/wiki/Ped
+    "Ped").
+
+    Function also added client\-side.'
+  parameters: []
+  examples:
+  - path: examples/setPedArmor-1.lua
+    description: This example removes the armor of a player.
+    side: server
+  - path: examples/setPedArmor-2.lua
+    description: In this, adds an amount of armor that the player defined in command
+      'addarmor'.
+    side: server
+  pair: getPedArmor

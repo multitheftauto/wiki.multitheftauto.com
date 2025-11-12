@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiMemoIsReadOnly
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiMemoIsReadOnly
 client:
   name: guiMemoIsReadOnly
-  description: TODO
-  incomplete: true
+  description: This function checking if memo is read only or no.
+  parameters: []
+  examples:
+  - path: examples/guiMemoIsReadOnly-1.lua
+    description: ''
+    side: client
+  pair: guiMemoSetReadOnly

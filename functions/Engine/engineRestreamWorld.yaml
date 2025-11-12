@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineRestreamWorld
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestreamWorld
 client:
   name: engineRestreamWorld
-  description: TODO
-  incomplete: true
+  description: This function re\-streams everything in the GTA world. Read [this pull
+    request](https://github.com/multitheftauto/mtasa-blue/pull/1735) to understand
+    what it is for.
+  parameters: []
+  examples:
+  - path: examples/engineRestreamWorld-1.lua
+    description: 'This function can be used after a model (or more) is loaded withengineLoadDFF:'
+    side: client

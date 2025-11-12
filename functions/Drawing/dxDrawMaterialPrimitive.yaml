@@ -1,5 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxDrawMaterialPrimitive
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialPrimitive
 client:
   name: dxDrawMaterialPrimitive
-  description: TODO
+  description: 'This function draws a 2D primitive shape with material applied to
+    it across the screen \- rendered for one frame. This should be used in conjunction
+    with [onClientRender](/wiki/OnClientRender "OnClientRender") in order to display
+    continuously.
+
+    If image file is used, it should ideally have dimensions that are a power of two,
+    to prevent possible blurring.
+
+    Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...'
+  parameters: []
+  examples:
+  - path: examples/dxDrawMaterialPrimitive-1.lua
+    description: ''
+    side: client
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Allowed types
+
+      - Missing section: Vertices format
+
+      '

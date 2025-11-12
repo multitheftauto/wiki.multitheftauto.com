@@ -1,10 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPickupType
-shared: &shared
-  name: setPickupType
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPickupType
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setPickupType
+  description: This function allows changing the type of a pickup to a Weapon, Armour
+    or Health pickup, and allows you to set the health points **or** the weapon and
+    ammo that the pickup will give.
+  parameters: []
+  examples:
+  - path: examples/setPickupType-1.lua
+    description: ''
+    side: server
+  - path: examples/setPickupType-2.lua
+    description: ''
+    side: client

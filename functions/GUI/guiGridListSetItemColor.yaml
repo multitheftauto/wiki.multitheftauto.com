@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListSetItemColor
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetItemColor
 client:
   name: guiGridListSetItemColor
-  description: TODO
-  incomplete: true
+  description: This function changes the color of a gridlist item.
+  parameters: []
+  examples:
+  - path: examples/guiGridListSetItemColor-1.lua
+    description: This example creates a player list on the right of the screen and
+      fills it with players online and sets the grid list item color according to
+      their nametag color.
+    side: client

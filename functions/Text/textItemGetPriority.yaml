@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/textItemGetPriority
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextItemGetPriority
 server:
   name: textItemGetPriority
-  description: TODO
-  incomplete: true
+  description: This function retrieves the priority of a text item. Priority defines
+    the rate at whihc a text item is updated
+  parameters: []
+  examples:
+  - path: examples/textItemGetPriority-1.lua
+    description: This page does not have an example.
+    side: server

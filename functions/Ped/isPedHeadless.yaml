@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isPedHeadless
-shared: &shared
-  name: isPedHeadless
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPedHeadless
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isPedHeadless
+  description: With this function, you can check if a ped has a head or not.
+  parameters: []
+  examples:
+  - path: examples/isPedHeadless-1.lua
+    description: Add a command to check whether the player is a zombie or not
+    side: client
+  - path: examples/isPedHeadless-2.lua
+    description: Add a command to check whether a player is a zombie or not
+    side: server

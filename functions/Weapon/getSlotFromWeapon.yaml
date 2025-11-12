@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getSlotFromWeapon
-shared: &shared
-  name: getSlotFromWeapon
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSlotFromWeapon
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getSlotFromWeapon
+  description: This function allows you to identify the weapon slot that a weapon
+    belongs to.
+  parameters: []
+  examples:
+  - path: examples/getSlotFromWeapon-1.lua
+    description: This will output to the chatbox what weapon slot a given weapon number
+      belongs to when entered into the console (i.e. 'getWeaponSlot 10').
+    side: server

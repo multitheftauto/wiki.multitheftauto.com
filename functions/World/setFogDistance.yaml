@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setFogDistance
-shared: &shared
-  name: setFogDistance
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetFogDistance
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setFogDistance
+  description: This function changes the distance at which fog appears. Keep in mind
+    that this function doesn't change the distance of render.
+  parameters: []
+  examples:
+  - path: examples/setFogDistance-1.lua
+    description: This example makes any weather very clear when the resource that
+      contains it starts.
+    side: server

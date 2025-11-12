@@ -1,27 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGetGroup
 server:
   name: aclGetGroup
-  description: This function is used to get the [[ACL]] group with the given name. If you need most of the groups you should consider using [[aclGroupList]] instead to get a [[table]] containing them all.
-  oop:
-    element: aclgroup
-    method: get
-    static: true
-  parameters:
-    - name: groupName
-      type: string
-      description: The name to get the ACL group from.
-  returns:
-    values:
-      - type: aclgroup|false
-        name: acl group
-    description: Returns the [[aclgroup]] if it could be found. Returns false/nil if it did not exist or failed for some reason.
+  description: This function is used to get the ACL group with the given name. If
+    you need most of the groups you should consider using [aclGroupList](/wiki/AclGroupList
+    "AclGroupList") instead to get a table containing them all.
+  parameters: []
   examples:
-    - path: examples/aclGetGroup-1.lua
-      description: This example makes every player able to use a command named <code>giveAccountAdminRights</code> that will add a specific accountname as an ACL object to the <code>Admin</code> group.
-    - path: examples/aclGetGroup_OOP-1.lua
-      description: This example makes every player able to use a command named <code>giveAccountAdminRights</code> that will add a specific accountname as an ACL object to the <code>Admin</code> group.
-      oop: true
-    - path: examples/aclGetGroup-2.lua
-      description: This example displays a list of all the online admins in the chat box (assuming your administrator's group in your ACL is called 'Admin').
-    - path: examples/aclGetGroup_OOP-2.lua
-      description: This example displays a list of all the online admins in the chat box (assuming your administrator's group in your ACL is called 'Admin').
-      oop: true
+  - path: examples/aclGetGroup-1.lua
+    description: Example 1:This example makes every player able to use a command named
+      "giveAccountAdminRights" that will add a specific accountname as an ACL object
+      to the "Admin" group.
+    side: server
+  - path: examples/aclGetGroup-2.lua
+    description: 'Example 2:This example displays a list of all the online admins
+      in the chat box (assuming your administrator''s group in your ACL is called
+      ''admin''):'
+    side: server

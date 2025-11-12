@@ -1,18 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ReloadBans
 server:
   name: reloadBans
-  description: This function will reload the server [[ban]] list file.
-  oop:
-    element: ban
-    method: reload
-    static: true
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the ban list was reloaded successfully, false otherwise.
+  description: This function will reload the server ban list file.
+  parameters: []
   examples:
-    - path: examples/reloadBans-1.lua
-      description: This example add command <code>reloadban</code> to reload the server ban list file.
-    - path: examples/reloadBans_OOP-1.lua
-      description: This example add command <code>reloadban</code> to reload the server ban list file.
-      oop: true
+  - path: examples/reloadBans-1.lua
+    description: This example add command "reloadban" to reload the server ban list
+      file.
+    side: server

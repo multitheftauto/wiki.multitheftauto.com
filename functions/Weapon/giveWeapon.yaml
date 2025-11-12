@@ -1,5 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/giveWeapon
+# Scraped from: https://wiki.multitheftauto.com/wiki/GiveWeapon
 server:
   name: giveWeapon
-  description: TODO
-  incomplete: true
+  description: giveWeapon gives a specified weapon to a certain player or ped. There
+    is an optional argument to specify ammunition. For example, a melee weapon doesn't
+    need an ammo argument.
+  parameters: []
+  examples:
+  - path: examples/giveWeapon-1.lua
+    description: Example 1:This example gives a player an M4 with 200 ammo whenever
+      they spawn.
+    side: server
+  - path: examples/giveWeapon-2.lua
+    description: Example 2:This example adds a "give" command in console which allows
+      giving of any weapon by entering "give <id> <amount>".
+    side: server
+  - path: examples/giveWeapon-3.lua
+    description: Example 3:This example creates a ped in certain coordinates. You
+      can give him a weapon with "give <weaponID> <amount>" command in console.
+    side: server
+  notes:
+  - type: info
+    content: When setting ammo for weapons in slot 0,1,10,11 or 12, the ammo max is
+      1 When setting ammo for weapons in slot 3,4,5, the ammo is added When setting
+      ammo for weapons in slot 2,6,7,8,9 and the slot weapon is changing, the ammo
+      is replaced

@@ -1,23 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundBPM
 client:
   name: getSoundBPM
-  description: This function gets the beats per minute of a specific [[sound]] element.
-  notes:
-    - type: important
-      content: |
-        This function is expensive to call and will freeze the client about 1-3 seconds. Also, trying to get the BPM from a sound directly after its creation will make the sound start only after the client freeze. You can use a [[setTimer]] to call this function after song creation so it can play normally.
-  oop:
-    element: sound
-    method: getBPM
-  parameters:
-    - name: theSound
-      type: sound
-      description: A [[sound]] element that is created using [[playSound]] or [[playSound3D]].
-  returns:
-    values:
-      - type: int|false
-        name: bpm
-    description: Returns the beats per minute of the given sound. False if bad element passed.
+  description: This function gets the beats per minute of a specific [sound](/wiki/Sound
+    "Sound") element.
+  parameters: []
   examples:
-    - path: examples/getSoundBPM-1.lua
-    - path: examples/getSoundBPM_OOP-1.lua
-      oop: true
+  - path: examples/getSoundBPM-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: warning
+    content: This function is expensive to call and will freeze the client about 1-3
+      seconds. Also, trying to get the BPM from a sound directly after its creation
+      will make the sound start only after the client freeze. You can use a setTimer
+      to call this function after song creation so it can play normally.

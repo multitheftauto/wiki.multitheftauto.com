@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetTimeFrozen
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetTimeFrozen
 client:
   name: resetTimeFrozen
-  description: TODO
-  incomplete: true
+  description: This function unfreezes time frozen using [setTimeFrozen](/wiki/SetTimeFrozen
+    "SetTimeFrozen"). This is equivalent to using [setTimeFrozen](/wiki/SetTimeFrozen
+    "SetTimeFrozen") to false.
+  parameters: []
+  examples:
+  - path: examples/resetTimeFrozen-1.lua
+    description: This example let you to unfreeze time
+    side: client

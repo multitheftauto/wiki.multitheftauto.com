@@ -1,0 +1,1 @@
+outputChatBox( getServerConfigSetting ("minclientversion") )

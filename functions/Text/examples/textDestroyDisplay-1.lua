@@ -1,0 +1,2 @@
+myDisplay = textCreateDisplay ()
+textDestroyDisplay ( myDisplay )

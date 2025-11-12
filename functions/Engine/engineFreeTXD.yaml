@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineFreeTXD
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineFreeTXD
 client:
   name: engineFreeTXD
-  description: TODO
-  incomplete: true
+  description: This function is used to un\-assign the specified TXD ID from the [engineRequestTXD](/wiki/EngineRequestTXD
+    "EngineRequestTXD") assignment.
+  parameters: []
+  examples:
+  - path: examples/engineFreeTXD-1.lua
+    description: ''
+    side: client

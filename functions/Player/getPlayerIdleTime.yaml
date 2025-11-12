@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerIdleTime
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerIdleTime
 server:
   name: getPlayerIdleTime
-  description: TODO
-  incomplete: true
+  description: This function gets the amount of time in milliseconds that a players
+    position has not changed.
+  parameters: []
+  examples:
+  - path: examples/getPlayerIdleTime-1.lua
+    description: This example will kick a player if they don't move for 5 minutes
+      and the resource has access to "function.kickPlayer"
+    side: server

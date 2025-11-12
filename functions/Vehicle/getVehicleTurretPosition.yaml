@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleTurretPosition
-shared: &shared
-  name: getVehicleTurretPosition
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleTurretPosition
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleTurretPosition
+  description: This function gets the position of a vehicle's turret, if it has one.
+    Vehicles with turrets include firetrucks and tanks.
+  parameters: []
+  examples:
+  - path: examples/getVehicleTurretPosition-1.lua
+    description: ''
+    side: server
+  pair: setVehicleTurretPosition

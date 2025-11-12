@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListGetHorizontalScrollPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetHorizontalScrollPosition
 client:
   name: guiGridListGetHorizontalScrollPosition
-  description: TODO
-  incomplete: true
+  description: This function is used to get the horizontal scroll position from a
+    grid list
+  parameters: []
+  examples:
+  - path: examples/guiGridListGetHorizontalScrollPosition-1.lua
+    description: This example gets the position of the horizontal scroll and outputs
+      it to the chatbox.
+    side: client
+  pair: guiGridListSetHorizontalScrollPosition

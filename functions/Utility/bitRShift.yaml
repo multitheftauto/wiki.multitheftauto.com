@@ -1,10 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/bitRShift
-shared: &shared
-  name: bitRShift
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitRShift
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: bitRShift
+  description: 'This functions performs a logical right shift on the integer **value**
+    by integer **n** positions. In a *logical shift*, zeros are shifted in to replace
+    the discarded bits.
+
+    See [Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation#Logical_shift)
+    for more details.'
+  parameters: []
+  examples:
+  - path: examples/bitRShift-1.lua
+    description: This example shows the usage of the functionbitRShift.
+    side: server

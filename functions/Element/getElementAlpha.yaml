@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementAlpha
-shared: &shared
-  name: getElementAlpha
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAlpha
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementAlpha
+  description: This function returns the alpha (transparency) value for the specified
+    [element](/wiki/Element "Element"). This can be a [player](/wiki/Player "Player"),
+    [ped](/wiki/Ped "Ped"), [object](/wiki/Object "Object"), [vehicle](/wiki/Vehicle
+    "Vehicle") or [weapon](/wiki/Element/Weapon "Element/Weapon").
+  parameters: []
+  examples:
+  - path: examples/getElementAlpha-1.lua
+    description: This example outputs whether the player is invisible.
+    side: client
+  pair: setElementAlpha

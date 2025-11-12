@@ -1,10 +1,39 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/addCommandHandler
-shared: &shared
-  name: addCommandHandler
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddCommandHandler
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: addCommandHandler
+  description: This function will attach a scripting function (handler) to a console
+    command, so that whenever a player or administrator uses the command the function
+    is called.
+  parameters: []
+  examples:
+  - path: examples/addCommandHandler-1.lua
+    description: Example 1:This example defines a command handler for the commandcreatemarker.
+      This will create a red marker at the position of the player player who uses
+      it.
+    side: server
+  - path: examples/addCommandHandler-2.lua
+    description: Example 2:This example makes use of Lua's vararg expression to implement
+      acheck_parameterscommand to count the number of parameters passed, merge them
+      all into a single string and output it. This is also shows you how you can use
+      table.concat to merge all the passed arguments. This is particularly useful
+      when you want to read in a sentence of text passed from the user.
+    side: server
+  - path: examples/addCommandHandler-3.lua
+    description: Example 3:This example shows using a single function to handle multiple
+      command handlers. This isn't advised for general usage, as it makes code harder
+      to understand, but where multiple command handlers share some logic, it can
+      be a useful way of reducing duplicated code. Generally, it would be preferable
+      to put this shared logic in a separate function instead, as this gives you more
+      control over the flow.
+    side: server
+  - path: examples/addCommandHandler-4.lua
+    description: Example 1:This example warps the local player to a random nearby
+      location (useful for when a player gets stuck somewhere).
+    side: client
+  notes:
+  - type: info
+    content: You can't use "check", "list", "test" and "help" as a command name.
+  - type: important
+    content: Do NOT use the same name for your handler function as the command name,
+      as this can lead to confusion if multiple handler functions are used. Use a
+      name that describes your handler's purpose more specifically.

@@ -1,10 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fadeCamera
-shared: &shared
-  name: fadeCamera
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/FadeCamera
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: fadeCamera
+  description: This function will fade a player's camera to a color or back to normal
+    over a specified time period. This will also affect the sound volume for the player
+    (50% faded \= 50% volume, full fade \= no sound). For clientside scripts you can
+    perform 2 fade ins or fade outs in a row, but for serverside scripts you must
+    use one then the other.
+  parameters: []
+  examples:
+  - path: examples/fadeCamera-1.lua
+    description: When a player gets damaged, place a quick fade-to-red effect on his
+      screen.
+    side: server
+  notes:
+  - type: info
+    content: The speed of the effect depends directly on the current gamespeed.

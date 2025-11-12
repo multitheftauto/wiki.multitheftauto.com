@@ -1,5 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setJetpackWeaponEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetJetpackWeaponEnabled
 server:
   name: setJetpackWeaponEnabled
-  description: TODO
-  incomplete: true
+  description: This function sets a weapon usable while using the Jetpack.
+  parameters: []
+  examples:
+  - path: examples/setJetpackWeaponEnabled-1.lua
+    description: This example enables the M4 to be fired while using a jetpack and
+      announces it in the chat.
+    side: server
+  - path: examples/setJetpackWeaponEnabled-2.lua
+    description: This example enables the M4, sniper rifle and country rifle to be
+      fired while using a jetpack and announces it in the chat.
+    side: server
+  notes:
+  - type: info
+    content: colt 45, sawed-off, tec-9 and uzi are always enabled for the Jetpack
+      and are not affected by this function.

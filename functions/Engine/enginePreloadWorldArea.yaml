@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/enginePreloadWorldArea
+# Scraped from: https://wiki.multitheftauto.com/wiki/EnginePreloadWorldArea
 client:
   name: enginePreloadWorldArea
-  description: TODO
-  incomplete: true
+  description: This function allows a specific area to be loaded **immediately**,
+    which can be useful when teleporting a player. The function is not based on a
+    radius, but a specific zone is loaded.
+  parameters: []
+  examples:
+  - path: examples/enginePreloadWorldArea-1.lua
+    description: ''
+    side: client
+  - path: examples/enginePreloadWorldArea-2.lua
+    description: ''
+    side: client

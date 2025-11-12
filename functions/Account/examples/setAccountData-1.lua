@@ -1,7 +1,7 @@
 function onPlayerQuit ( )
       -- when a player leaves, store his current money amount in his account data
       local playeraccount = getPlayerAccount ( source )
-      if ( playeraccount and not isGuestAccount ( playeraccount ) ) then -- if the player is logged in
+      if ( playeraccount ) and not isGuestAccount ( playeraccount ) then -- if the player is logged in
             local playermoney = getPlayerMoney ( source ) -- get the player money
             setAccountData ( playeraccount, "piraterpg.money", playermoney ) -- save it in his account
       end

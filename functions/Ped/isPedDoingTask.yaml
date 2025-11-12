@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isPedDoingTask
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPedDoingTask
 client:
   name: isPedDoingTask
-  description: TODO
-  incomplete: true
+  description: This function checks if the specified ped is carrying out a certain
+    [task](/wiki/List_of_player_tasks "List of player tasks").
+  parameters: []
+  examples:
+  - path: examples/isPedDoingTask-1.lua
+    description: This example checks if the player who entered the 'doingdriveby'
+      command is doing a drive-by (clientside).
+    side: client

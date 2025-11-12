@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isVoiceEnabled
-shared: &shared
-  name: isVoiceEnabled
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsVoiceEnabled
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isVoiceEnabled
+  description: 'Added to client side.
+
+    This function allows you to make the server reveal whether or not voice is currently
+    enabled.'
+  parameters: []
+  examples:
+  - path: examples/isVoiceEnabled-1.lua
+    description: This example shows how to forbid use voice for muted (in chat) players
+    side: server

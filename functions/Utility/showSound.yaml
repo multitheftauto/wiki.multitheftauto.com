@@ -1,5 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/showSound
+# Scraped from: https://wiki.multitheftauto.com/wiki/ShowSound
 client:
   name: showSound
-  description: TODO
-  incomplete: true
+  description: Prints world [sound](/wiki/Sound "Sound") IDs in the debug output window
+    to help when writing scripts with [setWorldSoundEnabled](/wiki/SetWorldSoundEnabled
+    "SetWorldSoundEnabled").
+  parameters: []
+  examples:
+  - path: examples/showSound-1.lua
+    description: 'You can refer to the example below:'
+    side: client
+  notes:
+  - type: info
+    content: This function only works in development mode.

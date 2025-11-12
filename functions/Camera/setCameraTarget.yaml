@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setCameraTarget
-shared: &shared
-  name: setCameraTarget
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraTarget
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setCameraTarget
+  description: 'This function allows you to set a player''s camera to follow other
+    elements instead. Currently supported element type is:'
+  parameters: []
+  examples:
+  - path: examples/setCameraTarget-1.lua
+    description: ''
+    side: client
+  pair: getCameraTarget

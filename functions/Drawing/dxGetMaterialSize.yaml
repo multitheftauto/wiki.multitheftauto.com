@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxGetMaterialSize
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetMaterialSize
 client:
   name: dxGetMaterialSize
-  description: TODO
-  incomplete: true
+  description: This gets the dimensions of the supplied [material](/wiki/Material
+    "Material") element.
+  parameters: []
+  examples:
+  - path: examples/dxGetMaterialSize-1.lua
+    description: ''
+    side: client

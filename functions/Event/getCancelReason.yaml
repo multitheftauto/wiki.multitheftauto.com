@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getCancelReason
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCancelReason
 server:
   name: getCancelReason
-  description: TODO
-  incomplete: true
+  description: Gets the reason for cancelling an event.
+  parameters: []
+  examples:
+  - path: examples/getCancelReason-1.lua
+    description: This example cancels when a hunterPlayer tries to enter a vehicle
+      and outputs to the world what the player tried to do.
+    side: server

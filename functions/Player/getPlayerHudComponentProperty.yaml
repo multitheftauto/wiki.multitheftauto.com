@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerHudComponentProperty
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerHudComponentProperty
 client:
   name: getPlayerHudComponentProperty
-  description: TODO
-  incomplete: true
+  description: This function gets the value of the specified HUD property.
+  parameters: []
+  examples:
+  - path: examples/getPlayerHudComponentProperty-1.lua
+    description: ''
+    side: client
+  pair: setPlayerHudComponentProperty

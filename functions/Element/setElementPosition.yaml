@@ -1,56 +1,20 @@
-shared: &shared
-  name: 'setElementPosition'
-  oop:
-    element: element
-    method: setPosition
-    variable: position
-  pair: 'getElementPosition'
-  description: |
-    This function sets the position of an element to the specified coordinates.
-  notes:
-    - type: 'warning'
-      content: 'Do not use this function to spawn a [player](/player). It will cause problems with other functions like [warpPedIntoVehicle](/warpPedIntoVehicle). Use [spawnPlayer](/spawnPlayer) instead.'
-    - type: 'info'
-      content: If you want to put a vehicle or player out of the water or simulate the position-resetting behaviour if CJ goes below the ground too far, then you need to retrieve a recommended coordinate on ground to place the element at. Take a look at this MTA forums [post](https://forum.mtasa.com/topic/132891-important-helprespawn-vehicle/?do=findComment&comment=1003198) for steps in the right direction.
-  parameters:
-    - name: 'theElement'
-      type: 'element'
-      description: 'A valid [element](/element) to set the position.'
-    - name: 'x'
-      type: 'float'
-      description: 'The x coordinate of the destination.'
-    - name: 'y'
-      type: 'float'
-      description: 'The y coordinate of the destination.'
-    - name: 'z'
-      type: 'float'
-      description: 'The z coordinate of the destination.'
-    - name: 'warp'
-      type: 'bool'
-      default: 'true'
-      description: 'teleports players, resetting any animations they were doing. Setting this to false preserves the current animation.'
-  returns:
-    description: |
-      Returns *true* if the function was successful, *false* otherwise.
-    values:
-      - type: 'bool'
-        name: 'result'
-  issues:
-    - id: 539
-      description: 'Changing player position when they have a jetpack will remove the jetpack and bug when skin is changed'
-    - id: 529
-      description: 'Player falls from bike when the bike is teleported using setElementPosition'
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementPosition
 server:
-  <<: *shared
+  name: setElementPosition
+  description: This function sets the position of an element to the specified coordinates.
+  parameters: []
   examples:
-    - path: 'examples/setElementPosition-2.lua'
-      description: |
-        This example teleports the player to another random player using */tprandom* command.
-
-client:
-  <<: *shared
-  examples:
-    - path: 'examples/setElementPosition-1.lua'
-      description: |
-        This example teleports the player to map center using */zero* command. (aka. origin point)
+  - path: examples/setElementPosition-1.lua
+    description: This example lets admins teleport 5 random players to themselves
+    side: server
+  pair: getElementPosition
+  notes:
+  - type: warning
+    content: Do not use this function to spawn a player . It will cause problems with
+      other functions like warpPedIntoVehicle . Use spawnPlayer instead.
+  issues:
+  - id: '539'
+    description: Changing player position when he/she has a jetpack will remove the
+      jetpack and bug when skin is changed
+  - id: '529'
+    description: Player falls from his bike when its teleported by setElementPosition

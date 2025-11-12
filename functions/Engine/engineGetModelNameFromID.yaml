@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineGetModelNameFromID
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelNameFromID
 client:
   name: engineGetModelNameFromID
-  description: TODO
-  incomplete: true
+  description: This function gets the model name of an object model from model ID.
+    This function is the counterpart of [engineGetModelIDFromName](/wiki/EngineGetModelIDFromName
+    "EngineGetModelIDFromName").
+  parameters: []
+  examples:
+  - path: examples/engineGetModelNameFromID-1.lua
+    description: This example gets the model name of an element you target (doesn't
+      work for San Andreas world)
+    side: client

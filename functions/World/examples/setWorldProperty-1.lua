@@ -1,0 +1,1 @@
+setWorldProperty("ShadowStrength", 500)

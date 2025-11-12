@@ -1,18 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclSave
 server:
   name: aclSave
-  description: The ACL XML file is automatically saved whenever the [[ACL]] is modified, but the automatic save can be delayed by up to 10 seconds for performance reasons. Calling this function will force an immediate save.
-  oop:
-    element: acl
-    method: save
-    static: true
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the [[ACL]] was successfully changed, false or nil if it could not be saved for some reason, ie. file in use.
+  description: The ACL XML file is automatically saved whenever the ACL is modified,
+    but the automatic save can be delayed by up to 10 seconds for performance reasons.
+    Calling this function will force an immediate save.
+  parameters: []
   examples:
-    - path: examples/aclSave-1.lua
-      description: This example saves the ACL when somebody types <code>/save-acl</code>.
-    - path: examples/aclSave_OOP-1.lua
-      description: This example saves the ACL when somebody types <code>/save-acl</code>.
-      oop: true
+  - path: examples/aclSave-1.lua
+    description: This example saves the ACL when somebody types "/save-acl".
+    side: server

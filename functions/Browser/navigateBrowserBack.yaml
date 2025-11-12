@@ -1,21 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/NavigateBrowserBack
 client:
   name: navigateBrowserBack
-  description: Returns the [[browser]] to the previous page.
-  oop:
-    element: browser
-    method: navigateBack
-  parameters:
-    - name: webBrowser
-      type: browser
-      description: The browser that you want return to the previous page.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the browser has returned to the previous page, false otherwise.
+  description: Returns the browser to the previous page.
+  parameters: []
   examples:
-    - path: examples/navigateBrowserBack-1.lua
-      description: This example creates a browser that can return to the last and previous pages and can also be refreshed.
-    - path: examples/navigateBrowserBack_OOP-1.lua
-      description: This example creates a browser that can return to the last and previous pages and can also be refreshed.
-      oop: true
+  - path: examples/navigateBrowserBack-1.lua
+    description: 'This example creates a browser that can return to the last and previous
+      pages and can also be refreshed:'
+    side: client

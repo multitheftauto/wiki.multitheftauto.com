@@ -1,22 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveAccount
 server:
   name: removeAccount
-  pair: addAccount
-  description: This function is used to delete existing player [accounts](account).
-  oop:
-    element: account
-    method: remove
-  parameters:
-    - name: theAccount
-      type: account
-      description: The account you wish to remove.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if account was successfully removed, false if the account does not exist.
+  description: This function is used to delete existing player [accounts](/wiki/Account
+    "Account").
+  parameters: []
   examples:
-    - path: examples/removeAccount-1.lua
-      description: This example deletes the specified account when the <code>deregister</code> command is entered.
-    - path: examples/removeAccount_OOP-1.lua
-      description: This example deletes the specified account when the <code>deregister</code> command is entered.
-      oop: true
+  - path: examples/removeAccount-1.lua
+    description: This example does...
+    side: server

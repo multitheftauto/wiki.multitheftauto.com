@@ -1,10 +1,41 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/addEventHandler
-shared: &shared
-  name: addEventHandler
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddEventHandler
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: addEventHandler
+  description: This function will add an [event](/wiki/Event "Event") handler. An
+    event handler is a function that will be called when the event it's attached to
+    is triggered. See [event system](/wiki/Event_system "Event system") for more information
+    on how the event system works.
+  parameters: []
+  examples:
+  - path: examples/addEventHandler-1.lua
+    description: This serverside example sends a message to everyone in the server
+      when a player spawns.
+    side: server
+  notes:
+  - type: info
+    content: You shouldn't re-use the same name for your handler function as the event
+      name - if multiple handler functions are used, as this can lead to confusion.
+      On the same note, for multiple reasons, it isn't a good idea to export the same
+      functions that you use locally as remote event handlers.
+  - type: info
+    content: See Event Source Element for a descriptive visualization of the event
+      system handling an event trigger.
+  - type: important
+    content: See Script security for how-to prevent cheaters from abusing event system
+      and element data .
+  - type: important
+    content: Anything bound to a specific element will be run before other handlers
+      that are bound to something higher in the element tree (like root) This means
+      that "high+10" bound to root won't trigger before "normal" bound directly to
+      an element.
+  - type: info
+    content: Due to the additional set of global variables, the event-trigger specific
+      variables it is NOT a good idea to use the same function locally as well as
+      directly as an event handler . Event handlers often make use of the source element
+      variable which would often find no use in generic functions. Inside of server-side
+      remote event handlers it is important to add protections against exploits due
+      to unexpected client event triggers or network-based load situations while generic
+      functions, due to being part of a controlled call-stack, do not in general face
+      the same issues. It is recommended to adapt a good-natured distancing principle
+      between code meant to run from local logic in separation to code meant to run
+      from remote logic.

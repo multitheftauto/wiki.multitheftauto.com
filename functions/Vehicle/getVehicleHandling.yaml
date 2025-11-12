@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleHandling
-shared: &shared
-  name: getVehicleHandling
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleHandling
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleHandling
+  description: This function returns a table of the current vehicle handling data.
+  parameters: []
+  examples:
+  - path: examples/getVehicleHandling-1.lua
+    description: This example creates a new function called getVehicleHandlingProperty,
+      which simulates the previous syntax of this function.
+    side: server

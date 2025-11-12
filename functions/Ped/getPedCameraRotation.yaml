@@ -1,5 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPedCameraRotation
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedCameraRotation
 client:
   name: getPedCameraRotation
-  description: TODO
-  incomplete: true
+  description: This function gets the current camera rotation of a [ped](/wiki/Ped
+    "Ped").
+  parameters: []
+  examples:
+  - path: examples/getPedCameraRotation-1.lua
+    description: This example creates a/getrotationcommand which outputs the expected
+      camera rotation of the player which types it.
+    side: client
+  pair: setPedCameraRotation
+  notes:
+  - type: info
+    content: The camera rotation angle returned by this function is 360º - α (where
+      α is the actual camera rotation angle). See example to know how to deal with
+      this.

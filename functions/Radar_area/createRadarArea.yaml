@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createRadarArea
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateRadarArea
 server:
   name: createRadarArea
-  description: TODO
-  incomplete: true
+  description: This function can be used to create custom radar areas on the radar.
+  parameters: []
+  examples:
+  - path: examples/createRadarArea-1.lua
+    description: This example creates a radar area for the King of the hill script,
+      and a colsquare. When the player enters the radar area it flashes, and stops
+      flashing when a player leaves it.
+    side: server

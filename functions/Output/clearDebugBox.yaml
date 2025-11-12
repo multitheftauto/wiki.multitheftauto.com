@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/clearDebugBox
+# Scraped from: https://wiki.multitheftauto.com/wiki/ClearDebugBox
 client:
   name: clearDebugBox
-  description: TODO
-  incomplete: true
+  description: This function clears the debug box.
+  parameters: []
+  examples:
+  - path: examples/clearDebugBox-1.lua
+    description: 'This example clears the debug window when any new debug message
+      is displayed:'
+    side: client

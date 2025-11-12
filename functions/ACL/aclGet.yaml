@@ -1,23 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGet
 server:
   name: aclGet
-  description: Get the [[ACL]] with the given name. If need to get most of the ACL's, you should consider using [[aclList]] to get a table of them all.
-  oop:
-    element: acl
-    method: get
-    static: true
-  parameters:
-    - name: aclName
-      type: string
-      description: The name to get the ACL belonging to.
-  returns:
-    values:
-      - type: acl|false
-        name: acl
-    description: Returns the [[ACL]] with that name if it could be retrieved, false/nil if the ACL does not exist or it fails for some other reason.
+  description: Get the ACL with the given name. If need to get most of the ACL's,
+    you should consider using [aclList](/wiki/AclList "AclList") to get a table of
+    them all.
+  parameters: []
   examples:
-    - path: examples/aclGet-1.lua
-      description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.
-    - path: examples/aclGet_OOP-1.lua
-      description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.
-      oop: true
-
+  - path: examples/aclGet-1.lua
+    description: This example adds a commandsetaclrightwith which you can easily add
+      new rights to specified access control lists.
+    side: server

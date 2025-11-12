@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/bitExtract
-shared: &shared
-  name: bitExtract
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitExtract
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: bitExtract
+  description: 'This function returns the unsigned number formed by the bits field
+    to field \+ width \- 1 (range: 0\-31\).'
+  parameters: []
+  examples:
+  - path: examples/bitExtract-1.lua
+    description: ''
+    side: server

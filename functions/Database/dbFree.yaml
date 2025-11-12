@@ -1,5 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dbFree
+# Scraped from: https://wiki.multitheftauto.com/wiki/DbFree
 server:
   name: dbFree
-  description: TODO
-  incomplete: true
+  description: This function frees a database query handle. dbFree only needs to be
+    used if a result has not been obtained with [dbPoll](/wiki/DbPoll "DbPoll")
+  parameters: []
+  examples: []

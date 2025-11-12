@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isPlayerHudComponentVisible
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPlayerHudComponentVisible
 client:
   name: isPlayerHudComponentVisible
-  description: TODO
-  incomplete: true
+  description: This function can be used to check whether an hud component is visable
+    or not.
+  parameters: []
+  examples:
+  - path: examples/isPlayerHudComponentVisible-1.lua
+    description: ''
+    side: client

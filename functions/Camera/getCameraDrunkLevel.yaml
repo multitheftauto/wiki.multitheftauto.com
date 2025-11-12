@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getCameraDrunkLevel
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraDrunkLevel
 client:
   name: getCameraDrunkLevel
-  description: TODO
-  incomplete: true
+  description: This function gets the camera drunk level set by [setCameraDrunkLevel](/wiki/SetCameraDrunkLevel
+    "SetCameraDrunkLevel"). This function was renamed from [getCameraShakeLevel](/wiki/GetCameraShakeLevel
+    "GetCameraShakeLevel").
+  parameters: []
+  examples:
+  - path: examples/getCameraDrunkLevel-1.lua
+    description: This example checks for changes in the camera drunk level of any
+      player every frame and outputs different messages according to it.
+    side: client

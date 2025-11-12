@@ -1,28 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ExtinguishFire
 client:
   name: extinguishFire
-  description: This function is used to extinguish all spreading fire, or spreading fire at specified coordinates.
-  parameters:
-    - name: x
-      type: float
-      description: The X coordinate at which any fire will be extinguished.
-      default: 'nil'
-    - name: "y"
-      type: float
-      description: The Y coordinate at which any fire will be extinguished.
-      default: 'nil'
-    - name: z
-      type: float
-      description: The Z coordinate at which any fire will be extinguished.
-      default: 'nil'
-    - name: radius
-      type: float
-      description: A float value indicating the radius in which to extinguish fire.
-      default: '1.0'
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Always returns true.
+  description: This function is used to extinguish all spreading fire, or spreading
+    fire at specified coordinates.
+  parameters: []
   examples:
-    - path: 'examples/extinguishFire-1.lua'
-      description: This example creates 10 fires and then instantly extinguishes them.
+  - path: examples/extinguishFire-1.lua
+    description: This example creates 10 fires and then instantly extinguishes them.
+    side: client

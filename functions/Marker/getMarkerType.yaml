@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getMarkerType
-shared: &shared
-  name: getMarkerType
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerType
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getMarkerType
+  description: This function returns a marker's type.
+  parameters: []
+  examples:
+  - path: examples/getMarkerType-1.lua
+    description: This function creates a default marker at a given position and outputs
+      its type.
+    side: server
+  pair: setMarkerType

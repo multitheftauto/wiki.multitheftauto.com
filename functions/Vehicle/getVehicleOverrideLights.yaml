@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleOverrideLights
-shared: &shared
-  name: getVehicleOverrideLights
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleOverrideLights
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleOverrideLights
+  description: This function is used to find out the current state of the override\-lights
+    setting of a vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehicleOverrideLights-1.lua
+    description: This example will toggle the car lights on and off for a player's
+      vehicle
+    side: server
+  pair: setVehicleOverrideLights

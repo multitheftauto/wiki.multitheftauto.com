@@ -1,5 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setWorldSoundEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWorldSoundEnabled
 client:
   name: setWorldSoundEnabled
-  description: TODO
-  incomplete: true
+  description: This function allows you to disable world sounds. A world sound is
+    a sound effect which has ***not*** been caused by [playSound](/wiki/PlaySound
+    "PlaySound") or [playSound3D](/wiki/PlaySound3D "PlaySound3D").
+  parameters: []
+  examples:
+  - path: examples/setWorldSoundEnabled-1.lua
+    description: This is a simplified example that lets the client toggle their weapon
+      sounds.
+    side: client
+  - path: examples/setWorldSoundEnabled-2.lua
+    description: This is the more advanced version of the
+    side: client
+  - path: examples/setWorldSoundEnabled-3.lua
+    description: This example disables the wind sound effect immediately without changing
+      the interior afterwards.
+    side: client
+  notes:
+  - type: info
+    content: 'The values for group and index can be determined by using the client
+      command showsound in conjunction with setDevelopmentMode . If immediate argument
+      is set to false , this function won''t affect sounds which are already playing
+      (such as the wind that can only be stopped by entering an interior.) See also:
+      setAmbientSoundEnabled .'

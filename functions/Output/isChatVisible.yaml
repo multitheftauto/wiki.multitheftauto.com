@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isChatVisible
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsChatVisible
 client:
   name: isChatVisible
-  description: TODO
-  incomplete: true
+  description: This function checks if player's chat is visible.
+  parameters: []
+  examples:
+  - path: examples/isChatVisible-1.lua
+    description: This example does the same thing asshowchatcommand does.
+    side: client

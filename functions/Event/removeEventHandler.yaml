@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeEventHandler
-shared: &shared
-  name: removeEventHandler
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveEventHandler
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: removeEventHandler
+  description: This functions removes a handler function from an [event](/wiki/Event
+    "Event"), so that the function is not called anymore when the event is triggered.
+    See [event system](/wiki/Event_system "Event system") for more information on
+    how the event system works.
+  parameters: []
+  examples:
+  - path: examples/removeEventHandler-1.lua
+    description: This example shows how to toggle a message on/off a screen with a
+      command.
+    side: client

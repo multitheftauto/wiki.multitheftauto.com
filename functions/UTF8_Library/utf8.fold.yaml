@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.fold
-shared: &shared
-  name: utf8.fold
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.fold
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.fold
+  description: Converts a UTF\-8 string to folded case (lowercase), which can be used
+    to compare two strings. If *input* is an integer, it's treat as a codepoint and
+    a convert codepoint (integer) is returned.
+  parameters: []
+  examples:
+  - path: examples/utf8.fold-1.lua
+    description: This example shows how to convert a string to lowercase, which can
+      be used to compare with other folded strings.
+    side: server
+  notes:
+  - type: info
+    content: You may want to read up on case folding for more information about the
+      use of this function.

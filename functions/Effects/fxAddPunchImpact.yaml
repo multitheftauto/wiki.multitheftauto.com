@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fxAddPunchImpact
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddPunchImpact
 client:
   name: fxAddPunchImpact
-  description: TODO
-  incomplete: true
+  description: Creates a punch impact particle effect (a small dust cloud).
+  parameters: []
+  examples:
+  - path: examples/fxAddPunchImpact-1.lua
+    description: This example will create a Punch Impact Effect next to you when typing/pimpactin
+      the Chatbox.
+    side: client

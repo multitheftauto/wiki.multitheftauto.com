@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementCollidableWith
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementCollidableWith
 client:
   name: isElementCollidableWith
-  description: TODO
-  incomplete: true
+  description: "This function can be used to check whether specified element is collidable\
+    \ with another element.  \n\n**Note:** You can only use this function with the\
+    \ element types listed below."
+  parameters: []
+  examples:
+  - path: examples/isElementCollidableWith-1.lua
+    description: ''
+    side: client
+  pair: setElementCollidableWith

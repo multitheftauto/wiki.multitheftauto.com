@@ -1,22 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupGetName
 server:
   name: aclGroupGetName
-  description: This function is used to get the name of the given [ACL group](/reference/aclgroup).
-  oop:
-    element: aclgroup
-    method: getName
-    variable: name
-  parameters:
-    - name: theGroup
-      type: aclgroup
-      description: The ACL group to get the name of.
-  returns:
-    values:
-      - type: string|false
-        name: acl group name
-    description: Returns the name of the given ACL group as a string if successful, otherwise false or nil if the *aclGroup* is invalid or it fails for some other reason.
+  description: This function is used to get the name of the given ACL group.
+  parameters: []
   examples:
-    - path: examples/aclGroupGetName-1.lua
-      description: This example outputs to the console that <code>Admin's are ready to watch :)</code>.
-    - path: examples/aclGroupGetName_OOP-1.lua
-      description: This example outputs to the console that <code>Admin's are ready to watch :)</code>.
-      oop: true
+  - path: examples/aclGroupGetName-1.lua
+    description: This example outputs to the console that "Admin's are ready to watch :)".
+    side: server

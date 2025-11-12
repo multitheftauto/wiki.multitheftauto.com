@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getSkyGradient
-shared: &shared
-  name: getSkyGradient
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSkyGradient
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getSkyGradient
+  description: This function will return the current sky color.
+  parameters: []
+  examples:
+  - path: examples/getSkyGradient-1.lua
+    description: ''
+    side: client

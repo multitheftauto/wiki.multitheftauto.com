@@ -1,5 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineStreamingSetBufferSize
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingSetBufferSize
 client:
   name: engineStreamingSetBufferSize
-  description: TODO
-  incomplete: true
+  description: Set the streaming buffer size. The larger it is, the more models can
+    be loaded in one go BUT increases the RAM \[**not** streaming memory!] usage.
+    Can help with custom IMG loading speed by reducing pop\-in.
+  parameters: []
+  examples:
+  - path: examples/engineStreamingSetBufferSize-1.lua
+    description: This example adds a command that can be used to change the streaming
+      buffer size, and display the previous value.
+    side: client
+  pair: engineStreamingGetBufferSize
+  notes:
+  - type: important
+    content: This function is meant for advanced users only, as it can lead to stability
+      issues . Using a very high value might result in more crashes, while using a
+      value too low might lead to frequent pop-in!

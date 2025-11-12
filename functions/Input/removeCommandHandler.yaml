@@ -1,10 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeCommandHandler
-shared: &shared
-  name: removeCommandHandler
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveCommandHandler
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: removeCommandHandler
+  description: This function removes a command handler, that is one that has been
+    added using [addCommandHandler](/wiki/AddCommandHandler "AddCommandHandler").
+    This function can only remove command handlers that were added by the resource
+    that it is called in.
+  parameters: []
+  examples:
+  - path: examples/removeCommandHandler-1.lua
+    description: 'This example adds a command handler that briefly shows the position
+      of ''huntedPlayer'', and removes the command handler when ''huntedPlayer'' dies:'
+    side: server
+  - path: examples/removeCommandHandler-2.lua
+    description: 'This example adds a command handler that briefly shows the position
+      of ''huntedPlayer'', and removes the command handler when ''huntedPlayer'' dies:'
+    side: client

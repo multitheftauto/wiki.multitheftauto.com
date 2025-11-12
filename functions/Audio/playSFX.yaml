@@ -1,37 +1,34 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PlaySFX
 client:
   name: playSFX
   description: This function plays a sound from GTA's big sound containers.
-  notes:
-    - type: tip
-      content: There is a tool available which allows you to find bank and sound IDs easily [sfxBrowser](https://community.mtasa.com/index.php?p=resources&s=details&id=7549).
-    - type: info
-      content: PlaySFX sounds are MTA driven sounds, so MTA volume affects the volume.
-    - type: warning
-      content: |
-        Many players use versions of GTA:SA (especially pirated versions) that have audio files full of zeros so that they can compress better in their <b>AUDIO\\SFX\\</b> folder. (They lack any data).
-        
-        In case of these invalid audio files, this function returns false. It also returns false when trying to play a track deleted in the recent GTA: SA Steam patches (and if the client is using a Steam GTA: SA copy).
-  parameters:
-    - name: containerName
-      type: string
-      description: The name of the audio container. Possible values are "feet", "genrl", "pain_a", "script", "spc_ea", "spc_fa", "spc_ga", spc_na", "spc_pa", "radio".
-    - name: bankId/radioStation
-      type: int/string
-      description: The audio bank id. If <b>containerName</b> is "radio", then this argument is of type [[string]] and specifies the radio station name. Possible values "Adverts", "Ambience", "Police", "Playback FM", "K-Rose", "K-DST", "Cutscene", "Beats", "Bounce FM", "SF-UR", "Radio Los Santos", "Radio X", "CSR 103.9", "K-Jah West", "Master Sounds 98.3", "WCTR".
-    - name: soundId/trackId
-      type: int
-      description: The sound id within the audio bank. If <b>containerName</b> is "radio", then this argument specifies the radio track id within the radio station audio file.
-    - name: looped
-      type: bool
-      description: A [[boolean]] representing whether the sound will be looped.
-      default: 'false'    
-  returns:
-    values:
-      - type: sound
-        name: sound-element
-    description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+  parameters: []
   examples:
-    - path: examples/playSFX-1.lua
-      description: The following example plays a firealarm sound (looped).
-    - path: examples/playSFX-2.lua
-      description: This example spawns Big Smoke in his Crack Palace and plays one of his screams followed by the mission accomplished sound when he's killed.
+  - path: examples/playSFX-1.lua
+    description: The following example plays a firealarm sound (looped).
+    side: client
+  - path: examples/playSFX-2.lua
+    description: This example spawns Big Smoke in his Crack Palace and plays one of
+      his screams followed by the mission accomplished sound when he's killed.
+    side: client
+  notes:
+  - type: info
+    content: 'There is a tool available which allows you to find bank and sound IDs
+      easily: [ sfxBrowser:Download ].'
+  - type: warning
+    content: 'Many players use versions of GTA:SA (especially pirated versions) that
+      have audio files full of zeros so that they can compresses better in their AUDIO\SFX\
+      folder. (They lack any data) In case of these invalid audio files, this function
+      returns false . It also returns false when trying to play a track deleted in
+      the recent GTA: SA Steam patches (and if the client is using a Steam GTA: SA
+      copy).'
+  - type: info
+    content: PlaySFX sounds are MTA driven sounds, so MTA volume affects the volume.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Syntax 2
+
+      '

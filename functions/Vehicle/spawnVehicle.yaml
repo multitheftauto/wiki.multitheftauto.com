@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/spawnVehicle
+# Scraped from: https://wiki.multitheftauto.com/wiki/SpawnVehicle
 server:
   name: spawnVehicle
-  description: TODO
-  incomplete: true
+  description: Spawns a vehicle at any given position and rotation
+  parameters: []
+  examples:
+  - path: examples/spawnVehicle-1.lua
+    description: With this feature, we spawn vehicle
+    side: server

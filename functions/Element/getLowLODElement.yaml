@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getLowLODElement
-shared: &shared
-  name: getLowLODElement
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLowLODElement
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getLowLODElement
+  description: This function return the low LOD element that an element is associated
+    with.
+  parameters: []
+  examples:
+  - path: examples/getLowLODElement-1.lua
+    description: 'This example is not done yet:'
+    side: client
+  pair: setLowLODElement

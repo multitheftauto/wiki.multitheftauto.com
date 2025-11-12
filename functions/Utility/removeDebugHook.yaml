@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeDebugHook
-shared: &shared
-  name: removeDebugHook
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveDebugHook
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: removeDebugHook
+  description: This function removes hooks added by [addDebugHook](/wiki/AddDebugHook
+    "AddDebugHook")
+  parameters: []
+  examples:
+  - path: examples/removeDebugHook-1.lua
+    description: 'This example adds a hook, then removes it:'
+    side: server

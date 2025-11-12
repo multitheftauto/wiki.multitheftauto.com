@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/svgSetDocumentXML
+# Scraped from: https://wiki.multitheftauto.com/wiki/SvgSetDocumentXML
 client:
   name: svgSetDocumentXML
-  description: TODO
-  incomplete: true
+  description: Sets the underlying XML document of an SVG element.
+  parameters: []
+  examples:
+  - path: examples/svgSetDocumentXML-1.lua
+    description: This example creates ansvgelement including a keybind (F2) to add
+      a child rect node, with the use of callbacks to notify in debugscript when the
+      SVG was updated.
+    side: client

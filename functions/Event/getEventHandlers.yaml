@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getEventHandlers
-shared: &shared
-  name: getEventHandlers
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetEventHandlers
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getEventHandlers
+  description: This function gets the attached functions from the event and attached
+    element from current lua script.
+  parameters: []
+  examples:
+  - path: examples/getEventHandlers-1.lua
+    description: ''
+    side: server
+  - path: examples/getEventHandlers-2.lua
+    description: This example removes all onClientMarkerHit event in current script.
+    side: client

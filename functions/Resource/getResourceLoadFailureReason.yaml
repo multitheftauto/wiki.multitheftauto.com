@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getResourceLoadFailureReason
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceLoadFailureReason
 server:
   name: getResourceLoadFailureReason
-  description: TODO
-  incomplete: true
+  description: This function retrieves the reason why a resource failed to start.
+  parameters: []
+  examples:
+  - path: examples/getResourceLoadFailureReason-1.lua
+    description: 'This example checks if there''s a resource that failed to load,
+      then outputs "Resource: ''resourceName'' failed to load because ''reason''."
+      .'
+    side: server

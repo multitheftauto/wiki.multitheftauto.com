@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListSetVerticalScrollPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetVerticalScrollPosition
 client:
   name: guiGridListSetVerticalScrollPosition
-  description: TODO
-  incomplete: true
+  description: This function is used to set the vertical scroll position from a grid
+    list
+  parameters: []
+  examples:
+  - path: examples/guiGridListSetVerticalScrollPosition-1.lua
+    description: This example sets the position of the vertical scroll and outputs
+      it to the chatbox.
+    side: client
+  pair: guiGridListGetVerticalScrollPosition

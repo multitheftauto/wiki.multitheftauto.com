@@ -1,10 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createColCuboid
-shared: &shared
-  name: createColCuboid
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColCuboid
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: createColCuboid
+  description: This function creates a collision cuboid. This is a shape that has
+    a position, width, depth and height. See [Wikipedia](http://en.wikipedia.org/wiki/Cuboid)
+    for a definition of a cuboid. The XYZ of the col starts at the southwest bottom
+    corner of the shape.
+  parameters: []
+  examples:
+  - path: examples/createColCuboid-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console functionset_zone.
+    side: server
+  - path: examples/createColCuboid-2.lua
+    description: This function creates a cuboid and centers it to given coordinates
+    side: server
+  notes:
+  - type: info
+    content: Attaching a cuboid colshape to another element may give unexpected results
+      as the origin is not at the cuboid centre. Try using a collision sphere for
+      attaching instead
+  - type: tip
+    content: To visualize a colshape when writing scripts, use the client console
+      command showcol

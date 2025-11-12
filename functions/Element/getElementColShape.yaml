@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementColShape
-shared: &shared
-  name: getElementColShape
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementColShape
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementColShape
+  description: Some elements have an associated colshape, for example [Marker](/wiki/Marker
+    "Marker") and [Pickup](/wiki/Pickup "Pickup"). This function is used to get the
+    associated colshape.
+  parameters: []
+  examples:
+  - path: examples/getElementColShape-1.lua
+    description: This example creates a marker inside Toreno's house and adds a command
+      to check whether you are standing on it.
+    side: server

@@ -1,5 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleRotorState
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleRotorState
 client:
   name: setVehicleRotorState
-  description: TODO
-  incomplete: true
+  description: Turns the rotor on/off for an plane or helicopter. A vehicle with the
+    rotor turned off cannot hover in the air.
+  parameters: []
+  examples:
+  - path: examples/setVehicleRotorState-1.lua
+    description: This example code will add a command called '/rotorstart' that will
+      either shut your vehicle's rotors off or start them up again. Do note that once
+      rotors are stopped you will simply fall from the sky.
+    side: client
+  pair: getVehicleRotorState
+  notes:
+  - type: info
+    content: The function should not be confused with setVehicleEngineState .

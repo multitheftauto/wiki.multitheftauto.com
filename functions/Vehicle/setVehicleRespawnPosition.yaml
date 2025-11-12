@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleRespawnPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleRespawnPosition
 server:
   name: setVehicleRespawnPosition
-  description: TODO
-  incomplete: true
+  description: This function sets the position (and rotation) the vehicle will respawn
+    to.
+  parameters: []
+  examples:
+  - path: examples/setVehicleRespawnPosition-1.lua
+    description: This example creates a vehicle and changes its respawn position.
+    side: server

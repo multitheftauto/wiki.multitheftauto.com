@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/attachTrailerToVehicle
-shared: &shared
-  name: attachTrailerToVehicle
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/AttachTrailerToVehicle
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: attachTrailerToVehicle
+  description: This function attaches a trailer type vehicle to a trailer\-towing\-type
+    vehicle.
+  parameters: []
+  examples:
+  - path: examples/attachTrailerToVehicle-1.lua
+    description: This example will create a trailer and a trailer tower, then attach
+      them.
+    side: server

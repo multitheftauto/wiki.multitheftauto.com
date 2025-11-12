@@ -1,5 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxDrawPrimitive
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawPrimitive
 client:
   name: dxDrawPrimitive
-  description: TODO
+  description: This function draws a 2D primitive shape across the screen \- rendered
+    for one frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
+    "OnClientRender") in order to display continuously.
+  parameters: []
+  examples:
+  - path: examples/dxDrawPrimitive-1.lua
+    description: This is a small example that creates trianglefan primitive with vertices
+      in places that user clicks. It assigns every vertex random color.
+    side: client
+  - path: examples/dxDrawPrimitive-2.lua
+    description: This example draws one complete oscillation of a sine wave starting
+      in the center of the players screen using a linestrip type primitive.
+    side: client
+  - path: examples/dxDrawPrimitive-3.lua
+    description: Modifying the previous example, we can also use it to draw a "loading
+      circle"-symbol similar to what some modern games like using to indicate loading
+      or cloud saving in progress.
+    side: client
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Allowed types
+
+      - Missing section: Vertices format
+
+      '

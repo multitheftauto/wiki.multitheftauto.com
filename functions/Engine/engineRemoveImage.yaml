@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineRemoveImage
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRemoveImage
 client:
   name: engineRemoveImage
-  description: TODO
-  incomplete: true
+  description: This function disables streaming from an IMG container.
+  parameters: []
+  examples:
+  - path: examples/engineRemoveImage-1.lua
+    description: This example loads IMG file, adds it to GTA and after 10 seconds
+      removes it.
+    side: client

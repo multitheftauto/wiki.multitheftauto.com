@@ -1,5 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/processLineOfSight
+# Scraped from: https://wiki.multitheftauto.com/wiki/ProcessLineOfSight
 client:
   name: processLineOfSight
-  description: TODO
-  incomplete: true
+  description: This function casts a ray between two points in the world, and tells
+    you information about the point that was hit, if any. The two positions **must**
+    be within the local player's draw distance as the collision data is not loaded
+    outside this area, and the call will just fail as if the ray didn't hit.
+  parameters: []
+  examples:
+  - path: examples/processLineOfSight-1.lua
+    description: This example shows how you can tell what position and element the
+      camera is looking at, up to 50 units away.
+    side: client
+  - path: examples/processLineOfSight-2.lua
+    description: This example shows how you can get the surface type a vehicle is
+      on. This is useful if you want to do a script to dirt cars over time. Please
+      note that this function doesn't count if the vehicle is streamed in or not,
+      so expect this function to fail or return incorrect values on unloaded vehicles.
+    side: client
+  notes:
+  - type: info
+    content: Due to a bug, shootThroughStuff argument does currently check for seeThroughStuff!
+  - type: info
+    content: Due to a bug, seeThroughStuff argument has no effect. It mistakenly checks
+      for "shootThrough" surfaces and will always behave as if the argument is set
+      to FALSE (It will never hit).

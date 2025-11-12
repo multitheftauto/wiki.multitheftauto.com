@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/restoreGameWorld
-shared: &shared
-  name: restoreGameWorld
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/RestoreGameWorld
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: restoreGameWorld
+  description: This function restores the entire game world.
+  parameters: []
+  examples:
+  - path: examples/restoreGameWorld-1.lua
+    description: This example restores game world.
+    side: server

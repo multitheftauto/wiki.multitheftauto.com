@@ -1,0 +1,7 @@
+addEventHandler('onClientResourceStart', resourceRoot, function()
+  local img = fileOpen('img.jpg')
+  local pixels = fileRead(img, fileGetSize(img))
+  local pixelsFormat = dxGetPixelsFormat(pixels)
+  outputChatBox('Pixels format is: ' .. pixelsFormat)
+  fileClose(img)
+end)

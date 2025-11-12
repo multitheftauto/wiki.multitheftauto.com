@@ -1,10 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.char
-shared: &shared
-  name: utf8.char
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.char
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.char
+  description: Generates a string representing the character codepoints as arguments.
+  parameters: []
+  examples:
+  - path: examples/utf8.char-1.lua
+    description: This example separates an input string into single codepoints and
+      then joins these back together, representing the original input string.
+    side: server
+  - path: examples/utf8.char-2.lua
+    description: This example takes three code points to generate the string "MTA".
+    side: server
+  - path: examples/utf8.char-3.lua
+    description: This example takes the first five code points from the input string
+      and then joins them back together.
+    side: client

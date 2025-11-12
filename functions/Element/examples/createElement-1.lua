@@ -1,0 +1,1 @@
+blueTeamFlag = createElement( "flag", "blue" )

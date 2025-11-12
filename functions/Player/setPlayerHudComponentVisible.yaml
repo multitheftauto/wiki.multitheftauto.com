@@ -1,10 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPlayerHudComponentVisible
-shared: &shared
-  name: setPlayerHudComponentVisible
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerHudComponentVisible
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setPlayerHudComponentVisible
+  description: This function will show or hide a part of the player's HUD.
+  parameters: []
+  examples:
+  - path: examples/setPlayerHudComponentVisible-1.lua
+    description: This example hides the ammo and weapon displays for players when
+      they join.
+    side: server
+  - path: examples/setPlayerHudComponentVisible-2.lua
+    description: This example lets players hide or bring up their bottom-left radar
+      with a command
+    side: client
+  - path: examples/setPlayerHudComponentVisible-3.lua
+    description: This example hides the weapon icon, weapon ammo, health bar, clock,
+      money, breath bar, armor bar & wanted level stars displays for players when
+      they join.
+    side: client

@@ -1,10 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/pregMatch
-shared: &shared
-  name: pregMatch
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/PregMatch
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: pregMatch
+  description: This function returns all matches.
+  parameters: []
+  examples:
+  - path: examples/pregMatch-1.lua
+    description: 'Some examples:'
+    side: server
+  notes:
+  - type: warning
+    content: When declaring a pattern string in quotes, the backslash character should
+      be doubled up. e.g. "\\(" will match a single bracket.
+  - type: warning
+    content: Multiline flag does not work correctly

@@ -1,20 +1,9 @@
-shared: &shared
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileGetSize
+server:
   name: fileGetSize
-  oop:
-    element: file
-    method: getSize
-    variable: size
-  description: Returns the total size in **bytes** of the given file.
-  parameters:
-    - name: 'theFile'
-      type: 'file'
-      description: The file handle you wish to get the size of.
-  returns:
-    description: Returns the file size if successful, or false if an error occured (e.g. an invalid file handle was passed).
-    values:
-      - type: int|false
-        name: result
+  description: Returns the total size in bytes of the given file.
+  parameters: []
   examples:
-    - path: 'examples/fileGetSize-1.lua'
-    - path: 'examples/fileGetSize_OOP-1.lua'
-      oop: true
+  - path: examples/fileGetSize-1.lua
+    description: ''
+    side: server

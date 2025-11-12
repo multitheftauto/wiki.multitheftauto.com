@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementVelocity
-shared: &shared
-  name: getElementVelocity
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementVelocity
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementVelocity
+  description: This function returns three floats containing the velocity (movement
+    speeds) along the X, Y, and Z axis respectively. This means that velocity values
+    can be positive and negative for each axis.
+  parameters: []
+  examples:
+  - path: examples/getElementVelocity-1.lua
+    description: This example retrieves, calculates, and displays the speed of a random
+      player.
+    side: server
+  pair: setElementVelocity

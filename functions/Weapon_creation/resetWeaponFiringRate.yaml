@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetWeaponFiringRate
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetWeaponFiringRate
 client:
   name: resetWeaponFiringRate
-  description: TODO
-  incomplete: true
+  description: This function resets the firing rate of a [custom weapon](/wiki/Element/Weapon
+    "Element/Weapon") to the default one.
+  parameters: []
+  examples:
+  - path: examples/resetWeaponFiringRate-1.lua
+    description: ''
+    side: client

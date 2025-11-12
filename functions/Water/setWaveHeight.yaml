@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setWaveHeight
-shared: &shared
-  name: setWaveHeight
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWaveHeight
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setWaveHeight
+  description: This function sets the wave height to the desired value, the default
+    is 0\.
+  parameters: []
+  examples:
+  - path: examples/setWaveHeight-1.lua
+    description: This example changes the wave height to the given amount.
+    side: server
+  pair: getWaveHeight

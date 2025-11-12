@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setWeaponState
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponState
 client:
   name: setWeaponState
-  description: TODO
-  incomplete: true
+  description: This function sets a [custom weapon](/wiki/Element/Weapon "Element/Weapon")'s
+    state.
+  parameters: []
+  examples:
+  - path: examples/setWeaponState-1.lua
+    description: ''
+    side: client
+  pair: getWeaponState

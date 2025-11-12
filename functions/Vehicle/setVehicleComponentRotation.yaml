@@ -1,5 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleComponentRotation
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleComponentRotation
 client:
   name: setVehicleComponentRotation
-  description: TODO
-  incomplete: true
+  description: This function sets the component rotation of a [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/setVehicleComponentRotation-1.lua
+    description: Example 1:This example would change the roatation of the component
+      when the player enters a vehicle.
+    side: client
+  pair: getVehicleComponentRotation
+  notes:
+  - type: info
+    content: Before r6974 the component rotations went the wrong way (i.e. opposite
+      to the vehicle rotations). This has been corrected, so you'll have to modify
+      any scripts written before r6974 that use this function.

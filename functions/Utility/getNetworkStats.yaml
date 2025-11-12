@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getNetworkStats
-shared: &shared
-  name: getNetworkStats
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetNetworkStats
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getNetworkStats
+  description: This function returns network status information.
+  parameters: []
+  examples:
+  - path: examples/getNetworkStats-1.lua
+    description: This example outputs the local players network status information
+      to their console when using the /netstatus command
+    side: client

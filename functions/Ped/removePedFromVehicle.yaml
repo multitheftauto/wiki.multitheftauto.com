@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removePedFromVehicle
-shared: &shared
-  name: removePedFromVehicle
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemovePedFromVehicle
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: removePedFromVehicle
+  description: This function removes a ped from a vehicle immediately. This works
+    for drivers and passengers. Note that this removes the ped from the vehicle and
+    puts him in the exact position where the command was initiated.
+  parameters: []
+  examples:
+  - path: examples/removePedFromVehicle-1.lua
+    description: Small example to show how to remove a ped from any vehicle it's in.
+    side: server

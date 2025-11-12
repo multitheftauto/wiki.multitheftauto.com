@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleComponentVisible
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleComponentVisible
 client:
   name: getVehicleComponentVisible
-  description: TODO
-  incomplete: true
+  description: This function get component visibility for [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/getVehicleComponentVisible-1.lua
+    description: Example 1:This example would get the name and tells if the component
+      is visible or not.
+    side: client
+  pair: setVehicleComponentVisible

@@ -1,13 +1,13 @@
-function getMyHealth()
-	-- output player ped health to chat
-	outputChatBox("My health is: "..getElementHealth(localPlayer));
+function showLocalHealth()
+	-- get the player's health and output it
+	local playerHealth = getElementHealth ( localPlayer )
+	outputChatBox ( "Your health: " .. playerHealth )
 
-	-- check if we are in a vehicle
-	local uVehicle = getPedOccupiedVehicle(localPlayer);
-
-	-- if valid vehicle, output its health to chat
-	if(uVehicle) then
-		outputChatBox("My vehicle health is: "..getElementHealth(uVehicle));
+	-- get the player's vehicle: if he is in one, output its health as well
+	local playerVehicle = getPedOccupiedVehicle ( localPlayer )
+	if playerVehicle then
+		local vehicleHealth = getElementHealth ( playerVehicle ) / 10  -- Divide this by 10, as default the denominator is 1000
+		outputChatBox ( "Your vehicle's health: " .. vehicleHealth )
 	end
 end
-addCommandHandler("health", getMyHealth);
+addCommandHandler ( "showhealth", showLocalHealth )

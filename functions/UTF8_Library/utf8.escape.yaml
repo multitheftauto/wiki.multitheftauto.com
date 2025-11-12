@@ -1,10 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.escape
-shared: &shared
-  name: utf8.escape
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.escape
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.escape
+  description: Escapes a string to a UTF\-8 format string. It supports several escape
+    formats, see the formatting table.
+  parameters: []
+  examples:
+  - path: examples/utf8.escape-1.lua
+    description: This example escapes two byte-string literals to UTF-8 format by
+      using the utf8.escape function.
+    side: server
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Formatting
+
+      '

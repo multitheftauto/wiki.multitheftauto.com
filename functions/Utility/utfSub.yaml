@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utfSub
-shared: &shared
-  name: utfSub
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/UtfSub
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utfSub
+  description: The function returns a sub string, from the specified positions on
+    a character.
+  parameters: []
+  examples:
+  - path: examples/utfSub-1.lua
+    description: ''
+    side: server

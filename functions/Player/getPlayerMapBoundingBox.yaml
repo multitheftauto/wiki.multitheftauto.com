@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerMapBoundingBox
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerMapBoundingBox
 client:
   name: getPlayerMapBoundingBox
-  description: TODO
-  incomplete: true
+  description: This function gets the GUI bounding box of the player map (F11\) texture.
+  parameters: []
+  examples:
+  - path: examples/getPlayerMapBoundingBox-1.lua
+    description: This example draws the text "Center of SA map" in the F11 map screen
+      where the center of world coordinates is.
+    side: client
+  - path: examples/getPlayerMapBoundingBox-2.lua
+    description: This example lets players set a target blip in their map by clicking
+      with the left mouse button in the desired place in the F11 world map, and delete
+      it by clicking with the right mouse button.
+    side: client

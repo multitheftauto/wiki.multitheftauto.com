@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/dxDrawPrimitive3D
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawPrimitive3D
 client:
   name: dxDrawPrimitive3D
-  description: TODO
-  incomplete: true
+  description: This function draws a 3D primitive in the 3D world \- rendered for
+    **one** frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
+    "OnClientRender") in order to display continuously.
+  parameters: []
+  examples:
+  - path: examples/dxDrawPrimitive3D-1.lua
+    description: This is a small example of creating 3D Primitive object with 4 vertex
+      that will spawn on 'The Well Stacked Pizza Co.' in Idlewood.
+    side: client

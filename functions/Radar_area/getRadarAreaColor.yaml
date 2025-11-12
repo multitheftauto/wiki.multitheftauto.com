@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getRadarAreaColor
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetRadarAreaColor
 server:
   name: getRadarAreaColor
-  description: TODO
-  incomplete: true
+  description: This function can be used to retrieve the current color of a [radar
+    area](/wiki/Radararea "Radararea").
+  parameters: []
+  examples:
+  - path: examples/getRadarAreaColor-1.lua
+    description: This example checks the color of a radararea defined as 'area' and
+      announces if it is Ballas or Grove Street territory.
+    side: server

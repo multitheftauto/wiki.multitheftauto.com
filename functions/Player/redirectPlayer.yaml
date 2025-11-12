@@ -1,5 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/redirectPlayer
+# Scraped from: https://wiki.multitheftauto.com/wiki/RedirectPlayer
 server:
   name: redirectPlayer
-  description: TODO
-  incomplete: true
+  description: This function redirects the player to a specified server.
+  parameters: []
+  examples:
+  - path: examples/redirectPlayer-1.lua
+    description: This example auto-redirects all connecting players to another given
+      servers' IP:port.
+    side: server
+  - path: examples/redirectPlayer-2.lua
+    description: This example adds a "joinserver" command using the syntax, "/joinserver
+      serverIP serverPort [serverPassword]".
+    side: server
+  - path: examples/redirectPlayer-3.lua
+    description: This example adds a "rejoin" command like the inbuilt reconnect command.
+    side: server
+  notes:
+  - type: info
+    content: A resource using this function needs ACL rights in order to work (function.redirectPlayer)

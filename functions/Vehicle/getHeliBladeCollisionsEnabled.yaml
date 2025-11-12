@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getHeliBladeCollisionsEnabled
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetHeliBladeCollisionsEnabled
 client:
   name: getHeliBladeCollisionsEnabled
-  description: TODO
-  incomplete: true
+  description: This function gets the state of the helicopter blades collisions on
+    the specified vehicle.
+  parameters: []
+  examples:
+  - path: examples/getHeliBladeCollisionsEnabled-1.lua
+    description: This example shows the blade collisions state
+    side: client
+  pair: setHeliBladeCollisionsEnabled

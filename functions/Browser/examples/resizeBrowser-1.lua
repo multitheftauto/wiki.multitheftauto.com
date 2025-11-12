@@ -1,5 +1,5 @@
-local screenWidth, screenHeight = guiGetScreenSize()
-local initBrowser = guiCreateBrowser(0, 0, screenWidth, screenHeight, true, true, false)
+screenWidth, screenHeight = guiGetScreenSize()
+initBrowser = guiCreateBrowser(0, 0, screenWidth, screenHeight, true, true, false)
 addCommandHandler("resize",
 	function ( cmd, width, height )
 		local browser = guiGetBrowser(initBrowser)

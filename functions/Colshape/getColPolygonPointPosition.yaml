@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getColPolygonPointPosition
-shared: &shared
-  name: getColPolygonPointPosition
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetColPolygonPointPosition
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getColPolygonPointPosition
+  description: This function is used to get the position of a bound point in a [colshape
+    polygon](/wiki/CreateColPolygon "CreateColPolygon").
+  parameters: []
+  examples:
+  - path: examples/getColPolygonPointPosition-1.lua
+    description: ''
+    side: server
+  pair: setColPolygonPointPosition

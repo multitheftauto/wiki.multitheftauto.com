@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementCallPropagationEnabled
-shared: &shared
-  name: setElementCallPropagationEnabled
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementCallPropagationEnabled
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setElementCallPropagationEnabled
+  description: This function enables/disables call propagation on a certain element.
+    Look at the example for a practical application.
+  parameters: []
+  examples:
+  - path: examples/setElementCallPropagationEnabled-1.lua
+    description: ''
+    side: client

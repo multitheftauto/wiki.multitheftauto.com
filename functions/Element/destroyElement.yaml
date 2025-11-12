@@ -1,10 +1,43 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/destroyElement
-shared: &shared
-  name: destroyElement
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/DestroyElement
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: destroyElement
+  description: This function destroys an [element](/wiki/Element "Element") and all
+    elements within it in the hierarchy (its children, the children of those children
+    etc). [Player](/wiki/Player "Player") elements cannot be destroyed using this
+    function. A player can only be removed from the hierarchy when they quit or are
+    kicked. The root element also cannot be destroyed, however, passing the root as
+    an argument will wipe all elements from the server, except for the players and
+    clients, which will become direct descendants of the root node, and other elements
+    that cannot be destroyed, such as resource root elements.
+  parameters: []
+  examples:
+  - path: examples/destroyElement-1.lua
+    description: Example 1:This example would destroy every element in the map, with
+      the exception of players and the root element itself.
+    side: server
+  - path: examples/destroyElement-2.lua
+    description: 'Example 2:This example destroys all vehicles of the specified model:'
+    side: server
+  - path: examples/destroyElement-3.lua
+    description: Example 3:This example allows creation of claymores, which trigger
+      and explode.  When they explode, the colshape and object for the claymore are
+      destroyed.
+    side: server
+  - path: examples/destroyElement-4.lua
+    description: 'Example 4:This example destroys all vehicles, regardless of ID,
+      name, etc:'
+    side: server
+  notes:
+  - type: info
+    content: There is bug when you try to destroy webbrowser that returned from guiGetBrowser
+      so instead of that destroy the gui-element one that returned from guiCreateBrowser
+      otherwise the game will be crushed (By Master_MTA).
+  - type: info
+    content: As element ids are eventually recycled, always make sure you nil variables
+      containing the element after calling this function
+  - type: info
+    content: If a streamed-in element is destroyed then it is NOT streamed out, i.e.
+      the onClientElementStreamOut client-side event is NOT triggered. Thus it is
+      wrong to assume a clean stream-in and stream-out sequence on the client-side.
+      Additionally to onClientElementStreamOut use a onClientElementDestroy event
+      handler to detect the destruction of streamed-in elements.

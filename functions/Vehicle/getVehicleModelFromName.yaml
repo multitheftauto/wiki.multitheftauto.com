@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleModelFromName
-shared: &shared
-  name: getVehicleModelFromName
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleModelFromName
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleModelFromName
+  description: This function retrieves the model ID of a vehicle as an [integer](/wiki/Int
+    "Int") value from its name.
+  parameters: []
+  examples:
+  - path: examples/getVehicleModelFromName-1.lua
+    description: This will allow the player to create a vehicle by name and it's model
+      ID will be displayed in the chatbox when the vehicle is spawned.
+    side: server

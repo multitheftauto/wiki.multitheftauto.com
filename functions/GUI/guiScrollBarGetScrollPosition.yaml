@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiScrollBarGetScrollPosition
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiScrollBarGetScrollPosition
 client:
   name: guiScrollBarGetScrollPosition
-  description: TODO
-  incomplete: true
+  description: This function gets the scroll amount of a scrollbar as a percentage.
+  parameters: []
+  examples:
+  - path: examples/guiScrollBarGetScrollPosition-1.lua
+    description: This example outputs a message with the new scroll position when
+      a scrollbar is scrolled.
+    side: client

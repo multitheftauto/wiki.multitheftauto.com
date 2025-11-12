@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/removeColPolygonPoint
-shared: &shared
-  name: removeColPolygonPoint
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveColPolygonPoint
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: removeColPolygonPoint
+  description: This function is used to remove a point from an existing [colshape
+    polygon](/wiki/CreateColPolygon "CreateColPolygon").
+  parameters: []
+  examples:
+  - path: examples/removeColPolygonPoint-1.lua
+    description: This example remove a polygon colshape point by command 'removepoint'.
+    side: server
+  pair: addColPolygonPoint

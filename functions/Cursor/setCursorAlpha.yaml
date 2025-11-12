@@ -1,22 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetCursorAlpha
 client:
-  name: 'setCursorAlpha'
-  pair: 'getCursorAlpha'
-  description: |
-    This function is used to change alpha (transparency) of the client's cursor.
-  preview_images:
-    - path: 'cursor-alpha.jpg'
-      description: 'Visual representation of the cursor alpha:'
-  parameters:
-    - name: 'alpha'
-      type: 'int'
-      description: 'The alpha value to set. Value can be in between 0 and 255, where 255 is fully opaque and 0 is fully transparent.'
-  returns:
-    description: |
-      Returns *true* if the new alpha value was set, or *false* otherwise.
-    values:
-      - type: 'bool'
-        name: 'result'
+  name: setCursorAlpha
+  description: This function is used to change alpha (transparency) from the client's
+    cursor.
+  parameters: []
   examples:
-    - path: 'examples/setCursorAlpha.lua'
-      description: |
-        This example sets the cursor alpha to 100 using */cursoralpha* command:
+  - path: examples/setCursorAlpha-1.lua
+    description: ''
+    side: client
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Contents
+
+      '

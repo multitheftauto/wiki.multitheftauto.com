@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getSearchLightStartRadius
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSearchLightStartRadius
 client:
   name: getSearchLightStartRadius
-  description: TODO
-  incomplete: true
+  description: This function gets the start radius of a [searchlight](/wiki/Element/Searchlight
+    "Element/Searchlight") element.
+  parameters: []
+  examples:
+  - path: examples/getSearchLightStartRadius-1.lua
+    description: ''
+    side: client
+  pair: setSearchLightStartRadius

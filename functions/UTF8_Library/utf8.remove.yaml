@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/utf8.remove
-shared: &shared
-  name: utf8.remove
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.remove
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: utf8.remove
+  description: This function removes a substring in a UTF\-8 string by using a position
+    range.
+  parameters: []
+  examples:
+  - path: examples/utf8.remove-1.lua
+    description: This example shows how to remove substrings from strings.
+    side: server

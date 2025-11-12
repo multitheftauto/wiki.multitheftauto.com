@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fxAddWood
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddWood
 client:
   name: fxAddWood
-  description: TODO
-  incomplete: true
+  description: Creates a wood splinter particle effect.
+  parameters: []
+  examples:
+  - path: examples/fxAddWood-1.lua
+    description: This example will create a Wood Effect next to you when typing/woodfxin
+      the Chatbox.
+    side: client

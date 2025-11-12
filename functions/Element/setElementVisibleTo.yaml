@@ -1,5 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementVisibleTo
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementVisibleTo
 server:
   name: setElementVisibleTo
-  description: TODO
-  incomplete: true
+  description: This function can change an [element](/wiki/Element "Element")'s [visibility](/wiki/Visibility
+    "Visibility").
+  parameters: []
+  examples:
+  - path: examples/setElementVisibleTo-1.lua
+    description: This example creates a marker and makes it only visibile to the player
+      called 'someguy'.
+    side: server
+  - path: examples/setElementVisibleTo-2.lua
+    description: The following example shows how to make the marker visible to everyone
+      except anotherguy
+    side: server
+  pair: isElementVisibleTo

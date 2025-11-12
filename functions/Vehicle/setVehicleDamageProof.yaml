@@ -1,10 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehicleDamageProof
-shared: &shared
-  name: setVehicleDamageProof
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleDamageProof
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setVehicleDamageProof
+  description: This functions makes a vehicle damage proof, so it won't take damage
+    from bullets, hits, explosions or fire. A damage proof's vehicle health can still
+    be changed via script.
+  parameters: []
+  examples:
+  - path: examples/setVehicleDamageProof-1.lua
+    description: This example spawns a vehicle and sets it damage proof immediately.
+    side: server
+  pair: isVehicleDamageProof
+  notes:
+  - type: info
+    content: Setting a bike damage proof will have the side-effect of peds not being
+      able to get knocked off anymore, even if setPedCanBeKnockedOffBike is set to
+      true. Consider using and cancelling the onVehicleDamage / onClientVehicleDamage
+      events instead.

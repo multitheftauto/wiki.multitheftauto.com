@@ -1,0 +1,1 @@
+local result = dbPoll ( qh, -1 )

@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiEditIsMasked
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditIsMasked
 client:
   name: guiEditIsMasked
-  description: TODO
-  incomplete: true
+  description: This function checks if an edit box is masked.
+  parameters: []
+  examples:
+  - path: examples/guiEditIsMasked-1.lua
+    description: ''
+    side: client
+  pair: guiEditSetMasked

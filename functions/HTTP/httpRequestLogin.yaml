@@ -1,5 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/httpRequestLogin
+# Scraped from: https://wiki.multitheftauto.com/wiki/HttpRequestLogin
 server:
   name: httpRequestLogin
-  description: TODO
-  incomplete: true
+  description: This function makes the user's browser show a 'basic authentication'
+    login box. The result of the login is handled automatically by the server. If
+    the user has not logged in satisfactorily, you should just call the httpRequestLogin
+    function again. It is the script's responsibility to judge when the user is logged
+    in satisfactorily \- you can use the *user* variable can be used to check if the
+    user has logged in with an account you are happy with. If the logged in user doesn't
+    meet whatever criteria you have, you can just call httpRequestLogin again and
+    they will be re\-promoted for their password.
+  parameters: []
+  examples:
+  - path: examples/httpRequestLogin-1.lua
+    description: This example shows how you can make a page that only registered users
+      can see.
+    side: server

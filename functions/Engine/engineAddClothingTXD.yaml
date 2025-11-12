@@ -1,5 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineAddClothingTXD
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineAddClothingTXD
 client:
   name: engineAddClothingTXD
-  description: TODO
-  incomplete: true
+  description: This function adds new CJ clothing texture.
+  parameters: []
+  examples: []

@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleSirens
-shared: &shared
-  name: getVehicleSirens
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleSirens
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getVehicleSirens
+  description: This function gets the properties of a vehicle's sirens.
+  parameters: []
+  examples:
+  - path: examples/getVehicleSirens-1.lua
+    description: This example returns the siren properties when the player presses
+      Z.
+    side: server
+  pair: setVehicleSirens

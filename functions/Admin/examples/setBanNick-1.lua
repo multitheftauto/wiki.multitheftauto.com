@@ -1,7 +1,7 @@
 -- this example looks if there is a ban with nick 'Steve', and if there is, it changes ban nick to 'Mike'
-local function changeBanNick()
+function changeBanNick()
    for i,ban in pairs(getBans()) do
-      if (getBanNick(ban) == "Steve") then
+      if getBanNick(ban) == "Steve" then
          setBanNick(ban,"Mike")
       end
    end

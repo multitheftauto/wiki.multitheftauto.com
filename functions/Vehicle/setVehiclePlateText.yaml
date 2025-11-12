@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setVehiclePlateText
-shared: &shared
-  name: setVehiclePlateText
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehiclePlateText
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setVehiclePlateText
+  description: 'This function can be used to set the numberplate text of a vehicle.
+
+    All non ascii characters will be replaced by spaces.'
+  parameters: []
+  examples:
+  - path: examples/setVehiclePlateText-1.lua
+    description: ''
+    side: server
+  pair: getVehiclePlateText

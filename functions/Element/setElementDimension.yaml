@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setElementDimension
-shared: &shared
-  name: setElementDimension
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementDimension
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setElementDimension
+  description: This function allows you to set the [dimension](/wiki/Dimension "Dimension")
+    of an element. See [Dimension](/wiki/Dimension "Dimension") for the in\-depth
+    explanation and the list of valid element types.
+  parameters: []
+  examples:
+  - path: examples/setElementDimension-1.lua
+    description: In this example the player's dimension is set to ID 1 when they enter
+      a vehicle, and set back to dimension 0 when they exit the vehicle.
+    side: server
+  pair: getElementDimension

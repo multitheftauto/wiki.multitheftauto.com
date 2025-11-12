@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementVisibleTo
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementVisibleTo
 server:
   name: isElementVisibleTo
-  description: TODO
-  incomplete: true
+  description: This checks if an element is visible to a player. This does not check
+    if the player can literally see the element, just that they are aware that it
+    exists. Some so\-called [per\-player elements](/wiki/Per-player_elements?action=edit&redlink=1
+    "Per-player elements (page does not exist)") are able to be visible only to some
+    players, as such this checks if this is the case for a particular element/player
+    combination.
+  parameters: []
+  examples:
+  - path: examples/isElementVisibleTo-1.lua
+    description: This checks if the player is visible to them selves.
+    side: server
+  pair: setElementVisibleTo

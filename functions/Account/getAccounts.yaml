@@ -1,19 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccounts
 server:
   name: getAccounts
-  description: |
-    This function returns a [[table]] over all the accounts that exist in the server **internal.db** file.
-  oop:
-    element: Account
-    static: true
-    method: getAll
-  returns:
-    values:
-      - type: table
-        name: accounts table
-    description: A [[table]] over the accounts that exist in the server **internal.db** file. This [[table]] might be empty.
+  description: 'This function returns a table over all the [accounts](/wiki/Account
+    "Account") that exist in the server internal.db file. (Note: accounts.xml is no
+    longer used after version 1\.0\.4\)'
+  parameters: []
   examples:
-    - path: examples/getAccounts-1.lua
-      description: This example displays the number of registered accounts on the server in the chat after typing the command <code>accountcount</code>.
-    - path: examples/getAccounts_OOP-1.lua
-      description: This example displays the number of registered accounts on the server in the chat after typing the command <code>accountcount</code>.
-      oop: true
+  - path: examples/getAccounts-1.lua
+    description: ''
+    side: server

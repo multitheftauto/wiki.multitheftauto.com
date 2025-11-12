@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPickupRespawnInterval
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPickupRespawnInterval
 server:
   name: getPickupRespawnInterval
-  description: TODO
-  incomplete: true
+  description: Returns the time it takes before a pickup respawns after a player picked
+    it up. The time is specified in milliseconds.
+  parameters: []
+  examples:
+  - path: examples/getPickupRespawnInterval-1.lua
+    description: This example outputs to the player that picked up the pickup, that
+      it's not going to spawn again for another ... secs.
+    side: server

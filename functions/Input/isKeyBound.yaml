@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isKeyBound
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsKeyBound
 server:
   name: isKeyBound
-  description: TODO
-  incomplete: true
+  description: This function can be used to find out if a key has already been bound.
+    If you do not specify a keyState or handler, any instances of key being bound
+    will cause isKeyBound to return true.
+  parameters: []
+  examples:
+  - path: examples/isKeyBound-1.lua
+    description: ''
+    side: server

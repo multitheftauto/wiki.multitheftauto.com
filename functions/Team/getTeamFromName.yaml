@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getTeamFromName
-shared: &shared
-  name: getTeamFromName
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTeamFromName
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getTeamFromName
+  description: This function finds a [team](/wiki/Team "Team") element using the provided
+    team name.
+  parameters: []
+  examples:
+  - path: examples/getTeamFromName-1.lua
+    description: 'This example creates a team, and sets the player''s team to it''s
+      partial name:'
+    side: server

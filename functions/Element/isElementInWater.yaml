@@ -1,10 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isElementInWater
-shared: &shared
-  name: isElementInWater
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementInWater
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: isElementInWater
+  description: This function checks whether an [element](/wiki/Element "Element")
+    is submerged in water.
+  parameters: []
+  examples:
+  - path: examples/isElementInWater-1.lua
+    description: ''
+    side: server
+  - path: examples/isElementInWater-2.lua
+    description: ''
+    side: client
+  - path: examples/isElementInWater-3.lua
+    description: ''
+    side: client

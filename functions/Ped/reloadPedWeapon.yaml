@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/reloadPedWeapon
+# Scraped from: https://wiki.multitheftauto.com/wiki/ReloadPedWeapon
 server:
   name: reloadPedWeapon
-  description: TODO
-  incomplete: true
+  description: This function makes a pedestrian reload their weapon.
+  parameters: []
+  examples:
+  - path: examples/reloadPedWeapon-1.lua
+    description: This example adds a 'reloadgun' console command that lets players
+      reload their weapon.
+    side: server

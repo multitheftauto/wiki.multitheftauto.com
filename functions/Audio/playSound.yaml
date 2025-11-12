@@ -1,30 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PlaySound
 client:
   name: playSound
-  description: Creates a [[sound]] element and plays it immediately after creation for the local player.
-  notes:
-    - type: info
-      content: <ul><li>The only supported audio formats are MP3, WAV, OGG, FLAC, RIFF, MOD, WEBM, XM, IT, S3M and PLS (e.g. Webstream).</li><li>For performance reasons, when using playSound for effects that will be played lots (i.e. weapon fire), it is recommend that you convert your audio file to a one channel (mono) WAV with sample rate of 22050 Hz or less. Also consider adding a limit on how often the effect can be played e.g. once every 50ms.</li><li>Playing sound files from other resources requires the target resource to be in the running state.</li></ul>
-  oop:
-    element: sound
-    constructorclass: Sound
-  parameters:
-    - name: soundPathOrData
-      type: string
-      description: '[filepath](/reference/Filepath/), raw data or URL (http://, https:// or ftp://) of the sound file you want to play.'
-    - name: looped
-      type: bool
-      description: A [[boolean]] representing whether the sound will be looped. To loop the sound, use true. Loop is not available for streaming sounds, only for sound files.
-      default: 'false'
-    - name: throttled
-      type: bool
-      description: A [[boolean]] representing whether the sound will be throttled (i.e. given reduced download bandwidth). To throttle the sound, use true. Sounds will be throttled per default and only for URLs.
-      default: 'true'
-  returns:
-    values:
-      - type: sound|false
-        name: soundElement
-    description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+  description: 'Creates a [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element")
+    and plays it immediately after creation for the local player.
+
+    Added the feature of playing WebM files.'
+  parameters: []
   examples:
-    - path: examples/playSound-1.lua
-    - path: examples/playSound_OOP-1.lua
-      oop: true
+  - path: examples/playSound-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: The only supported audio formats are MP3, WAV, OGG, FLAC, RIFF, MOD,
+      WEBM, XM, IT, S3M and PLS (e.g. Webstream). For performance reasons, when using
+      playSound for effects that will be played lots (i.e. weapon fire), it is recommend
+      that you convert your audio file to a one channel (mono) WAV with sample rate
+      of 22050 Hz or less. Also consider adding a limit on how often the effect can
+      be played e.g. once every 50ms.

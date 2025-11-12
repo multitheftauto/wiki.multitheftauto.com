@@ -1,22 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/InjectBrowserMouseUp
 client:
   name: injectBrowserMouseUp
   description: 'This function injects a mouse click (state: up).'
-  oop:
-    element: browser
-    method: injectMouseUp
-  parameters:
-    - name: webBrowser
-      type: browser
-      description: The browser.
-    - name: mouseButton
-      type: string
-      description: 'The mouse button (Possible values: <i>left, middle, right</i>).'
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the click was successfully injected, false otherwise.
+  parameters: []
   examples:
-    - path: examples/injectBrowserMouseUp-1.lua
-    - path: examples/injectBrowserMouseUp_OOP-1.lua
-      oop: true
+  - path: examples/injectBrowserMouseUp-1.lua
+    description: ''
+    side: client

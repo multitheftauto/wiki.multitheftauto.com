@@ -1,5 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/areVehicleLightsOn
+# Scraped from: https://wiki.multitheftauto.com/wiki/AreVehicleLightsOn
 client:
   name: areVehicleLightsOn
-  description: TODO
-  incomplete: true
+  description: This function is used to find out whether the lights of the vehicle
+    are on.
+  parameters: []
+  examples:
+  - path: examples/areVehicleLightsOn-1.lua
+    description: This example checks if your vehicle lights are on/off and tells you
+      the reason
+    side: client
+  notes:
+  - type: info
+    content: This is different to getVehicleOverrideLights because this function will
+      return true if the lights were turned on by natural causes. Unless setVehicleOverrideLights
+      is used, vehicles always automatically disable their lights at 06:25 and enable
+      them at 20:26.

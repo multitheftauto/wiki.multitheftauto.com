@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getValidPedModels
-shared: &shared
-  name: getValidPedModels
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetValidPedModels
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getValidPedModels
+  description: This function returns all valid ped models. The syntax is different
+    for server and client sides.
+  parameters: []
+  examples:
+  - path: examples/getValidPedModels-1.lua
+    description: This example will check if the specified skin ID is a valid skin
+      via a command.
+    side: server

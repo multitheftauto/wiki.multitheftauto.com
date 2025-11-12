@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateRadioButton
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateRadioButton
 client:
   name: guiCreateRadioButton
-  description: TODO
-  incomplete: true
+  description: This function creates a [radio button](/wiki/Element/GUI/Radio_button
+    "Element/GUI/Radio button").
+  parameters: []
+  examples:
+  - path: examples/guiCreateRadioButton-1.lua
+    description: This example creates a radio button then checks if one is selected
+      and if it is, then it's output the title and sets the next radio button selected.
+      (TESTED!)
+    side: client

@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiGridListSetColumnTitle
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetColumnTitle
 client:
   name: guiGridListSetColumnTitle
-  description: TODO
-  incomplete: true
+  description: This function is used to change the column title of a gridlist column.
+  parameters: []
+  examples:
+  - path: examples/guiGridListSetColumnTitle-1.lua
+    description: ''
+    side: client

@@ -1,10 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/addPedClothes
-shared: &shared
-  name: addPedClothes
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddPedClothes
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: addPedClothes
+  description: This function is used to set the current clothes on a [ped](/wiki/Ped
+    "Ped").
+  parameters: []
+  examples:
+  - path: examples/addPedClothes-1.lua
+    description: This example adds a 'moto' helmet to a player when he gets on a nrg
+      bike, and removes it when he gets off.
+    side: server
+  pair: getPedClothes
+  notes:
+  - type: info
+    content: This function only works with peds using CJ skin (ID 0).

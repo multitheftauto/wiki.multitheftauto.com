@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPedFightingStyle
-shared: &shared
-  name: setPedFightingStyle
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedFightingStyle
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: setPedFightingStyle
+  description: 'Changes a ped''s fighting style. Most styles only change the ''special
+    attack'' which is done using the Aim and Enter keys.
+
+    Function also added client\-side.'
+  parameters: []
+  examples:
+  - path: examples/setPedFightingStyle-1.lua
+    description: This example sets the player's fighting style to the desired style
+      when he types "setstyle" followed by a number from 4 to 16 in console.
+    side: server

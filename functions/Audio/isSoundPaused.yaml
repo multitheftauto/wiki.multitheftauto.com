@@ -1,30 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsSoundPaused
 client:
   name: isSoundPaused
-  pair: setSoundPaused
-  description: |
-    This function is used to return the current pause state of the specified [[sound]] element.
-
-    If the element is a [[player]], this function will use the players voice.
-  oop:
-    element: theSound
-    method: isPaused
-    variable: paused
-  parameters:
-    - name: theSound
-      type: sound/player
-      description: The [[sound]] element which pause state you want to return.
-  returns:
-    values:
-      - type: bool
-        name: result
-    description: Returns true if the [[sound]] element is paused, false if unpaused or invalid arguments were passed.
+  description: This function is used to return the current pause state of the specified
+    [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element").
+  parameters: []
   examples:
-    - path: examples/isSoundPaused-1.lua
-      description: This example will check and see if the sound is paused or not, and tell the player.
-    - path: examples/isSoundPaused_OOP-1.lua
-      description: This example will check and see if the sound is paused or not, and tell the player.
-      oop: true
-  meta:
-    - changelog:
-        - version: '1.3.2'
-          description: Added player element to use a players voice.
+  - path: examples/isSoundPaused-1.lua
+    description: ''
+    side: client
+  pair: setSoundPaused

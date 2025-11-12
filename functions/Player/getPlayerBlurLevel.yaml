@@ -1,10 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerBlurLevel
-shared: &shared
-  name: getPlayerBlurLevel
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerBlurLevel
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPlayerBlurLevel
+  description: This function allows you to check the current blur level of a specified
+    [player](/wiki/Player "Player").
+  parameters: []
+  examples:
+  - path: examples/getPlayerBlurLevel-1.lua
+    description: This example adds a commandblurlevelwith which you can check your
+      current blur level.
+    side: server
+  pair: setPlayerBlurLevel

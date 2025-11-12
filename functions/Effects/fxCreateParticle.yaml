@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/fxCreateParticle
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxCreateParticle
 client:
   name: fxCreateParticle
-  description: TODO
-  incomplete: true
+  description: Creates the given particles of the specified color. Can be useful for
+    creating flares, toxic fumes, reward effects, etc.
+  parameters: []
+  examples:
+  - path: examples/fxCreateParticle-1.lua
+    description: This example creates a constant green, toxic fume over the biowell.
+    side: client

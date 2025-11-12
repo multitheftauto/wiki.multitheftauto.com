@@ -1,41 +1,27 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PlaySound3D
 client:
   name: playSound3D
-  description: Creates a [[sound]] element in the GTA world and plays it immediately after creation for the local player. [[setElementPosition]] can be used to move the sound element around after it has been created. Remember to use [[setElementDimension]] after creating the sound to play it outside of dimension 0.
-  notes:
-    - type: info
-      content: <ul><li>The only supported audio formats are MP3, WAV, OGG, FLAC, RIFF, MOD, WEBM, XM, IT, S3M and PLS (e.g. Webstream).</li><li>For performance reasons, when using playSound for effects that will be played lots (i.e. weapon fire), it is recommend that you convert your audio file to a one channel (mono) WAV with sample rate of 22050 Hz or less. Also consider adding a limit on how often the effect can be played e.g. once every 50ms.</li><li>Playing sound files from other resources requires the target resource to be in the running state.</li></ul>
-  oop:
-    element: sound
-    constructorclass: Sound3D
-  parameters:
-    - name: soundPathOrData
-      type: string
-      description: '[filepath](/reference/Filepath/), raw data or URL (http://, https:// or ftp://) of the sound file you want to play.'
-    - name: x
-      type: float
-      description: A floating point number representing the X coordinate on the map.
-    - name: 'y'
-      type: float
-      description: A floating point number representing the Y coordinate on the map.
-    - name: z
-      type: float
-      description: A floating point number representing the Z coordinate on the map.
-    - name: looped
-      type: bool
-      description: A [[boolean]] representing whether the sound will be looped. To loop the sound, use true. Loop is not available for streaming sounds, only for sound files.
-      default: 'false'
-    - name: throttled
-      type: bool
-      description: A [[boolean]] representing whether the sound will be throttled (i.e. given reduced download bandwidth). To throttle the sound, use true. Sounds will be throttled per default and only for URLs.
-      default: 'true'
-  returns:
-    values:
-      - type: sound|false
-        name: soundElement
-    description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+  description: 'Creates a [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element")
+    in the GTA world and plays it immediately after creation for the local player.
+    [setElementPosition](/wiki/SetElementPosition "SetElementPosition") can be used
+    to move the [sound](/wiki/Sound "Sound") element around after it has been created.
+    Remember to use [setElementDimension](/wiki/SetElementDimension "SetElementDimension")
+    after creating the sound to play it outside of dimension 0\.
+
+    Added the feature of playing WebM files.'
+  parameters: []
   examples:
-    - path: examples/playSound3D-1.lua
-      description: This example creates a looping sound within a pizza shop. It's located in San Fierro near Pier 69.
-    - path: examples/playSound3D_OOP-1.lua
-      description: This example creates a looping sound within a pizza shop. It's located in San Fierro near Pier 69.
-      oop: true
+  - path: examples/playSound3D-1.lua
+    description: ''
+    side: client
+  - path: examples/playSound3D-2.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: The only supported audio formats are MP3, WAV, OGG, FLAC, RIFF, MOD,
+      WEBM, XM, IT and S3M. For performance reasons, when using playSound3D for effects
+      that will be played lots (i.e. weapon fire), it is recommend that you convert
+      your audio file to a one channel (mono) WAV with sample rate of 22050 Hz or
+      less. Also consider adding a limit on how often the effect can be played e.g.
+      once every 50ms.

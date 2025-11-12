@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPlayerIP
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerIP
 server:
   name: getPlayerIP
-  description: TODO
-  incomplete: true
+  description: This function returns a [string](/wiki/String "String") containing
+    the IP address of the [player](/wiki/Player "Player").
+  parameters: []
+  examples:
+  - path: examples/getPlayerIP-1.lua
+    description: This example prints a player's IP to the chat.
+    side: server

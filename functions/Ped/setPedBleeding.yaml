@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/setPedBleeding
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedBleeding
 client:
   name: setPedBleeding
-  description: TODO
-  incomplete: true
+  description: This function allows you to set [player's](/wiki/Player "Player") or
+    [ped's](/wiki/Ped "Ped") bleeding effect.
+  parameters: []
+  examples:
+  - path: examples/setPedBleeding-1.lua
+    description: This example causes the player to bleed.
+    side: client
+  pair: isPedBleeding

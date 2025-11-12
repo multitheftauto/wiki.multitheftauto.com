@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getCameraTarget
-shared: &shared
-  name: getCameraTarget
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraTarget
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getCameraTarget
+  description: This function returns an [element](/wiki/Element "Element") that corresponds
+    to the current target of the specified player's camera (i.e. what it is following).
+  parameters: []
+  examples:
+  - path: examples/getCameraTarget-1.lua
+    description: ''
+    side: server
+  pair: setCameraTarget

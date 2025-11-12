@@ -1,5 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiSetVisible
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetVisible
 client:
   name: guiSetVisible
-  description: TODO
-  incomplete: true
+  description: This function changes the visibility state of a GUI element.
+  parameters: []
+  examples:
+  - path: examples/guiSetVisible-1.lua
+    description: This example creates a GUI window and changes its visibility every
+      2 seconds, indefinitely.
+    side: client
+  - path: examples/guiSetVisible-2.lua
+    description: This example creates a GUI window withyesandnobuttons and you can
+      toggle its visibility with thexkey.
+    side: client
+  pair: guiGetVisible

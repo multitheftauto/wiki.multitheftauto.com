@@ -1,5 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getVehicleEntryPoints
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleEntryPoints
 client:
   name: getVehicleEntryPoints
-  description: TODO
-  incomplete: true
+  description: This function returns a table containing the positions to 4 possible
+    entry points to a vehicle. This function can be used alongside [setPedEnterVehicle](/wiki/SetPedEnterVehicle
+    "SetPedEnterVehicle") to make a ped enter a specific seat by first moving the
+    ped to a entry point retrieved through **getVehicleEntryPoints** and then using
+    [setPedEnterVehicle](/wiki/SetPedEnterVehicle "SetPedEnterVehicle") to make them
+    enter.
+  parameters: []
+  examples:
+  - path: examples/getVehicleEntryPoints-1.lua
+    description: 'Example 1: This example renders 3D (text & circle) on eachstreamed-invehicle
+      entry point'
+    side: client
+  - path: examples/getVehicleEntryPoints-2.lua
+    description: 'Example 2: This example checks if the player is near the vehicle
+      door toenter'
+    side: client
+  notes:
+  - type: info
+    content: This does not directly relate to the amount of doors a vehicle has as
+      vehicles with two doors can have multiple entry points to the same door.
+  - type: info
+    content: The vehicle needs to be streamed in for this function to work.

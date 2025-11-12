@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getPedWeapon
-shared: &shared
-  name: getPedWeapon
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedWeapon
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getPedWeapon
+  description: This function tells you which weapon type is in a certain **[weapon
+    slot](/wiki/Weapon "Weapon")** of a ped.
+  parameters: []
+  examples:
+  - path: examples/getPedWeapon-1.lua
+    description: ''
+    side: server

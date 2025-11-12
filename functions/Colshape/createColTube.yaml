@@ -1,10 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createColTube
-shared: &shared
-  name: createColTube
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColTube
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: createColTube
+  description: This function creates a collision tube. This is a shape that has a
+    position and a 2D (X/Y) radius and a height. See [Cylinder](http://en.wikipedia.org/wiki/Cylinder_(geometry))
+    for a definition of a tube. A tube is similar to a colcircle, except that it has
+    a limited height, this means you can limit the distance above the position defined
+    by (fX, fY, fZ) that the collision is detected.
+  parameters: []
+  examples:
+  - path: examples/createColTube-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console functionset_zone.
+    side: server
+  notes:
+  - type: tip
+    content: To visualize a colshape when writing scripts, use the client console
+      command showcol

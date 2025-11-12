@@ -1,5 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/resetVolumetricShadows
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetVolumetricShadows
 client:
   name: resetVolumetricShadows
-  description: TODO
-  incomplete: true
+  description: This function is used to reset the volumetric shadows to the game video
+    setting.
+  parameters: []
+  examples:
+  - path: examples/resetVolumetricShadows-1.lua
+    description: ''
+    side: client

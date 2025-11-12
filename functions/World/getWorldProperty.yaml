@@ -1,5 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getWorldProperty
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWorldProperty
 client:
   name: getWorldProperty
-  description: TODO
-  incomplete: true
+  description: This function is used to get the values of time cycle and weather related
+    properties.
+  parameters: []
+  examples:
+  - path: examples/getWorldProperty-1.lua
+    description: 'This example prints the value of AmbientColor:'
+    side: client
+  pair: setWorldProperty

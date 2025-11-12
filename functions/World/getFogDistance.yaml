@@ -1,10 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getFogDistance
-shared: &shared
-  name: getFogDistance
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetFogDistance
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getFogDistance
+  description: This function will tell you what is the current fog render distance.
+  parameters: []
+  examples:
+  - path: examples/getFogDistance-1.lua
+    description: This example will demonstrate basic functionality of the function.
+    side: server
+  notes:
+  - type: info
+    content: The function will return false server-side if fog distance has not been
+      set before the function is called.

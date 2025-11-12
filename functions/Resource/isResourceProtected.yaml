@@ -1,5 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/isResourceProtected
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsResourceProtected
 server:
   name: isResourceProtected
-  description: TODO
-  incomplete: true
+  description: This will check if a resource is currently protected, as defined in
+    [mtaserver.conf](/wiki/Server_mtaserver.conf#resource "Server mtaserver.conf").
+  parameters: []
+  examples:
+  - path: examples/isResourceProtected-1.lua
+    description: This example creates a command which allows you to check if the given
+      resource with the name provided is protected. The command is "/isprotected [Resource
+      Name]".
+    side: server

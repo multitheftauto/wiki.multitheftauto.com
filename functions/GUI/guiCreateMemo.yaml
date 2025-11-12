@@ -1,5 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/guiCreateMemo
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateMemo
 client:
   name: guiCreateMemo
-  description: TODO
+  description: This function creates a new GUI memo. This is a multiline edit box
+    in which the user can input text.
+  parameters: []
+  examples:
+  - path: examples/guiCreateMemo-1.lua
+    description: ''
+    side: client
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Element Type
+
+      '

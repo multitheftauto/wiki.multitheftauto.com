@@ -1,10 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getElementAttachedOffsets
-shared: &shared
-  name: getElementAttachedOffsets
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAttachedOffsets
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getElementAttachedOffsets
+  description: This function returns the offsets of an element that has been attached
+    to another element using [attachElements](/wiki/AttachElements "AttachElements").
+  parameters: []
+  examples:
+  - path: examples/getElementAttachedOffsets-1.lua
+    description: Example:This example creates a car with a minigun
+    side: client
+  pair: setElementAttachedOffsets

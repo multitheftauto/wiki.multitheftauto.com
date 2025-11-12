@@ -1,20 +1,9 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundEffects
 client:
   name: getSoundEffects
   description: Returns the states of all effects of a sound.
-  oop:
-    element: sound
-    method: getEffects
-  parameters:
-    - name: theSound
-      type: sound/player
-      description: A [[sound]] element.
-  returns:
-    values:
-      - type: table|false
-        name: effects
-        templateList: sound-effects
-    description: Returns a [[table]] with the effect names as the keys, and their states as the values if successful. Otherwise, it returns false.
+  parameters: []
   examples:
-    - path: examples/getSoundEffects-1.lua
-    - path: examples/getSoundEffects_OOP-1.lua
-      oop: true
+  - path: examples/getSoundEffects-1.lua
+    description: ''
+    side: client

@@ -1,10 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/getWaveHeight
-shared: &shared
-  name: getWaveHeight
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWaveHeight
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: getWaveHeight
+  description: This function returns the current wave height.
+  parameters: []
+  examples:
+  - path: examples/getWaveHeight-1.lua
+    description: This example changes the wave height to the given amount.
+    side: server
+  pair: setWaveHeight

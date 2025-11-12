@@ -1,5 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/testSphereAgainstWorld
+# Scraped from: https://wiki.multitheftauto.com/wiki/TestSphereAgainstWorld
 client:
   name: testSphereAgainstWorld
-  description: TODO
-  incomplete: true
+  description: The function checks whether there is an object within the given radius
+    and returns information about it. The function works similarly to [processLineOfSight](/wiki/ProcessLineOfSight
+    "ProcessLineOfSight"), but instead of a straight line, it operates based on the
+    specified radius, forming a sphere.
+  parameters: []
+  examples: []

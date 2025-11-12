@@ -1,5 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/engineGetSurfaceProperties
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetSurfaceProperties
 client:
   name: engineGetSurfaceProperties
-  description: TODO
+  description: This function retrieves the value of a surface property.
+  parameters: []
+  examples:
+  - path: examples/engineGetSurfaceProperties-1.lua
+    description: In this example, we retrieve the surface property value for a material
+      with ID 5 and the property name “audio.” If successful, it displays the value;
+      otherwise, it indicates an invalid input
+    side: client
   incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Properties
+
+      - Missing section: Materials, surfaces properties
+
+      '

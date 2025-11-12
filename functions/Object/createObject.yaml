@@ -1,10 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/createObject
-shared: &shared
-  name: createObject
-  description: TODO
-  incomplete: true
-
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateObject
 server:
-  <<: *shared
-client:
-  <<: *shared
+  name: createObject
+  description: Creates an [object](/wiki/Object "Object") [element](/wiki/Element
+    "Element") at a given position and rotation.
+  parameters: []
+  examples:
+  - path: examples/createObject-1.lua
+    description: This example shows you how to automatically create an object or building
+      element according to certain parameters.
+    side: client
+  - path: examples/createObject-2.lua
+    description: 'This example creates an object when the resource starts:'
+    side: server
+  - path: examples/createObject-3.lua
+    description: 'This example creates an object near the player who write /createObject
+      in the chat:'
+    side: server
+  notes:
+  - type: info
+    content: Dynamic objects do not automatically have physics applied to them. Use
+      setElementVelocity (object, 0, 0, 0) to fix this.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Important info aboutObjects
+
+      '

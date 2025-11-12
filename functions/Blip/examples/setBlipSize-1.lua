@@ -1,9 +1,9 @@
 -- Retrieve a table containing all the blips that exist
-local blips = getElementsByType ( "blip" )
+blips = getElementsByType ( "blip" )
 -- Loop through the list
 for blipKey, blipValue in ipairs(blips) do
 	-- Retrieve the blip's size into the variable 'blipSize'
-	local blipSize = getBlipSize ( blipValue )
+	blipSize = getBlipSize ( blipValue )
 	-- If the blip's size wasn't 2 (the default size) already
 	if ( blipSize ~= 2 ) then
 		-- Set the size to the default
