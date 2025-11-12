@@ -626,7 +626,8 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     func_notes, func_meta = parse_notes(content_div)
     handled_header_names.append("Remarks")
 
-    # Syntax: parameters and returns TODO
+    # TODO: Syntax: parameters and returns
+    # also ignore_parameters if needed
     handled_header_names.append("Syntax")
     handled_header_names.append("Parameters")
     handled_header_names.append("Arguments")
@@ -635,6 +636,7 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     handled_header_names.append("Optional Arguments")
     handled_header_names.append("Optional arguments")
     handled_header_names.append("Returns")
+    # TODO parse OOP syntax
 
     
     # Examples
