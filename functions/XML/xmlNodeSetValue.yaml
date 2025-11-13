@@ -1,21 +1,83 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeSetValue
+shared: &shared
+  name: 'xmlNodeSetValue'
+  pair: 'xmlNodeGetValue'
+  oop:
+    element: xmlnode
+    method: setValue
+    variable: value
+  description: |
+    This function is made to be able to assign values to tags in XML files (eg. <something>anything</something>).
+  parameters:
+    - name: 'node'
+      type: 'xmlnode'
+      description: The [xmlnode](/xmlnode) you want to set the value of.
+    - name: 'value'
+      type: 'string'
+      description: The string value you want the node to have.
+    - name: 'setCDATA'
+      type: 'boolean'
+      description: A boolean indicating if you want the value to be enclosed inside CDATA tags.
+      default: 'false'
+  returns:
+    description: Returns true if value was successfully set, false otherwise.
+    values:
+      - type: 'bool'
+        name: 'result'
+
 server:
-  name: xmlNodeSetValue
-  description: This function is made to be able to assign values to tags in XML files
-    (eg. \<something\>anything\</something\>).
-  parameters: []
+  <<: *shared
   examples:
-  - path: examples/xmlNodeSetValue-1.lua
+  - path: 'examples/xmlNodeSetValue-1.lua'
     description: In this example a sample value is inserted into a XML file.
-    side: server
-  - path: examples/xmlNodeSetValue-2.lua
-    description: This shows an example of a clientside XML file. You can use this
-      to store user preferences and load them the next time the script loads. Almost
-      always, you should have an options GUI for clients to interact with to set these
-      values.Since the XML will change, it should NOT be included in the resource's
-      meta.xml file. MTA will think that file is corrupted and will download it again
-      from the server. Instead, you should create the XML within the script, and then
-      load it within the script on future script runs if it exists.
-    side: client
-  pair: xmlNodeGetValue
-  incomplete: true
+  - path: 'examples/xmlNodeSetValue_OOP-1.lua'
+    description: In this example a sample value is inserted into a XML file.
+    oop: true
+
+client:
+  <<: *shared
+  examples:
+  - path: 'examples/xmlNodeSetValue-2.lua'
+    description: |
+      This shows an example of a clientside XML file. You can use this to store user preferences and load them the next time the script loads. Almost always, you should have an options GUI for clients to interact with to set these values.
+
+      Since the XML will change, it should NOT be included in the resource's meta.xml file. MTA will think that file is corrupted and will download it again from the server. Instead, you should create the XML within the script, and then load it within the script on future script runs if it exists.
+
+      This xml will be created from the script following it below
+
+      ```xml
+      <root>
+          <hud_display>
+              <IconSizeX>60</IconSizeX>
+              <IconSizeY>60</IconSizeY>
+          </hud_display>
+          <hud_binds>
+              <weaponSlot0>tab</weaponSlot0>
+              <weaponSlot1>1</weaponSlot1>
+          </hud_binds>
+      </root>
+      ```
+
+      This script will create the xml or load it if it exists
+  - path: 'examples/xmlNodeSetValue_OOP-2.lua'
+    description: |
+      This shows an example of a clientside XML file. You can use this to store user preferences and load them the next time the script loads. Almost always, you should have an options GUI for clients to interact with to set these values.
+
+      Since the XML will change, it should NOT be included in the resource's meta.xml file. MTA will think that file is corrupted and will download it again from the server. Instead, you should create the XML within the script, and then load it within the script on future script runs if it exists.
+
+      This xml will be created from the script following it below
+
+      ```xml
+      <root>
+          <hud_display>
+              <IconSizeX>60</IconSizeX>
+              <IconSizeY>60</IconSizeY>
+          </hud_display>
+          <hud_binds>
+              <weaponSlot0>tab</weaponSlot0>
+              <weaponSlot1>1</weaponSlot1>
+          </hud_binds>
+      </root>
+      ```
+
+      This script will create the xml or load it if it exists
+    oop: true

@@ -1,1 +1,1 @@
-removeRuleValue ( "myScriptRunning" )
+removeRuleValue("myScriptRunning")

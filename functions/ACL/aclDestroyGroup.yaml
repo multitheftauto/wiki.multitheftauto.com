@@ -1,11 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AclDestroyGroup
 server:
   name: aclDestroyGroup
-  description: This function destroys the given ACL group. The destroyed ACL group
-    will no longer be valid.
-  parameters: []
+  description: This function destroys the given [[ACL]] group. The destroyed ACL group will no longer be valid.
+  oop:
+    element: aclgroup
+    method: destroy
+  parameters:
+    - name: aclGroup
+      type: aclgroup
+      description: The [[aclgroup]] element to destroy.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the ACL group was successfully deleted, false if it could not be deleted for some reason (ie. invalid argument).
   examples:
-  - path: examples/aclDestroyGroup-1.lua
-    description: This example allows admins to remove an ACL group they specify.
-    side: server
-  incomplete: true
+    - path: examples/aclDestroyGroup-1.lua
+      description: This example allows admins to remove an ACL group they specify.
+    - path: examples/aclDestroyGroup_OOP-1.lua
+      description: This example allows admins to remove an ACL group they specify.
+      oop: true

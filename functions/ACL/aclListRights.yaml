@@ -1,10 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AclListRights
 server:
   name: aclListRights
-  description: This function returns a table of all the rights that a given ACL has.
-  parameters: []
+  description: This function returns a [[table]] of all the rights that a given [[ACL]] has.
+  oop:
+    element: acl
+    method: listRights
+  parameters:
+    - name: theAcl
+      type: acl
+      description: The [[ACL]] to get the rights from.
+    - name: allowedType
+      type: string
+      description: The allowed right type. Possible values are <code>general</code>, <code>function</code>, <code>resource</code> and <code>command</code>. If not specified, all types will be retrieved.
+      default: "nil"
+  returns:
+    values:
+      - type: table|false
+        name: acl rights list
+    description: Returns a [[table]] over the rights as strings in the given [[ACL]]. This table might be empty. Returns false or nil if theACL is invalid or it fails for some other reason.
   examples:
-  - path: examples/aclListRights-1.lua
-    description: This example outputs the rights of the given acl. (TESTED!)
-    side: server
-  incomplete: true
+    - path: examples/aclListRights-1.lua
+      description: This example outputs the rights of the given acl. 
+    - path: examples/aclListRights_OOP-1.lua
+      description: This example outputs the rights of the given acl. 
+      oop: true

@@ -1,11 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetBrowserTitle
 client:
   name: getBrowserTitle
-  description: This function returns the title of the passed [browser](/wiki/Element/Browser
-    "Element/Browser").
-  parameters: []
+  description: This function returns the title of the passed [[browser]].
+  oop:
+    element: browser
+    method: getTitle
+    variable: title
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The browser.
+  returns:
+    values:
+      - type: string|false
+        name: title
+    description: Returns the title as a [[string]]. Returns false if invalid arguments were passed.
   examples:
-  - path: examples/getBrowserTitle-1.lua
-    description: ''
-    side: client
-  incomplete: true
+    - path: examples/getBrowserTitle-1.lua
+    - path: examples/getBrowserTitle_OOP-1.lua
+      oop: true

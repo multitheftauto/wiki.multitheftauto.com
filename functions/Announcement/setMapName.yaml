@@ -1,12 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetMapName
 server:
   name: setMapName
-  description: This function is used to set a map name that will be visible in the
-    server browser. In practice you should generally rely on the mapmanager to do
-    this for you.
-  parameters: []
+  pair: getMapName
+  description: This function is used to set a map name that will be visible in the server browser. In practice you should generally rely on the mapmanager to do this for you.
+  parameters:
+    - name: mapName
+      type: string
+      description: The name you wish the server browser to show. (Max 200 characters).
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if map name was set successfully, false otherwise.
   examples:
-  - path: examples/setMapName-1.lua
-    description: This example sets the map name toMy amazing map!.
-    side: server
-  incomplete: true
+    - path: examples/setMapName-1.lua
+      description: This example sets the map name to My amazing map!.  
+    

@@ -1,11 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsBan
 server:
   name: isBan
-  description: This function checks whether the passed value is valid [ban](/wiki/Ban
-    "Ban") or not.
-  parameters: []
+  description: This function checks whether the passed value is valid [[ban]] or not.
+  parameters:
+    - name: theBan
+      type: ban
+      description: The value to check.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the value is a ban, false otherwise.
   examples:
-  - path: examples/isBan-1.lua
-    description: This example chechks if the passed argument is a ban or not.
-    side: server
-  incomplete: true
+    - path: examples/isBan-1.lua
+      description: This example chechks if the passed argument is a ban or not.

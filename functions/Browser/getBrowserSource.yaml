@@ -1,12 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetBrowserSource
 client:
   name: getBrowserSource
-  description: This function can be used to retrieve the source code of a website
-    (asynchronously). The size of the source code is limited to 2 MiB (remaining bytes
-    are cut).
-  parameters: []
+  description: This function can be used to retrieve the source code of a website (asynchronously). The size of the source code is limited to <b>2 MiB</b> (remaining bytes are cut).
+  oop:
+    element: browser
+    method: getSource
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The [[browser]] element you want to get the source of.
+    - name: callback ( code )
+      type: function
+      description: A callback function with syntax <code>function (string code)</code>.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if valid arguments have been passed, false otherwise.
   examples:
-  - path: examples/getBrowserSource-1.lua
-    description: ''
-    side: client
-  incomplete: true
+    - path: examples/getBrowserSource-1.lua
+    - path: examples/getBrowserSource_OOP-1.lua
+      oop: true

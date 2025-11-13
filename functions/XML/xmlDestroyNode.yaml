@@ -1,11 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/XmlDestroyNode
+shared: &shared
+  name: 'xmlDestroyNode'
+  oop:
+    element: xmlnode
+    method: destroy
+  description: |
+    This function destroys a XML node from the XML node tree.
+  parameters:
+    - name: 'theXMLNode'
+      type: 'xmlnode'
+      description: "The [xmlnode](/xmlnode) you want to destroy."
+  returns:
+    description: |
+      Returns true if the xml node was successfully destroyed, false otherwise.
+    values:
+      - type: 'bool'
+        name: 'bool'
+
 server:
-  name: xmlDestroyNode
-  description: This function destroys a XML node from the XML node tree.
-  parameters: []
+  <<: *shared
   examples:
-  - path: examples/xmlDestroyNode-1.lua
-    description: This example will add a command called '/delnode' and it will create
-      an xml file called 'test.xml'.
-    side: server
-  incomplete: true
+  - path: 'examples/xmlDestroyNode-1.lua'
+    description: This example will add a command called */delnode* and it will create an xml file called *test.xml*.
+  - path: 'examples/xmlDestroyNode_OOP-1.lua'
+    description: This example will add a command called */delnode* and it will create an xml file called *test.xml*.
+    oop: true

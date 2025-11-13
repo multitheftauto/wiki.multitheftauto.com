@@ -1,11 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountByID
 server:
   name: getAccountByID
-  description: This function returns the account with the specific ID.
-  parameters: []
+  description: This function returns the [[account]] with the specific ID.
+  parameters:
+    - name: id
+      type: int
+      description: The ID to get account from.
+  returns:
+    values:
+      - type: account|false
+        name: account
+    description: Returns account associated with specified ID. Returns false if invalid arguments were specified or there is no account with this ID..
   examples:
-  - path: examples/getAccountByID-1.lua
-    description: This example adds commandgetAccountthat outputs the account-name
-      of the account with ID.
-    side: server
-  incomplete: true
+    - path: 'examples/getAccountByID-1.lua'
+      description: This example adds command *getAccount* that outputs the account-name of the account with ID.

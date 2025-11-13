@@ -1,1 +1,1 @@
-setRuleValue ( "myScriptRunning", "yes" )
+setRuleValue("myScriptRunning", "yes")

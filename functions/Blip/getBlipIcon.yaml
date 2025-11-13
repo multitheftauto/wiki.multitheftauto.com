@@ -1,13 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetBlipIcon
-server:
+shared: &shared
   name: getBlipIcon
-  description: This function returns the icon a [blip](/wiki/Blip "Blip") currently
-    has.
-  parameters: []
-  examples:
-  - path: examples/getBlipIcon-1.lua
-    description: This example will find all the blips that exist and set them all
-      to the default blip icon.
-    side: server
   pair: setBlipIcon
-  incomplete: true
+  description: This function returns the icon a blip currently has. See [Radar Blips](/reference/ID_Lists/Blips).
+  oop:
+    element: blip
+    method: getIcon
+    variable: icon
+  parameters:
+    - name: theBlip
+      type: blip
+      description: The [[blip]] we're getting the icon number of.
+  returns:
+    values:
+      - type: int|false
+        name: icon
+    description: Returns an [[int]] indicating which [icon](/reference/ID_Lists/Blips) the [[blip]] has.
+  examples:
+    - path: examples/getBlipIcon-1.lua
+      description: This example will find all the blips that exist and set them all to the default blip icon.
+    - path: examples/getBlipIcon_OOP-1.lua
+      description: This example will find all the blips that exist and set them all to the default blip icon.
+      oop: true

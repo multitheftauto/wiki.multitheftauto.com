@@ -1,13 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AclCreateGroup
 server:
   name: aclCreateGroup
-  description: This function creates a group in the ACL. An ACL group can contain
-    objects like players and resources. They specify who has access to the ACL's in
-    this group.
-  parameters: []
+  description: This function creates a group in the [[ACL]]. An [[ACL]] group can contain objects like players and resources. They specify who has access to the ACL's in this group.
+  oop:
+    element: aclgroup
+    constructorclass: ACLGroup
+  parameters:
+    - name: groupName
+      type: string
+      description: The name of the group to create.
+  returns:
+    values:
+      - type: aclgroup|false
+        name: acl group
+    description: Returns the pointer to the created aclgroup if successful. Returns false if failed.
   examples:
-  - path: examples/aclCreateGroup-1.lua
-    description: This example adds a commandaddobjecttogroupwith which you can easily
-      add new objects to specified access control list groups.
-    side: server
-  incomplete: true
+    - path: examples/aclCreateGroup-1.lua
+      description: This example adds a command <code>addobjecttogroup</code> with which you can easily add new objects to specified access control list groups.
+    - path: examples/aclCreateGroup_OOP-1.lua
+      description: This example adds a command <code>addobjecttogroup</code> with which you can easily add new objects to specified access control list groups.
+      oop: true
+    

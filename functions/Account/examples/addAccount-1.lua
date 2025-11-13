@@ -1,8 +1,8 @@
 function registerPlayer ( source, commandName, password )
 	-- Check if the password field is blank or not (only blank if they didnt enter one)
-	if ( password ~= "" and password ~= nil ) then
+	if ( password and #password > 0 ) then
 		--Attempt to add the account, and save its value in a var
-		local accountAdded = addAccount( getPlayerName(source), password )
+		local accountAdded = addAccount(getPlayerName(source), password)
 		if ( accountAdded ) then
 			--  Tell the user all is done
 			outputChatBox ( "Thank you " .. getPlayerName(source) .. ", you're now registed, you can login with /login", source )

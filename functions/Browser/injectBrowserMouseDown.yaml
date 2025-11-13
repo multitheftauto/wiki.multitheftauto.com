@@ -1,10 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/InjectBrowserMouseDown
 client:
   name: injectBrowserMouseDown
   description: 'This function injects a mouse click (state: down).'
-  parameters: []
+  oop:
+    element: browser
+    method: injectMouseDown
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The browser.
+    - name: mouseButton
+      type: string
+      description: 'The mouse button (Possible values: <i>left, middle, right</i>).'
+    - name: doubleClick
+      type: bool
+      description: Specifies whether it is a double click or not.
+      default: 'false'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the click was successfully injected, false otherwise.
   examples:
-  - path: examples/injectBrowserMouseDown-1.lua
-    description: ''
-    side: client
-  incomplete: true
+    - path: examples/injectBrowserMouseDown-1.lua
+    - path: examples/injectBrowserMouseDown_OOP-1.lua
+      oop: true

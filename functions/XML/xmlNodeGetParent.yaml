@@ -1,7 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeGetParent
-server:
-  name: xmlNodeGetParent
-  description: Returns the parent node of an xml node.
-  parameters: []
-  examples: []
-  incomplete: true
+shared: &shared
+  name: 'xmlNodeGetParent'
+  oop:
+    element: xmlnode
+    method: getParent
+    variable: parent
+  description: |
+    Returns the parent node of an [xmlnode](/xmlnode).
+  parameters:
+    - name: 'node'
+      type: 'xmlnode'
+      description: The node of which you want to know the parent.
+  returns:
+    description: Returns the parent node of the specified node if successful. Returns false if the specified node is the root node or an invalid node was passed.
+    values:
+      - type: 'xmlnode|false'
+        name: 'parent'

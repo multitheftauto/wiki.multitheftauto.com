@@ -1,0 +1,25 @@
+server:
+  name: setAccountSerial
+  version:
+    added: 1.6.0 r23232
+  description: This function sets the serial number for a specified player account. It allows administrators to update or assign a new [[serial]] to registered accounts.
+  oop:
+    element: account
+    method: setSerial
+    variable: serial
+  parameters:
+    - name: theAccount
+      type: account
+      description: The account element to set the serial for.
+    - name: serial
+      type: string
+      description: A valid 32-character hexadecimal string representing the new serial number.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the serial was successfully set, false otherwise.
+  examples:
+    - path: examples/setAccountSerial-1.lua
+    - path: examples/setAccountSerial_OOP-1.lua
+      oop: true

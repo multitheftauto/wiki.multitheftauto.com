@@ -1,13 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundEffectEnabled
 client:
   name: setSoundEffectEnabled
-  description: 'Used to enable or disable specific [sound](/wiki/Sound "Sound") effects.
-
-    Use a [player](/wiki/Player "Player") element to control a players voice with
-    this function.'
-  parameters: []
+  description: Used to enable or disable specific [[sound]] effects. Use a player element to control a players voice with this function.
+  oop:
+    element: sound
+    method: setEffectEnabled
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: A [[sound]] element or a player element which will affect the voice broadcast.
+    - name: effectName
+      type: string
+      description: The effect you want to enable or disable.
+      templateList: 'sound-effects'
+    - name: enable
+      type: bool
+      description: true if you want to enable the effect, false if you want to disable it.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the effect was set successfully, false otherwise.
   examples:
-  - path: examples/setSoundEffectEnabled-1.lua
-    description: This example creates a sound and set's the flanger sound effect enabled.
-    side: client
-  incomplete: true
+    - path: examples/setSoundEffectEnabled-1.lua
+      description: This example creates a sound and set's the flanger sound effect enabled.
+    - path: examples/setSoundEffectEnabled_OOP-1.lua
+      description: This example creates a sound and set's the flanger sound effect enabled.
+      oop: true
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element for voice control.

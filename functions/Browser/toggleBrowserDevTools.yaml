@@ -1,13 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ToggleBrowserDevTools
 client:
   name: toggleBrowserDevTools
-  description: This function toggles the visibility of the developer tools pane.
-  parameters: []
-  examples:
-  - path: examples/toggleBrowserDevTools-1.lua
-    description: This example will output browser console logs to debugscript.
-    side: client
+  description: This function toggles the visibility of the developer tools panel.
   notes:
-  - type: info
-    content: You should do a 'setDevelopmentMode(true, true)' before using this function.
-  incomplete: true
+    - type: info
+      content: You should use the [[setDevelopmentMode]] before using this function.
+  oop:
+    element: browser
+    method: toggleDevTools
+    variable: devTools
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The browser.
+    - name: visible
+      type: bool
+      description: true to show the tools, false to hide.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the visibility was successfully toggled, false if an error occurred.
+  examples:
+    - path: examples/toggleBrowserDevTools-1.lua
+      description: This example will output browser console logs to debugscript.
+    - path: examples/toggleBrowserDevTools_OOP-1.lua
+      description: This example will output browser console logs to debugscript.
+      oop: true

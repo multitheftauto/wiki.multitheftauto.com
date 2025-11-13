@@ -1,15 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/RequestBrowserDomains
 client:
   name: requestBrowserDomains
-  description: This function opens a request window in order to accept the requested
-    remote URLs.
-  parameters: []
-  examples:
-  - path: examples/requestBrowserDomains-1.lua
-    description: ''
-    side: client
+  description: This function opens a request window in order to accept the requested remote URLs.
   notes:
-  - type: info
-    content: You must use this function prior to calling loadBrowserURL because every
-      domain, with exceptions in the whitelist here and there , is blocked by default.
-  incomplete: true
+    - type: info
+      content: You must use this function prior to calling [[loadBrowserURL]] because every domain, with exceptions in the whitelist [here](https://github.com/multitheftauto/mtasa-blue/blob/505467ec8c3ac1b3ad17fb0247dc15809e013968/Client/cefweb/CWebCore.cpp#L280-L283) and [there](https://github.com/multitheftauto/mtasa-blue/blob/505467ec8c3ac1b3ad17fb0247dc15809e013968/Client/cefweb/CWebCore.cpp#L205-L206), is blocked by default.
+  oop:
+    element: browser
+    method: requestDomains
+    static: true
+  parameters:
+    - name: pages
+      type: table
+      description: A table containing all domains.
+    - name: parseAsURL
+      type: bool
+      description: true if the passed addresses should be converted from URLs, false otherwise.
+      default: 'false'
+    - name: callback (wasAccepted, new_domains)
+      type: function
+      description: A callback function that is called as soon as the result is available.<br/>Syntax <code>function(bool wasAccepted, table new_domains)</code>
+      default: 'nil'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true, if the string was successfully read, false otherwise.
+  examples:
+    - path: examples/requestBrowserDomains-1.lua
+    - path: examples/requestBrowserDomains_OOP-1.lua
+      oop: true

@@ -1,14 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundVolume
 client:
   name: setSoundVolume
-  description: 'This function is used to change the volume level of the specified
-    [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element").
-
-    Use a player element to control a players voice with this function.'
-  parameters: []
-  examples:
-  - path: examples/setSoundVolume-1.lua
-    description: ''
-    side: client
   pair: getSoundVolume
-  incomplete: true
+  description: This function is used to change the volume level of the specified [[sound]] element. Use a player element to control a players voice with this function.
+  oop:
+    element: sound
+    method: getVolume
+    variable: volume
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which volume you want to modify or a [[player]] element which voice volume you want to modify.
+    - name: volume
+      type: float
+      description: A floating point number representing the desired volume level. Range is from 0.0 to 1.0. This can go above 1.0 for amplification.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the sound element volume was successfully changed, false otherwise.
+  examples:
+    - path: examples/setSoundVolume-1.lua
+    - path: examples/setSoundVolume_OOP-1.lua
+      oop: true
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element for voice control.

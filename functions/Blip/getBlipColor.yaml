@@ -1,16 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetBlipColor
-server:
+shared: &shared
   name: getBlipColor
-  description: This function will tell you what color a blip is. This color is only
-    applicable to the default blip icon ([![Blipid0s.png](/images/thumb/c/c3/Blipid0s.png/12px-Blipid0s.png)](/wiki/File:Blipid0s.png),
-    [![Blipid0u.png](/images/thumb/9/9d/Blipid0u.png/12px-Blipid0u.png)](/wiki/File:Blipid0u.png)
-    or [![Blipid0d.png](/images/thumb/a/a2/Blipid0d.png/12px-Blipid0d.png)](/wiki/File:Blipid0d.png)).
-    All other icons will ignore this.
-  parameters: []
-  examples:
-  - path: examples/getBlipColor-1.lua
-    description: This example will find all the blips that exist and set them all
-      to white if they aren't white already.
-    side: server
   pair: setBlipColor
-  incomplete: true
+  description: This function will tell you what color a [[blip]] is. This color is only applicable to the marker blip icon (ID 0). All other icons will ignore this.
+  oop:
+    element: blip
+    method: getColor
+  parameters:
+    - name: theBlip
+      type: blip
+      description: The [[blip]] whose color you wish to get.
+  returns:
+    values:
+      - type: int|false
+        name: r
+      - type: int
+        name: g
+      - type: int
+        name: b
+      - type: int
+        name: a
+    description: Returns four integers in RGBA format, with a maximum value of 255 for each. The values are, in order, red, green, blue, and alpha. Alpha decides the transparancy where 255 is opaque and 0 is fully transparent. false is returned if the blip is invalid.
+  examples:
+    - path: examples/getBlipColor-1.lua
+      description: This example will find all the blips that exist and set them all to white if they aren't white already.
+    - path: examples/getBlipColor_OOP-1.lua
+      description: This example will find all the blips that exist and set them all to white if they aren't white already.
+      oop: true

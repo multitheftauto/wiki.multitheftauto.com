@@ -1,24 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FileOpen
-server:
+shared: &shared
   name: fileOpen
-  description: Opens an existing file for reading and writing.
-  parameters: []
-  examples:
-  - path: examples/fileOpen-1.lua
-    description: This example opens the file test.txt that is in the root of the current
-      resource, and outputs its contents to the console.
-    side: server
-  - path: examples/fileOpen-2.lua
-    description: 'This example show how to append data to an existing file:'
-    side: server
   notes:
-  - type: info
-    content: To prevent memory leaks, ensure each successful call to fileOpen has
-      a matching call to fileClose .
-  - type: important
-    content: 'Warning: As of 1.5.4 r10413 , this function will fail when trying to
-      access a script file of another resource, even with general.ModifyOtherObjects
-      rights granted, which uses a mysql connection through dbConnect when database_credentials_protection
-      is enabled in the server configuration. Additionally, meta.xml will be un-writable
-      and will always open in read-only mode.'
-  incomplete: true
+    - type: 'important'
+      content: To prevent memory leaks, ensure each successful call to [[fileOpen]] has a matching call to [[fileClose]].
+  oop:
+    element: file
+    constructorclass: File
+    note: Static method [File](file).open() can also be used. Using [File](file)(...) to open a file will attempt to create the file, if it doesn't exist.
+  description: Opens an existing file for reading and writing.
+  parameters:
+    - name: 'filePath'
+      type: 'string'
+      description: |
+        The [Filepath](/reference/Filepath) of the file in the following format: `:resourceName/path`. `resourceName` is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file.
+        For example, if there is a file named `coolObjects.txt` in the resource `objectSearch`, it can be opened from another resource this way: `fileOpen(":objectSearch/coolObjects.txt")`.
+        If the file is in the current resource, only the file path is necessary, e.g. `fileOpen("coolObjects.txt")`.
+    - name: 'readOnly'
+      type: 'bool'
+      description: By default, the file is opened with reading and writing access. You can specify true for this parameter if you only need reading access.
+      default: 'false'
+  returns:
+    description: If successful, returns a file handle for the file. Otherwise returns false (f.e. if the file doesn't exist).
+    values:
+      - type: file|false
+        name: result
+  examples:
+    - path: 'examples/fileOpen-1.lua'
+      description: This example opens the file test.txt that is in the root of the current resource, and outputs its contents to the console.
+    - path: 'examples/fileOpen_OOP-1.lua'
+      description: This example opens the file test.txt that is in the root of the current resource, and outputs its contents to the console.
+      oop: true
+    - path: 'examples/fileOpen-2.lua'
+      description: This example show how to append data to an existing file
+    - path: 'examples/fileOpen_OOP-2.lua'
+      description: This example show how to append data to an existing file
+      oop: true

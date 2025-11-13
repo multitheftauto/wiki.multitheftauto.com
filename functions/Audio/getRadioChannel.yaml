@@ -1,11 +1,13 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetRadioChannel
 client:
   name: getRadioChannel
+  pair: setRadioChannel
   description: The function is used to retrieve the ID of the current radio channel.
-  parameters: []
+  returns:
+    values:
+      - type: int
+        name: channel-id
+        templateList: 'radio-channels'
+    description: Returns the ID of the radio channel.
   examples:
-  - path: examples/getRadioChannel-1.lua
-    description: This example prints out the name of your current radio station to
-      the chat box.
-    side: client
-  incomplete: true
+    - path: 'examples/getRadioChannel-1.lua'
+      description: This example prints out the name of your current radio station to the chat box.

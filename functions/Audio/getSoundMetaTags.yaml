@@ -1,14 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundMetaTags
 client:
   name: getSoundMetaTags
-  description: Used to get the meta tags attached to a sound. These provide information
-    about the sound, for instance the title or the artist.
-  parameters: []
-  examples:
-  - path: examples/getSoundMetaTags-1.lua
-    description: ''
-    side: client
+  description: Used to get the meta tags attached to a sound. These provide information about the sound, for instance the title or the artist.
   notes:
-  - type: info
-    content: This function does not work on remote WAV files
-  incomplete: true
+    - type: info
+      content: This function does not work on remote WAV files.
+  oop:
+    element: sound
+    method: getMetaTags
+  parameters:
+    - name: theSound
+      type: sound
+      description: A [[sound]] element.
+    - name: format
+      type: string
+      description: A filter [[string]] to get a specific meta tag.
+      default: '""'
+  returns:
+    values:
+      - type: table|string|false
+        name: meta-tags
+        templateList: 'sound-meta-tags'
+    description: Returns a [[table]], but only a [[string]] if <b>format</b> is given, with all data available (keys are listed below) for the sound if successful, false otherwise. If any data is unavailable then the associated key is not written to the table.
+  examples:
+    - path: examples/getSoundMetaTags-1.lua
+    - path: examples/getSoundMetaTags_OOP-1.lua
+      oop: true

@@ -1,18 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundEffectParameters
 client:
   name: getSoundEffectParameters
-  description: This function gets the parameters of a [sound](/wiki/Sound "Sound")
-    effect.
-  parameters: []
+  description: This function gets the parameters of a [[sound]] effect. See [effects parameters](/reference/Sound_Effects_Parameters/).
+  oop:
+    element: sound
+    method: getEffectParameters
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element to get the sound effect parameters of.
+    - name: effectName
+      type: string
+      description: The name of the effect whose parameters you want to retrieve
+      templateList: sound-effects
+  returns:
+    values:
+      - type: table|false
+        name: params
+    description: Returns a [[table]] with the parameter names as the keys, and their values. If the specified effect name is not valid, false is returned.
   examples:
-  - path: examples/getSoundEffectParameters-1.lua
-    description: ''
-    side: client
-  incomplete: true
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Effects Parameters
-
-      '
+    - path: examples/getSoundEffectParameters-1.lua
+    - path: examples/getSoundEffectParameters_OOP-1.lua
+      oop: true

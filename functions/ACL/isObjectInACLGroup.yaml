@@ -1,23 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsObjectInACLGroup
 server:
   name: isObjectInACLGroup
   description: This function is used to determine if an object is in a group.
-  parameters: []
-  examples:
-  - path: examples/isObjectInACLGroup-1.lua
-    description: Example 1:This example adds ajetpackcommand that is only available
-      to admins.  When entering the command, it will toggle the player's jetpack.
-    side: server
-  - path: examples/isObjectInACLGroup-2.lua
-    description: 'Example 2:This example displays a list of all the online admins
-      in the chat box (assuming your administrator''s group in your ACL is called
-      ''Admin''):'
-    side: server
   notes:
-  - type: important
-    content: You must NOT to use this function to limit features to users that belong
-      to specific groups. Instead you MUST use hasObjectPermissionTo . Using this
-      function forces the server owner to name their group a certain way, whereas
-      using hasObjectPermissionTo allows the owner to give permission for whatever
-      features you restrict to whatever groups they have set up in their ACL.
-  incomplete: true
+    - type: tip
+      content: If you want to restrict access to certain things, instead of limiting it to specific groups using this function, consider using [[hasObjectPermissionTo]]. That way, you can restrict access to features regardless of group membership.
+  oop:
+    element: aclgroup
+    method: doesContainObject
+  parameters:
+    - name: theObject
+      type: string
+      description: 'The name of the object to check. Examples: "resource.ctf", "user.Jim".'
+    - name: theGroup
+      type: aclgroup
+      description: The [ACL group](/reference/aclgroup) pointer of the group from which the object should be found.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the object is in the specified group, false otherwise.
+  examples:
+    - path: examples/isObjectInACLGroup-1.lua
+      description: This example adds a <code>jetpack</code> command that is only available to admins. When entering the command, it will toggle the player's jetpack.
+    - path: examples/isObjectInACLGroup_OOP-1.lua
+      description: This example adds a <code>jetpack</code> command that is only available to admins. When entering the command, it will toggle the player's jetpack.
+      oop: true
+    - path: examples/isObjectInACLGroup-2.lua
+      description: This example displays a list of all the online admins in the chat box (assuming your administrator's group in your ACL is called <code>Admin</code>).
+    - path: examples/isObjectInACLGroup_OOP-2.lua
+      description: This example displays a list of all the online admins in the chat box (assuming your administrator's group in your ACL is called <code>Admin</code>).
+      oop: true

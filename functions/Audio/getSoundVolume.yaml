@@ -1,15 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundVolume
 client:
   name: getSoundVolume
-  description: 'This function is used to return the volume level of the specified
-    [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element").
-
-    If the element is a [player](/wiki/Player "Player"), this function will use the
-    players voice.'
-  parameters: []
+  description: This function is used to return the volume level of the specified [[sound]] element. If the element is a [[player]], this function will use the players voice.
+  oop:
+    element: sound
+    method: getVolume
+    variable: volume
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which volume you want to return.
+  returns:
+    values:
+      - type: float|false
+        name: volume
+    description: Returns a [[float]] representing the volume level of the [[sound]] element, false if invalid arguments were passed.
   examples:
-  - path: examples/getSoundVolume-1.lua
-    description: This example creates a sound then outputs the volume for it.
-    side: client
-  pair: setSoundVolume
-  incomplete: true
+    - path: examples/getSoundVolume-1.lua
+      description: This example creates a sound then outputs the volume for it.
+    - path: examples/getSoundVolume_OOP-1.lua
+      description: This example creates a sound then outputs the volume for it.
+      oop: true
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element to use a players voice.

@@ -1,4 +1,4 @@
-theSound = playSound("music/song.mp3", true)
+local theSound = playSound("music/song.mp3", true)
 function togglePausedSound()
     if(isSoundPaused(theSound)) then --sound is paused, un-pause it
         setSoundPaused(theSound, false)

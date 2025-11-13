@@ -1,17 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/HasObjectPermissionTo
 server:
   name: hasObjectPermissionTo
-  description: This function returns whether or not the given object has access to
-    perform the given action.
-  parameters: []
+  description: |
+    This function returns whether or not the given object has access to perform the given action.<br/><br/>
+    Scripts frequently wish to limit access to features to particular users. The naïve way to do this would be to check if the player who is attempting to perform an action is in a particular group (usually the Admin group).
+    The main issue with doing this is that the Admin group is not guaranteed to exist. It also doesn't give the server admin any flexibility.
+    He might want to allow his 'moderators' access to the function you're limiting access to, or he may want it disabled entirely.
+  oop:
+    element: acl
+    method: hasObjectPermissionTo
+    static: true
+  parameters:
+    - name: theObject
+      type: string|element
+      description: The object to test if has permission to. This can be a client element (ie. a [[player]]), a [[resource]] or a [[string]] in the form <code>user.name</code> or <code>resource.name</code>.
+    - name: theRight
+      type: string
+      description: The action to test if the given object has access to. Ie. <code>function.kickPlayer</code>.
+    - name: defaultPermission
+      type: bool
+      description: The default permission if none is specified in either of the groups the given object is a member of. If this is left to true, the given object will have permissions to perform the action unless the opposite is explicitly specified in the [[ACL]]. If false, the action will be denied by default unless explicitly approved by the [Access Control List](Access_Control_List).
+      default: 'true'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the given object has permission to perform the given action, false otherwise. Returns nil if the function failed because of bad arguments.
   examples:
-  - path: examples/hasObjectPermissionTo-1.lua
-    description: This example kicks a player if the user using it has access to the
-      kickPlayer function.
-    side: server
-  notes:
-  - type: info
-    content: Only certain action names work. This function seems to return nil and
-      output a bad argument error when checking if an object has rights for an action
-      which doesn't start with function. , command. or resource. keywords.
-  incomplete: true
+    - path: examples/hasObjectPermissionTo-1.lua
+      description: This example kicks a player if the user using it has access to the [[kickPlayer]] function.
+    - path: examples/hasObjectPermissionTo_OOP-1.lua
+      description: This example kicks a player if the user using it has access to the [[kickPlayer]] function. 
+      oop: true

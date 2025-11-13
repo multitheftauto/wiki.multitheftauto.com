@@ -1,15 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupRemoveACL
 server:
   name: aclGroupRemoveACL
-  description: This function removes the given ACL from the given ACL group.
-  parameters: []
-  examples:
-  - path: examples/aclGroupRemoveACL-1.lua
-    description: This example outputs to the console if the Admin acl was removed
-      from the Moderator ACL Group. (TESTED!)
-    side: server
+  description: This function removes the given [[ACL]] from the given [ACL group](/reference/aclgroup).
   notes:
-  - type: info
-    content: The resource that's using this function needs the right to remove an
-      acl.
-  incomplete: true
+    - type: info
+      content: The resource that's using this function needs the right to remove an acl.
+  oop:
+    element: aclgroup
+    method: removeACL
+  parameters:
+    - name: theGroup
+      type: aclgroup
+      description: The group to remove the given ACL from.
+    - name: theAcl
+      type: acl
+      description: The ACL to remove from the given group.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the [[ACL]] was successfully removed from the [ACL group](/reference/aclgroup), false/nil if it could not be removed for some reason, ie. either of the elements were invalid.
+  examples:
+    - path: examples/aclGroupRemoveACL-1.lua
+      description: This example outputs to the console if the Admin acl was removed from the Moderator ACL Group.
+    - path: examples/aclGroupRemoveACL_OOP-1.lua
+      description: This example outputs to the console if the Admin acl was removed from the Moderator ACL Group.
+      oop: true

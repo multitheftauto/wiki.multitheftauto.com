@@ -1,11 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ReloadBrowserPage
 client:
   name: reloadBrowserPage
-  description: This function reloads the current browser's page.
-  parameters: []
+  description: This function reloads the current [[browser]]'s page.
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The [[browser]] that you want to reload.
+    - name: ignoreCache
+      type: bool
+      description: Ignoring cached content, Equivalent to <b>Shift + F5</b> in most browsers.
+      default: 'false'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the browser has reloaded, false otherwise.
   examples:
-  - path: examples/reloadBrowserPage-1.lua
-    description: 'This example creates a browser that can return to the last and previous
-      pages and can also be refreshed:'
-    side: client
-  incomplete: true
+    - path: examples/reloadBrowserPage-1.lua
+      description: This example creates a browser that can return to the last and previous pages and can also be refreshed.
+    - path: examples/reloadBrowserPage_OOP-1.lua
+      description: This example creates a browser that can return to the last and previous pages and can also be refreshed.
+      oop: true

@@ -1,5 +1,12 @@
-function banMe ( source, command ) -- The function header and where source is defined
-	local ipToBan = getPlayerIP ( source ) -- Get the player's IP
-	addBan ( ipToBan, nil, nil, source, "Requested" ) -- Ban him with the reason; Requested
+local function banSerial(source, command, noob, reason)
+    if (noob) then
+        local theNoob = getPlayerFromName(noob)
+        if (theNoob) then
+            local theNoobSerial = getPlayerSerial(theNoob)
+            addBan(nil, nil, theNoobSerial, source, reason)
+        else
+            outputChatBox("Player "..noob.." not found.", source)
+        end
+    end
 end
-addCommandHandler ( "ban-me", banMe ) -- Make it trigger when a player types "/ban-me"
+addCommandHandler("ban-serial", banSerial)

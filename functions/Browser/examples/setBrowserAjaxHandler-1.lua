@@ -10,7 +10,6 @@ function webBrowserRender()
 	dxDrawImage(0, 0, screenWidth, screenHeight, webBrowser, 0, 0, 0, tocolor(255,255,255,255), true)
 end
 
-
 local counter = 0
 setBrowserAjaxHandler(webBrowser, "ajax.html",
 	function(get, post)

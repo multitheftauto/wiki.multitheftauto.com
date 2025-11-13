@@ -1,21 +1,48 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AddBan
 server:
   name: addBan
-  description: This function will add a [ban](/wiki/Ban "Ban") for the specified IP/username/serial
-    to the server.
-  parameters: []
-  examples:
-  - path: examples/addBan-1.lua
-    description: This example bans a player's IP with the reason "Requested" when
-      they type "/ban-me".
-    side: server
-  - path: examples/addBan-2.lua
-    description: This example add command to ban player serial.
-    side: server
+  description: This function will add a [[ban]] for the specified IP/username/serial to the server.
   notes:
-  - type: info
-    content: 'One of the three: IP, Username or Serial have to be specified.'
-  - type: info
-    content: Don't forget to give admin rights to the resource, in which you are using
-      addBan function or it won't work.
-  incomplete: true
+    - type: info
+      content: 'One of the three: IP, Username or Serial have to be specified.'
+    - type: warning
+      content: |
+        Banning based on username is not recommended, because the player can change their nickname at any time and thus bypass the ban.
+        This feature is a leftover from the times when MTA used [MTA Community](http://community.mtasa.com/) accounts for gameplay — today it's an outdated option, kept only for backward compatibility.
+    - type: warning
+      content: Banning based solely on IP is not recommended, as a player can change their IP, for example by using a VPN. The safest option is to ban the [[serial]].
+  oop:
+    element: ban
+    constructorclass: Ban
+  parameters:
+    - name: IP
+      type: string
+      description: The IP to be banned. If you don't want to ban by IP, set this to [[nil]].
+    - name: username
+      type: string
+      description: The username (nick) to be banned. If you don't want to ban by username, set this to [[nil]].
+    - name: serial
+      type: string
+      description: The [[serial]] to be banned. If you don't want to ban by serial, set this to [[nil]].
+    - name: responsibleElement
+      type: player/string
+      description: The element that is responsible for banning the IP/username/serial. This can be a [[player]] or the [[root]]. This also can be a [[string]] - max 30 characters.
+      default: "\"Console\""
+    - name: reason
+      type: string
+      description: The reason the IP/username/serial will be banned from the server. Max 125 characters.
+      default: "\"\""
+    - name: seconds
+      type: int
+      description: The amount of seconds the player will be banned from the server for. This can be 0 for an infinite amount of time.
+      default: '0'
+  returns:
+    values:
+      - type: ban|false
+        name: ban
+    description: Returns the new [[ban]] if the IP/username/serial was banned successfully, false if invalid arguments are specified.
+  examples:
+    - path: examples/addBan-1.lua
+      description: This example add command to ban player serial.
+    - path: examples/addBan_OOP-1.lua
+      description: This example add command to ban player serial.
+      oop: true

@@ -1,4 +1,4 @@
-soundHandler = playSound ("audio.mp3")
+local soundHandler = playSound ("audio.mp3")
 local samples = 256
 
 function renderWave ()

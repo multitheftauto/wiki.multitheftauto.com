@@ -1,7 +1,8 @@
-theSound = playSound("music/song.mp3")
+local theSound = playSound("music/song.mp3")
+
 function checkSongPause()
     local pause = isSoundPaused(theSound)
-    if(pause == true) then
+    if(pause) then
         outputChatBox("The sound is paused!")
     else
         outputChatBox("The sound is not paused!")

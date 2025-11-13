@@ -1,13 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetBanReason
 server:
   name: setBanReason
-  description: This function sets the reason for the specified [ban](/wiki/Ban "Ban").
-  parameters: []
-  examples:
-  - path: examples/setBanReason-1.lua
-    description: 'This example adds the commandsetreasonwhich can be used to change
-      the reason of a ban by nickname of the banned player.For example: setreason
-      someguy reason.'
-    side: server
   pair: getBanReason
-  incomplete: true
+  description: This function sets the reason for the specified [[ban]].
+  oop:
+    element: ban
+    method: setReason
+    variable: reason
+  parameters:
+    - name: theBan
+      type: ban
+      description: The [[ban]] that you wish to set the reason of.
+    - name: theReason
+      type: string
+      description: The new reason (max 125 characters).
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the new reason was set successfully, false otherwise.
+  examples:
+    - path: examples/setBanReason-1.lua
+      description: |
+        This example adds the command <code>setreason</code> which can be used to change the reason of a ban by nickname of the banned player. For example: <code>setreason someguy reason</code>.
+    - path: examples/setBanReason_OOP-1.lua
+      description: |
+        This example adds the command <code>setreason</code> which can be used to change the reason of a ban by nickname of the banned player. For example: <code>setreason someguy reason</code>.
+      oop: true

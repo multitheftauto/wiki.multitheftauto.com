@@ -1,13 +1,15 @@
-function banPlayerCommand ( thisPlayer, commandName, bannedName, reason )
-    if ( hasObjectPermissionTo ( thisPlayer, "function.banPlayer" ) ) then -- If the command user has the rights
-        local bannedPlayer = getPlayerFromName ( bannedName ) -- Get the ID from the player who gets banned
-        if getElementType ( bannedPlayer ) == "player" then -- If it's a player
-            local theBan = banPlayer ( bannedPlayer, thisPlayer, reason ) -- Ban the player
-            outputChatBox ( "ban: " .. bannedName .. " successfully banned", thisPlayer ) -- Send the banner a succes message
-            outputChatBox ( "At Serial: " ..getBanSerial ( theBan ), thisPlayer ) -- And send him the serial of the banned player
+local function banPlayerCommand(thisPlayer, commandName, bannedName, reason)
+    if (hasObjectPermissionTo(thisPlayer, "function.banPlayer")) then -- If the command user has the rights
+        local bannedPlayer = getPlayerFromName(bannedName) -- Get player by name
+        if (bannedPlayer) then
+            local theBan = banPlayer(bannedPlayer, true, false, true, thisPlayer, reason) -- Ban the player
+            outputChatBox("ban: " .. bannedName .. " successfully banned", thisPlayer) -- Send the banner a succes message
+            outputChatBox("At Serial: "..getBanSerial(theBan), thisPlayer) -- And send him the serial of the banned player
+        else
+            outputChatBox("Player "..bannedName." not found", thisPlayer)
         end
     else
-        outputChatBox ( "ban: You don't have enough permissions", thisPlayer ) -- If the command user doesn't have the permissions
+        outputChatBox("ban: You don't have enough permissions", thisPlayer) -- If the command user doesn't have the permissions
     end
 end
-addCommandHandler ( "ban", banPlayerCommand )
+addCommandHandler("ban", banPlayerCommand)

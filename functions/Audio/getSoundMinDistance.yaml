@@ -1,12 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundMinDistance
 client:
   name: getSoundMinDistance
-  description: Gets a custom [sound](/wiki/Sound "Sound") Minimum distance at which
-    the sound stops getting louder.
-  parameters: []
-  examples:
-  - path: examples/getSoundMinDistance-1.lua
-    description: ''
-    side: client
   pair: setSoundMinDistance
-  incomplete: true
+  description: Gets a custom [[sound]] minimum distance at which the sound stops getting louder.
+  oop:
+    element: sound
+    method: getMinDistance
+    variable: minDistance
+  parameters:
+    - name: theSound
+      type: sound
+      description: A [[sound]] element.
+  returns:
+    values:
+      - type: int|false
+        name: min-distance
+    description: Returns an integer of the minimum distance, false if invalid arguements where passed.
+  examples:
+    - path: examples/getSoundMinDistance-1.lua
+    - path: examples/getSoundMinDistance_OOP-1.lua
+      oop: true

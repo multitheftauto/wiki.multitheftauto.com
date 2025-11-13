@@ -1,21 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountData
 server:
   name: getAccountData
-  description: This function retrieves a string that has been stored using [setAccountData](/wiki/SetAccountData
-    "SetAccountData"). Data stored as account data is persistent across user's sessions
-    and maps, unless they are logged into a guest account.
-  parameters: []
-  examples:
-  - path: examples/getAccountData-1.lua
-    description: For a pirate roleplaying gametype, the amount of money a player has
-      is made persistent by storing it in his account. Note the code uses "piraterpg.money"
-      as key instead of just "money", as the player may be participating in other
-      gametypes that also save his money amount to his account. If both gametypes
-      would use "money" as the account key, they'd overwrite each other's data.
-    side: server
   pair: setAccountData
-  notes:
-  - type: important
-    content: You MUST use the standard module.key naming for your keys, as shown in
-      the example below. This prevents collisions between different scripts.
-  incomplete: true
+  description: This function retrieves a string that has been stored using [[setAccountData]]. Data stored as account data is persistent across user's sessions and maps, unless they are logged into a guest account.
+  oop:
+    element: account
+    method: getData
+  parameters:
+    - name: theAccount
+      type: account
+      description: The account you wish to retrieve the data from.
+    - name: key
+      type: string
+      description: The key under which the data is stored.
+  returns:
+    values:
+      - type: string|false
+        name: account data
+    description: Returns a string containing the stored data or false if no data was stored under that key.
+  examples:
+    - path: examples/getAccountData-1.lua
+      description: |
+        For a pirate roleplaying gametype, the amount of money a player has is made persistent by storing it in his account. Note the code uses <code>piraterpg.money</code> as key instead of just <code>money</code>, as the player may be participating in other gametypes that also save his money amount to his account. 
+        If both gametypes would use <code>money</code> as the account key, they'd overwrite each other's data.
+    - path: examples/getAccountData_OOP-1.lua
+      description: |
+        For a pirate roleplaying gametype, the amount of money a player has is made persistent by storing it in his account. Note the code uses <code>piraterpg.money</code> as key instead of just <code>money</code>, as the player may be participating in other gametypes that also save his money amount to his account. 
+        If both gametypes would use <code>money</code> as the account key, they'd overwrite each other's data.
+      oop: true

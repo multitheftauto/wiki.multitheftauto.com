@@ -1,15 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundProperties
 client:
   name: setSoundProperties
-  description: This function edits the properties of a specific [sound](/wiki/Sound
-    "Sound").
-  parameters: []
-  examples:
-  - path: examples/setSoundProperties-1.lua
-    description: ''
-    side: client
   pair: getSoundProperties
+  description: This function edits the properties of a specific [[sound]].
   notes:
-  - type: info
-    content: Streams are not supported.
-  incomplete: true
+    - type: info
+      content: Streams are not supported.
+  oop:
+    element: sound
+    method: setProperties
+  parameters:
+    - name: theSound
+      type: sound
+      description: A [[sound]] element that is created using [[playSound]] or [[playSound3D]].
+    - name: sampleRate
+      type: float
+      description: A [[float]] that defines the new sound's [sample rate](http://en.wikipedia.org/wiki/Sampling_rate).
+    - name: tempo
+      type: float
+      description: A [[float]] that defines the new sound [tempo](http://en.wikipedia.org/wiki/Tempo).
+    - name: pitch
+      type: float
+      description: A [[float]] that defines the new sound [pitch](http://en.wikipedia.org/wiki/Pitch_%28music%29).
+    - name: reverse
+      type: bool
+      description: A [[boolean]] representing whether the sound will be reversed or not.
+      default: 'false'
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the properties sucessfully set, false otherwise.
+  examples:
+    - path: examples/setSoundProperties-1.lua
+    - path: examples/setSoundProperties_OOP-1.lua
+      oop: true

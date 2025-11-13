@@ -1,11 +1,54 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeGetChildren
+shared: &shared
+  name: 'xmlNodeGetChildren'
+  oop:
+    element: xmlnode
+    method: getChildren
+    variable: children
+  description: |
+    This function returns all children of a particular XML node, or a particular child node.
+  parameters:
+    - name: 'parentNode'
+      type: 'xmlnode'
+      description: This is an [xmlnode](/xmlnode) that you want to find the child node under.
+    - name: 'index'
+      type: 'int'
+      default: 'nil'
+      description: |
+        If you only want to retrieve one particular child node, specify its (0-based) index here. For example if you only want the first node, specify 0; the fifth node has index 4, etc.
+  returns:
+    description: |
+      If index isn't specified, returns a table containing all child nodes. If index is specified, returns the corresponding child node if it exists. If no nodes are found, it returns an empty table. Returns false in case of failure.
+    values:
+      - type: 'table|xmlnode|false'
+        name: 'children'
+
 server:
-  name: xmlNodeGetChildren
-  description: This function returns all children of a particular XML node, or a particular
-    child node.
-  parameters: []
+  <<: *shared
   examples:
-  - path: examples/xmlNodeGetChildren-1.lua
-    description: 'Suppose you have an .xml file with random welcome messages:'
-    side: server
-  incomplete: true
+  - path: 'examples/xmlNodeGetChildren-1.lua'
+    description: |
+      Suppose you have an .xml file with random welcome messages:
+
+      ```xml
+      <messages>
+          <message>Welcome to the deathmatch server, enjoy your stay.</message>
+          <message>Welcome. Be sure to get your free pizza at Matt's!</message>
+          <message>Party going on at the LS beach, be there</message>
+      </messages>
+      ```
+
+      To show a random message from this list to joining players, you could use the following code:
+  - path: 'examples/xmlNodeGetChildren_OOP-1.lua'
+    description: |
+      Suppose you have an .xml file with random welcome messages:
+
+      ```xml
+      <messages>
+          <message>Welcome to the deathmatch server, enjoy your stay.</message>
+          <message>Welcome. Be sure to get your free pizza at Matt's!</message>
+          <message>Party going on at the LS beach, be there</message>
+      </messages>
+      ```
+
+      To show a random message from this list to joining players, you could use the following code:
+    oop: true

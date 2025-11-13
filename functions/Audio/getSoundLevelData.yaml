@@ -1,13 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundLevelData
 client:
   name: getSoundLevelData
-  description: 'This function gets the left/right level from a [sound](/wiki/Sound
-    "Sound") [element](/wiki/Element "Element").
-
-    If the element is a player, this function will use the players voice.'
-  parameters: []
+  description: This function gets the left/right level from a [[sound]] [[element]]. If the element is a player, this function will use the players voice.
+  oop:
+    element: sound
+    method: getLevelData
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which level data you want to return.
+  returns:
+    values:
+      - type: int|false
+        name: leftLevel
+      - type: int
+        name: rightLevel
+    description: Returns a two integers in range from 0 to 32768. False, nil if wrong sound element passed.
   examples:
-  - path: examples/getSoundLevelData-1.lua
-    description: ''
-    side: client
-  incomplete: true
+    - path: examples/getSoundLevelData-1.lua
+    - path: examples/getSoundLevelData_OOP-1.lua
+      oop: true
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element to use a players voice.

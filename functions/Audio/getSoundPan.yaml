@@ -1,12 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundPan
 client:
   name: getSoundPan
-  description: This function is used to get the pan level of the specified [sound](/wiki/Sound
-    "Sound") element.
-  parameters: []
-  examples:
-  - path: examples/getSoundPan-1.lua
-    description: ''
-    side: client
   pair: setSoundPan
-  incomplete: true
+  description: This function is used to get the pan level of the specified [[sound]] element.
+  oop:
+    element: sound
+    method: getPan
+    variable: pan
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which pan you want to get.
+  returns:
+    values:
+      - type: float|false
+        name: pan
+    description: Returns [[float]] value with range from -1.0 (left) to 1.0 (right), false otherwise.
+  examples:
+    - path: examples/getSoundPan-1.lua
+    - path: examples/getSoundPan_OOP-1.lua
+      oop: true

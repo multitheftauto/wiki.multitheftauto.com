@@ -1,11 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsBrowserLoading
 client:
   name: isBrowserLoading
-  description: This function checks if a browser is currently loading a website.
-  parameters: []
+  description: This function checks if a [[browser]] is currently loading a website.
+  oop:
+    element: browser
+    method: isLoading
+    variable: loading
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The browser.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the [[browser]] is loading a website, false otherwise and nil if invalid arguments were passed.
   examples:
-  - path: examples/isBrowserLoading-1.lua
-    description: This example will add an command /checkload to check if the site
-      is loading or not.
-    side: client
-  incomplete: true
+    - path: examples/isBrowserLoading-1.lua
+      description: This example will add an command <code>/checkload</code> to check if the site is loading or not.
+    - path: examples/isBrowserLoading_OOP-1.lua
+      description: This example will add an command <code>/checkload</code> to check if the site is loading or not.
+      oop: true

@@ -1,15 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetGameType
 server:
   name: setGameType
-  description: This function sets a string containing a name for the game type. This
-    should be the game\-mode that is active, for example "Capture The Flag" or "Deathmatch".
-    This is then displayed in the server browser and external server browsers.
-  parameters: []
+  pair: getGameType
+  notes:
+    - type: info
+      content: It should be noted that **mapmanager** handles this automatically for gamemodes that utilise the map/gamemode system.
+  description: This function sets a [[string]] containing a name for the game type. This should be the game-mode that is active, for example <code>Capture The Flag</code> or <code>Deathmatch</code>. This is then displayed in the server browser and external server browsers.
+  parameters:
+    - name: gameType
+      type: string
+      description: A [[string]] containing a name for the game mode, or false to clear it. (Max 200 characters).
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the game type was set, false if an invalid argument was passed to the function.
   examples:
-  - path: examples/setGameType-1.lua
-    description: This example sets the game type toCapture The Flag.
-    side: server
-  - path: examples/setGameType-2.lua
-    description: This example adds a command to change the game type.
-    side: server
-  incomplete: true
+    - path: examples/setGameType-1.lua
+      description: This example adds a command to change the game type.

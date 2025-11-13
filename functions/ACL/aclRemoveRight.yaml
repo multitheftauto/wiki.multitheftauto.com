@@ -1,10 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AclRemoveRight
 server:
   name: aclRemoveRight
-  description: This function removes the given right (string) from the given ACL.
-  parameters: []
+  description: This function removes the given right (string) from the given [[ACL]].
+  oop:
+    element: acl
+    method: removeRight
+  parameters:
+    - name: theAcl
+      type: acl
+      description: The [[ACL]] to remove the right from.
+    - name: rightName
+      type: string
+      description: The ACL right name to remove.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the given right was successfully removed from the given [[ACL]], false or nil if it could not be removed for some reason, ie. it didn't exist in the ACL.
   examples:
-  - path: examples/aclRemoveRight-1.lua
-    description: This example removes an acl right on resource start.
-    side: server
-  incomplete: true
+    - path: examples/aclRemoveRight-1.lua
+      description: This example removes an acl right on resource start.
+    - path: examples/aclRemoveRight_OOP-1.lua
+      description: This example removes an acl right on resource start.
+      oop: true

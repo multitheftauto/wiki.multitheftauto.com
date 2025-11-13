@@ -1,10 +1,50 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/XmlFindChild
-server:
-  name: xmlFindChild
-  description: This function returns a named child node of an XML node.
-  parameters: []
+shared: &shared
+  name: 'xmlFindChild'
+  oop:
+    element: xmlnode
+    method: findChild
+  description: |
+    This function returns a named child node of an XML node.
+  parameters:
+    - name: 'parentNode'
+      type: 'xmlnode'
+      description: This is an [xmlnode](/xmlnode) that you want to find the child node under.
+    - name: 'tagName'
+      type: 'string'
+      description: This is the name of the child node you wish to find (case-sensitive).
+    - name: 'index'
+      type: 'int'
+      description: |
+        This is the 0-based index of the node you wish to find. For example, to find the 5th subnode with a particular name, you would use 4 as the index value. To find the first occurence, use 0.
+  returns:
+    description: |
+      Returns an [xmlnode](/xmlnode) if the node was found, false otherwise.
+    values:
+      - type: 'xmlnode|false'
+        name: 'xmlnode'
   examples:
-  - path: examples/xmlFindChild-1.lua
-    description: 'If you wanted to find aninstructionsnode in an xml file like this:'
-    side: server
-  incomplete: true
+  - path: 'examples/xmlFindChild-1.lua'
+    description: |
+      If you wanted to find an instructions node in an xml file like this:
+      ```xml
+      <root version="2.0">
+        <options>
+              <instructions>Start at the beginning and keep going until the end!</instructions>
+        </options>
+      </root>
+      ```
+
+      You could use the following code to print the text in the instructions node to the chatbox:
+  - path: 'examples/xmlFindChild_OOP-1.lua'
+    description: |
+      If you wanted to find an instructions node in an xml file like this:
+      ```xml
+      <root version="2.0">
+        <options>
+              <instructions>Start at the beginning and keep going until the end!</instructions>
+        </options>
+      </root>
+      ```
+
+      You could use the following code to print the text in the instructions node to the chatbox:
+    oop: true

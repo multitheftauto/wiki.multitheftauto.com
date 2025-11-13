@@ -1,13 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundLength
 client:
   name: getSoundLength
-  description: 'This function is used to return the playback length of the specified
-    [sound](/wiki/Sound "Sound") element.
-
-    If the element is a player, this function will use the players voice.'
-  parameters: []
+  description: This function is used to return the playback length of the specified [[sound]] element. If the element is a player, this function will use the players voice.
+  oop:
+    element: sound
+    method: getLength
+    variable: length
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which length you want to return.
+  returns:
+    values:
+      - type: float|false
+        name: length
+    description: Returns an [[float]] value indicating the playback length of the [[sound]] element in seconds.
   examples:
-  - path: examples/getSoundLength-1.lua
-    description: Plays a sound then outputs the sound length.
-    side: client
-  incomplete: true
+    - path: examples/getSoundLength-1.lua
+      description: Plays a sound then outputs the sound length.
+    - path: examples/getSoundLength_OOP-1.lua
+      description: Plays a sound then outputs the sound length.
+      oop: true
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element to use a players voice.

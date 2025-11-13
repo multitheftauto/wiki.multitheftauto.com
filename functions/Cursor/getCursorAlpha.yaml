@@ -1,17 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetCursorAlpha
 client:
-  name: getCursorAlpha
-  description: This function is used to get the client's cursor alpha (transparency).
-  parameters: []
+  name: 'getCursorAlpha'
+  pair: 'setCursorAlpha'
+  description: |
+    This function is used to get the client's cursor alpha (transparency).
+  preview_images:
+  - path: 'cursor-alpha.jpg'
+    width: 160
+    description: 'Visual representation of the cursor alpha:'
+  returns:
+    description: |
+      Returns a number between 0 and 255, where 255 is fully opaque and 0 is fully transparent. 
+    values:
+      - type: 'int'
+        name: 'alpha'
   examples:
-  - path: examples/getCursorAlpha-1.lua
-    description: ''
-    side: client
-  incomplete: true
+    - path: 'examples/getCursorAlpha.lua'
+      description: |
+        This example prints the cursor alpha to chatbox using */cursoralpha* command:
   meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Contents
-
-      '
+  - needs_checking: Hello, world

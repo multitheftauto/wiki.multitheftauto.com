@@ -1,12 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundPaused
 client:
   name: setSoundPaused
-  description: This function is used to either pause or unpause the playback of the
-    specified [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element").
-  parameters: []
-  examples:
-  - path: examples/setSoundPaused-1.lua
-    description: ''
-    side: client
   pair: isSoundPaused
-  incomplete: true
+  description: This function is used to either pause or unpause the playback of the specified [[sound]] element. Use a player element to control a players voice with this function.
+  oop:
+    element: sound
+    method: setPaused
+    variable: paused
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which you want to pause/unpause.
+    - name: paused
+      type: bool
+      description: A [[boolean]] value representing whether the sound should be paused or not. To pause the sound, use true.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the [[sound]] element was successfully paused, false otherwise.
+  examples:
+    - path: examples/setSoundPaused-1.lua
+      description: This example will allow the user to toggle sounds from paused to playing, and from playing to paused
+    - path: examples/setSoundPaused_OOP-1.lua
+      description: This example will allow the user to toggle sounds from paused to playing, and from playing to paused
+      oop: true
+  meta:
+    - changelog:
+        - version: '1.3.2'
+          description: Added player element for voice control.

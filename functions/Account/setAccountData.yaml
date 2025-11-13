@@ -1,25 +1,39 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetAccountData
 server:
   name: setAccountData
-  description: This function sets a string to be stored in an [account](/wiki/Account
-    "Account"). This can then be retrieved using [getAccountData](/wiki/GetAccountData
-    "GetAccountData"). Data stored as account data is persistent across user's sessions
-    and maps, unless they are logged into a guest account. Even if logged into a guest
-    account, account data can be useful as a way to store a reference to your own
-    account system, though it's persistence is equivalent to that of using [setElementData](/wiki/SetElementData
-    "SetElementData") on the player's element.
-  parameters: []
-  examples:
-  - path: examples/setAccountData-1.lua
-    description: For a pirate roleplaying gametype, the amount of money a player has
-      is made persistent by storing it in his account. Note the code uses "piraterpg.money"
-      as key instead of just "money", as the player may be participating in other
-      gametypes that also save his money amount to his account. If both gametypes
-      would use "money" as the account key, they'd overwrite each other's data.
-    side: server
   pair: getAccountData
+  description: |
+    This function sets a string to be stored in an [[account]]. 
+    This can then be retrieved using [[getAccountData]]. 
+    Data stored as account data is persistent across user's sessions and maps, unless they are logged into a guest account.
+    Even if logged into a guest account, account data can be useful as a way to store a reference to your own account system, though it's persistence is equivalent to that of using [[setElementData]] on the player's element.
   notes:
-  - type: important
-    content: You MUST use the standard module.key naming for your keys, as shown in
-      the example below. This prevents collisions between different scripts.
-  incomplete: true
+    - type: info
+      content: You cannot store tables as values, but you can use [[toJSON]] strings.
+  oop:
+    element: account
+    method: setData
+  parameters:
+    - name: theAccount
+      type: account
+      description: The account you wish to retrieve the data from.
+    - name: key
+      type: string
+      description: The key under which you wish to store the data.
+    - name: value
+      type: var
+      description: The value you wish to store. Set to **false** to remove the data.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns a true if the account data was set, false if an invalid argument was specified.
+  examples:
+    - path: examples/setAccountData-1.lua
+      description: |
+        For a pirate roleplaying gametype, the amount of money a player has is made persistent by storing it in his account. Note the code uses <code>piraterpg.money</code> as key instead of just <code>money</code>, as the player may be participating in other gametypes that also save his money amount to his account. 
+        If both gametypes would use <code>money</code> as the account key, they'd overwrite each other's data.
+    - path: examples/setAccountData_OOP-1.lua
+      description: |
+        For a pirate roleplaying gametype, the amount of money a player has is made persistent by storing it in his account. Note the code uses <code>piraterpg.money</code> as key instead of just <code>money</code>, as the player may be participating in other gametypes that also save his money amount to his account. 
+        If both gametypes would use <code>money</code> as the account key, they'd overwrite each other's data.
+      oop: true

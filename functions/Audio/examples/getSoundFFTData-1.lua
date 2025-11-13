@@ -1,9 +1,9 @@
-soundHandler = playSound ( "sound.wav" )
+local soundHandler = playSound ( "sound.wav" )
 
 function onSoundPlayRender ( )
     if ( soundHandler ) then
         local soundFFT = getSoundFFTData ( soundHandler, 2048, 256 )
-	if ( soundFFT ) then
+        if ( soundFFT ) then
             for i = 0, 255 do -- Data starts from index 0
                 dxDrawRectangle ( i, 0, 1, math.sqrt ( soundFFT[i] ) * 256 )
             end

@@ -1,14 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ResizeBrowser
 client:
   name: resizeBrowser
   description: Allows resizing of CEF browsers at runtime.
-  parameters: []
-  examples:
-  - path: examples/resizeBrowser-1.lua
-    description: Example for resize browser by command.
-    side: client
   notes:
-  - type: warning
-    content: Do not use this function with onClientRender as it re-creates the underlying
-      texture internally (which is an expensive operation).
-  incomplete: true
+    - type: warning
+      content: Do <b>not</b> use this function with [[onClientRender]] as it re-creates the underlying texture internally (which is an expensive operation).
+  oop:
+    element: browser
+    method: resize
+  parameters:
+    - name: webBrowser
+      type: browser
+      description: The [[browser]] you want to resize.
+    - name: width
+      type: float
+      description: The new width of the browser.
+    - name: height
+      type: float
+      description: The new height of the browser.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the browser is resized successfully, false if there's something wrong.
+  examples:
+    - path: examples/resizeBrowser-1.lua
+      description: Example for resize browser by command.
+    - path: examples/resizeBrowser_OOP-1.lua
+      description: Example for resize browser by command.
+      oop: true

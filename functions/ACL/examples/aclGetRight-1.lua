@@ -1,7 +1,7 @@
 --theACL examples: Admin, Default, Moderator
 --theRight examples: command.debugscript, function.banPlayer
 
-function aclRightCheck(player, command, theACL, theRight)
+local function aclRightCheck(player, command, theACL, theRight)
 	if (theACL and theRight) then -- Make sure atleast two arguments were entered.
 		local theACL = aclGet(theACL) -- If theACL exists then convert it into an ACL pointer from a string.
 		if (theACL) then -- If the ACL was found.

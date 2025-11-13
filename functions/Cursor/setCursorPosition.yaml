@@ -1,11 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetCursorPosition
 client:
-  name: setCursorPosition
-  description: This function sets the current position of the mouse cursor.
-  parameters: []
+  name: 'setCursorPosition'
+  pair: 'getCursorPosition'
+  description: 'This function sets the current position of the mouse cursor.'
+  parameters:
+    - name: 'cursorX'
+      type: 'int'
+      description: 'Position for the X axis'
+    - name: 'cursorY'
+      type: 'int'
+      description: 'Position for the Y axis'
+  returns:
+    description: 'Returns *true* if the position has been successfully set, *false* otherwise.'
+    values:
+      - type: 'bool'
+        name: 'result'
   examples:
-  - path: examples/setCursorPosition-1.lua
-    description: This example sets your cursor position to the center of your screen
-      after using the commandcursorpos.
-    side: client
-  incomplete: true
+    - path: 'examples/setCursorPosition.lua'
+      description: |
+        This example sets your cursor position to the center of your screen after using the */cursorpos* command.

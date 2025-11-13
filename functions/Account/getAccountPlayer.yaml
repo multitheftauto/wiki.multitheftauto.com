@@ -1,13 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountPlayer
 server:
   name: getAccountPlayer
-  description: This function returns the [player](/wiki/Player "Player") element that
-    is currently using a specified [account](/wiki/Account "Account"), i.e. is logged
-    into it. Only one player can use an account at a time.
-  parameters: []
+  description: This function returns the [[player]] [[element]] that is currently using a specified [[account]], i.e. is logged into it. Only one player can use an [[account]] at a time.
+  oop:
+    element: account
+    method: getPlayer
+    variable: player
+  parameters:
+    - name: theAccount
+      type: account
+      description: The account you wish to get the player of.
+  returns:
+    values:
+      - type: player|false
+        name: account's player
+    description: Returns a [[player]] element if the account is currently in use, false otherwise.
   examples:
-  - path: examples/getAccountPlayer-1.lua
-    description: This example checks if the user attached to an account is a player,
-      and if so if they're alive.
-    side: server
-  incomplete: true
+    - path: examples/getAccountPlayer-1.lua
+      description: This example checks if the user attached to an account is a player, and if so if they're alive.
+    - path: examples/getAccountPlayer_OOP-1.lua
+      description: This example checks if the user attached to an account is a player, and if so if they're alive.
+      oop: true

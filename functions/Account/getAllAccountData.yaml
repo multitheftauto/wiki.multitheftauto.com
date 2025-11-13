@@ -1,11 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetAllAccountData
 server:
   name: getAllAccountData
-  description: This function returns a table containing all the user data for the
-    [account](/wiki/Account "Account") provided
-  parameters: []
+  description: This function returns a [[table]] containing all the user data for the [[account]] provided.
+  oop:
+    element: account
+    method: getAllData
+    variable: data
+  parameters:
+    - name: theAccount
+      type: account
+      description: The account you wish to retrieve all data from.
+  returns:
+    values:
+      - type: table|false
+        name: accounts table
+    description: A table containing all the user data. This table might be empty. False if invalid argument.
   examples:
-  - path: examples/getAllAccountData-1.lua
-    description: ''
-    side: server
-  incomplete: true
+    - path: examples/getAllAccountData-1.lua
+      description: |
+        This example retrieves and displays all account data of the player who typed the <code>getall</code> command in the chat, in the format **key: value**.
+    - path: examples/getAllAccountData_OOP-1.lua
+      description: |
+        This example retrieves and displays all account data of the player who typed the <code>getall</code> command in the chat, in the format **key: value**.
+      oop: true
+

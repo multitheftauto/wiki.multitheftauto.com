@@ -1,9 +1,8 @@
-function showGroups(player)
-	local groups = {}
-	groups = aclGroupList()
+local function showGroups(player)
+	local groups = aclGroupList() or {}
 	for i,v in ipairs(groups) do
 		local name = aclGroupGetName(v)
-		outputChatBox(tostring(name),player)
+		outputChatBox(name, player, 255, 255, 255)
 	end
 end
 addCommandHandler("showAclGroups",showGroups)

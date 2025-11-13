@@ -4,5 +4,4 @@ function playMusic ()
         setSoundPan(left, -1)                         -- switch the first music to left channel
         setSoundPan(right, 1)                         -- switch the second music to right channel
 end
-
 addCommandHandler("music", playMusic)                 -- add the command handler

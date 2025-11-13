@@ -1,19 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/XmlCopyFile
-server:
-  name: xmlCopyFile
-  description: 'This function copies all contents of a certain node in a XML document
-    to a new document file, so the copied node becomes the new file''s root node.
-
-    The new file will not be saved to file system until [xmlSaveFile](/wiki/XmlSaveFile
-    "XmlSaveFile")() is called'
-  parameters: []
-  examples:
-  - path: examples/xmlCopyFile-1.lua
-    description: 'In this example we will load an xml file (in the example config.xml)
-      and create a copy in a new folder with the name of copy-config.xml:'
-    side: server
+shared: &shared
+  name: 'xmlCopyFile'
   notes:
-  - type: info
-    content: To prevent memory leaks, ensure each call to xmlCopyFile has a matching
-      call to xmlUnloadFile
-  incomplete: true
+    - type: 'warning'
+      content: |
+        To prevent memory leaks, ensure each call to **xmlCopyFile** has a matching call to [xmlUnloadFile](/xmlUnloadFile).
+  oop:
+    element: xmlnode
+    method: copy
+  description: |
+    This function copies all contents of a certain node in a XML document to a new document file, so the copied node becomes the new file's root node. The new file will not be saved to file system until [xmlSaveFile](/xmlSaveFile) is called.
+  parameters:
+    - name: 'nodeToCopy'
+      type: 'xmlnode'
+      description: "The [xmlnode](/xmlnode) that is to be copied to a new document."
+    - name: 'newFilePath'
+      type: 'string'
+      description: |
+        the path of the file that is to be created, in the following format: `":resourceName/path"`. `'resourceName'` is the name of the resource the file is in, and `'path'` is the path from the root directory of the resource to the file.
+        If the file is to be in the current resource, only the file path is necessary, e.g. `"newfile.xml"`.
+        For example, to create a file named `'newfile.xml'` with myNode as the root node in the resource `'ctf'`, it can be done from another resource this way: `xmlCopyFile(myNode, ":ctf/newfile.xml")`.
+        If the file is to be in the current resource, only the file path is necessary, e.g. `xmlCopyFile(myNode, "newfile.xml")`.
+  returns:
+    description: |
+      Returns the [xmlnode](/xmlnode) of the copy if the node was successfully copied, **false** if invalid arguments were passed.
+    values:
+      - type: 'xmlnode|false'
+        name: 'xmlnode'
+  examples:
+  - path: 'examples/xmlCopyFile-1.lua'
+    description: |
+      In this example we will load an xml file (in the example config.xml) and create a copy in a new folder with the name of copy-config.xml.
+  - path: 'examples/xmlCopyFile_OOP-1.lua'
+    description: |
+      In this example we will load an xml file (in the example config.xml) and create a copy in a new folder with the name of copy-config.xml.
+    oop: true

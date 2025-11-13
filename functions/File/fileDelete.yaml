@@ -1,11 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FileDelete
-server:
+shared: &shared
   name: fileDelete
+  oop:
+    element: file
+    static: true
+    method: delete
   description: Deletes the specified file.
-  parameters: []
+  parameters:
+    - name: 'filePath'
+      type: 'string'
+      description: |
+        The [Filepath](/reference/Filepath) of the file to delete in the following format: `:resourceName/path`. `resourceName` is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file.
+        For example, if you want to delete a file name "myFile.txt" in the resource 'fileres', it can be deleted from another resource this way: `fileDelete(":fileres/myFile.txt")`.
+        If the file is in the current resource, only the file path is necessary, e.g. `fileDelete("myFile.txt")`.
+  returns:
+    description: Returns true if successful, false otherwise (for example if there exists no file with the given name, or it does exist but is in use).
+    values:
+      - type: bool
+        name: result
   examples:
-  - path: examples/fileDelete-1.lua
-    description: 'This example will show us how to create a file "text.txt" spell
-      it "This is a test file!", Close the file and delete it:'
-    side: server
-  incomplete: true
+    - path: 'examples/fileDelete-1.lua'
+      description: This example will show us how to create a file "text.txt" spell it "This is a test file!", Close the file and delete it.
+    - path: 'examples/fileDelete_OOP-1.lua'
+      description: This example will show us how to create a file "text.txt" spell it "This is a test file!", Close the file and delete it.
+      oop: true

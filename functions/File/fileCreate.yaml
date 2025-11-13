@@ -1,19 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FileCreate
-server:
+shared: &shared
   name: fileCreate
-  description: Creates a new file in a directory of a resource. If there already exists
-    a file with the specified name, it is overwritten with an empty file.
-  parameters: []
-  examples:
-  - path: examples/fileCreate-1.lua
-    description: This example creates a text file in the current resource and writes
-      a string to it.
-    side: server
   notes:
-  - type: info
-    content: To prevent memory leaks, ensure each successful call to fileCreate has
-      a matching call to fileClose
-  - type: tip
-    content: If you do not want to share the content of the created file with other
-      servers, prepend the file path with @ (See filepath for more information)
-  incomplete: true
+    - type: 'important'
+      content: |
+        To prevent memory leaks, ensure each successful call to [[fileCreate]] has a matching call to [[fileClose]].
+    - type: 'tip'
+      content: |
+        If you do not want to share the content of the created file with other servers, prepend the file path with @ (See [Filepath](/reference/Filepath) for more information).
+    - type: 'important'
+      content: |
+        It is important to remember to close a file after you've finished all your operations on it, especially if you've been writing to the file. If you don't close a file and your resource crashes, all changes to the file may be lost.
+  oop:
+    element: file
+    static: true
+    method: new
+  description: Creates a new file in a directory of a resource. If there already exists a file with the specified name, it is overwritten with an empty file.
+  parameters:
+    - name: 'filePath'
+      type: 'string'
+      description: The path of the file you want to copy.
+  returns:
+    description: If successful, returns a [[file]] handle which can be used with other file functions ([[fileWrite]], [[fileClose]] etc.). Returns false if an error occured.
+    values:
+      - type: bool
+        name: result
+  examples:
+    - path: 'examples/fileCreate-1.lua'
+      description: This example creates a text file in the current resource and writes a string to it.
+    - path: 'examples/fileCreate_OOP-1.lua'
+      description: This example creates a text file in the current resource and writes a string to it.
+      oop: true

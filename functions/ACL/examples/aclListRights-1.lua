@@ -1,13 +1,17 @@
 addCommandHandler("aclRights",function(player,command,theAcl)
-	if(theAcl~="")then
-		rights = aclListRights(aclGet(theAcl))
-		count = 0
-		for acl,list in pairs(rights)do
-			outputChatBox("ACL List: "..theAcl.." #"..tostring(count).." Right: "..list..".",player)
-			count = count + 1
+	if (not theAcl) then -- Was the ACL provided?
+		outputChatBox("No ACL name was provided.", player, 255, 255, 255)
+		return
+	end
+
+	local acl = aclGet(theAcl)
+	if (acl) then -- Does an ACL with that name exist?
+		local rights = aclListRights(acl)
+		outputChatBox("List of rights of ACL "..theAcl.." (#"..#rights.."): ", player, 255, 255, 255)
+		for k,v in ipairs(rights) do
+			outputChatBox("- "..v, player)
 		end
 	else
-		outputChatBox("Please type in a acl that you want to retrieve the rights from.",player)
-		outputChatBox("Please use this Syntax: /aclRights theACL ",player)
+		outputChatBox("ACL "..theAcl.." does not exist", player, 255, 255, 255)
 	end
 end)

@@ -1,12 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundPan
 client:
   name: setSoundPan
-  description: This function is used to change the pan level of the specified [sound](/wiki/Sound
-    "Sound") element.
-  parameters: []
-  examples:
-  - path: examples/setSoundPan-1.lua
-    description: ''
-    side: client
   pair: getSoundPan
-  incomplete: true
+  description: This function is used to change the pan level of the specified [[sound]] element.
+  oop:
+    element: sound
+    method: setPan
+    variable: pan
+  parameters:
+    - name: theSound
+      type: sound/player
+      description: The [[sound]] element which pan you want to modify.
+    - name: pan
+      type: float
+      description: A floating point number representing the desired pan level. Range is from -1.0 (left) to 1.0 (right).
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the sound element pan was successfully changed, false otherwise.
+  examples:
+    - path: examples/setSoundPan-1.lua
+    - path: examples/setSoundPan_OOP-1.lua
+      oop: true

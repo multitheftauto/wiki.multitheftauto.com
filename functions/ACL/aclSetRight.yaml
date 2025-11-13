@@ -1,14 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AclSetRight
 server:
   name: aclSetRight
-  description: This functions changes or adds the given right in the given ACL. The
-    access can be *true* or *false* and specifies whether the ACL gives access to
-    the right or not.
-  parameters: []
-  examples:
-  - path: examples/aclSetRight-1.lua
-    description: This example adds a commandsetaclrightwith which you can easily add
-      new rights to specified access control lists.
-    side: server
   pair: aclGetRight
-  incomplete: true
+  description: This functions changes or adds the given right in the given [[ACL]]. The access can be true or false and specifies whether the ACL gives access to the right or not.
+  oop:
+    element: acl
+    method: setRight
+  parameters:
+    - name: theAcl
+      type: acl
+      description: The [[ACL]] to change the right of.
+    - name: rightName
+      type: string
+      description: The right to add/change the access property of. It must be prefixed with <code>function.</code> or <code>command.</code> or <code>general.</code> or <code>resource.</code>.
+    - name: hasAccess 
+      type: bool
+      description: Whether the access should be set to true or false.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the access was successfully changed, false or nil if it failed for some reason, ie. invalid ACL or the rightName is invalid.
+  examples:
+    - path: examples/aclSetRight-1.lua
+      description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.
+    - path: examples/aclSetRight_OOP-1.lua
+      description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.
+      oop: true

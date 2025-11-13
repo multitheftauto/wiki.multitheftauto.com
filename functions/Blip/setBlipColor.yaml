@@ -1,16 +1,34 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetBlipColor
-server:
+shared: &shared
   name: setBlipColor
-  description: This function will let you change the color of a blip. This color is
-    only applicable to the default blip icon ([![Blipid0s.png](/images/thumb/c/c3/Blipid0s.png/12px-Blipid0s.png)](/wiki/File:Blipid0s.png),
-    [![Blipid0u.png](/images/thumb/9/9d/Blipid0u.png/12px-Blipid0u.png)](/wiki/File:Blipid0u.png)
-    or [![Blipid0d.png](/images/thumb/a/a2/Blipid0d.png/12px-Blipid0d.png)](/wiki/File:Blipid0d.png)).
-    All other icons will ignore this.
-  parameters: []
-  examples:
-  - path: examples/setBlipColor-1.lua
-    description: This example will find all the blips that exist and set them all
-      to white if they aren't white already.
-    side: server
   pair: getBlipColor
-  incomplete: true
+  description: This function will let you change the color of a [[blip]]. This color is only applicable to the marker blip icon (ID 0). All other icons will ignore this.
+  oop:
+    element: blip
+    method: setColor
+  parameters:
+    - name: theBlip
+      type: blip
+      description: The blip who's color you wish to set.
+    - name: red
+      type: int
+      description: The amount of red in the blip's color (0 - 255).
+    - name: green
+      type: int
+      description: The amount of green in the blip's color (0 - 255).
+    - name: blue
+      type: int
+      description: The amount of blue in the blip's color (0 - 255).
+    - name: alpha
+      type: int
+      description: The amount of alpha in the blip's color (0 - 255). Alpha decides transparancy where 255 is opaque and 0 is transparent.
+  returns:
+    values:
+      - type: bool
+        name: result
+    description: Returns true if the blip's color was set successfully. Returns false if the blip passed to the function is invalid, or any of the colors are out of the valid range.
+  examples:
+    - path: examples/setBlipColor-1.lua
+      description: This example will find all the blips that exist and set them all to white if they aren't white already.
+    - path: examples/setBlipColor_OOP-1.lua
+      description: This example will find all the blips that exist and set them all to white if they aren't white already.
+      oop: true

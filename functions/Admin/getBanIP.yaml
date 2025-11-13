@@ -1,11 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetBanIP
 server:
   name: getBanIP
-  description: This function will return the IP of the specified [ban](/wiki/Ban "Ban").
-  parameters: []
+  description: This function will return the IP of the specified [[ban]].
+  oop:
+    element: ban
+    method: getIP
+    variable: ip
+  parameters:
+    - name: theBan
+      type: ban
+      description: The [[ban]] in which you want to return the IP of.
+  returns:
+    values:
+      - type: string|false
+        name: ip
+    description: Returns a string of the IP if everything was successful, false if invalid arguments are specified if there was no IP specified for the [[ban]].
   examples:
-  - path: examples/getBanIP-1.lua
-    description: This example will show the user who banned a player the IP adress
-      of that banned player.
-    side: server
-  incomplete: true
+    - path: examples/getBanIP-1.lua
+      description: This example will show the user who banned a player the IP adress of that banned player.
+    - path: examples/getBanIP_OOP-1.lua
+      description: This example will show the user who banned a player the IP adress of that banned player.
+      oop: true

@@ -1,9 +1,9 @@
 -- Retrieve a table containing all the blips that exist
-blips = getElementsByType ( "blip" )
+local blips = getElementsByType ( "blip" )
 -- Loop through the list, storing the blip from the table in the variable blipValue
 for blipKey, blipValue in blips do
 	-- Retrieve the blip's icon into the variable 'blipIcon'
-	blipIcon = getBlipIcon ( blipValue )
+	local blipIcon = getBlipIcon ( blipValue )
 	-- If the blip's icon wasn't the default already
 	if ( blipIcon ~= 0 ) then
 		-- Set the blip's icon to the default

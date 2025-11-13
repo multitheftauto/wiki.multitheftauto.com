@@ -4,10 +4,10 @@ function printAllData ( thePlayer )
         local data = getAllAccountData( playerAccount ) -- get data
         count = 0
         for _ in pairs(data) do count = count + 1 end -- get the count
-        outputChatBox ( "table holds " .. count .. " entries" ) -- output number of rows
+        outputChatBox ( "table holds " .. count .. " entries", thePlayer) -- output number of rows
         if ( data ) then
             for k,v in pairs ( data ) do
-                outputChatBox(k..": "..v) -- print the key and value of each entry of data
+                outputChatBox(k..": "..v, thePlayer) -- print the key and value of each entry of data
             end
         end
     end

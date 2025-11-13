@@ -1,12 +1,12 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetMapName
 server:
   name: getMapName
-  description: This function retrieves the current mapname as set by [setMapName](/wiki/SetMapName
-    "SetMapName").
-  parameters: []
+  pair: setMapName
+  description: This function retrieves the current mapname as set by [[setMapName]].
+  returns:
+    values:
+      - type: string|nil
+        name: map name
+    description: Returns the mapname as a [[string]]. If no mapname is set it returns [[nil]].
   examples:
-  - path: examples/getMapName-1.lua
-    description: This example adds acheckmapcommand with which you can check what
-      map you are currently playing.
-    side: server
-  incomplete: true
+    - path: examples/getMapName-1.lua
+      description: This example adds a <code>checkmap</code> command with which you can check what map you are currently playing.

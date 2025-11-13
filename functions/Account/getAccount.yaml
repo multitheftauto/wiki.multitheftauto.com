@@ -1,12 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccount
 server:
   name: getAccount
-  description: This function returns an [account](/wiki/Account "Account") for a specific
-    user.
-  parameters: []
+  description: This function returns an [[account]] for a specific user.
+  oop:
+    element: Account
+    constructorclass: Account
+  parameters:
+    - name: username 
+      type: string
+      description: The username of the account you want to retrieve.
+    - name: password
+      type: string
+      description: The password for the account. If this argument is not specified, you can get the account whatever password it is, otherwise the password must match the account's.
+      default: nil
+    - name: caseSensitive
+      type: bool
+      description: Specifies whether to ignore the case when searching for an account.
+      default: 'true'
+  returns:
+    values:
+      - type: account|false
+        name: result
+    description: Returns an account or false if an account matching the username specified (and password, if specified) could not be found.
   examples:
-  - path: examples/getAccount-1.lua
-    description: This function checks if the account mentioned exists in the internal.db
-      database file.
-    side: server
-  incomplete: true
+    - path: 'examples/getAccount-1.lua'
+      description: This function checks if the account mentioned exists in the internal.db database file.
+    - path: 'examples/getAccount_OOP-1.lua'
+      description: This function checks if the account mentioned exists in the internal.db database file.
+      oop: true
+      

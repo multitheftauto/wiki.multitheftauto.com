@@ -1,14 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetBlipVisibleDistance
-server:
+shared: &shared
   name: getBlipVisibleDistance
-  description: This function will tell you what visible distance a blip has.
-  parameters: []
-  examples:
-  - path: examples/getBlipVisibleDistance-1.lua
-    description: This example will demonstrate basic functionality of getBlipVisibleDistance
-    side: server
-  - path: examples/getBlipVisibleDistance-2.lua
-    description: This example will combine the total visible distances of all blips
-    side: server
   pair: setBlipVisibleDistance
-  incomplete: true
+  description: This function will tell you what visible distance a [[blip]] has.
+  oop:
+    element: blip
+    method: getVisibleDistance
+    variable: visibleDistance
+  parameters:
+    - name: theBlip
+      type: blip 
+      description: The [[blip]] whose visible distance you wish to get.
+  returns:
+    values:
+      - type: float|false
+        name: visibleDistance
+    description: Returns one [[float]] with the blips visible distance, false if the blip is invalid.
+  examples:
+    - path: examples/getBlipVisibleDistance-1.lua
+      description: This example will combine the total visible distances of all blips.
+    - path: examples/getBlipVisibleDistance_OOP-1.lua
+      description: This example will combine the total visible distances of all blips.
+      oop: true

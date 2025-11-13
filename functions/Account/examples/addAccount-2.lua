@@ -1,7 +1,7 @@
 function registerPlayer ( source, commandName, username, password )
-        if(password ~= "" and password ~= nil and username ~= "" and username ~= nil) then
+        if (username and #username > 0 and password and #password > 0) then
                 local accountAdded = addAccount(username,password)
-                if(accountAdded) then
+                if (accountAdded) then
                         outputChatBox("Thank you " .. getPlayerName(source) .. ", you're now registed, you can login with /login",source)
                 else
                         outputChatBox("Error creating account, contact the server admin.",source)

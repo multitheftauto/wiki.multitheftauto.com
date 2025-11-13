@@ -1,14 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundProperties
 client:
   name: getSoundProperties
-  description: This function gets the properties of a specific [sound](/wiki/Sound
-    "Sound").
-  parameters: []
-  examples:
-  - path: examples/getSoundProperties-1.lua
-    description: Example 1:This example would return three float values representing
-      the sample rate, tempo, pitch and a boolean value representing whether the sound
-      is reversed or not, every 5 seconds.
-    side: client
   pair: setSoundProperties
-  incomplete: true
+  description: This function gets the properties of a specific [[sound]].
+  oop:
+    element: sound
+    method: getProperties
+  parameters:
+    - name: theSound
+      type: sound
+      description: A [[sound]] element.
+  returns:
+    values:
+      - type: float|false
+        name: sample rate
+      - type: float
+        name: tempo
+      - type: float
+        name: pitch
+      - type: bool
+        name: reversed
+    description: The first float is the sound's [sample rate](http://en.wikipedia.org/wiki/Sampling_rate), the second one the sound's [tempo](http://en.wikipedia.org/wiki/Tempo), and the third one the [pitch](http://en.wikipedia.org/wiki/Pitch_%28music%29) of the sound. The boolean representing whether the sound is reversed or not.
+  examples:
+    - path: examples/getSoundProperties-1.lua
+      description: This example would return three float values representing the sample rate, tempo, pitch and a boolean value representing whether the sound is reversed or not, every 5 seconds.
+    - path: examples/getSoundProperties_OOP-1.lua
+      description: This example would return three float values representing the sample rate, tempo, pitch and a boolean value representing whether the sound is reversed or not, every 5 seconds.
+      oop: true
