@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetTeamFriendlyFire
+server:
+  name: setTeamFriendlyFire
+  description: This function sets the friendly fire value for the specified team.
+  parameters: []
+  examples:
+  - path: examples/setTeamFriendlyFire-1.lua
+    description: This example checks if friendly fire is on for every team, and toggles
+      it on if it isn't.
+    side: server
+  pair: getTeamFriendlyFire
+  incomplete: true

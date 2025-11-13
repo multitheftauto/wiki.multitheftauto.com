@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPlayerMuted
+server:
+  name: isPlayerMuted
+  description: Use this function to check if a player has been muted.
+  parameters: []
+  examples:
+  - path: examples/isPlayerMuted-1.lua
+    description: ''
+    side: server
+  pair: setPlayerMuted
+  incomplete: true

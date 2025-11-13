@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupAddObject
+server:
+  name: aclGroupAddObject
+  description: 'This function adds an object to the given ACL group. An object can
+    be a player''s account, specified as:'
+  parameters: []
+  examples:
+  - path: examples/aclGroupAddObject-1.lua
+    description: This example makes every player able to use a command named "giveAccountAdminRights"
+      that will add a specific accountname as an ACL object to the "Admin" group.
+    side: server
+  incomplete: true

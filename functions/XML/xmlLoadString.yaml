@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlLoadString
+server:
+  name: xmlLoadString
+  description: This function creates an [Xmlnode](/wiki/Xmlnode "Xmlnode") from a
+    string input.
+  parameters: []
+  examples:
+  - path: examples/xmlLoadString-1.lua
+    description: This example loads an XML string and loops the children while outputting
+      to debugscript.
+    side: server
+  incomplete: true

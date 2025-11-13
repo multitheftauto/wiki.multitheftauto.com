@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextCreateDisplay
+server:
+  name: textCreateDisplay
+  description: A [text display](/wiki/Textdisplay "Textdisplay") is like a canvas
+    that can contain many [items of text](/wiki/Textitem "Textitem"). Each display
+    can be seen by multiple observers (players) and each player can see multiple displays.
+  parameters: []
+  examples:
+  - path: examples/textCreateDisplay-1.lua
+    description: ''
+    side: server
+  incomplete: true

@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetFarClipDistance
+server:
+  name: getFarClipDistance
+  description: This function will tell you what is the current render distance.
+  parameters: []
+  examples:
+  - path: examples/getFarClipDistance-1.lua
+    description: This example will demonstrate basic functionality of the function.
+    side: server
+  notes:
+  - type: info
+    content: The function will return false server-side if far clip distance has not
+      been set before the function is called.
+  - type: info
+    content: Default far clip distance value is 800.
+  incomplete: true

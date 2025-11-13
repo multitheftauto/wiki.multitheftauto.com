@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleWindowOpen
+client:
+  name: setVehicleWindowOpen
+  description: This function sets the vehicle window state.
+  parameters: []
+  examples:
+  - path: examples/setVehicleWindowOpen-1.lua
+    description: Command which allow player to open window which near sits.
+    side: client
+  incomplete: true

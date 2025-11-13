@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetUserdataType
+server:
+  name: getUserdataType
+  description: This function gets the type of a userdata value, which is not always
+    a [element](/wiki/Element "Element") in the element tree.
+  parameters: []
+  examples:
+  - path: examples/getUserdataType-1.lua
+    description: This example shows a function that can be used to work around the
+      impossibility to transfer vectors as arguments when usingtriggerClientEventandtriggerServerEvent,
+      by converting them into a table which can be used safely.
+    side: server
+  incomplete: true

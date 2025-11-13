@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetSize
+client:
+  name: guiSetSize
+  description: This function sets the dimensions (size) of a GUI element. It refers
+    to the bounding box size for GUI elements. It does not make GUI elements smaller
+    or larger in appearance.
+  parameters: []
+  examples:
+  - path: examples/guiSetSize-1.lua
+    description: This example creates a gui window and changes the x and y width of
+      the window every 2 seconds.
+    side: client
+  pair: guiGetSize
+  incomplete: true

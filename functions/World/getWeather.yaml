@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWeather
+server:
+  name: getWeather
+  description: This function returns the current [Weather](/wiki/Weather "Weather")
+    ID.
+  parameters: []
+  examples:
+  - path: examples/getWeather-1.lua
+    description: This example outputs the current weather ID in that chat box.
+    side: server
+  incomplete: true

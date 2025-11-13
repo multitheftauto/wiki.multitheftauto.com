@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetVehicleExplosionTime
+server:
+  name: resetVehicleExplosionTime
+  description: 'Resets the vehicle explosion time. This is the point in time at which
+    the vehicle last exploded: at this time plus the vehicle''s respawn delay, the
+    vehicle is respawned. You can use this function to prevent the vehicle from respawning.'
+  parameters: []
+  examples:
+  - path: examples/resetVehicleExplosionTime-1.lua
+    description: This example resets every vehicle's explosion time when the resource
+      is stopped.
+    side: server
+  incomplete: true

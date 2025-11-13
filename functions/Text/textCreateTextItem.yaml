@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextCreateTextItem
+server:
+  name: textCreateTextItem
+  description: This function creates a text item. A text item represents a single
+    area of text, much like a label does in standard GUI programming. A text item
+    can only be seen by players if it is added to a [textdisplay](/wiki/Textdisplay
+    "Textdisplay") using [textDisplayAddText](/wiki/TextDisplayAddText "TextDisplayAddText").
+    Each text item can be added to multiple displays, if need be.
+  parameters: []
+  examples:
+  - path: examples/textCreateTextItem-1.lua
+    description: ''
+    side: server
+  incomplete: true

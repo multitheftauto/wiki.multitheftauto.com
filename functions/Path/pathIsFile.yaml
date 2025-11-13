@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PathIsFile
+shared:
+  name: pathIsFile
+  description: Checks if a specified path points to a file.
+  parameters: []
+  examples:
+  - path: examples/pathIsFile-1.lua
+    description: This example lists all files in a directory
+    side: shared
+  incomplete: true

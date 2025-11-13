@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsObjectMoving
+server:
+  name: isObjectMoving
+  description: This function checks if an [object](/wiki/Object "Object") is moving.
+  parameters: []
+  examples:
+  - path: examples/isObjectMoving-1.lua
+    description: 'This example creates an object when the resource starts and checks
+      if the object is moving:'
+    side: server
+  incomplete: true

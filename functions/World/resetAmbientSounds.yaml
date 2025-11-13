@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetAmbientSounds
+client:
+  name: resetAmbientSounds
+  description: This function is used to reset the background sounds to the default
+    setting.
+  parameters: []
+  examples:
+  - path: examples/resetAmbientSounds-1.lua
+    description: ''
+    side: client
+  incomplete: true

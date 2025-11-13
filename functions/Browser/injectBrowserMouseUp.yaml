@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/InjectBrowserMouseUp
+client:
+  name: injectBrowserMouseUp
+  description: 'This function injects a mouse click (state: up).'
+  parameters: []
+  examples:
+  - path: examples/injectBrowserMouseUp-1.lua
+    description: ''
+    side: client
+  incomplete: true

@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RenameResource
+server:
+  name: renameResource
+  description: This function renames a resource.
+  parameters: []
+  examples:
+  - path: examples/renameResource-1.lua
+    description: 'This example renames the resource "reload" to "reload2":'
+    side: server
+  pair: getResourceName
+  incomplete: true

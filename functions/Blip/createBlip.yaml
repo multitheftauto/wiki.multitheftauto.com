@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateBlip
+server:
+  name: createBlip
+  description: This function creates a [blip](/wiki/Blip "Blip") [element](/wiki/Element
+    "Element"), which is displayed as an icon on the client's radar.
+  parameters: []
+  examples:
+  - path: examples/createBlip-1.lua
+    description: Example 1:This example creates a radar blip at a random player's
+      position and makes it so that it is only visible to that player.
+    side: server
+  incomplete: true

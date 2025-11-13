@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/HasObjectPermissionTo
+server:
+  name: hasObjectPermissionTo
+  description: This function returns whether or not the given object has access to
+    perform the given action.
+  parameters: []
+  examples:
+  - path: examples/hasObjectPermissionTo-1.lua
+    description: This example kicks a player if the user using it has access to the
+      kickPlayer function.
+    side: server
+  notes:
+  - type: info
+    content: Only certain action names work. This function seems to return nil and
+      output a bad argument error when checking if an object has rights for an action
+      which doesn't start with function. , command. or resource. keywords.
+  incomplete: true

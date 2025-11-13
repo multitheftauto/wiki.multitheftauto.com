@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountType
+server:
+  name: getAccountType
+  description: This function returns an [account](/wiki/Account "Account") type.
+  parameters: []
+  examples:
+  - path: examples/getAccountType-1.lua
+    description: ''
+    side: server
+  incomplete: true

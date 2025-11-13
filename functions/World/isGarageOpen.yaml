@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsGarageOpen
+server:
+  name: isGarageOpen
+  description: This function checks whether or not a specific garage door is open.
+  parameters: []
+  examples:
+  - path: examples/isGarageOpen-1.lua
+    description: 'This example opens a garage door when a player enters a collision
+      shape near it, and closes it when they leave:'
+    side: server
+  incomplete: true

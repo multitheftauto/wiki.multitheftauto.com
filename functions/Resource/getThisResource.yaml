@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetThisResource
+server:
+  name: getThisResource
+  description: This function retrieves the resource from which the function call was
+    made.
+  parameters: []
+  examples:
+  - path: examples/getThisResource-1.lua
+    description: This example retrieves the current resource's root element and attaches
+      it to an onResourceStart event handler. This causes the event handler to get
+      called only when thecurrentresource is started rather than whenanyresource is
+      started, thereby reducing unnecessary overhead.
+    side: server
+  notes:
+  - type: info
+    content: Every resource has a predefined global variable called resource that
+      contains the resource pointer for that resource, in other words, the value that
+      this function returns.
+  incomplete: true

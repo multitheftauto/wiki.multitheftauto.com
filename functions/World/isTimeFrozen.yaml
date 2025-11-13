@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsTimeFrozen
+client:
+  name: isTimeFrozen
+  description: This function allows you to check whether time has been frozen using
+    [setTimeFrozen](/wiki/SetTimeFrozen "SetTimeFrozen").
+  parameters: []
+  examples:
+  - path: examples/isTimeFrozen-1.lua
+    description: ''
+    side: client
+  incomplete: true

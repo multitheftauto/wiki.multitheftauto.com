@@ -1,0 +1,21 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileRename
+server:
+  name: fileRename
+  description: Renames the specified file.
+  parameters: []
+  examples:
+  - path: examples/fileRename-1.lua
+    description: This example renames the filetest1.txtthat is in the root of the
+      current resource totest2.txt.
+    side: server
+  - path: examples/fileRename-2.lua
+    description: This example moves the filetest1.txtthat is in the root of the current
+      resource tomyFolderfolder. If this folder is not exists, it will be created
+      before moving the filetest1.txt.
+    side: server
+  notes:
+  - type: info
+    content: Also with this function you can move specified file to a new location,
+      new folder or even to another resource's folder. But for this action executing
+      resource must have 'ModifyOtherObjects' ACL right set to true .
+  incomplete: true

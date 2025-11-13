@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetHeatHaze
+server:
+  name: setHeatHaze
+  description: This function changes the heat haze effect.
+  parameters: []
+  examples:
+  - path: examples/setHeatHaze-1.lua
+    description: 'Example 1:This example turns the heat haze effect off:'
+    side: server
+  - path: examples/setHeatHaze-2.lua
+    description: 'Example 2:This example will have an interesting effect:'
+    side: server
+  incomplete: true

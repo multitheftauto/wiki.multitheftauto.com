@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetInteriorSoundsEnabled
+server:
+  name: getInteriorSoundsEnabled
+  description: This function checks to see if the music played by default in clubs
+    is disabled or not.
+  parameters: []
+  examples:
+  - path: examples/getInteriorSoundsEnabled-1.lua
+    description: Command check_sounds checks if the interior sounds enabled or not
+    side: server
+  incomplete: true

@@ -1,0 +1,6 @@
+addCommandHandler("accountsbydata", function (player)
+   local account = getPlayerAccount(player)
+   setAccountData(account, "test", "hello")
+   local accounts = getAccountsByData("test", "hello")
+   outputChatBox(getAccountName(accounts[1]), player)                
+end)

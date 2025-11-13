@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementChildren
+server:
+  name: getElementChildren
+  description: This function is used to retrieve a list of the child elements of a
+    given parent element. Note that it will only return direct children and not elements
+    that are further down the [element tree](/wiki/Element_tree "Element tree").
+  parameters: []
+  examples:
+  - path: examples/getElementChildren-1.lua
+    description: 'With this map file:'
+    side: server
+  - path: examples/getElementChildren-2.lua
+    description: This example outputs the child elements of the element with id 'red',
+      when the player enters the 'teamElements' command.
+    side: server
+  incomplete: true

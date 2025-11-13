@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetProjectileCounter
+client:
+  name: setProjectileCounter
+  description: 'Will change the projectile counter timer which depending on the projectile
+    type will do different things:'
+  parameters: []
+  examples:
+  - path: examples/setProjectileCounter-1.lua
+    description: With this example you can use /setbombtime to set a delay duration
+      of a projectile explosion.
+    side: client
+  pair: getProjectileCounter
+  incomplete: true

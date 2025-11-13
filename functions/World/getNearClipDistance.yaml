@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetNearClipDistance
+client:
+  name: getNearClipDistance
+  description: This function gets the distance from the [camera](/wiki/Camera "Camera")
+    at which the world starts rendering. For more information about this please refer
+    to [setNearClipDistance](/wiki/SetNearClipDistance "SetNearClipDistance").
+  parameters: []
+  examples:
+  - path: examples/getNearClipDistance-1.lua
+    description: This example adds a/testmynearclipdistancecommand which outputs different
+      things deppending of the current near clip distance.
+    side: client
+  incomplete: true

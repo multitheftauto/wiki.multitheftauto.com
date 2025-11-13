@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.reverse
+server:
+  name: utf8.reverse
+  description: Reverses the input string.
+  parameters: []
+  examples:
+  - path: examples/utf8.reverse-1.lua
+    description: This example shows how to reverse a UTF-8 string.
+    side: client
+  incomplete: true

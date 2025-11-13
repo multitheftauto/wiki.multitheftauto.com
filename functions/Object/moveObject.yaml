@@ -1,0 +1,29 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/MoveObject
+server:
+  name: moveObject
+  description: This function will smoothly move an object from its current position
+    to a specified rotation and position.
+  parameters: []
+  examples:
+  - path: examples/moveObject-1.lua
+    description: Example 1:This example moves every object in the game up 100 units
+      in ten seconds.
+    side: server
+  - path: examples/moveObject-2.lua
+    description: Example 2:This example created a model (of a bed) near a player calledsomeguy,
+      if they exist in the game. It will then move the model towards the player over
+      3 seconds.
+    side: server
+  - path: examples/moveObject-3.lua
+    description: Example 3:This example creates a ball moving (in front of CJ's house
+      in Grove Street) using easing functions. Test command is "/smove" for instance
+      "/smove OutBounce". This example is a serverside code but the same could be
+      done clientside (adapting the command handler)
+    side: server
+  - path: examples/moveObject-4.lua
+    description: Example 4:This example move a gate with easing.
+    side: server
+  issues:
+  - id: '549'
+    description: Object rotation is wrong after moveObject serverside
+  incomplete: true

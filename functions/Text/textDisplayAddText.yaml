@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextDisplayAddText
+server:
+  name: textDisplayAddText
+  description: This function adds a [textitem](/wiki/Textitem "Textitem") to a [textdisplay](/wiki/Textdisplay
+    "Textdisplay"). This allows any observers of the [textdisplay](/wiki/Textdisplay
+    "Textdisplay") to see the [textitem](/wiki/Textitem "Textitem").
+  parameters: []
+  examples:
+  - path: examples/textDisplayAddText-1.lua
+    description: ''
+    side: server
+  incomplete: true

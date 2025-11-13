@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelSetHorizontalAlign
+client:
+  name: guiLabelSetHorizontalAlign
+  description: This function sets the horizontal alignment of a text label.
+  parameters: []
+  examples:
+  - path: examples/guiLabelSetHorizontalAlign-1.lua
+    description: ''
+    side: client
+  incomplete: true

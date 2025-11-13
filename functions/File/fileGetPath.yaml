@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileGetPath
+server:
+  name: fileGetPath
+  description: This function retrieves the path of the given file.
+  parameters: []
+  examples:
+  - path: examples/fileGetPath-1.lua
+    description: ''
+    side: server
+  incomplete: true

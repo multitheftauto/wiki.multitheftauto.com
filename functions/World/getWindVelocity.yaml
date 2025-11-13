@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWindVelocity
+server:
+  name: getWindVelocity
+  description: This function gets the wind velocity in San Andreas.
+  parameters: []
+  examples:
+  - path: examples/getWindVelocity-1.lua
+    description: This example returns the wind velocity to a player if they use the
+      command 'getwindvelocity'.
+    side: server
+  notes:
+  - type: info
+    content: The function will return false server-side if wind velocity has not been
+      set before the function is called.
+  incomplete: true

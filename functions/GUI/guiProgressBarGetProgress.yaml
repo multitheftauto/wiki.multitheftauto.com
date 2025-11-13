@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiProgressBarGetProgress
+client:
+  name: guiProgressBarGetProgress
+  description: This function gets the progress of a progress bar as a percentage.
+  parameters: []
+  examples:
+  - path: examples/guiProgressBarGetProgress-1.lua
+    description: This example gets the progress of a bar called "somebar" created
+      withguiCreateProgressBar, and outputs it to the chatbox.
+    side: client
+  incomplete: true

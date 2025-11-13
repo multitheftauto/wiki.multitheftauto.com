@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ProcessLineAgainstMesh
+client:
+  name: processLineAgainstMesh
+  description: 'Does a raycast against an element''s renderable mesh model \[not the
+    collision model!].
+
+    The same functionality is already present in [processLineOfSight](/wiki/ProcessLineOfSight
+    "ProcessLineOfSight"), but the latter is a little buggy due to the fact that the
+    collision model is always simplified, and not exactly the same as the mesh, which
+    leads to situations where no hit is detected, even though the visible mesh is
+    hittable \[or vice versa].
+
+    Also, when one is interested in a specific element the overhead is a lot smaller
+    \[as we can skip all the collision detection done by the before\-mentioned function].'
+  parameters: []
+  examples: []
+  incomplete: true

@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveGameWorld
+server:
+  name: removeGameWorld
+  description: This function removes the entire game world and also clears the dummies
+    pool.
+  parameters: []
+  examples:
+  - path: examples/removeGameWorld-1.lua
+    description: This example removes game world.
+    side: server
+  incomplete: true

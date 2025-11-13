@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsOOPEnabled
+server:
+  name: isOOPEnabled
+  description: This function checks whether *[OOP](/wiki/OOP "OOP")* (Object Oriented
+    Programming) is enabled in the current [resource](/wiki/Resource "Resource") or
+    not.
+  parameters: []
+  examples:
+  - path: examples/isOOPEnabled-1.lua
+    description: ''
+    side: server
+  incomplete: true

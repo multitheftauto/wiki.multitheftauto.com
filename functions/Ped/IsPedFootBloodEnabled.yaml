@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPedFootBloodEnabled
+client:
+  name: IsPedFootBloodEnabled
+  description: This function checks if player feets are bleeding.
+  parameters: []
+  examples:
+  - path: examples/IsPedFootBloodEnabled-1.lua
+    description: ''
+    side: client
+  incomplete: true

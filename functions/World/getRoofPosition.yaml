@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetRoofPosition
+client:
+  name: getRoofPosition
+  description: This function gets the Z level of the lowest roof above a point. It
+    is required that the point is near enough to the local player so that it's within
+    the area where collision data is loaded.
+  parameters: []
+  examples:
+  - path: examples/getRoofPosition-1.lua
+    description: 'This example starts to shake the player''s camera if there is no
+      roof over him:'
+    side: client
+  incomplete: true

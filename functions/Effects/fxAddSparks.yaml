@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddSparks
+client:
+  name: fxAddSparks
+  description: Creates a number of sparks originating from a point or along a line.
+  parameters: []
+  examples:
+  - path: examples/fxAddSparks-1.lua
+    description: This example will add Fire Bins to all locations added in the table.
+    side: client
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleComponentVisible
+client:
+  name: setVehicleComponentVisible
+  description: This function sets component visibility for [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/setVehicleComponentVisible-1.lua
+    description: Example 1:This example hide all components when you enter a vehicle.
+    side: client
+  pair: getVehicleComponentVisible
+  incomplete: true

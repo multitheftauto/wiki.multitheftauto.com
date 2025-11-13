@@ -1,0 +1,34 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PlaySFX
+client:
+  name: playSFX
+  description: This function plays a sound from GTA's big sound containers.
+  parameters: []
+  examples:
+  - path: examples/playSFX-1.lua
+    description: The following example plays a firealarm sound (looped).
+    side: client
+  - path: examples/playSFX-2.lua
+    description: This example spawns Big Smoke in his Crack Palace and plays one of
+      his screams followed by the mission accomplished sound when he's killed.
+    side: client
+  notes:
+  - type: info
+    content: 'There is a tool available which allows you to find bank and sound IDs
+      easily: [ sfxBrowser:Download ].'
+  - type: warning
+    content: 'Many players use versions of GTA:SA (especially pirated versions) that
+      have audio files full of zeros so that they can compresses better in their AUDIO\SFX\
+      folder. (They lack any data) In case of these invalid audio files, this function
+      returns false . It also returns false when trying to play a track deleted in
+      the recent GTA: SA Steam patches (and if the client is using a Steam GTA: SA
+      copy).'
+  - type: info
+    content: PlaySFX sounds are MTA driven sounds, so MTA volume affects the volume.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Syntax 2
+
+      '

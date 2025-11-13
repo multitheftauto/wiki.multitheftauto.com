@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLocalization
+client:
+  name: getLocalization
+  description: This function gets the player's localization setting as set in the
+    MTA client.
+  parameters: []
+  examples:
+  - path: examples/getLocalization-1.lua
+    description: This example outputs simpleWelcomemessage at the resource start (also
+      when player joins the game if the resource is already running).
+    side: client
+  - path: examples/getLocalization-2.lua
+    description: This is a list of all the language codes used in MTA in a table with
+      the full name of the language.
+    side: client
+  - path: examples/getLocalization-3.lua
+    description: This function is useful for fixing any scripts that were made before
+      MTA 1.6 as some of the language codes were changed.
+    side: client
+  incomplete: true

@@ -1,0 +1,66 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DbConnect
+server:
+  name: dbConnect
+  description: This function opens a connection to a database and returns an element
+    that can be used with [dbQuery](/wiki/DbQuery "DbQuery"). To disconnect use [destroyElement](/wiki/DestroyElement
+    "DestroyElement").
+  parameters: []
+  examples:
+  - path: examples/dbConnect-1.lua
+    description: This example opens a connection to a SQLite database file in the
+      current resource
+    side: server
+  - path: examples/dbConnect-2.lua
+    description: This example opens a connection to a SQLite database file in another
+      resource
+    side: server
+  - path: examples/dbConnect-3.lua
+    description: This example opens a connection to a SQLite database file in the
+      global databases directory
+    side: server
+  - path: examples/dbConnect-4.lua
+    description: This example opens a connection to a SQLite database file in a sub
+      directory of the global databases directory
+    side: server
+  - path: examples/dbConnect-5.lua
+    description: This example opens a connection to a MySQL database called 'frank'
+      at server ip 1.2.3.4 using utf8 character set and allows the connection to be
+      shared. Note that changing the database or other connection dependent settings
+      affect all connections that are shared.
+    side: server
+  - path: examples/dbConnect-6.lua
+    description: This example opens a connection to a SQLite database is disallows
+      sharing of the connection
+    side: server
+  - path: examples/dbConnect-7.lua
+    description: This example output debug message, if the connection with SQLite
+      database was established or not
+    side: server
+  - path: examples/dbConnect-8.lua
+    description: 'The folowing example shows how you could approach a common resource
+      for database operations with exported functions (queryandexecute):'
+    side: server
+  notes:
+  - type: info
+    content: Connecting and disconnecting many times can have a performance impact
+      on the server. For optimal performance it is recommended that you use dbConnect
+      only once when the resource starts, and share the connection element with the
+      whole script.
+  - type: info
+    content: 'In MySQL 8.0 and later, you can choose between `caching_sha2_password`
+      , `sha256_password` , or `mysql_native_password` for password management. If
+      you opt for `caching_sha2_password` or `sha256_password` , SSL is not mandatory
+      but recommended for secure authentication. If you choose `mysql_native_password`
+      , you can set it as the default authentication plugin: In the `mysqld.cnf` configuration
+      file, by adding or modifying the following line: default-authentication-plugin=mysql_native_password
+      Using SQL queries (e.g., ALTER USER). In PHPMyAdmin (via the user settings page).
+      Please note that starting with MySQL 9.0, `mysql_native_password` will no longer
+      be available, and only `caching_sha2_password` and `sha256_password` will be
+      supported.'
+  - type: info
+    content: Under certain platforms, for example on Unix-based OSes like Linux, using
+      this function could fail with a debug warning containing "[Could not connect]"
+      accompanied by a prior debug error explaining the problem. In that case you
+      should check the Server Manual to see if you have missed any recommended (best-effort)
+      steps for server set-up.
+  incomplete: true

@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingSetModelCacheLimits
+client:
+  name: engineStreamingSetModelCacheLimits
+  description: This function sets custom cache limits for vehicle and pedestrian models
+    based on provided values. The arguments that receive zero mean complete deactivation.
+  parameters: []
+  examples:
+  - path: examples/engineStreamingSetModelCacheLimits-1.lua
+    description: This example turns off cache limiting.
+    side: client
+  - path: examples/engineStreamingSetModelCacheLimits-2.lua
+    description: This example sets a limit of 128 for the cache.
+    side: client
+  incomplete: true

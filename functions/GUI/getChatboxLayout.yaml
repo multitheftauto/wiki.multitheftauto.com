@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetChatboxLayout
+client:
+  name: getChatboxLayout
+  description: Returns information about how the chatbox looks.
+  parameters: []
+  examples:
+  - path: examples/getChatboxLayout-1.lua
+    description: This code makes the chatbox empty when you type /clear
+    side: client
+  - path: examples/getChatboxLayout-2.lua
+    description: This code makes the chatbox empty when you type /clear, but with
+      a cleaner code
+    side: client
+  incomplete: true

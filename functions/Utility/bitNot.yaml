@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitNot
+server:
+  name: bitNot
+  description: This function performs a bitwise NOT on an (unsigned) 32\-bit [integer](/wiki/Int
+    "Int"). See [Bitwise operation](http://en.wikipedia.org/wiki/Bitwise_operation#NOT)
+    for more details.
+  parameters: []
+  examples:
+  - path: examples/bitNot-1.lua
+    description: --In this example we make a command which you can do a bitNot operator
+    side: server
+  incomplete: true

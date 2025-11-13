@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileIsEOF
+server:
+  name: fileIsEOF
+  description: Checks if the file position is at the end of the file.
+  parameters: []
+  examples:
+  - path: examples/fileIsEOF-1.lua
+    description: This example opens the file test.txt and outputs its contents to
+      the console.
+    side: server
+  notes:
+  - type: info
+    content: Due to underlying C API restrictions this function may return false until
+      an attempt to read further than the end of the file is made.
+  incomplete: true

@@ -1,0 +1,26 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateProjectile
+client:
+  name: createProjectile
+  description: This function creates a projectile of the specified type on the specified
+    coordinates.
+  parameters: []
+  examples:
+  - path: examples/createProjectile-1.lua
+    description: This example makes a rocket minigun (minigun shooting with rockets).
+    side: client
+  - path: examples/createProjectile-2.lua
+    description: This example code shoots a projectile from your occupied vehicle
+      that travels in the direction your vehicle is facing when you press vehicle_fire
+      (left mouse button with default controls)
+    side: client
+  notes:
+  - type: info
+    content: 'Model argument is not synchronized between clients. Clients differs
+      from local player see always standard projectile model. Target argument valid
+      elements are: player , ped , vehicle and object .'
+  issues:
+  - id: '584'
+    description: createProjectile creates one projectile for every person in the vehicle
+  - id: '616'
+    description: Projectile rotation is set exactly opposite for creator
+  incomplete: true

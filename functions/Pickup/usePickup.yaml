@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/UsePickup
+server:
+  name: usePickup
+  description: This function is used to simulate the player using a pickup
+  parameters: []
+  examples:
+  - path: examples/usePickup-1.lua
+    description: This example gives a random player 100% armor by using a pickup.
+    side: server
+  incomplete: true

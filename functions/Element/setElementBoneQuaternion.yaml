@@ -1,0 +1,21 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementBoneQuaternion
+client:
+  name: setElementBoneQuaternion
+  description: "This function determines how a particular bone rotates in relation\
+    \ to the element.  \n\nThe use of [quaternions](https://en.wikipedia.org/wiki/Quaternion)\
+    \ are more effective and do not generate issues like gimbal lock that might arise\
+    \ with [Euler angles](https://en.wikipedia.org/wiki/Euler_angles), so they are\
+    \ a preferable choice for rotation."
+  parameters: []
+  examples:
+  - path: examples/setElementBoneQuaternion-1.lua
+    description: This example rotates the player's pelvis 180 degrees around an arbitrary
+      axis.The use ofupdateElementRpHAnimis necessary here as it applies the rotation.
+    side: client
+  notes:
+  - type: info
+    content: If you want to apply the rotation, updateElementRpHAnim must be called
+      after this function.
+  - type: tip
+    content: If you want to attach an element to a bone, see attachElementToBone .
+  incomplete: true

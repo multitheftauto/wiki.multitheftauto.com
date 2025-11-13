@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListAutoSizeColumn
+client:
+  name: guiGridListAutoSizeColumn
+  description: This allows you to automatically size a column to display everything
+    in it correctly, with the most minimal width.
+  parameters: []
+  examples:
+  - path: examples/guiGridListAutoSizeColumn-1.lua
+    description: This example creates a random list of numbers of various lengths.
+      This function is used to adjust the width to display them all.
+    side: client
+  incomplete: true

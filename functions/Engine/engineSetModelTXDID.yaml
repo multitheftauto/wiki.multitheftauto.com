@@ -1,0 +1,7 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelTXDID
+client:
+  name: engineSetModelTXDID
+  description: This function changes the TXD ID of the given model ID.
+  parameters: []
+  examples: []
+  incomplete: true

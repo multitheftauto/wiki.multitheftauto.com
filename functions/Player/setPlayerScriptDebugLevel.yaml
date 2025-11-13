@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerScriptDebugLevel
+server:
+  name: setPlayerScriptDebugLevel
+  description: This will set player's debug level, equivalent to [debugscript \<level\>](/wiki/Debugging
+    "Debugging").
+  parameters: []
+  examples:
+  - path: examples/setPlayerScriptDebugLevel-1.lua
+    description: This code will set joining players debug level to (3), (It is no
+      recommended to use it in production, specially if you have sensitive data in
+      your logs).
+    side: server
+  pair: getPlayerScriptDebugLevel
+  incomplete: true

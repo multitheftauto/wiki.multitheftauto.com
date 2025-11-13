@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitArShift
+server:
+  name: bitArShift
+  description: 'This functions performs an arithmetic shift on the integer **value**
+    by integer **n** positions. In an *arithmetic shift*, zeros are shifted in to
+    replace the discarded bits. In a *right arithmetic* shift, the [sign bit](https://en.wikipedia.org/wiki/Sign_bit)
+    is shifted in on the left, thus preserving the sign of the operand.
+
+    See [Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift)
+    for more details.'
+  parameters: []
+  examples:
+  - path: examples/bitArShift-1.lua
+    description: This example adds the clientside command/arshift [value] [positions
+      = 1], which will print the result from the functionbitArShift.
+    side: client
+  incomplete: true

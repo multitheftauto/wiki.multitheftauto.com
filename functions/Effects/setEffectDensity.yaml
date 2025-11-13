@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetEffectDensity
+client:
+  name: setEffectDensity
+  description: This function sets the density of a specified [effect](/wiki/Effect
+    "Effect").
+  parameters: []
+  examples:
+  - path: examples/setEffectDensity-1.lua
+    description: This example adds commandsedthat creates spray effect at the player's
+      position and sets its density to 2.
+    side: client
+  pair: getEffectDensity
+  notes:
+  - type: warning
+    content: Upper density limit of this function depends on client FX Quality setting.
+      The limit is 1 for Low, 1.5 for Medium, and 2 for High/Very high.
+  incomplete: true

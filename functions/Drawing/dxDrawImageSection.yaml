@@ -1,0 +1,21 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawImageSection
+client:
+  name: dxDrawImageSection
+  description: Differing from [dxDrawImage](/wiki/DxDrawImage "DxDrawImage"), this
+    function only draws a part of an image on the screen for a single frame. In order
+    for the image to stay visible continuously, you need to call this function with
+    the same parameters on each frame update (see [onClientRender](/wiki/OnClientRender
+    "OnClientRender")).
+  parameters: []
+  examples:
+  - path: examples/dxDrawImageSection-1.lua
+    description: Example 1The example draws a section of an image. (You can usethisimage
+      to test.)
+    side: client
+  notes:
+  - type: tip
+    content: Use a texture created with dxCreateTexture to speed up drawing .
+  - type: tip
+    content: To help prevent edge artifacts when drawing textures, set textureEdge
+      to "clamp" when calling dxCreateTexture
+  incomplete: true

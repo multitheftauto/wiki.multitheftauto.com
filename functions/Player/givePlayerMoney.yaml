@@ -1,0 +1,29 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GivePlayerMoney
+server:
+  name: givePlayerMoney
+  description: This function adds money to a [player](/wiki/Player "Player")'s current
+    money amount. To set absolute values, [setPlayerMoney](/wiki/SetPlayerMoney "SetPlayerMoney")
+    can be used.
+  parameters: []
+  examples:
+  - path: examples/givePlayerMoney-1.lua
+    description: This example gives a player money when using "givecash" command.
+    side: server
+  - path: examples/givePlayerMoney-2.lua
+    description: This example gives a player one thousand dollars, as a reward for
+      killing another player.
+    side: server
+  - path: examples/givePlayerMoney-3.lua
+    description: This example Creates money Money (dollar symbol) pickup and gives
+      30,000 dollars on Pick up hit.
+    side: server
+  notes:
+  - type: info
+    content: Using this function client side (not recommended) will not change a players
+      money server side.
+  - type: info
+    content: As of MTA SA version 1.5.9, despite the documentation claiming that amount
+      should be a positive integer, this function does work with negative values or
+      zero. In that case the function does still add the number to the game money
+      value, in the negative case resulting in a decreased value.
+  incomplete: true

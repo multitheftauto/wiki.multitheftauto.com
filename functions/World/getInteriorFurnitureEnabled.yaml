@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetInteriorFurnitureEnabled
+client:
+  name: getInteriorFurnitureEnabled
+  description: This function will tell you if interior furniture are enabled or disabled
+    in a specified room ID.
+  parameters: []
+  examples:
+  - path: examples/getInteriorFurnitureEnabled-1.lua
+    description: ''
+    side: client
+  incomplete: true

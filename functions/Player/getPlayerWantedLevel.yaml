@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerWantedLevel
+server:
+  name: getPlayerWantedLevel
+  description: This function gets a player's current wanted level. The wanted level
+    is indicated by the amount of stars a player has on the GTA HUD.
+  parameters: []
+  examples:
+  - path: examples/getPlayerWantedLevel-1.lua
+    description: 'This example finds which players in the server have a wanted level:'
+    side: server
+  - path: examples/getPlayerWantedLevel-2.lua
+    description: This script output your wanted level when you type /wanted.
+    side: client
+  pair: setPlayerWantedLevel
+  incomplete: true

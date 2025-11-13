@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.width
+server:
+  name: utf8.width
+  description: Calculates the width of UTF\-8 strings with special/unprintable characters,
+    which require special width treatment.
+  parameters: []
+  examples:
+  - path: examples/utf8.width-1.lua
+    description: This example shows the difference whenambi_is_doubleis set tofalseortrue.
+    side: server
+  incomplete: true

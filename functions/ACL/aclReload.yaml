@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclReload
+server:
+  name: aclReload
+  description: This function reloads the ACL's and the ACL groups from the ACL XML
+    file. All ACL and ACL group elements are invalid after a call to this and should
+    not be used anymore.
+  parameters: []
+  examples:
+  - path: examples/aclReload-1.lua
+    description: This example allows an admin to reload the ACL by typing "/reloadACL".
+    side: server
+  incomplete: true

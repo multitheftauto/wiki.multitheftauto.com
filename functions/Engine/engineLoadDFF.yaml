@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadDFF
+client:
+  name: engineLoadDFF
+  description: This function loads a RenderWare Model (DFF) file into GTA.
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
+      - as other orders can cause collisions, textures or the DFF not to load due
+      to technical limitations.
+  incomplete: true

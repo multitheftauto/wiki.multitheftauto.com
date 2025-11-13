@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBrowserSource
+client:
+  name: getBrowserSource
+  description: This function can be used to retrieve the source code of a website
+    (asynchronously). The size of the source code is limited to 2 MiB (remaining bytes
+    are cut).
+  parameters: []
+  examples:
+  - path: examples/getBrowserSource-1.lua
+    description: ''
+    side: client
+  incomplete: true

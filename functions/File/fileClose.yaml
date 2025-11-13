@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileClose
+server:
+  name: fileClose
+  description: Closes a file handle obtained by [fileCreate](/wiki/FileCreate "FileCreate")
+    or [fileOpen](/wiki/FileOpen "FileOpen").
+  parameters: []
+  examples:
+  - path: examples/fileClose-1.lua
+    description: This example creates a text file and writes a string to it.
+    side: server
+  incomplete: true

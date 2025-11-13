@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/InjectBrowserMouseWheel
+client:
+  name: injectBrowserMouseWheel
+  description: This function injects mouse wheel events.
+  parameters: []
+  examples:
+  - path: examples/injectBrowserMouseWheel-1.lua
+    description: ''
+    side: client
+  pair: injectBrowserMouseWheel
+  incomplete: true

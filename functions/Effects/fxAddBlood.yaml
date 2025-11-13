@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddBlood
+client:
+  name: fxAddBlood
+  description: Creates a blood splatter particle effect.
+  parameters: []
+  examples:
+  - path: examples/fxAddBlood-1.lua
+    description: This example creates blood effects when a player gets shot.
+    side: client
+  incomplete: true

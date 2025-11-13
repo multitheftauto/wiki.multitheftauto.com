@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetGaragePosition
+client:
+  name: getGaragePosition
+  description: This function outputs X, Y and Z position of given garage.
+  parameters: []
+  examples:
+  - path: examples/getGaragePosition-1.lua
+    description: This element has to create a blip at the nearest garage and removes
+      it in 10 seconds.
+    side: client
+  incomplete: true

@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclSetRight
+server:
+  name: aclSetRight
+  description: This functions changes or adds the given right in the given ACL. The
+    access can be *true* or *false* and specifies whether the ACL gives access to
+    the right or not.
+  parameters: []
+  examples:
+  - path: examples/aclSetRight-1.lua
+    description: This example adds a commandsetaclrightwith which you can easily add
+      new rights to specified access control lists.
+    side: server
+  pair: aclGetRight
+  incomplete: true

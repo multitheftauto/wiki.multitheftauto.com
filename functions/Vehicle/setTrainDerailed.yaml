@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainDerailed
+server:
+  name: setTrainDerailed
+  description: This function will set a train or tram as derailed.
+  parameters: []
+  examples:
+  - path: examples/setTrainDerailed-1.lua
+    description: This example creates an underailable train, and allows it to be derailed
+      when you want
+    side: server
+  pair: isTrainDerailed
+  incomplete: true

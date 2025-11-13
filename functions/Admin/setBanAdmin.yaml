@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetBanAdmin
+server:
+  name: setBanAdmin
+  description: This function sets a new admin for a [ban](/wiki/Ban "Ban").
+  parameters: []
+  examples:
+  - path: examples/setBanAdmin-1.lua
+    description: This example changes the ban admin to the admin's IP (If it's a player),
+      when someone gets banned.
+    side: server
+  pair: getBanAdmin
+  incomplete: true

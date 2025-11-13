@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsCapsLockEnabled
+client:
+  name: isCapsLockEnabled
+  description: This function returns the state of the caps lock.
+  parameters: []
+  examples:
+  - path: examples/isCapsLockEnabled-1.lua
+    description: ''
+    side: client
+  incomplete: true

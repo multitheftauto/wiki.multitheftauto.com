@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextItemGetColor
+server:
+  name: textItemGetColor
+  description: This function allows you to retrieve the color of a text item.
+  parameters: []
+  examples:
+  - path: examples/textItemGetColor-1.lua
+    description: This example gets the color of a text item named 'theTextItem' and
+      if it is green, changes it to blue.
+    side: server
+  incomplete: true

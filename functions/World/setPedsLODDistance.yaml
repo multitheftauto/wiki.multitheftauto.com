@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedsLODDistance
+client:
+  name: setPedsLODDistance
+  description: This function sets the peds LOD distance.
+  parameters: []
+  examples:
+  - path: examples/setPedsLODDistance-1.lua
+    description: This example sets the peds LOD distance to 120.
+    side: client
+  incomplete: true

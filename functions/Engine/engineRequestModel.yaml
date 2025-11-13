@@ -1,0 +1,28 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRequestModel
+client:
+  name: engineRequestModel
+  description: This function is used to assign the next available model ID to a certain
+    element type.
+  parameters: []
+  examples:
+  - path: examples/engineRequestModel-1.lua
+    description: 'This example creates a ped and then gives you the opportunity to
+      change its model. If the resource stops, then the IDs allocated will be deallocated.
+      Use/capfor creating the ped and/sapto skin the ped. You will need some skins
+      added to a folder and to the meta.xml for/sapto work:'
+    side: client
+  notes:
+  - type: info
+    content: Vehicle unique features may be unsupported, see issue 1861 for examples
+      and details
+  - type: tip
+    content: 'For most cases, you will probably want to add models to your server
+      that are synced with all clients automatically. This is possible with this resource
+      : newmodels'
+  - type: important
+    content: Unlike some other functions, the side-effects of this function aren't
+      reverted on resource stop, so you must manually call engineFreeModel in onClientResourceStop
+      (Just like the example below does)
+  - type: important
+    content: parentID should be the same model type to prevent crashes.
+  incomplete: true

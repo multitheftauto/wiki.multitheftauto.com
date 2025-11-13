@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddResourceMap
+server:
+  name: addResourceMap
+  description: This function adds a new empty mapfile to an existing resource.
+  parameters: []
+  examples:
+  - path: examples/addResourceMap-1.lua
+    description: This example just adds a map to a gamemode resource called "cdm".
+    side: server
+  notes:
+  - type: info
+    content: You can't add a map to a running resource.
+  incomplete: true

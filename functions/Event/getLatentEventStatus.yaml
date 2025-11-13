@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLatentEventStatus
+server:
+  name: getLatentEventStatus
+  description: Gets the status of one queued latent event.
+  parameters: []
+  examples:
+  - path: examples/getLatentEventStatus-1.lua
+    description: The example starts a latent event and outputs the status of the transfer
+      to the client console
+    side: client
+  incomplete: true

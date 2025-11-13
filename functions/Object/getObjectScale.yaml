@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetObjectScale
+server:
+  name: getObjectScale
+  description: This function returns the visible size of an object.
+  parameters: []
+  examples:
+  - path: examples/getObjectScale-1.lua
+    description: This example adds a command namedgetscalewhich creates an object
+      and prints out the scale of it.
+    side: client
+  pair: setObjectScale
+  incomplete: true

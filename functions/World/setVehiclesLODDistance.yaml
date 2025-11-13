@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehiclesLODDistance
+client:
+  name: setVehiclesLODDistance
+  description: Sets the distance of vehicles LOD.
+  parameters: []
+  examples:
+  - path: examples/setVehiclesLODDistance-1.lua
+    description: ''
+    side: client
+  incomplete: true

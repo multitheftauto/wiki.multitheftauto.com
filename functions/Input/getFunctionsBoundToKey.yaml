@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetFunctionsBoundToKey
+server:
+  name: getFunctionsBoundToKey
+  description: Gets the functions bound to a key. To bind a function to a key use
+    the [bindKey](/wiki/BindKey "BindKey") function
+  parameters: []
+  examples:
+  - path: examples/getFunctionsBoundToKey-1.lua
+    description: This loops through all the keys and outputs the keyname and the function
+      bound to that key.
+    side: client
+  - path: examples/getFunctionsBoundToKey-2.lua
+    description: This loops through all the keys and outputs the keyname and the function
+      bound to that key.
+    side: server
+  incomplete: true

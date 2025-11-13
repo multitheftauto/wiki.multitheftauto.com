@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetServerHttpPort
+server:
+  name: getServerHttpPort
+  description: This function retrieves the server's HTTP port.
+  parameters: []
+  examples:
+  - path: examples/getServerHttpPort-1.lua
+    description: This example outputs server's HTTP port to the chat box when player
+      uses commandgetHttpPort
+    side: server
+  incomplete: true

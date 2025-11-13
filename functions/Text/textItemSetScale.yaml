@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextItemSetScale
+server:
+  name: textItemSetScale
+  description: This function allows the setting of the scale of a text item.
+  parameters: []
+  examples:
+  - path: examples/textItemSetScale-1.lua
+    description: This example retrieves the scale of thetheTextitemtext item, and
+      if it is too small it enlarges it so it is more visible.
+    side: server
+  incomplete: true

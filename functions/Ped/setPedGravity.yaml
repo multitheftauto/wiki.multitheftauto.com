@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedGravity
+server:
+  name: setPedGravity
+  description: This function sets the gravity level of a ped.
+  parameters: []
+  examples:
+  - path: examples/setPedGravity-1.lua
+    description: 'This example allows the user to type a command to change their gravity:'
+    side: server
+  pair: getPedGravity
+  incomplete: true

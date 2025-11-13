@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsBrowserDomainBlocked
+client:
+  name: isBrowserDomainBlocked
+  description: This function checks if the specified URL is blocked from being loaded.
+  parameters: []
+  examples:
+  - path: examples/isBrowserDomainBlocked-1.lua
+    description: ''
+    side: client
+  incomplete: true

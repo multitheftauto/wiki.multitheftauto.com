@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemovePedClothes
+server:
+  name: removePedClothes
+  description: This function is used to remove the current clothes of a certain type
+    on a [ped](/wiki/Ped "Ped"). It will remove them if the clothesTexture and clothesModel
+    aren't specified, or if they match the current clothes on that slot.
+  parameters: []
+  examples:
+  - path: examples/removePedClothes-1.lua
+    description: This example adds a 'moto' helmet to a player when he gets on a nrg
+      bike, and removes it when he gets off.
+    side: server
+  incomplete: true

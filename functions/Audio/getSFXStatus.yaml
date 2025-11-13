@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSFXStatus
+client:
+  name: getSFXStatus
+  description: In case of these invalid audio files, this function returns *false*.
+  parameters: []
+  examples:
+  - path: examples/getSFXStatus-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: warning
+    content: Many players use versions of GTA:SA (especially pirated versions) that
+      have audio files full of zeros so that they can compress better in their AUDIO\SFX\
+      folder. (They lack any data) In case of these invalid audio files, this function
+      returns false .
+  incomplete: true

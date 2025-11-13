@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetProperty
+client:
+  name: guiGetProperty
+  description: This function gets the value of a specific CEGUI property of a GUI
+    element. For a list of properties and their meaning, see the [CEGUI properties
+    page](http://static.cegui.org.uk/static/WindowsLookProperties.html).
+  parameters: []
+  examples:
+  - path: examples/guiGetProperty-1.lua
+    description: This example creates a button when the resource starts and defines
+      a console command that toggles it between enabled (clickable) and disabled (not
+      clickable).
+    side: client
+  pair: guiSetProperty
+  incomplete: true

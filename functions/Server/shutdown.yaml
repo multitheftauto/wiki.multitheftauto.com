@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Shutdown
+server:
+  name: shutdown
+  description: This function shuts down the server.
+  parameters: []
+  examples:
+  - path: examples/shutdown-1.lua
+    description: This command shuts down the server on request
+    side: server
+  incomplete: true

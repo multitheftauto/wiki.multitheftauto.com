@@ -1,0 +1,27 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVersion
+server:
+  name: getVersion
+  description: This function gives you various version information about MTA and the
+    operating system.
+  parameters: []
+  examples:
+  - path: examples/getVersion-1.lua
+    description: This piece of code shows how you can use a simple command and a for
+      loop to dump the output into chatbox, whilst capitalizing 1st character for
+      extra bonus.
+    side: server
+  - path: examples/getVersion-2.lua
+    description: This piece of code shows how you can use a simple command and a for
+      loop to dump the output into chatbox, whilst capitalizing 1st character for
+      extra bonus. Keep in mind that this is the client sided version of this command
+      which will output version information of your client, whilst the example above
+      outputs information of the server you are connected to.
+    side: client
+  notes:
+  - type: info
+    content: Clientside will return the version from the player, and the server-sided
+      will return version from the server.
+  - type: info
+    content: 'Current MTA version: mta -> 1.6 netcode -> 474 number -> 352 sortable
+      -> 1.6.0-9.22279.0 tag -> 1.6-release-22279 type -> Release'
+  incomplete: true

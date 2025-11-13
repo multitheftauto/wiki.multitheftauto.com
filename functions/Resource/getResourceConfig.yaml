@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceConfig
+server:
+  name: getResourceConfig
+  description: This function is used to return the root node of a configuration file.
+    Config files must be predefined in a resource's [meta file](/wiki/Meta.xml "Meta.xml").
+    An alternative way to load XML files is to use [xmlLoadFile](/wiki/XmlLoadFile
+    "XmlLoadFile").
+  parameters: []
+  examples:
+  - path: examples/getResourceConfig-1.lua
+    description: This example opens a configuration file and prints the value of the
+      'attr' attribute of the first 'group' node.
+    side: server
+  incomplete: true

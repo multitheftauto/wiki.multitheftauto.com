@@ -1,0 +1,26 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementFrozen
+server:
+  name: setElementFrozen
+  description: This function freezes an element (stops it in its position and disables
+    movement) or unfreezes it.
+  parameters: []
+  examples:
+  - path: examples/setElementFrozen-1.lua
+    description: This example binds the "p" key to a function to freeze/unfreeze the
+      player's current vehicle.
+    side: server
+  pair: isElementFrozen
+  notes:
+  - type: warning
+    content: This function cancels any animation set by setPedAnimation if you freeze
+      the ped.
+  issues:
+  - id: '1291'
+    description: Ped rotation is always zero on client side if ped has been frozed
+      after creating it
+  - id: '541'
+    description: Frozen ped rotation goes wrong with latency reduction enabled
+  - id: '442'
+    description: Client-side setElementFrozen should sync vehicle driven by local
+      player
+  incomplete: true

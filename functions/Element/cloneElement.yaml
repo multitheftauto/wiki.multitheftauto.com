@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CloneElement
+server:
+  name: cloneElement
+  description: This function clones (creates an exact copy of) an already existing
+    element. The root node, and player elements, cannot be cloned. If a player element
+    is a child of an element that is cloned, it will be skipped, along with the elements
+    that exist as a child to the player element.
+  parameters: []
+  examples:
+  - path: examples/cloneElement-1.lua
+    description: This example clones the vehicle a player is in.  This allows carrying
+      over of the current state of the vehicle, including mods, for example.
+    side: server
+  incomplete: true

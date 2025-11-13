@@ -1,0 +1,1 @@
+node = xmlLoadFile ( ":ctv/settings.xml" )

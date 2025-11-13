@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAngularVelocity
+server:
+  name: getElementAngularVelocity
+  description: Gets the current angular velocity of a specified, supported element.
+  parameters: []
+  examples:
+  - path: examples/getElementAngularVelocity-1.lua
+    description: ''
+    side: server
+  pair: setElementAngularVelocity
+  incomplete: true

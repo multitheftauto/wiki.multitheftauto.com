@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceAsset
+client:
+  name: setDiscordRichPresenceAsset
+  description: Using this function you can set the large image asset of the application.
+    The maximum size of assets is *1024x1024*, the minimum is *512x512*.
+  parameters: []
+  examples:
+  - path: examples/setDiscordRichPresenceAsset-1.lua
+    description: The example sets the large image asset to my_logo.
+    side: client
+  notes:
+  - type: important
+    content: To use this function, you must set up your own application setDiscordApplicationID
+  incomplete: true

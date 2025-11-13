@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSearchLightEndRadius
+client:
+  name: setSearchLightEndRadius
+  description: This function sets the end radius of a [searchlight](/wiki/Element/Searchlight
+    "Element/Searchlight") element.
+  parameters: []
+  examples:
+  - path: examples/setSearchLightEndRadius-1.lua
+    description: This example creates a skywalker light on top of Los Santos' skyscraper
+      and turns it on/off every second by setting it's ending radius and starting
+      radius to 0.
+    side: client
+  pair: getSearchLightEndRadius
+  incomplete: true

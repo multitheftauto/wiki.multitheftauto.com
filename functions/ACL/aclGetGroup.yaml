@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGetGroup
+server:
+  name: aclGetGroup
+  description: This function is used to get the ACL group with the given name. If
+    you need most of the groups you should consider using [aclGroupList](/wiki/AclGroupList
+    "AclGroupList") instead to get a table containing them all.
+  parameters: []
+  examples:
+  - path: examples/aclGetGroup-1.lua
+    description: Example 1:This example makes every player able to use a command named
+      "giveAccountAdminRights" that will add a specific accountname as an ACL object
+      to the "Admin" group.
+    side: server
+  - path: examples/aclGetGroup-2.lua
+    description: 'Example 2:This example displays a list of all the online admins
+      in the chat box (assuming your administrator''s group in your ACL is called
+      ''admin''):'
+    side: server
+  incomplete: true

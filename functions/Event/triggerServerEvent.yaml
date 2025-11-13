@@ -1,0 +1,42 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TriggerServerEvent
+client:
+  name: triggerServerEvent
+  description: This function triggers an event previously registered on the server.
+    This is the primary means of passing information between the client and the server.
+    Servers have a similar [triggerClientEvent](/wiki/TriggerClientEvent "TriggerClientEvent")
+    function that can do the reverse. You can treat this function as if it was an
+    asynchronous function call, using [triggerClientEvent](/wiki/TriggerClientEvent
+    "TriggerClientEvent") to pass back any returned information if necessary.
+  parameters: []
+  examples:
+  - path: examples/triggerServerEvent-1.lua
+    description: ''
+    side: client
+  - path: examples/triggerServerEvent-2.lua
+    description: ''
+    side: server
+  - path: examples/triggerServerEvent-3.lua
+    description: ''
+    side: client
+  - path: examples/triggerServerEvent-4.lua
+    description: ''
+    side: server
+  notes:
+  - type: info
+    content: It is marginally more efficient to pass one large event than two smaller
+      ones.
+  - type: important
+    content: 'You should use the global variable client server-side instead of passing
+      the localPlayer by parameter or source. Otherwise event faking (passing another
+      player instead of the localPlayer ) would be possible. For more information
+      see: Script security article.'
+  - type: important
+    content: To save server CPU, you should avoid setting theElement to the root element
+      where possible - it should be used as a last resort (rather questionable thing
+      to do, limited to very specific tasks, if any). Using localPlayer is preferred
+      and highly advisable. resourceRoot can also be used as alternative choice, if
+      addEventHandler is bound to root element, or to resourceRoot when there is need
+      to restrict event to single certain resource (although cheater could still trigger
+      it from different resource, by using getResourceRootElement and passing respective
+      resource root element)
+  incomplete: true

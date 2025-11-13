@@ -1,0 +1,22 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundWaveData
+client:
+  name: getSoundWaveData
+  description: 'This function gets the wave form data for an audio stream which is
+    a table of floats representing the current audio frame as a wave.
+
+    This allows things like visualisations.'
+  parameters: []
+  examples:
+  - path: examples/getSoundWaveData-1.lua
+    description: ''
+    side: client
+  - path: examples/getSoundWaveData-2.lua
+    description: ''
+    side: client
+  - path: examples/getSoundWaveData-3.lua
+    description: ''
+    side: client
+  - path: examples/getSoundWaveData-4.lua
+    description: ''
+    side: client
+  incomplete: true

@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateBlipAttachedTo
+server:
+  name: createBlipAttachedTo
+  description: This function creates a [blip](/wiki/Blip "Blip") that is attached
+    to an [element](/wiki/Element "Element"). This blip is displayed as an icon on
+    the client's radar and will 'follow' the element that it is attached to around.
+  parameters: []
+  examples:
+  - path: examples/createBlipAttachedTo-1.lua
+    description: This example creates a radar blip attached to a random player, visible
+      to everyone. The blip will follow the player around as they move. This could
+      be used for manhunt, to emphasise a random player.
+    side: server
+  incomplete: true

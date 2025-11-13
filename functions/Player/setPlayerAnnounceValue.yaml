@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerAnnounceValue
+server:
+  name: setPlayerAnnounceValue
+  description: 'This function allows you to change ASE announce values for any player
+    using a specified key.
+
+    As an example this can be used to change the "score" value which will be shown
+    at [game\-state.com](https://www.game-state.com/)''s server list.'
+  parameters: []
+  examples:
+  - path: examples/setPlayerAnnounceValue-1.lua
+    description: This small example adds a command that allows you to set your own
+      "score" value.
+    side: server
+  pair: getPlayerAnnounceValue
+  incomplete: true

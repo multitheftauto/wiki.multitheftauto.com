@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccount
+server:
+  name: getAccount
+  description: This function returns an [account](/wiki/Account "Account") for a specific
+    user.
+  parameters: []
+  examples:
+  - path: examples/getAccount-1.lua
+    description: This function checks if the account mentioned exists in the internal.db
+      database file.
+    side: server
+  incomplete: true

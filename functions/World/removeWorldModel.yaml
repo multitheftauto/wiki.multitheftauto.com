@@ -1,0 +1,21 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveWorldModel
+server:
+  name: removeWorldModel
+  description: This function is used to remove a world object. Use [restoreWorldModel](/wiki/RestoreWorldModel
+    "RestoreWorldModel") to reverse this action.
+  parameters: []
+  examples:
+  - path: examples/removeWorldModel-1.lua
+    description: 'This example will removes buildings on BigEar:'
+    side: server
+  - path: examples/removeWorldModel-2.lua
+    description: 'This example removes CJ house:'
+    side: server
+  - path: examples/removeWorldModel-3.lua
+    description: 'This server script example removes all models, everywhere:'
+    side: server
+  notes:
+  - type: info
+    content: Removing world models doesn't remove their occlusions. This may cause
+      nearby map parts to disappear. Use setOcclusionsEnabled (false) to fix it.
+  incomplete: true

@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLocalPlayer
+client:
+  name: getLocalPlayer
+  description: This function gets the player element of the client running the current
+    script.
+  parameters: []
+  examples:
+  - path: examples/getLocalPlayer-1.lua
+    description: Example 1:This client side function outputs the player's current
+      location to the console.
+    side: client
+  - path: examples/getLocalPlayer-2.lua
+    description: Example 2:This client side script makes the local player's camera
+      flash red after being hit.
+    side: client
+  incomplete: true

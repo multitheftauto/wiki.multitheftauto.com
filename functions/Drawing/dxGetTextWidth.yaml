@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetTextWidth
+client:
+  name: dxGetTextWidth
+  description: This function retrieves the theoretical width (in pixels) of a certain
+    piece of text, if it were to be drawn using [dxDrawText](/wiki/DxDrawText "DxDrawText").
+  parameters: []
+  examples:
+  - path: examples/dxGetTextWidth-1.lua
+    description: This will show you the width of a message in a normal chatbox sent
+      by a player
+    side: client
+  incomplete: true

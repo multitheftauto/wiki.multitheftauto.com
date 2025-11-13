@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsDiscordRichPresenceConnected
+client:
+  name: isDiscordRichPresenceConnected
+  description: The function checks if the client has Discord Rich Presence enabled.
+  parameters: []
+  examples:
+  - path: examples/isDiscordRichPresenceConnected-1.lua
+    description: This example outputs whether the client has enabled Discord Rich
+      Presence.
+    side: client
+  incomplete: true

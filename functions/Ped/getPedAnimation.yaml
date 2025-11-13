@@ -1,0 +1,21 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedAnimation
+client:
+  name: getPedAnimation
+  description: Gets the animation of a player or ped that was set using [setPedAnimation](/wiki/SetPedAnimation
+    "SetPedAnimation").
+  parameters: []
+  examples:
+  - path: examples/getPedAnimation-1.lua
+    description: This example adds a command that allows you to copy the animation
+      being used by another player using /copyanim theirName
+    side: client
+  - path: examples/getPedAnimation-2.lua
+    description: This example shows what block and animation your player is currently
+      performing. Note this will return "N/A" if you did not set an animation withsetPedAnimation.
+      If you want to see what the player ped is doing as you control them that isgetPedTask.
+    side: client
+  pair: setPedAnimation
+  notes:
+  - type: info
+    content: Use getPedTask to monitor what movements the player is currently doing.
+  incomplete: true

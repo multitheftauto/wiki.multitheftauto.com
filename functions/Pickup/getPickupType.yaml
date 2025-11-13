@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPickupType
+server:
+  name: getPickupType
+  description: This function retrieves the type of a pickup, either a health, armour
+    or weapon pickup.
+  parameters: []
+  examples:
+  - path: examples/getPickupType-1.lua
+    description: ''
+    side: server
+  incomplete: true

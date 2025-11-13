@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddTyreBurst
+client:
+  name: fxAddTyreBurst
+  description: Creates a tyre burst particle effect (a small white smoke puff).
+  parameters: []
+  examples:
+  - path: examples/fxAddTyreBurst-1.lua
+    description: This example will create a Tyre Burst Effect next to you when typing/tyreburstin
+      the Chatbox.
+    side: client
+  incomplete: true

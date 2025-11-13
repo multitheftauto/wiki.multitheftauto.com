@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBlipSize
+server:
+  name: getBlipSize
+  description: This function gets the size of a blip..
+  parameters: []
+  examples:
+  - path: examples/getBlipSize-1.lua
+    description: This example will reset the size of all blips to the default.
+    side: server
+  pair: setBlipSize
+  incomplete: true

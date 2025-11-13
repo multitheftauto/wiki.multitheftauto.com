@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreModel
+client:
+  name: engineRestoreModel
+  description: This function restores the visual DFF model of the given model ID.
+    This restores the result of [engineReplaceModel](/wiki/EngineReplaceModel "EngineReplaceModel").
+  parameters: []
+  examples:
+  - path: examples/engineRestoreModel-1.lua
+    description: Client-Side example for restoring model / vehicle.
+    side: client
+  - path: examples/engineRestoreModel-2.lua
+    description: Server-Side example for triggering model / vehicle restore function
+      with "restore" command.
+    side: server
+  incomplete: true

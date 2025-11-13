@@ -1,0 +1,25 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddDebugHook
+server:
+  name: addDebugHook
+  description: This function allows tracing of MTA functions and events. It should
+    only be used when debugging scripts as it may degrade script performance.
+  parameters: []
+  examples:
+  - path: examples/addDebugHook-1.lua
+    description: 'This example will dump info about all triggered events:'
+    side: server
+  - path: examples/addDebugHook-2.lua
+    description: 'This example will dump info about all called MTA functions:'
+    side: server
+  - path: examples/addDebugHook-3.lua
+    description: This example adds a hook which will only be triggered for the named
+      functions
+    side: server
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Callback parameters
+
+      '

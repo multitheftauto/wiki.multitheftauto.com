@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileCopy
+server:
+  name: fileCopy
+  description: This function copies a file.
+  parameters: []
+  examples:
+  - path: examples/fileCopy-1.lua
+    description: This example copies a file called 'test.txt' and called it 'test1.txt'.
+    side: server
+  - path: examples/fileCopy-2.lua
+    description: This example copies a file called 'test.txt' and called it 'test1.txt'.
+    side: client
+  notes:
+  - type: tip
+    content: If you do not want to share the content of the created file with other
+      servers, prepend the file path with @ (See filepath for more information)
+  incomplete: true

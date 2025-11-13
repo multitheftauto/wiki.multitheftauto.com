@@ -1,0 +1,46 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateVehicle
+server:
+  name: createVehicle
+  description: This function creates a vehicle at the specified location.
+  parameters: []
+  examples:
+  - path: examples/createVehicle-1.lua
+    description: This example creates a 'vehicle spawner' marker that gives the player
+      a vehicle as soon they step into it.
+    side: server
+  - path: examples/createVehicle-2.lua
+    description: 'This example creates a vehicle five units to the right of a player
+      when they typecreatevehicleand its name in the console:'
+    side: server
+  - path: examples/createVehicle-3.lua
+    description: This script spawns a Rhino on top of one lucky individual.
+    side: server
+  - path: examples/createVehicle-4.lua
+    description: This example adds a/spvehcommand to spawn a car model in the provided
+      coordinates. If any car created by this command gets blown up, it will respawn
+      where it was created.
+    side: server
+  - path: examples/createVehicle-5.lua
+    description: This script spawns a Rhino on top of the local player.
+    side: client
+  - path: examples/createVehicle-6.lua
+    description: This script will create an Infernus at the center (0, 0, 3) of San
+      Andreas upon execution.
+    side: server
+  notes:
+  - type: info
+    content: Vehicles (and other elements) created client-side are only seen by the
+      client that created them, aren't synced and players cannot enter them. They
+      are essentially for display only.
+  - type: info
+    content: Due to how GTA works, creating a lot of vehicles in the same place will
+      cause lag. The more geometries and unique textures has model the bigger the
+      lag is. Even a lot of default vehicles will cause lag if in the same place.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Using trains
+
+      '

@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsRadarAreaFlashing
+server:
+  name: isRadarAreaFlashing
+  description: This function allows detection of whether a radar area is flashing
+    or not.
+  parameters: []
+  examples:
+  - path: examples/isRadarAreaFlashing-1.lua
+    description: This example checks whether the radar area in the variableglenparkis
+      flashing, and announces it if it is.
+    side: server
+  pair: setRadarAreaFlashing
+  incomplete: true

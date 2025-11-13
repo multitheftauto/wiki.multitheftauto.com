@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundProperties
+client:
+  name: getSoundProperties
+  description: This function gets the properties of a specific [sound](/wiki/Sound
+    "Sound").
+  parameters: []
+  examples:
+  - path: examples/getSoundProperties-1.lua
+    description: Example 1:This example would return three float values representing
+      the sample rate, tempo, pitch and a boolean value representing whether the sound
+      is reversed or not, every 5 seconds.
+    side: client
+  pair: setSoundProperties
+  incomplete: true

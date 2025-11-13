@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/UtfChar
+server:
+  name: utfChar
+  description: The function returns the string of the specified UTF code.
+  parameters: []
+  examples:
+  - path: examples/utfChar-1.lua
+    description: ''
+    side: server
+  incomplete: true

@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BanPlayer
+server:
+  name: banPlayer
+  description: This function will ban the specified player by either IP, [serial](/wiki/Serial
+    "Serial") or username
+  parameters: []
+  examples:
+  - path: examples/banPlayer-1.lua
+    description: This example lets a player ban anyone if he has ACL rights.
+    side: server
+  - path: examples/banPlayer-2.lua
+    description: This example is Firewall Account Player by serial on Login
+    side: server
+  notes:
+  - type: info
+    content: Don't forget to give admin rights to the resource, in which you are using
+      banPlayer function or it won't work.
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTask
+client:
+  name: getPedTask
+  description: This function is used to get any simple or complex [task](/wiki/Task
+    "Task") of a certain type for a ped.
+  parameters: []
+  examples:
+  - path: examples/getPedTask-1.lua
+    description: This example draws the active primary and secondary tasks (including
+      task hierarchy in 1.1) as your local player moves around the world.
+    side: client
+  incomplete: true

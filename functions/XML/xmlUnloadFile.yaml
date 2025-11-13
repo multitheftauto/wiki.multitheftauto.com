@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlUnloadFile
+server:
+  name: xmlUnloadFile
+  description: Unloads an XML document from memory.
+  parameters: []
+  examples:
+  - path: examples/xmlUnloadFile-1.lua
+    description: 'config.xml:'
+    side: server
+  - path: examples/xmlUnloadFile-2.lua
+    description: 'Lua code:'
+    side: server
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetSoundBufferLength
+client:
+  name: getSoundBufferLength
+  description: This function gets the buffer playback length of the specified [sound](/wiki/Sound
+    "Sound"). Works only with streams.
+  parameters: []
+  examples:
+  - path: examples/getSoundBufferLength-1.lua
+    description: This example draws a simple player that shows the length of the downloaded
+      part of the song.
+    side: client
+  incomplete: true

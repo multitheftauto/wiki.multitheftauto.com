@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/NavigateBrowserForward
+client:
+  name: navigateBrowserForward
+  description: This function takes the browser to the next page.
+  parameters: []
+  examples:
+  - path: examples/navigateBrowserForward-1.lua
+    description: 'This example creates a browser that can return to the last and previous
+      pages and can also be refreshed:'
+    side: client
+  incomplete: true

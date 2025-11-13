@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsPedTargetingMarkerEnabled
+client:
+  name: isPedTargetingMarkerEnabled
+  description: This function checks whether health target markers are drawn as set
+    by [setPedTargetingMarkerEnabled](/wiki/SetPedTargetingMarkerEnabled "SetPedTargetingMarkerEnabled")
+    or not.
+  parameters: []
+  examples:
+  - path: examples/isPedTargetingMarkerEnabled-1.lua
+    description: This example will toggle the targeting markers with the command /togtargetmarkers.
+    side: client
+  incomplete: true

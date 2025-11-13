@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PathListDir
+shared:
+  name: pathListDir
+  description: Reads a specified directory and returns all entries inside of it. These
+    entries can be file or folder names.
+  parameters: []
+  examples:
+  - path: examples/pathListDir-1.lua
+    description: This example loads all models from a certain directory
+    side: client
+  notes:
+  - type: info
+    content: Listing other resource directory can be done by passing ":resourceName/."
+      For listing current resource (the one where code is executed), you can pass
+      either "" or ":currentResourceName/." (preferably use first approach, because
+      the latter will require removing this part, once result is ready)
+  incomplete: true

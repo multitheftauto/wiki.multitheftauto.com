@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetBlipSize
+server:
+  name: setBlipSize
+  description: This function sets the size of a blip's icon.
+  parameters: []
+  examples:
+  - path: examples/setBlipSize-1.lua
+    description: This example will reset the size of all blips to the default.
+    side: server
+  pair: getBlipSize
+  incomplete: true

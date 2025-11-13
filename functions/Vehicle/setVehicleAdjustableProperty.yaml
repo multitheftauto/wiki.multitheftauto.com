@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleAdjustableProperty
+client:
+  name: setVehicleAdjustableProperty
+  description: 'This function is used for adjusting the movable parts of a model,
+    for example hydra jets or dump truck tray.
+
+    This function only works on vehicles with adjustable properties.'
+  parameters: []
+  examples:
+  - path: examples/setVehicleAdjustableProperty-1.lua
+    description: 'This clientside function allows the user to set the vehicle adjustable
+      property of a vehicle that the user is in by typing a command:'
+    side: client
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileRead
+server:
+  name: fileRead
+  description: Reads the specified number of bytes from the given file starting at
+    its current read/write position, and returns them as a string.
+  parameters: []
+  examples:
+  - path: examples/fileRead-1.lua
+    description: This example opens the file test.txt and outputs its contents to
+      the console.
+    side: server
+  incomplete: true

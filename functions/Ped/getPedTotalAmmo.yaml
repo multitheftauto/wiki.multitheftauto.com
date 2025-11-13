@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTotalAmmo
+server:
+  name: getPedTotalAmmo
+  description: This function returns an integer that contains the total ammo in a
+    specified [ped](/wiki/Ped "Ped")'s weapon. See [Weapon Info](/wiki/Weapon "Weapon")
+  parameters: []
+  examples:
+  - path: examples/getPedTotalAmmo-1.lua
+    description: This example outputs the total amount of ammo a player calledSomeguyhas
+      for his weapon.
+    side: server
+  notes:
+  - type: info
+    content: Clientside, this function will not return a correct value for remote
+      player weapons that aren't in hand.
+  issues:
+  - id: '734'
+    description: Sometimes wrong count of player ammo, if get it in onPlayerWeaponFire
+  incomplete: true

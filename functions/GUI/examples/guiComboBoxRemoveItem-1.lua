@@ -1,0 +1,6 @@
+addCommandHandler("remove",function()
+    local item = guiComboBoxGetSelected(comboBox)
+    local text = guiComboBoxGetItemText(comboBox, item)
+    guiComboBoxRemoveItem(comboBox, item)
+    outputChatBox("Item with text " .. text .. " has been removed!")
+end)

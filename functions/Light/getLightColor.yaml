@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLightColor
+client:
+  name: getLightColor
+  description: This function returns the color for a [light](/wiki/Element/Light "Element/Light")
+    element.
+  parameters: []
+  examples:
+  - path: examples/getLightColor-1.lua
+    description: ''
+    side: client
+  pair: setLightColor
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleCompatibleUpgrades
+server:
+  name: getVehicleCompatibleUpgrades
+  description: This function returns a table of all the compatible upgrades (or all
+    for a specified slot, optionally) for a specified vehicle.
+  parameters: []
+  examples:
+  - path: examples/getVehicleCompatibleUpgrades-1.lua
+    description: This example displays a list of all the compatible upgrades for a
+      vehicle when you enter it.
+    side: server
+  incomplete: true

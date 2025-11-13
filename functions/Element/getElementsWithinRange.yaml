@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementsWithinRange
+server:
+  name: getElementsWithinRange
+  description: This function is used to retrieve a list of all elements of specified
+    type within a range of 3D coordinates.
+  parameters: []
+  examples:
+  - path: examples/getElementsWithinRange-1.lua
+    description: This example allows admins to destroy all vehicles in close proximity.
+    side: server
+  notes:
+  - type: info
+    content: This function checks if elements are in a box, not in a sphere. This
+      function doesn't work with elements which are created by createElement.
+  incomplete: true

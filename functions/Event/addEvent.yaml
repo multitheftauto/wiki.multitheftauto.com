@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddEvent
+server:
+  name: addEvent
+  description: This function allows you to register a custom [event](/wiki/Event "Event").
+    Custom events function exactly like the built\-in events. See [event system](/wiki/Event_system
+    "Event system") for more information on the event system.
+  parameters: []
+  examples:
+  - path: examples/addEvent-1.lua
+    description: This example will define a new event calledonSpecialEvent.
+    side: server
+  - path: examples/addEvent-2.lua
+    description: 'You can then trigger this event later on using:'
+    side: server
+  incomplete: true

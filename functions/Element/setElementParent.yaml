@@ -1,0 +1,28 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementParent
+server:
+  name: setElementParent
+  description: This function is used for setting an element as the parent of another
+    element.
+  parameters: []
+  examples:
+  - path: examples/setElementParent-1.lua
+    description: 'This example sets the parent of each spawnpoint to a dummy element:'
+    side: server
+  pair: getElementParent
+  notes:
+  - type: info
+    content: This function does not change when an element will be destroyed - Elements
+      are always destroyed when the resource that created them is stopped.
+  - type: info
+    content: When an element is destroyed, its parent becomes the new parent of its
+      children.
+  - type: info
+    content: setElementParent only works if new parent is the root element, map root,
+      or ancestor of map root
+  - type: tip
+    content: This function does not affect the child elements position. To attach
+      elements use the function attachElements .
+  - type: important
+    content: The client-side version of this function can only be used on client-created
+      elements. It cannot be used to modify the parent of server side elements.
+  incomplete: true

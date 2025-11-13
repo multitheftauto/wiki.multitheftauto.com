@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponAmmo
+server:
+  name: setWeaponAmmo
+  description: Sets the ammo to a certain amount for a specified weapon (if they already
+    have it), regardless of current ammo.
+  parameters: []
+  examples:
+  - path: examples/setWeaponAmmo-1.lua
+    description: ''
+    side: server
+  pair: getWeaponAmmo
+  incomplete: true

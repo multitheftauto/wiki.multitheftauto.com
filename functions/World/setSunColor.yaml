@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSunColor
+server:
+  name: setSunColor
+  description: This function is used to set the color of the sun.
+  parameters: []
+  examples:
+  - path: examples/setSunColor-1.lua
+    description: This example lets any player set the color of the sun like /setsuncolor
+      255 0 0
+    side: server
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileWrite
+server:
+  name: fileWrite
+  description: Writes one or more strings to a given file, starting at the current
+    read/write position. Advances the position over the number of bytes that were
+    written.
+  parameters: []
+  examples:
+  - path: examples/fileWrite-1.lua
+    description: This example creates a text file and writes a string to it.
+    side: server
+  incomplete: true

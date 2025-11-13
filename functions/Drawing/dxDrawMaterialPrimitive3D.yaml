@@ -1,0 +1,50 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialPrimitive3D
+client:
+  name: dxDrawMaterialPrimitive3D
+  description: 'This function draws a 3D primitive shape with material applied to
+    it in the 3D world \- rendered for one frame. This should be used in conjunction
+    with [onClientRender](/wiki/OnClientRender "OnClientRender") in order to display
+    continuously.
+
+    If image file is used, it should ideally have dimensions that are a power of two,
+    to prevent possible blurring.
+
+    Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...'
+  parameters: []
+  examples:
+  - path: examples/dxDrawMaterialPrimitive3D-1.lua
+    description: This example draws the picture with the file name 'test.png' on the
+      ground of Grove Street and adds a /flip command to flip it. The 'test.png' file
+      needs to be included in themeta.xmlin order for this example to work.
+    side: client
+  notes:
+  - type: info
+    content: When a 3D draw call is issued by any such material MTA function then
+      the principle to push it directly to the 3D adapter does apply. To achieve this
+      there is no software-side 3D clipping mathematics being performed. This way
+      the vertex data is always being pushed to the vertex shader, leaving the entire
+      freedom to the developer on how to interpret this vertex data in the shader.
+      For example, even though this function does imply an use in 3D world space,
+      the vertex coordinates could be translated directly into Direct3D 9 screen space
+      instead, effectively discarding any multiplication with the camera projection
+      matrix. The mathematical model for translation into valid Direct3D 9 screen-space
+      coordinates is described here . Let's assume that you are drawing the rectangle
+      on a classic sheet of paper with a mathematical 2D X,Y coordinate system.
+  - type: info
+    content: To transform the coordinates you first have to flip the Y coordinate
+      using negation and then apply the Direct3D 9 screen-space rasterization cross-hair
+      by using the screen dimensions (sw, sh). Since linear shapes are being preserved
+      across linear translations, you can simplify each vertex-based figure into it's
+      set of vertices for the purpose shown above. By using this function in such
+      a way it can perform all the operations in the same quality such as the simpler
+      dxDrawMaterialPrimitive function.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Allowed types
+
+      - Missing section: Vertices format
+
+      '

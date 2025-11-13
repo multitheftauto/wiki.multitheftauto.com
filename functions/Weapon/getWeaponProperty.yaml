@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponProperty
+server:
+  name: getWeaponProperty
+  description: This function gets a weapon property of the specified [custom weapon](/wiki/Element/Weapon
+    "Element/Weapon") (clientside only) or specified [player\-held weapon](/wiki/Weapons
+    "Weapons") (both client and server).
+  parameters: []
+  examples:
+  - path: examples/getWeaponProperty-1.lua
+    description: This example gets the weapon range of the M4 at poor skill level
+    side: server
+  pair: setWeaponProperty
+  incomplete: true

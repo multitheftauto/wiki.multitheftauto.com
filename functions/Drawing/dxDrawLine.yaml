@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawLine
+client:
+  name: dxDrawLine
+  description: This function draws a 2D line across the screen \- rendered for **one**
+    frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
+    "OnClientRender") in order to display continuously.
+  parameters: []
+  examples:
+  - path: examples/dxDrawLine-1.lua
+    description: This example draws an 'X' across the screen.
+    side: client
+  - path: examples/dxDrawLine-2.lua
+    description: This example draws a couple of circles
+    side: client
+  incomplete: true

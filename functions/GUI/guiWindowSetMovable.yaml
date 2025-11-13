@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiWindowSetMovable
+client:
+  name: guiWindowSetMovable
+  description: This function allows you to specify whether or not a user can move
+    a GUI window.
+  parameters: []
+  examples:
+  - path: examples/guiWindowSetMovable-1.lua
+    description: This example creates a gui window and sets it to be not movable
+    side: client
+  pair: guiWindowIsMovable
+  incomplete: true

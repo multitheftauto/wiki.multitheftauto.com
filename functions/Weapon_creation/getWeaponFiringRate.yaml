@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponFiringRate
+client:
+  name: getWeaponFiringRate
+  description: This gets the firing rate to be used when a [custom weapon](/wiki/Element/Weapon
+    "Element/Weapon") opens fire.
+  parameters: []
+  examples:
+  - path: examples/getWeaponFiringRate-1.lua
+    description: This example creates a minigun at the center of the map and creates
+      a/fireratecommand that outputs its firerate to the player who types it.
+    side: client
+  pair: setWeaponFiringRate
+  incomplete: true

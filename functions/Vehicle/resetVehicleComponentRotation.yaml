@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetVehicleComponentRotation
+client:
+  name: resetVehicleComponentRotation
+  description: This function reset to default component rotation for [vehicle](/wiki/Vehicle
+    "Vehicle").
+  parameters: []
+  examples:
+  - path: examples/resetVehicleComponentRotation-1.lua
+    description: Example 1:This example would change the roatation of the component
+      when the player enters a vehicle and resets it when you type /reset.
+    side: client
+  incomplete: true

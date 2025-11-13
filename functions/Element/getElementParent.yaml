@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementParent
+server:
+  name: getElementParent
+  description: This function is used to determine the parent of an *element*.
+  parameters: []
+  examples:
+  - path: examples/getElementParent-1.lua
+    description: 'Consider the following map file:'
+    side: server
+  pair: setElementParent
+  incomplete: true

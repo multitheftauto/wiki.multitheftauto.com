@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DetonateSatchels
+server:
+  name: detonateSatchels
+  description: This function can be used to detonate a players satchels.
+  parameters: []
+  examples:
+  - path: examples/detonateSatchels-1.lua
+    description: ''
+    side: client
+  - path: examples/detonateSatchels-2.lua
+    description: ''
+    side: server
+  incomplete: true

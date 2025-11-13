@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceState
+client:
+  name: setDiscordRichPresenceState
+  description: This function sets the status of the Discord Rich Presence application.
+  parameters: []
+  examples:
+  - path: examples/setDiscordRichPresenceState-1.lua
+    description: This example shows how to set the state of the Discord Rich Presence
+      application.
+    side: client
+  notes:
+  - type: important
+    content: To use this function, you must set up your own application setDiscordApplicationID
+  incomplete: true

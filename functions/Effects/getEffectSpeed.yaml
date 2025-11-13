@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetEffectSpeed
+client:
+  name: getEffectSpeed
+  description: This function gets the speed of a specified [effect](/wiki/Effect "Effect").
+  parameters: []
+  examples:
+  - path: examples/getEffectSpeed-1.lua
+    description: This example adds commandgesthat creates crate explosion effect at
+      the player's position and outputs its speed to the chatbox.
+    side: client
+  pair: setEffectSpeed
+  incomplete: true

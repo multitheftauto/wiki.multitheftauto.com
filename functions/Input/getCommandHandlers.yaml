@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCommandHandlers
+server:
+  name: getCommandHandlers
+  description: 'This function is used to retrieve a list of all the registered command
+    handlers of a given resource (or of all resources).
+
+    Function also added client\-side.'
+  parameters: []
+  examples:
+  - path: examples/getCommandHandlers-1.lua
+    description: This example add a command to output list of all commands in the
+      chat.
+    side: server
+  - path: examples/getCommandHandlers-2.lua
+    description: 'This example add a command to output list of all commands for the
+      resource in the chat. Syntax: /commands [resource-name]'
+    side: server
+  incomplete: true

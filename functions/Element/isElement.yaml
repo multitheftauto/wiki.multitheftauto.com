@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElement
+server:
+  name: isElement
+  description: This function checks if a value is an [element](/wiki/Element "Element")
+    or not.
+  parameters: []
+  examples:
+  - path: examples/isElement-1.lua
+    description: This serverside function kills a player when it's passed his name
+      or his element.
+    side: server
+  notes:
+  - type: info
+    content: This function is not reliable as element ids are eventually recycled.
+      Always make sure you nil variables containing an element after calling destroyElement
+      or handle onElementDestroy for players and elements that might be destroyed
+      by another resource
+  incomplete: true

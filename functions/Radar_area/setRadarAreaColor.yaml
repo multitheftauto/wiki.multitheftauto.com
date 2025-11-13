@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetRadarAreaColor
+server:
+  name: setRadarAreaColor
+  description: Sets the color of an existing radar area.
+  parameters: []
+  examples:
+  - path: examples/setRadarAreaColor-1.lua
+    description: 'This example creates a radar area and changes its color right away:'
+    side: server
+  incomplete: true

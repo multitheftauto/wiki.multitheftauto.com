@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetScrollBars
+client:
+  name: guiGridListSetScrollBars
+  description: This function allows a gridlist's scrollbar to be forced **on**, or
+    returned to default.
+  parameters: []
+  examples:
+  - path: examples/guiGridListSetScrollBars-1.lua
+    description: This example creates a gridlist and checks if it's created then sets
+      the scroll bars. (TESTED!)
+    side: client
+  incomplete: true

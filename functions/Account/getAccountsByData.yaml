@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountsByData
+server:
+  name: getAccountsByData
+  description: This function returns a [table](/wiki/Table "Table") containing all
+    accounts with specified dataName and value (set with setAccountData).
+  parameters: []
+  examples:
+  - path: examples/getAccountsByData-1.lua
+    description: Useless example to show how it works.
+    side: server
+  incomplete: true

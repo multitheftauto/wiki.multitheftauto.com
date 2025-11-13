@@ -1,0 +1,22 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerName
+server:
+  name: getPlayerName
+  description: This function returns a string containing the name of the specified
+    player.
+  parameters: []
+  examples:
+  - path: examples/getPlayerName-1.lua
+    description: ''
+    side: server
+  - path: examples/getPlayerName-2.lua
+    description: This example outputs the local player name to the chatbox.
+    side: client
+  pair: setPlayerName
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Limits
+
+      '

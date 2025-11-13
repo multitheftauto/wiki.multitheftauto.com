@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceRootElement
+server:
+  name: getResourceRootElement
+  description: This function retrieves a resource's root element. The resource's root
+    element is the element in the element tree which is the parent of all elements
+    that belong to a particular resource (except for elements specifically created
+    elsewhere). You can attach event handlers to this element to easily capture events
+    that originate from your resource (and global events that originate from the root
+    element).
+  parameters: []
+  examples:
+  - path: examples/getResourceRootElement-1.lua
+    description: This example retrieves the current resource's root element and attaches
+      it to an onResourceStart event handler. This causes the event handler to get
+      called only when thecurrentresource is started rather than whenanyresource is
+      started, thereby reducing unnecessary overhead.
+    side: server
+  incomplete: true

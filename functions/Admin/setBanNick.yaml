@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetBanNick
+server:
+  name: setBanNick
+  description: This function sets a new nick for a [ban](/wiki/Ban "Ban").
+  parameters: []
+  examples:
+  - path: examples/setBanNick-1.lua
+    description: ''
+    side: server
+  pair: getBanNick
+  incomplete: true

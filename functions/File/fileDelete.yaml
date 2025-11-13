@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileDelete
+server:
+  name: fileDelete
+  description: Deletes the specified file.
+  parameters: []
+  examples:
+  - path: examples/fileDelete-1.lua
+    description: 'This example will show us how to create a file "text.txt" spell
+      it "This is a test file!", Close the file and delete it:'
+    side: server
+  incomplete: true

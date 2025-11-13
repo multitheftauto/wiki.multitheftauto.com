@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetShaderTransform
+client:
+  name: dxSetShaderTransform
+  description: This function applies a 3D transformation to a [shader](/wiki/Shader
+    "Shader") element when it is drawn with [dxDrawImage](/wiki/DxDrawImage "DxDrawImage").
+  parameters: []
+  examples:
+  - path: examples/dxSetShaderTransform-1.lua
+    description: ''
+    side: client
+  incomplete: true

@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditIsReadOnly
+client:
+  name: guiEditIsReadOnly
+  description: This function checks if an edit box is read\-only.
+  parameters: []
+  examples:
+  - path: examples/guiEditIsReadOnly-1.lua
+    description: ''
+    side: client
+  pair: guiEditSetReadOnly
+  incomplete: true

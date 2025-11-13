@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PlaySoundFrontEnd
+server:
+  name: playSoundFrontEnd
+  description: This function plays a frontend sound for the specified player.
+  parameters: []
+  examples:
+  - path: examples/playSoundFrontEnd-1.lua
+    description: This example plays a sound when a player spawns.
+    side: server
+  - path: examples/playSoundFrontEnd-2.lua
+    description: This example plays a sound when the player types the command '/sound'.
+    side: client
+  notes:
+  - type: info
+    content: These sounds can be disabled with setWorldSoundEnabled so if these sounds
+      stop working you should check if you're disabling the sounds.
+  - type: info
+    content: These sounds don't work when fadeCamera has been used to make the screen
+      black.
+  incomplete: true

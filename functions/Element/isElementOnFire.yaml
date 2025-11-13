@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementOnFire
+server:
+  name: isElementOnFire
+  description: This function checks if the specified [element](/wiki/Element "Element")
+    is on fire or not.
+  parameters: []
+  examples:
+  - path: examples/isElementOnFire-1.lua
+    description: ''
+    side: server
+  pair: setElementOnFire
+  incomplete: true

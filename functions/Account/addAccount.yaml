@@ -1,0 +1,27 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddAccount
+server:
+  name: addAccount
+  description: This function adds an account to the list of registered accounts of
+    the current server.
+  parameters: []
+  examples:
+  - path: examples/addAccount-1.lua
+    description: Example 1:This enables players to register on your server by using
+      /register <password> in the chat window.
+    side: server
+  - path: examples/addAccount-2.lua
+    description: Example 2:This enables players to register on your server by using
+      /register <username> <password> in the chat window.
+    side: server
+  - path: examples/addAccount-3.lua
+    description: Example 3:This code differs again so the user can only register once
+      /register <username> <password>.
+    side: server
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Limits
+
+      '

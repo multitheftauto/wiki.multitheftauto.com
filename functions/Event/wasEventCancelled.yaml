@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/WasEventCancelled
+server:
+  name: wasEventCancelled
+  description: This function checks if the last completed event was cancelled. This
+    is mainly useful for custom events created by scripts.
+  parameters: []
+  examples:
+  - path: examples/wasEventCancelled-1.lua
+    description: This example implements a custom eventonFlagPickupthat would be triggered
+      if anonMarkerHitevent was triggered on a marker whose parent was aflagelement.
+      If the event isn't canceled then an element data value is set on the player.
+    side: server
+  incomplete: true

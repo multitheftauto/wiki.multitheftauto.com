@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitRRotate
+server:
+  name: bitRRotate
+  description: 'This functions performs a bitwise circular right\-rotation on the
+    integer **value** by integer **n** positions.
+
+    See [Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation#Rotate_no_carry)
+    for more details.'
+  parameters: []
+  examples:
+  - path: examples/bitRRotate-1.lua
+    description: This example adds the clientside command/rightrotate [value] [positions
+      = 1], which will print the result from the functionbitRRotate.
+    side: client
+  incomplete: true

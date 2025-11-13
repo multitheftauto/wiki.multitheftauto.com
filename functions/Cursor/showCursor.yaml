@@ -1,0 +1,25 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ShowCursor
+server:
+  name: showCursor
+  description: This function is used to show or hide a [player](/wiki/Player "Player")'s
+    cursor.
+  parameters: []
+  examples:
+  - path: examples/showCursor-1.lua
+    description: This example shows the cursor for a player named "Dave", then outputs
+      a message if it was shown successfully.
+    side: server
+  - path: examples/showCursor-2.lua
+    description: This example shows the cursor all the time
+    side: client
+  notes:
+  - type: info
+    content: Regardless of the cursor state you set using this function, the cursor
+      will always be visible while the menu, the chatbox input line or the console
+      are active, or if another resource has called this function.
+  - type: info
+    content: Be aware of that if showCursor enbaled by a resource you can't disabled
+      it from a different ressource showCursor(false) will not works, in order to
+      make it works, disable it from the original resource that enabled it or use
+      export
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelGetFontHeight
+client:
+  name: guiLabelGetFontHeight
+  description: This function returns the height of the font currently used in a GUI
+    text label.
+  parameters: []
+  examples:
+  - path: examples/guiLabelGetFontHeight-1.lua
+    description: This example creates a window, a text label, gets the text extent
+      and font height, and sets the text label size according to these values.
+    side: client
+  incomplete: true

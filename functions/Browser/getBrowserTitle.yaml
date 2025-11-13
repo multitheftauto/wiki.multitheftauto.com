@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBrowserTitle
+client:
+  name: getBrowserTitle
+  description: This function returns the title of the passed [browser](/wiki/Element/Browser
+    "Element/Browser").
+  parameters: []
+  examples:
+  - path: examples/getBrowserTitle-1.lua
+    description: ''
+    side: client
+  incomplete: true

@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupListObjects
+server:
+  name: aclGroupListObjects
+  description: This function returns a table over all the objects that exist in a
+    given ACL group. These are objects like players and resources.
+  parameters: []
+  examples:
+  - path: examples/aclGroupListObjects-1.lua
+    description: ''
+    side: server
+  - path: examples/aclGroupListObjects-2.lua
+    description: ''
+    side: server
+  incomplete: true

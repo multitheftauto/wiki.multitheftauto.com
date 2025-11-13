@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/UnbindKey
+server:
+  name: unbindKey
+  description: Removes an existing key bind from the specified player.
+  parameters: []
+  examples:
+  - path: examples/unbindKey-1.lua
+    description: This function binds the player'sF1key to a functiongoMoowhich outputs
+      a chat message when pressed. The key is then unbound so that it can effectively
+      only be used once per life.
+    side: server
+  notes:
+  - type: info
+    content: unbindKey will only work on binds that were added by the same resource
+  - type: info
+    content: unbindKey on the server may return true on failure
+  - type: info
+    content: 'If you call unbindKey twice, it will break other scripts: Issue 497'
+  incomplete: true

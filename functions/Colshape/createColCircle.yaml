@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColCircle
+server:
+  name: createColCircle
+  description: This function creates a collision circle. This is a shape that has
+    a position and a radius and infinite height that you can use to detect a player's
+    presence. Events will be triggered when a player enters or leaves it.
+  parameters: []
+  examples:
+  - path: examples/createColCircle-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console functionset_zone.
+    side: server
+  notes:
+  - type: tip
+    content: To visualize a colshape when writing scripts, use the client console
+      command showcol
+  incomplete: true

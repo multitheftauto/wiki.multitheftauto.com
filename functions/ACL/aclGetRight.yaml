@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGetRight
+server:
+  name: aclGetRight
+  description: This function returns whether the access for the given right is set
+    to true or false in the ACL.
+  parameters: []
+  examples:
+  - path: examples/aclGetRight-1.lua
+    description: This example lets players check if an ACL group has access to something
+      or not.
+    side: server
+  pair: aclSetRight
+  incomplete: true

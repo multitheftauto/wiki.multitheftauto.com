@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerColor
+server:
+  name: getMarkerColor
+  description: This function returns the color and transparency for a marker element.
+  parameters: []
+  examples:
+  - path: examples/getMarkerColor-1.lua
+    description: This example script fully heals players who hit a white marker, and
+      kills players who hit a red one.
+    side: server
+  pair: setMarkerColor
+  incomplete: true

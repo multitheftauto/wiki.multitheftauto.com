@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiScrollPaneSetHorizontalScrollPosition
+client:
+  name: guiScrollPaneSetHorizontalScrollPosition
+  description: This function is used to set the position of a horizontal scroll pane
+    as a percentage.
+  parameters: []
+  examples:
+  - path: examples/guiScrollPaneSetHorizontalScrollPosition-1.lua
+    description: This example sets the position of a scroll pane called "myScrollPane"
+      created withguiCreateScrollPane, and outputs it to the chatbox.
+    side: client
+  incomplete: true

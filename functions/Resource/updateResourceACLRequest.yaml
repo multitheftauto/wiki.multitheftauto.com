@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/UpdateResourceACLRequest
+server:
+  name: updateResourceACLRequest
+  description: This function changes the access for one ACL request of the given resource.
+  parameters: []
+  examples:
+  - path: examples/updateResourceACLRequest-1.lua
+    description: This function will allow all ACL requests from 'theResource'
+    side: server
+  notes:
+  - type: info
+    content: This function is protected by default and must be explicitly allowed
+      in the server ACL.
+  incomplete: true

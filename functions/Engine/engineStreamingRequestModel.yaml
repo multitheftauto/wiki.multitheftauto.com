@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingRequestModel
+client:
+  name: engineStreamingRequestModel
+  description: This function sends a loading request to the game model streamer.
+  parameters: []
+  examples:
+  - path: examples/engineStreamingRequestModel-1.lua
+    description: This example draws a model
+    side: client
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: References counter
+
+      '

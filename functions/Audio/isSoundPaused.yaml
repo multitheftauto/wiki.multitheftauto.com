@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsSoundPaused
+client:
+  name: isSoundPaused
+  description: This function is used to return the current pause state of the specified
+    [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element").
+  parameters: []
+  examples:
+  - path: examples/isSoundPaused-1.lua
+    description: ''
+    side: client
+  pair: setSoundPaused
+  incomplete: true

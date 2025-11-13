@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateSearchLight
+client:
+  name: createSearchLight
+  description: This function creates a [searchlight](/wiki/Element/Searchlight "Element/Searchlight").
+    A [searchlight](/wiki/Element/Searchlight "Element/Searchlight") is a spotlight
+    which looks like the one available in the Police Maverick.
+  parameters: []
+  examples:
+  - path: examples/createSearchLight-1.lua
+    description: This example allows players to wear a helmet lantern, which can be
+      toggled on or off by pressing O or using/togglelantern. It uses createSearchLight
+      to create the illumination effect.
+    side: client
+  notes:
+  - type: tip
+    content: You should only use this function when you are sure that the searchlight
+      will point upwards or downwards . Using them horizontally or almost horizontally
+      will generate visual artifacts in the searchlight.
+  incomplete: true

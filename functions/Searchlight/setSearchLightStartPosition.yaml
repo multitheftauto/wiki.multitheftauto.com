@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSearchLightStartPosition
+client:
+  name: setSearchLightStartPosition
+  description: This function sets the start position of a [searchlight](/wiki/Element/Searchlight
+    "Element/Searchlight") element.
+  parameters: []
+  examples:
+  - path: examples/setSearchLightStartPosition-1.lua
+    description: This example creates a searchlight that originates in the camera
+      position and targets the center of the map.
+    side: client
+  pair: getSearchLightStartPosition
+  incomplete: true

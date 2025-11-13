@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiStaticImageLoadImage
+client:
+  name: guiStaticImageLoadImage
+  description: 'This function allows you to change the image in GUI static image element
+    to another one. **Tip**: If you set other images as children you will have to
+    use [setElementCallPropagationEnabled](/wiki/SetElementCallPropagationEnabled
+    "SetElementCallPropagationEnabled") to only affect the parent image.'
+  parameters: []
+  examples:
+  - path: examples/guiStaticImageLoadImage-1.lua
+    description: This example creates a static image ("myimage.png") and replaces
+      it with other image ("otherimage.png") 10 seconds after creation.
+    side: client
+  incomplete: true

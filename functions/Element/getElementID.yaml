@@ -1,0 +1,22 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementID
+server:
+  name: getElementID
+  description: This function gets the ID of an element. This is the "id" attribute
+    of the element and is a string, NOT a number like a model ID, weapons ID or similar.
+  parameters: []
+  examples:
+  - path: examples/getElementID-1.lua
+    description: 'To get the ID of the following element:'
+    side: server
+  - path: examples/getElementID-2.lua
+    description: 'You could use the following code:'
+    side: server
+  - path: examples/getElementID-3.lua
+    description: Another ex;
+    side: server
+  pair: setElementID
+  notes:
+  - type: info
+    content: This function can also be used to get the resource name of any resource-data
+      .
+  incomplete: true

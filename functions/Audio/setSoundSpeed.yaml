@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundSpeed
+client:
+  name: setSoundSpeed
+  description: This function can be used to change the playback speed of the specified
+    [sound](/wiki/Sound "Sound") [element](/wiki/Element "Element").
+  parameters: []
+  examples:
+  - path: examples/setSoundSpeed-1.lua
+    description: ''
+    side: client
+  pair: getSoundSpeed
+  incomplete: true

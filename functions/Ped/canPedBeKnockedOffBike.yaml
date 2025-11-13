@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CanPedBeKnockedOffBike
+client:
+  name: canPedBeKnockedOffBike
+  description: This function checks if the given ped can fall off bikes.
+  parameters: []
+  examples:
+  - path: examples/canPedBeKnockedOffBike-1.lua
+    description: This example adds a console command with which the local player can
+      toggle whether he can fall off bikes.
+    side: client
+  pair: setPedCanBeKnockedOffBike
+  incomplete: true

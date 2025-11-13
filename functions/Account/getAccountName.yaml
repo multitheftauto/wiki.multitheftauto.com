@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountName
+server:
+  name: getAccountName
+  description: This function retrieves the name of an [account](/wiki/Account "Account").
+  parameters: []
+  examples:
+  - path: examples/getAccountName-1.lua
+    description: This example announces into the console when a player logs into his
+      account.
+    side: server
+  incomplete: true

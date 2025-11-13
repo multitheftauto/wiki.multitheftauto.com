@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Ref
+server:
+  name: ref
+  description: This function will create a reference to the given argument.
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: This function was originally created to prevent garbage-collection of
+      specific Lua objects/elements which should persist even though no script would
+      reference them. The storage of those references can be obtained by a call to
+      the debug.getregistry function. Since at the moment MTA does not make use of
+      advanced garbage-collector semantics, this function serves little purpose other
+      than leak memory!
+  incomplete: true

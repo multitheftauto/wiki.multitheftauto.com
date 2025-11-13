@@ -1,0 +1,26 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetEasingValue
+server:
+  name: getEasingValue
+  description: 'Used for custom Lua based interpolation, returns the easing value
+    (animation time to use in your custom interpolation) given a progress and an [easing
+    function](/wiki/Easing "Easing").
+
+    In most cases, either [moveObject](/wiki/MoveObject "MoveObject") or [interpolateBetween](/wiki/InterpolateBetween
+    "InterpolateBetween") can do the job. getEasingValue is only provided in case
+    you want to do your own custom interpolation based on easing.'
+  parameters: []
+  examples:
+  - path: examples/getEasingValue-1.lua
+    description: 'This clientside example uses getEasingValue to make a custom camera
+      fade.
+
+      The command to test it is "/fade".
+
+      The fading out is done with "InQuad" to have a slow fading which then accelerates
+      and "OutQuad" is used for fading in to have a smooth end of the fading.
+
+      In this exampleinterpolateBetweencould have been used directly to interpolate
+      the alpha between 0 and 255 and then 255 and 0 but is example is just to illustrate
+      the use of getEasingValue by itself.'
+    side: client
+  incomplete: true

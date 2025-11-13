@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetClipboard
+client:
+  name: setClipboard
+  description: This function sets the players clipboard text (what appears when you
+    paste with CTRL \+ V)
+  parameters: []
+  examples:
+  - path: examples/setClipboard-1.lua
+    description: This example adds a command called clipboard which lets you set your
+      clipboard text.
+    side: client
+  - path: examples/setClipboard-2.lua
+    description: This example is to allow you to copy the words that are written in
+      edit box
+    side: client
+  incomplete: true

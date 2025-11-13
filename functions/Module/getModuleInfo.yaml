@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetModuleInfo
+server:
+  name: getModuleInfo
+  description: This function returns information about the specified [module](/wiki/Modules
+    "Modules").
+  parameters: []
+  examples:
+  - path: examples/getModuleInfo-1.lua
+    description: This example adds a commandcheckmoduleswith which you can view information
+      about currently loaded modules.
+    side: server
+  incomplete: true

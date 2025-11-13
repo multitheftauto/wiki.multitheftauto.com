@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreatePickup
+server:
+  name: createPickup
+  description: This function creates a pickup element, which is placed in the GTA
+    world and can be picked up to retrieve a health, armour or a weapon.
+  parameters: []
+  examples:
+  - path: examples/createPickup-1.lua
+    description: This example creates a pickup after a player dies so that he drops
+      his weapon.
+    side: server
+  - path: examples/createPickup-2.lua
+    description: This example creates a custom pickup(money) after a player dies and
+      sets it's value.
+    side: server
+  incomplete: true

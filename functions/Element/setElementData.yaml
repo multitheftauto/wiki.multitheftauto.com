@@ -1,0 +1,29 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementData
+server:
+  name: setElementData
+  description: This function stores [element data](/wiki/Element_data "Element data")
+    under a certain key, attached to an element. Element data set using this is then
+    synced with all clients and the server. The data can contain server\-created elements,
+    but you should avoid passing data that is not able to be synced such as xmlnodes,
+    acls, aclgroups etc.
+  parameters: []
+  examples:
+  - path: examples/setElementData-1.lua
+    description: This example allows a player to add a custom tag onto their nickname,
+      and also reverts it back to normal if they wish.
+    side: server
+  pair: getElementData
+  notes:
+  - type: info
+    content: See Script security for tips on preventing cheaters when using events
+      and element data.
+  - type: info
+    content: For performance reasons, never use setElementData in events that fire
+      often (like onClientRender ) without further optimization or conditions. In
+      fact, using element data in general, can take such a toll on performance that
+      not using it unless strictly necessary (e.g use alternatives such as storing
+      data in tables) is recommended.
+  - type: tip
+    content: A simple and efficient way to make a variable known to the server and
+      clients is to use setElementData on the root element.
+  incomplete: true

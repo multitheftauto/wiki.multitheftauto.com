@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ReloadBans
+server:
+  name: reloadBans
+  description: This function will reload the server ban list file.
+  parameters: []
+  examples:
+  - path: examples/reloadBans-1.lua
+    description: This example add command "reloadban" to reload the server ban list
+      file.
+    side: server
+  incomplete: true

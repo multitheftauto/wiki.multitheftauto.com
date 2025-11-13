@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCloudsEnabled
+server:
+  name: getCloudsEnabled
+  description: This function will tell you if clouds are enabled or disabled.
+  parameters: []
+  examples:
+  - path: examples/getCloudsEnabled-1.lua
+    description: ''
+    side: server
+  incomplete: true

@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraFieldOfView
+client:
+  name: getCameraFieldOfView
+  description: This function returns the field of view of the *dynamic camera* as
+    set by [setCameraFieldOfView](/wiki/SetCameraFieldOfView "SetCameraFieldOfView").
+  parameters: []
+  examples:
+  - path: examples/getCameraFieldOfView-1.lua
+    description: In this example, the field of view is output to the chat whenever
+      the /getfov command is written
+    side: client
+  pair: setCameraFieldOfView
+  incomplete: true

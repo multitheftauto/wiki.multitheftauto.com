@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeGetAttributes
+server:
+  name: xmlNodeGetAttributes
+  description: Returns all the attributes of a specific XML node.
+  parameters: []
+  examples:
+  - path: examples/xmlNodeGetAttributes-1.lua
+    description: This example code opens the meta.xml of the resource it belongs to,
+      and prints all attributes of the <info> node to the console.
+    side: server
+  incomplete: true

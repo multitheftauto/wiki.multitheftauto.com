@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ShakeCamera
+client:
+  name: shakeCamera
+  description: This function allows you to trigger camera shake effect (just like
+    explosion does).
+  parameters: []
+  examples:
+  - path: examples/shakeCamera-1.lua
+    description: This example allows you to constantly trigger camera shake effect
+      in center of the map, the closer you are to center the stronger effect will
+      be.
+    side: client
+  notes:
+  - type: info
+    content: The camera shaking duration depends on the force. High values ​​can result
+      in very long durations
+  incomplete: true

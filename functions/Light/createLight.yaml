@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateLight
+client:
+  name: createLight
+  description: This function creates a 3D [light](/wiki/Element/Light "Element/Light")
+    in the world.
+  parameters: []
+  examples:
+  - path: examples/createLight-1.lua
+    description: This example will make every player to look completely black without
+      using shaders. It will also dark vehicles he uses too.
+    side: client
+  notes:
+  - type: info
+    content: The direction of the light only has any effect if the light type is spot
+      light . One light will only apply illumination effects to peds , players , wheels
+      and number plates (like a emergency vehicle siren light does). Two or more lights
+      will apply illumination effects to everything (excluding objects) that is in
+      range of, at least, two of them.
+  incomplete: true

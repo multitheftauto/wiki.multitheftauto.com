@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementOnFire
+server:
+  name: setElementOnFire
+  description: This function can be used to set a [element](/wiki/Element "Element")
+    on fire or extinguish a fire on it. Supported types are [ped](/wiki/Ped "Ped"),
+    [vehicle](/wiki/Vehicle "Vehicle") and [object](/wiki/Object "Object").
+  parameters: []
+  examples:
+  - path: examples/setElementOnFire-1.lua
+    description: Example 1:This example defines a command handler for the commandfireelement.
+      This will fire up a player or their vehicle if the state is true. Otherwise
+      the fire will be gone.
+    side: server
+  pair: isElementOnFire
+  notes:
+  - type: info
+    content: Function on the client side only works on elements created on the client
+      side.
+  incomplete: true

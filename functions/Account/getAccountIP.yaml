@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountIP
+server:
+  name: getAccountIP
+  description: This function retrieves the IP address of an [account](/wiki/Account
+    "Account").
+  parameters: []
+  examples:
+  - path: examples/getAccountIP-1.lua
+    description: This example announces into the debugscript when a player logs into
+      his account.
+    side: server
+  incomplete: true

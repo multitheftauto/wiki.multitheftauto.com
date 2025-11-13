@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundPosition
+client:
+  name: setSoundPosition
+  description: 'This function is used to change the seek position of the specified
+    [sound](/wiki/Sound "Sound") element.
+
+    Use a player element to control a players voice with this function.'
+  parameters: []
+  examples:
+  - path: examples/setSoundPosition-1.lua
+    description: This example allows the player to set how many milliseconds into
+      the song he wants it to play from
+    side: client
+  pair: getSoundPosition
+  notes:
+  - type: info
+    content: To set position of a remote audio file, you must pause the sound within
+      an onClientSoundStream event after creation, set the sound position and then
+      unpause it again. The sound can also not be throttled (see playSound arguments)
+  incomplete: true

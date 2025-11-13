@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerVoiceIgnoreFrom
+server:
+  name: setPlayerVoiceIgnoreFrom
+  description: This function allows you to mute voices for a player.
+  parameters: []
+  examples:
+  - path: examples/setPlayerVoiceIgnoreFrom-1.lua
+    description: ''
+    side: server
+  notes:
+  - type: important
+    content: This function should only be used as a low-level function for advanced
+      users.  For typical Voice scripting, please see the Voice Resource
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextItemGetText
+server:
+  name: textItemGetText
+  description: This function returns the current text of the specified [textitem](/wiki/Textitem
+    "Textitem").
+  parameters: []
+  examples:
+  - path: examples/textItemGetText-1.lua
+    description: Increment a score display. In real scripts it's of course better
+      to keep a global 'score' variable which can be incremented directly.
+    side: server
+  incomplete: true

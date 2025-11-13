@@ -1,0 +1,22 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetRealTime
+server:
+  name: getRealTime
+  description: This function gets the server or client (if used client sided it returns
+    time as set on client's computer) real time and returns it in a table. If you
+    want to get the in\-game time (shown on GTA's clock) use [getTime](/wiki/GetTime
+    "GetTime").
+  parameters: []
+  examples:
+  - path: examples/getRealTime-1.lua
+    description: 'This example adds ''showtime'' like the default MTA ''time'' command:'
+    side: server
+  - path: examples/getRealTime-2.lua
+    description: 'Example with year, month, monthday using string.format:'
+    side: server
+  notes:
+  - type: info
+    content: The seconds parameter can be left out entirely while still using the
+      localTime parameter. To achieve that simply pass the boolean localTime parameter
+      as first argument where you would otherwise pass the seconds parameter. This
+      way you can retrieve a current timepoint that is not denoted in local time.
+  incomplete: true

@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetColorFilter
+client:
+  name: setColorFilter
+  description: This function is used to override the default color filtering values.
+  parameters: []
+  examples:
+  - path: examples/setColorFilter-1.lua
+    description: 'This example lets any player disable the default color filtering:'
+    side: client
+  notes:
+  - type: tip
+    content: Normally the game is adding these colors to a screen to simulate weather
+      effects. Sometimes it can be important to disable these effects. You can get
+      rid of the effects by calling this function with zero values.
+  incomplete: true

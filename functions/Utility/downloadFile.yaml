@@ -1,0 +1,27 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DownloadFile
+client:
+  name: downloadFile
+  description: This function ensures the requested resource file is correct and then
+    triggers [onClientFileDownloadComplete](/wiki/OnClientFileDownloadComplete "OnClientFileDownloadComplete").
+    If the file has been previously downloaded and the CRC matches, the file will
+    not be downloaded again but [onClientFileDownloadComplete](/wiki/OnClientFileDownloadComplete
+    "OnClientFileDownloadComplete") will still run. The **file** should also be included
+    in the resource meta.xml with the **download** attribute set to "false", see [meta.xml](/wiki/Meta.xml
+    "Meta.xml") for more details.
+  parameters: []
+  examples:
+  - path: examples/downloadFile-1.lua
+    description: Example 1:This client side event downloads a file when the current
+      resource has started.
+    side: client
+  notes:
+  - type: info
+    content: This function may cause performance issues with client and/or server.
+  - type: tip
+    content: If you are only using downloadFile to download mod files after other
+      resources, then do not use downloadFile , and instead set '<download_priority_group>-1</download_priority_group>'
+      in the resource meta.xml
+  - type: tip
+    content: Avoid using fileExists before calling downloadFile . Always call downloadFile
+      and handle the result in onClientFileDownloadComplete
+  incomplete: true

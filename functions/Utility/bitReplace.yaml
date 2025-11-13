@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitReplace
+server:
+  name: bitReplace
+  description: This function returns the unsigned number formed by var value with
+    replacement specified at bits field to field \+ width \- 1
+  parameters: []
+  examples:
+  - path: examples/bitReplace-1.lua
+    description: ''
+    side: server
+  incomplete: true

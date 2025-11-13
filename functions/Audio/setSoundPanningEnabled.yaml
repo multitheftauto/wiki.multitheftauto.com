@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetSoundPanningEnabled
+client:
+  name: setSoundPanningEnabled
+  description: This function toggles the panning of a sound (hearing it closer to
+    the left or right side of the speakers due to the camera position). By default
+    a sound has its panning enabled.
+  parameters: []
+  examples:
+  - path: examples/setSoundPanningEnabled-1.lua
+    description: This example creates a sound at the center of the map when the resource
+      which cointains it starts and adds a command called /soundpanning, which changes
+      the panning of the sound.
+    side: client
+  pair: isSoundPanningEnabled
+  incomplete: true

@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListIsSortingEnabled
+client:
+  name: guiGridListIsSortingEnabled
+  description: This function checks whether the gridlist sorting is enabled or disabled.
+  parameters: []
+  examples:
+  - path: examples/guiGridListIsSortingEnabled-1.lua
+    description: Example 1:This example creates a gridlist with all server players
+      and adds a command that enables and disables the gridlist sorting.
+    side: client
+  incomplete: true

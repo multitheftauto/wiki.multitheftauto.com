@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitLRotate
+server:
+  name: bitLRotate
+  description: 'This functions performs a bitwise circular left\-rotation on the integer
+    **value** by integer **n** positions.
+
+    See [Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation#Rotate_no_carry)
+    for more details.'
+  parameters: []
+  examples:
+  - path: examples/bitLRotate-1.lua
+    description: This example shows the usage of the functionbitLRotate.
+    side: server
+  incomplete: true

@@ -1,0 +1,1 @@
+setWorldProperty("SpriteBrightness", 0)

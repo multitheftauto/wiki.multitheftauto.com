@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileExists
+server:
+  name: fileExists
+  description: This functions checks whether a specified file exists inside a resource.
+  parameters: []
+  examples:
+  - path: examples/fileExists-1.lua
+    description: This example checks if a file exists in a resource directory
+    side: server
+  incomplete: true

@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedOccupiedVehicle
+server:
+  name: getPedOccupiedVehicle
+  description: This function gets the [vehicle](/wiki/Vehicle "Vehicle") that the
+    ped is currently in or is trying to enter, if any.
+  parameters: []
+  examples:
+  - path: examples/getPedOccupiedVehicle-1.lua
+    description: When a ped enters the 'getcarname' command and is currently in a
+      vehicle, this example outputs the name of the vehicle.
+    side: server
+  pair: warpPedIntoVehicle
+  incomplete: true

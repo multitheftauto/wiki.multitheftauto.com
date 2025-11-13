@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetGroundPosition
+client:
+  name: getGroundPosition
+  description: This function gets the Z level of the highest ground below a point.
+  parameters: []
+  examples:
+  - path: examples/getGroundPosition-1.lua
+    description: This clientside function determines if a player is under a ceiling
+      or not.
+    side: client
+  - path: examples/getGroundPosition-2.lua
+    description: This clientside function returns the distance between you and the
+      ground (if there is)
+    side: client
+  incomplete: true

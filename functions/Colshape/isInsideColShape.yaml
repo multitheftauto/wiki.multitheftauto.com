@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsInsideColShape
+server:
+  name: isInsideColShape
+  description: This function checks if a 3D position is inside a colshape or not.
+  parameters: []
+  examples:
+  - path: examples/isInsideColShape-1.lua
+    description: This function checks if an element is within a colshape.
+    side: server
+  incomplete: true

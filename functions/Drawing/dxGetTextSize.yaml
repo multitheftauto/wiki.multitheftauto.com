@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetTextSize
+client:
+  name: dxGetTextSize
+  description: This function retrieves the theoretical width and height (in pixels)
+    of a certain piece of text, if it were to be drawn using [dxDrawText](/wiki/DxDrawText
+    "DxDrawText").
+  parameters: []
+  examples:
+  - path: examples/dxGetTextSize-1.lua
+    description: This example draws a text with black background at the bottom right
+      corner of the screen.
+    side: client
+  incomplete: true

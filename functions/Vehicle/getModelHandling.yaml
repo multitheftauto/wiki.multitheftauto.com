@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetModelHandling
+server:
+  name: getModelHandling
+  description: This function returns a table containing the handling data of the specified
+    vehicle model.
+  parameters: []
+  examples:
+  - path: examples/getModelHandling-1.lua
+    description: ''
+    side: server
+  incomplete: true

@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedHeadless
+server:
+  name: setPedHeadless
+  description: With this function, you can set if a ped has a head or not.
+  parameters: []
+  examples:
+  - path: examples/setPedHeadless-1.lua
+    description: This example enables a player to behead themselves (or give themselves
+      their head back)
+    side: server
+  incomplete: true

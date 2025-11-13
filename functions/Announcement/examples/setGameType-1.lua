@@ -1,0 +1,1 @@
+setGameType ( "Capture The Flag" )

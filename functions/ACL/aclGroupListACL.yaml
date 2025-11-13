@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupListACL
+server:
+  name: aclGroupListACL
+  description: This function returns a table over all the ACL's that exist in a given
+    ACL group.
+  parameters: []
+  examples:
+  - path: examples/aclGroupListACL-1.lua
+    description: This example outputs the list of ACL's if the aclGroup name is given.
+      (TESTED!)
+    side: server
+  incomplete: true

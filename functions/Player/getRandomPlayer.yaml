@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetRandomPlayer
+server:
+  name: getRandomPlayer
+  description: This function returns a random [player](/wiki/Player "Player").
+  parameters: []
+  examples:
+  - path: examples/getRandomPlayer-1.lua
+    description: This code outputs a random player's name.
+    side: server
+  incomplete: true

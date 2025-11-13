@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetBlurLevel
+client:
+  name: resetBlurLevel
+  description: Resets the motion blur level on the client's screen to default value
+    (36\).
+  parameters: []
+  examples:
+  - path: examples/resetBlurLevel-1.lua
+    description: 'This example allows the player to reset their blur level with a
+      command:'
+    side: client
+  incomplete: true

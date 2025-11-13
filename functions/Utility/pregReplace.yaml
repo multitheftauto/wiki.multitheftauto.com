@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PregReplace
+server:
+  name: pregReplace
+  description: This function performs a regular expression search and replace and
+    returns the replaced string.
+  parameters: []
+  examples:
+  - path: examples/pregReplace-1.lua
+    description: 'Some examples:'
+    side: server
+  notes:
+  - type: warning
+    content: When declaring a pattern string in quotes, the backslash character should
+      be doubled up. e.g. "\\(" will match a single bracket. This also applies to
+      the replacement string.
+  - type: warning
+    content: Multiline flag does not work correctly
+  incomplete: true

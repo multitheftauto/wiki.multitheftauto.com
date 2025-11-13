@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetColorFilter
+client:
+  name: getColorFilter
+  description: This function is used to get the values of color filtering.
+  parameters: []
+  examples:
+  - path: examples/getColorFilter-1.lua
+    description: This example corrects color of dxDrawMaterialLine3D. But this method
+      has some limit.
+    side: client
+  - path: examples/getColorFilter-2.lua
+    description: This example corrects color of dxDrawMaterialLine3D using shader
+    side: client
+  notes:
+  - type: tip
+    content: Normally the game is adding these colors to a screen to simulate weather
+      effects. Sometimes it can be important to disable these effects. You can get
+      rid of the effects by calling setColorFilter with zero values.
+  incomplete: true

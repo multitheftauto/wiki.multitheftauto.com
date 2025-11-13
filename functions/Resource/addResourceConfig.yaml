@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AddResourceConfig
+server:
+  name: addResourceConfig
+  description: This function adds a new empty config file to an existing resource.
+  parameters: []
+  examples:
+  - path: examples/addResourceConfig-1.lua
+    description: ''
+    side: server
+  incomplete: true

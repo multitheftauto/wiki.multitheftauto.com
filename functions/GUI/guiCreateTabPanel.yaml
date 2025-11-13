@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateTabPanel
+client:
+  name: guiCreateTabPanel
+  description: This function creates a Tab Panel, which acts as a template to create
+    Tabs upon.
+  parameters: []
+  examples:
+  - path: examples/guiCreateTabPanel-1.lua
+    description: This example creates a information window and adds two tabs to a
+      "tabPanel" tabpanel, and adds some other gui elements to it.
+    side: client
+  incomplete: true

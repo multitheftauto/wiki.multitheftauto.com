@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetMinuteDuration
+server:
+  name: setMinuteDuration
+  description: Sets the real\-world duration of an ingame minute. The GTA default
+    is 1000\.
+  parameters: []
+  examples:
+  - path: examples/setMinuteDuration-1.lua
+    description: ''
+    side: server
+  incomplete: true

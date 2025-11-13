@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceName
+server:
+  name: getResourceName
+  description: This function gets the name of the specified resource.
+  parameters: []
+  examples:
+  - path: examples/getResourceName-1.lua
+    description: This simple example outputs a message in the console whenever a resource
+      starts, stating the name of the resource.
+    side: server
+  pair: renameResource
+  notes:
+  - type: info
+    content: Every resource has a predefined global variable called resourceName whose
+      value is the name of that resource.
+  - type: info
+    content: If you want to access the name of any resource-data you should use getElementID
+      .
+  incomplete: true

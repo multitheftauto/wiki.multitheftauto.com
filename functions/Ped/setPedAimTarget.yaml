@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedAimTarget
+client:
+  name: setPedAimTarget
+  description: This function allows you to set a ped's aim target to a specific point.
+    If a ped is within a certain range defined by [getPedTargetStart](/wiki/GetPedTargetStart
+    "GetPedTargetStart") and [getPedTargetEnd](/wiki/GetPedTargetEnd "GetPedTargetEnd")
+    he will be targeted and shot.
+  parameters: []
+  examples:
+  - path: examples/setPedAimTarget-1.lua
+    description: Example 1:This example creates a ped in the middle of the map and
+      sets its aim target to point north-east.
+    side: client
+  - path: examples/setPedAimTarget-2.lua
+    description: Example 2:This example creates a ped at grove street that will shoot
+      at anything that enters a certain marker.
+    side: client
+  incomplete: true

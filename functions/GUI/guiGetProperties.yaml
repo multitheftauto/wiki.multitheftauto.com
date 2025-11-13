@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetProperties
+client:
+  name: guiGetProperties
+  description: This function gets a list of the CEGUI property names and values of
+    a GUI element. To find out what the different properties mean, check out the [CEGUI
+    properties page](http://static.cegui.org.uk/static/WindowsLookProperties.html).
+  parameters: []
+  examples:
+  - path: examples/guiGetProperties-1.lua
+    description: The following example code will create a button and lists its properties
+      in the console if the /btn command is entered.
+    side: client
+  incomplete: true

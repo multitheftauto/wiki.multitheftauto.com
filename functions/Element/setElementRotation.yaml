@@ -1,0 +1,23 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementRotation
+server:
+  name: setElementRotation
+  description: Sets the rotation of elements according to the world (does not work
+    with players that are on the ground).
+  parameters: []
+  examples:
+  - path: examples/setElementRotation-1.lua
+    description: ''
+    side: client
+  - path: examples/setElementRotation-2.lua
+    description: ''
+    side: client
+  pair: getElementRotation
+  notes:
+  - type: info
+    content: This function does not work on colshape .
+  - type: info
+    content: This function does not work on dummy element .
+  - type: tip
+    content: New scripts should set conformPedRotation to true when using this function
+      on peds . This will prevent quirky old behaviour.
+  incomplete: true

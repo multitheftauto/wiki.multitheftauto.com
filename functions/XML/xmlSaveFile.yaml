@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlSaveFile
+server:
+  name: xmlSaveFile
+  description: This function saves a loaded XML file.
+  parameters: []
+  examples:
+  - path: examples/xmlSaveFile-1.lua
+    description: This example allows a player to use the command 'createfile' to create
+      an .xml file.
+    side: client
+  incomplete: true

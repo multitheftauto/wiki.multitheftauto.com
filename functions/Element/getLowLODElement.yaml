@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetLowLODElement
+server:
+  name: getLowLODElement
+  description: This function return the low LOD element that an element is associated
+    with.
+  parameters: []
+  examples:
+  - path: examples/getLowLODElement-1.lua
+    description: 'This example is not done yet:'
+    side: client
+  pair: setLowLODElement
+  incomplete: true

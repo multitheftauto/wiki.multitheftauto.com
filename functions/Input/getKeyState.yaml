@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetKeyState
+client:
+  name: getKeyState
+  description: This function determines if a certain key is pressed or not.
+  parameters: []
+  examples:
+  - path: examples/getKeyState-1.lua
+    description: This clientside example prints a message when "p" is pressed, and
+      a different one for the "control+p" combination.
+    side: client
+  incomplete: true

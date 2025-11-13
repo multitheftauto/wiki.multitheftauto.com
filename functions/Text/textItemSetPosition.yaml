@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextItemSetPosition
+server:
+  name: textItemSetPosition
+  description: This function allows the setting of the position of a text item.
+  parameters: []
+  examples:
+  - path: examples/textItemSetPosition-1.lua
+    description: This example creates a text item 'myTextItem' only if the text item
+      'otherTextItem' is not in the same position, to prevent overlap. If it is in
+      the same position, then it moves it down.
+    side: server
+  incomplete: true

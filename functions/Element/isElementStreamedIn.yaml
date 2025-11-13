@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementStreamedIn
+client:
+  name: isElementStreamedIn
+  description: This function checks whether an [element](/wiki/Element "Element")
+    is currently streamed in (not virtualized) and are actual GTA objects in the world.
+    You can force an element to be streamed in using [setElementStreamable](/wiki/SetElementStreamable
+    "SetElementStreamable").
+  parameters: []
+  examples:
+  - path: examples/isElementStreamedIn-1.lua
+    description: This command shows you how many objects you have streamed in.
+    side: client
+  incomplete: true

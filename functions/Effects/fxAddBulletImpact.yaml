@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddBulletImpact
+client:
+  name: fxAddBulletImpact
+  description: Creates a bullet impact particle effect, consisting of a small smoke
+    cloud and a number of sparks.
+  parameters: []
+  examples:
+  - path: examples/fxAddBulletImpact-1.lua
+    description: This example will create a Bullet Impact Effect on the position of
+      the bullet impact.
+    side: client
+  incomplete: true

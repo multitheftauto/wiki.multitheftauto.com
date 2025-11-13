@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetBlipOrdering
+server:
+  name: setBlipOrdering
+  description: This function sets the Z ordering of a blip. It allows you to make
+    a blip appear on top of or below other blips.
+  parameters: []
+  examples:
+  - path: examples/setBlipOrdering-1.lua
+    description: ''
+    side: server
+  pair: getBlipOrdering
+  incomplete: true

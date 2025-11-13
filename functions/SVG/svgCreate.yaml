@@ -1,0 +1,29 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SvgCreate
+client:
+  name: svgCreate
+  description: Creates an [svg](/wiki/Svg "Svg") from size (blank document), filepath
+    or raw data.
+  parameters: []
+  examples:
+  - path: examples/svgCreate-1.lua
+    description: This is a basic example of how you can create an SVG from raw data
+      (or path) and draw it withdxDrawImageviaonClientRender.
+    side: client
+  - path: examples/svgCreate-2.lua
+    description: Here's another, more in-depth example which utilizes the callback
+      argument. You can use the F2 key to set the SVG to a random size and see the
+      update callback output a message to debugscript.
+    side: client
+  notes:
+  - type: info
+    content: SVG in MTA is handled by the lunasvg rendering engine - Some features
+      in MTA may not work properly, compared to the browser.
+  - type: tip
+    content: If you are experiencing poor texture quality or artifacts in the form
+      of black outlines, setting the blend mode to add might help
+  - type: important
+    content: Before r21155 ( 3157905 ) the provided callback was only fired once after
+      the function had performed its task. This is no longer the case - each SVG can
+      now store a single callback function (optional) which is fired every time the
+      SVG texture has been changed/updated.
+  incomplete: true

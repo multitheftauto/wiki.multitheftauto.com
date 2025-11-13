@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupAddACL
+server:
+  name: aclGroupAddACL
+  description: This function adds the given ACL to the given ACL group. This makes
+    the resources and players in the given ACL group have access to what's specified
+    in the given ACL. The rights for something in the different ACL's in a group are
+    OR\-ed together, which means if one ACL gives access to something, this ACL group
+    will have access to that.
+  parameters: []
+  examples:
+  - path: examples/aclGroupAddACL-1.lua
+    description: This example adds a commandaddAclGroupwith which you can easily add
+      new access control lists to specified acl Groups.
+    side: server
+  incomplete: true

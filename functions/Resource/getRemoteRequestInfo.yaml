@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetRemoteRequestInfo
+server:
+  name: getRemoteRequestInfo
+  description: Gets informations of an [fetchRemote](/wiki/FetchRemote "FetchRemote")
+    or [callRemote](/wiki/CallRemote "CallRemote") request info.
+  parameters: []
+  examples:
+  - path: examples/getRemoteRequestInfo-1.lua
+    description: This example gets infos about all pending requests and prints them
+      in debugscript
+    side: server
+  - path: examples/getRemoteRequestInfo-2.lua
+    description: This example gets infos about all pending requests and prints them
+      in debugscript
+    side: client
+  incomplete: true

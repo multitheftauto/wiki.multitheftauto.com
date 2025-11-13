@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleBlown
+server:
+  name: isVehicleBlown
+  description: This function allows you to determine whether a vehicle is blown or
+    still intact.
+  parameters: []
+  examples:
+  - path: examples/isVehicleBlown-1.lua
+    description: This example creates a taxi and checks whether the taxi has blown
+      up or not every time somebody types "/taxi".
+    side: server
+  pair: blowVehicle
+  incomplete: true

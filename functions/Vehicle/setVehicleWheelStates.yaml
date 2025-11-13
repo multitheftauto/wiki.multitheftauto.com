@@ -1,0 +1,23 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleWheelStates
+server:
+  name: setVehicleWheelStates
+  description: This function sets the state of wheels on the vehicle.
+  parameters: []
+  examples:
+  - path: examples/setVehicleWheelStates-1.lua
+    description: This example displays the states of the vehicle's wheels and changes
+      their states if any arguments were passed.
+    side: server
+  - path: examples/setVehicleWheelStates-2.lua
+    description: This example displays the states of the vehicle's wheels and changes
+      their states if any arguments were passed.
+    side: client
+  pair: getVehicleWheelStates
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Wheel-State values
+
+      '

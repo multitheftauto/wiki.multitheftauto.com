@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/BitLShift
+server:
+  name: bitLShift
+  description: 'This functions performs a logical left shift on the integer **value**
+    by integer **n** positions. In a *logical shift*, zeros are shifted in to replace
+    the discarded bits.
+
+    See [Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation#Logical_shift)
+    for more details.'
+  parameters: []
+  examples:
+  - path: examples/bitLShift-1.lua
+    description: This example shows the usage of the functionbitLShift.
+    side: server
+  incomplete: true

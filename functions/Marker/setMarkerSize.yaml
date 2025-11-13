@@ -1,0 +1,25 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetMarkerSize
+server:
+  name: setMarkerSize
+  description: This function sets the size of the specified marker.
+  parameters: []
+  examples:
+  - path: examples/setMarkerSize-1.lua
+    description: This example creates a cylinder marker at the position 0, 0, 2 and
+      sets its size to2.5.
+    side: server
+  - path: examples/setMarkerSize-2.lua
+    description: This example creates a cylinder marker at the position 0, 0, 2 and
+      plus its size by1by using 'getMarkerSize'.
+    side: server
+  pair: getMarkerSize
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Client
+
+      - Missing section: Server
+
+      '

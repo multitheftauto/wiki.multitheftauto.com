@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceInfo
+server:
+  name: getResourceInfo
+  description: This function retrieves the value of any attribute in a resource info
+    tag.
+  parameters: []
+  examples:
+  - path: examples/getResourceInfo-1.lua
+    description: This function tells the server who's the author who made the currently
+      running resource.
+    side: server
+  incomplete: true

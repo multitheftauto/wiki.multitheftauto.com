@@ -1,0 +1,31 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CallRemote
+server:
+  name: callRemote
+  description: This function allows you to call functions that have been exported
+    with HTTP access by other MTA servers. The calls are asynchronous so you do not
+    get an immediate result from the call, instead a callback function you specify
+    is called when the call returns.
+  parameters: []
+  examples:
+  - path: examples/callRemote-1.lua
+    description: PHP:(for the page that Lua expects to be athttp://www.example.com/page.php)
+    side: server
+  - path: examples/callRemote-2.lua
+    description: 'Lua:'
+    side: server
+  - path: examples/callRemote-3.lua
+    description: 'meta.xmlFirst, addoutputChatBoxRemoteas an HTTP exported function
+      in your resource''s meta.xml:'
+    side: server
+  - path: examples/callRemote-4.lua
+    description: 'Lua:Next, add this to a server-side script in your resource:'
+    side: server
+  - path: examples/callRemote-5.lua
+    description: 'ACL:Then, modify the ACL on each sending server to allow access
+      to callRemote:'
+    side: server
+  - path: examples/callRemote-6.lua
+    description: 'ACL #2:Finally, modify the ACL on each receiving server to allow
+      guest http communication with your resource:'
+    side: server
+  incomplete: true

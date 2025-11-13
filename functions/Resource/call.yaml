@@ -1,0 +1,27 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Call
+server:
+  name: call
+  description: This function is used to call a function from another resource (which
+    must be running).
+  parameters: []
+  examples:
+  - path: examples/call-1.lua
+    description: This extract shows adding of a "kills" column to the scoreboard resource.
+      This then sets thegameShowKillsvariable to true(or false), telling the rest
+      of the script to start outputting kills.
+    side: server
+  - path: examples/call-2.lua
+    description: This extract shows adding of a "kills" column to the scoreboard resource.
+      This then sets thegameShowKillsvariable to true(or false), telling the rest
+      of the script to start outputting kills.
+    side: server
+  notes:
+  - type: important
+    content: Calls (exports) may incur a performance overhead - they are not equivalent
+      in performance to calling functions in the same resource. Do not use exports
+      in render events (like onClientRender ), or in fast processing logic, unless
+      you want to kill performance. The sourceResource and sourceResourceRoot "hidden"
+      variables are available even if you use exports.*:* Using this function straight
+      away on resource start might cause elements to not be passed properly, use setTimer
+      in order to delay function execution and to avoid this issue.
+  incomplete: true

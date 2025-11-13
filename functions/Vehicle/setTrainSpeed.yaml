@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainSpeed
+server:
+  name: setTrainSpeed
+  description: Sets the on\-track speed of a train.
+  parameters: []
+  examples:
+  - path: examples/setTrainSpeed-1.lua
+    description: This example will make a train east of LS station which can not be
+      derailed, and start moving it.
+    side: server
+  pair: getTrainSpeed
+  incomplete: true

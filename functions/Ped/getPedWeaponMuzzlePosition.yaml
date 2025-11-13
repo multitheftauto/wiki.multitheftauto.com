@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedWeaponMuzzlePosition
+client:
+  name: getPedWeaponMuzzlePosition
+  description: Returns the world position of the muzzle of the weapon that a ped is
+    currently carrying. The weapon muzzle is the end of the gun barrel where the bullets/rockets/...
+    come out.
+  parameters: []
+  examples:
+  - path: examples/getPedWeaponMuzzlePosition-1.lua
+    description: This Example draws a red 3D-Line when a Player shoots,between the
+      Players WeaponMuzzlePosition and the Point where the Bullet hits.[Tested]
+    side: client
+  incomplete: true

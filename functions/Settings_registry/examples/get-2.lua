@@ -1,0 +1,1 @@
+mySetting=get("respawnTime") or false

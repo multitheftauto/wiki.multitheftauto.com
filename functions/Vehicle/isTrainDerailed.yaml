@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsTrainDerailed
+server:
+  name: isTrainDerailed
+  description: This function will check if a train or tram is derailed.
+  parameters: []
+  examples:
+  - path: examples/isTrainDerailed-1.lua
+    description: This example lets a player check if the train they're driving has
+      derailed.
+    side: server
+  pair: setTrainDerailed
+  incomplete: true

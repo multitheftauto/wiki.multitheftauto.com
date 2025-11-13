@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetBufferSize
+client:
+  name: engineStreamingGetBufferSize
+  description: Get the streaming buffer size \[**not** maximum memory size]
+  parameters: []
+  examples:
+  - path: examples/engineStreamingGetBufferSize-1.lua
+    description: This example adds a command that can be used to change the streaming
+      buffer size, and display the previous value.
+    side: client
+  pair: engineStreamingSetBufferSize
+  incomplete: true

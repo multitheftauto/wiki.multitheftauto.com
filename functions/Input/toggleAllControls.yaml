@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ToggleAllControls
+server:
+  name: toggleAllControls
+  description: Enables or disables the use of all GTA controls for a specified player.
+  parameters: []
+  examples:
+  - path: examples/toggleAllControls-1.lua
+    description: This function will disable the use of all controls in order to freeze
+      a player, which will be used every time someone enters a vehicle.
+    side: server
+  incomplete: true

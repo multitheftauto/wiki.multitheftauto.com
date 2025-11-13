@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleSirens
+server:
+  name: setVehicleSirens
+  description: This function changes the properties of a vehicles siren point.
+  parameters: []
+  examples:
+  - path: examples/setVehicleSirens-1.lua
+    description: This example adds a siren for the vehicle, then sets two custom sirens
+      at the top of the vehicle. And then removes the siren when getting out the vehicle.
+    side: server
+  pair: getVehicleSirens
+  notes:
+  - type: info
+    content: Although you may be able to add sirens to any vehice, this function may
+      not work. This function fails on certain vehicle models ( https://wiki.multitheftauto.com/wiki/Vehicle_IDs#Lua_table_of_vehicles_that_doesn.27t_support_siren_lights
+      ).
+  incomplete: true

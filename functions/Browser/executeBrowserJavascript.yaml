@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ExecuteBrowserJavascript
+client:
+  name: executeBrowserJavascript
+  description: This function executes a Javascript string to the specified [browser](/wiki/Element/Browser
+    "Element/Browser"). Works only with local browsers.
+  parameters: []
+  examples:
+  - path: examples/executeBrowserJavascript-1.lua
+    description: This example shows how to display the name (nick) of the local player
+      on the webpage.
+    side: client
+  incomplete: true

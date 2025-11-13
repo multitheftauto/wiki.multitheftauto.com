@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleDoorState
+server:
+  name: setVehicleDoorState
+  description: This function sets the state of the specified door on a vehicle.
+  parameters: []
+  examples:
+  - path: examples/setVehicleDoorState-1.lua
+    description: ''
+    side: server
+  pair: getVehicleDoorState
+  notes:
+  - type: info
+    content: This parameter doesn't work during the vehicle creation. You need a SetTimer
+      if you need to create the vehicle using this parameter.
+  incomplete: true

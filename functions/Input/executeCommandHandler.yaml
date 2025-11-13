@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ExecuteCommandHandler
+server:
+  name: executeCommandHandler
+  description: This function will call all the attached functions of an existing console
+    command, for a specified player.
+  parameters: []
+  examples:
+  - path: examples/executeCommandHandler-1.lua
+    description: This example defines a command handler for the commandcreatemarker(which
+      creates a red marker at the caller's position). It then creates a second command
+      handlercreatemarker2which will call the first one.
+    side: server
+  notes:
+  - type: info
+    content: You can only execute commands created with addCommandHandler. You cannot
+      execute MTA harcoded commands due to security reasons.
+  - type: info
+    content: Serverside commands can only be executed by the server. The same applies
+      to the client side
+  incomplete: true

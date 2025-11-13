@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedExitVehicle
+client:
+  name: setPedExitVehicle
+  description: This function makes a [ped](/wiki/Ped "Ped") exit a [vehicle](/wiki/Vehicle
+    "Vehicle"), similar to the enter\_exit control state.
+  parameters: []
+  examples:
+  - path: examples/setPedExitVehicle-1.lua
+    description: This example adds a command to make all synced peds exit their vehicles.
+    side: client
+  notes:
+  - type: info
+    content: This function only works on synced peds and vehicles (i.e. created server-side).
+  incomplete: true

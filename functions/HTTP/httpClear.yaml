@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/HttpClear
+server:
+  name: httpClear
+  description: This function removes all text from the current HTML output.
+  parameters: []
+  examples:
+  - path: examples/httpClear-1.lua
+    description: This sample resource page adds a message to be outputted saying there
+      are players in the server, but clears output if the server is empty so a blank
+      page is displayed instead.
+    side: server
+  - path: examples/httpClear-2.lua
+    description: ''
+    side: server
+  - path: examples/httpClear-3.lua
+    description: ''
+    side: server
+  incomplete: true

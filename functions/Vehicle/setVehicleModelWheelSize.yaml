@@ -1,0 +1,23 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleModelWheelSize
+client:
+  name: setVehicleModelWheelSize
+  description: This function sets the size of a group of wheels for a [vehicle model](/wiki/Vehicle_IDs
+    "Vehicle IDs"). The wheel size mainly determines their width, collision box (used
+    to check if a bullet hits a tire, for example) and the ground clearance of vehicles
+    with that model (i.e., the minimum distance from the center of the car geometry
+    to the ground). It also changes the visual scale and rotation of the wheels, if
+    not all the wheel groups have equal size. The visual scaling is applied before
+    the per\-vehicle [wheel scale](/wiki/SetVehicleWheelScale "SetVehicleWheelScale").
+  parameters: []
+  examples:
+  - path: examples/setVehicleModelWheelSize-1.lua
+    description: This example replaces the Infernus model with a Huntley model and
+      sets the intended wheel scale for the new model accordingly, so that the vehicle
+      does not look sunken into the ground.
+    side: client
+  - path: examples/setVehicleModelWheelSize-2.lua
+    description: This example sets the rear axle size of the Bandito to a high value,
+      to showcase its effect and make it more funky.
+    side: client
+  pair: getVehicleModelWheelSize
+  incomplete: true

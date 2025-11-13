@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateButton
+client:
+  name: guiCreateButton
+  description: This function allows creation of a GUI Button, which is a clickable
+    item as part of GUI.
+  parameters: []
+  examples:
+  - path: examples/guiCreateButton-1.lua
+    description: This example creates an edit box alongside an "Output!" button.  When
+      the button is clicked, it will output the message in the edit box into the Chat
+      Box.
+    side: client
+  incomplete: true

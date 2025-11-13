@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclDestroy
+server:
+  name: aclDestroy
+  description: This function destroys the ACL passed. The destroyed ACL will no longer
+    be valid.
+  parameters: []
+  examples:
+  - path: examples/aclDestroy-1.lua
+    description: 'This example shows you a command to delete an ACL:'
+    side: server
+  incomplete: true

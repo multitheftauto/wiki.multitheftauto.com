@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PlayPedVoiceLine
+client:
+  name: playPedVoiceLine
+  description: This function allows playing specific voice lines of a [ped](/wiki/Ped
+    "Ped").
+  parameters: []
+  examples: []
+  notes:
+  - type: info
+    content: Voice lines are assigned to a specific skin ID, so using setPedVoice
+      might be helpful if you want to play any voice lines regardless of the skin.
+  incomplete: true

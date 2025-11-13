@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsBrowserFocused
+client:
+  name: isBrowserFocused
+  description: This function checks if a browser is focused.
+  parameters: []
+  examples:
+  - path: examples/isBrowserFocused-1.lua
+    description: ''
+    side: client
+  incomplete: true

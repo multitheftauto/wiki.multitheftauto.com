@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBrowserProperty
+client:
+  name: getBrowserProperty
+  description: This function gets a given property of a specified browser.
+  parameters: []
+  examples:
+  - path: examples/getBrowserProperty-1.lua
+    description: 'This example creates a browser that displays (youtube.com), adds
+      a button to get the browser property, and displays the web page as a web page
+      or a phone page:'
+    side: client
+  pair: setBrowserProperty
+  incomplete: true

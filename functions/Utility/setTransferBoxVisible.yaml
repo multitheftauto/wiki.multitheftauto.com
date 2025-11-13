@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetTransferBoxVisible
+server:
+  name: setTransferBoxVisible
+  description: Determines whether or not the transfer box should appear to [players](/wiki/Player
+    "Player").
+  parameters: []
+  examples:
+  - path: examples/setTransferBoxVisible-1.lua
+    description: ''
+    side: server
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceOrganizationalPath
+server:
+  name: getResourceOrganizationalPath
+  description: This function returns the organizational file path (e.g. *\[admin]*)
+    of a resource.
+  parameters: []
+  examples:
+  - path: examples/getResourceOrganizationalPath-1.lua
+    description: This example outputs the path of the current resource when it is
+      started.
+    side: server
+  incomplete: true

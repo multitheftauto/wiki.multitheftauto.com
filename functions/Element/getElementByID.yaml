@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementByID
+server:
+  name: getElementByID
+  description: This function returns an element from the specified ID. If more than
+    one element with the same ID exists, only the first one in the order it appears
+    in the XML tree will be returned by this function.
+  parameters: []
+  examples:
+  - path: examples/getElementByID-1.lua
+    description: 'Assuming we have this in the .map file:'
+    side: server
+  - path: examples/getElementByID-2.lua
+    description: Then this example would retrieve the element and output the vehicle
+      name.
+    side: server
+  notes:
+  - type: info
+    content: The ID in this context is the value of the 'id' data item of the element
+      (the id=".." attribute in the .map file), NOT the model ID, weapon ID or similiar.
+  incomplete: true

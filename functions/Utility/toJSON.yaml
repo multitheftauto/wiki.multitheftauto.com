@@ -1,0 +1,22 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ToJSON
+server:
+  name: toJSON
+  description: This function converts a **single** value (preferably a Lua table)
+    into a [JSON](/wiki/JSON "JSON") encoded string. You can use this to store the
+    data and then load it again using [fromJSON](/wiki/FromJSON "FromJSON").
+  parameters: []
+  examples:
+  - path: examples/toJSON-1.lua
+    description: 'This example shows how you can encode an array. The string json
+      should equal"[ { "1": "dogs", "mouse": "food", "cat": "hungry", "birds": 4 }
+      ]" after executed.'
+    side: server
+  notes:
+  - type: warning
+    content: When using toJSON for submitting data using fetchRemote for example,
+      make sure to use string.sub(data, 2, -2) to remove the brackets as many APIs
+      will not understand the request
+  - type: important
+    content: Due to technical limitations (partly of json-c) the stringified keys
+      will be truncated to the first 255 characters
+  incomplete: true

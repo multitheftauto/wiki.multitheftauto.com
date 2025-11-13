@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CopyAccountData
+server:
+  name: copyAccountData
+  description: This function copies all of the data from one [account](/wiki/Account
+    "Account") to another.
+  parameters: []
+  examples:
+  - path: examples/copyAccountData-1.lua
+    description: This example copies the account data from the 'guest' to a registered
+      account when they login
+    side: server
+  incomplete: true

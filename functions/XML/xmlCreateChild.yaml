@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlCreateChild
+server:
+  name: xmlCreateChild
+  description: This function creates a new child node under an XML node.
+  parameters: []
+  examples:
+  - path: examples/xmlCreateChild-1.lua
+    description: This example allows a player to use the command 'createfile' to create
+      an .xml file.
+    side: server
+  incomplete: true

@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsGuestAccount
+server:
+  name: isGuestAccount
+  description: This function checks to see if an [account](/wiki/Account "Account")
+    is a guest account. A guest account is an account automatically created for a
+    user when they join the server and deleted when they quit or login to another
+    account. Data stored in a guest account is not stored after the player has left
+    the server. As a consequence, this function will check if a player is logged in
+    or not.
+  parameters: []
+  examples:
+  - path: examples/isGuestAccount-1.lua
+    description: This example shows how you could create acall_adminfunction that
+      only could be run by registered users.
+    side: server
+  incomplete: true

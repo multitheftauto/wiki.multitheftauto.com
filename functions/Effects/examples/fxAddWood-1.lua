@@ -1,0 +1,5 @@
+addCommandHandler("woodfx", function()
+    local x, y, z = getElementPosition(localPlayer)
+    local gz = getGroundPosition(x, y, z)
+    fxAddWood(x, y, gz+0.4, 0, 0, 0, math.random(3, 6), 0.7)
+end)

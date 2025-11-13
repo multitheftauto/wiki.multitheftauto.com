@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetBrowserVolume
+client:
+  name: setBrowserVolume
+  description: This function sets either a specific [browser](/wiki/Element/Browser
+    "Element/Browser")'s volume, or the overall volume for browsers.
+  parameters: []
+  examples:
+  - path: examples/setBrowserVolume-1.lua
+    description: ''
+    side: client
+  pair: getBrowserVolume
+  incomplete: true

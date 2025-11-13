@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetObjectProperty
+client:
+  name: getObjectProperty
+  description: This function gets a property of the specified [object](/wiki/Object
+    "Object").
+  parameters: []
+  examples:
+  - path: examples/getObjectProperty-1.lua
+    description: ''
+    side: client
+  pair: setProperty
+  incomplete: true

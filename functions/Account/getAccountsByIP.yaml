@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountsByIP
+server:
+  name: getAccountsByIP
+  description: This function returns a [table](/wiki/Table "Table") containing all
+    accounts that were logged onto from specified IP\-address.
+  parameters: []
+  examples:
+  - path: examples/getAccountsByIP-1.lua
+    description: 'This example adds commandgetAccountsthat outputs the number of accounts
+      a player has in the chatbox:'
+    side: server
+  incomplete: true

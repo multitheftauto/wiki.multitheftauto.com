@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerBlurLevel
+server:
+  name: setPlayerBlurLevel
+  description: Sets the motion blur level on the clients screen. Accepts a value between
+    0 and 255\.
+  parameters: []
+  examples:
+  - path: examples/setPlayerBlurLevel-1.lua
+    description: This example allows the player to set their blur level via a command
+    side: server
+  pair: getPlayerBlurLevel
+  incomplete: true

@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetMarkerIcon
+server:
+  name: setMarkerIcon
+  description: This function allows changing the icon of a checkpoint marker.
+  parameters: []
+  examples:
+  - path: examples/setMarkerIcon-1.lua
+    description: This example creates a finish marker as you'd expect for the end
+      of a race.
+    side: server
+  pair: getMarkerIcon
+  incomplete: true

@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsTrainDerailable
+server:
+  name: isTrainDerailable
+  description: This function will check if a train or tram is derailable.
+  parameters: []
+  examples:
+  - path: examples/isTrainDerailable-1.lua
+    description: ''
+    side: client
+  pair: setTrainDerailable
+  incomplete: true

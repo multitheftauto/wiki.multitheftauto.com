@@ -1,0 +1,6 @@
+addCommandHandler("getAccounts", 
+	function (player, cmd)
+		local serial = getPlayerSerial(player)
+		local accounts = getAccountsBySerial(serial)
+		outputChatBox("You have " .. #accounts .. " accounts.", player)
+	end)

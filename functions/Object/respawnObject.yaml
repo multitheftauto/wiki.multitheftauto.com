@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RespawnObject
+server:
+  name: respawnObject
+  description: This function respawns a specific object.
+  parameters: []
+  examples:
+  - path: examples/respawnObject-1.lua
+    description: This example prevents objects from despawning. When an object breaks,
+      it gets respawned right away.
+    side: server
+  incomplete: true

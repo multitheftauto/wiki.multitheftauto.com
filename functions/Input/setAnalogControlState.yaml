@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetAnalogControlState
+client:
+  name: setAnalogControlState
+  description: This sets the analog control state of a control for the local player.
+    To change the analog controls for a [ped](/wiki/Ped "Ped"), please use [setPedAnalogControlState](/wiki/SetPedAnalogControlState
+    "SetPedAnalogControlState").
+  parameters: []
+  examples:
+  - path: examples/setAnalogControlState-1.lua
+    description: This creates an/forwardscommand, which toggles yourforwardscontrol
+      state between 0 and 1.
+    side: client
+  - path: examples/setAnalogControlState-2.lua
+    description: This script invertes left and right vehicle steering for the player.
+    side: client
+  incomplete: true

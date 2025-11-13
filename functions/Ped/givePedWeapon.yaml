@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GivePedWeapon
+client:
+  name: givePedWeapon
+  description: This function gives the specified weapon to the specified ped. This
+    function can't be used on players, use [giveWeapon](/wiki/GiveWeapon "GiveWeapon")
+    for that.
+  parameters: []
+  examples:
+  - path: examples/givePedWeapon-1.lua
+    description: Example 1:This example creates a client side ped, gives them an M4
+      and make them shoot once you do the command '/armedped'
+    side: client
+  notes:
+  - type: info
+    content: When setting ammo for weapons in slot 0,1,10,11 or 12 the maximum ammo
+      is 1 When setting ammo for weapons in slot 3,4,5 the ammo is added When setting
+      ammo for weapons in slot 2,6,7,8,9 and the slot weapon is changing, the ammo
+      is replaced
+  incomplete: true

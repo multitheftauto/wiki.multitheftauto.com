@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetDevelopmentMode
+server:
+  name: getDevelopmentMode
+  description: This function is used to get the development mode of the client or
+    whole server. For more information see [setDevelopmentMode](/wiki/SetDevelopmentMode
+    "SetDevelopmentMode")
+  parameters: []
+  examples:
+  - path: examples/getDevelopmentMode-1.lua
+    description: This command enables / disables the development mode
+    side: client
+  incomplete: true

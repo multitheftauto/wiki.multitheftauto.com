@@ -1,0 +1,1 @@
+speed = getDistanceBetweenPoints3D ( 0, 0, 0, getElementVelocity ( vehicle ) )

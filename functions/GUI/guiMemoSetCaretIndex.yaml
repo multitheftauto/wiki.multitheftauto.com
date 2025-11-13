@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiMemoSetCaretIndex
+client:
+  name: guiMemoSetCaretIndex
+  description: This function sets the current position of the caret (the text cursor)
+    within the memo.
+  parameters: []
+  examples:
+  - path: examples/guiMemoSetCaretIndex-1.lua
+    description: This example would create a memo and set the caret before the "H"
+      in "Hi".
+    side: client
+  pair: guiMemoGetCaretIndex
+  incomplete: true

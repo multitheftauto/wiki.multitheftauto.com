@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTargetEnd
+client:
+  name: getPedTargetEnd
+  description: This function allows retrieval of the position where a ped's target
+    range ends, when he is aiming with a weapon.
+  parameters: []
+  examples:
+  - path: examples/getPedTargetEnd-1.lua
+    description: This Example draws a line from where the Ped´s Target Starts to the
+      Point where the Target Ends
+    side: client
+  incomplete: true

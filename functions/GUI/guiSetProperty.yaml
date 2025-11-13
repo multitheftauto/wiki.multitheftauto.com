@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetProperty
+client:
+  name: guiSetProperty
+  description: This function sets the value of a specific CEGUI property of a GUI
+    element. For a list of properties and their meaning, see the [CEGUI properties
+    page](http://static.cegui.org.uk/static/WindowsLookProperties.html).
+  parameters: []
+  examples:
+  - path: examples/guiSetProperty-1.lua
+    description: This example creates a button when the resource starts and defines
+      a console command that toggles it between enabled (clickable) and disabled (not
+      clickable).
+    side: client
+  - path: examples/guiSetProperty-2.lua
+    description: This example creates a button when the resource starts and defines
+      its normal color to red and hover color to yellow.
+    side: client
+  pair: guiGetProperty
+  incomplete: true

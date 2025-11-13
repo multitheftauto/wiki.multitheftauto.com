@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetPoolCapacity
+client:
+  name: engineSetPoolCapacity
+  description: This function changes the capacity of the provided pool.
+  parameters: []
+  examples: []
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Engine pools
+
+      '

@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetCursorType
+client:
+  name: guiGetCursorType
+  description: This function is used to get the type of the current cursor image.
+  parameters: []
+  examples:
+  - path: examples/guiGetCursorType-1.lua
+    description: This example prints the current cursor type in the console.
+    side: client
+  incomplete: true

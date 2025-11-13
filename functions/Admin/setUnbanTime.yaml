@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetUnbanTime
+server:
+  name: setUnbanTime
+  description: This function sets a new unban time of a given [ban](/wiki/Ban "Ban")
+    using unix timestamp (seconds since Jan 01 1970\).
+  parameters: []
+  examples:
+  - path: examples/setUnbanTime-1.lua
+    description: ''
+    side: server
+  pair: getUnbanTime
+  incomplete: true

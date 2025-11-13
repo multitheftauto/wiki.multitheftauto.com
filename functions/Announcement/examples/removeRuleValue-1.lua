@@ -1,0 +1,1 @@
+removeRuleValue ( "myScriptRunning" )

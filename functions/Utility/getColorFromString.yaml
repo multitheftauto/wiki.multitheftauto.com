@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetColorFromString
+server:
+  name: getColorFromString
+  description: This function will extract Red, Green, Blue and Alpha values from a
+    hex string you provide it. These strings follow the same format as used in HTML,
+    with addition of the Alpha values.
+  parameters: []
+  examples:
+  - path: examples/getColorFromString-1.lua
+    description: This example will set the blip attached to a player to a color they
+      specify by typingset_my_color [color]in the console.
+    side: server
+  incomplete: true

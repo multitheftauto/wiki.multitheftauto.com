@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditSetMasked
+client:
+  name: guiEditSetMasked
+  description: This function sets or removes masking (covering up the text being typed)
+    for password text fields.
+  parameters: []
+  examples:
+  - path: examples/guiEditSetMasked-1.lua
+    description: This example creates an edit box and an OK button.  The user types
+      in his password, and it checks if the password was correct
+    side: client
+  pair: guiEditIsMasked
+  incomplete: true

@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileFlush
+server:
+  name: fileFlush
+  description: Forces pending disk writes to be executed. [fileWrite](/wiki/FileWrite
+    "FileWrite") doesn't directly write to the hard disk but places the data in a
+    temporary buffer; only when there is enough data in the buffer it is actually
+    written to disk. Call this function if you need the data written right now without
+    closing the file. This is useful for log files that might want to be read while
+    the resource is still executing. fileFlush can be called after each log entry
+    is written. Without this, the file may appear empty or outdated to the user.
+  parameters: []
+  examples:
+  - path: examples/fileFlush-1.lua
+    description: ''
+    side: server
+  incomplete: true

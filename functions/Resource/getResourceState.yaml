@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceState
+server:
+  name: getResourceState
+  description: This function returns the state of a given resource
+  parameters: []
+  examples:
+  - path: examples/getResourceState-1.lua
+    description: This example returns the state of a given resource. Syntax:/state
+      <Resource Name>
+    side: server
+  incomplete: true

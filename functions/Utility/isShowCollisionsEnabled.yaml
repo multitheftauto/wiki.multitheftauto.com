@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsShowCollisionsEnabled
+client:
+  name: isShowCollisionsEnabled
+  description: This function gets the collision previews state.
+  parameters: []
+  examples:
+  - path: examples/isShowCollisionsEnabled-1.lua
+    description: 'You can refer to the example below:'
+    side: client
+  notes:
+  - type: info
+    content: This function only works in development mode.
+  incomplete: true

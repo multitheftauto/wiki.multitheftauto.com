@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetBanSerial
+server:
+  name: getBanSerial
+  description: This function will return the [serial](/wiki/Serial "Serial") of the
+    specified [ban](/wiki/Ban "Ban").
+  parameters: []
+  examples:
+  - path: examples/getBanSerial-1.lua
+    description: This example will show the user who banned a player the serial of
+      that banned player.
+    side: server
+  incomplete: true

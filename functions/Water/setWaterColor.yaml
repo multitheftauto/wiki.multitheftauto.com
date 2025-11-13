@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWaterColor
+server:
+  name: setWaterColor
+  description: This function changes the water color of the GTA world.
+  parameters: []
+  examples:
+  - path: examples/setWaterColor-1.lua
+    description: This example adds a commandwatercolorwith which a player can change
+      the water colour.
+    side: server
+  pair: getWaterColor
+  incomplete: true

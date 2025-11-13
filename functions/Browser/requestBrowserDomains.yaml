@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RequestBrowserDomains
+client:
+  name: requestBrowserDomains
+  description: This function opens a request window in order to accept the requested
+    remote URLs.
+  parameters: []
+  examples:
+  - path: examples/requestBrowserDomains-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: You must use this function prior to calling loadBrowserURL because every
+      domain, with exceptions in the whitelist here and there , is blocked by default.
+  incomplete: true

@@ -1,0 +1,1 @@
+setMaxPlayers( tonumber( getServerConfigSetting("maxplayers") ) )

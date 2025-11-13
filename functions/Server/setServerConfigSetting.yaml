@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetServerConfigSetting
+server:
+  name: setServerConfigSetting
+  description: This function sets server settings which are stored in the [mtaserver.conf](/wiki/Server_mtaserver.conf
+    "Server mtaserver.conf") file.
+  parameters: []
+  examples:
+  - path: examples/setServerConfigSetting-1.lua
+    description: This example enables network encryption
+    side: server
+  notes:
+  - type: info
+    content: This function is protected by default and must be explicitly allowed
+      in the servers acl before it can be used.
+  - type: warning
+    content: '"bandwidth_reduction" set to ''maximum'' will cause player movement
+      synchronization issues, on locations built outside 3000m radius from world center.'
+  incomplete: true

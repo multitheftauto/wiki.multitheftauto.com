@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCheckBoxSetSelected
+client:
+  name: guiCheckBoxSetSelected
+  description: This function selects (ticks) or unselects a checkbox.
+  parameters: []
+  examples:
+  - path: examples/guiCheckBoxSetSelected-1.lua
+    description: This example creates 2 checkboxes and sets one of them selected then
+      checks if the first one is selected and if it is then the second one would be
+      set selected.
+    side: client
+  pair: guiCheckBoxGetSelected
+  incomplete: true

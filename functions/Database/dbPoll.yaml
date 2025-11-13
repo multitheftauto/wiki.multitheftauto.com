@@ -1,0 +1,47 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DbPoll
+server:
+  name: dbPoll
+  description: This function checks the progress of a database query.
+  parameters: []
+  examples:
+  - path: examples/dbPoll-1.lua
+    description: 'This example waits until a result is ready:'
+    side: server
+  - path: examples/dbPoll-2.lua
+    description: 'This example shows the possible return values:'
+    side: server
+  - path: examples/dbPoll-3.lua
+    description: 'This example shows how to handle the result if the query selected
+      data:'
+    side: server
+  - path: examples/dbPoll-4.lua
+    description: 'This example shows how to print the results of the query:'
+    side: server
+  - path: examples/dbPoll-5.lua
+    description: 'This is another example of printing the results:'
+    side: server
+  - path: examples/dbPoll-6.lua
+    description: 'This is another example of printing the results:'
+    side: server
+  - path: examples/dbPoll-7.lua
+    description: 'This is another example of printing the results:'
+    side: server
+  - path: examples/dbPoll-8.lua
+    description: 'This is another example of printing the results:'
+    side: server
+  - path: examples/dbPoll-9.lua
+    description: 'This example shows how to handle the result of a multiple statement
+      query: (SeedbConnectoptionmulti_statements)'
+    side: server
+  - path: examples/dbPoll-10.lua
+    description: This example shows how to obtain data without server freeze.
+    side: server
+  notes:
+  - type: info
+    content: If a column contained a number it is returned as a number, this includes
+      things which were stored as string but are numbers such as "1" would be returned
+      as 1.
+  - type: important
+    content: It is strongly recommended to use this function in callback, as presented
+      in "This example shows how to obtain data without server freeze."
+  incomplete: true

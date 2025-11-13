@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleModelDummyDefaultPosition
+client:
+  name: getVehicleModelDummyDefaultPosition
+  description: This function gets the default position of the dummies contained in
+    a [vehicle](/wiki/Vehicle "Vehicle") model.
+  parameters: []
+  examples: []
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Allowed Dummies
+
+      '

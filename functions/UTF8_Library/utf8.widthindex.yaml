@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.widthindex
+server:
+  name: utf8.widthindex
+  description: Returns the location, offset and width of the character at the given
+    location in the UTF\-8 string.
+  parameters: []
+  examples:
+  - path: examples/utf8.widthindex-1.lua
+    description: This example
+    side: server
+  incomplete: true

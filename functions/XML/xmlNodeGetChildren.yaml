@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeGetChildren
+server:
+  name: xmlNodeGetChildren
+  description: This function returns all children of a particular XML node, or a particular
+    child node.
+  parameters: []
+  examples:
+  - path: examples/xmlNodeGetChildren-1.lua
+    description: 'Suppose you have an .xml file with random welcome messages:'
+    side: server
+  incomplete: true

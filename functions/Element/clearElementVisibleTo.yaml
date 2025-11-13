@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ClearElementVisibleTo
+server:
+  name: clearElementVisibleTo
+  description: This function clears any settings added by [setElementVisibleTo](/wiki/SetElementVisibleTo
+    "SetElementVisibleTo") and restores an [element](/wiki/Element "Element") to its
+    default [visibility](/wiki/Visibility "Visibility").
+  parameters: []
+  examples:
+  - path: examples/clearElementVisibleTo-1.lua
+    description: This example clears any visibility settings after a player dies,
+      so everyone can see his blip for a short period
+    side: server
+  incomplete: true

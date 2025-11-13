@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclRemoveRight
+server:
+  name: aclRemoveRight
+  description: This function removes the given right (string) from the given ACL.
+  parameters: []
+  examples:
+  - path: examples/aclRemoveRight-1.lua
+    description: This example removes an acl right on resource start.
+    side: server
+  incomplete: true

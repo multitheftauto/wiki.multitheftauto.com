@@ -1,0 +1,1 @@
+guiGridListSetSelectedItem ( spawnScreenGridList, 0, 0) -- resets selection to zero

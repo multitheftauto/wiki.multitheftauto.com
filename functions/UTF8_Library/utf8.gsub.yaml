@@ -1,0 +1,24 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.gsub
+server:
+  name: utf8.gsub
+  description: Returns a copy of the original input string with replaced matches from
+    the pattern by the replacement value.
+  parameters: []
+  examples:
+  - path: examples/utf8.gsub-1.lua
+    description: This example shows how to remove color codes from a string and how
+      to uppercase each single character in a string.
+    side: server
+  - path: examples/utf8.gsub-2.lua
+    description: This example uses a table to replace specific words in the input
+      string by an other value.
+    side: server
+  - path: examples/utf8.gsub-3.lua
+    description: This example shows a simple bad word filter, which censors the word
+      'ugly' in the input string.
+    side: client
+  notes:
+  - type: warning
+    content: 'This function may modify your input string even if no changes were made.
+      Try it with runcode: srun utf8.gsub(utf8.char(66376), "", "") == utf8.char(66376)'
+  incomplete: true

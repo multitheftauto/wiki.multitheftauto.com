@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetTextureEdge
+client:
+  name: dxSetTextureEdge
+  description: 'This functions allows you to change the edge handling after creating
+    the texture.
+
+    [![TextureEdges.jpg](/images/thumb/0/08/TextureEdges.jpg/600px-TextureEdges.jpg)](/wiki/File:TextureEdges.jpg)'
+  parameters: []
+  examples:
+  - path: examples/dxSetTextureEdge-1.lua
+    description: ''
+    side: client
+  incomplete: true

@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/PathIsDirectory
+shared:
+  name: pathIsDirectory
+  description: Checks if a specified path points to a directory.
+  parameters: []
+  examples:
+  - path: examples/pathIsDirectory-1.lua
+    description: This example lists entire structure of a folder
+    side: shared
+  incomplete: true

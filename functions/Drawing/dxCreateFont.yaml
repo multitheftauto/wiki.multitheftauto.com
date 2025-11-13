@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateFont
+client:
+  name: dxCreateFont
+  description: This function creates a [DX font](/wiki/DX_font "DX font") element
+    that can be used in [dxDrawText](/wiki/DxDrawText "DxDrawText"). Successful font
+    creation is not guaranteed, and may fail due to hardware or memory limitations.
+  parameters: []
+  examples:
+  - path: examples/dxCreateFont-1.lua
+    description: ''
+    side: client
+  notes:
+  - type: info
+    content: The size can't be less than 5 or more than 150. Use this function after
+      onClientResourceStart, otherwise some characters may be displayed incorrectly.
+  incomplete: true

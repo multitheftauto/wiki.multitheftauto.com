@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPedVoice
+client:
+  name: getPedVoice
+  description: Gets the current voice of a ped.
+  parameters: []
+  examples:
+  - path: examples/getPedVoice-1.lua
+    description: ''
+    side: client
+  incomplete: true

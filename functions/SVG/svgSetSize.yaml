@@ -1,0 +1,25 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SvgSetSize
+client:
+  name: svgSetSize
+  description: Sets the underlying XML document from an SVG element.
+  parameters: []
+  examples:
+  - path: examples/svgSetSize-1.lua
+    description: This example creates ansvgelement including a keybind (F2) to resize
+      the SVG randomly, with the use of callbacks to notify in debugscript when the
+      SVG was updated.
+    side: client
+  notes:
+  - type: important
+    content: Before r21155 ( 3157905 ) the provided callback wasn't stored on the
+      SVG and was only fired once after the function had performed its task. This
+      is no longer the case - each SVG can now store a single callback function (optional)
+      which is fired every time the SVG texture has been changed/updated.
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Contents
+
+      '

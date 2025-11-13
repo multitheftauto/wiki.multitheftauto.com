@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveBan
+server:
+  name: removeBan
+  description: This function will remove a specific [ban](/wiki/Ban "Ban").
+  parameters: []
+  examples:
+  - path: examples/removeBan-1.lua
+    description: This example removes all the bans when the resource is started and
+      outputs to everyone the players.
+    side: server
+  - path: examples/removeBan-2.lua
+    description: This example removes the ban for IP 1.2.3.4
+    side: server
+  notes:
+  - type: info
+    content: Don't forget to give admin rights to the resource, in which you are using
+      removeBan function or it won't work.
+  incomplete: true

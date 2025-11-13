@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetPixelsSize
+client:
+  name: dxGetPixelsSize
+  description: This function gets the dimensions of [pixels](/wiki/Texture_pixels
+    "Texture pixels") contained in a string. It works with all pixel formats.
+  parameters: []
+  examples:
+  - path: examples/dxGetPixelsSize-1.lua
+    description: The example loads an image, gets its pixels, and outputs the pixels
+      size. (You can usethisimage to test.)
+    side: client
+  incomplete: true

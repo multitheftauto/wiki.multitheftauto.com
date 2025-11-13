@@ -1,0 +1,6 @@
+addCommandHandler("getAccounts", 
+	function (player, cmd)
+		local ip = getPlayerIP(player)
+		local accounts = getAccountsByIP(ip)
+		outputChatBox("You have " .. #accounts .. " accounts.", player)
+	end)

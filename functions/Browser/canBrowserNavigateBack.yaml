@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CanBrowserNavigateBack
+client:
+  name: canBrowserNavigateBack
+  description: This function checks if the browser can return to the previous page.
+  parameters: []
+  examples:
+  - path: examples/canBrowserNavigateBack-1.lua
+    description: 'This example creates a browser that can return to the last and previous
+      pages and can also be refreshed:'
+    side: client
+  incomplete: true

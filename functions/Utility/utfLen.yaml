@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/UtfLen
+server:
+  name: utfLen
+  description: The function gets the real length of a string, in characters.
+  parameters: []
+  examples:
+  - path: examples/utfLen-1.lua
+    description: This example adds a commandrussian_text_lengthwhich prints out a
+      length russian text.
+    side: client
+  incomplete: true

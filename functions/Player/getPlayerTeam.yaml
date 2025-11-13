@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerTeam
+server:
+  name: getPlayerTeam
+  description: This function gets the current [team](/wiki/Team "Team") a [player](/wiki/Player
+    "Player") is on.
+  parameters: []
+  examples:
+  - path: examples/getPlayerTeam-1.lua
+    description: This example finds the team a player is on, and then changes its
+      name.
+    side: server
+  pair: setPlayerTeam
+  incomplete: true

@@ -1,0 +1,7 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelFlags
+client:
+  name: engineGetModelFlags
+  description: This function returns [model flags](/wiki/Model_flags "Model flags").
+  parameters: []
+  examples: []
+  incomplete: true

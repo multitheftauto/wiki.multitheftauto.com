@@ -1,0 +1,8 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsBrowserGPUEnabled
+client:
+  name: isBrowserGPUEnabled
+  description: '**Note**: this is a global setting, not specific to any browser instance
+    and can only be changed by the client.'
+  parameters: []
+  examples: []
+  incomplete: true

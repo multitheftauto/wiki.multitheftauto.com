@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateCheckBox
+client:
+  name: guiCreateCheckBox
+  description: This function creates a [checkbox](/wiki/Element/GUI/Checkbox "Element/GUI/Checkbox").
+  parameters: []
+  examples:
+  - path: examples/guiCreateCheckBox-1.lua
+    description: This example creates a GUI window with a checked and an unchecked
+      checkbox and adds a command to toggle their visibility
+    side: client
+  incomplete: true

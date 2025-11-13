@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/TextDisplayIsObserver
+server:
+  name: textDisplayIsObserver
+  description: This function checks if a player can see the specified [textdisplay](/wiki/Textdisplay
+    "Textdisplay").
+  parameters: []
+  examples:
+  - path: examples/textDisplayIsObserver-1.lua
+    description: ''
+    side: server
+  incomplete: true

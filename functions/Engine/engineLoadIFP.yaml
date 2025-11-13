@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadIFP
+client:
+  name: engineLoadIFP
+  description: This function loads an animation library (IFP) file into GTA with a
+    custom block name. All three IFP formats are supported ANPK, ANP2, and ANP3\.
+    Unfortunately, GTA 3 animations are not supported, however, you can load GTA:VC
+    IFP files using this function. You don't have to replace any animation to play
+    a custom one, to play a custom animation, load the IFP file using this function,
+    then use [setPedAnimation](/wiki/SetPedAnimation "SetPedAnimation").
+  parameters: []
+  examples:
+  - path: examples/engineLoadIFP-1.lua
+    description: This example loads a custom IFP file (parkour.ifp), adds a command
+      "animation" that takes 1 parameter as animation name for playing animations
+      within that IFP.
+    side: client
+  notes:
+  - type: tip
+    content: If you want to synchronize animations, you can check [ ifp_demo ] resource
+  incomplete: true

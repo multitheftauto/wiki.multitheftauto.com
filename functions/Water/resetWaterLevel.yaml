@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/ResetWaterLevel
+server:
+  name: resetWaterLevel
+  description: This function resets the water of the GTA world back to its default
+    level. [Water elements](/wiki/Water "Water") are not affected.
+  parameters: []
+  examples:
+  - path: examples/resetWaterLevel-1.lua
+    description: This example adds a commandresetwaterlevelwith which a player can
+      reset the water level.
+    side: server
+  incomplete: true

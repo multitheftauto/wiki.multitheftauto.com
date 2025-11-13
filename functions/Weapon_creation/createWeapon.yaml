@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/CreateWeapon
+client:
+  name: createWeapon
+  description: Creates a [custom weapon](/wiki/Element/Weapon "Element/Weapon") that
+    can fire bullets. **Do not confuse this with player held weapons**.
+  parameters: []
+  examples:
+  - path: examples/createWeapon-1.lua
+    description: This example adds a/createminiguncommand to create a weapon that
+      is always firing.
+    side: client
+  notes:
+  - type: tip
+    content: Some weapons (such as the minigun) visually point to a slightly different
+      direction to where they fire. To adjust this, use setWeaponProperty with 'fire_rotation'.
+      See the example below.
+  incomplete: true

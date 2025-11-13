@@ -1,0 +1,15 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceLoadTime
+server:
+  name: getResourceLoadTime
+  description: Gets the date and time at which a resource was last loaded in the server.
+  parameters: []
+  examples:
+  - path: examples/getResourceLoadTime-1.lua
+    description: This code outputs the date and time at which the scoreboard resource
+      was last loaded.
+    side: server
+  - path: examples/getResourceLoadTime-2.lua
+    description: This code outputs the date and time at which the specified resource
+      started.
+    side: server
+  incomplete: true

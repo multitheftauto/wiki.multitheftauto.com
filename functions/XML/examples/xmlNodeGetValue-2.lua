@@ -1,0 +1,10 @@
+<root>
+    <hud_display>
+        <IconSizeX>60</IconSizeX>
+        <IconSizeY>60</IconSizeY>
+    </hud_display>
+    <hud_binds>
+        <weaponSlot0>tab</weaponSlot0>
+        <weaponSlot1>1</weaponSlot1>
+    </hud_binds>
+</root>

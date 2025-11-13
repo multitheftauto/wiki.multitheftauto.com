@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupRemoveObject
+server:
+  name: aclGroupRemoveObject
+  description: This function removes the given object from the given ACL group. The
+    object can be a resource or a player. See [aclGroupAddObject](/wiki/AclGroupAddObject
+    "AclGroupAddObject") for more details.
+  parameters: []
+  examples:
+  - path: examples/aclGroupRemoveObject-1.lua
+    description: This example does...
+    side: server
+  incomplete: true

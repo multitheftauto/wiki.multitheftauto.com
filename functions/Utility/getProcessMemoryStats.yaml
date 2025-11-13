@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetProcessMemoryStats
+server:
+  name: getProcessMemoryStats
+  description: This function returns a breakdown of the process memory usage. The
+    reported numbers are always byte units and these numbers can be **inaccurate**.
+  parameters: []
+  examples:
+  - path: examples/getProcessMemoryStats-1.lua
+    description: ''
+    side: server
+  incomplete: true

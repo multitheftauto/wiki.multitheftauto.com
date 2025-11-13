@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraGoggleEffect
+client:
+  name: getCameraGoggleEffect
+  description: This function returns what goggle effect is currently affecting the
+    camera.
+  parameters: []
+  examples:
+  - path: examples/getCameraGoggleEffect-1.lua
+    description: This example adds a command to enable or disable the nightvision
+      effect.
+    side: client
+  pair: setCameraGoggleEffect
+  incomplete: true

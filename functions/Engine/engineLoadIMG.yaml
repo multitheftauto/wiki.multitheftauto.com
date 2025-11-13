@@ -1,0 +1,20 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadIMG
+client:
+  name: engineLoadIMG
+  description: If you're experiencing crashes/game hangs with default values, try
+    to adjust memory/buffer/cache sizes with [engineStreamingSetMemorySize](/wiki/EngineStreamingSetMemorySize
+    "EngineStreamingSetMemorySize"), [engineStreamingSetBufferSize](/wiki/EngineStreamingSetBufferSize
+    "EngineStreamingSetBufferSize") and/or [engineStreamingSetModelCacheLimits](/wiki/EngineStreamingSetModelCacheLimits
+    "EngineStreamingSetModelCacheLimits").
+  parameters: []
+  examples:
+  - path: examples/engineLoadIMG-1.lua
+    description: This example loads IMG file from directory and then prints number
+      of files in it
+    side: client
+  notes:
+  - type: info
+    content: If you're experiencing crashes/game hangs with default values, try to
+      adjust memory/buffer/cache sizes with engineStreamingSetMemorySize , engineStreamingSetBufferSize
+      and/or engineStreamingSetModelCacheLimits .
+  incomplete: true

@@ -1,0 +1,17 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetGarageSize
+client:
+  name: getGarageSize
+  description: This function outputs the size of garage.
+  parameters: []
+  examples:
+  - path: examples/getGarageSize-1.lua
+    description: This example adds the command /garagesize <garage ID>
+    side: client
+  notes:
+  - type: info
+    content: The values returned by this function are sizeZ, sizeX and sizeY respectively.
+      Also, sizeZ considers the garage Z position equal to 0.
+  - type: tip
+    content: You can use the useful function CreateGarageColShape to create the garage
+      colshape.
+  incomplete: true

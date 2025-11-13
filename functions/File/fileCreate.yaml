@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/FileCreate
+server:
+  name: fileCreate
+  description: Creates a new file in a directory of a resource. If there already exists
+    a file with the specified name, it is overwritten with an empty file.
+  parameters: []
+  examples:
+  - path: examples/fileCreate-1.lua
+    description: This example creates a text file in the current resource and writes
+      a string to it.
+    side: server
+  notes:
+  - type: info
+    content: To prevent memory leaks, ensure each successful call to fileCreate has
+      a matching call to fileClose
+  - type: tip
+    content: If you do not want to share the content of the created file with other
+      servers, prepend the file path with @ (See filepath for more information)
+  incomplete: true

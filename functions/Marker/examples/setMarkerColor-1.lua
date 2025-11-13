@@ -1,0 +1,2 @@
+local newMarker = createMarker ( 0, 0, 2, "cylinder", 1, 255, 0, 0, 255 )  -- Create a red marker
+setMarkerColor ( newMarker, 0, 255, 0, 255 )                      -- Turn the red marker into a green one

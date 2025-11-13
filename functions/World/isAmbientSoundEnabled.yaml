@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsAmbientSoundEnabled
+client:
+  name: isAmbientSoundEnabled
+  description: This function allows you to check if some background sound effects
+    are enabled.
+  parameters: []
+  examples:
+  - path: examples/isAmbientSoundEnabled-1.lua
+    description: 'This command checks if the type of  ambient sound is enabled or
+      not.
+
+      /check <type>'
+    side: client
+  incomplete: true

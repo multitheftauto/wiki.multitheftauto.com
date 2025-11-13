@@ -1,0 +1,24 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementInterior
+server:
+  name: setElementInterior
+  description: This function allows you to set the [interior](/wiki/Interior "Interior")
+    of any element. An interior is the current loaded place, 0 being outside.
+  parameters: []
+  examples:
+  - path: examples/setElementInterior-1.lua
+    description: In this example, if a player were to type /interior 1, they would
+      be teleported into this interior
+    side: server
+  - path: examples/setElementInterior-2.lua
+    description: In this example, if a player were to type /interior 1, they would
+      be teleported into this interior
+    side: client
+  pair: getElementInterior
+  notes:
+  - type: info
+    content: If passing the same interior as the element is in, the call will be ignored
+      and position (optional arguments) will not be set either. Use setElementPosition
+      separately to be sure the position will be set.
+  - type: info
+    content: Some objects / buildings in interior 13 show in all interiors.
+  incomplete: true

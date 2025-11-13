@@ -1,0 +1,14 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementSyncer
+server:
+  name: setElementSyncer
+  description: This function can be used to change the syncer ([player](/wiki/Player
+    "Player")) of an element. The syncer is the player who is responsible for informing
+    the server about the state of that element \- it's position, orientation and other
+    state information. The function can be also used to remove an element's syncer.
+  parameters: []
+  examples:
+  - path: examples/setElementSyncer-1.lua
+    description: ''
+    side: server
+  pair: getElementSyncer
+  incomplete: true

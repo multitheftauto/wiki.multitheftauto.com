@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreTXDImage
+client:
+  name: engineRestoreTXDImage
+  description: This function restores changes to TXD file from IMG container.
+  parameters: []
+  examples: []
+  notes:
+  - type: warning
+    content: This article is incomplete and may contain errors
+  incomplete: true

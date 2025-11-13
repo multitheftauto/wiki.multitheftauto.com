@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetBlipIcon
+server:
+  name: setBlipIcon
+  description: This function sets the icon for an existing blip element.
+  parameters: []
+  examples:
+  - path: examples/setBlipIcon-1.lua
+    description: This example resets all blip icons to the default blip icon, 0.
+    side: server
+  pair: getBlipIcon
+  incomplete: true

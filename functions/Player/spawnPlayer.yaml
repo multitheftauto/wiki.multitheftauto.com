@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SpawnPlayer
+server:
+  name: spawnPlayer
+  description: This function spawns the player at an arbitrary point on the map.
+  parameters: []
+  examples:
+  - path: examples/spawnPlayer-1.lua
+    description: This example spawns all the players in the middle of the game map.
+    side: server
+  - path: examples/spawnPlayer-2.lua
+    description: This example spawns a playerwhen he logs in.
+    side: server
+  notes:
+  - type: info
+    content: setCameraTarget must be used to focus on the player. Also, all players
+      have their camera initially faded out after connect. To ensure that the camera
+      is faded in, please do a fadeCamera after.
+  incomplete: true

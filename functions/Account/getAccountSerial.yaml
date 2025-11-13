@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetAccountSerial
+server:
+  name: getAccountSerial
+  description: This function returns the last [serial](/wiki/Serial "Serial") that
+    logged onto the specified [account](/wiki/Account "Account").
+  parameters: []
+  examples:
+  - path: examples/getAccountSerial-1.lua
+    description: This example adds commandgetaccserialthat outputs the given account's
+      serial in the chat box.
+    side: server
+  incomplete: true

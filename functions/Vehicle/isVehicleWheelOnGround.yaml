@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleWheelOnGround
+client:
+  name: isVehicleWheelOnGround
+  description: This function returns a [boolean](/wiki/Boolean "Boolean") whether
+    the [vehicle](/wiki/Vehicle "Vehicle")'s wheel is on ground (true) or in air (false).
+  parameters: []
+  examples:
+  - path: examples/isVehicleWheelOnGround-1.lua
+    description: This example displays four colored rectangles on the screen. If the
+      wheel is colliding, the rectangle will be green, otherwise it will be red.
+    side: client
+  notes:
+  - type: info
+    content: In vehicles with 3 wheels, the wheels are combined 2 in 1, in motorbikes
+      only the left - "front_left" and "rear_left"
+  incomplete: true

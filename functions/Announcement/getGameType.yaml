@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetGameType
+server:
+  name: getGameType
+  description: This function retrieves the current gametype as set by [setGameType](/wiki/SetGameType
+    "SetGameType"). The game type is displayed in the server browser next to the server's
+    name.
+  parameters: []
+  examples:
+  - path: examples/getGameType-1.lua
+    description: This example sends a message to player when he joins, if the current
+      game type is Race.
+    side: server
+  incomplete: true

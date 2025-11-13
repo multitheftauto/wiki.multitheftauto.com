@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlFindChild
+server:
+  name: xmlFindChild
+  description: This function returns a named child node of an XML node.
+  parameters: []
+  examples:
+  - path: examples/xmlFindChild-1.lua
+    description: 'If you wanted to find aninstructionsnode in an xml file like this:'
+    side: server
+  incomplete: true

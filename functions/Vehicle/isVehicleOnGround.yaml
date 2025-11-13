@@ -1,0 +1,19 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleOnGround
+server:
+  name: isVehicleOnGround
+  description: Checks to see if a vehicle has contact with the ground.
+  parameters: []
+  examples:
+  - path: examples/isVehicleOnGround-1.lua
+    description: ''
+    side: server
+  notes:
+  - type: info
+    content: This function has a few issues, see below. Consider using the clientside
+      function isVehicleWheelOnGround instead.
+  issues:
+  - id: '471'
+    description: isVehicleOnGround sometimes returns false incorrectly
+  - id: '2093'
+    description: isVehicleOnGround does not work after setVehicleHandling
+  incomplete: true

@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/AclGet
+server:
+  name: aclGet
+  description: Get the ACL with the given name. If need to get most of the ACL's,
+    you should consider using [aclList](/wiki/AclList "AclList") to get a table of
+    them all.
+  parameters: []
+  examples:
+  - path: examples/aclGet-1.lua
+    description: This example adds a commandsetaclrightwith which you can easily add
+      new rights to specified access control lists.
+    side: server
+  incomplete: true

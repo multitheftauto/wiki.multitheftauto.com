@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetMaxPlayers
+server:
+  name: getMaxPlayers
+  description: This function returns the maximum number of player slots on the server.
+  parameters: []
+  examples:
+  - path: examples/getMaxPlayers-1.lua
+    description: This example outputs the current number of players together with
+      the maximum number of players when a player joins.
+    side: server
+  incomplete: true

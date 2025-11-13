@@ -1,0 +1,13 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeSetAttribute
+server:
+  name: xmlNodeSetAttribute
+  description: This function is used to edit an attribute of a node in a configuration
+    file.
+  parameters: []
+  examples:
+  - path: examples/xmlNodeSetAttribute-1.lua
+    description: In a gamemode, we want a command to change the marker color in the
+      configuration file and remove a deprecated attribute.
+    side: server
+  pair: xmlNodeGetAttribute
+  incomplete: true

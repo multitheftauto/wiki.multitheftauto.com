@@ -1,0 +1,12 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetTrainDirection
+server:
+  name: getTrainDirection
+  description: Gets the direction in which a train is driving (clockwise or counterclockwise).
+  parameters: []
+  examples:
+  - path: examples/getTrainDirection-1.lua
+    description: This example outputs to the player the direction the train they're
+      driving is travelling.
+    side: server
+  pair: setTrainDirection
+  incomplete: true

@@ -1,0 +1,18 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/Hash
+server:
+  name: hash
+  description: This function returns a hash of the specified string in the specified
+    algorithm.
+  parameters: []
+  examples:
+  - path: examples/hash-1.lua
+    description: ''
+    side: server
+  incomplete: true
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Options for each algorithm
+
+      '

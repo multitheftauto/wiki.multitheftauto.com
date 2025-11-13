@@ -1,0 +1,16 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/SetWaterVertexPosition
+server:
+  name: setWaterVertexPosition
+  description: Sets the world position of a corner point of a water area.
+  parameters: []
+  examples:
+  - path: examples/setWaterVertexPosition-1.lua
+    description: This example creates a water whose vertices 2 and 4 go up and down
+      when someone uses the '/water' command.
+    side: server
+  pair: getWaterVertexPosition
+  notes:
+  - type: info
+    content: X and Y positions will be changed to an even integer. i.e. -2, 0, 2,
+      4 etc.
+  incomplete: true

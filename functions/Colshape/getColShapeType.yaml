@@ -1,0 +1,10 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetColShapeType
+server:
+  name: getColShapeType
+  description: This function is used to retrieve the type of an colshape.
+  parameters: []
+  examples:
+  - path: examples/getColShapeType-1.lua
+    description: This example outputs the type of all colshapes.
+    side: server
+  incomplete: true

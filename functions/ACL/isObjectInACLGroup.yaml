@@ -1,0 +1,23 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/IsObjectInACLGroup
+server:
+  name: isObjectInACLGroup
+  description: This function is used to determine if an object is in a group.
+  parameters: []
+  examples:
+  - path: examples/isObjectInACLGroup-1.lua
+    description: Example 1:This example adds ajetpackcommand that is only available
+      to admins.  When entering the command, it will toggle the player's jetpack.
+    side: server
+  - path: examples/isObjectInACLGroup-2.lua
+    description: 'Example 2:This example displays a list of all the online admins
+      in the chat box (assuming your administrator''s group in your ACL is called
+      ''Admin''):'
+    side: server
+  notes:
+  - type: important
+    content: You must NOT to use this function to limit features to users that belong
+      to specific groups. Instead you MUST use hasObjectPermissionTo . Using this
+      function forces the server owner to name their group a certain way, whereas
+      using hasObjectPermissionTo allows the owner to give permission for whatever
+      features you restrict to whatever groups they have set up in their ACL.
+  incomplete: true

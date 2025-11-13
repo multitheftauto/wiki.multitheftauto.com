@@ -1,0 +1,11 @@
+# Scraped from: https://wiki.multitheftauto.com/wiki/GetGameSpeed
+server:
+  name: getGameSpeed
+  description: This function gets the current game speed value.
+  parameters: []
+  examples:
+  - path: examples/getGameSpeed-1.lua
+    description: This example adds a 'gamespeed' console command that prints the game
+      speed to the chatbox.
+    side: server
+  incomplete: true
