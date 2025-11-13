@@ -129,6 +129,10 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
     groupedMap.get(title)!.push(...links);
   }
 
+  for (const links of groupedMap.values()) {
+    links.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  
   // Preserve input order for group titles
   const seenTitles = new Set<string>();
   const orderedTitles = seeAlsoList
