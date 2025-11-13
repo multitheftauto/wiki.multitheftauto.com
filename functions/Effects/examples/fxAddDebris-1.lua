@@ -1,5 +1,0 @@
-addCommandHandler("debris", function()
-    local x, y, z = getElementPosition(localPlayer)
-    local randomColor, randomAmount = math.random(0, 255), math.random(4, 8)
-    fxAddDebris(x, y, z, randomColor, randomColor, randomColor, 255, 1.0, randomAmount)
-end)

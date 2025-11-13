@@ -1,1 +1,0 @@
-setPedsLODDistance( 120 )

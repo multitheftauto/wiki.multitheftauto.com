@@ -686,9 +686,11 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
         yaml_dict[func_type]["meta"] = func_meta
     if func_issues:
         yaml_dict[func_type]["issues"] = func_issues
+    
+    # This parser is unfinished, so mark as incomplete
+    yaml_dict[func_type]["incomplete"] = True
 
     if extra_headers:
-        yaml_dict[func_type]["incomplete"] = True
         yaml_dict[func_type]["meta"] = yaml_dict.get("meta", [])
         headears_missing = "This function was partially migrated from the old wiki. Please review manually:\n"
         for header in extra_headers:

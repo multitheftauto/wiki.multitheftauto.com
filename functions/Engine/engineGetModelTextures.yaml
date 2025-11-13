@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelTextures
-client:
-  name: engineGetModelTextures
-  description: This function allows you to get the textures of any model.
-  parameters: []
-  examples:
-  - path: examples/engineGetModelTextures-1.lua
-    description: Get the textures for model ID 3722 and draw them with dxDrawImage.
-    side: client

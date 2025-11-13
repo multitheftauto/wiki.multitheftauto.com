@@ -1,1 +1,0 @@
-local json = toJSON ( { "dogs", cat = "hungry", mouse = "food", birds = 4 } )

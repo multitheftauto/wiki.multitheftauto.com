@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AddClothingModel
-server:
-  name: addClothingModel
-  description: This function adds a new wearable clothing item for CJ.
-  parameters: []
-  examples:
-  - path: examples/addClothingModel-1.lua
-    description: ''
-    side: server

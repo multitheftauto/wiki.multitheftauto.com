@@ -1,8 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineAddImage
-client:
-  name: engineAddImage
-  description: This function adds an IMG file container to GTA streamer. After this
-    GTA will asynchronously load models from IMG. **Only two additional archives can
-    be enabled once**
-  parameters: []
-  examples: []

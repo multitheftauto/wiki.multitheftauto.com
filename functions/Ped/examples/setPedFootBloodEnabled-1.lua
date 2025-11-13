@@ -1,1 +1,0 @@
-setPedFootBloodEnabled(localPlayer, true)

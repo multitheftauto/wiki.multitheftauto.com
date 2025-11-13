@@ -1,6 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetModelLoadState
-client:
-  name: engineStreamingGetModelLoadState
-  description: This function returns load state of model.
-  parameters: []
-  examples: []

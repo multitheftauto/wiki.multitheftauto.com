@@ -1,1 +1,0 @@
-setMapName("My amazing map!")

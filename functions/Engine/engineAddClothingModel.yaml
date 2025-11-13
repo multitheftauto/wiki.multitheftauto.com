@@ -1,6 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineAddClothingModel
-client:
-  name: engineAddClothingModel
-  description: This function adds new CJ clothing model.
-  parameters: []
-  examples: []

@@ -1,1 +1,0 @@
-test_db = dbConnect( "sqlite", ":resname/file.db" )

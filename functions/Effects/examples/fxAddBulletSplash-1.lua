@@ -1,5 +1,0 @@
-addCommandHandler("bsplash", function()
-    local x, y, z = getElementPosition(localPlayer)
-    local gz = getGroundPosition(x, y, z)
-    fxAddBulletSplash(x, y, gz)
-end)

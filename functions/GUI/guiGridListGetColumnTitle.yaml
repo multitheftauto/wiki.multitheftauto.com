@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetColumnTitle
-client:
-  name: guiGridListGetColumnTitle
-  description: This function is used to get the column title of a gridlist column.
-  parameters: []
-  examples:
-  - path: examples/guiGridListGetColumnTitle-1.lua
-    description: ''
-    side: client

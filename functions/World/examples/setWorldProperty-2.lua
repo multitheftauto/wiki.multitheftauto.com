@@ -1,1 +1,0 @@
-setWorldProperty("SpriteBrightness", 0)

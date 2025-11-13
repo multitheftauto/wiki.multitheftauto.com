@@ -1,1 +1,0 @@
-addDebugHook( "preFunction", onPreFunction, {"setElementPosition","loadstring"} )

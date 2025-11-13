@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/InjectBrowserMouseMove
-client:
-  name: injectBrowserMouseMove
-  description: This function injects a mouse movement.
-  parameters: []
-  examples:
-  - path: examples/injectBrowserMouseMove-1.lua
-    description: ''
-    side: client

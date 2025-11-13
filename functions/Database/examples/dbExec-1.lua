@@ -1,1 +1,0 @@
-dbExec( connection, "INSERT INTO table_name VALUES (?,?,?)", "aaa", "bbb", 10 )

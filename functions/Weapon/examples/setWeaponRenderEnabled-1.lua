@@ -1,4 +1,0 @@
-function onClientResourceStartDisableWeaponRender()
-	setWeaponRenderEnabled(false)
-end
-addEventHandler("onClientResourceStart", resourceRoot, onClientResourceStartDisableWeaponRender)

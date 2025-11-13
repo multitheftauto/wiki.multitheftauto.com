@@ -1,1 +1,0 @@
-<flag id="blue" />

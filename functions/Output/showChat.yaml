@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ShowChat
-server:
-  name: showChat
-  description: This function is used to show or hide the player's chat.
-  parameters: []
-  examples:
-  - path: examples/showChat-1.lua
-    description: This example toggle's the player's chat when they press the "i" key.
-    side: client

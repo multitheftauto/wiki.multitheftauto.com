@@ -1,1 +1,0 @@
-<car model="528" posX="123.4" posY="456.7" posZ="12.3" rot="90.0" />

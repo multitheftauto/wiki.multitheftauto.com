@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileType
-client:
-  name: getProjectileType
-  description: This function returns the type of the specified projectile.
-  parameters: []
-  examples:
-  - path: examples/getProjectileType-1.lua
-    description: ''
-    side: client

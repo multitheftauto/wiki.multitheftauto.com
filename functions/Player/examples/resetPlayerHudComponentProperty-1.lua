@@ -1,1 +1,0 @@
-resetPlayerHudComponentProperty('clock', 'fillColor')

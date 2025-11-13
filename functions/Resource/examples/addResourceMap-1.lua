@@ -1,1 +1,0 @@
-addResourceMap(":cdm/[maps]/New.map",0)

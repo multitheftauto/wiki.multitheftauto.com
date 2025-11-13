@@ -1,6 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelTXDID
-client:
-  name: engineGetModelTXDID
-  description: This function gets TXD ID from a model.
-  parameters: []
-  examples: []

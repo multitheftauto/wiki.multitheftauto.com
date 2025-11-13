@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileTarget
-client:
-  name: getProjectileTarget
-  description: This function returns the target of the specified projectile.
-  parameters: []
-  examples:
-  - path: examples/getProjectileTarget-1.lua
-    description: This example allows a player to send projectiles at other players.
-    side: client

@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsTransferBoxVisible
-server:
-  name: isTransferBoxVisible
-  description: Determines if the transfer box is visible.
-  parameters: []
-  examples:
-  - path: examples/isTransferBoxVisible-1.lua
-    description: This example defines a command to remove the player's transfer box.
-    side: client

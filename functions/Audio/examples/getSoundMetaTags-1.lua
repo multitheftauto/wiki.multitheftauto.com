@@ -1,5 +1,0 @@
-addEventHandler("onClientSoundFinishedDownload",root,function(length)
-	local meta = getSoundMetaTags(source)
-	outputChatBox("The sound: "..(meta.title).." has finished in :"..length.."ms.")
-        outputChatBox("The sound meta tags: Artist:"..(meta.artist).." Album:"..(meta.album).." Genre:"..(meta.genre).." Year:"..(meta.year).." Comment:"..(meta.comment).." Track:"..(meta.track).." Composer:"..(meta.composer).." Copyright:"..(meta.copyright).." SubTitle:"..(meta.subtitle).." Album Artist:"..(meta.album_artist)..".")
-end)

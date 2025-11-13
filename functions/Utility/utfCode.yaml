@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/UtfCode
-server:
-  name: utfCode
-  description: The function returns the UTF codes of the given string.
-  parameters: []
-  examples:
-  - path: examples/utfCode-1.lua
-    description: ''
-    side: server

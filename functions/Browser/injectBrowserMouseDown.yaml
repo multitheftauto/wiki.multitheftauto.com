@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/InjectBrowserMouseDown
-client:
-  name: injectBrowserMouseDown
-  description: 'This function injects a mouse click (state: down).'
-  parameters: []
-  examples:
-  - path: examples/injectBrowserMouseDown-1.lua
-    description: ''
-    side: client

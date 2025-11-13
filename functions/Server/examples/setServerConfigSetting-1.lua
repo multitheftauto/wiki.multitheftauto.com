@@ -1,1 +1,0 @@
-setServerConfigSetting( "networkencryption", "1", true )

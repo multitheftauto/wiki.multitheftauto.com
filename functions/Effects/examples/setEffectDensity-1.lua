@@ -1,6 +1,0 @@
-addCommandHandler("sed", 
-function (cmd)
-   local x, y, z = getElementPosition(localPlayer)
-   local effect = createEffect("spraycan", x, y, z)
-   setEffectDensity(effect, 2)
-end)

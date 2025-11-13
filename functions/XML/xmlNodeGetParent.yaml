@@ -1,6 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/XmlNodeGetParent
-server:
-  name: xmlNodeGetParent
-  description: Returns the parent node of an xml node.
-  parameters: []
-  examples: []

@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineImageGetFiles
-client:
-  name: engineImageGetFiles
-  description: This function gets the list of files from an IMG container.
-  parameters: []
-  examples:
-  - path: examples/engineImageGetFiles-1.lua
-    description: 'You could use the following code:'
-    side: client

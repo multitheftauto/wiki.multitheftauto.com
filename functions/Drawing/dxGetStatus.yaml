@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetStatus
-client:
-  name: dxGetStatus
-  description: This function gets information about various internal datum.
-  parameters: []
-  examples:
-  - path: examples/dxGetStatus-1.lua
-    description: ''
-    side: client

@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetVehiclesLODDistance
-client:
-  name: getVehiclesLODDistance
-  description: Returns the distance of vehicles LOD.
-  parameters: []
-  examples:
-  - path: examples/getVehiclesLODDistance-1.lua
-    description: This example shows the lod distance of vehicles
-    side: client

@@ -1,1 +1,0 @@
-local data = fromJSON ( '[ { "1": "cat", "2": "mouse", "3": 5, "4": null, "cat":5, "mouse":1 } ]' )

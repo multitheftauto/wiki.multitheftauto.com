@@ -1,1 +1,0 @@
-if getPlayerCount() == 0 thenhttpClear()end

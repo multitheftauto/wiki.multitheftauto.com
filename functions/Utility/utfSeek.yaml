@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/UtfSeek
-server:
-  name: utfSeek
-  description: The function returns the byte position at specified character position.
-  parameters: []
-  examples:
-  - path: examples/utfSeek-1.lua
-    description: ''
-    side: server

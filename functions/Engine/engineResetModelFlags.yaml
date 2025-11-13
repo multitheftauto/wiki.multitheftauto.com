@@ -1,6 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineResetModelFlags
-client:
-  name: engineResetModelFlags
-  description: This function restores model flags to default state.
-  parameters: []
-  examples: []

@@ -1,1 +1,0 @@
-local name, weapon, ammo = fromJSON("[\"Desert Eagle\", 24, 147]")

@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementType
-server:
-  name: getElementType
-  description: This function is used to retrieve the type of an element.
-  parameters: []
-  examples:
-  - path: examples/getElementType-1.lua
-    description: This example destroys a haystack when a player targets it
-    side: server

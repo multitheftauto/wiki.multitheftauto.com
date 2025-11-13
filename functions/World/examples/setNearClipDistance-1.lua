@@ -1,1 +1,0 @@
-setNearClipDistance(0.1) -- Start rendering things three times nearer than usual to archieve the effect described above

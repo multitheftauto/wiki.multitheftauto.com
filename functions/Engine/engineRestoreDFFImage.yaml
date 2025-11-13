@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreDFFImage
-client:
-  name: engineRestoreDFFImage
-  description: This function restores changes to DFF file from IMG container.
-  parameters: []
-  examples: []
-  notes:
-  - type: warning
-    content: This article is incomplete and may contain errors

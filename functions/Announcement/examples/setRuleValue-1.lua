@@ -1,1 +1,0 @@
-setRuleValue ( "myScriptRunning", "yes" )

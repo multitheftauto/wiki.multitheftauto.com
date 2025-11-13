@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetPerformanceStats
-server:
-  name: getPerformanceStats
-  description: This function returns performance information.
-  parameters: []
-  examples:
-  - path: examples/getPerformanceStats-1.lua
-    description: ''
-    side: server

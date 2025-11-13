@@ -1,1 +1,0 @@
-setGameType ( "Capture The Flag" )

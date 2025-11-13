@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetPedFootBloodEnabled
-client:
-  name: setPedFootBloodEnabled
-  description: This function makes a [ped's](/wiki/Ped "Ped") footprints bloody.
-  parameters: []
-  examples:
-  - path: examples/setPedFootBloodEnabled-1.lua
-    description: ''
-    side: client

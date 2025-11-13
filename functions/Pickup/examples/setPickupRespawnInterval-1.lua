@@ -1,5 +1,0 @@
-addEventHandler("onPickUpHit",root,function(player)
-	interval = getPickupRespawnInterval(source)
-	setPickupRespawnInterval(source,interval + 3000)
-	outputChatBox("That pickup isn't going to be there until "..tostring(interval).." is done.",player)
-end)

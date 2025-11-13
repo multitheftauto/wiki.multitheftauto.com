@@ -1,2 +1,0 @@
-myDisplay = textCreateDisplay ()
-textDestroyDisplay ( myDisplay )

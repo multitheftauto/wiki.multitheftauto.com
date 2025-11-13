@@ -1,5 +1,0 @@
-addCommandHandler("rsms", function()
-    local prevMB = math.floor(engineGetStreamingMemorySize() / 1024 / 1024)
-    engineStreamingRestoreMemorySize()
-    outputChatbox("The maximum streaming memory available has been restored to the original value of " .. math.floor(engineGetStreamingMemorySize() / 1024 / 1024) .. " MB [Was " .. prevMB .. " MB]")
-end, false, false)

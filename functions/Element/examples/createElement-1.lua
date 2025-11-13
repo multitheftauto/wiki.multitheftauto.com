@@ -1,1 +1,0 @@
-blueTeamFlag = createElement( "flag", "blue" )

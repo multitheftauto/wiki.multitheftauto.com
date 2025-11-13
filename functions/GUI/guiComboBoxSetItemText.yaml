@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxSetItemText
-client:
-  name: guiComboBoxSetItemText
-  description: This function changes the text of a combobox item.
-  parameters: []
-  examples:
-  - path: examples/guiComboBoxSetItemText-1.lua
-    description: This changes the text of the selected item using commandsetText.
-    side: client

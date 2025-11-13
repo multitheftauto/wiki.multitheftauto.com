@@ -1,6 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelFlags
-client:
-  name: engineSetModelFlags
-  description: This function changes [model flags](/wiki/Model_flags "Model flags").
-  parameters: []
-  examples: []

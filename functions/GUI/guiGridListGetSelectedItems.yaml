@@ -1,7 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetSelectedItems
-client:
-  name: guiGridListGetSelectedItems
-  description: This function returns the items selected in the specified [grid list](/wiki/Element/GUI/Gridlist
-    "Element/GUI/Gridlist").
-  parameters: []
-  examples: []

@@ -1,1 +1,0 @@
-engineRemoveShaderFromWorldTexture ( myShader, "des_logwall" )

@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AclGroupGetName
-server:
-  name: aclGroupGetName
-  description: This function is used to get the name of the given ACL group.
-  parameters: []
-  examples:
-  - path: examples/aclGroupGetName-1.lua
-    description: This example outputs to the console that "Admin's are ready to watch :)".
-    side: server

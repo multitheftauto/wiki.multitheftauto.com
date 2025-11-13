@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/RestoreGameWorld
-server:
-  name: restoreGameWorld
-  description: This function restores the entire game world.
-  parameters: []
-  examples:
-  - path: examples/restoreGameWorld-1.lua
-    description: This example restores game world.
-    side: server

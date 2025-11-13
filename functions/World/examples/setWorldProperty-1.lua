@@ -1,1 +1,0 @@
-setWorldProperty("ShadowStrength", 500)

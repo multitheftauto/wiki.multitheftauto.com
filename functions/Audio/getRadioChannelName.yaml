@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetRadioChannelName
-client:
-  name: getRadioChannelName
-  description: This function gets the given radio channel name.
-  parameters: []
-  examples:
-  - path: examples/getRadioChannelName-1.lua
-    description: ''
-    side: client

@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementCallPropagationEnabled
-server:
-  name: isElementCallPropagationEnabled
-  description: This functions checks if certain element has call propagation enabled.
-  parameters: []
-  examples:
-  - path: examples/isElementCallPropagationEnabled-1.lua
-    description: ''
-    side: server

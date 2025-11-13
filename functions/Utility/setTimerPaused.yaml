@@ -1,9 +1,0 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetTimerPaused
-server:
-  name: setTimerPaused
-  description: This function is used to either pause or resume a timer.
-  parameters: []
-  examples:
-  - path: examples/setTimerPaused-1.lua
-    description: This example pauses all current timers from this resource.
-    side: server
