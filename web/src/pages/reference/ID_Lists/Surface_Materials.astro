@@ -5,6 +5,7 @@ import { getSeeAlsoLinksFromList } from "@src/utils/general";
 import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
 
 import { Code } from "@astrojs/starlight/components";
+import NoteBox from "@src/components/NoteBox.astro";
 
 import { materials } from "@src/data/materials";
 
@@ -46,14 +47,22 @@ luaTable += `}`;
 
   <p>
     The group names and readable material names have been extracted from
-    Collision File Editor II by Steve M.
+    <a href="https://www.gtagarage.com/mods/show.php?id=1154"
+      >Collision File Editor II by Steve M.</a
+    >
   </p>
+
+  <NoteBox type="tip"
+    >Even though many surfaces have the same sound, they have different physical
+    properties. For example, water (shallow) causes a splashing effect when
+    walking.</NoteBox
+  >
 
   {
     sortedCategories.map((category) => (
       <section>
         <h3>{category}</h3>
-        <table class="materials-table">
+        <table>
           <thead>
             <tr>
               <th>ID</th>
@@ -85,31 +94,3 @@ luaTable += `}`;
     currentId=""
   />
 </StarlightPage>
-
-<style>
-  .materials-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2rem;
-  }
-
-  .materials-table th,
-  .materials-table td {
-    padding: 0.5rem;
-    text-align: left;
-    border-bottom: 1px solid var(--sl-color-gray-4);
-  }
-
-  .materials-table th {
-    background-color: var(--sl-color-gray-5);
-    font-weight: 600;
-  }
-
-  .materials-table tbody tr:hover {
-    background-color: var(--sl-color-gray-5);
-  }
-
-  .materials-table code {
-    font-size: 0.9em;
-  }
-</style>
