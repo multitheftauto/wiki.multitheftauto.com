@@ -10,7 +10,7 @@ shared:
   - name: value
     type: int
     description: The value you want to perform the rotation on.
-  - name: n
+  - name: "n"
     type: int
     description: The amount of positions to rotate the value by.
   examples:

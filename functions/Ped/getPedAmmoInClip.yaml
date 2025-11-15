@@ -29,6 +29,6 @@ shared:
     variable: ammoInClip
     static: false
   issues:
-  - id: '734'
+  - id: 734
     description: Sometimes wrong count of player ammo, if get it in onPlayerWeaponFire
   requires_review: true

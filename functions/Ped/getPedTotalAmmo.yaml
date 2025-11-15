@@ -32,6 +32,6 @@ shared:
     content: Clientside, this function will not return a correct value for remote
       player weapons that aren't in hand.
   issues:
-  - id: '734'
+  - id: 734
     description: Sometimes wrong count of player ammo, if get it in onPlayerWeaponFire
   requires_review: true

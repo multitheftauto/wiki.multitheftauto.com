@@ -78,8 +78,8 @@ shared:
       from local player see always standard projectile model. Target argument valid
       elements are: player , ped , vehicle and object .'
   issues:
-  - id: '584'
+  - id: 584
     description: createProjectile creates one projectile for every person in the vehicle
-  - id: '616'
+  - id: 616
     description: Projectile rotation is set exactly opposite for creator
   requires_review: true

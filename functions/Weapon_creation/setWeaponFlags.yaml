@@ -51,7 +51,7 @@ shared:
       works with player-held weapons and custom weapons (in a limited extent), this
       function does not work with player-held weapons.
   issues:
-  - id: '8686'
+  - id: 8686
     description: setWeaponFlags(weapon, "flags") always returns false, but getWeaponFlags(weapon,
       "flags") works correctly
   requires_review: true

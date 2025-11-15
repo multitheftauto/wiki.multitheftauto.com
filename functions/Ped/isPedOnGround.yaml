@@ -24,6 +24,6 @@ shared:
     variable: onGround
     static: false
   issues:
-  - id: '534'
+  - id: 534
     description: isPedOnGround issues
   requires_review: true

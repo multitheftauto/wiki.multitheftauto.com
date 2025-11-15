@@ -21,6 +21,6 @@ shared:
     content: You can also retrieve the name of other methods of death, such as Fall
       and Rammed.
   issues:
-  - id: '514'
+  - id: 514
     description: getWeaponNameFromID() returns duplicate ID's for 10/11 and 12/13
   requires_review: true

@@ -12,7 +12,7 @@ shared:
   - name: value
     type: int
     description: The value you want to perform the arithmetic shift on.
-  - name: n
+  - name: "n"
     type: int
     description: The amount of positions to shift the value by.
   examples:

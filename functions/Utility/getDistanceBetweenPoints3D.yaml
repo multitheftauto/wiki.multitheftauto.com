@@ -7,7 +7,7 @@ shared:
   - name: x1
     type: float
     description: The X position of the first point
-  - name: "y"1
+  - name: y1
     type: float
     description: The Y position of the first point
   - name: z1
@@ -16,7 +16,7 @@ shared:
   - name: x2
     type: float
     description: The X position of the second point
-  - name: "y"2
+  - name: y2
     type: float
     description: The Y position of the second point
   - name: z2

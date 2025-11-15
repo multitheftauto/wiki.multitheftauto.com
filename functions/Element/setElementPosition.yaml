@@ -40,9 +40,9 @@ shared:
     content: Do not use this function to spawn a player . It will cause problems with
       other functions like warpPedIntoVehicle . Use spawnPlayer instead.
   issues:
-  - id: '539'
+  - id: 539
     description: Changing player position when he/she has a jetpack will remove the
       jetpack and bug when skin is changed
-  - id: '529'
+  - id: 529
     description: Player falls from his bike when its teleported by setElementPosition
   requires_review: true

@@ -45,8 +45,8 @@ shared:
   - type: important
     content: For remote players, you have to use setPedAimTarget before setPedLookAt.
   issues:
-  - id: '509'
+  - id: 509
     description: setPedLookAt does not work for remote players
-  - id: '626'
+  - id: 626
     description: setPedLookAt cancels damage done by any sort of fire
   requires_review: true

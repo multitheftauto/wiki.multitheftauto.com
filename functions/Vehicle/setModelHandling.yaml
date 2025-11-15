@@ -25,9 +25,9 @@ shared:
       name: value
     description: Returns true if the handling was set successfully, false otherwise.
   issues:
-  - id: '553'
+  - id: 553
     description: setModelHandling doesn't work with already created vehicles
-  - id: '1198'
+  - id: 1198
     description: '"setModelHandling" function doesn''t affect vehicles that have been
       changed using "setElementModel"'
   meta:

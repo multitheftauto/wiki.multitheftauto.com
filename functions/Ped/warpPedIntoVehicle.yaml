@@ -36,6 +36,6 @@ shared:
     content: If you used setElementPosition to spawn the ped / player , this function
       will not work and returns false .
   issues:
-  - id: '475'
+  - id: 475
     description: Network trouble when calling warpPedIntoVehicle on resourceStart
   requires_review: true

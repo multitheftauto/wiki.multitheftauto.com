@@ -11,7 +11,7 @@ shared:
   - name: x1
     type: float
     description: MISSING_PARAM_DESC
-  - name: "y"1
+  - name: y1
     type: float
     description: MISSING_PARAM_DESC
   - name: z1
@@ -20,7 +20,7 @@ shared:
   - name: x2
     type: float
     description: MISSING_PARAM_DESC
-  - name: "y"2
+  - name: y2
     type: float
     description: MISSING_PARAM_DESC
   - name: z2

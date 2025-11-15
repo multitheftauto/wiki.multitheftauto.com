@@ -11,7 +11,7 @@ shared:
     type: float
     description: The x offset, if you want the elements to be a certain distance from
       one another (default 0).
-  - name: "y"PosOffset
+  - name: "yPosOffset"
     type: float
     description: The y offset (default 0).
   - name: zPosOffset
@@ -20,7 +20,7 @@ shared:
   - name: xRotOffset
     type: float
     description: The x rotation offset (default 0).
-  - name: "y"RotOffset
+  - name: "yRotOffset"
     type: float
     description: The y rotation offset (default 0).
   - name: zRotOffset

@@ -23,6 +23,6 @@ shared:
     variable: onScreen
     static: false
   issues:
-  - id: '2029'
+  - id: 2029
     description: isElementOnScreen doesn't work for markers
   requires_review: true

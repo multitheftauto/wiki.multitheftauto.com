@@ -25,8 +25,8 @@ shared:
     content: This function has a few issues, see below. Consider using the clientside
       function isVehicleWheelOnGround instead.
   issues:
-  - id: '471'
+  - id: 471
     description: isVehicleOnGround sometimes returns false incorrectly
-  - id: '2093'
+  - id: 2093
     description: isVehicleOnGround does not work after setVehicleHandling
   requires_review: true

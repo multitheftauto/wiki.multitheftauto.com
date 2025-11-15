@@ -11,7 +11,7 @@ shared:
   - name: boneId
     type: int
     description: The ID of the bone to set the rotation of. See Bone IDs .
-  - name: "y"aw
+  - name: "yaw"
     type: float
     description: The yaw rotation value.
   - name: pitch

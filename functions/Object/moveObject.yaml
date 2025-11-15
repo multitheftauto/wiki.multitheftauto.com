@@ -74,6 +74,6 @@ shared:
     method: move
     static: false
   issues:
-  - id: '549'
+  - id: 549
     description: Object rotation is wrong after moveObject serverside
   requires_review: true

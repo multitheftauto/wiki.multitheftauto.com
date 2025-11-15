@@ -123,13 +123,13 @@ shared:
 
         float float float  -- worldModelPositionX'
       name: value5
-    - type: Y
+    - type: "Y"
       name: value6
     - type: 'Z
 
         float float float  -- worldModelRotationX'
       name: value7
-    - type: Y
+    - type: "Y"
       name: value8
     - type: 'Z
 

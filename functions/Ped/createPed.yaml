@@ -32,12 +32,12 @@ client:
     element: ped
     constructorclass: Ped
   issues: &id002
-  - id: '375'
+  - id: 375
     description: Sync distance of unoccupied vehicles and peds should match stream
       distance
-  - id: '605'
+  - id: 605
     description: Ped fireing Projectiles doesn't work
-  - id: '492'
+  - id: 492
     description: Peds shooting incorrectly
   requires_review: true
 server:

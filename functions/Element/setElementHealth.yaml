@@ -38,6 +38,6 @@ shared:
       black smoke 50% 250: white steam 0%, black smoke 100% 249: fire with big black
       smoke'
   issues:
-  - id: '414'
+  - id: 414
     description: Using setElementHealth on a dead ped makes it invincible
   requires_review: true
