@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceDynamicElementRoot
-server:
+shared:
   name: getResourceDynamicElementRoot
   description: This function retrieves the *dynamic element root* of a specified [resource](/wiki/Resource
     "Resource"). The *dynamic element root* is the parent of elements that are created
     by scripts (e.g. with [createObject](/wiki/CreateObject "CreateObject")) unless
     they specify a different parent.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource of which dynamic element root we want.
   examples:
   - path: examples/getResourceDynamicElementRoot-1.lua
     description: This example shows how to get all elements by specific type, created
       only by resource scripts (not maps).
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns an element of the resource's dynamic element root if the
+      resource specified was valid and active (currently running), false otherwise.
+  oop:
+    element: resource
+    method: getDynamicElementRoot
+    variable: dynamicElementRoot
+    static: false
   requires_review: true

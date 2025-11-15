@@ -1,11 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetAmbientSoundEnabled
-client:
+shared:
   name: setAmbientSoundEnabled
   description: 'This function allows you to disable some background sound effects.
     See also: [setWorldSoundEnabled](/wiki/SetWorldSoundEnabled "SetWorldSoundEnabled").'
-  parameters: []
+  parameters:
+  - name: theType
+    type: string
+    description: The type of ambient sound to toggle. Can be either "gunfire" or "general".
+  - name: enable
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setAmbientSoundEnabled-1.lua
     description: 'This example turns off the ambient water and gunfire sounds:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ambient sound was set correctly, false if invalid
+      values were passed.
   requires_review: true

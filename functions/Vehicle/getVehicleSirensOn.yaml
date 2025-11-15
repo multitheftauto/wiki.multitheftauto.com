@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleSirensOn
-server:
+shared:
   name: getVehicleSirensOn
   description: This function returns whether the sirens are turned on for the specified
     vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that will be checked.
   examples:
   - path: examples/getVehicleSirensOn-1.lua
     description: This example toggles siren state when a player enters a vehicle as
       a driver.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the sirens are turned on for the specified vehicle,
+      false if the sirens are turned off for the specified vehicle, if the vehicle
+      doesn't have sirens or if invalid arguments are specified.
+  oop:
+    element: vehicle
+    method: areSirensOn
+    variable: sirensOn
+    static: false
   pair: setVehicleSirensOn
   requires_review: true

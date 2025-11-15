@@ -1,8 +1,41 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateStaticImage
-client:
+shared:
   name: guiCreateStaticImage
   description: This function creates a static image using a .png image in the resource.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float of the 2D x position of the image on a player's screen. This
+      is affected by the relative argument.
+  - name: "y"
+    type: float
+    description: A float of the 2D y position of the image on a player's screen. This
+      is affected by the relative argument.
+  - name: width
+    type: float
+    description: A float of the width of the image. This is affected by the relative
+      argument.
+  - name: height
+    type: float
+    description: A float of the height of the image. This is affected by the relative
+      argument.
+  - name: path
+    type: string
+    description: The filepath of the image file that is being loaded.
+  - name: relative
+    type: bool
+    description: This is whether sizes and positioning are relative. If this is true
+      , then all x,y,width,height floats must be between 0 and 1, representing measures
+      relative to the parent.
+    default: 'false'
+  - name: parent
+    type: gui-element
+    description: This is the parent that the image is attached to. If the relative
+      argument is true, sizes and positioning will be made relative to this parent.
+      If the relative argument is false, positioning will be the number of offset
+      pixels from the parent's origin. If no parent is passed, the parent will become
+      the screen - causing positioning and sizing according to screen positioning.
+    default: nil
   examples:
   - path: examples/guiCreateStaticImage-1.lua
     description: ''
@@ -11,4 +44,12 @@ client:
     description: In this exampleMeta.xmlis used to tell the server which files it
       will be using.
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns element if image was created successfully, false otherwise.
+  oop:
+    element: element
+    constructorclass: GuiStaticImage
   requires_review: true

@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleOccupants
-server:
+shared:
   name: getVehicleOccupants
   description: This function gets all peds sitting in the specified vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle of which you wish to retrieve the occupants.
   examples:
   - path: examples/getVehicleOccupants-1.lua
     description: 'This example prints all vehicle occupants into the F8 console if
       "/occupants" is typed:'
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with seat ID as an index and the occupant as an
+      element like this: table[seat] = occupant'
+  oop:
+    element: vehicle
+    method: getOccupants
+    variable: occupants
+    static: false
   requires_review: true

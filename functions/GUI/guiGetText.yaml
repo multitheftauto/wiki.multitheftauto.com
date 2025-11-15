@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetText
-client:
+shared:
   name: guiGetText
   description: This function is used to get the text of GUI elements like edit boxes,
     labels, buttons etc.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: element you wish to get text of.
   examples:
   - path: examples/guiGetText-1.lua
     description: This example gets the text of a pre-made gui element and outputs
       it to chat box.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string containing the requested element's text, or false
+      if the gui element passed to the function is invalid.
+  oop:
+    element: guielement
+    method: getText
+    variable: text
+    static: false
   pair: guiSetText
   requires_review: true

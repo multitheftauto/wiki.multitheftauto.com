@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/BitOr
-server:
+shared:
   name: bitOr
   description: This function performs a bitwise OR\-conjunction on two or more (unsigned)
     32\-bit [integers](/wiki/Int "Int"). See [Bitwise operation](http://en.wikipedia.org/wiki/Bitwise_operation#OR)
     for more details.
-  parameters: []
+  parameters:
+  - name: var1
+    type: uint
+    description: MISSING_PARAM_DESC
+  - name: var2
+    type: uint
+    description: MISSING_PARAM_DESC
+  - name: '...'
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/bitOr-1.lua
     description: This example will do a bitwise OR of x1, x2, ...
     side: server
+  returns:
+    values:
+    - type: uint
+      name: value
+    description: Returns the conjuncted value.
   requires_review: true

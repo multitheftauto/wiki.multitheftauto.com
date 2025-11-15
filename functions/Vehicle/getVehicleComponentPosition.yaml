@@ -1,9 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleComponentPosition
-client:
+shared:
   name: getVehicleComponentPosition
   description: This function gets the component position of a [vehicle](/wiki/Vehicle
     "Vehicle"). The vehicle must be streamed in.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to get component position of.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
+  - name: base
+    type: string
+    description: 'A string representing what the returned position is relative to.
+      It can be one of the following values: parent: The position is relative to the
+      parent component. root: The position is relative to the root component. world:
+      The position is a world position.'
+    default: '"root"'
   examples:
   - path: examples/getVehicleComponentPosition-1.lua
     description: ''
@@ -11,5 +25,19 @@ client:
   - path: examples/getVehicleComponentPosition-2.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three floats indicating the position of the component, x
+      , y and z respectively.
+  oop:
+    element: vehicle
+    method: getComponentPosition
+    static: false
   pair: setVehicleComponentPosition
   requires_review: true

@@ -1,11 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CopyResource
-server:
+shared:
   name: copyResource
   description: This function copies a specified [resource](/wiki/Resource "Resource")
     with a new name.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource which is going to be copied
+  - name: newResourceName
+    type: string
+    description: the name that the copied resource will receive
+  - name: organizationalDir
+    type: string
+    description: A string containing the path where the resource should be copied
+      to (e.g. "[gamemodes]/[amx]").
   examples:
   - path: examples/copyResource-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: resource
+      name: value
+    description: Returns the resource element of the copy. Returns false if the arguments
+      are incorrect.
+  oop:
+    element: resource
+    method: copy
+    static: false
   requires_review: true

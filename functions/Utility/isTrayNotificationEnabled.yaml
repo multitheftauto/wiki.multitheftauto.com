@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsTrayNotificationEnabled
-client:
+shared:
   name: isTrayNotificationEnabled
   description: This function returns a boolean value whether the client has enabled
     tray notifications in his settings or not.
@@ -8,4 +8,10 @@ client:
   - path: examples/isTrayNotificationEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the tray notifications are enabled in the settings,
+      false otherwise.
   requires_review: true

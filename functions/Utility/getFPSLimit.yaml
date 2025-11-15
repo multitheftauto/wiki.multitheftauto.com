@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetFPSLimit
-server:
+shared:
   name: getFPSLimit
   description: This function retrieves the maximum [FPS (Frames per second)](http://en.wikipedia.org/wiki/Frame_rate)
     that players on the server can run their game at.
@@ -9,6 +9,12 @@ server:
     description: This example displays a message in the chatbox showing the current
       FPS limit.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer between 25 and 32767 (refer to the note above)
+      of the maximum FPS that players can run their game at.
   notes:
   - type: info
     content: Starting from version [ r21313 ] and above fpsLimit range is 25-32767

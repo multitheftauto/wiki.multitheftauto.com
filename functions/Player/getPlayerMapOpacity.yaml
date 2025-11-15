@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerMapOpacity
-client:
+shared:
   name: getPlayerMapOpacity
   description: This function allows to get the opacity of the player map (F11\).
   parameters: []
@@ -8,4 +8,14 @@ client:
     description: This example implements a command that tells you what your current
       map opacity is.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer with a value from 0 to 255, where 0 is fully transparent
+      and 255 is fully opaque.
+  oop:
+    element: player
+    method: )
+    static: true
   requires_review: true

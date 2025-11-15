@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Inspect
-server:
+shared:
   name: inspect
   description: This function returns human\-readable representations of tables and
     MTA datatypes as a string.
-  parameters: []
+  parameters:
+  - name: var
+    type: mixed
+    description: A variable of any datatype.
+  - name: options
+    type: table
+    description: A table of options. It is not mandatory, but when it is provided,
+      it must be a table. For a list of options, see the Inspect's GitHub page .
   examples:
   - path: examples/inspect-1.lua
     description: 'This example draws the contents of a table and its data type:'
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Always returns a string. The contents can change if we update the
+      inspect library, so it is not expected to be consistent across Lua versions.
   requires_review: true

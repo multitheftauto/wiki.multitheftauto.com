@@ -1,9 +1,13 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetRemoteRequests
-server:
+shared:
   name: getRemoteRequests
   description: Gets all [fetchRemote](/wiki/FetchRemote "FetchRemote") and [callRemote](/wiki/CallRemote
     "CallRemote") requests currently running.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource to get all requests from
+    default: nil
   examples:
   - path: examples/getRemoteRequests-1.lua
     description: This example prints how many request are currently pending.
@@ -11,4 +15,10 @@ server:
   - path: examples/getRemoteRequests-2.lua
     description: This example prints how many request are currently pending.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table with all requests, false if an invalid resource was
+      provided
   requires_review: true

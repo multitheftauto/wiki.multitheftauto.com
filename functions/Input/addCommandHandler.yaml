@@ -1,4 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddCommandHandler
+client:
+  name: addCommandHandler
+  description: This function will attach a scripting function (handler) to a console
+    command, so that whenever a player or administrator uses the command the function
+    is called.
+  parameters: []
+  examples:
+  - path: examples/addCommandHandler-4.lua
+    description: Example 1:This example warps the local player to a random nearby
+      location (useful for when a player gets stuck somewhere).
+    side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the command handler was added successfully, false
+      otherwise.
+  notes: &id001
+  - type: info
+    content: You can't use "check", "list", "test" and "help" as a command name.
+  - type: important
+    content: Do NOT use the same name for your handler function as the command name,
+      as this can lead to confusion if multiple handler functions are used. Use a
+      name that describes your handler's purpose more specifically.
+  requires_review: true
 server:
   name: addCommandHandler
   description: This function will attach a scripting function (handler) to a console
@@ -26,15 +51,11 @@ server:
       to put this shared logic in a separate function instead, as this gives you more
       control over the flow.
     side: server
-  - path: examples/addCommandHandler-4.lua
-    description: Example 1:This example warps the local player to a random nearby
-      location (useful for when a player gets stuck somewhere).
-    side: client
-  notes:
-  - type: info
-    content: You can't use "check", "list", "test" and "help" as a command name.
-  - type: important
-    content: Do NOT use the same name for your handler function as the command name,
-      as this can lead to confusion if multiple handler functions are used. Use a
-      name that describes your handler's purpose more specifically.
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the command handler was added successfully, false
+      otherwise.
+  notes: *id001
   requires_review: true

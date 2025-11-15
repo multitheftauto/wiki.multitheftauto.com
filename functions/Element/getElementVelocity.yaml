@@ -1,14 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementVelocity
-server:
+shared:
   name: getElementVelocity
   description: This function returns three floats containing the velocity (movement
     speeds) along the X, Y, and Z axis respectively. This means that velocity values
     can be positive and negative for each axis.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you wish to retrieve the velocity of.
   examples:
   - path: examples/getElementVelocity-1.lua
     description: This example retrieves, calculates, and displays the speed of a random
       player.
     side: server
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: If succesful, returns three float s that represent the element's
+      current velocity along the x , y , and z axis respectively. This function can
+      fail if the element is a player in a car. Use the vehicle element in this case.
+      It will also fail if the element specified does not have a velocity, or does
+      not exist. In case of failure, the first return value will be false .
+  oop:
+    element: element
+    method: getVelocity
+    variable: velocity
+    static: false
   pair: setElementVelocity
   requires_review: true

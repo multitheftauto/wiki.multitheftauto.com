@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiMemoGetCaretIndex
-client:
+shared:
   name: guiMemoGetCaretIndex
   description: This function returns the caret (the text cursor) position within the
     memo box.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The memo box you want to get the caret position from
   examples:
   - path: examples/guiMemoGetCaretIndex-1.lua
     description: This example outputs the caret position of the memo to the chat
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the caret index on success, false otherwise.
+  oop:
+    element: guimemo
+    method: getCaretIndex
+    variable: caretIndex
+    static: false
   pair: guiMemoSetCaretIndex
   requires_review: true

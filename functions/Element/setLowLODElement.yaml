@@ -1,11 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetLowLODElement
-server:
+shared:
   name: setLowLODElement
   description: This function assigns a low LOD element to an element. The low LOD
     element is displayed when its associated element is not fully visible. If a low
     LOD element is assigned to several elements, it will be displayed when any of
     these elements are not fully visible.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element whose low LOD version we want to change.
+  - name: lowLODElement
+    type: element
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setLowLODElement-1.lua
     description: 'This example shows how to create and link a normal and low LOD object:'
@@ -16,6 +22,16 @@ server:
   - path: examples/setLowLODElement-3.lua
     description: 'Changing the draw distance for a model has to be done on the client:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the assignment was successful, false otherwise.
+  oop:
+    element: element
+    method: setLowLOD
+    variable: lowLOD
+    static: false
   pair: getLowLODElement
   notes:
   - type: info

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTime
-server:
+shared:
   name: getTime
   description: This function is used to get the current time in the game. If you want
     to get the real server time, use [getRealTime](/wiki/GetRealTime "GetRealTime").
@@ -11,4 +11,11 @@ server:
   - path: examples/getTime-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    description: Returns two ints that represent hours and minutes.
   requires_review: true

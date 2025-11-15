@@ -1,7 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetCoronaReflectionsEnabled
-client:
+shared:
   name: getCoronaReflectionsEnabled
   description: This function gets visibility of corona reflections.
   parameters: []
   examples: []
+  returns:
+    values:
+    - type: int
+      name: value
+    description: 'One of the following integers will be returned:'
   requires_review: true

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsChatBoxInputActive
-client:
+shared:
   name: isChatBoxInputActive
   description: This function returns whether the ingame chatbox is being used (accepting
     chatbox input) or not.
@@ -9,4 +9,14 @@ client:
     description: This example shows how you can check if a user has the chat box active
       (and presumably typing a message).
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the chatbox is receiving input, false if not active.
+  oop:
+    element: GuiElement
+    method: )
+    variable: chatBoxInputActive
+    static: true
   requires_review: true

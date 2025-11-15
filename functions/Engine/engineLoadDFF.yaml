@@ -1,9 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadDFF
-client:
+shared:
   name: engineLoadDFF
   description: This function loads a RenderWare Model (DFF) file into GTA.
-  parameters: []
+  parameters:
+  - name: dff_file / string raw_data
+    type: string
+    description: MISSING_PARAM_DESC
   examples: []
+  returns:
+    values:
+    - type: dff
+      name: value
+    description: Returns a DFF element if the dff file loaded, false otherwise.
+  oop:
+    element: dff
+    constructorclass: EngineDFF
   notes:
   - type: info
     content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example

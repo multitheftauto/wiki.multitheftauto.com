@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingSetMemorySize
-client:
+shared:
   name: engineStreamingSetMemorySize
   description: Sets the maximum amount of RAM \[in bytes] that can be used for streaming
-  parameters: []
+  parameters:
+  - name: sizeBytes
+    type: int
+    description: The maximum amount of RAM [in bytes] that can be used for streaming.
+      Must be a positive non-zero number.
   examples:
   - path: examples/engineStreamingSetMemorySize-1.lua
     description: This example adds a command that can be used to change the streaming
       memory size, and display the previous value.
     side: client
+  returns:
+    values:
+    - type: nil
+      name: value
+  oop:
+    element: enginestreaming
+    method: setMemorySize
+    variable: memorySize
+    static: false
   pair: engineStreamingGetMemorySize
   notes:
   - type: tip

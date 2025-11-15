@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedBleeding
-client:
+shared:
   name: isPedBleeding
   description: This function gets the state of a [player's](/wiki/Player "Player")
     or [ped's](/wiki/Ped "Ped") bleeding effect.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The player or ped whose bleeding effect state you want to get.
   examples:
   - path: examples/isPedBleeding-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player or ped is bleeding, false otherwise.
+  oop:
+    element: ped
+    method: isBleeding
+    variable: bleeding
+    static: false
   pair: setPedBleeding
   requires_review: true

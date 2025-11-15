@@ -1,12 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetMarkerColor
-server:
+shared:
   name: setMarkerColor
   description: This function sets the color of the specified marker by modifying the
     values for red, green, blue and alpha.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: The marker that you wish to set the color of.
+  - name: r
+    type: int
+    description: The amount of red in the final color (0 to 255).
+  - name: g
+    type: int
+    description: The amount of green in the final color (0 to 255).
+  - name: b
+    type: int
+    description: The amount of blue in the final color (0 to 255).
+  - name: a
+    type: int
+    description: The amount of alpha in the final color (0 to 255).
   examples:
   - path: examples/setMarkerColor-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: marker
+    method: setColor
+    static: false
   pair: getMarkerColor
   requires_review: true

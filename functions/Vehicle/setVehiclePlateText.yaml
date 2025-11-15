@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehiclePlateText
-server:
+shared:
   name: setVehiclePlateText
   description: 'This function can be used to set the numberplate text of a vehicle.
 
     All non ascii characters will be replaced by spaces.'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: element
+    description: the vehicle whose numberplate you want to change.
+  - name: numberplate
+    type: string
+    description: a string that will go on the number plate of the vehicle (max 8 characters).
   examples:
   - path: examples/setVehiclePlateText-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the numberplate was changed successfully, or false
+      if invalid arguments were passed
+  oop:
+    element: vehicle
+    method: setPlateText
+    variable: plateText
+    static: false
   pair: getVehiclePlateText
   requires_review: true

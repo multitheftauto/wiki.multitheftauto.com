@@ -1,9 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetDistanceBetweenPoints2D
-server:
+shared:
   name: getDistanceBetweenPoints2D
   description: This function returns the distance between two 2 dimensional points
     using the pythagorean theorem.
-  parameters: []
+  parameters:
+  - name: x1
+    type: float
+    description: The X position of the first point
+  - name: "y"1
+    type: float
+    description: The Y position of the first point
+  - name: x2
+    type: float
+    description: The X position of the second point
+  - name: "y"2
+    type: float
+    description: The Y position of the second point
   examples:
   - path: examples/getDistanceBetweenPoints2D-1.lua
     description: This example gets the distance between two vehicles, stored in variablesvehicle1andvehicle2.
@@ -13,6 +25,12 @@ server:
       points and is also more efficient if your script is calling this function extremely
       often.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float containing the 2D distance between the two points.
+      Returns false if invalid parameters are passed.
   notes:
   - type: info
     content: This function is equivalent to the Vector2 class getLength method when

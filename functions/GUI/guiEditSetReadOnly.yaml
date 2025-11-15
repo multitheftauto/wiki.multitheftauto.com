@@ -1,13 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditSetReadOnly
-client:
+shared:
   name: guiEditSetReadOnly
   description: This function allows you to set or remove read\-only status for an
     edit box. If read\-only is set to *true*, the box is not editable.
-  parameters: []
+  parameters:
+  - name: editField
+    type: element
+    description: The element of the edit field to be modified.
+  - name: status
+    type: bool
+    description: A boolean value indicating whether read-only is to be enabled or
+      disabled.
   examples:
   - path: examples/guiEditSetReadOnly-1.lua
     description: This example creates a little advert field on the bottom right corner
       of the screen and sets it to read only.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if edit field's read-only status was changed successfully,
+      false otherwise.
+  oop:
+    element: guiedit
+    method: setReadOnly
+    variable: readOnly
+    static: false
   pair: guiEditIsReadOnly
   requires_review: true

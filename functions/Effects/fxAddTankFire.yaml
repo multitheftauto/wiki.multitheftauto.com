@@ -1,11 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddTankFire
-client:
+shared:
   name: fxAddTankFire
   description: This function creates a tank firing particle effect.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirZ
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/fxAddTankFire-1.lua
     description: This example will create a Tank Fire Effect at your weapon's muzzle
       position
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

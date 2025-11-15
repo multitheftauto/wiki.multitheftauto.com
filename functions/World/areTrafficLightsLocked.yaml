@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AreTrafficLightsLocked
-server:
+shared:
   name: areTrafficLightsLocked
   description: Gets whether the traffic lights are currently locked or not. If the
     lights are locked, it means they won't change unless you do [setTrafficLightState](/wiki/SetTrafficLightState
@@ -9,4 +9,9 @@ server:
   - path: examples/areTrafficLightsLocked-1.lua
     description: This example toggles traffic lights between 'locked' and 'unlocked'.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true the traffic lights are currently locked, false otherwise.
   requires_review: true

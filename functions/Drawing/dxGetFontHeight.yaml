@@ -1,13 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxGetFontHeight
-client:
+shared:
   name: dxGetFontHeight
   description: This function retrieves the theoretical height of a certain piece of
     text, if it were to be drawn using [dxDrawText](/wiki/DxDrawText "DxDrawText").
-  parameters: []
+  parameters:
+  - name: scale
+    type: float
+    description: The size of the text.
+    default: '1'
+  - name: font
+    type: mixed
+    description: 'Either a custom DX font element or the name of a built-in dx font:
+      "default": Tahoma "default-bold": Tahoma Bold "clear": Verdana "arial": Arial
+      "sans": Microsoft Sans Serif "pricedown": Pricedown (GTA''s theme text) "bankgothic":
+      Bank Gothic Medium "diploma": Diploma Regular "beckett": Beckett Regular "unifont":
+      Unifont'
+    default: '"default"'
   examples:
   - path: examples/dxGetFontHeight-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer of the height of the text.
+  oop:
+    element: font
+    note: This syntax requires you to ignore the font argument above
+    method: getHeight
+    static: false
   notes:
   - type: info
     content: The returned height will be in logical units which are 1.75 times the

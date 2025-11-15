@@ -1,14 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleLocked
-server:
+shared:
   name: setVehicleLocked
   description: This function can be used to set the vehicle's doors to be locked or
     unlocked. Locking a vehicle restricts access to the vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle which you wish to change the lock status of
+  - name: locked
+    type: bool
+    description: Boolean for the status you wish to set. Set true to lock, false to
+      unlock
   examples:
   - path: examples/setVehicleLocked-1.lua
     description: This example allows a player to lock his vehicle when he is inside
       it.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the operation was successful, false otherwise.
+  oop:
+    element: vehicle
+    method: setLocked
+    variable: locked
+    static: false
   pair: isVehicleLocked
   notes:
   - type: warning

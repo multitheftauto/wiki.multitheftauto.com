@@ -1,11 +1,55 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateShader
-client:
+shared:
   name: dxCreateShader
   description: This function creates a [shader](/wiki/Shader "Shader") element that
     can be used in the dxDraw functions. Successful shader creation is not guaranteed
     unless the [Effect File](/wiki/Shader "Shader") contains a fallback technique
     which will work on every existing PC.
-  parameters: []
+  parameters:
+  - name: filepath / string raw_data
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: priority
+    type: float
+    description: If more than one shader is matched to a world texture, the shader
+      with the highest priority will be used. If there is more than one shader with
+      the same highest priority, the most recently created shader is used.
+    default: '0'
+  - name: maxDistance
+    type: float
+    description: If non-zero, the shader will be applied to textures nearer than maxDistance
+      only. This can speed up rendering, but (to look good) may require the shader
+      to fade out it's own effect as the texture reaches maxDistance.
+    default: '0'
+  - name: layered
+    type: bool
+    description: When set to true, the shader will be drawn in a separate render pass.
+      Several layered shaders can be drawn on the same world texture. (To avoid Z
+      fighting artifacts, you may have to add DepthBias=-0.0002; to the technique
+      pass, but this might cause visual artifacts when applied on vehicles)
+    default: 'false'
+  - name: elementTypes
+    type: string
+    description: 'A comma seperated list of element types to restrict this shader
+      to. Valid element types are: world - Textures in the GTA world ped - Player
+      and ped textures vehicle - Vehicles textures object - Objects textures other
+      - Element textures which are not peds, vehicles or objects all - Everything'
+    default: '"world'
+  - name: ped
+    type: unknown
+    description: MISSING_PARAM_DESC
+  - name: vehicle
+    type: unknown
+    description: MISSING_PARAM_DESC
+  - name: object
+    type: unknown
+    description: MISSING_PARAM_DESC
+  - name: other
+    type: unknown
+    description: MISSING_PARAM_DESC
+  - name: all"
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxCreateShader-1.lua
     description: ''
@@ -18,6 +62,18 @@ client:
     description: 'This example creates a basic shader using macros to change shader''s
       behaviour:'
     side: client
+  returns:
+    values:
+    - type: element
+      name: value1
+    - type: string
+      name: value2
+    description: 'element: A shader element if successful, false if invalid arguments
+      were passed to the function. You should always check to see if this function
+      has returned false. string: The name of the technique that will be used.'
+  oop:
+    element: shader
+    constructorclass: DxShader
   notes:
   - type: info
     content: It is highly recommended that dxSetTestMode is used when writing and

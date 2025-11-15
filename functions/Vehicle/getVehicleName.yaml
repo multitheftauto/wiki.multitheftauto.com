@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleName
-server:
+shared:
   name: getVehicleName
   description: This function returns a string containing the name of the vehicle
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle you want to get the name of.
   examples:
   - path: examples/getVehicleName-1.lua
     description: This example checks whether a player enters an AT-400 or a Shamal.  If
       they do, it announces it to the chat specifying what vehicle was stolen.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string containing the requested vehicle's name, or false
+      if the vehicle passed to the function is invalid.
+  oop:
+    element: vehicle
+    method: getName
+    variable: name
+    static: false
   requires_review: true

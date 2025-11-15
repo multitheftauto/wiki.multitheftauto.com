@@ -3,11 +3,23 @@ shared:
   name: pathListDir
   description: Reads a specified directory and returns all entries inside of it. These
     entries can be file or folder names.
-  parameters: []
+  parameters:
+  - name: path
+    type: string
+    description: A string containing a path you want to get entries from
   examples:
   - path: examples/pathListDir-1.lua
     description: This example loads all models from a certain directory
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns table with all entries in a specified directory.
+  oop:
+    element: path
+    method: listDir
+    static: false
   notes:
   - type: info
     content: Listing other resource directory can be done by passing ":resourceName/."

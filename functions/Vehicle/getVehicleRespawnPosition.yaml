@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRespawnPosition
-server:
+shared:
   name: getVehicleRespawnPosition
   description: This function retrieves the respawn coordinates of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle which you'd like to retrieve the respawn coordinates
+      of.
   examples:
   - path: examples/getVehicleRespawnPosition-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: Returns three floats indicating the respawn coordinates of the vehicle
+      , x , y and z respectively.
+  oop:
+    element: vehicle
+    method: getRespawnPosition
+    variable: respawnPosition
+    static: false
   pair: setVehicleRespawnPosition
   requires_review: true

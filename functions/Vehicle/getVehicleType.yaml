@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleType
-server:
+shared:
   name: getVehicleType
   description: This function retrieves the type of a vehicle (such as if it is a car
     or a boat).
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getVehicleType-1.lua
     description: Example 1:In this example when a player enters an airplane, it displays
@@ -13,4 +16,16 @@ server:
     description: Example 2:In this example player gets message what type of vehicle
       he just entered.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string with vehicle type or false if an invalid modelID
+      has been supplied, or an empty string if the vehicle is blocked internally (some
+      trailers).
+  oop:
+    element: vehicle
+    method: getVehicleType
+    variable: vehicleType
+    static: false
   requires_review: true

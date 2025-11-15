@@ -1,11 +1,46 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddWood
-client:
+shared:
   name: fxAddWood
   description: Creates a wood splinter particle effect.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: count
+    type: int
+    description: the number of splinters to create.
+    default: '1'
+  - name: brightness
+    type: float
+    description: the brightness. Ranges from 0 (black) to 1 (normal color).
+    default: '1.0'
   examples:
   - path: examples/fxAddWood-1.lua
     description: This example will create a Wood Effect next to you when typing/woodfxin
       the Chatbox.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

@@ -1,13 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FixVehicle
-server:
+shared:
   name: fixVehicle
   description: This function will set a [vehicle](/wiki/Vehicle "Vehicle")'s health
     to full and fix its damage model. If you wish to only change the vehicle's health,
     without affecting its damage model, use [setElementHealth](/wiki/SetElementHealth
     "SetElementHealth").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle you wish to fix
   examples:
   - path: examples/fixVehicle-1.lua
     description: This example fixes all the vehicles that exist in the map.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was fixed, false if theVehicle is invalid.
+  oop:
+    element: vehicle
+    method: fix
+    static: false
   requires_review: true

@@ -1,10 +1,49 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ShowChat
-server:
+client:
   name: showChat
   description: This function is used to show or hide the player's chat.
-  parameters: []
+  parameters:
+  - name: show
+    type: bool
+    description: A boolean value determining whether to show ( true ) or hide ( false
+      ) the chat.
+  - name: inputBlocked
+    type: bool
+    description: A boolean value determining whether chat input is blocked/hidden,
+      regardless of chat visibility. If unset, this will keep the default behaviour
+      prior to r20898 ( true when chat is hidden, false when chat is visible).
   examples:
   - path: examples/showChat-1.lua
     description: This example toggle's the player's chat when they press the "i" key.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player's chat was shown or hidden successfully,
+      false otherwise.
+  requires_review: true
+server:
+  name: showChat
+  description: This function is used to show or hide the player's chat.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player whose chat is to be hidden or shown.
+  - name: show
+    type: bool
+    description: A boolean value determining whether to show ( true ) or hide ( false
+      ) the chat.
+  - name: inputBlocked
+    type: bool
+    description: A boolean value determining whether chat input is blocked/hidden,
+      regardless of chat visibility. If unset, this will keep the default behaviour
+      prior to r20898 ( true when chat is hidden, false when chat is visible).
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player's chat was shown or hidden successfully,
+      false otherwise.
   requires_review: true

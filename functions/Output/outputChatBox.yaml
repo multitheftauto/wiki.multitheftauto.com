@@ -1,15 +1,82 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/OutputChatBox
+client:
+  name: outputChatBox
+  description: This outputs the specified text string to the chatbox. It can be specified
+    as a message to certain player(s) or all players.
+  parameters:
+  - name: text
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: r
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '231'
+  - name: g
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '217'
+  - name: b
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '176'
+  - name: colorCoded
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the message was displayed successfully. Returns false
+      if invalid arguments are specified.
+  oop: &id001
+    element: player
+    method: outputChat
+    static: false
+  notes: &id002
+  - type: info
+    content: Avoid outputting text to the chatbox that isn't actually chat, as this
+      can be annoying for players. Output information and status messages to the HUD.
+  requires_review: true
 server:
   name: outputChatBox
   description: This outputs the specified text string to the chatbox. It can be specified
     as a message to certain player(s) or all players.
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: visibleTo
+    type: table/element
+    description: MISSING_PARAM_DESC
+    default: root
+  - name: r
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '231'
+  - name: g
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '217'
+  - name: b
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '176'
+  - name: colorCoded
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/outputChatBox-1.lua
     description: Example 1:This example displays a chat message to all users.
     side: server
-  notes:
-  - type: info
-    content: Avoid outputting text to the chatbox that isn't actually chat, as this
-      can be annoying for players. Output information and status messages to the HUD.
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the message was displayed successfully. Returns false
+      if invalid arguments are specified.
+  oop: *id001
+  notes: *id002
   requires_review: true

@@ -1,13 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/HttpSetResponseCode
-server:
+shared:
   name: httpSetResponseCode
   description: This function sets the HTTP status code that will be sent for the current
     HTML page.
-  parameters: []
+  parameters:
+  - name: code
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/httpSetResponseCode-1.lua
     description: This example displays a 'Page not found' error message and the response
       code 404. The location of thehttpSetResponseCodecall is unimportant - it can
       be placed anywhere in the document.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the code was set successfully, false otherwise.
   requires_review: true

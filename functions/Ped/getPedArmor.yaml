@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedArmor
-server:
+shared:
   name: getPedArmor
   description: This function returns the current armor of the specified [ped](/wiki/Ped
     "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose armor you want to check
   examples:
   - path: examples/getPedArmor-1.lua
     description: This example defines a "showarmor" console command that shows the
       player that executes it how much armor he has.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: A float with the armor, false if an invalid ped was given.
+  oop:
+    element: ped
+    method: getArmor
+    variable: armor
+    static: false
   pair: setPedArmor
   requires_review: true

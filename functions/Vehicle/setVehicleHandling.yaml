@@ -1,8 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleHandling
-server:
+shared:
   name: setVehicleHandling
   description: This function is used to change the handling data of a vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: element
+    description: The vehicle you wish to set the handling of.
+  - name: property
+    type: string
+    description: The property you wish to set the handling of the vehicle to.
+  - name: value
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setVehicleHandling-1.lua
     description: ''
@@ -13,6 +22,12 @@ server:
   - path: examples/setVehicleHandling-3.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: 'Returns true if the handling was set successfully, false otherwise.
+      See below a list of valid properties and their required values:'
   notes:
   - type: info
     content: For functionality reasons, suspension modification is disabled on monster

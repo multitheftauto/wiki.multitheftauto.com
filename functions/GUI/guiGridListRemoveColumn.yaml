@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListRemoveColumn
-client:
+shared:
   name: guiGridListRemoveColumn
   description: This allows you to delete columns that exist in grid lists.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: The grid list you want to remove a column from
+  - name: columnIndex
+    type: int
+    description: Column ID
   examples:
   - path: examples/guiGridListRemoveColumn-1.lua
     description: This example creates a grid list and adds 4 columns to it when the
       script starts. After 3 seconds, it randomly deletes a column and outputs to
       the chat box which column was deleted.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the grid list column was successfully removed, false
+      otherwise.
+  oop:
+    element: guigridlist
+    method: removeColumn
+    static: false
   requires_review: true

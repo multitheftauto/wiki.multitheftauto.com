@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVoiceEnabled
-server:
+shared:
   name: isVoiceEnabled
   description: 'Added to client side.
 
@@ -10,4 +10,13 @@ server:
   - path: examples/isVoiceEnabled-1.lua
     description: This example shows how to forbid use voice for muted (in chat) players
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the voice is enabled on the server, false otherwise.
+  oop:
+    element: Player
+    method: )
+    static: true
   requires_review: true

@@ -1,11 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextDisplayAddObserver
-server:
+shared:
   name: textDisplayAddObserver
   description: This function adds a [player](/wiki/Player "Player") as an observer
     of a [textdisplay](/wiki/Textdisplay "Textdisplay"). This allows the [player](/wiki/Player
     "Player") to see any [textitems](/wiki/Textitem "Textitem") that the [textdisplay](/wiki/Textdisplay
     "Textdisplay") contains.
-  parameters: []
+  parameters:
+  - name: display
+    type: textdisplay
+    description: The textdisplay to add the player to as an observer.
+  - name: playerToAdd
+    type: player
+    description: The player that should observe the textdisplay .
   examples:
   - path: examples/textDisplayAddObserver-1.lua
     description: ''

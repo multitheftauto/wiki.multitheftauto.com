@@ -1,9 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateObject
-server:
+shared:
   name: createObject
   description: Creates an [object](/wiki/Object "Object") [element](/wiki/Element
     "Element") at a given position and rotation.
-  parameters: []
+  parameters:
+  - name: modelId
+    type: int
+    description: A whole integer specifying the GTA:SA object model ID. See Object
+      IDs for a list of model IDs.
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: rx
+    type: float
+    description: A floating point number representing the rotation about the X axis
+      in degrees.
+  - name: ry
+    type: float
+    description: A floating point number representing the rotation about the Y axis
+      in degrees.
+  - name: rz
+    type: float
+    description: A floating point number representing the rotation about the Z axis
+      in degrees.
+  - name: isLowLOD
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/createObject-1.lua
     description: This example shows you how to automatically create an object or building
@@ -16,11 +45,17 @@ server:
     description: 'This example creates an object near the player who write /createObject
       in the chat:'
     side: server
+  returns:
+    values:
+    - type: object
+      name: value
+  oop:
+    element: object
+    constructorclass: Object
   notes:
   - type: info
     content: Dynamic objects do not automatically have physics applied to them. Use
       setElementVelocity (object, 0, 0, 0) to fix this.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -28,3 +63,4 @@ server:
       - Missing section: Important info aboutObjects
 
       '
+  requires_review: true

@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedAnalogControlState
-client:
+shared:
   name: setPedAnalogControlState
   description: Sets an analog state of a specified [ped](/wiki/Ped "Ped")'s control,
     as if they pressed or released it.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped you wish to set the control state of.
+  - name: control
+    type: string
+    description: The control that you want to set the state of. See control names
+      for a list of possible controls.
+  - name: state
+    type: float
+    description: A float between 0 and 1 indicating the amount the control is pressed.
   examples:
   - path: examples/setPedAnalogControlState-1.lua
     description: This example uses setPedAnalogControlState to very slowly accelerate
       a ped-controlled NRG-500.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the control state was successfully set, false otherwise.
   requires_review: true

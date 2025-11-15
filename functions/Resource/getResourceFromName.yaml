@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceFromName
-server:
+shared:
   name: getResourceFromName
   description: This function is used to retrieve a resource from its name. A resource's
     name is the same as its folder or file archive name on the server (without the
     extension).
-  parameters: []
+  parameters:
+  - name: resourceName
+    type: string
+    description: the name of the resource you wish to get.
   examples:
   - path: examples/getResourceFromName-1.lua
     description: This example prints out a message to the chatbox when a resource
       namedplayerblipsis started.
     side: server
+  returns:
+    values:
+    - type: resource
+      name: value
+    description: Returns the resource with the specified name, or false if no resource
+      of that name exists. Note that clientside this will also return false for resources
+      that are in the loaded state, since the client is unaware of resources that
+      have not been started.
+  oop:
+    element: Resource
+    note: This function is a static function underneath the Resource class. OOP function
+      available client side
+    method: )
+    static: true
   requires_review: true

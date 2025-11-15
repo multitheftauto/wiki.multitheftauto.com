@@ -1,13 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetObjectGroupPhysicalProperty
-client:
+shared:
   name: engineGetObjectGroupPhysicalProperty
   description: This function gets physical property of given properties group.
-  parameters: []
+  parameters:
+  - name: groupID
+    type: int
+    description: the id of physical properties group which you wish to get a property
+      from.
+  - name: property
+    type: objectgroup-modifiable
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/engineGetObjectGroupPhysicalProperty-1.lua
     description: ''
     side: client
-  requires_review: true
+  returns:
+    values:
+    - type: var
+      name: value
+    description: Returns the value contained in given property if everything went
+      well, error is raised otherwise.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -27,3 +39,4 @@ client:
       - Missing section: Fx Effect
 
       '
+  requires_review: true

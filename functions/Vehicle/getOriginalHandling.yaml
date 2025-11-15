@@ -1,14 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetOriginalHandling
-server:
+shared:
   name: getOriginalHandling
   description: This function returns a table of the original vehicle handling. Use
     [getVehicleHandling](/wiki/GetVehicleHandling "GetVehicleHandling") if you wish
     to get the current handling of a vehicle, or [getModelHandling](/wiki/GetModelHandling
     "GetModelHandling") for a specific vehicle model.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: The vehicle ID you wish to get the original handling from.
   examples:
   - path: examples/getOriginalHandling-1.lua
     description: This example creates a new function called getVehicleOriginalProperty,
       which simulates the previous syntax of this function.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table containing all the handling data, false otherwise.
+      Here a list of valid table properties and what they return:'
   requires_review: true

@@ -1,10 +1,68 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsLineOfSightClear
-client:
+shared:
   name: isLineOfSightClear
   description: This function checks if there are obstacles between two points of the
     game world, optionally ignoring certain kinds of elements. Use [processLineOfSight](/wiki/ProcessLineOfSight
     "ProcessLineOfSight") if you want more information about what the ray hits.
-  parameters: []
+  parameters:
+  - name: startX
+    type: float
+    description: The first point's world X coordinate.
+  - name: startY
+    type: float
+    description: The first point's world Y coordinate.
+  - name: startZ
+    type: float
+    description: The first point's world Z coordinate.
+  - name: endX
+    type: float
+    description: The second point's world X coordinate.
+  - name: endY
+    type: float
+    description: The second point's world Y coordinate.
+  - name: endZ
+    type: float
+    description: The second point's world Z coordinate.
+  - name: checkBuildings
+    type: bool
+    description: Allow the line of sight to be blocked by GTA's internally placed
+      buildings, i.e. the world map.
+    default: 'true'
+  - name: checkVehicles
+    type: bool
+    description: Allow the line of sight to be blocked by vehicles .
+    default: 'true'
+  - name: checkPeds
+    type: bool
+    description: Allow the line of sight to be blocked by peds, i.e. players .
+    default: 'true'
+  - name: checkObjects
+    type: bool
+    description: Allow the line of sight to be blocked by objects .
+    default: 'true'
+  - name: checkDummies
+    type: bool
+    description: Allow the line of sight to be blocked by GTA's internal dummies.  These
+      are not used in the current MTA version so this argument can be set to false
+      .
+    default: 'true'
+  - name: seeThroughStuff
+    type: bool
+    description: Allow the line of sight to pass through collision materials that
+      have this flag enabled (By default material IDs 52, 55 and 66 which are some
+      fences). This flag originally allows some objects to be walked on but you can
+      shoot throug them.
+    default: 'false'
+  - name: ignoreSomeObjectsForCamera
+    type: bool
+    description: Allow the line of sight to pass through objects that have (K) property
+      enabled in "object.dat" data file. (i.e. Most dynamic objects like boxes or
+      barrels)
+    default: 'false'
+  - name: ignoredElement
+    type: element
+    description: Allow the line of sight to pass through a certain specified element.
+    default: nil
   examples:
   - path: examples/isLineOfSightClear-1.lua
     description: "isLineOfSightClear is the economical way to cast a ray in the world.\
@@ -12,6 +70,12 @@ client:
       \ such as jumping obstacles. A 3D line is drawn connecting the two points in\
       \ the ray."
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the line between the specified points is clear, false
+      if there's an obstacle or if invalid parameters are passed.
   notes:
   - type: info
     content: 'This function does currently NOT support collisions with the "shootthrough"

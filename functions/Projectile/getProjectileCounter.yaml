@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileCounter
-client:
+shared:
   name: getProjectileCounter
   description: Get the time left before a projectile detonates.
-  parameters: []
+  parameters:
+  - name: projectile
+    type: projectile
+    description: the projectile to get the timer of.
   examples:
   - path: examples/getProjectileCounter-1.lua
     description: With this example you can find out how long does it take for a projectile
       to explode/end
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: 'Returns the the time in milliseconds to detonation which depending
+      on the projectile type will do different things:'
+  oop:
+    element: projectile
+    method: getCounter
+    variable: counter
+    static: false
   pair: setProjectileCounter
   requires_review: true

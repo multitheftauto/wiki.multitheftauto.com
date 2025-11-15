@@ -1,12 +1,58 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWorldSpecialPropertyEnabled
-server:
+shared:
   name: setWorldSpecialPropertyEnabled
   description: Enables or disables a special world property.
-  parameters: []
+  parameters:
+  - name: propname
+    type: string
+    description: 'the name of the property to set. Possible values are: hovercars
+      - equivalent of the JBGVNB cheat, and allows cars to drive on water. (default:
+      false) aircars - equivalent of the RIPAZHA cheat, and allows cars to fly. (default:
+      false) extrabunny - equivalent of the CJPHONEHOME or JHJOECW cheat, and allows
+      you to bunny hop on bicycles much higher. (default: false) extrajump - equivalent
+      of the KANGAROO cheat, and allows you to jump on foot much higher. (default:
+      false) randomfoliage - toggle randomly generated foliage on the GTA:SA map (default:
+      true) snipermoon - toggle the GTA:SA easter egg, which increases the size of
+      the moon every time you shoot it with a sniper rifle (default: false) extraairresistance
+      - toggle the vehicle speed limit on cross-country roads (default: true) underworldwarp
+      - toggle warp of peds and vehicles when fall under map (default: true) vehiclesunglare
+      - toggle the vehicle sun glare effect (default: false) coronaztest - disable
+      big sun lensflare effect (default: true) ADDED/UPDATED IN VERSION 1.6.0 r21919
+      : watercreatures - toggle randomly generated underwater creatures (default:
+      true) ADDED/UPDATED IN VERSION 1.6.0 r22195 : burnflippedcars - toggle the vehicle
+      to burn when upside down (default: true) ADDED/UPDATED IN VERSION 1.6.0 r22199
+      : fireballdestruct - toggle the aircraft model destruction on explosion ( preview
+      ) (default: true) ADDED/UPDATED IN VERSION 1.6.0 r22430 : roadsignstext - toggle
+      the drawing of text on road signs. (default: true) ADDED/UPDATED IN VERSION
+      1.6.0 r22485 : extendedwatercannons - Increases the default limit of water cannons
+      used at the same time from 3 to 30. (default: true) ADDED/UPDATED IN VERSION
+      1.6.0 r22596 : tunnelweatherblend - toggle the weather blending effect when
+      the player is in the tunnel. (default: true) ADDED/UPDATED IN VERSION 1.6.0
+      r22815 : ignorefirestate - Allows aiming when the player is on fire and entering
+      burning vehicles. (default: false) ADDED/UPDATED IN VERSION 1.6.0 r22909 : flyingcomponents
+      - This property determines whether the detached components such as doors, bumpers,
+      etc., should respawn after a vehicle is recreated (change model or variant)
+      or streamed in. (default: true) ADDED/UPDATED IN VERSION 1.6.0 r23223 : vehicleburnexplosions
+      - This property toggles creation of additional explosions ( type 2 - rocket
+      ) when plane or helicopter is burning. (default: true) ADDED/UPDATED IN VERSION
+      1.6.0 r23237 : vehicle_engine_autostart - This property toggles automatic vehicle
+      engine state behavior. (default: true) If you set it to false then vehicle engine
+      will not start on driver enter and will not stop on driver exit. To control
+      the engine you need to use setVehicleEngineState . Helicopter rotors will spin
+      only if the engine is on (with or without driver inside). This flag also affects
+      bikes'
+  - name: enable
+    type: bool
+    description: whether or not to enable the property.
   examples:
   - path: examples/setWorldSpecialPropertyEnabled-1.lua
     description: This code allows you to enable/disable certain property usingtrueorfalse.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   pair: isWorldSpecialPropertyEnabled
   notes:
   - type: info

@@ -1,15 +1,42 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/OutputDebugString
-server:
+shared:
   name: outputDebugString
   description: This function outputs scripting debug messages, which can be read by
     enabling the debug textbox. The debug display level can then be set so that info
     or warning messages get filtered out.
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: the text to be output to the debug box.
+  - name: level
+    type: int
+    description: 'the debug message level. Possible values are: 0: Debug message 1:
+      Error message 2: Warning message 3: Information message (default) 4: Custom
+      message (omits file path and line number)'
+    default: '3'
+  - name: red
+    type: int
+    description: The amount of red in the color of the text. Default value is 255.
+    default: '255'
+  - name: green
+    type: int
+    description: The amount of green in the color of the text. Default value is 255.
+    default: '255'
+  - name: blue
+    type: int
+    description: The amount of blue in the color of the text. Default value is 255.
+    default: '255'
   examples:
   - path: examples/outputDebugString-1.lua
     description: 'This script notifies when its resource has been loaded using a debug
       message:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the debug message was successfully output, false
+      if invalid arguments are specified.
   notes:
   - type: info
     content: Color values are only applied when debug level is 0 or 4.

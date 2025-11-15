@@ -1,10 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedVoice
-client:
+shared:
   name: getPedVoice
   description: Gets the current voice of a ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped to get the voice of.
   examples:
   - path: examples/getPedVoice-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: string
+      name: value1
+    - type: string
+      name: value2
+    description: If successul, returns the current voice type name and the voice name
+      of the ped (see ped voices for possible names). Returns false in case of failure.
   requires_review: true

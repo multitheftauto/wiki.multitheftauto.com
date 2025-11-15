@@ -1,11 +1,48 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleColor
-server:
+shared:
   name: getVehicleColor
   description: This function returns the color of the specified vehicle. A vehicle
     can have up to four colors.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you wish to get the color of.
+  - name: bRGB
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getVehicleColor-1.lua
     description: This will output the 4 colors of any car that the player enters.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    - type: int
+      name: value5
+    - type: int
+      name: value6
+    - type: int
+      name: value7
+    - type: int
+      name: value8
+    - type: int
+      name: value9
+    - type: int
+      name: value10
+    - type: int
+      name: value11
+    - type: int
+      name: value12
+    description: 'Valid color ids if bRGB is set to false:'
+  oop:
+    element: vehicle
+    method: getColor
+    static: false
   requires_review: true

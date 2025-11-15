@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetSkyGradient
-server:
+shared:
   name: getSkyGradient
   description: This function will return the current sky color.
   parameters: []
@@ -7,4 +7,20 @@ server:
   - path: examples/getSkyGradient-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    - type: int
+      name: value5
+    - type: int
+      name: value6
+    description: Returns 6 ints , of which the first 3 represent the sky's "top" color,
+      (in RGB) and the last 3 represent the bottom colors.
   requires_review: true

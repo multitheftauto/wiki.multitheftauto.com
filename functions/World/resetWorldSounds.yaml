@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetWorldSounds
-client:
+shared:
   name: resetWorldSounds
   description: This function is used to reset the world sounds to the default setting.
   parameters: []
@@ -8,4 +8,9 @@ client:
     description: By this command player can choose to reset world sounds to the default
       setting if it has been changed before usingsetWorldSoundEnabled
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the world sounds were reset, false otherwise.
   requires_review: true

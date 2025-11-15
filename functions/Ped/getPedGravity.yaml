@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedGravity
-server:
+shared:
   name: getPedGravity
   description: This function returns the current gravity for the specified [ped](/wiki/Ped
     "Ped"). The default gravity is 0\.008\.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose gravity you want to check.
   examples:
   - path: examples/getPedGravity-1.lua
     description: This example outputs the gravity of the player who entered the 'showGravity'
       command.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float indicating the ped's gravity, or false if the ped
+      is invalid. Default value is 0.008.
+  oop:
+    element: ped
+    method: getGravity
+    variable: gravity
+    static: false
   pair: setPedGravity
   requires_review: true

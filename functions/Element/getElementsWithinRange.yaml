@@ -1,13 +1,48 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementsWithinRange
-server:
+shared:
   name: getElementsWithinRange
   description: This function is used to retrieve a list of all elements of specified
     type within a range of 3D coordinates.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: the x coordinate at which to retrieve elements.
+  - name: "y"
+    type: float
+    description: the y coordinate at which to retrieve elements.
+  - name: z
+    type: float
+    description: the z coordinate at which to retrieve elements.
+  - name: range
+    type: float
+    description: the range at the coordinates in which to retrieve elements.
+  - name: elemType
+    type: string
+    description: 'The type of element you want a list of. This can be any element
+      type, such as: "player": A player connected to the server. "ped": A ped. "vehicle":
+      A vehicle. "object": An object. "pickup": A pickup. "marker": A marker.'
+    default: '""'
+  - name: interior
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: dimension
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getElementsWithinRange-1.lua
     description: This example allows admins to destroy all vehicles in close proximity.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table containing all the elements of the specified type
+      within range. Returns an empty table if there are no elements within range.
+      Returns false if the arguments are invalid.
+  oop:
+    element: Element
+    method: )
+    static: true
   notes:
   - type: info
     content: This function checks if elements are in a box, not in a sphere. This

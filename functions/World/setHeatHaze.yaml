@@ -1,8 +1,47 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetHeatHaze
-server:
+shared:
   name: setHeatHaze
   description: This function changes the heat haze effect.
-  parameters: []
+  parameters:
+  - name: intensity
+    type: int
+    description: The intensity of the effect, from 0 to 255.
+  - name: randomShift
+    type: int
+    description: Sets a random jitter, from 0 to 255.
+    default: '0'
+  - name: speedMin
+    type: int
+    description: The slowest effect speed, from 0 to 1000.
+    default: '12'
+  - name: speedMax
+    type: int
+    description: The fastest effect speed, from 0 to 1000.
+    default: '18'
+  - name: scanSizeX
+    type: int
+    description: The X size in pixels of the chunk grabbed from the screen, from -1000
+      to 1000.
+    default: '75'
+  - name: scanSizeY
+    type: int
+    description: The Y size in pixels of the chunk grabbed from the screen, from -1000
+      to 1000.
+    default: '80'
+  - name: renderSizeX
+    type: int
+    description: The X size in pixels the chunk will be when rendered back to the
+      screen, from 0 to 1000.
+    default: '80'
+  - name: renderSizeY
+    type: int
+    description: The Y size in pixels the chunk will be when rendered back to the
+      screen, from 0 to 1000.
+    default: '85'
+  - name: bShowInside
+    type: bool
+    description: Set to true to enable the heat haze effect when inside a building.
+    default: 'false'
   examples:
   - path: examples/setHeatHaze-1.lua
     description: 'Example 1:This example turns the heat haze effect off:'
@@ -10,4 +49,10 @@ server:
   - path: examples/setHeatHaze-2.lua
     description: 'Example 2:This example will have an interesting effect:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the heat haze effect was set correctly, false if
+      invalid values were passed.
   requires_review: true

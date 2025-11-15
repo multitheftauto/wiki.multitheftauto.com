@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetLocalization
-client:
+shared:
   name: getLocalization
   description: This function gets the player's localization setting as set in the
     MTA client.
@@ -17,4 +17,9 @@ client:
     description: This function is useful for fixing any scripts that were made before
       MTA 1.6 as some of the language codes were changed.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with the following entries:'
   requires_review: true

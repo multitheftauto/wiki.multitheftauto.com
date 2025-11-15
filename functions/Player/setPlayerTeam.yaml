@@ -1,14 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerTeam
-server:
+shared:
   name: setPlayerTeam
   description: This function adds a [player](/wiki/Player "Player") to an existing
     [team](/wiki/Team "Team"). The player will automatically be removed from his current
     team if he's on one.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish to add to a team.
+  - name: theTeam
+    type: team
+    description: The team you want to add the player to, or nil if you wish to unassign
+      a player from his team.
   examples:
   - path: examples/setPlayerTeam-1.lua
     description: This example adds a command to create a new team for a player, then
       add him to it. It also adds a command to remove him from his team.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player was successfully added to the specified
+      team or removed from his previous one, false otherwise.
+  oop:
+    element: player
+    method: setTeam
+    variable: team
+    static: false
   pair: getPlayerTeam
   requires_review: true

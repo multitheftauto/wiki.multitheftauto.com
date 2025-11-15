@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditSetCaretIndex
-client:
+shared:
   name: guiEditSetCaretIndex
   description: This function sets the current position of the caret (the text cursor)
     within the edit box.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The edit box to be changed.
+  - name: index
+    type: int
+    description: An integer referring to the desired position within the box.
   examples:
   - path: examples/guiEditSetCaretIndex-1.lua
     description: This example makes the text cursor jump to the end of an edit box
       if the user is holding the Left Control button.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the index was successfully set, false otherwise.
+  oop:
+    element: guiedit
+    method: setCaretIndex
+    variable: caretIndex
+    static: false
   pair: guiEditGetCaretIndex
   requires_review: true

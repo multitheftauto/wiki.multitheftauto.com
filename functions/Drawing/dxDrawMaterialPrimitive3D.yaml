@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialPrimitive3D
-client:
+shared:
   name: dxDrawMaterialPrimitive3D
   description: 'This function draws a 3D primitive shape with material applied to
     it in the 3D world \- rendered for one frame. This should be used in conjunction
@@ -10,13 +10,42 @@ client:
     to prevent possible blurring.
 
     Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...'
-  parameters: []
+  parameters:
+  - name: pType
+    type: primitiveType
+    description: Type of primitive to be drawn.
+  - name: material
+    type: mixed
+    description: MISSING_PARAM_DESC
+  - name: stage
+    type: string
+    description: 'A string representing a stage at which the actual drawcall should
+      happen: prefx - Primitives are rendered before the color correction. This stage
+      makes primitives look natural to SA but colors could be distorted. postfx -
+      Primitives are rendered after the color correction. This stage conveys a color
+      from the function to a screen without distortions. postgui - Primitives are
+      rendered after GUI. The primitives should be drawn on top of or behind any ingame
+      GUI (rendered by CEGUI).'
+  - name: vertex1
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: vertex2
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: '...'
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxDrawMaterialPrimitive3D-1.lua
     description: This example draws the picture with the file name 'test.png' on the
       ground of Grove Street and adds a /flip command to flip it. The 'test.png' file
       needs to be included in themeta.xmlin order for this example to work.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
   notes:
   - type: info
     content: When a 3D draw call is issued by any such material MTA function then
@@ -38,7 +67,6 @@ client:
       set of vertices for the purpose shown above. By using this function in such
       a way it can perform all the operations in the same quality such as the simpler
       dxDrawMaterialPrimitive function.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -48,3 +76,4 @@ client:
       - Missing section: Vertices format
 
       '
+  requires_review: true

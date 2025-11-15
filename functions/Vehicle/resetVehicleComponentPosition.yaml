@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetVehicleComponentPosition
-client:
+shared:
   name: resetVehicleComponentPosition
   description: This function reset to default component position for [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to reset component position.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
   examples:
   - path: examples/resetVehicleComponentPosition-1.lua
     description: Example 1:This example would change the position of the component
       when the player enters a vehicle and resets it when he exit.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the position of the component was reset, false otherwise.
+  oop:
+    element: vehicle
+    method: resetComponentPosition
+    static: false
   requires_review: true

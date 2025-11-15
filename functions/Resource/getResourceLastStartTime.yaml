@@ -1,10 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceLastStartTime
-server:
+shared:
   name: getResourceLastStartTime
   description: Used to check the last starting time and date of a resource
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: The resource of which you'd like to check the last starting time.
   examples:
   - path: examples/getResourceLastStartTime-1.lua
     description: This function outputs to chatbox when the current resource was started.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: If successful, returns the UNIX timestamp when the resource was last
+      started, or the string "never" if the resource has not been started yet, otherwise
+      false. Use in conjunction with getRealTime in order to retrieve detailed information.
+  oop:
+    element: resource
+    method: getLastStartTime
+    variable: lastStartTime
+    static: false
   requires_review: true

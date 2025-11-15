@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetRowCount
-client:
+shared:
   name: guiGridListGetRowCount
   description: This function returns the number of rows in a grid list.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: The grid list to get the number of rows from.
   examples:
   - path: examples/guiGridListGetRowCount-1.lua
     description: This example creates a gui grid list, fills it with the names of
       the connected players and prints the number of rows (players) in the chatbox.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the number of rows if the function is successful, false otherwise.
+  oop:
+    element: guigridlist
+    method: getRowCount
+    variable: rowCount
+    static: false
   requires_review: true

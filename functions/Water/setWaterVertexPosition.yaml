@@ -1,13 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWaterVertexPosition
-server:
+shared:
   name: setWaterVertexPosition
   description: Sets the world position of a corner point of a water area.
-  parameters: []
+  parameters:
+  - name: theWater
+    type: water
+    description: the water element of which to change a vertex.
+  - name: vertexIndex
+    type: int
+    description: the index of the vertex to move. Values range from 1 to 4 for water
+      quads, and 1 to 3 for triangles.
+  - name: x
+    type: int
+    description: the X coordinate to set for the vertex.
+  - name: "y"
+    type: int
+    description: the Y coordinate to set for the vertex.
+  - name: z
+    type: float
+    description: the Z coordinate to set for the vertex.
   examples:
   - path: examples/setWaterVertexPosition-1.lua
     description: This example creates a water whose vertices 2 and 4 go up and down
       when someone uses the '/water' command.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: water
+    method: setVertexPosition
+    static: false
   pair: getWaterVertexPosition
   notes:
   - type: info

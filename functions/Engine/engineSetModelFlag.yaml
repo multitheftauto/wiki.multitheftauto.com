@@ -1,8 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelFlag
-client:
+shared:
   name: engineSetModelFlag
   description: This function changes specific [model flag](/wiki/Model_flags "Model
     flags").
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: ID of the model you want to set flag.
+  - name: flagName
+    type: string
+    description: flag name .
+  - name: state
+    type: bool
+    description: flag state.
   examples: []
+  returns:
+    values:
+    - type: boolean
+      name: value
+    description: Returns boolean with flag state, throws an error otherwise.
   requires_review: true

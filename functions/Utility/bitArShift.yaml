@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/BitArShift
-server:
+shared:
   name: bitArShift
   description: 'This functions performs an arithmetic shift on the integer **value**
     by integer **n** positions. In an *arithmetic shift*, zeros are shifted in to
@@ -8,10 +8,21 @@ server:
 
     See [Bitwise operation](https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift)
     for more details.'
-  parameters: []
+  parameters:
+  - name: value
+    type: int
+    description: The value you want to perform the arithmetic shift on.
+  - name: n
+    type: int
+    description: The amount of positions to shift the value by.
   examples:
   - path: examples/bitArShift-1.lua
     description: This example adds the clientside command/arshift [value] [positions
       = 1], which will print the result from the functionbitArShift.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the arithmetic shifted value as integer .
   requires_review: true

@@ -1,9 +1,13 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetFarClipDistance
-server:
+shared:
   name: setFarClipDistance
   description: This function is used to set the distance of render. Areas beyond the
     specified distance will not be rendered.
-  parameters: []
+  parameters:
+  - name: distance
+    type: float
+    description: A float specifying the distance of render. Setting this less than
+      5 will cause problems to the client.
   examples:
   - path: examples/setFarClipDistance-1.lua
     description: This example adjusts the visibility range of the game world.
@@ -11,4 +15,10 @@ server:
   - path: examples/setFarClipDistance-2.lua
     description: This example adjusts the visibility range of the game world.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the distance was set correctly, false if invalid
+      arguments were passed.
   requires_review: true

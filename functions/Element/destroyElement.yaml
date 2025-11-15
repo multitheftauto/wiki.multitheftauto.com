@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DestroyElement
-server:
+shared:
   name: destroyElement
   description: This function destroys an [element](/wiki/Element "Element") and all
     elements within it in the hierarchy (its children, the children of those children
@@ -9,7 +9,10 @@ server:
     an argument will wipe all elements from the server, except for the players and
     clients, which will become direct descendants of the root node, and other elements
     that cannot be destroyed, such as resource root elements.
-  parameters: []
+  parameters:
+  - name: elementToDestroy
+    type: element
+    description: The element you wish to destroy.
   examples:
   - path: examples/destroyElement-1.lua
     description: Example 1:This example would destroy every element in the map, with
@@ -27,6 +30,18 @@ server:
     description: 'Example 4:This example destroys all vehicles, regardless of ID,
       name, etc:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the element was destroyed successfully, false if
+      either the element passed to it was invalid or it could not be destroyed for
+      some other reason (for example, clientside destroyElement can't destroy serverside
+      elements).
+  oop:
+    element: element
+    method: destroy
+    static: false
   notes:
   - type: info
     content: There is bug when you try to destroy webbrowser that returned from guiGetBrowser

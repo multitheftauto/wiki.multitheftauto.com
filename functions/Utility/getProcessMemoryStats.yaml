@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetProcessMemoryStats
-server:
+shared:
   name: getProcessMemoryStats
   description: This function returns a breakdown of the process memory usage. The
     reported numbers are always byte units and these numbers can be **inaccurate**.
@@ -8,4 +8,9 @@ server:
   - path: examples/getProcessMemoryStats-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: table|nil
+      name: value
+    description: Returns a table if successful, otherwise returns nil
   requires_review: true

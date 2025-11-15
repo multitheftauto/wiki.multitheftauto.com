@@ -1,16 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddElementDataSubscriber
-server:
+shared:
   name: addElementDataSubscriber
   description: 'This function subscribes a [player](/wiki/Player "Player") to specific
     [element data](/wiki/Element_data "Element data").
 
     This function is used together with [setElementData](/wiki/SetElementData "SetElementData")
     in *"subscribe"* mode.'
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you wish to subscribe the player to.
+  - name: key
+    type: string
+    description: The key you wish to subscribe the player to.
+  - name: thePlayer
+    type: player
+    description: The player you wish to subscribe.
   examples:
   - path: examples/addElementDataSubscriber-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player was subscribed, false otherwise.
+  oop:
+    element: element
+    method: addDataSubscriber
+    static: false
   pair: removeElementDataSubscriber
   notes:
   - type: info

@@ -1,10 +1,16 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/LoadMapData
-server:
+shared:
   name: loadMapData
   description: This function is intended to load data from a loaded XML file into
     the element tree. This could be used for loading an external map, or part of another
     map.
-  parameters: []
+  parameters:
+  - name: node
+    type: xmlnode
+    description: The node that you wish to load into the element tree .
+  - name: parent
+    type: element
+    description: The node you wish to be the parent of the new map data.
   examples:
   - path: examples/loadMapData-1.lua
     description: Example 1:This example is a function that you could use to load an
@@ -14,4 +20,11 @@ server:
     description: Example 2:This example will destroy the loaded map data after 30
       seconds.
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns an element object that corresponds to the root of the new
+      data added, i.e. an element that represents the node xmlnode passed to the function.
+      Returns false if the arguments are invalid.
   requires_review: true

@@ -1,14 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Hash
-server:
+shared:
   name: hash
   description: This function returns a hash of the specified string in the specified
     algorithm.
-  parameters: []
+  parameters:
+  - name: algorithm
+    type: string
+    description: 'A string which must be one of these: "md5", "sha1", "sha224", "sha256",
+      "sha384", "sha512", "hmac"'
+  - name: dataToHash
+    type: string
+    description: A string of the data to hash.
+  - name: options
+    type: table
+    description: A table with options and other necessary data for the algorithm,
+      as detailed below.
   examples:
   - path: examples/hash-1.lua
     description: ''
     side: server
-  requires_review: true
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the hash of the data, false if an invalid argument was used.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -16,3 +31,4 @@ server:
       - Missing section: Options for each algorithm
 
       '
+  requires_review: true

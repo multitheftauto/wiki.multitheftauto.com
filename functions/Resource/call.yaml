@@ -1,9 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Call
-server:
+shared:
   name: call
   description: This function is used to call a function from another resource (which
     must be running).
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: This is a resource pointer which refers to the resource you are calling
+      a function from.
+  - name: theFunction
+    type: string
+    description: This is a string with the name of the function which you want to
+      call.
+  - name: arguments...
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/call-1.lua
     description: This extract shows adding of a "kills" column to the scoreboard resource.
@@ -15,6 +26,17 @@ server:
       This then sets thegameShowKillsvariable to true(or false), telling the rest
       of the script to start outputting kills.
     side: server
+  returns:
+    values:
+    - type: var...
+      name: value
+    description: Returns anything that the designated function has returned, if the
+      function has no return, nil is returned. If the function does not exist, is
+      not exported, or the call was not successful it will return false.
+  oop:
+    element: resource
+    method: call
+    static: false
   notes:
   - type: important
     content: Calls (exports) may incur a performance overhead - they are not equivalent

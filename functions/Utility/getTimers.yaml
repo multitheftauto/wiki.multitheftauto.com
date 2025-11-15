@@ -1,12 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTimers
-server:
+shared:
   name: getTimers
   description: This function returns a table of all active timers that the resource
     that calls it has created. Alternatively, only the timers with a remaining time
     less than or equal to a certain value can be retrieved.
-  parameters: []
+  parameters:
+  - name: theTime
+    type: int
+    description: The maximum time left (in milliseconds) on the timers you wish to
+      retrieve.
+    default: nil
   examples:
   - path: examples/getTimers-1.lua
     description: This example kills timers with a remaining time of less than 1 minute.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of all the active timers.
   requires_review: true

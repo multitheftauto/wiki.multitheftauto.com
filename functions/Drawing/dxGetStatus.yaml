@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxGetStatus
-client:
+shared:
   name: dxGetStatus
   description: This function gets information about various internal datum.
   parameters: []
@@ -7,4 +7,9 @@ client:
   - path: examples/dxGetStatus-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with the following entries:'
   requires_review: true

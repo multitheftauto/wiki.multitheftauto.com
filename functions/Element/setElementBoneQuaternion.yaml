@@ -1,17 +1,42 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementBoneQuaternion
-client:
+shared:
   name: setElementBoneQuaternion
   description: "This function determines how a particular bone rotates in relation\
     \ to the element.  \n\nThe use of [quaternions](https://en.wikipedia.org/wiki/Quaternion)\
     \ are more effective and do not generate issues like gimbal lock that might arise\
     \ with [Euler angles](https://en.wikipedia.org/wiki/Euler_angles), so they are\
     \ a preferable choice for rotation."
-  parameters: []
+  parameters:
+  - name: ped
+    type: element
+    description: The element (ped or player) on which the bone's rotation will be
+      set.
+  - name: bone
+    type: int
+    description: The ID of the bone to set the quaternion of.
+  - name: x
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: w
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setElementBoneQuaternion-1.lua
     description: This example rotates the player's pelvis 180 degrees around an arbitrary
       axis.The use ofupdateElementRpHAnimis necessary here as it applies the rotation.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the set was successful, otherwise returns an error
+      message and returns false .
   notes:
   - type: info
     content: If you want to apply the rotation, updateElementRpHAnim must be called

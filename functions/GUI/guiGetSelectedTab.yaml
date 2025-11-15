@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetSelectedTab
-client:
+shared:
   name: guiGetSelectedTab
   description: This function returns the currently selected tab in the specified [tab
     panel](/wiki/Element/GUI/Tab_panel "Element/GUI/Tab panel").
-  parameters: []
+  parameters:
+  - name: tabPanel
+    type: element
+    description: The tab panel which current tab you want to retrieve.
   examples:
   - path: examples/guiGetSelectedTab-1.lua
     description: This example gets the current selected tab and sets the selected
       tab to the next available tab.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns an element of the tab if a tab was selected or nil if no
+      tab was selected. If passed arguments were invalid or something went wrong,
+      the function will return false .
+  oop:
+    element: guitabpanel
+    method: getSelectedTab
+    variable: selectedTab
+    static: false
   pair: guiSetSelectedTab
   requires_review: true

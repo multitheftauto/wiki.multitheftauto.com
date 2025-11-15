@@ -1,10 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedFootBloodEnabled
-client:
+shared:
   name: setPedFootBloodEnabled
   description: This function makes a [ped's](/wiki/Ped "Ped") footprints bloody.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: element
+    description: the ped to give bloody footprints to.
+  - name: enabled
+    type: bool
+    description: boolean specifying whether or not to have bloody feet.
   examples:
   - path: examples/setPedFootBloodEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if changing the ped's bloody feet status worked.
   requires_review: true

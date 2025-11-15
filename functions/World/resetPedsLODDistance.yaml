@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetPedsLODDistance
-client:
+shared:
   name: resetPedsLODDistance
   description: Resets the distance of peds LOD to default. Default values depends
     on client setting. If client has enabled *high detail peds* in video options,
@@ -9,4 +9,9 @@ client:
   - path: examples/resetPedsLODDistance-1.lua
     description: This adds a command "resetlod", which resets the peds LOD distance.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the peds LOD distance was reset, false otherwise.
   requires_review: true

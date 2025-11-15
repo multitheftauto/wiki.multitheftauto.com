@@ -1,11 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTimer
-server:
+shared:
   name: setTimer
   description: This function allows you to trigger a function after a number of milliseconds
     have elapsed. You can call one of your own functions or a built\-in function.
     For example, you could set a timer to spawn a player after a number of seconds
     have elapsed.
-  parameters: []
+  parameters:
+  - name: theFunction
+    type: function
+    description: The function you wish the timer to call.
+  - name: timeInterval
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: timesToExecute
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: arguments...
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setTimer-1.lua
     description: This example will output some text after a small delay.
@@ -23,6 +35,15 @@ server:
     description: This example should send a global message about the death of a player
       on a random time. I usedmath.roundin this example to give a nicer output.
     side: server
+  returns:
+    values:
+    - type: timer
+      name: value
+    description: Returns a timer pointer if the timer was set successfully, false
+      if the arguments are invalid or the timer could not be set.
+  oop:
+    element: timer
+    constructorclass: Timer
   notes:
   - type: info
     content: The hidden global variable sourceTimer contains the currently executing

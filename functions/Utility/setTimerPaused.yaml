@@ -1,10 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTimerPaused
-server:
+shared:
   name: setTimerPaused
   description: This function is used to either pause or resume a timer.
-  parameters: []
+  parameters:
+  - name: theTimer
+    type: timer
+    description: The timer you wish to pause or resume.
+  - name: paused
+    type: bool
+    description: a boolean value representing whether the timer should be paused or
+      not. To pause the timer, use true .
   examples:
   - path: examples/setTimerPaused-1.lua
     description: This example pauses all current timers from this resource.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the timer was successfully paused or resumed, false
+      if no such timer existed.
   requires_review: true

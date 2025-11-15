@@ -1,12 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementFrozen
-server:
+shared:
   name: isElementFrozen
   description: This function checks if element has been frozen.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: the element whose freeze status we want to check.
   examples:
   - path: examples/isElementFrozen-1.lua
     description: This example binds the "p" key to a function to freeze/unfreeze the
       player's current vehicle.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: element
+    method: isFrozen
+    variable: frozen
+    static: false
   pair: setElementFrozen
   requires_review: true

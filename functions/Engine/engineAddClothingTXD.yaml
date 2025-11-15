@@ -1,7 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineAddClothingTXD
-client:
+shared:
   name: engineAddClothingTXD
   description: This function adds new CJ clothing texture.
-  parameters: []
+  parameters:
+  - name: theTexture
+    type: txd
+    description: The texture that will be added.
+  - name: fileName
+    type: string
+    description: Name of the file containing the TXD extension.
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the texture was added, and false otherwise.
   requires_review: true

@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.char
-server:
+shared:
   name: utf8.char
   description: Generates a string representing the character codepoints as arguments.
-  parameters: []
+  parameters:
+  - name: codepoints...
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/utf8.char-1.lua
     description: This example separates an input string into single codepoints and
@@ -15,4 +18,9 @@ server:
     description: This example takes the first five code points from the input string
       and then joins them back together.
     side: client
+  returns:
+    values:
+    - type: string utf8.char
+      name: value
+    description: Returns a string representation of the codepoints passed.
   requires_review: true

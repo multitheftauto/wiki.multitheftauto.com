@@ -1,12 +1,48 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateScrollBar
-client:
+shared:
   name: guiCreateScrollBar
   description: This function creates a GUI scrollbar. You can use the functions [guiScrollBarSetScrollPosition](/wiki/GuiScrollBarSetScrollPosition
     "GuiScrollBarSetScrollPosition") and [guiScrollBarGetScrollPosition](/wiki/GuiScrollBarGetScrollPosition
     "GuiScrollBarGetScrollPosition") to read and modify the scrollbar's scroll.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: the 2D x offset of the GUI scrollbar from its parent.  This is affected
+      by the relative argument.
+  - name: "y"
+    type: float
+    description: the 2D y offset of the GUI scrollbar from its parent. This is affected
+      by the relative argument.
+  - name: width
+    type: float
+    description: the width of the GUI scrollbar. This is affected by the relative
+      argument.
+  - name: height
+    type: float
+    description: the height of the GUI scrollbar. This is affected by the relative
+      argument.
+  - name: horizontal
+    type: bool
+    description: whether this scrollbar is horizontal ( true ) or vertical ( false
+      ).
+  - name: relative
+    type: bool
+    description: whether sizes and positions are relative to their parent's.  If this
+      is true , then all measures must be between 0 and 1, representing sizes/positions
+      as a fraction of the parent widget's size.
+    default: 'false'
+  - name: parent
+    type: gui-element
+    description: the gui-element this scrollbar is attached to. By default, it is
+      nil, meaning the widget is attached to the background.
+    default: nil
   examples:
   - path: examples/guiCreateScrollBar-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: gui-scrollbar
+      name: value
+    description: Returns a gui-scrollbar if it was created successfully, false otherwise.
   requires_review: true

@@ -1,13 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleNitroActivated
-client:
+shared:
   name: isVehicleNitroActivated
   description: This function checks if nitro is activated on the [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: ''
   examples:
   - path: examples/isVehicleNitroActivated-1.lua
     description: This example creates an explosion if nitro is activated.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the nitro is currently activated on the vehicle,
+      false otherwise.
   notes:
   - type: warning
     content: Only works if the vehicle is streamed in.

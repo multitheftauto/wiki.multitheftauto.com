@@ -1,10 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SpawnVehicleFlyingComponent
-server:
+shared:
   name: spawnVehicleFlyingComponent
   description: This function creates a dynamic (motion\-dependent) falling vehicle
     component.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle whose component is to be created.
+  - name: nodeIndex
+    type: number
+    description: Specifies the component to be created (ranging from 1 to 24 ). Depending
+      on the vehicle, these can be different components such as wheels, fenders, bicycle
+      handlebars, helicopter propellers, train carriages, and many more. Check Nodes
+      list .
+  - name: collisionType
+    type: number
+    description: 'Specifies the type of collision for the component, by default it
+      is selected based on the nodeIndex. 0: COL_BUMPER 1: COL_WHEEL 2: COL_DOOR 3:
+      COL_BONNET 4: COL_BOOT 5: COL_PANEL'
+  - name: removalTime
+    type: number
+    description: The time in milliseconds after which the created component will be
+      removed (it must be removed as it is a temporary object). If not specified,
+      the default time depends on the number of created components.
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the component was created, false otherwise.
+  oop:
+    element: element
+    method: spawnFlyingComponent
+    static: false
   notes:
   - type: info
     content: The maximum number of components that can be created simultaneously is

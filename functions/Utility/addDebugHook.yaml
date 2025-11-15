@@ -1,9 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddDebugHook
-server:
+shared:
   name: addDebugHook
   description: This function allows tracing of MTA functions and events. It should
     only be used when debugging scripts as it may degrade script performance.
-  parameters: []
+  parameters:
+  - name: hookType
+    type: string
+    description: 'The type of hook to add. This can be: preEvent postEvent preFunction
+      postFunction preEventFunction postEventFunction'
+  - name: callbackFunction
+    type: function
+    description: The function to call Returning the string "skip" from the callback
+      function will cause the original function/event to be skipped
+  - name: nameList
+    type: table
+    description: Table of strings for restricting which functions and events the hook
+      will be triggered on addDebugHook and removeDebugHook will only be hooked if
+      they are specified in the name list
   examples:
   - path: examples/addDebugHook-1.lua
     description: 'This example will dump info about all triggered events:'
@@ -15,7 +28,11 @@ server:
     description: This example adds a hook which will only be triggered for the named
       functions
     side: server
-  requires_review: true
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the hook was successfully added, or false otherwise.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -23,3 +40,4 @@ server:
       - Missing section: Callback parameters
 
       '
+  requires_review: true

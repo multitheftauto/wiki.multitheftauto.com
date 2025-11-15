@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerAnnounceValue
-server:
+shared:
   name: getPlayerAnnounceValue
   description: This function retrieves a players ASE announce value under a certain
     key.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: element
+    description: This is the Player whos value you want to retrieve.
+  - name: key
+    type: string
+    description: The name of the key.
   examples:
   - path: examples/getPlayerAnnounceValue-1.lua
     description: This example adds a command named "getscore" which outputs a players
       "score" value to his chatbox.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: This function returns a string containing the requested value if
+      a valid key was specified or false otherwise.
+  oop:
+    element: player
+    method: getAnnounceValue
+    static: false
   pair: setPlayerAnnounceValue
   requires_review: true

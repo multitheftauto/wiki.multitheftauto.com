@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetGarageBoundingBox
-client:
+shared:
   name: getGarageBoundingBox
   description: This function outputs the bounding box of a garage.
-  parameters: []
+  parameters:
+  - name: garageID
+    type: int
+    description: The garage ID that represents the garage door that is being checked.
   examples:
   - path: examples/getGarageBoundingBox-1.lua
     description: Checks if the player is inside the bounding box of the garage and
       outputs the result to the chat
     side: client
+  returns:
+    values:
+    - type: float
+      name: value1
+    - type: float
+      name: value2
+    - type: float
+      name: value3
+    - type: float
+      name: value4
+    description: Returns four float s indicating the bounding box of the garage. Western
+      X position, Eastern X position, Southern Y position, Northern Y position,, false
+      when invalid garageID was provided.
   notes:
   - type: tip
     content: You can use the useful function CreateGarageColShape to create the garage

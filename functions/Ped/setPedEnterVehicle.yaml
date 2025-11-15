@@ -1,9 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedEnterVehicle
-client:
+shared:
   name: setPedEnterVehicle
   description: This function makes a [ped](/wiki/Ped "Ped") enter a [vehicle](/wiki/Vehicle
     "Vehicle"), similar to the enter\_exit control state.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: 'The player or ped to enter the vehicle. Note: The player must be
+      the local player. Note: The ped must be synced by the client. Use isElementSyncer
+      clientside to check if the client is syncing. Use setElementSyncer serverside
+      to change the syncer manually.'
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+    default: nil
+  - name: passenger
+    type: bool
+    description: If set to true , the ped will enter as passenger in the nearest available
+      seat, otherwise he will enter as driver.
+    default: 'false'
   examples:
   - path: examples/setPedEnterVehicle-1.lua
     description: ''
@@ -11,6 +26,11 @@ client:
   - path: examples/setPedEnterVehicle-2.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
   notes:
   - type: info
     content: This function only works on synced peds and vehicles (ie. created serverside).

@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedDoingGangDriveby
-server:
+shared:
   name: isPedDoingGangDriveby
   description: This function checks if the ped is in the driveby state.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped element whose state is to be checked.
   examples:
   - path: examples/isPedDoingGangDriveby-1.lua
     description: This example turns on driveby mode when the local player typesdrivebyin
       the console.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the driveby state is enabled, false otherwise.
+  oop:
+    element: ped
+    method: isDoingGangDriveby
+    variable: doingGangDriveby
+    static: false
   pair: setPedDoingGangDriveby
   requires_review: true

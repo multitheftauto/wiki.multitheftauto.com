@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWaterColor
-server:
+shared:
   name: getWaterColor
   description: This function returns the water color of the GTA world.
   parameters: []
@@ -10,5 +10,20 @@ server:
   - path: examples/getWaterColor-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    description: Returns 4 ints , indicating the color of the water. (RGBA)
+  oop:
+    element: water
+    method: getColor
+    static: false
   pair: setWaterColor
   requires_review: true

@@ -1,10 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/UtfCode
-server:
+shared:
   name: utfCode
   description: The function returns the UTF codes of the given string.
-  parameters: []
+  parameters:
+  - name: theString
+    type: string
+    description: The string to get the UTF code of.
   examples:
   - path: examples/utfCode-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int if the function was successful, false otherwise.
   requires_review: true

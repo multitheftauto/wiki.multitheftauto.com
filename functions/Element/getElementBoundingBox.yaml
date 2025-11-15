@@ -1,14 +1,37 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBoundingBox
-client:
+shared:
   name: getElementBoundingBox
   description: This function returns the minimum and maximum coordinates of an element's
     bounding box.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: the element whose bounding box we want to get.
   examples:
   - path: examples/getElementBoundingBox-1.lua
     description: This example outputs to chatbox the minimum and the maximum coordinates
       of an element.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value1
+    - type: float
+      name: value2
+    - type: float
+      name: value3
+    - type: float
+      name: value4
+    - type: float
+      name: value5
+    - type: float
+      name: value6
+    description: This example outputs to chatbox the minimum and the maximum coordinates
+      of an element.
+  oop:
+    element: element
+    method: getBoundingBox
+    static: false
   notes:
   - type: info
     content: The element must be streamed in for this function to work.

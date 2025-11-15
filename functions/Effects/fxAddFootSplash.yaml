@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddFootSplash
-client:
+shared:
   name: fxAddFootSplash
   description: This function creates a foot splash particle effect, normally created
     when walking into water.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: A float representing the x position of the splash
+  - name: posY
+    type: float
+    description: A float representing the y position of the splash
+  - name: posZ
+    type: float
+    description: A float representing the z position of the splash
   examples:
   - path: examples/fxAddFootSplash-1.lua
     description: This example will create a Foot Splash at the position of the bullet
       impact whenever you shoot.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileForce
-client:
+shared:
   name: getProjectileForce
   description: This function returns the force of the specified projectile.
-  parameters: []
+  parameters:
+  - name: theProjectile
+    type: projectile
+    description: The projectile element which force you want to retrieve.
   examples:
   - path: examples/getProjectileForce-1.lua
     description: Example 1:This example would outputs the force of the projectile
       on 1-100 scale. This function just works with projectiles which you throw so
       just grenades, satchel charge etc
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float if successful, false otherwise.
+  oop:
+    element: projectile
+    method: getForce
+    variable: force
+    static: false
   requires_review: true

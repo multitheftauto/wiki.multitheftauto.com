@@ -1,12 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetGravity
-server:
+shared:
   name: setGravity
   description: This function sets the server's gravity level.
-  parameters: []
+  parameters:
+  - name: level
+    type: float
+    description: The level of gravity (default is 0.008 ).
   examples:
   - path: examples/setGravity-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if gravity was changed, false otherwise.
   notes:
   - type: info
     content: This will override setPedGravity applied to peds/players. Setting the

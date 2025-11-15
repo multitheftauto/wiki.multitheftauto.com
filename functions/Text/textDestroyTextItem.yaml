@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextDestroyTextItem
-server:
+shared:
   name: textDestroyTextItem
   description: This function destroys a [textitem](/wiki/Textitem "Textitem") object.
-  parameters: []
+  parameters:
+  - name: theTextitem
+    type: textitem
+    description: The text item you wish to destroy.
   examples:
   - path: examples/textDestroyTextItem-1.lua
     description: This example creates then destroys atextitem.

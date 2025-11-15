@@ -1,11 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerTargetArrowProperties
-server:
+shared:
   name: getMarkerTargetArrowProperties
   description: function returns the color, transparency and size for a checkpoint
     marker's target arrow.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: The marker that you wish to retrieve the color and size of.
   examples:
   - path: examples/getMarkerTargetArrowProperties-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    - type: int
+      name: value5
+    description: Returns five ints corresponding to the amount of red , green , blue
+      , alpha and size of the marker's target arrow, false if invalid arguments were
+      passed.
   requires_review: true

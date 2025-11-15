@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleModelExhaustFumesPosition
-client:
+shared:
   name: getVehicleModelExhaustFumesPosition
   description: This function returns the position of the exhaust fumes the vehicle
     model emits.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: The vehicle model ID.
   examples:
   - path: examples/getVehicleModelExhaustFumesPosition-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns the position of the exhaust fumes if everything went fine
+      or false otherwise.
+  oop:
+    element: Vehicle
+    method: )
+    static: true
   pair: setVehicleModelExhaustFumesPosition
   requires_review: true

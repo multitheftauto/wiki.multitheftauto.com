@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetRainLevel
-server:
+shared:
   name: resetRainLevel
   description: This function resets the rain level of the current weather to its default.
   parameters: []
@@ -8,4 +8,9 @@ server:
     description: This example will make it rain when player or ped enters a vehicle,
       and stop once it leaves.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the rain level was reset.
   requires_review: true

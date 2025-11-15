@@ -1,10 +1,49 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleColor
-server:
+shared:
   name: setVehicleColor
   description: This function will set the color of a vehicle using either a RGB format,
     or the [standard San Andreas color IDs.](/wiki/Vehicle_Colors "Vehicle Colors")
     Vehicles can have up to 3 colors, most of the vehicles have 2 colors only.
-  parameters: []
+  parameters:
+  - name: veh
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: r1
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: g1
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: b1
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: r2
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: g2
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: b2
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: r3
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: g3
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: b3
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: r4
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: g4
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: b4
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setVehicleColor-1.lua
     description: This example implements a serversiderandom_colorconsole command.
@@ -13,7 +52,16 @@ server:
     description: This example implements a serverside command for the player to spawn
       a red and white Banshee, using the palette colors.
     side: server
-  requires_review: true
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if vehicle's color was set, false if an invalid vehicle
+      or invalid colors were specified.
+  oop:
+    element: vehicle
+    method: setColor
+    static: false
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -21,3 +69,4 @@ server:
       - Missing section: Optional Arguments (RGB format only)
 
       '
+  requires_review: true

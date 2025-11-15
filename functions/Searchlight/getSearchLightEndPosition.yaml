@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetSearchLightEndPosition
-client:
+shared:
   name: getSearchLightEndPosition
   description: This function gets the end position of a [searchlight](/wiki/Element/Searchlight
     "Element/Searchlight") element.
-  parameters: []
+  parameters:
+  - name: theSearchLight
+    type: searchlight
+    description: the searchlight to get the position where the searchlight's light
+      cone ends.
   examples:
   - path: examples/getSearchLightEndPosition-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: If the specified searchlight element is valid, this function will
+      return three float , which are the three coordinates of searchlight's end position.
+      If not, it will return false plus an error message.
+  oop:
+    element: searchlight
+    method: getEndPosition
+    variable: endPosition
+    static: false
   pair: setSearchLightEndPosition
   requires_review: true

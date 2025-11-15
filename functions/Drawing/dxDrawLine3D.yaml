@@ -1,13 +1,54 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawLine3D
-client:
+shared:
   name: dxDrawLine3D
   description: This function draws a 3D line between two points in the 3D world \-
     rendered for **one** frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
     "OnClientRender") in order to display continuously.
-  parameters: []
+  parameters:
+  - name: startX
+    type: float
+    description: The start X position of the 3D line, representing a coordinate in
+      the GTA world.
+  - name: startY
+    type: float
+    description: The start Y position of the 3D line, representing a coordinate in
+      the GTA world.
+  - name: startZ
+    type: float
+    description: The start Z position of the 3D line, representing a coordinate in
+      the GTA world.
+  - name: endX
+    type: float
+    description: The end X position of the 3D line, representing a coordinate in the
+      GTA world.
+  - name: endY
+    type: float
+    description: The end Y position of the 3D line, representing a coordinate in the
+      GTA world.
+  - name: endZ
+    type: float
+    description: The end Z position of the 3D line, representing a coordinate in the
+      GTA world.
+  - name: color
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0xFFFFFFFF'
+  - name: width
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '1.0'
+  - name: stage
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"postfx"'
   examples:
   - path: examples/dxDrawLine3D-1.lua
     description: This is a small example of creating 3D Line / "Rope" between vehicle
       and player.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
   requires_review: true

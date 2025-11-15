@@ -1,8 +1,13 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetColorFilter
-client:
+shared:
   name: getColorFilter
   description: This function is used to get the values of color filtering.
-  parameters: []
+  parameters:
+  - name: isOriginal
+    type: bool
+    description: A bool indicates if the return values of color filter are GTASA original
+      or changed by setColorFilter . If this is set to false , the return values would
+      be the color filter that is currently being used.
   examples:
   - path: examples/getColorFilter-1.lua
     description: This example corrects color of dxDrawMaterialLine3D. But this method
@@ -11,6 +16,27 @@ client:
   - path: examples/getColorFilter-2.lua
     description: This example corrects color of dxDrawMaterialLine3D using shader
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    - type: int
+      name: value5
+    - type: int
+      name: value6
+    - type: int
+      name: value7
+    - type: int
+      name: value8
+    description: Returns 8 integers , of which the first 4 indicate the color (R,G,B,A)
+      of color filter A, and the last 4 indicate the color (R,G,B,A) of  color filter
+      B.
   notes:
   - type: tip
     content: Normally the game is adding these colors to a screen to simulate weather

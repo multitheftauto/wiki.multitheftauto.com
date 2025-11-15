@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraDrunkLevel
-client:
+shared:
   name: getCameraDrunkLevel
   description: This function gets the camera drunk level set by [setCameraDrunkLevel](/wiki/SetCameraDrunkLevel
     "SetCameraDrunkLevel"). This function was renamed from [getCameraShakeLevel](/wiki/GetCameraShakeLevel
@@ -10,4 +10,13 @@ client:
     description: This example checks for changes in the camera drunk level of any
       player every frame and outputs different messages according to it.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer representing the camera drunk level, from 0 (no
+      drunk effect) to 255 (maximum drunk effect). By default, the camera has no drunk
+      effect. Drunk effect is a wavy motion of the camera depicting the player being
+      drunk. This function used to be called getCameraShakeLevel which has since been
+      deprecated.
   requires_review: true

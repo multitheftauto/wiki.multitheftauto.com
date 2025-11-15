@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CanPedBeKnockedOffBike
-client:
+shared:
   name: canPedBeKnockedOffBike
   description: This function checks if the given ped can fall off bikes.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped you want to check.
   examples:
   - path: examples/canPedBeKnockedOffBike-1.lua
     description: This example adds a console command with which the local player can
       toggle whether he can fall off bikes.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped can be knocked off bikes, false if he cannot
+      or an invalid element was passed.
+  oop:
+    element: ped
+    method: canBeKnockedOffBike
+    static: false
   pair: setPedCanBeKnockedOffBike
   requires_review: true

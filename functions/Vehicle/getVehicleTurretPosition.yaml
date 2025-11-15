@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleTurretPosition
-server:
+shared:
   name: getVehicleTurretPosition
   description: This function gets the position of a vehicle's turret, if it has one.
     Vehicles with turrets include firetrucks and tanks.
-  parameters: []
+  parameters:
+  - name: turretVehicle
+    type: vehicle
+    description: The vehicle whose turret position you want to retrieve. This should
+      be a vehicle with a turret.
   examples:
   - path: examples/getVehicleTurretPosition-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: float
+      name: value1
+    - type: float
+      name: value2
+    description: Returns two floats for the X (horizontal) and Y (vertical) axis rotation
+      respectively. These values are in radians. The function will return 0, 0 if
+      the vehicle is not a vehicle with a turret.
+  oop:
+    element: vehicle
+    method: getTurretPosition
+    variable: turretPosition
+    static: false
   pair: setVehicleTurretPosition
   requires_review: true

@@ -1,16 +1,54 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetFunctionsBoundToKey
-server:
+client:
   name: getFunctionsBoundToKey
   description: Gets the functions bound to a key. To bind a function to a key use
     the [bindKey](/wiki/BindKey "BindKey") function
-  parameters: []
+  parameters:
+  - name: key
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: keyState
+    type: string
+    description: 'A string that has one of the following values: "up": If the bound
+      key should trigger the function when the key is released "down": If the bound
+      key should trigger the function when the key is pressed "both": If the bound
+      key should trigger the function when the key is pressed or released'
   examples:
   - path: examples/getFunctionsBoundToKey-1.lua
     description: This loops through all the keys and outputs the keyname and the function
       bound to that key.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of the key function(s).
+  requires_review: true
+server:
+  name: getFunctionsBoundToKey
+  description: Gets the functions bound to a key. To bind a function to a key use
+    the [bindKey](/wiki/BindKey "BindKey") function
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player to get the functions from a key.
+  - name: key
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: keyState
+    type: string
+    description: 'A string that has one of the following values: "up": If the bound
+      key should trigger the function when the key is released "down": If the bound
+      key should trigger the function when the key is pressed "both": If the bound
+      key should trigger the function when the key is pressed or released'
+  examples:
   - path: examples/getFunctionsBoundToKey-2.lua
     description: This loops through all the keys and outputs the keyname and the function
       bound to that key.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of the key function(s).
   requires_review: true

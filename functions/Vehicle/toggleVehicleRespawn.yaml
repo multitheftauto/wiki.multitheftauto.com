@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ToggleVehicleRespawn
-server:
+shared:
   name: toggleVehicleRespawn
   description: This function toggles whether or not the vehicle will be respawned
     after blown or idle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to toggle the respawning of.
+  - name: Respawn
+    type: bool
+    description: A boolean determining if the vehicle will respawn or not.
   examples:
   - path: examples/toggleVehicleRespawn-1.lua
     description: This example defines a console command that will disable respawning
       for the vehicle that the player is currently in.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was found and edited.
+  oop:
+    element: vehicle
+    method: toggleRespawn
+    variable: respawnable
+    static: false
   pair: isVehicleRespawnable
   requires_review: true

@@ -1,12 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetColumnWidth
-client:
+shared:
   name: guiGridListSetColumnWidth
   description: This allows you to set the width of an existing column in a gridlist.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: The grid list you want to add a column to
+  - name: columnIndex
+    type: int
+    description: Column ID of the size you want to change
+  - name: width
+    type: number
+    description: A float or integer of the width of the column depending on the relative
+      argument.
+  - name: relative
+    type: bool
+    description: A boolean defining whether width measurements will be relative to
+      the Gridlist size, or absolute pixels.
   examples:
   - path: examples/guiGridListSetColumnWidth-1.lua
     description: This example creates a gridlist with one column that is too small
       to display. After the column has been successfully created, we give it a new
       width so you can see column.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the gridlist column width was successfully set, false
+      if bad arguments were given.
+  oop:
+    element: guigridlist
+    method: setColumnWidth
+    static: false
   requires_review: true

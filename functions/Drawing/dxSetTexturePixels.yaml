@@ -1,14 +1,52 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxSetTexturePixels
-client:
+shared:
   name: dxSetTexturePixels
   description: This function sets the [pixels](/wiki/Texture_pixels "Texture pixels")
     of a [texture](/wiki/Texture "Texture") element. It can be used with a standard
     texture, render target or screen source. Only '**plain'** format pixels please.
-  parameters: []
+  parameters:
+  - name: surfaceIndex
+    type: int
+    description: 'Desired slice to set if the texture is a volume texture, or desired
+      face to set if the texture is a cube map. (Cube map faces: 0=+X 1=-X 2=+Y 3=-Y
+      4=+Z 5=-Z)'
+    default: '0'
+  - name: texture
+    type: element
+    description: MISSING_PARAM_DESC
+  - name: pixels
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: x
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: "y"
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: width
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: height
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
   examples:
   - path: examples/dxSetTexturePixels-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a string if successful, false if invalid arguments were passed
+      to the function.
+  oop:
+    element: texture
+    method: setPixels
+    static: false
   notes:
   - type: info
     content: This function is slow and not something you want to be doing once a frame.

@@ -1,13 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetSearchLightEndPosition
-client:
+shared:
   name: setSearchLightEndPosition
   description: This function sets the end position of a [searchlight](/wiki/Searchlight
     "Searchlight") element.
-  parameters: []
+  parameters:
+  - name: theSearchLight
+    type: searchlight
+    description: the searchlight to modify the property of.
+  - name: endX
+    type: float
+    description: the X coordinate where the searchlight light cone will end.
+  - name: endY
+    type: float
+    description: the Y coordinate where the searchlight light cone will end.
+  - name: endZ
+    type: float
+    description: the Z coordinate where the searchlight light cone will end.
   examples:
   - path: examples/setSearchLightEndPosition-1.lua
     description: This example creates a searchlight that originates in the camera
       position and targets to the front of it.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: If every argument is correct, this function returns true . If not,
+      it will return false plus an error message.
+  oop:
+    element: searchlight
+    method: setEndPosition
+    variable: endPosition
+    static: false
   pair: getSearchLightEndPosition
   requires_review: true

@@ -1,12 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingFreeUpMemory
-client:
+shared:
   name: engineStreamingFreeUpMemory
   description: This function frees up the streaming RAM memory.
-  parameters: []
+  parameters:
+  - name: bytes
+    type: int
+    description: The amount of RAM to be freed up in bytes.
   examples:
   - path: examples/engineStreamingFreeUpMemory-1.lua
     description: 'This example frees up the streaming memory when the resource starts:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: 'This example frees up the streaming memory when the resource starts:'
   notes:
   - type: info
     content: This function isn't accurate. The function works more like try to free

@@ -1,11 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetSelectedItem
-client:
+shared:
   name: guiGridListSetSelectedItem
   description: This function selects an item from a gridlist. If you wish to deselect
     whatever item is selected, pass *0* as both the *rowIndex* and *columnIndex* arguments.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: the grid list you want to select an item from
+  - name: rowIndex
+    type: int
+    description: the row you want to select (index 0 is the first row)
+  - name: columnIndex
+    type: int
+    description: the column you want to select (index 1 is the first column)
+  - name: bReset
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'true'
   examples:
   - path: examples/guiGridListSetSelectedItem-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the passed arguments are correct and the item has
+      been selected, false otherwise.
+  oop:
+    element: guigridlist
+    method: setSelectedItem
+    static: false
   requires_review: true

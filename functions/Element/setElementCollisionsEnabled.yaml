@@ -1,15 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementCollisionsEnabled
-server:
+shared:
   name: setElementCollisionsEnabled
   description: This function can disable or enable an element's collisions. An element
     without collisions does not interact with the physical environment and remains
     static.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you wish to set the collisions of
+  - name: enabled
+    type: bool
+    description: A boolean to indicate whether collisions are enabled ( true ) or
+      disabled ( false )
   examples:
   - path: examples/setElementCollisionsEnabled-1.lua
     description: 'This example disables collisions for all vehicles within a certain
       radius of a player:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the collisions were set succesfully, false otherwise.
+  oop:
+    element: element
+    method: setCollisionsEnabled
+    variable: collisions
+    static: false
   pair: getElementCollisionsEnabled
   notes:
   - type: info

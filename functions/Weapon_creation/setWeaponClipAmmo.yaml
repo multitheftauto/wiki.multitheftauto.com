@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponClipAmmo
-client:
+shared:
   name: setWeaponClipAmmo
   description: This function sets the ammo left in a [custom weapon](/wiki/Element/Weapon
     "Element/Weapon")'s magazine/clip.
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: The weapon to set the clip ammo of.
+  - name: clipAmmo
+    type: int
+    description: The amount of ammo in the clip.
   examples:
   - path: examples/setWeaponClipAmmo-1.lua
     description: This example adds a/weaponcommand that creates a M4 where the player
       uses it, and gives 1 clip ammo to it.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns true if the arguments are valid and the weapon
+      clip ammo could be changed; false otherwise.
+  oop:
+    element: weapon
+    method: setClipAmmo
+    variable: clipAmmo
+    static: false
   pair: getWeaponClipAmmo
   requires_review: true

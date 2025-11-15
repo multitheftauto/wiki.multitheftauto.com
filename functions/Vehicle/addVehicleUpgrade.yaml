@@ -1,9 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddVehicleUpgrade
-server:
+shared:
   name: addVehicleUpgrade
   description: This function adds an upgrade to a [vehicle](/wiki/Vehicle "Vehicle"),
     e.g. nitrous, hydraulics.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The element representing the vehicle you wish to add the upgrade
+      to.
+  - name: upgrade
+    type: string/int
+    description: 'The id of the upgrade you wish to add: 1000 to 1193 ( see Vehicle
+      Upgrades ) or " all" to add all upgrades.'
   examples:
   - path: examples/addVehicleUpgrade-1.lua
     description: 'This serverside function allows the user to get an upgrade by typing
@@ -13,4 +21,14 @@ server:
     description: 'This client-side script gives vehicles a nitro upgrade whenever
       they pass through a certain collision shape:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the upgrade was successfully added to the vehicle,
+      otherwise false .
+  oop:
+    element: vehicle
+    method: addUpgrade
+    static: false
   requires_review: true

@@ -1,16 +1,57 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateSearchLight
-client:
+shared:
   name: createSearchLight
   description: This function creates a [searchlight](/wiki/Element/Searchlight "Element/Searchlight").
     A [searchlight](/wiki/Element/Searchlight "Element/Searchlight") is a spotlight
     which looks like the one available in the Police Maverick.
-  parameters: []
+  parameters:
+  - name: startX
+    type: float
+    description: the X coordinate where the searchlight light cone will start.
+  - name: startY
+    type: float
+    description: the Y coordinate where the searchlight light cone will start.
+  - name: startZ
+    type: float
+    description: the Z coordinate where the searchlight light cone will start.
+  - name: endX
+    type: float
+    description: the X coordinate of the direction where the searchlight will point
+      to.
+  - name: endY
+    type: float
+    description: the Y coordinate of the direction where the searchlight will point
+      to.
+  - name: endZ
+    type: float
+    description: the Z coordinate of the direction where the searchlight will point
+      to.
+  - name: startRadius
+    type: float
+    description: the radius of the searchlight's light cone in its beginning.
+  - name: endRadius
+    type: float
+    description: the radius of the searchlight's light cone in its end.
+  - name: renderSpot
+    type: bool
+    description: if true , the searchlight will lighten the surface where it ends.
+    default: 'true'
   examples:
   - path: examples/createSearchLight-1.lua
     description: This example allows players to wear a helmet lantern, which can be
       toggled on or off by pressing O or using/togglelantern. It uses createSearchLight
       to create the illumination effect.
     side: client
+  returns:
+    values:
+    - type: searchlight
+      name: value
+    description: If every argument is correct and the limit of 1000 searchlights has
+      not been reached, this function returns a searchlight element . Otherwise, it
+      returns false .
+  oop:
+    element: element
+    constructorclass: SearchLight
   notes:
   - type: tip
     content: You should only use this function when you are sure that the searchlight

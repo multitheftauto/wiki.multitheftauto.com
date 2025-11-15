@@ -1,13 +1,50 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxGetTextSize
-client:
+shared:
   name: dxGetTextSize
   description: This function retrieves the theoretical width and height (in pixels)
     of a certain piece of text, if it were to be drawn using [dxDrawText](/wiki/DxDrawText
     "DxDrawText").
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: A string representing the text for which you wish to retrieve with
+      width for.
+  - name: width
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: scaleXY
+    type: float
+    description: MISSING_PARAM_DESC
+    default: 1.0 [, float scaleY = 1.0 ]
+  - name: font
+    type: mixed
+    description: MISSING_PARAM_DESC
+    default: '"default"'
+  - name: wordBreak
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  - name: colorCoded
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/dxGetTextSize-1.lua
     description: This example draws a text with black background at the bottom right
       corner of the screen.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value1
+    - type: float
+      name: value2
+    description: Returns two floats representing the width and height of the text
+      in pixels.
+  oop:
+    element: font
+    note: This syntax requires you to ignore the font argument above
+    method: getSize
+    static: false
   requires_review: true

@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsResourceArchived
-server:
+shared:
   name: isResourceArchived
   description: Checks whether the specified resource is archived. (Currently running
     from a ZIP file)
-  parameters: []
+  parameters:
+  - name: resourceElement
+    type: resource
+    description: The resource to check.
   examples:
   - path: examples/isResourceArchived-1.lua
     description: This example stops the resource if it's archived.
@@ -18,4 +21,15 @@ server:
       oriented variable.(It's important to note that you need to enable OOP in meta.xml
       to use this)
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the selected resource is archived, false if it is
+      not archived, and nil if some kind of problem occurred.
+  oop:
+    element: resource
+    method: isArchived
+    variable: archived
+    static: false
   requires_review: true

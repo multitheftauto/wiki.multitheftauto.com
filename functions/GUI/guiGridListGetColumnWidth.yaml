@@ -1,10 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetColumnWidth
-client:
+shared:
   name: guiGridListGetColumnWidth
   description: This allows you to get the width of an existing column in a gridlist.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: The grid list you want to add a column to
+  - name: columnIndex
+    type: int
+    description: Column ID of the Get size
+  - name: relative
+    type: bool
+    description: A boolean defining whether width measurements will be relative to
+      the Gridlist size, or absolute pixels.
   examples:
   - path: examples/guiGridListGetColumnWidth-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the width of the gridlist column, false if bad arguments
+      were given.
+  oop:
+    element: guigridlist
+    method: getColumnWidth
+    static: false
   requires_review: true

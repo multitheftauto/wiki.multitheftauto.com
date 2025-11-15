@@ -1,12 +1,41 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TakePlayerScreenShot
-server:
+shared:
   name: takePlayerScreenShot
   description: This function forces a client to capture the current screen output
     and send it back to the server. The image will contain the GTA HUD and the output
     of any dxDraw functions that are not flagged as 'post GUI'. The image specifically
     excludes the chat box and all GUI (including the client console). The result is
     received with the event [onPlayerScreenShot](/wiki/OnPlayerScreenShot "OnPlayerScreenShot").
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: the player to get the screen capture from.
+  - name: width
+    type: int
+    description: the width of the capture image.
+  - name: height
+    type: int
+    description: the height of the capture image.
+  - name: tag
+    type: string
+    description: A string to help identify the screen capture. The string is passed
+      to the matching onPlayerScreenShot event for your personal convenience.
+    default: '""'
+  - name: quality
+    type: int
+    description: Quality of the final JPEG image from 0 to 100. A lower value can
+      reduce the memory used by the image considerably which will result in faster
+      and less intrusive uploads.
+    default: '30'
+  - name: maxBandwidth
+    type: int
+    description: The amount of client upload bandwidth to use (in bytes per second)
+      when sending the image.
+    default: '5000'
+  - name: maxPacketSize
+    type: int
+    description: The maximum size of one packet.
+    default: '500'
   examples:
   - path: examples/takePlayerScreenShot-1.lua
     description: ''
@@ -14,4 +43,14 @@ server:
   - path: examples/takePlayerScreenShot-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successfully, false if invalid arguments
+      are specified.
+  oop:
+    element: player
+    method: takeScreenShot
+    static: false
   requires_review: true

@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleBlown
-server:
+shared:
   name: isVehicleBlown
   description: This function allows you to determine whether a vehicle is blown or
     still intact.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you want to obtain the blown status of.
   examples:
   - path: examples/isVehicleBlown-1.lua
     description: This example creates a taxi and checks whether the taxi has blown
       up or not every time somebody types "/taxi".
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle specified has blown up, false if it is
+      still intact or the vehicle specified is invalid.
+  oop:
+    element: vehicle
+    method: isBlown
+    variable: blown
+    static: false
   pair: blowVehicle
   requires_review: true

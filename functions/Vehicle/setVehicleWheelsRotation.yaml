@@ -1,11 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleWheelsRotation
-client:
+shared:
   name: setVehicleWheelsRotation
   description: This function is used to manipulate the wheel rotation of a vehicle.
     Cars, Bikes (including BMX) and Trailers are supported.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle whose wheel rotation is to be set.
+  - name: rotation
+    type: float
+    description: the new wheel rotation value.
   examples:
   - path: examples/setVehicleWheelsRotation-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   requires_review: true

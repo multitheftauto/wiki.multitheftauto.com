@@ -1,11 +1,54 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddGlass
-client:
+shared:
   name: fxAddGlass
   description: This function creates a glass particle effect.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: A float representing the x position of the glass
+  - name: posY
+    type: float
+    description: A float representing the y position of the glass
+  - name: posZ
+    type: float
+    description: A float representing the z position of the glass
+  - name: colorR
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  - name: colorG
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: colorB
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: colorA
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  - name: scale
+    type: float
+    description: A float representing the size of the particle effect, where 1 is
+      the standard size.
+    default: '1.0'
+  - name: count
+    type: int
+    description: The density of the particle effect.
+    default: '1'
   examples:
   - path: examples/fxAddGlass-1.lua
     description: This example creates a glass particle effect at the position of the
       player who use /addGlass command.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

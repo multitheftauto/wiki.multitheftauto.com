@@ -1,10 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetWorldProperty
-client:
+shared:
   name: resetWorldProperty
   description: This function is used to reset the values of time cycle and weather
     related properties.
-  parameters: []
+  parameters:
+  - name: property
+    type: string
+    description: The property you wish to retrieve.
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   notes:
   - type: info
     content: Some properties (like RainFog and Sandstorm ) are not reset immediately.

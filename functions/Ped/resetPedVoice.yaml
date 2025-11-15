@@ -1,12 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetPedVoice
-client:
+shared:
   name: resetPedVoice
   description: Resets the voice of a ped to a default one.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose voice to reset.
   examples:
   - path: examples/resetPedVoice-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true when the voice was successfully reset, false otherwise.
+  oop:
+    element: ped
+    method: resetVoice
+    static: false
   notes:
   - type: info
     content: A ped voice is one of the GTA built in voice character types. Not to

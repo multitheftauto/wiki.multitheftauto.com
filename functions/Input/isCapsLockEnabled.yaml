@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsCapsLockEnabled
-client:
+shared:
   name: isCapsLockEnabled
   description: This function returns the state of the caps lock.
   parameters: []
@@ -7,4 +7,9 @@ client:
   - path: examples/isCapsLockEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if caps lock is toggled (on), false otherwise.
   requires_review: true

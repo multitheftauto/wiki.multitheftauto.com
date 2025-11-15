@@ -1,12 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetGrainLevel
-client:
+shared:
   name: setGrainLevel
   description: This function sets a level of the overlay grain effect. The game will
     draw it on top of other grain effects. It can be used to imitate an effect of
     radiation or electromagnetic disturbances, for example.
-  parameters: []
+  parameters:
+  - name: level
+    type: int
+    description: The amount of grain (0-255).
   examples:
   - path: examples/setGrainLevel-1.lua
     description: 'This example creates a radioactive zone at Missionary Hills:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the grain level was set, false otherwise.
   requires_review: true

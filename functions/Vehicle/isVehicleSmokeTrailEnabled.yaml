@@ -1,12 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleSmokeTrailEnabled
-client:
+shared:
   name: isVehicleSmokeTrailEnabled
   description: This function is used to check planes smoke trail enabled or disabled.
-  parameters: []
+  parameters:
+  - name: veh
+    type: vehicle
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/isVehicleSmokeTrailEnabled-1.lua
     description: This example let you set and check the smoke trail.
     side: client
+  returns:
+    values:
+    - type: isVehicleSmokeTrailEnabled
+      name: value
+    description: If it enabled it returns true , false otherwise.
+  oop:
+    element: vehicle
+    method: isSmokeTrailEnabled
+    static: false
   notes:
   - type: info
     content: The smoke trail is only supported to models 512 and 513, so this only

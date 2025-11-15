@@ -1,10 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingReleaseModel
-client:
+shared:
   name: engineStreamingReleaseModel
   description: This function sends a unloading request to the game model streamer.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: number
+    description: ID of the model you want to unload.
+  - name: removeRef
+    type: boolean
+    description: decrease references counter.
+    default: 'false'
   examples:
   - path: examples/engineStreamingReleaseModel-1.lua
     description: This example draws a model
     side: client
+  returns:
+    values:
+    - type: boolean
+      name: value
+    description: Returns true if the model was unloaded, false otherwise.
   requires_review: true

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetWaterColor
-server:
+shared:
   name: resetWaterColor
   description: This function reset the water color of the GTA world to default.
   parameters: []
@@ -8,4 +8,13 @@ server:
     description: This example adds a commandresetwatercolorwith which a player can
       reset the water colour.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if water color was reset correctly, false otherwise.
+  oop:
+    element: Water
+    method: )
+    static: true
   requires_review: true

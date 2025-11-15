@@ -1,11 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAngularVelocity
-server:
+shared:
   name: getElementAngularVelocity
   description: Gets the current angular velocity of a specified, supported element.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element to retrieve the angular velocity from. Can be either
+      a player , ped , object , vehicle or a custom weapon . Server side supports
+      only vehicles currently.
   examples:
   - path: examples/getElementAngularVelocity-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three floats describing the x, y and z rotation
+  oop:
+    element: element
+    method: getAngularVelocity
+    variable: angularVelocity
+    static: false
   pair: setElementAngularVelocity
   requires_review: true

@@ -1,8 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RedirectPlayer
-server:
+shared:
   name: redirectPlayer
   description: This function redirects the player to a specified server.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you want to redirect
+  - name: serverIP
+    type: string
+    description: The IP address (or domain name that resolves to the IP address) of
+      the server you want to redirect the player to. Use an empty string to reconnect
+      to the same server.
+    default: '""'
+  - name: serverPort
+    type: int
+    description: The game port of the server you want to redirect the player to, this
+      is usually 22003. Set to zero to use the same port as the current server.
+    default: '0'
+  - name: serverPassword
+    type: string
+    description: The password for the server if it's protected
+    default: '""'
   examples:
   - path: examples/redirectPlayer-1.lua
     description: This example auto-redirects all connecting players to another given
@@ -15,6 +33,16 @@ server:
   - path: examples/redirectPlayer-3.lua
     description: This example adds a "rejoin" command like the inbuilt reconnect command.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player was redirected successfully, false if
+      bad arguments were passed.
+  oop:
+    element: player
+    method: redirect
+    static: false
   notes:
   - type: info
     content: A resource using this function needs ACL rights in order to work (function.redirectPlayer)

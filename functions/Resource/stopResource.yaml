@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/StopResource
-server:
+shared:
   name: stopResource
   description: This function stops a running resource.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource that should be stopped.
   examples:
   - path: examples/stopResource-1.lua
     description: This function stops all running resources except the current one.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the resource was stopped, false if the stopping failed,
+      or an invalid resource was passed.
+  oop:
+    element: resource
+    method: stop
+    static: false
   notes:
   - type: info
     content: This function does not stop the resource immediately, so don't expect

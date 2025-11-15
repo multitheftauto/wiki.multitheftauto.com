@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehiclePanelState
-server:
+shared:
   name: getVehiclePanelState
   description: This function returns the current state of a specifed panel on the
     vehicle. A vehicle can have up to 7 panels.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: panel
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getVehiclePanelState-1.lua
     description: This function creates an admiral and outputs every panel's state
       in the chatbox.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int indicating the state of the specified the panel. This
+      is a value between 0 and 3, with 0 indicating the panel is undamaged and 3 indicating
+      it is very damaged.
+  oop:
+    element: vehicle
+    method: getPanelState
+    static: false
   pair: setVehiclePanelState
   requires_review: true

@@ -1,10 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelSetVerticalAlign
-client:
+shared:
   name: guiLabelSetVerticalAlign
   description: This function sets the vertical alignment of a text label.
-  parameters: []
+  parameters:
+  - name: theLabel
+    type: element
+    description: The text label to set the vertical alignment on.
+  - name: align
+    type: string
+    description: 'The alignment type. Valid type strings are: "top" "center" "bottom"'
   examples:
   - path: examples/guiLabelSetVerticalAlign-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true on success, false otherwise.
+  oop:
+    element: guilabel
+    method: setVerticalAlign
+    variable: verticalAlign
+    static: false
   requires_review: true

@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTrainPosition
-server:
+shared:
   name: getTrainPosition
   description: Gets the position the train is currently on the track
-  parameters: []
+  parameters:
+  - name: train
+    type: vehicle
+    description: the train to get the position of
   examples:
   - path: examples/getTrainPosition-1.lua
     description: This example adds a command called "/getpos", allowing you to get
       the position of the train.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float that represents how along the track it is, false
+      if there is problem with train element.
+  oop:
+    element: vehicle
+    method: getTrainPosition
+    variable: trainPosition
+    static: false
   pair: setTrainPosition
   requires_review: true

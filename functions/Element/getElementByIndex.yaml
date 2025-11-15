@@ -1,15 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementByIndex
-server:
+shared:
   name: getElementByIndex
   description: This function returns an element of the specified type with the specified
     index.
-  parameters: []
+  parameters:
+  - name: theType
+    type: string
+    description: the type of the element to be returned. Examples include "player",
+      "vehicle", or a custom type.
+  - name: index
+    type: int
+    description: the element's index (0 for the first element, 1 for the second, etc).
   examples:
   - path: examples/getElementByIndex-1.lua
     description: 'This example generates the name of the specified player that is
       on the server. For example: ''player 0'' would return the name of the first
       player on the server.'
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the requested element , or false if it doesn't exist.
+  oop:
+    element: Element
+    note: This function is a static function inside the Element class.
+    method: )
+    static: true
   notes:
   - type: important
     content: If you wish to retrieve more than one element at a time, it is more efficient

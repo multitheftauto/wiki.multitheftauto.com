@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/HttpWrite
-server:
+shared:
   name: httpWrite
   description: This function adds text to the output of the current HTTP file of the
     [HTTP interface](/wiki/Resource_Web_Access "Resource Web Access"). The function
@@ -7,7 +7,14 @@ server:
     support outputing binary data, if you specify the length of the data you are outtputing.
     If you do this, you should ensure you set an accurate content\-type using [httpSetResponseHeader](/wiki/HttpSetResponseHeader
     "HttpSetResponseHeader") otherwise it may be displayed inconsistently by browsers.
-  parameters: []
+  parameters:
+  - name: data
+    type: string
+    description: the data to be added to the page's output.
+  - name: length
+    type: int
+    description: The length of the data being written. Generally only should be required
+      for writing binary data.
   examples:
   - path: examples/httpWrite-1.lua
     description: Example 1:This sample resource page will output a random quote from
@@ -19,7 +26,12 @@ server:
       This is useful as the internal server doesn't not support subdirectories reliably
       so you can create a page to return files to you.
     side: server
-  requires_review: true
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the text was added to the output buffer successfully,
+      false otherwise.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -27,3 +39,4 @@ server:
       - Missing section: Shortcut syntax
 
       '
+  requires_review: true

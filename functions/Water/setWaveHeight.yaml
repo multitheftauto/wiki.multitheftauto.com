@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWaveHeight
-server:
+shared:
   name: setWaveHeight
   description: This function sets the wave height to the desired value, the default
     is 0\.
-  parameters: []
+  parameters:
+  - name: height
+    type: float
+    description: A float between 0 and 100.
   examples:
   - path: examples/setWaveHeight-1.lua
     description: This example changes the wave height to the given amount.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a boolean value true or false that tells you if it was successful
+      or not.
+  oop:
+    element: Water
+    method: )
+    static: true
   pair: getWaveHeight
   requires_review: true

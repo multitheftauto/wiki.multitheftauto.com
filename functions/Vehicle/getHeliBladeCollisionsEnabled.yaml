@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetHeliBladeCollisionsEnabled
-client:
+shared:
   name: getHeliBladeCollisionsEnabled
   description: This function gets the state of the helicopter blades collisions on
     the specified vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that will be checked.
   examples:
   - path: examples/getHeliBladeCollisionsEnabled-1.lua
     description: This example shows the blade collisions state
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the collisions are enabled for specified vehicle,
+      false if the collisions aren't enabled for the specified vehicle, if the vehicle
+      is not a helicopter or if invalid arguments are specified.
+  oop:
+    element: vehicle
+    method: areHeliBladeCollisionsEnabled
+    variable: heliBladeCollisionsEnabled
+    static: false
   pair: setHeliBladeCollisionsEnabled
   requires_review: true

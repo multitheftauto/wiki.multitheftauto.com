@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementCollidableWith
-client:
+shared:
   name: isElementCollidableWith
   description: "This function can be used to check whether specified element is collidable\
     \ with another element.  \n\n**Note:** You can only use this function with the\
     \ element types listed below."
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element which colliding you want to get
+  - name: withElement
+    type: element
+    description: The other element which colliding with the first entity you want
+      to get
   examples:
   - path: examples/isElementCollidableWith-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the elements collide with each other, false otherwise.
+  oop:
+    element: element
+    method: isCollidableWith
+    static: false
   pair: setElementCollidableWith
   requires_review: true

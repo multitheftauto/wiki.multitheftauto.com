@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetVehicleComponentScale
-client:
+shared:
   name: resetVehicleComponentScale
   description: This function reset to default component scale for [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to reset component scale.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
   examples:
   - path: examples/resetVehicleComponentScale-1.lua
     description: Example 1:This example would change the scale of the component when
       the player enters a vehicle and resets it when he exit.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the scale of the component was reset, false otherwise.
+  oop:
+    element: vehicle
+    method: resetComponentScale
+    static: false
   requires_review: true

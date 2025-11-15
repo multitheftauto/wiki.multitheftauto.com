@@ -1,12 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleCurrentGear
-client:
+shared:
   name: getVehicleCurrentGear
   description: Gets the specified vehicle's current gear.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle to get the gear of
   examples:
   - path: examples/getVehicleCurrentGear-1.lua
     description: Example of a program that outputs the current gear to the lower,
       center of the screen
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the gear if successful, false otherwise.
+  oop:
+    element: vehicle
+    method: getGear
+    static: false
   pair: .gear
   requires_review: true

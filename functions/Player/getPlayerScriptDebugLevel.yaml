@@ -1,11 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerScriptDebugLevel
-server:
+client:
   name: getPlayerScriptDebugLevel
   description: This will allow you to retrieve the player current debug script level.
   parameters: []
+  examples: []
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int with the local player's debug script level.
+  oop: &id001
+    element: player
+    method: getScriptDebugLevel
+    variable: scriptDebugLevel
+    static: false
+  pair: setPlayerScriptDebugLevel
+  requires_review: true
+server:
+  name: getPlayerScriptDebugLevel
+  description: This will allow you to retrieve the player current debug script level.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The person whose debug script level you want
   examples:
   - path: examples/getPlayerScriptDebugLevel-1.lua
     description: Displays a message in the chat what is the player's debug level.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int with the player debug script level, false if the player
+      is invalid.
+  oop: *id001
   pair: setPlayerScriptDebugLevel
   requires_review: true

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetSkyGradient
-server:
+shared:
   name: resetSkyGradient
   description: This function allows restoring of a changed sky gradient as a result
     of [setSkyGradient](/wiki/SetSkyGradient "SetSkyGradient").
@@ -8,4 +8,9 @@ server:
   - path: examples/resetSkyGradient-1.lua
     description: This example reset the sky gradient.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if sky color was reset correctly, false otherwise.
   requires_review: true

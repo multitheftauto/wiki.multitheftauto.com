@@ -1,9 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineApplyShaderToWorldTexture
-client:
+shared:
   name: engineApplyShaderToWorldTexture
   description: This function applies a [shader](/wiki/Shader "Shader") to one or more
     world textures.
-  parameters: []
+  parameters:
+  - name: shader
+    type: element
+    description: The shader which is to be applied
+  - name: textureName
+    type: string
+    description: The name of the world texture to apply the shader to. Wildcard matching
+      e.g. "ro?ds*" can be used to apply to more than one texture at a time.
+  - name: targetElement
+    type: element
+    description: The element to restrict applying the shader to. If this is not set
+      the shader will be applied to everything using the texture name. Valid element
+      types for targetElement are vehicles , objects and peds .
+    default: nil
+  - name: appendLayers
+    type: bool
+    description: allows two or more layered shaders to be applied in the same texture.
+      You may want to modify the DepthBias in the technique pass to avoid Z-fighting
+      artifacts when using this.
+    default: 'true'
   examples:
   - path: examples/engineApplyShaderToWorldTexture-1.lua
     description: This example will replace the texture of a group of common explosions
@@ -21,6 +40,15 @@ client:
     description: 'Basic texture replacement shader example (compatible with all script
       examples on this page):'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the shader was successfully applied, false otherwise.
+  oop:
+    element: shader
+    method: applyToWorldTexture
+    static: false
   notes:
   - type: tip
     content: 'The resource shader_tex_names can help in finding the names of world

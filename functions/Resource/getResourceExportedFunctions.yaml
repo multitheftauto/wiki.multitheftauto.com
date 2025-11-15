@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceExportedFunctions
-server:
+shared:
   name: getResourceExportedFunctions
   description: Returns a table containing the names of the functions that a resource
     exports. It will return the exports of the current resource if there is no argument
     passed in.
-  parameters: []
+  parameters:
+  - name: resource theResource
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getThisResource(
   examples:
   - path: examples/getResourceExportedFunctions-1.lua
     description: This simple example will output the names of the functions that the
       "scoreboard" resource exports.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of function names if successful, false otherwise.
+  oop:
+    element: resource
+    method: getExportedFunctions
+    variable: exportedFunctions
+    static: false
   requires_review: true

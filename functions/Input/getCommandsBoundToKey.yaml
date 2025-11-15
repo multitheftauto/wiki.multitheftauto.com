@@ -1,10 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetCommandsBoundToKey
-client:
+shared:
   name: getCommandsBoundToKey
   description: Gets the commands bound to a key.
-  parameters: []
+  parameters:
+  - name: theKey
+    type: string
+    description: See key names for a list of possible keys
+  - name: keyState
+    type: string
+    description: 'A string that has one of the following values: "up": If the bound
+      key should trigger the function when the key is released "down": If the bound
+      key should trigger the function when the key is pressed "both": If the bound
+      key should trigger the function when the key is pressed or released'
   examples:
   - path: examples/getCommandsBoundToKey-1.lua
     description: This example adds the command /keycommands <theKey> <keyState>
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of the commands bound on that key.
   requires_review: true

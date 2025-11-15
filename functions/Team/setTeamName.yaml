@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTeamName
-server:
+shared:
   name: setTeamName
   description: This function is used to set a team's name.
-  parameters: []
+  parameters:
+  - name: theTeam
+    type: team
+    description: The team you want to change the name of.
+  - name: newName
+    type: string
+    description: A string representing the name you want the team to be called.
   examples:
   - path: examples/setTeamName-1.lua
     description: This example gets the current team of a player, then changes its
       name.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the team was valid and the name was changed, false
+      otherwise.
+  oop:
+    element: team
+    method: setName
+    variable: name
+    static: false
   pair: getTeamName
   requires_review: true

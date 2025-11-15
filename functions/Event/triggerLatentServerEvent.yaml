@@ -1,11 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TriggerLatentServerEvent
-client:
+shared:
   name: triggerLatentServerEvent
   description: This function is the same as [triggerServerEvent](/wiki/TriggerServerEvent
     "TriggerServerEvent") except the transmission rate of the data contained in the
     arguments can be limited and other network traffic is not blocked while the data
     is being transferred.
-  parameters: []
+  parameters:
+  - name: event
+    type: string
+    description: The name of the event to trigger server-side. You should register
+      this event with addEvent and add at least one event handler using addEventHandler
+      .
+  - name: bandwidth
+    type: int
+    description: The bytes per second rate to send the data contained in the arguments.
+    default: '5000'
+  - name: persist
+    type: bool
+    description: A bool indicating whether the transmission should be allowed to continue
+      even after the resource that triggered it has since stopped.
+    default: 'false'
+  - name: theElement
+    type: element
+    description: The element that is the source of the event. This could be another
+      player, or if this isn't relevant, use the root element.
+  - name: arguments...
+    type: unknown
+    description: A list of arguments to trigger with the event. You can pass any Lua
+      data type (except functions). You can also pass elements . The total amount
+      of data should not exceed 100MB.
   examples:
   - path: examples/triggerLatentServerEvent-1.lua
     description: ''
@@ -13,4 +36,10 @@ client:
   - path: examples/triggerLatentServerEvent-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event trigger has been sent, false if invalid
+      arguments were specified.
   requires_review: true

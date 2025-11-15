@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetVehiclesLODDistance
-client:
+shared:
   name: resetVehiclesLODDistance
   description: Resets the distance of vehicles LOD to default. Default values depends
     on client setting. If client has enabled *high detail vehicles* in video options,
@@ -10,4 +10,9 @@ client:
   - path: examples/resetVehiclesLODDistance-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicles LOD distance was reset, false otherwise.
   requires_review: true

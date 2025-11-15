@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetText
-client:
+shared:
   name: guiSetText
   description: This function sets the text of a GUI element.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: The GUI element you wish to change the text of
+  - name: text
+    type: string
+    description: The new text
   examples:
   - path: examples/guiSetText-1.lua
     description: This example creates a label. When an element is clicked, the label
       displays in the position of the element telling you what kind of element you
       have clicked. It hides after 5 seconds.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if text has been successfully set on the gui element,
+      false otherwise.
+  oop:
+    element: guielement
+    method: setText
+    variable: text
+    static: false
   pair: guiGetText
   requires_review: true

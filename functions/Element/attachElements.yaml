@@ -1,9 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AttachElements
-server:
+shared:
   name: attachElements
   description: This function attaches one element to another, so that the first one
     follows the second whenever it moves.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element to be attached.
+  - name: theAttachToElement
+    type: element
+    description: The element to attach the first to.
+  - name: xPosOffset
+    type: float
+    description: The x offset, if you want the elements to be a certain distance from
+      one another (default 0).
+    default: '0'
+  - name: "y"PosOffset
+    type: float
+    description: The y offset (default 0).
+    default: '0'
+  - name: zPosOffset
+    type: float
+    description: The z offset (default 0).
+    default: '0'
+  - name: xRotOffset
+    type: float
+    description: The x rotation offset (default 0).
+    default: '0'
+  - name: "y"RotOffset
+    type: float
+    description: The y rotation offset (default 0).
+    default: '0'
+  - name: zRotOffset
+    type: float
+    description: The z rotation offset (default 0).
+    default: '0'
   examples:
   - path: examples/attachElements-1.lua
     description: 'Example 1:This example attaches a marker to the player who steals
@@ -13,6 +44,15 @@ server:
     description: Example 3:This function adds a tank on top of a player (for extra
       defense), clientside.  This means it will be invisible to other players.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the attaching process was successful, false otherwise.
+  oop:
+    element: element
+    method: attach
+    static: false
   pair: detachElements
   notes:
   - type: info

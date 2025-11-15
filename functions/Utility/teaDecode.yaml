@@ -1,14 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TeaDecode
-server:
+shared:
   name: teaDecode
   description: This function decrypts given [base64](https://en.wikipedia.org/wiki/Base64)
     representation of encrypted data using the [Tiny Encryption Algorithm](https://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm).
-  parameters: []
+  parameters:
+  - name: data
+    type: string
+    description: The block of data you want to decrypt
+  - name: key
+    type: string
+    description: The key that should be used for decryption (Only first 16 characters
+      are used)
   examples:
   - path: examples/teaDecode-1.lua
     description: This example creates a /teadecrypt command, which reverts the TEA
       on a given string with the specified key.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns string containing the decrypted data if the decryption process
+      was successfully completed, false otherwise.
   notes:
   - type: important
     content: Use decodeString instead, because teaEncode inflates the file size by

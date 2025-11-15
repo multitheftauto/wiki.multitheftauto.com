@@ -1,13 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TakeAllWeapons
-server:
+shared:
   name: takeAllWeapons
   description: This function removes every weapons from a specified [ped](/wiki/Ped
     "Ped"), rendering it unarmed.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: A ped element referencing the specified ped
   examples:
   - path: examples/takeAllWeapons-1.lua
     description: This example removes all weapons from every player
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function succeeded, false otherwise.
   notes:
   - type: info
     content: Weapons are removed when a ped dies by default. This means that it is

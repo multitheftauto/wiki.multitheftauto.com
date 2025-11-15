@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedBleeding
-client:
+shared:
   name: setPedBleeding
   description: This function allows you to set [player's](/wiki/Player "Player") or
     [ped's](/wiki/Ped "Ped") bleeding effect.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The player or ped whose bleeding effect you want to set of.
+  - name: bleeding
+    type: bool
+    description: Boolean specifying whether the player or ped is bleeding or not.
   examples:
   - path: examples/setPedBleeding-1.lua
     description: This example causes the player to bleed.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the bleeding state was successfully set, false otherwise.
+  oop:
+    element: ped
+    method: setBleeding
+    variable: bleeding
+    static: false
   pair: isPedBleeding
   requires_review: true

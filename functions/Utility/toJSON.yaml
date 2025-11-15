@@ -1,16 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ToJSON
-server:
+shared:
   name: toJSON
   description: This function converts a **single** value (preferably a Lua table)
     into a [JSON](/wiki/JSON "JSON") encoded string. You can use this to store the
     data and then load it again using [fromJSON](/wiki/FromJSON "FromJSON").
-  parameters: []
+  parameters:
+  - name: value
+    type: var
+    description: MISSING_PARAM_DESC
+  - name: compact
+    type: bool
+    description: a boolean representing whether the string will contain whitespaces.
+      To remove whitespaces from JSON string, use true . String will contain whitespaces
+      per default.
+    default: 'false'
+  - name: prettyType
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"none"'
   examples:
   - path: examples/toJSON-1.lua
     description: 'This example shows how you can encode an array. The string json
       should equal"[ { "1": "dogs", "mouse": "food", "cat": "hungry", "birds": 4 }
       ]" after executed.'
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a JSON formatted string.
   notes:
   - type: warning
     content: When using toJSON for submitting data using fetchRemote for example,

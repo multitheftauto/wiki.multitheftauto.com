@@ -1,12 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleComponentScale
-client:
+shared:
   name: getVehicleComponentScale
   description: This function gets the component scale of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to get component scale of.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
+  - name: base
+    type: string
+    description: 'A string representing what the returned scale is relative to. It
+      can be one of the following values: parent: The scale is relative to the parent
+      component. root: The scale  is relative to the root component. world: The scale
+      is a world scale.'
+    default: '"root"'
   examples:
   - path: examples/getVehicleComponentScale-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three floats indicating the scale of the component, x , y
+      and z respectively.
+  oop:
+    element: vehicle
+    method: getComponentScale
+    static: false
   pair: setVehicleComponentScale
   requires_review: true

@@ -1,10 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DbQuery
-server:
+shared:
   name: dbQuery
   description: This function starts a database query using the supplied connection.
     Use the returned query handle with [dbPoll](/wiki/DbPoll "DbPoll") to get the
     result, or [dbFree](/wiki/DbFree "DbFree") if you don't want the result.
-  parameters: []
+  parameters:
+  - name: callbackFunction
+    type: function
+    description: An optional function to be called when a result is ready. The function
+      will only be called if the result has not already been read with dbPoll . The
+      function is called with the query handle as the first argument.
+  - name: table callbackArguments, ]
+    type: '['
+    description: MISSING_PARAM_DESC
+  - name: databaseConnection
+    type: element
+    description: A database connection element previously returned from dbConnect
+  - name: query
+    type: string
+    description: An SQL query. Positions where parameter values will be inserted are
+      marked with a ?
+  - name: param1 [, var param2 ...]
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dbQuery-1.lua
     description: 'This example starts an INSERT query and frees the result:'
@@ -25,6 +43,16 @@ server:
     description: 'This example shows how to use backticks and??for parts of the query
       that are not column values:'
     side: server
+  returns:
+    values:
+    - type: handle
+      name: value
+    description: Returns a query handle unless the connection is incorrect, in which
+      case it return false .
+  oop:
+    element: connection
+    method: query
+    static: false
   notes:
   - type: tip
     content: The server command debugdb 2 will output verbose information on each

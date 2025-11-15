@@ -1,14 +1,43 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleComponentRotation
-client:
+shared:
   name: getVehicleComponentRotation
   description: This function gets the component rotation of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to get component rotation of.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
+  - name: base
+    type: string
+    description: 'A string representing what the returned rotation is relative to.
+      It can be one of the following values: parent (default if not specified): The
+      rotation is relative to the parent component. root : The rotation is relative
+      to the root component. world : The rotation is a world rotation, relative to
+      the world''s coordinates axes.'
+    default: '"parent"'
   examples:
   - path: examples/getVehicleComponentRotation-1.lua
     description: Example 1:This example would get the name and the position of the
       components and output it in the chat.
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three floats indicating the rotation of the component, x
+      , y and z respectively.
+  oop:
+    element: vehicle
+    method: getComponentRotation
+    static: false
   pair: setVehicleComponentRotation
   notes:
   - type: info

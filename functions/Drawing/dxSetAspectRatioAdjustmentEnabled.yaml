@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxSetAspectRatioAdjustmentEnabled
-client:
+shared:
   name: dxSetAspectRatioAdjustmentEnabled
   description: 'This function allows for the positioning of dxDraw calls to be automatically
     adjusted according to the client''s aspect ratio setting. This lasts for a single
@@ -7,9 +7,21 @@ client:
     "OnClientRender"), [onClientPreRender](/wiki/OnClientPreRender "OnClientPreRender")
     and [onClientHUDRender](/wiki/OnClientHUDRender "OnClientHUDRender"). So the function
     has to be called every frame, just like dxDraws.'
-  parameters: []
+  parameters:
+  - name: bEnabled
+    type: bool
+    description: Should the adjustment be enabled or disabled.
+  - name: sourceRatio
+    type: float
+    description: MISSING_PARAM_DESC
+    default: 4/3
   examples:
   - path: examples/dxSetAspectRatioAdjustmentEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true when it was changed successfully, or false otherwise.
   requires_review: true

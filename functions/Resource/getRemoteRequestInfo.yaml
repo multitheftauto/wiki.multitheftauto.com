@@ -1,9 +1,16 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetRemoteRequestInfo
-server:
+shared:
   name: getRemoteRequestInfo
   description: Gets informations of an [fetchRemote](/wiki/FetchRemote "FetchRemote")
     or [callRemote](/wiki/CallRemote "CallRemote") request info.
-  parameters: []
+  parameters:
+  - name: theRequest
+    type: request
+    description: returned from fetchRemote , callRemote or getRemoteRequests
+  - name: postDataLength
+    type: int
+    description: MISSING_PARAM_DESC
+    default: 0 [, bool includeHeaders = false ]
   examples:
   - path: examples/getRemoteRequestInfo-1.lua
     description: This example gets infos about all pending requests and prints them
@@ -13,4 +20,11 @@ server:
     description: This example gets infos about all pending requests and prints them
       in debugscript
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table when valid, false otherwise
+
+      The table contains:'
   requires_review: true

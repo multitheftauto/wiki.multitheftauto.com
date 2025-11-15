@@ -1,12 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsControlEnabled
+client:
+  name: isControlEnabled
+  description: Checks whether a GTA control is enabled or disabled for a certain player.
+  parameters:
+  - name: control
+    type: string
+    description: The control you wish to check. See control names for a list of possible
+      controls.
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if control is enabled, false otherwise.
+  requires_review: true
 server:
   name: isControlEnabled
   description: Checks whether a GTA control is enabled or disabled for a certain player.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish the control status of.
+  - name: control
+    type: string
+    description: The control you wish to check. See control names for a list of possible
+      controls.
   examples:
   - path: examples/isControlEnabled-1.lua
     description: This example uses a command handler to allow a player to toggle whether
       he can use vehicle weapons by disabling or enabling the primary and secondary
       vehicle fire keys. The command handler is trigged with 'toggleweapons'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if control is enabled, false otherwise.
   requires_review: true

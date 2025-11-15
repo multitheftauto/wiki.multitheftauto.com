@@ -1,13 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ShowCol
-client:
+shared:
   name: showCol
   description: Shows collision previews for developers ([colshapes](/wiki/Colshape
     "Colshape") in wireframe, useful when writing scripts).
-  parameters: []
+  parameters:
+  - name: state
+    type: bool
+    description: A boolean indicating if the collision previews should be enabled
+      or disabled.
   examples:
   - path: examples/showCol-1.lua
     description: 'You can refer to the example below:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: 'You can refer to the example below:'
   notes:
   - type: info
     content: This function only works in development mode.

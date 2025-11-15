@@ -1,10 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetSelectionMode
-client:
+shared:
   name: guiGridListSetSelectionMode
   description: This function sets the selection mode of a gui gridlist. For example,
     the MTA *server browser* selects a whole row, while the *Controls* dialog selects
     a single cell. To select multiple items you must be holding down 'ctrl'.
-  parameters: []
+  parameters:
+  - name: gridlist
+    type: gui-Element
+    description: The gridlist in which you wish to set the selection mode.
+  - name: mode
+    type: int
+    description: 'The mode of the selection.  Can be the following values: 0: Single
+      row selection 1: Multiple row selection 2: Single cell selection 3: Multiple
+      cell selection 4: Nominated(First) single column selection 5: Nominated(First)
+      multiple column selection 6: Single column selection 7: Multiple column selection
+      8: Nominated(First) single row selection 9: Nominated(First) multiple row selection'
   examples:
   - path: examples/guiGridListSetSelectionMode-1.lua
     description: 'This example creates a grid list with 3 columns and 3 rows, each
@@ -12,4 +22,14 @@ client:
       on. The player can use the command ''setmode #'' to change how the grid list
       can be selected.'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the selection mode was successfully set, false otherwise.
+  oop:
+    element: guigridlist
+    method: setSelectionMode
+    variable: selectionMode
+    static: false
   requires_review: true

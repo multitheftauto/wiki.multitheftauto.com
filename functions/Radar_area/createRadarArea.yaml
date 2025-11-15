@@ -1,12 +1,90 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateRadarArea
+client:
+  name: createRadarArea
+  description: This function can be used to create custom radar areas on the radar.
+  parameters:
+  - name: startPosX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startPosY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: sizeX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: sizeY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: r
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  - name: g
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: b
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: a
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  examples: []
+  returns:
+    values:
+    - type: radararea
+      name: value
+  oop: &id001
+    element: radararea
+    constructorclass: RadarArea
+  requires_review: true
 server:
   name: createRadarArea
   description: This function can be used to create custom radar areas on the radar.
-  parameters: []
+  parameters:
+  - name: startPosX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startPosY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: sizeX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: sizeY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: r
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  - name: g
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: b
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: a
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  - name: visibleTo
+    type: element
+    description: MISSING_PARAM_DESC
+    default: root
   examples:
   - path: examples/createRadarArea-1.lua
     description: This example creates a radar area for the King of the hill script,
       and a colsquare. When the player enters the radar area it flashes, and stops
       flashing when a player leaves it.
     side: server
+  returns:
+    values:
+    - type: radararea
+      name: value
+  oop: *id001
   requires_review: true

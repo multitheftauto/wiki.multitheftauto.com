@@ -1,11 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerHudComponentProperty
-client:
+shared:
   name: getPlayerHudComponentProperty
   description: This function gets the value of the specified HUD property.
-  parameters: []
+  parameters:
+  - name: component
+    type: string
+    description: The component whose property you want to retrieve. See HUD Components
+      .
+  - name: property
+    type: string
+    description: The name of the property you want to read. See HUD Properties .
   examples:
   - path: examples/getPlayerHudComponentProperty-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: mixed
+      name: value
+    description: Returns different values depending on the type. It can be bool ,
+      string , int , int int , or int int int int . If something goes wrong, it returns
+      false .
+  oop:
+    element: player
+    method: getHudComponentProperty
+    static: false
   pair: setPlayerHudComponentProperty
   requires_review: true

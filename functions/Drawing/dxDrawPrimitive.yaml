@@ -1,10 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawPrimitive
-client:
+shared:
   name: dxDrawPrimitive
   description: This function draws a 2D primitive shape across the screen \- rendered
     for one frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
     "OnClientRender") in order to display continuously.
-  parameters: []
+  parameters:
+  - name: pType
+    type: string
+    description: Type of primitive to be drawn.
+  - name: postGUI
+    type: bool
+    description: A bool representing whether the line should be drawn on top of or
+      behind any ingame GUI (rendered by CEGUI).
+  - name: vertex1
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: vertex2
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: '...'
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxDrawPrimitive-1.lua
     description: This is a small example that creates trianglefan primitive with vertices
@@ -19,7 +35,11 @@ client:
       circle"-symbol similar to what some modern games like using to indicate loading
       or cloud saving in progress.
     side: client
-  requires_review: true
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -29,3 +49,4 @@ client:
       - Missing section: Vertices format
 
       '
+  requires_review: true

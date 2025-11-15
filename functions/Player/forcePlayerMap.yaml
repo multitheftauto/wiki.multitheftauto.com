@@ -1,12 +1,46 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ForcePlayerMap
+client:
+  name: forcePlayerMap
+  description: This function is used to forcefully show a player's map (F11\).
+  parameters:
+  - name: forceOn
+    type: bool
+    description: A boolean value representing whether or not the player's map will
+      be forced on
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player's map was forced on, false otherwise.
+  oop: &id001
+    element: player
+    method: forceMap
+    variable: mapForced
+    static: false
+  pair: isPlayerMapForced
+  requires_review: true
 server:
   name: forcePlayerMap
   description: This function is used to forcefully show a player's map (F11\).
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: A player object referencing the specified player
+  - name: forceOn
+    type: bool
+    description: A boolean value representing whether or not the player's map will
+      be forced on
   examples:
   - path: examples/forcePlayerMap-1.lua
     description: This example forces the map to show for the player named "dave" on
       for 10 seconds, if it hasn't been already.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player's map was forced on, false otherwise.
+  oop: *id001
   pair: isPlayerMapForced
   requires_review: true

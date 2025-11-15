@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetOriginalWeaponProperty
-server:
+shared:
   name: getOriginalWeaponProperty
   description: This function gets the original weapon property of the specified weapons
     specified weapon type.
-  parameters: []
+  parameters:
+  - name: weaponID/string weaponName
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: weaponSkill
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: property
+    type: string
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getOriginalWeaponProperty-1.lua
     description: This example gets the default weapon range of the M4 at poor skill
       level
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: 'On success:'
   requires_review: true

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceGUIElement
-client:
+shared:
   name: getResourceGUIElement
   description: This function retrieves a resource's GUI element. The resource's GUI
     element is the element in the element tree which is the default parent of all
@@ -7,10 +7,19 @@ client:
     called **guiRoot**, and each resource has one of these. You can attach event handlers
     to this element to easily capture events that originate from your resource (and
     global events that originate from the root element).
-  parameters: []
+  parameters:
+  - name: resource theResource
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getThisResource(
   examples:
   - path: examples/getResourceGUIElement-1.lua
     description: This example provides a function for destroying all the GUI elements
       of a resource.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the root GUI element that contains all the other GUI elements.
   requires_review: true

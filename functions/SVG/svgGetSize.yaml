@@ -1,10 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SvgGetSize
-client:
+shared:
   name: svgGetSize
   description: Gets the underlying XML document from an SVG element.
-  parameters: []
+  parameters:
+  - name: svgElement
+    type: svg
+    description: The svg you want to get the size of.
   examples: []
-  requires_review: true
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    description: See the example for svgSetSize .
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -12,3 +21,4 @@ client:
       - Missing section: Contents
 
       '
+  requires_review: true

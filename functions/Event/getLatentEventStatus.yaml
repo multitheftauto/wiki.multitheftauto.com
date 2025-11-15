@@ -1,11 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetLatentEventStatus
-server:
+client:
   name: getLatentEventStatus
   description: Gets the status of one queued latent event.
-  parameters: []
+  parameters:
+  - name: handle
+    type: int
+    description: A handle previous got from getLatentEventHandles .
   examples:
   - path: examples/getLatentEventStatus-1.lua
     description: The example starts a latent event and outputs the status of the transfer
       to the client console
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with the following info or false if invalid arguments
+      were passed:'
+  requires_review: true
+server:
+  name: getLatentEventStatus
+  description: Gets the status of one queued latent event.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player who is receiving the event.
+  - name: handle
+    type: int
+    description: A handle previous got from getLatentEventHandles .
+  examples: []
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with the following info or false if invalid arguments
+      were passed:'
   requires_review: true

@@ -1,14 +1,44 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetScreenFromWorldPosition
-client:
+shared:
   name: getScreenFromWorldPosition
   description: This function gets the screen position of a point in the world. This
     is useful for attaching 2D gui elements to parts of the world (e.g. players) or
     detecting if a point is on the screen (though it does not check if it is actually
     visible, you should use [processLineOfSight](/wiki/ProcessLineOfSight "ProcessLineOfSight")
     for that).
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float value indicating the x position in the world.
+  - name: "y"
+    type: float
+    description: A float value indicating the y position in the world.
+  - name: z
+    type: float
+    description: A float value indicating the z position in the world.
+  - name: edgeTolerance
+    type: float
+    description: 'A float value indicating the distance the position can be off screen
+      before the function returns false. Note: it''s clamped down on both axies to
+      the size of screen at the given axis*10'
+    default: '0.0'
+  - name: relative
+    type: bool
+    description: A boolean value that indicates if edgeTolerance is in pixels [false],
+      or relative to the screen size [true].
+    default: 'true'
   examples:
   - path: examples/getScreenFromWorldPosition-1.lua
     description: This example add a '3d' text at coordinates 0, 0, 0 (center of map).
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns two x , y floats indicating the screen position and float
+      distance between screen and given position if successful, false otherwise.
   requires_review: true

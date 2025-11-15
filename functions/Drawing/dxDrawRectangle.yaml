@@ -1,13 +1,48 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawRectangle
-client:
+shared:
   name: dxDrawRectangle
   description: This function draws a 2D rectangle across the screen \- rendered for
     **one** frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
     "OnClientRender") in order to display continuously.
-  parameters: []
+  parameters:
+  - name: startX
+    type: float
+    description: An float representing the absolute origin X position of the rectangle,
+      represented by pixels on the screen.
+  - name: startY
+    type: float
+    description: An float representing the absolute origin Y position of the rectangle,
+      represented by pixels on the screen.
+  - name: width
+    type: float
+    description: An float representing the width of the rectangle, drawn in a right
+      direction from the origin.
+  - name: height
+    type: float
+    description: An float representing the height of the rectangle, drawn in a downwards
+      direction from the origin.
+  - name: color
+    type: int
+    description: the hex color of the rectangle, produced using tocolor or 0xAARRGGBB
+      (AA = alpha, RR = red, GG = green, BB = blue).
+    default: white
+  - name: postGUI
+    type: bool
+    description: A bool representing whether the line should be drawn on top of or
+      behind any ingame GUI.
+    default: 'false'
+  - name: subPixelPositioning
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/dxDrawRectangle-1.lua
     description: Example of MOTD (message of the day), made using DxDrawText, -Line
       and -Rectangle.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the operation was successful, false otherwise.
   requires_review: true

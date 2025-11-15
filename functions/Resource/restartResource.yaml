@@ -1,9 +1,44 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RestartResource
-server:
+shared:
   name: restartResource
   description: This function restarts a running resource. Restarting will destroy
     all the elements that the resource has created (as stopping the resource does).
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource you want to restart.
+  - name: persistent
+    type: bool
+    description: Unused
+    default: 'false'
+  - name: configs
+    type: bool
+    description: Reload configs?
+    default: 'true'
+  - name: maps
+    type: bool
+    description: Reload maps?
+    default: 'true'
+  - name: scripts
+    type: bool
+    description: Reload (server) scripts?
+    default: 'true'
+  - name: html
+    type: bool
+    description: Reload html files (for resource web access)?
+    default: 'true'
+  - name: clientConfigs
+    type: bool
+    description: Reload client configs?
+    default: 'true'
+  - name: clientScripts
+    type: bool
+    description: Reload client scripts?
+    default: 'true'
+  - name: clientFiles
+    type: bool
+    description: Reload files?
+    default: 'true'
   examples:
   - path: examples/restartResource-1.lua
     description: 'Example 1: This function restarts all running resources.'
@@ -12,6 +47,16 @@ server:
     description: 'Example 2: This example will restart the specify resource every
       3600000 milliseconds (hour).'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the resource was restarted, false if the resource
+      wasn't running, or an invalid resource was passed.
+  oop:
+    element: resource
+    method: restart
+    static: false
   notes:
   - type: info
     content: Don't forget to give admin rights to the resource, in which you are using

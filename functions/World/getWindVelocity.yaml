@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWindVelocity
-server:
+shared:
   name: getWindVelocity
   description: This function gets the wind velocity in San Andreas.
   parameters: []
@@ -8,6 +8,16 @@ server:
     description: This example returns the wind velocity to a player if they use the
       command 'getwindvelocity'.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    description: This example returns the wind velocity to a player if they use the
+      command 'getwindvelocity'.
   notes:
   - type: info
     content: The function will return false server-side if wind velocity has not been

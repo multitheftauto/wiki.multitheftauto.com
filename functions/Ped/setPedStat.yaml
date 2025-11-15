@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedStat
-server:
+shared:
   name: setPedStat
   description: This function allows you to set the value of a specific statistic for
     a [ped](/wiki/Ped "Ped"). **Visual stats (FAT and BODY\_MUSCLE) can only be used
     on the CJ skin**, they have no effect on other skins. When this function is used
     client\-side, it can only be used on client\-side created peds.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose statistic you want to modify.
+  - name: stat
+    type: int
+    description: the stat ID.
+  - name: value
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setPedStat-1.lua
     description: This example allows a player to type the command 'beefcake' to change
@@ -16,6 +25,13 @@ server:
     description: This example adds a/upgradeskillscommand to give the player who types
       it the maximum skill with every weapon and maximum health.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the statistic was changed succesfully. Returns false
+      if an invalid player is specified, if the stat ID/value is out of acceptable
+      range or if the FAT or BODY_MUSCLE stats are used on non-CJ players.
   meta:
   - needs_checking: Things like infinite run, fire proof CJ, 150 armor have special
       activation flags. They need a way to be triggered on/off.

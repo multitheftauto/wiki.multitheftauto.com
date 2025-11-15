@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetColPolygonPoints
-server:
+shared:
   name: getColPolygonPoints
   description: This function is used to get all bound points in a [colshape polygon](/wiki/CreateColPolygon
     "CreateColPolygon").
-  parameters: []
+  parameters:
+  - name: shape
+    type: colshape
+    description: The colshape polygon you wish to get the points of.
   examples:
   - path: examples/getColPolygonPoints-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of coordinates, each coordinate being a table containing
+      the x and y position of a bound point, false if invalid arguments were passed.
+  oop:
+    element: colshape
+    method: getPoints
+    static: false
   requires_review: true

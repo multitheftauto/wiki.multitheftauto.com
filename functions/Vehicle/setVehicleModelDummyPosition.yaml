@@ -1,17 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleModelDummyPosition
-client:
+shared:
   name: setVehicleModelDummyPosition
   description: This function sets the position of the dummies contained in a vehicle
     model. Use [setVehicleComponentPosition](/wiki/SetVehicleComponentPosition "SetVehicleComponentPosition")
     to adjust the vehicle component positions.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: The model ID which you want to apply the change to
+  - name: dummy
+    type: string
+    description: The dummy whose position you want to change
+  - name: x
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setVehicleModelDummyPosition-1.lua
     description: Given example will move all the dummies in vehicle that player is
       sitting in up and down, after he uses /move command.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if everything went fine, false otherwise.
+  oop:
+    element: Vehicle
+    method: )
+    static: true
   pair: getVehicleModelDummyPosition
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -19,3 +42,4 @@ client:
       - Missing section: Allowed dummies
 
       '
+  requires_review: true

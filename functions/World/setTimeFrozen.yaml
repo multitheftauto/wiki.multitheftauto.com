@@ -1,11 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTimeFrozen
-client:
+shared:
   name: setTimeFrozen
   description: This function will freeze the game time. It will affect the sky as
     well prevent it from changes.
-  parameters: []
+  parameters:
+  - name: state
+    type: bool
+    description: if set to true it will freeze the time, false otherwise.
   examples:
   - path: examples/setTimeFrozen-1.lua
     description: This example let you freeze the time
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Always returns true .
   requires_review: true

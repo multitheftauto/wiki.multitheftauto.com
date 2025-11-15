@@ -1,16 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleVariant
-server:
+shared:
   name: setVehicleVariant
   description: 'This function sets the variant of a specified vehicle. In GTA: San
     Andreas some vehicles are different; for example the labelling on trucks or the
     contents of a pick\-up truck and the varying types of a motor bike. For the default
     variant list see: [Vehicle variants](/wiki/Vehicle_variants "Vehicle variants").'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you want to set the variant.
+  - name: variant1
+    type: int
+    description: An integer for the first variant. See Vehicle variants .
+  - name: variant2
+    type: int
+    description: An integer for the second variant. See Vehicle variants .
   examples:
   - path: examples/setVehicleVariant-1.lua
     description: 'This example lets the vehicle driver set their vehicle''s variant
       with a command:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle variants were successfully set, false
+      otherwise (the specified vehicle doesn't exist or the specified variants are
+      invalid).
+  oop:
+    element: vehicle
+    method: setVariant
+    static: false
   pair: getVehicleVariant
   notes:
   - type: info

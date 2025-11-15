@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetHorizontalScrollPosition
-client:
+shared:
   name: guiGridListSetHorizontalScrollPosition
   description: This function is used to set the horizontal scroll position from a
     grid list
-  parameters: []
+  parameters:
+  - name: guiGridlist
+    type: element
+    description: The grid list you want to set the horizontal scroll position from
+  - name: fPosition
+    type: float
+    description: A float representing the horizontal scroll position (0-100)
   examples:
   - path: examples/guiGridListSetHorizontalScrollPosition-1.lua
     description: This example sets the position of the horizontal scroll and outputs
       it to the chatbox.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the horizontal scroll position was set, or false
+      otherwise.
+  oop:
+    element: guigridlist
+    method: setHorizontalScrollPosition
+    variable: horizontalScrollPosition
+    static: false
   pair: guiGridListGetHorizontalScrollPosition
   requires_review: true

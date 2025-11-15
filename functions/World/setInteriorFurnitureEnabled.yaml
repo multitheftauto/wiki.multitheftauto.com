@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetInteriorFurnitureEnabled
-client:
+shared:
   name: setInteriorFurnitureEnabled
   description: This function toggles furniture generation in interiors with the specified
     room ID.
-  parameters: []
+  parameters:
+  - name: roomID
+    type: int
+    description: 'The room type which you want disable or enable the furniture in:
+      0 : shop 1 : office 2 : lounge 3 : bedroom 4 : kitchen'
+  - name: enabled
+    type: bool
+    description: A bool representing whether the interior furniture is enabled or
+      disabled.
   examples:
   - path: examples/setInteriorFurnitureEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   requires_review: true

@@ -1,12 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetScrollBars
-client:
+shared:
   name: guiGridListSetScrollBars
   description: This function allows a gridlist's scrollbar to be forced **on**, or
     returned to default.
-  parameters: []
+  parameters:
+  - name: guiGridlist
+    type: element
+    description: The GUI gridlist you wish to change the state of scrollbars
+  - name: horizontalBar
+    type: bool
+    description: A bool where true forces the horizontal scrollbar on, and false returns
+      them to default.
+  - name: verticalBar
+    type: bool
+    description: A bool where true forces the verical scrollbar on, and false returns
+      them to default.
   examples:
   - path: examples/guiGridListSetScrollBars-1.lua
     description: This example creates a gridlist and checks if it's created then sets
       the scroll bars. (TESTED!)
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the scrollbars were successfully set, false otherwise.
+  oop:
+    element: guigridlist
+    method: setScrollBars
+    static: false
   requires_review: true

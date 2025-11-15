@@ -1,13 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleHeadLightColor
-server:
+shared:
   name: setVehicleHeadLightColor
   description: This function will set the headlight color of a vehicle. valid Red
     Green and Blue arguments range from 0\-255
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you wish to set the headlight color of.
+  - name: red
+    type: int
+    description: An integer indicating the amount of red for the vehicle's headlights
+  - name: green
+    type: int
+    description: An integer indicating the amount of green for the vehicle's headlights
+  - name: blue
+    type: int
+    description: An integer indicating the amount of blue for the vehicle's headlights
   examples:
   - path: examples/setVehicleHeadLightColor-1.lua
     description: It shows error if player isn't in vehicle or color failed to change.
       It shows a message if color changed successful.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if vehicle's headlight color was set, false if an invalid
+      vehicle or invalid color ranges were specified for red,green or blue.
+  oop:
+    element: vehicle
+    method: setHeadLightColor
+    static: false
   pair: getVehicleHeadLightColor
   requires_review: true

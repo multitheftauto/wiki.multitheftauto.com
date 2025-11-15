@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleController
-server:
+shared:
   name: getVehicleController
   description: This function is used to get the player in control of the specified
     vehicle which includes somebody who is trying to enter the drivers seat.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle you want to get the 'controller' of.
   examples:
   - path: examples/getVehicleController-1.lua
     description: This example outputs a chatbox message when a vehicle gets a trailer
       attached.
     side: server
+  returns:
+    values:
+    - type: player
+      name: value
+    description: Returns a player object, if there isn't a driver, it will search
+      the 'trailer chain' for the front driver, false otherwise.
+  oop:
+    element: vehicle
+    method: getController
+    variable: controller
+    static: false
   requires_review: true

@@ -1,13 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateResource
-server:
+shared:
   name: createResource
   description: This function creates an new, empty resource. This creates a directory
     matching the name you specify on disk, then creates an empty meta.xml file with
     a \<meta\> element in it.
-  parameters: []
+  parameters:
+  - name: resourceName
+    type: string
+    description: The name of the new resource. This should be a valid file name. It's
+      recommended that you do not have spaces or non-ASCII characters in resource
+      names.
+  - name: organizationalDir
+    type: string
+    description: A string containing the path where the resource should be created
+      (e.g. "[gamemodes]/[amx]").
   examples:
   - path: examples/createResource-1.lua
     description: This example creates a new resource named what the player specified.
       The command is "/new-resource <name>".
     side: server
+  returns:
+    values:
+    - type: resource
+      name: value
+    description: Returns the resource element of the new resource if successful, false
+      otherwise. This could fail if the resource name already is in use, if a directory
+      already exists with the name you've specified (but this isn't a valid resource)
+      or if the name you specify isn't valid. It could also fail if the disk was full
+      or for other similar reasons.
+  oop:
+    element: resource
+    constructorclass: Resource
   requires_review: true

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineReplaceAnimation
-client:
+shared:
   name: engineReplaceAnimation
   description: This function replaces a specific internal (default) animation with
     a custom one that has been loaded using [engineLoadIFP](/wiki/EngineLoadIFP "EngineLoadIFP")
@@ -9,7 +9,23 @@ client:
     to have completely different crouching, walking, and fighting etc., animations
     running simultaneously at the same time. Also, it's not synchronized, you'll need
     to execute this function on every client in Lua to synchronize it.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the player or ped you want to replace an animation for.
+  - name: InternalBlockName
+    type: string
+    description: the internal block name.
+  - name: InternalAnimName
+    type: string
+    description: the internal animation name inside InternalBlockName.
+  - name: CustomBlockName
+    type: string
+    description: the custom block name of the loaded IFP file that you passed to engineLoadIFP
+      as second parameter.
+  - name: CustomAnimName
+    type: string
+    description: the custom animation name inside the loaded IFP file with CustomBlockName.
   examples:
   - path: examples/engineReplaceAnimation-1.lua
     description: This example loads a custom IFP file (parkour.ifp), and replaces
@@ -17,4 +33,9 @@ client:
       press C on your keyboard, the custom animation will be played instead of crouch
       animation.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true on success, false in case of failure.
   requires_review: true

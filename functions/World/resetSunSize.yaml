@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetSunSize
-server:
+shared:
   name: resetSunSize
   description: This function is used to reset the size of the sun to its normal size.
   parameters: []
@@ -7,4 +7,9 @@ server:
   - path: examples/resetSunSize-1.lua
     description: This example lets any player reset the size of the sun like /resetsunsize
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the size of the sun was reset, false otherwise.
   requires_review: true

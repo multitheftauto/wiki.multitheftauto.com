@@ -1,11 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleNameFromModel
-server:
+shared:
   name: getVehicleNameFromModel
   description: Gets the name of a vehicle by its model ID.
-  parameters: []
+  parameters:
+  - name: model
+    type: int
+    description: This is the vehicle model ID. See vehicle IDs to see what values
+      will return names.
   examples:
   - path: examples/getVehicleNameFromModel-1.lua
     description: This will retrieve the name of a car so its name can be displayed
       when the player chooses to spawn a car by model ID.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the name of the vehicle if the model ID was valid, false
+      otherwise.
+  oop:
+    element: Vehicle
+    note: This function is a static function underneath the Vehicle class.
+    method: )
+    static: true
   requires_review: true

@@ -1,12 +1,51 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddBulletImpact
-client:
+shared:
   name: fxAddBulletImpact
   description: Creates a bullet impact particle effect, consisting of a small smoke
     cloud and a number of sparks.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: smokeSize
+    type: int
+    description: the size of the smoke cloud.
+    default: '1'
+  - name: sparkCount
+    type: int
+    description: the number of sparks to create.
+    default: '1'
+  - name: smokeIntensity
+    type: float
+    description: the amount/transparency of smoke, ranges from 0 to 1.
+    default: '1.0'
   examples:
   - path: examples/fxAddBulletImpact-1.lua
     description: This example will create a Bullet Impact Effect on the position of
       the bullet impact.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

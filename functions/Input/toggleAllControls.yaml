@@ -1,11 +1,60 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ToggleAllControls
+client:
+  name: toggleAllControls
+  description: Enables or disables the use of all GTA controls for a specified player.
+  parameters:
+  - name: enabled
+    type: bool
+    description: A boolean value representing whether or not the controls will be
+      usable.
+  - name: gtaControls
+    type: bool
+    description: A boolean deciding whether the enabled parameter will affect GTA's
+      internal controls.
+    default: 'true'
+  - name: mtaControls
+    type: bool
+    description: A boolean deciding whether the enabled parameter will affect MTA's
+      own controls., e.g. chatbox.
+    default: 'true'
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns true if controls were toggled successfully,
+      false otherwise.
+  requires_review: true
 server:
   name: toggleAllControls
   description: Enables or disables the use of all GTA controls for a specified player.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish to toggle the control ability of.
+  - name: enabled
+    type: bool
+    description: A boolean value representing whether or not the controls will be
+      usable.
+  - name: gtaControls
+    type: bool
+    description: A boolean deciding whether the enabled parameter will affect GTA's
+      internal controls.
+    default: 'true'
+  - name: mtaControls
+    type: bool
+    description: A boolean deciding whether the enabled parameter will affect MTA's
+      own controls., e.g. chatbox.
+    default: 'true'
   examples:
   - path: examples/toggleAllControls-1.lua
     description: This function will disable the use of all controls in order to freeze
       a player, which will be used every time someone enters a vehicle.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns true if controls were toggled successfully,
+      false otherwise.
   requires_review: true

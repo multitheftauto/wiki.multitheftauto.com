@@ -1,10 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedsLODDistance
-client:
+shared:
   name: setPedsLODDistance
   description: This function sets the peds LOD distance.
-  parameters: []
+  parameters:
+  - name: distance
+    type: float
+    description: the new peds LOD distance. This value is clamped to 0 – 500 . (Default
+      for high_detail_peds on is 500 , when off, it is 60 ).
   examples:
   - path: examples/setPedsLODDistance-1.lua
     description: This example sets the peds LOD distance to 120.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns true if the argument is valid. Returns false
+      otherwise.
   requires_review: true

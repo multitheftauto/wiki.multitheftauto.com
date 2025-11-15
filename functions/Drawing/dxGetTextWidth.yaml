@@ -1,12 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxGetTextWidth
-client:
+shared:
   name: dxGetTextWidth
   description: This function retrieves the theoretical width (in pixels) of a certain
     piece of text, if it were to be drawn using [dxDrawText](/wiki/DxDrawText "DxDrawText").
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: A string representing the text for which you wish to retrieve with
+      width for.
+  - name: scale
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '1'
+  - name: font
+    type: mixed
+    description: MISSING_PARAM_DESC
+    default: '"default"'
+  - name: bColorCoded
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/dxGetTextWidth-1.lua
     description: This will show you the width of a message in a normal chatbox sent
       by a player
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the float of the width of the text (in pixels).
+  oop:
+    element: font
+    note: This syntax requires you to ignore the font argument above
+    method: getTextWidth
+    static: false
   requires_review: true

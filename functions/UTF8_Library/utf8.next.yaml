@@ -1,12 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.next
-server:
+shared:
   name: utf8.next
   description: This is an iteration function to traverse each single codepoint of
     a UTF\-8 string.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: int charpos
+    type: '[,'
+    description: MISSING_PARAM_DESC
+    default: 0 ]
+  - name: offset
+    type: int
+    description: An integer representing the offset to charpos.
+    default: '1'
   examples:
   - path: examples/utf8.next-1.lua
     description: This example shows how to traverse a UTF-8 string the proper way
       without running into problems as in byte strings.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int utf8.next
+      name: value2
+    description: Returns the integer position in bytes and the integer codepoint at
+      this position, nil otherwise.
   requires_review: true

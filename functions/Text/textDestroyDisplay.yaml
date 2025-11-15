@@ -1,12 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextDestroyDisplay
-server:
+shared:
   name: textDestroyDisplay
   description: This function destroys a text display and will unlink all the [textitems](/wiki/Textitem
     "Textitem") on it. This does not stop the textitems existing, but anyone who was
     observing the textitems through this display will stop seeing them.
-  parameters: []
+  parameters:
+  - name: display
+    type: textdisplay
+    description: This is the textdisplay that you wish to have destroyed.
   examples:
   - path: examples/textDestroyDisplay-1.lua
     description: This example creates a display then destroys it again straight away.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
   requires_review: true

@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetKeyState
-client:
+shared:
   name: getKeyState
   description: This function determines if a certain key is pressed or not.
-  parameters: []
+  parameters:
+  - name: keyName
+    type: string
+    description: The name of the key you're checking state of. See Key names .
   examples:
   - path: examples/getKeyState-1.lua
     description: This clientside example prints a message when "p" is pressed, and
       a different one for the "control+p" combination.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the specified key is pressed, false if it isn't or
+      if an invalid key name is passed.
   requires_review: true

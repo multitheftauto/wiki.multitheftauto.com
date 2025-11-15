@@ -1,10 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetAircraftMaxHeight
-server:
+shared:
   name: setAircraftMaxHeight
   description: This function changes the maximum flying height of aircraft.
-  parameters: []
+  parameters:
+  - name: Height
+    type: float
+    description: ''
   examples:
   - path: examples/setAircraftMaxHeight-1.lua
     description: This example shows you a command to set your maximum aircraft height.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   requires_review: true

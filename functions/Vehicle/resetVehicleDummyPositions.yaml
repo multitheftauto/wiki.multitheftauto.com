@@ -1,8 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetVehicleDummyPositions
-client:
+shared:
   name: resetVehicleDummyPositions
   description: This function resets the [vehicle](/wiki/Vehicle "Vehicle") dependent
     dummy positions to the vehicle's current model dummy positions.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle to reset the dummy positions.
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the dummy positions have been reset, false otherwise.
+  oop:
+    element: vehicle
+    method: resetDummyPositions
+    static: false
   requires_review: true

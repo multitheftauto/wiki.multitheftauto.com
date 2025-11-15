@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleSirens
-server:
+shared:
   name: getVehicleSirens
   description: This function gets the properties of a vehicle's sirens.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle to get siren information of.
   examples:
   - path: examples/getVehicleSirens-1.lua
     description: This example returns the siren properties when the player presses
       Z.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'If the vehicle is invalid, it returns false . Otherwise, returns
+      a table with sub tables containing the properties of each siren point in the
+      following manner:'
+  oop:
+    element: vehicle
+    method: getSirens
+    variable: sirens
+    static: false
   pair: setVehicleSirens
   requires_review: true

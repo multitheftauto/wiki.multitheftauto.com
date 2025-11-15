@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerVoiceIgnoreFrom
-server:
+shared:
   name: setPlayerVoiceIgnoreFrom
   description: This function allows you to mute voices for a player.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: element
+    description: The player you wish to change
+  - name: ignoreFrom
+    type: mixed
+    description: Element or table of elements which the player should not hear voices
+      from. Use nil if no one should be ignored.
   examples:
   - path: examples/setPlayerVoiceIgnoreFrom-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the value was set successfully, false otherwise.
+  oop:
+    element: player
+    method: setVoiceIgnoreFrom
+    variable: voiceIgnoreFrom
+    static: false
   notes:
   - type: important
     content: This function should only be used as a low-level function for advanced

@@ -1,10 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetZoneName
-server:
+shared:
   name: getZoneName
   description: This function allows you to retrieve the zone name of a certain location.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: The X axis position
+  - name: "y"
+    type: float
+    description: The Y axis position
+  - name: z
+    type: float
+    description: The Z axis position
+  - name: citiesonly
+    type: bool
+    description: 'An optional argument to choose if you want to return one of the
+      following city names: Tierra Robada Bone County Las Venturas San Fierro Red
+      County Whetstone Flint County Los Santos'
+    default: 'false'
   examples:
   - path: examples/getZoneName-1.lua
     description: Example 1:This example returns the player's City & Zone.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the string of the zone name.
   requires_review: true

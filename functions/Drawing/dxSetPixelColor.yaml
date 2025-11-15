@@ -1,13 +1,41 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxSetPixelColor
-client:
+shared:
   name: dxSetPixelColor
   description: This function sets the color of a single pixel for [pixels](/wiki/Texture_pixels
     "Texture pixels") contained in a string. It only works with '**plain'** format
     pixels.
-  parameters: []
+  parameters:
+  - name: pixels
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: x
+    type: int
+    description: The X coordinate for the pixel
+  - name: "y"
+    type: int
+    description: The Y coordinate for the pixel
+  - name: r
+    type: int
+    description: The red channel for the color (0-255)
+  - name: g
+    type: int
+    description: The green channel for the color (0-255)
+  - name: b
+    type: int
+    description: The blue channel for the color (0-255)
+  - name: a
+    type: int
+    description: The alpha channel for the color (0-255)
+    default: '255'
   examples:
   - path: examples/dxSetPixelColor-1.lua
     description: This example creates a 64x64 texture with random pixel colors, and
       draw it on the screen.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, or false if invalid arguments were passed
+      to the function.
   requires_review: true

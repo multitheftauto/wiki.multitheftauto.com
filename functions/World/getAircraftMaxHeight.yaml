@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetAircraftMaxHeight
-server:
+shared:
   name: getAircraftMaxHeight
   description: This function gets the maximum height at which aircraft can fly without
     their engines turning off.
@@ -9,4 +9,9 @@ server:
     description: This example returns the max aircraft height to a player if they
       use the command 'aircraftmaxheight'.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float containing the max aircraft height.
   requires_review: true

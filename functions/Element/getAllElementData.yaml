@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetAllElementData
-server:
+shared:
   name: getAllElementData
   description: Returns a table of all element data of an element.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: the element you want to get the element data of.
   examples:
   - path: examples/getAllElementData-1.lua
     description: This example script creates a new console command that displays all
       element data that is currently set on the player who enters the command.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: If successful, returns a table with as keys the names of the element
+      data and as values the corresponding element data values. Returns false in case
+      of failure.
+  oop:
+    element: element
+    method: getAllData
+    static: false
   requires_review: true

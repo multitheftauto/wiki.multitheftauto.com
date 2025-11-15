@@ -1,12 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleAdjustableProperty
-client:
+shared:
   name: getVehicleAdjustableProperty
   description: Use this to get the value of a vehicles adjustable property. This property
     relates to movable parts of a model, for example hydra jets or dump truck tray.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you want to get the adjustable property of.
   examples:
   - path: examples/getVehicleAdjustableProperty-1.lua
     description: This example creates a command, so if the local player wants to know
       how much they tilt/adjusted a vehicle adjustable property
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns a value from 0 upwards representing adjustment. 0 is default
+      position. Maximum varies per vehicle, for example hydra horizontal flight is
+      5000, while dump truck tray max tilt is 2500. Or returns false if the vehicle
+      passed to the function is invalid.
   requires_review: true

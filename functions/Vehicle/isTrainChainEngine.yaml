@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsTrainChainEngine
-client:
+shared:
   name: isTrainChainEngine
   description: This function checks if a [train](/wiki/Element/Vehicle "Element/Vehicle")
     is a chain engine (moves the rest of the chain's carriages) or not.
-  parameters: []
+  parameters:
+  - name: theTrain
+    type: vehicle
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/isTrainChainEngine-1.lua
     description: The next code snippet adds a /isthistrainachainengine, which checks
       if the train occupied by the player who types the command is a chain engine
       or not.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: The next code snippet adds a /isthistrainachainengine, which checks
+      if the train occupied by the player who types the command is a chain engine
+      or not.
+  oop:
+    element: vehicle
+    method: isTrainChainEngine
+    variable: chainEngine
+    static: false
   requires_review: true

@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementSyncer
-client:
+shared:
   name: isElementSyncer
   description: This function checks whether an [element](/wiki/Element "Element")
     is synced by the local player or not. Accepted elements are [peds](/wiki/Ped "Ped")
     and [vehicles](/wiki/Vehicle "Vehicle").
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element to check.
   examples:
   - path: examples/isElementSyncer-1.lua
     description: This example draws a string above peds synced by local player in
       50m proximity
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the passed element is synced by the local player,
+      false otherwise.
+  oop:
+    element: element
+    method: isSyncer
+    variable: syncedByLocalPlayer
+    static: false
   requires_review: true

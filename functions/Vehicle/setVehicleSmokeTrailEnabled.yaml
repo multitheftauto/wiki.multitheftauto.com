@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleSmokeTrailEnabled
-client:
+shared:
   name: setVehicleSmokeTrailEnabled
   description: This function used to set planes smoke trail enabled or disabled.
-  parameters: []
+  parameters:
+  - name: veh
+    type: vehicle
+    description: The vehicle that you want to set the smoke trail.
+  - name: enable
+    type: bool
+    description: A boolean if set to true it will enabled the smoke trail.
   examples:
   - path: examples/setVehicleSmokeTrailEnabled-1.lua
     description: This example let you set the smoke trail.
     side: client
+  returns:
+    values:
+    - type: setVehicleSmokeTrailEnabled
+      name: value
+    description: If successful returns true , false otherwise.
+  oop:
+    element: vehicle
+    method: setSmokeTrailEnabled
+    static: false
   notes:
   - type: info
     content: The smoke trail is only supported to models 512 and 513, so this only

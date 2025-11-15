@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetLoadedModules
-server:
+shared:
   name: getLoadedModules
   description: This function returns all the currently loaded [modules](/wiki/Modules
     "Modules") of the server.
@@ -8,4 +8,10 @@ server:
   - path: examples/getLoadedModules-1.lua
     description: Adds a command that lists all loaded modules in the server log.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of all the currently loaded modules . If no modules
+      are loaded, the table will be empty.
   requires_review: true

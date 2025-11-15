@@ -1,8 +1,48 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateWater
-server:
+shared:
   name: createWater
   description: Creates an area of [water](/wiki/Water "Water").
-  parameters: []
+  parameters:
+  - name: x1
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"1
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z1
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: x2
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"2
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z2
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: x3
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"3
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z3
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: x4
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"4
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z4
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: bShallow
+    type: bool
+    description: gives the water a shallow water effect.
+    default: 'false'
   examples:
   - path: examples/createWater-1.lua
     description: Example code for creating a water area to cover the entire San Andreas
@@ -16,6 +56,16 @@ server:
   - path: examples/createWater-3.lua
     description: This example fills the Easter Basin with water.
     side: server
+  returns:
+    values:
+    - type: water
+      name: value
+    description: Returns a water element if successful, false otherwise. The water
+      element can be repositioned with setElementPosition and destroyed with destroyElement
+      .
+  oop:
+    element: water
+    constructorclass: Water
   notes:
   - type: info
     content: X and Y positions will be changed to an even integer. i.e. -2, 0, 2,

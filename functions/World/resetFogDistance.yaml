@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetFogDistance
-server:
+shared:
   name: resetFogDistance
   description: This function resets the fog render distance to its default state.
   parameters: []
@@ -7,6 +7,11 @@ server:
   - path: examples/resetFogDistance-1.lua
     description: This example will demonstrate basic functionality of the function.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if operation was successful, false otherwise.
   notes:
   - type: info
     content: The function will reset the fog render distance to false server-side,

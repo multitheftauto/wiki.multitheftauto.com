@@ -1,10 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementByID
-server:
+shared:
   name: getElementByID
   description: This function returns an element from the specified ID. If more than
     one element with the same ID exists, only the first one in the order it appears
     in the XML tree will be returned by this function.
-  parameters: []
+  parameters:
+  - name: id
+    type: string
+    description: The ID of the element as it appears in the XML file or as set by
+      setElementID .
+  - name: index
+    type: int
+    description: If there are two or more elements of the same ID it will return the
+      element with the specified index starting at 0.
+    default: '0'
   examples:
   - path: examples/getElementByID-1.lua
     description: 'Assuming we have this in the .map file:'
@@ -13,6 +22,17 @@ server:
     description: Then this example would retrieve the element and output the vehicle
       name.
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the element with the given ID, or false if no such element
+      exists.
+  oop:
+    element: Element
+    note: This function is a static function underneath the Element class.
+    method: )
+    static: true
   notes:
   - type: info
     content: The ID in this context is the value of the 'id' data item of the element

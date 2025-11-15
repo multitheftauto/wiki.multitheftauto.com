@@ -1,7 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetModelLoadState
-client:
+shared:
   name: engineStreamingGetModelLoadState
   description: This function returns load state of model.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: number
+    description: ID of the model you want to get flags.
   examples: []
+  returns:
+    values:
+    - type: string
+      name: value
+    description: 'Returns string with model load state.
+
+      Possible load states:'
   requires_review: true

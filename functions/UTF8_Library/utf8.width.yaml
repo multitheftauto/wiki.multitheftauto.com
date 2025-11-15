@@ -1,11 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.width
-server:
+shared:
   name: utf8.width
   description: Calculates the width of UTF\-8 strings with special/unprintable characters,
     which require special width treatment.
-  parameters: []
+  parameters:
+  - name: input
+    type: string|int
+    description: A string character sequence OR a codepoint integer
+  - name: ambi_is_double
+    type: bool
+    description: A boolean, if set to true , ambiguous character's width is 2 (see
+      example below).
+    default: 'false'
+  - name: default_width
+    type: int
+    description: An integer, if given, is used as width for unprintable characters.
+    default: '0'
   examples:
   - path: examples/utf8.width-1.lua
     description: This example shows the difference whenambi_is_doubleis set tofalseortrue.
     side: server
+  returns:
+    values:
+    - type: int utf8.width
+      name: value
+    description: Returns the integer width of the input string OR the width of the
+      codepoint integer.
   requires_review: true

@@ -1,11 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleLightState
-server:
+shared:
   name: setVehicleLightState
   description: This function sets the state of the light on the vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: light
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: state
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setVehicleLightState-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the light state was set successfully, false if invalid
+      arguments were passed to the function.
+  oop:
+    element: vehicle
+    method: setLightState
+    static: false
   pair: getVehicleLightState
   requires_review: true

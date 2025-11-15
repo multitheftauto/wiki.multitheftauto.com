@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleWheelScale
-client:
+shared:
   name: getVehicleWheelScale
   description: This function gets the scale of all the wheels of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle to get its wheel scale of.
   examples:
   - path: examples/getVehicleWheelScale-1.lua
     description: This example adds ashrinkwheelscommand that reduces the wheel scale
       of a vehicle in half each time it is invoked.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the wheel scale of the specified vehicle as a decimal number,
+      or an error if the vehicle is invalid. For more information about the returned
+      number, see setVehicleWheelScale .
+  oop:
+    element: vehicle
+    method: getWheelScale
+    variable: wheelScale
+    static: false
   pair: setVehicleWheelScale
   requires_review: true

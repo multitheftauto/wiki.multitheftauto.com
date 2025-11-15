@@ -1,19 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetFPSLimit
-server:
+shared:
   name: setFPSLimit
   description: This function sets the maximum [FPS (Frames per second)](http://en.wikipedia.org/wiki/Frame_rate)
     that players on the server can run their game at.
-  parameters: []
+  parameters:
+  - name: fpsLimit
+    type: int
+    description: An integer value representing the maximum FPS. Refer to the note
+      above for possible values. You can also pass 0 or false , in which case the
+      FPS limit will be the one set in the client settings (by default 100 FPS and
+      the client fps limit should also be manually changed via " fps_limit=0 " in
+      console or MTA San Andreas\MTA\config\coreconfig.xml ).
   examples:
   - path: examples/setFPSLimit-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, or false if it was not possible to set
+      the limit or an invalid value was passed.
   notes:
   - type: info
     content: When set client side, the actual limit used is the lowest of both the
       server and client set values. Starting from version [ r21313 ] and above fpsLimit
       range is 25-32767 . In older MTA releases it was 25-100 .
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -23,3 +35,4 @@ server:
       - Missing section: Fix for climbing over certain objects
 
       '
+  requires_review: true

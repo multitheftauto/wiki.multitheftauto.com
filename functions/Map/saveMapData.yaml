@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SaveMapData
-server:
+shared:
   name: saveMapData
   description: This converts a set of elements in the element tree into XML. This
     is a format that can then be loaded as a map file. Each element represents a single
     XML node.
-  parameters: []
+  parameters:
+  - name: node
+    type: xmlnode
+    description: An existing node that should contain the contents of baseElement
+  - name: baseElement
+    type: element
+    description: The first element to output to the XML tree. This element and all
+      its children (and their children, etc) will be output.
+  - name: childrenOnly
+    type: bool
+    description: Defines if you want to only save children of the specified element.
+    default: 'false'
   examples:
   - path: examples/saveMapData-1.lua
     description: Saving your resource's data to anmap file(untested)
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Saving your resource's data to an map file (untested)
   requires_review: true

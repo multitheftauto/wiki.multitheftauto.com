@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RemovePedFromVehicle
-server:
+shared:
   name: removePedFromVehicle
   description: This function removes a ped from a vehicle immediately. This works
     for drivers and passengers. Note that this removes the ped from the vehicle and
     puts him in the exact position where the command was initiated.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped you wish to remove from a vehicle
   examples:
   - path: examples/removePedFromVehicle-1.lua
     description: Small example to show how to remove a ped from any vehicle it's in.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the operation was successful, false if the specified
+      ped is not valid or if it isn't in a vehicle.
+  oop:
+    element: ped
+    note: Set the variable to nil to execute this function
+    method: removeFromVehicle
+    variable: vehicle
+    static: false
   requires_review: true

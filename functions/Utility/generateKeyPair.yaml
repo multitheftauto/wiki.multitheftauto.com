@@ -1,14 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GenerateKeyPair
-server:
+shared:
   name: generateKeyPair
   description: This function creates a new public key and private key for encrypting
     data
-  parameters: []
+  parameters:
+  - name: algorithm
+    type: string
+    description: 'The algorithm to use: RSA : use the RSA public-key algorithm'
+  - name: options
+    type: table
+    description: table with options for the hashing algorithm, as detailed below.
+  - name: callback
+    type: function
+    description: providing a callback will run this function asynchronously, the arguments
+      to the callback are the same as the returned values below.
   examples:
   - path: examples/generateKeyPair-1.lua
     description: ''
     side: server
-  requires_review: true
+  returns:
+    values:
+    - type: string
+      name: value1
+    - type: string
+      name: value2
+    description: 'Returns 2 strings if successful: private key and public key . Otherwise
+      returns false'
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -16,3 +33,4 @@ server:
       - Missing section: Options for each hashing algorithm
 
       '
+  requires_review: true

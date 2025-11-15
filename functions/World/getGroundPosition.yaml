@@ -1,8 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetGroundPosition
-client:
+shared:
   name: getGroundPosition
   description: This function gets the Z level of the highest ground below a point.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A floating point number representing the X world coordinate of the
+      point.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y world coordinate of the
+      point.
+  - name: z
+    type: float
+    description: A floating point number representing the Z world coordinate of the
+      point.
   examples:
   - path: examples/getGroundPosition-1.lua
     description: This clientside function determines if a player is under a ceiling
@@ -12,4 +24,11 @@ client:
     description: This clientside function returns the distance between you and the
       ground (if there is)
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float with the highest ground-level Z coord if parameters
+      are valid, 0 if the point you tried to test is outside the loaded world map,
+      false otherwise.
   requires_review: true

@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleLightState
-server:
+shared:
   name: getVehicleLightState
   description: This function returns the current state of the specified light on the
     vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: light
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getVehicleLightState-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns 0 (working) or 1 (broken)
+  oop:
+    element: vehicle
+    method: getLightState
+    static: false
   pair: setVehicleLightState
   requires_review: true

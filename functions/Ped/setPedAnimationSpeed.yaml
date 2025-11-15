@@ -1,14 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedAnimationSpeed
-server:
+shared:
   name: setPedAnimationSpeed
   description: Sets the speed of a currently running animation for a particular player
     or ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the player or ped you want to change animation speed of.
+  - name: anim
+    type: string
+    description: the animation name it will affect.
+    default: '""'
+  - name: speed
+    type: float
+    description: a float containing the speed between 0.0–1.0 you want to apply to
+      the animation. This limitation may be adjusted in the future, so do not provide
+      speeds outside this boundary. The limit is now 0.0 to 10.0.
+    default: '1.0'
   examples:
   - path: examples/setPedAnimationSpeed-1.lua
     description: In this example we give the animation of dancing to the player and
       after 5 seconds it becomes 0.2s slower.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: ped
+    method: setAnimationSpeed
+    static: false
   notes:
   - type: important
     content: 'Warning: Setting speed higher than 1 can cause issues with some animations.'

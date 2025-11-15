@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DeleteResource
-server:
+shared:
   name: deleteResource
   description: This function deletes a resource from the MTA memory and moves it to
     the **/resources\-cache/trash/** directory.
-  parameters: []
+  parameters:
+  - name: resourceName
+    type: string
+    description: The name of resource to delete.
   examples:
   - path: examples/deleteResource-1.lua
     description: This example adds a command to delete a certain resource (admins
       only, no spaces in resource name allowed).
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the resource has been deleted successfully, false
+      otherwise.
+  oop:
+    element: Resource
+    note: This function is a static function underneath the Resource class.
+    method: )
+    static: true
   requires_review: true

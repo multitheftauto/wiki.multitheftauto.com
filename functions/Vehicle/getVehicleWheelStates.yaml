@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleWheelStates
-server:
+shared:
   name: getVehicleWheelStates
   description: This function returns the current states of all the wheels on the vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getVehicleWheelStates-1.lua
     description: This example displays the states of the vehicle's wheels and changes
@@ -12,5 +15,21 @@ server:
     description: This example displays the states of the vehicle's wheels and changes
       their states if any arguments were passed.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    description: 'Returns 4 ints indicating the states of the wheels (front left,
+      rear left, front right, rear right). These values can be:'
+  oop:
+    element: vehicle
+    method: getWheelStates
+    static: false
   pair: setVehicleWheelStates
   requires_review: true

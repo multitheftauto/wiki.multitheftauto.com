@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TriggerClientEvent
-server:
+shared:
   name: triggerClientEvent
   description: This function triggers an event previously registered on a client.
     This is the primary means of passing information between the server and the client.
@@ -7,7 +7,11 @@ server:
     function that can do the reverse. You can treat this function as if it was an
     asynchronous function call, using [triggerServerEvent](/wiki/TriggerServerEvent
     "TriggerServerEvent") to pass back any returned information if necessary.
-  parameters: []
+  parameters:
+  - name: table/element sendTo
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getRootElement(
   examples:
   - path: examples/triggerClientEvent-1.lua
     description: ''
@@ -27,6 +31,12 @@ server:
   - path: examples/triggerClientEvent-6.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event trigger has been sent, false if invalid
+      arguments were specified.
   notes:
   - type: info
     content: It is marginally more efficient to pass one large event than two smaller

@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleFuelTankExplodable
-server:
+shared:
   name: isVehicleFuelTankExplodable
   description: This will tell you if a vehicle's petrol tank is explodable.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you want to obtain the fuel tank status of.
   examples:
   - path: examples/isVehicleFuelTankExplodable-1.lua
     description: This example creates a vehicle, then displays if it fuel tank is
@@ -12,4 +15,10 @@ server:
     description: This example toggles vehicle fuel tank explodable when the player
       typefueltankin the chat.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the specified vehicle is valid and its fuel tank
+      is explodable, false otherwise.
   requires_review: true

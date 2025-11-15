@@ -1,11 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RestoreWorldModel
-server:
+shared:
   name: restoreWorldModel
   description: This function restoring a removed world object, reversing the effect
     of [removeWorldModel](/wiki/RemoveWorldModel "RemoveWorldModel").
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: A whole integer specifying the GTASA object model ID.
+  - name: radius
+    type: float
+    description: A floating point number representing the radius that will be eliminated.
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: iInterior
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '-1'
   examples:
   - path: examples/restoreWorldModel-1.lua
     description: Remove every lamp post (object 1226) besides Grove Street.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the world object was restored, false otherwise.
   requires_review: true

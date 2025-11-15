@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehiclePlateText
-server:
+shared:
   name: getVehiclePlateText
   description: This function is used to retrieve the text on the number plate of a
     specified vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle that you wish to retrieve the plate text from.
   examples:
   - path: examples/getVehiclePlateText-1.lua
     description: This example outputs the text on the license plate of the vehicle
       the player is driving to the chatbox.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string that corresponds to the plate on the text, false
+      if a bad argument was passed or if it is not a vehicle. Every vehicle (including
+      planes, boats, etc.) has a numberplate, even if it's not visible.
+  oop:
+    element: vehicle
+    method: getPlateText
+    variable: plateText
+    static: false
   pair: setVehiclePlateText
   requires_review: true

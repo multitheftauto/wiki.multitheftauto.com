@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsChatVisible
-client:
+shared:
   name: isChatVisible
   description: This function checks if player's chat is visible.
   parameters: []
@@ -7,4 +7,9 @@ client:
   - path: examples/isChatVisible-1.lua
     description: This example does the same thing asshowchatcommand does.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the chat is visible, false otherwise.
   requires_review: true

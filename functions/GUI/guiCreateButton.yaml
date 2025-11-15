@@ -1,13 +1,55 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateButton
-client:
+shared:
   name: guiCreateButton
   description: This function allows creation of a GUI Button, which is a clickable
     item as part of GUI.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float of the 2D x position of the GUI button on a player's screen.  This
+      is affected by the relative argument.
+  - name: "y"
+    type: float
+    description: A float of the 2D y position of the GUI button on a player's screen.
+      This is affected by the relative argument.
+  - name: width
+    type: float
+    description: A float of the width of the GUI button. This is affected by the relative
+      argument.
+  - name: height
+    type: float
+    description: A float of the height of the GUI button. This is affected by the
+      relative argument.
+  - name: text
+    type: string
+    description: A string of the text that will be displayed as a label on the button.
+  - name: relative
+    type: bool
+    description: This is whether sizes and positioning are relative.  If this is true
+      , then all x, y, width and height floats must be between 0 and 1, representing
+      sizes relative to the parent.
+    default: 'false'
+  - name: parent
+    type: gui-element
+    description: This is the parent that the gui button is attached to.  If the relative
+      argument is true, sizes and positioning will be made relative to this parent.
+      If the relative argument is false, positioning will be the number of offset
+      pixels from the parent's origin. If no parent is passed, the parent will become
+      the screen - causing positioning and sizing according to screen positioning.
+    default: nil
   examples:
   - path: examples/guiCreateButton-1.lua
     description: This example creates an edit box alongside an "Output!" button.  When
       the button is clicked, it will output the message in the edit box into the Chat
       Box.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns an element of the created button if it was successfully created,
+      false otherwise.
+  oop:
+    element: element
+    constructorclass: GuiButton
   requires_review: true

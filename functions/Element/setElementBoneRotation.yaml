@@ -1,15 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementBoneRotation
-client:
+shared:
   name: setElementBoneRotation
   description: This function sets the rotation of a specific bone relative to the
     element. Currently the [Player](/wiki/Element/Player "Element/Player") and [Ped](/wiki/Element/Ped
     "Element/Ped") element types are accepted.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element to set the bone rotation on.
+  - name: boneId
+    type: int
+    description: The ID of the bone to set the rotation of. See Bone IDs .
+  - name: "y"aw
+    type: float
+    description: The yaw rotation value.
+  - name: pitch
+    type: float
+    description: The pitch rotation value.
+  - name: roll
+    type: float
+    description: The roll rotation value.
   examples:
   - path: examples/setElementBoneRotation-1.lua
     description: 'This example shows how you can turn a local player into a so-called
       ''Helicopter'':'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
   notes:
   - type: info
     content: updateElementRpHAnim must be called after this function to apply bone

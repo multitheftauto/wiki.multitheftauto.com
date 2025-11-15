@@ -1,12 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWaterColor
-server:
+shared:
   name: setWaterColor
   description: This function changes the water color of the GTA world.
-  parameters: []
+  parameters:
+  - name: red
+    type: int
+    description: The red value of the water, from 0 to 255.
+  - name: green
+    type: int
+    description: The green value of the water, from 0 to 255.
+  - name: blue
+    type: int
+    description: The blue value of the water, from 0 to 255.
+  - name: alpha
+    type: int
+    description: The alpha (visibility) value of the water, from 0 to 255. Defaults
+      to 200 if not declared.
+    default: '200'
   examples:
   - path: examples/setWaterColor-1.lua
     description: This example adds a commandwatercolorwith which a player can change
       the water colour.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if water color was set correctly, false if invalid values
+      were passed.
+  oop:
+    element: water
+    method: setColor
+    static: false
   pair: getWaterColor
   requires_review: true

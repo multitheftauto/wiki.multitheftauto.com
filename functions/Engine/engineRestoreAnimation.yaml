@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreAnimation
-client:
+shared:
   name: engineRestoreAnimation
   description: This function restores internal (default) animations that were replaced
     using [engineReplaceAnimation](/wiki/EngineReplaceAnimation "EngineReplaceAnimation")
     function. This function only affects a specific [player](/wiki/Player "Player")
     or [ped](/wiki/Ped "Ped") just like [engineReplaceAnimation](/wiki/EngineReplaceAnimation
     "EngineReplaceAnimation").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the player or ped you want to restore an animation(s) for.
+  - name: InternalBlockName
+    type: string
+    description: the internal block name.
+  - name: InternalAnimName
+    type: string
+    description: the internal animation name inside InternalBlockName.
   examples:
   - path: examples/engineRestoreAnimation-1.lua
     description: Example 1:This example restores all replaced animations within every
@@ -20,4 +29,9 @@ client:
     description: Example 3:This example restores "weapon_crouch" animation within
       "ped" block for the local player.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true on success, false in case of failure.
   requires_review: true

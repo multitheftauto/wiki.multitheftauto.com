@@ -1,17 +1,77 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawImageSection
-client:
+shared:
   name: dxDrawImageSection
   description: Differing from [dxDrawImage](/wiki/DxDrawImage "DxDrawImage"), this
     function only draws a part of an image on the screen for a single frame. In order
     for the image to stay visible continuously, you need to call this function with
     the same parameters on each frame update (see [onClientRender](/wiki/OnClientRender
     "OnClientRender")).
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: the absolute X coordinate of the top left corner of the image
+  - name: posY
+    type: float
+    description: the absolute Y coordinate of the top left corner of the image
+  - name: width
+    type: float
+    description: the absolute width of the image
+  - name: height
+    type: float
+    description: the absolute height of the image
+  - name: u
+    type: float
+    description: the absolute X coordinate of the top left corner of the section which
+      should be drawn from image
+  - name: v
+    type: float
+    description: the absolute Y coordinate of the top left corner of the section which
+      should be drawn from image
+  - name: usize
+    type: float
+    description: the absolute width of the image section
+  - name: vsize
+    type: float
+    description: the absolute height of the image section
+  - name: image
+    type: mixed
+    description: Either a material element or a filepath of the image which is going
+      to be drawn. (.dds images are also supported). Image files should ideally have
+      dimensions that are a power of two, to prevent possible blurring. Use a texture
+      created with dxCreateTexture to speed up drawing .
+  - name: rotation
+    type: float
+    description: the rotation, in degrees for the image.
+    default: '0'
+  - name: rotationCenterOffsetX
+    type: float
+    description: the absolute X offset from the image center for which to rotate the
+      image from.
+    default: '0'
+  - name: rotationCenterOffsetY
+    type: float
+    description: the absolute Y offset from the image center for which to rotate the
+      image from.
+    default: '0'
+  - name: color
+    type: int
+    description: 'the color of the image, a value produced by tocolor or hexadecimal
+      number in format: 0xAARRGGBB (AA = alpha, RR = red, GG = green, BB = blue).'
+    default: white
+  - name: postGUI
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/dxDrawImageSection-1.lua
     description: Example 1The example draws a section of an image. (You can usethisimage
       to test.)
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   notes:
   - type: tip
     content: Use a texture created with dxCreateTexture to speed up drawing .

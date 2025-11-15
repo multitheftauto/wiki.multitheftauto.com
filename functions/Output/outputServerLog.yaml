@@ -1,11 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/OutputServerLog
-server:
+shared:
   name: outputServerLog
   description: This outputs a line of text to the server's log. This could be useful
     for debugging.
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: The text to be output to the log.
   examples:
   - path: examples/outputServerLog-1.lua
     description: Example 1:This example outputs client logins to the server log.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   requires_review: true

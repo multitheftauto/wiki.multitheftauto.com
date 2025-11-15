@@ -1,9 +1,58 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateProjectile
-client:
+shared:
   name: createProjectile
   description: This function creates a projectile of the specified type on the specified
     coordinates.
-  parameters: []
+  parameters:
+  - name: creator
+    type: element
+    description: The element representing creator of the projectile. In case you want
+      the projectile to be synced for everybody creator must be the local player or
+      his vehicle.
+  - name: weaponType
+    type: int
+    description: 'int representing the projectile weaponType (characteristics). Valid
+      IDs are:'
+  - name: posX
+    type: float
+    description: float starting coordinates for the projectile. They are coordinates
+      of creator by default.
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: force
+    type: float
+    description: float representing the starting force for throwable projectiles.
+    default: '1.0'
+  - name: target
+    type: element
+    description: element target used for heat seeking rockets.
+    default: nil
+  - name: rotX
+    type: float
+    description: float starting rotation for the projectile.
+  - name: rotY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: rotZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: velX
+    type: float
+    description: float starting velocity for the projectile.
+  - name: velY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: velZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: model
+    type: int
+    description: Integer representing the projectile's model, uses default model for
+      weaponType if not specified.
   examples:
   - path: examples/createProjectile-1.lua
     description: This example makes a rocket minigun (minigun shooting with rockets).
@@ -13,6 +62,16 @@ client:
       that travels in the direction your vehicle is facing when you press vehicle_fire
       (left mouse button with default controls)
     side: client
+  returns:
+    values:
+    - type: projectile
+      name: value
+    description: Returns a projectile element if projectile creation was successful.
+      Returns false if unable to create a projectile (wrong weapon ID or projectiles
+      limit was reached).
+  oop:
+    element: projectile
+    constructorclass: Projectile
   notes:
   - type: info
     content: 'Model argument is not synchronized between clients. Clients differs

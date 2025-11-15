@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelLODDistance
-client:
+shared:
   name: engineGetModelLODDistance
   description: This function gets the LOD distance for any object / model ID.
-  parameters: []
+  parameters:
+  - name: model
+    type: int
+    description: The model / object ID number you want to get the LOD distance of.
   examples:
   - path: examples/engineGetModelLODDistance-1.lua
     description: This example calculates the actual LOD distance by taking into account
       the Video tab 'Draw distance' setting
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float representing the LOD distance of the model, or false
+      if the model argument is incorrect.
+  oop:
+    element: Engine
+    method: getModelLODDistance
+    static: true
   requires_review: true

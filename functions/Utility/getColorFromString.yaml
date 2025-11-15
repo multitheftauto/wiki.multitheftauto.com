@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetColorFromString
-server:
+shared:
   name: getColorFromString
   description: This function will extract Red, Green, Blue and Alpha values from a
     hex string you provide it. These strings follow the same format as used in HTML,
     with addition of the Alpha values.
-  parameters: []
+  parameters:
+  - name: theColor
+    type: string
+    description: A string containing a valid color code.
   examples:
   - path: examples/getColorFromString-1.lua
     description: This example will set the blip attached to a player to a color they
       specify by typingset_my_color [color]in the console.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    description: 'Returns four integers in RGBA format, with a maximum value of 255
+      for each.  Each stands for red , green , blue , and alpha .  Alpha decides transparancy
+      where 255 is opaque and 0 is transparent. false is returned if the string passed
+      is invalid (for example, is missing the preceeding # sign).'
   requires_review: true

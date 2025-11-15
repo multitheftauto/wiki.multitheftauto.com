@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetColorFilter
-client:
+shared:
   name: resetColorFilter
   description: This function is used to reset the color filtering to its default values.
   parameters: []
@@ -7,4 +7,9 @@ client:
   - path: examples/resetColorFilter-1.lua
     description: 'This example lets any player reset the color filtering:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the color filtering was reset, false otherwise.
   requires_review: true

@@ -1,11 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedAnalogControlState
-client:
+shared:
   name: getPedAnalogControlState
   description: This function retrieves the analog control state of a [ped](/wiki/Ped
     "Ped"), as set by [setPedAnalogControlState](/wiki/SetPedAnalogControlState "SetPedAnalogControlState").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped you wish to retrieve the control state of.
+  - name: controlName
+    type: string
+    description: The control. See control names for a list of possible controls.
+  - name: rawValue
+    type: bool
+    description: A bool indicating if it should return the raw player input value
+      (will always return script value for non-player peds).
   examples:
   - path: examples/getPedAnalogControlState-1.lua
     description: This exmaple creating a ped can drive with command/drive
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float between 0 (full release) and 1 (full push) indicating
+      the amount the control is pushed.
   requires_review: true

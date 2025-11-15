@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetChatboxCharacterLimit
-client:
+shared:
   name: setChatboxCharacterLimit
   description: Sets the maximum amount of characters that can be input via chatbox
-  parameters: []
+  parameters:
+  - name: charLimit
+    type: int
+    description: an integer between 0-255. Passing -1 will reset the character limit
+      (96)
   examples:
   - path: examples/setChatboxCharacterLimit-1.lua
     description: This example shows how you can set the character limit to maximum
       when a player joins the server (assuming this resource is running when they
       join).
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the character limit was set, false otherwise
+  oop:
+    element: GuiElement
+    method: )
+    variable: chatboxCharacterLimit
+    static: true
   pair: getChatboxCharacterLimit
   requires_review: true

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetHeatHaze
-server:
+shared:
   name: getHeatHaze
   description: This function will return the current heat haze effect settings.
   parameters: []
@@ -8,4 +8,26 @@ server:
     description: This example outputs current heat haze settings to the chat when
       player uses command 'get_haze'.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    - type: int
+      name: value5
+    - type: int
+      name: value6
+    - type: int
+      name: value7
+    - type: int
+      name: value8
+    - type: bool
+      name: value9
+    description: 'Returns 9 values, which are the same used as arguments in SetHeatHaze
+      :'
   requires_review: true

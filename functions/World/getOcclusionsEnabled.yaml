@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetOcclusionsEnabled
-server:
+shared:
   name: getOcclusionsEnabled
   description: This function is used to get "occlusions enabled" state.
   parameters: []
@@ -8,6 +8,11 @@ server:
     description: 'This example shows how to disable occlusions after the whole map
       has been cleared:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if occlusions are enabled, or false otherwise.
   notes:
   - type: info
     content: Occlusions are used by GTA to enhance performance by hiding objects that

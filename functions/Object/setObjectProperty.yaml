@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetObjectProperty
-client:
+shared:
   name: setObjectProperty
   description: This function sets a property of the specified [object](/wiki/Object
     "Object").
-  parameters: []
+  parameters:
+  - name: theObject
+    type: object
+    description: the object you wish to change a property of.
+  - name: property
+    type: string
+    description: 'the property you want to set the value of:'
+  - name: value
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setObjectProperty-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the property was set successfully, false otherwise.
+  oop:
+    element: object
+    method: setProperty
+    static: false
   pair: getProperty
   requires_review: true

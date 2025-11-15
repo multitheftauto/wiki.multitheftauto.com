@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelPhysicalPropertiesGroup
-client:
+shared:
   name: engineSetModelPhysicalPropertiesGroup
   description: This function sets physical properties group id used by given model.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: the id of model which you wish to set physical properties group of.
+  - name: groupID
+    type: int
+    description: 'the id of new physical properties group to be used by given model.
+      ADDED/UPDATED IN VERSION 1.6.0 r22485 : Use -1 to disable model physics.'
   examples:
   - path: examples/engineSetModelPhysicalPropertiesGroup-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if there were no issues with group change, otherwise
+      an error is raised
   notes:
   - type: info
     content: Physics can only be disabled for newly created objects and buildings

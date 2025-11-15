@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DetonateSatchels
-server:
+client:
   name: detonateSatchels
   description: This function can be used to detonate a players satchels.
   parameters: []
@@ -7,7 +7,26 @@ server:
   - path: examples/detonateSatchels-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  requires_review: true
+server:
+  name: detonateSatchels
+  description: This function can be used to detonate a players satchels.
+  parameters:
+  - name: Player
+    type: player
+    description: MISSING_PARAM_DESC
+  examples:
   - path: examples/detonateSatchels-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   requires_review: true

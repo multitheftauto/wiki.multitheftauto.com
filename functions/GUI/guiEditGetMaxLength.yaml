@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditGetMaxLength
-client:
+shared:
   name: guiEditGetMaxLength
   description: This function returns the maximum text length that can be typed within
     an edit box.
-  parameters: []
+  parameters:
+  - name: guiEdit
+    type: gui-edit
+    description: The edit box you want to get the maximum text length of.
   examples:
   - path: examples/guiEditGetMaxLength-1.lua
     description: This example outputs the maximum text length of an edit field to
       the chat.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the maximum text length on success, false otherwise.
+  oop:
+    element: guiedit
+    method: getMaxLength
+    variable: maxLength
+    static: false
   pair: guiEditSetMaxLength
   requires_review: true

@@ -1,20 +1,55 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ExecuteCommandHandler
-server:
+client:
   name: executeCommandHandler
   description: This function will call all the attached functions of an existing console
     command, for a specified player.
-  parameters: []
-  examples:
-  - path: examples/executeCommandHandler-1.lua
-    description: This example defines a command handler for the commandcreatemarker(which
-      creates a red marker at the caller's position). It then creates a second command
-      handlercreatemarker2which will call the first one.
-    side: server
-  notes:
+  parameters:
+  - name: commandName
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: args
+    type: string
+    description: MISSING_PARAM_DESC
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the command handler was called successfully, false
+      otherwise.
+  notes: &id001
   - type: info
     content: You can only execute commands created with addCommandHandler. You cannot
       execute MTA harcoded commands due to security reasons.
   - type: info
     content: Serverside commands can only be executed by the server. The same applies
       to the client side
+  requires_review: true
+server:
+  name: executeCommandHandler
+  description: This function will call all the attached functions of an existing console
+    command, for a specified player.
+  parameters:
+  - name: commandName
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: thePlayer
+    type: player
+    description: MISSING_PARAM_DESC
+  - name: args
+    type: string
+    description: MISSING_PARAM_DESC
+  examples:
+  - path: examples/executeCommandHandler-1.lua
+    description: This example defines a command handler for the commandcreatemarker(which
+      creates a red marker at the caller's position). It then creates a second command
+      handlercreatemarker2which will call the first one.
+    side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the command handler was called successfully, false
+      otherwise.
+  notes: *id001
   requires_review: true

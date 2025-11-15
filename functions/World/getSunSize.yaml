@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetSunSize
-server:
+shared:
   name: getSunSize
   description: This function is used to get the size of the sun.
   parameters: []
@@ -7,6 +7,12 @@ server:
   - path: examples/getSunSize-1.lua
     description: This example lets any player get the size of the sun like /getsunsize
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the size of the sun as a number, false if the size of the
+      sun is at its default.
   notes:
   - type: info
     content: The function will return false server-side if sun size has not been set

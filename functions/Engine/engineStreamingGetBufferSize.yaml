@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetBufferSize
-client:
+shared:
   name: engineStreamingGetBufferSize
   description: Get the streaming buffer size \[**not** maximum memory size]
   parameters: []
@@ -8,5 +8,15 @@ client:
     description: This example adds a command that can be used to change the streaming
       buffer size, and display the previous value.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: The streaming buffer size. It is always a positive non-zero number.
+  oop:
+    element: enginestreaming
+    method: getBufferSize
+    variable: bufferSize
+    static: false
   pair: engineStreamingSetBufferSize
   requires_review: true

@@ -1,10 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateGridList
-client:
+shared:
   name: guiCreateGridList
   description: This function creates a grid list GUI element. These are menu's which
     are designed in lists and can have multiple columns. A good example of a gridlist
     element can be found in MTA's settings box, under *Controls*.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float of the 2D x position of the GUI gridlist on a player's screen.  This
+      is affected by the relative argument.
+  - name: "y"
+    type: float
+    description: A float of the 2D y position of the GUI gridlist on a player's screen.
+      This is affected by the relative argument.
+  - name: width
+    type: float
+    description: A float of the width of the GUI gridlist. This is affected by the
+      relative argument.
+  - name: height
+    type: float
+    description: A float of the height of the GUI gridlist. This is affected by the
+      relative argument.
+  - name: relative
+    type: bool
+    description: This is whether sizes and positioning are relative.  If this is true
+      , then all x,y,width,height floats must be between 0 and 1, representing sizes
+      relative to the parent.
+    default: 'false'
+  - name: parent
+    type: gui-element
+    description: This is the parent that the gui gridlist is attached to.  If the
+      relative argument is true, sizes and positioning will be made relative to this
+      parent. If the relative argument is false, positioning will be the number of
+      offset pixels from the parent's origin. If no parent is passed, the parent will
+      become the screen - causing positioning and sizing according to screen positioning.
+    default: nil
   examples:
   - path: examples/guiCreateGridList-1.lua
     description: Example 1:This example creates a player list on the right of the
@@ -14,4 +44,13 @@ client:
     description: Example 2:UsingOOPwe can write shorter and cleaner code (Requires
       <oop>true<oop> in the meta file). This creates a player list with 2 columns.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns an element of the created gridlist if it was successfully
+      created, false otherwise.
+  oop:
+    element: element
+    constructorclass: GuiGridList
   requires_review: true

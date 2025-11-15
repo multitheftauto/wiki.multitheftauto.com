@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/HttpRequestLogin
-server:
+shared:
   name: httpRequestLogin
   description: This function makes the user's browser show a 'basic authentication'
     login box. The result of the login is handled automatically by the server. If
@@ -15,4 +15,10 @@ server:
     description: This example shows how you can make a page that only registered users
       can see.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the relevant headers and return codes have been set,
+      false otherwise. Essentially, always returns true .
   requires_review: true

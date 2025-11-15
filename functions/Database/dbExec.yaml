@@ -1,9 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DbExec
-server:
+shared:
   name: dbExec
   description: This function executes a database query using the supplied connection.
     No query result is returned.
-  parameters: []
+  parameters:
+  - name: databaseConnection
+    type: element
+    description: A database connection element previously returned from dbConnect
+  - name: query
+    type: string
+    description: An SQL query. Positions where parameter values will be inserted are
+      marked with a ?
+  - name: param1 [, var param2 ...]
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dbExec-1.lua
     description: 'This example executes an INSERT query:'
@@ -16,6 +26,16 @@ server:
     description: 'This example shows how to use backticks and??for parts of the query
       that are not column values:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true unless the connection is incorrect, in which case it
+      returns false .
+  oop:
+    element: connection
+    method: exec
+    static: false
   notes:
   - type: tip
     content: The server command debugdb 2 will output verbose information on each

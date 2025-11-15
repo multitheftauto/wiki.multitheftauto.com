@@ -1,14 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementsWithinColShape
-server:
+shared:
   name: getElementsWithinColShape
   description: This function is used to retrieve a list of all elements in a colshape,
     of the specified type.
-  parameters: []
+  parameters:
+  - name: theShape
+    type: colshape
+    description: The colshape you want to get the elements from.
+  - name: elemType
+    type: string
+    description: 'The type of element you want a list of. This can be any element
+      type, the common ones being: "player": A player connected to the server "ped":
+      A ped "vehicle": A vehicle "object": An object "pickup": A pickup "marker":
+      A marker'
+    default: nil
   examples:
   - path: examples/getElementsWithinColShape-1.lua
     description: This example retrieves atableof players inside a colshape and prints
       their name to the chat.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table containing all the elements inside the colshape,
+      of the specified type. Returns an empty table if there are no elements inside.
+      Returns false if the colshape is invalid.
+  oop:
+    element: colshape
+    method: getElementsWithin
+    variable: elementsWithin
+    static: false
   notes:
   - type: info
     content: For legacy reasons, a colshape created on the client does not collide

@@ -1,10 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SvgGetDocumentXML
-client:
+shared:
   name: svgGetDocumentXML
   description: Gets the underlying XML document from an SVG element.
-  parameters: []
+  parameters:
+  - name: svgElement
+    type: svg
+    description: The svg element you want to get the XML document of.
   examples: []
-  requires_review: true
+  returns:
+    values:
+    - type: xmlnode
+      name: value
+    description: See the example for svgSetDocumentXML
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -12,3 +19,4 @@ client:
       - Missing section: Contents
 
       '
+  requires_review: true

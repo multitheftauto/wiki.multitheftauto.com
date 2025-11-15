@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelVisibleTime
-client:
+shared:
   name: engineSetModelVisibleTime
   description: This function changes model visibility time, this is used for example
     for building lights being shown after 23:00\.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: The ID of the model.
+  - name: timeOn
+    type: int
+    description: Value between 0 and 24 that states when the model should appear.
+  - name: timeOff
+    type: int
+    description: Value between 0 and 24 that states when the model should disappear.
   examples:
   - path: examples/engineSetModelVisibleTime-1.lua
     description: 'Make Los Santos Tower visible only between 10 and 12 AM. Please
       keep in mind that this function does not affect collision - the building is
       still there, it''s just invisible:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the change was successful, false otherwise.
   requires_review: true

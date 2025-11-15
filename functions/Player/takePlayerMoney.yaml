@@ -1,16 +1,51 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TakePlayerMoney
+client:
+  name: takePlayerMoney
+  description: This function subtracts money from a [player](/wiki/Player "Player")'s
+    current money amount.
+  parameters:
+  - name: amount
+    type: int
+    description: MISSING_PARAM_DESC
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the money was taken, or false if invalid parameters
+      were passed.
+  oop: &id001
+    element: player
+    method: takeMoney
+    variable: money
+    static: false
+  notes: &id002
+  - type: info
+    content: Using this function client side (not recommended) will not change a players
+      money server side.
+  requires_review: true
 server:
   name: takePlayerMoney
   description: This function subtracts money from a [player](/wiki/Player "Player")'s
     current money amount.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: MISSING_PARAM_DESC
+  - name: amount
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/takePlayerMoney-1.lua
     description: This example takes money from a player when he types "takecashnumber"
       in the console.
     side: server
-  notes:
-  - type: info
-    content: Using this function client side (not recommended) will not change a players
-      money server side.
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the money was taken, or false if invalid parameters
+      were passed.
+  oop: *id001
+  notes: *id002
   requires_review: true

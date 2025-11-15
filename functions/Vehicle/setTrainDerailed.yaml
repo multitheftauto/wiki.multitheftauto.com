@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainDerailed
-server:
+shared:
   name: setTrainDerailed
   description: This function will set a train or tram as derailed.
-  parameters: []
+  parameters:
+  - name: vehicleToDerail
+    type: vehicle
+    description: The vehicle that you wish to derail.
+  - name: derailed
+    type: bool
+    description: whether the train is derailed.
   examples:
   - path: examples/setTrainDerailed-1.lua
     description: This example creates an underailable train, and allows it to be derailed
       when you want
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the state was successfully set
+  oop:
+    element: vehicle
+    method: setDerailed
+    variable: derailed
+    static: false
   pair: isTrainDerailed
   requires_review: true

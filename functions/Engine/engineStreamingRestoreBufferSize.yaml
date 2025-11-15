@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingRestoreBufferSize
-client:
+shared:
   name: engineStreamingRestoreBufferSize
   description: This function resets the streaming buffer. The value is automatically
     reset when disconnected.
@@ -8,4 +8,10 @@ client:
   - path: examples/engineStreamingRestoreBufferSize-1.lua
     description: This example restores streaming buffer size.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event occurred, otherwise it throws an error
+      message and returns false .
   requires_review: true

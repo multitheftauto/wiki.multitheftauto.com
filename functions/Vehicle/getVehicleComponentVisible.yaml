@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleComponentVisible
-client:
+shared:
   name: getVehicleComponentVisible
   description: This function get component visibility for [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to get component visibility of.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
   examples:
   - path: examples/getVehicleComponentVisible-1.lua
     description: Example 1:This example would get the name and tells if the component
       is visible or not.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a bool indicating the visible state of the component.
+  oop:
+    element: vehicle
+    method: getComponentVisible
+    static: false
   pair: setVehicleComponentVisible
   requires_review: true

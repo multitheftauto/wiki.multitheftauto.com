@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ProcessLineAgainstMesh
-client:
+shared:
   name: processLineAgainstMesh
   description: 'Does a raycast against an element''s renderable mesh model \[not the
     collision model!].
@@ -12,6 +12,45 @@ client:
 
     Also, when one is interested in a specific element the overhead is a lot smaller
     \[as we can skip all the collision detection done by the before\-mentioned function].'
-  parameters: []
+  parameters:
+  - name: toTest
+    type: element
+    description: MISSING_PARAM_DESC
+  - name: startX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endZ
+    type: float
+    description: MISSING_PARAM_DESC
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value1
+    - type: float
+      name: value2
+    - type: float
+      name: value3
+    - type: string
+      name: value4
+    - type: string
+      name: value5
+    - type: float
+      name: value6
+    - type: float
+      name: value7
+    - type: float
+      name: value8
   requires_review: true

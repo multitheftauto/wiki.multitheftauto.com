@@ -1,10 +1,13 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWeather
-server:
+shared:
   name: setWeather
   description: This function sets the current [weather](/wiki/Weather "Weather") to
     the given valid value. To change the weather gradually, see [setWeatherBlended](/wiki/SetWeatherBlended
     "SetWeatherBlended").
-  parameters: []
+  parameters:
+  - name: weatherID
+    type: int
+    description: The ID of new weather . Valid values are 0 to 255 inclusive.
   examples:
   - path: examples/setWeather-1.lua
     description: This example will change the weather to foggy.
@@ -13,4 +16,10 @@ server:
     description: This example allows you to change weather with a command. (Anything
       above 255 resets, so 256 will be 0 and so on)
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the weather was set succesfully, false if an invalid
+      weatherID was specified.
   requires_review: true

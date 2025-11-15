@@ -1,10 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Deref
-server:
+shared:
   name: deref
   description: This function will take a reference obtained by the [ref](/wiki/Ref
     "Ref") function and returns its Lua element.
-  parameters: []
+  parameters:
+  - name: reference
+    type: int
+    description: The valid reference, which you want to dereference
   examples: []
+  returns:
+    values:
+    - type: mixed
+      name: value
+    description: Returns mixed if the reference were valid. Returns false if the reference
+      were invalid.
   notes:
   - type: info
     content: This function was originally created to prevent garbage-collection of

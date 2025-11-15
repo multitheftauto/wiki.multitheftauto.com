@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetEnabled
-client:
+shared:
   name: guiSetEnabled
   description: This function enables/disables a GUI element. A disabled GUI element
     can't be used, gets a gray aspect and doesn't receive any events.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: the GUI element you wish to enable or disable
+  - name: enabled
+    type: bool
+    description: the new state
   examples:
   - path: examples/guiSetEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: If the function succeeds it returns true , if it fails it returns
+      false .
+  oop:
+    element: guielement
+    method: setEnabled
+    variable: enabled
+    static: false
   pair: guiGetEnabled
   requires_review: true

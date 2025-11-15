@@ -2,9 +2,21 @@
 shared:
   name: pathIsDirectory
   description: Checks if a specified path points to a directory.
-  parameters: []
+  parameters:
+  - name: path
+    type: string
+    description: A string containing a path you want to check against
   examples:
   - path: examples/pathIsDirectory-1.lua
     description: This example lists entire structure of a folder
     side: shared
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the path points to a directory, false otherwise.
+  oop:
+    element: path
+    method: isDirectory
+    static: false
   requires_review: true

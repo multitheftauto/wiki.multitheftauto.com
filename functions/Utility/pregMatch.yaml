@@ -1,12 +1,33 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/PregMatch
-server:
+shared:
   name: pregMatch
   description: This function returns all matches.
-  parameters: []
+  parameters:
+  - name: base
+    type: string
+    description: The base string for replace.
+  - name: pattern
+    type: string
+    description: The pattern for match in base string.
+  - name: flags
+    type: int/string
+    description: Conjuncted value that contains flags ( 1 - ignorecase, 2 - multiline,
+      4 - dotall, 8 - extended, 16 - unicode ) or ( i - Ignore case, m - Multiline,
+      d - Dotall, e - Extended, u - Unicode )
+    default: '0'
+  - name: maxResults
+    type: int
+    description: Maximum number of results to return
+    default: '100000'
   examples:
   - path: examples/pregMatch-1.lua
     description: 'Some examples:'
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table if one or more match is found, false otherwise.
   notes:
   - type: warning
     content: When declaring a pattern string in quotes, the backslash character should

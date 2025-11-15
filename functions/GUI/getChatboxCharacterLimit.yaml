@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetChatboxCharacterLimit
-client:
+shared:
   name: getChatboxCharacterLimit
   description: Gets the current maximum amount of characters that can be input via
     chatbox
@@ -9,5 +9,16 @@ client:
     description: This example shows how you can check your current chatbox character
       limit via command
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns a number between 0-255, representing the chatbox input character
+      limit
+  oop:
+    element: GuiElement
+    method: )
+    variable: chatboxCharacterLimit
+    static: true
   pair: setChatboxCharacterLimit
   requires_review: true

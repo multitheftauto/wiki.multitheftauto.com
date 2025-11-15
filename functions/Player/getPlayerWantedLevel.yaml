@@ -1,15 +1,44 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerWantedLevel
-server:
+client:
   name: getPlayerWantedLevel
   description: This function gets a player's current wanted level. The wanted level
     is indicated by the amount of stars a player has on the GTA HUD.
   parameters: []
   examples:
-  - path: examples/getPlayerWantedLevel-1.lua
-    description: 'This example finds which players in the server have a wanted level:'
-    side: server
   - path: examples/getPlayerWantedLevel-2.lua
     description: This script output your wanted level when you type /wanted.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int from 0 to 6 representing the player's wanted level,
+      false if the player does not exist.
+  oop: &id001
+    element: player
+    method: getWantedLevel
+    variable: wantedLevel
+    static: false
+  pair: setPlayerWantedLevel
+  requires_review: true
+server:
+  name: getPlayerWantedLevel
+  description: This function gets a player's current wanted level. The wanted level
+    is indicated by the amount of stars a player has on the GTA HUD.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player whose wanted level you wish to get
+  examples:
+  - path: examples/getPlayerWantedLevel-1.lua
+    description: 'This example finds which players in the server have a wanted level:'
+    side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int from 0 to 6 representing the player's wanted level,
+      false if the player does not exist.
+  oop: *id001
   pair: setPlayerWantedLevel
   requires_review: true

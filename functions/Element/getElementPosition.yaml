@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementPosition
-server:
+shared:
   name: getElementPosition
   description: 'The getElementPosition function allows you to retrieve the position
     coordinates of an element. This can be any real world element, including:'
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element which you'd like to retrieve the location of
   examples:
   - path: examples/getElementPosition-1.lua
     description: This example attaches a samsite on the player's vehicle.
     side: server
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three float s indicating the position of the element, x ,
+      y and z respectively.
+  oop:
+    element: element
+    method: getPosition
+    variable: position
+    static: false
   pair: setElementPosition
   requires_review: true

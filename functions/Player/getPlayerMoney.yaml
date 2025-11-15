@@ -1,16 +1,44 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerMoney
-server:
+client:
   name: getPlayerMoney
   description: Returns the amount of money a player currently has.
   parameters: []
+  examples: []
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer with the amount of money the local player has.
+  oop: &id001
+    element: player
+    method: getMoney
+    variable: money
+    static: false
+  pair: setPlayerMoney
+  notes: &id002
+  - type: info
+    content: The amount may vary between the server and client, you shouldn't trust
+      the client side value to always be accurate.
+  requires_review: true
+server:
+  name: getPlayerMoney
+  description: Returns the amount of money a player currently has.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish the retrieve the amount of money from.
   examples:
   - path: examples/getPlayerMoney-1.lua
     description: When a player types '/checkMoney' this example retrieves the player's
       money and outputs a message according to the value.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer with the amount of money the specified player
+      has, false if the player is invalid.
+  oop: *id001
   pair: setPlayerMoney
-  notes:
-  - type: info
-    content: The amount may vary between the server and client, you shouldn't trust
-      the client side value to always be accurate.
+  notes: *id002
   requires_review: true

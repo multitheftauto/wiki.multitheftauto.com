@@ -1,19 +1,61 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/UnbindKey
-server:
+client:
   name: unbindKey
   description: Removes an existing key bind from the specified player.
-  parameters: []
-  examples:
-  - path: examples/unbindKey-1.lua
-    description: This function binds the player'sF1key to a functiongoMoowhich outputs
-      a chat message when pressed. The key is then unbound so that it can effectively
-      only be used once per life.
-    side: server
-  notes:
+  parameters:
+  - name: key
+    type: string
+    description: The key you wish to unbind. See Key names for a list of valid key
+      names.
+  - name: keyState
+    type: string
+    description: is optional in Syntax 2.
+  - name: command
+    type: string
+    description: MISSING_PARAM_DESC
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns ' true if the key was unbound, false if it was not previously
+      bound or invalid arguments were passed to the function.
+  notes: &id001
   - type: info
     content: unbindKey will only work on binds that were added by the same resource
   - type: info
     content: unbindKey on the server may return true on failure
   - type: info
     content: 'If you call unbindKey twice, it will break other scripts: Issue 497'
+  requires_review: true
+server:
+  name: unbindKey
+  description: Removes an existing key bind from the specified player.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish to unbind the key of.
+  - name: key
+    type: string
+    description: The key you wish to unbind. See Key names for a list of valid key
+      names.
+  - name: keyState
+    type: string
+    description: is optional in Syntax 2.
+  - name: command
+    type: string
+    description: MISSING_PARAM_DESC
+  examples:
+  - path: examples/unbindKey-1.lua
+    description: This function binds the player'sF1key to a functiongoMoowhich outputs
+      a chat message when pressed. The key is then unbound so that it can effectively
+      only be used once per life.
+    side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns ' true if the key was unbound, false if it was not previously
+      bound or invalid arguments were passed to the function.
+  notes: *id001
   requires_review: true

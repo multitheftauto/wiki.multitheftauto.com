@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceName
-server:
+shared:
   name: getResourceName
   description: This function gets the name of the specified resource.
-  parameters: []
+  parameters:
+  - name: resource res
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getThisResource(
   examples:
   - path: examples/getResourceName-1.lua
     description: This simple example outputs a message in the console whenever a resource
       starts, stating the name of the resource.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string with the resource name in it, or false if the resource
+      does not exist.
+  oop:
+    element: resource
+    method: getName
+    variable: name
+    static: false
   pair: renameResource
   notes:
   - type: info

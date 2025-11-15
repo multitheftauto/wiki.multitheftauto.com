@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RestoreAllWorldModels
-server:
+shared:
   name: restoreAllWorldModels
   description: This function allows restoring of all world objects, which were removed
     with [removeWorldModel](/wiki/RemoveWorldModel "RemoveWorldModel").
@@ -9,4 +9,9 @@ server:
     description: This example adds command"restoreallworldobjects"that restores all
       world objects.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the world objects were restored, false otherwise.
   requires_review: true

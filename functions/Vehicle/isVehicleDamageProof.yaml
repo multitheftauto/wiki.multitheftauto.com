@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleDamageProof
-server:
+shared:
   name: isVehicleDamageProof
   description: This function checks if a vehicle is damage proof (set with [setVehicleDamageProof](/wiki/SetVehicleDamageProof
     "SetVehicleDamageProof")).
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle whose invincibility status we want to check.
   examples:
   - path: examples/isVehicleDamageProof-1.lua
     description: This example will output in the chatbox whether the vehicle is vulnerable
       to damage or not when a player enters in it.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle is damage proof, false if it isn't or
+      if invalid arguments were passed.
+  oop:
+    element: vehicle
+    method: isDamageProof
+    variable: damageProof
+    static: false
   pair: setVehicleDamageProof
   requires_review: true

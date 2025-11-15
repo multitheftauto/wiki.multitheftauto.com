@@ -1,10 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetColShapeType
-server:
+shared:
   name: getColShapeType
   description: This function is used to retrieve the type of an colshape.
-  parameters: []
+  parameters:
+  - name: shape
+    type: colshape
+    description: The colshape you wish to get the type of.
   examples:
   - path: examples/getColShapeType-1.lua
     description: This example outputs the type of all colshapes.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: 'Returns false if invalid arguments were passed, or an integer of
+      the type of the colshape, which include:'
+  oop:
+    element: colshape
+    method: getShapeType
+    variable: shapeType
+    static: false
   requires_review: true

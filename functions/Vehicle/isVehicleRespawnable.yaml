@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleRespawnable
-server:
+shared:
   name: isVehicleRespawnable
   description: This function check if the vehicle is respawnable.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle which you'd like to get respawn state of.
   examples:
   - path: examples/isVehicleRespawnable-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns three true if the vehicle is respawnable, false otherwise.
+  oop:
+    element: vehicle
+    method: isRespawnable
+    variable: respawnable
+    static: false
   pair: toggleVehicleRespawn
   requires_review: true

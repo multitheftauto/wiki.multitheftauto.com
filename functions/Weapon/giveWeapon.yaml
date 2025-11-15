@@ -1,10 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GiveWeapon
-server:
+shared:
   name: giveWeapon
   description: giveWeapon gives a specified weapon to a certain player or ped. There
     is an optional argument to specify ammunition. For example, a melee weapon doesn't
     need an ammo argument.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: ped
+    description: A player or ped object referencing the specified player (or ped )
+  - name: weapon
+    type: int
+    description: A whole number integer that refers to a Weapon ID.
+  - name: ammo
+    type: int
+    description: A whole number integer serving as the ammo amount for the given weapon.  For
+      weapons that do not require ammo, such as melee, this should be at least 1.
+    default: '30'
+  - name: setAsCurrent
+    type: bool
+    description: A boolean value determining whether or not the weapon will be set
+      as the players current.
+    default: 'false'
   examples:
   - path: examples/giveWeapon-1.lua
     description: Example 1:This example gives a player an M4 with 200 ammo whenever
@@ -18,6 +34,11 @@ server:
     description: Example 3:This example creates a ped in certain coordinates. You
       can give him a weapon with "give <weaponID> <amount>" command in console.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if weapon was successfully acquired, false otherwise.
   notes:
   - type: info
     content: When setting ammo for weapons in slot 0,1,10,11 or 12, the ammo max is

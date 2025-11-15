@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetInputMode
-client:
+shared:
   name: guiGetInputMode
   description: 'This function returns the current input mode as set by [guiSetInputMode](/wiki/GuiSetInputMode
     "GuiSetInputMode").
@@ -10,5 +10,16 @@ client:
   - path: examples/guiGetInputMode-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: 'Returns a string defining the current input mode, potential values
+      are:'
+  oop:
+    element: GuiElement
+    method: )
+    variable: inputMode
+    static: true
   pair: guiSetInputMode
   requires_review: true

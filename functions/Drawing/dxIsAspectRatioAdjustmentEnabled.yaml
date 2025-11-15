@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxIsAspectRatioAdjustmentEnabled
-client:
+shared:
   name: dxIsAspectRatioAdjustmentEnabled
   description: This function gets the current aspect ratio set by [dxSetAspectRatioAdjustmentEnabled](/wiki/DxSetAspectRatioAdjustmentEnabled
     "DxSetAspectRatioAdjustmentEnabled").
@@ -9,4 +9,12 @@ client:
     description: This example will draw the aspect ratio to screen if aspect ratio
       was enabled previously.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value1
+    - type: float
+      name: value2
+    description: This example will draw the aspect ratio to screen if aspect ratio
+      was enabled previously.
   requires_review: true

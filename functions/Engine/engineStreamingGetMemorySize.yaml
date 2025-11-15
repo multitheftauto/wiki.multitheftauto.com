@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetMemorySize
-client:
+shared:
   name: engineStreamingGetMemorySize
   description: Gets the maximum amount of RAM \[in bytes] that can be used for streaming
   parameters: []
@@ -8,6 +8,17 @@ client:
     description: This example adds a command that can be used to change the streaming
       memory size, and display the previous value.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: The maximum amount of RAM [in bytes] that can be used for streaming.
+      It is always a non-zero positive number.
+  oop:
+    element: enginestreaming
+    method: getMemorySize
+    variable: memorySize
+    static: false
   pair: engineStreamingSetMemorySize
   notes:
   - type: tip

@@ -1,10 +1,55 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerMoney
+client:
+  name: setPlayerMoney
+  description: Sets a player's money to a certain value, regardless of current player
+    money. It should be noted that setting negative values does not work and in fact
+    gives the player large amounts of money.
+  parameters:
+  - name: amount
+    type: int
+    description: A whole integer specifying the new amount of money the local player
+      will have.
+  - name: instant
+    type: bool
+    description: If set to true money will be set instantly without counting up/down
+      like in singleplayer.
+    default: 'false'
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the money was added, or false if invalid parameters
+      were passed.
+  oop: &id001
+    element: player
+    method: setMoney
+    variable: money
+    static: false
+  pair: getPlayerMoney
+  notes: &id002
+  - type: info
+    content: Using this function client side (not recommended) will not change a players
+      money server side.
+  requires_review: true
 server:
   name: setPlayerMoney
   description: Sets a player's money to a certain value, regardless of current player
     money. It should be noted that setting negative values does not work and in fact
     gives the player large amounts of money.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: Which player to set the money of.
+  - name: amount
+    type: int
+    description: A whole integer specifying the new amount of money the player will
+      have.
+  - name: instant
+    type: bool
+    description: If set to true money will be set instantly without counting up/down
+      like in singleplayer.
+    default: 'false'
   examples:
   - path: examples/setPlayerMoney-1.lua
     description: Example 1:This example sets the player's money to the desired amount
@@ -14,9 +59,13 @@ server:
     description: Example 2:This sets all players the amount of 1337 money when "leet"
       is typed in console.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the money was added, or false if invalid parameters
+      were passed.
+  oop: *id001
   pair: getPlayerMoney
-  notes:
-  - type: info
-    content: Using this function client side (not recommended) will not change a players
-      money server side.
+  notes: *id002
   requires_review: true

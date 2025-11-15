@@ -1,16 +1,50 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddEventHandler
-server:
+shared:
   name: addEventHandler
   description: This function will add an [event](/wiki/Event "Event") handler. An
     event handler is a function that will be called when the event it's attached to
     is triggered. See [event system](/wiki/Event_system "Event system") for more information
     on how the event system works.
-  parameters: []
+  parameters:
+  - name: eventName
+    type: string
+    description: 'The name of the event you want to attach the handler function to.
+      Note: The maximum allowed length is 100 ASCII characters (that is, English letters
+      and numerals)'
+  - name: attachedTo
+    type: element
+    description: The element you wish to attach the handler to. The handler will only
+      be called when the event it is attached to is triggered for this element, or
+      one of its children. Often, this can be the root element (meaning the handler
+      will be called when the event is triggered for any element).
+  - name: handlerFunction
+    type: function
+    description: The handler function you wish to call when the event is triggered.
+      This function will be passed all of the event's parameters as arguments, but
+      it isn't required that it takes all of them.
+  - name: propagate
+    type: bool
+    description: A boolean representing whether the handler will be triggered if the
+      event was propagated down or up the element tree (starting from the source),
+      and not triggered directly on attachedTo (that is, handlers attached with this
+      argument set to false will only be triggered if source == this ). In GUI events
+      you will probably want to set this to false .
+    default: 'true'
+  - name: priority
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"normal"'
   examples:
   - path: examples/addEventHandler-1.lua
     description: This serverside example sends a message to everyone in the server
       when a player spawns.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event handler was attached successfully. Returns
+      false if the specified event could not be found or any parameters were invalid.
   notes:
   - type: info
     content: You shouldn't re-use the same name for your handler function as the event

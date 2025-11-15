@@ -8,8 +8,12 @@ server:
   - path: examples/getCameraInterior-1.lua
     description: ''
     side: server
+  oop:
+    element: player
+    method: getCameraInterior
+    variable: cameraInterior
+    static: false
   pair: setCameraInterior
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -19,3 +23,4 @@ server:
       - Missing section: Object-oriented
 
       '
+  requires_review: true

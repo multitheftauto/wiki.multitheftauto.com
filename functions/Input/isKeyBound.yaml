@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsKeyBound
-server:
+shared:
   name: isKeyBound
   description: This function can be used to find out if a key has already been bound.
     If you do not specify a keyState or handler, any instances of key being bound
     will cause isKeyBound to return true.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you're checking.
+  - name: key
+    type: string
+    description: The key you're checking. See Key names for a list of valid key names.
+  - name: keyState
+    type: string
+    description: 'Is the state of the key when it calls the function, Can be either:
+      "up": when the key is released "down": when the key is pressed'
+  - name: handler
+    type: function
+    description: The function you're checking against
   examples:
   - path: examples/isKeyBound-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the key is bound, false otherwise.
   requires_review: true

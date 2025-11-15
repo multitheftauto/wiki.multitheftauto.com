@@ -1,14 +1,71 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateLight
-client:
+shared:
   name: createLight
   description: This function creates a 3D [light](/wiki/Element/Light "Element/Light")
     in the world.
-  parameters: []
+  parameters:
+  - name: lightType
+    type: int
+    description: 'An integer representing the type of light to create. 0 : Point light,
+      which illuminates surroundings evenly across the light radius. 1 : Spot light,
+      which illuminates the direction of the light defined by dirX , dirY and dirZ
+      . 2 : Dark light, which darkens its surrounding elements to full black.'
+  - name: posX
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: posY
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: posZ
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: radius
+    type: float
+    description: A floating point number representing the radius of the light.
+    default: '3'
+  - name: r
+    type: int
+    description: An integer number representing the amount of red to use in the colouring
+      of the light (0 - 255).
+    default: '255'
+  - name: g
+    type: int
+    description: An integer number representing the amount of green to use in the
+      colouring of the light (0 - 255).
+    default: '0'
+  - name: b
+    type: int
+    description: An integer number representing the amount of blue to use in the colouring
+      of the light (0 - 255).
+    default: '0'
+  - name: dirX
+    type: float
+    description: A floating point number representing the light direction's X coordinate
+      on the map.
+    default: '0'
+  - name: dirY
+    type: float
+    description: A floating point number representing the light direction's Y coordinate
+      on the map.
+    default: '0'
+  - name: dirZ
+    type: float
+    description: A floating point number representing the light direction's Z coordinate
+      on the map.
+    default: '0'
   examples:
   - path: examples/createLight-1.lua
     description: This example will make every player to look completely black without
       using shaders. It will also dark vehicles he uses too.
     side: client
+  returns:
+    values:
+    - type: light
+      name: value
+    description: Returns the light element if creation was successful, false otherwise.
+  oop:
+    element: light
+    constructorclass: Light
   notes:
   - type: info
     content: The direction of the light only has any effect if the light type is spot

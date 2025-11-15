@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetServerPort
-server:
+shared:
   name: getServerPort
   description: This function retrieves the server's port.
   parameters: []
@@ -7,4 +7,9 @@ server:
   - path: examples/getServerPort-1.lua
     description: 'This example Sends out the serverPort when you type: /serverport'
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: An integer corresponding to the server's port.
   requires_review: true

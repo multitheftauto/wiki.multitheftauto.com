@@ -1,10 +1,14 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetAircraftMaxVelocity
-server:
+shared:
   name: setAircraftMaxVelocity
   description: This function sets the maximum velocity at which aircrafts could fly.
     Using this function server\-side will overwrite the value that was previously
     set client\-side.
-  parameters: []
+  parameters:
+  - name: velocity
+    type: float
+    description: The max velocity, can be 0 or any positive value. Default is 1.5
+      .
   examples:
   - path: examples/setAircraftMaxVelocity-1.lua
     description: This example will increase or decrease the max velocity by pressing
@@ -14,4 +18,9 @@ server:
     description: This example will double the max velocity for everyone when the resource
       is started.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the max velocity was set correctly, false otherwise.
   requires_review: true

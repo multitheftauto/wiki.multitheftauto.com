@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetItemData
-client:
+shared:
   name: guiGridListGetItemData
   description: "With this function you can retrieve the [string](/wiki/String \"String\"\
     ) data associated with an item in a [grid list](/wiki/Element/GUI/Gridlist \"\
@@ -8,9 +8,28 @@ client:
     \  \n\n**Note:** This function will only work **after** you set the item's text\
     \ using [guiGridListSetItemText](/wiki/GuiGridListSetItemText \"GuiGridListSetItemText\"\
     )!"
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: the grid list containing the item you're interested in
+  - name: rowIndex
+    type: int
+    description: the row index of the item
+  - name: columnIndex
+    type: int
+    description: the column index of the item
   examples:
   - path: examples/guiGridListGetItemData-1.lua
     description: This example displays a random item data from the gridlist.
     side: client
+  returns:
+    values:
+    - type: var
+      name: value
+    description: Returns the item data of the specified item if succesful, false if
+      one of the arguments was invalid.
+  oop:
+    element: guigridlist
+    method: getItemData
+    static: false
   requires_review: true

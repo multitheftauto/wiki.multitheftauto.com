@@ -1,14 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateWeapon
-client:
+shared:
   name: createWeapon
   description: Creates a [custom weapon](/wiki/Element/Weapon "Element/Weapon") that
     can fire bullets. **Do not confuse this with player held weapons**.
-  parameters: []
+  parameters:
+  - name: theType
+    type: string
+    description: 'The weapon type which can be:'
+  - name: x
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/createWeapon-1.lua
     description: This example adds a/createminiguncommand to create a weapon that
       is always firing.
     side: client
+  returns:
+    values:
+    - type: weapon
+      name: value
+    description: Returns a custom weapon element, which represents a weapon floating
+      at that position.
+  oop:
+    element: element
+    constructorclass: Weapon
   notes:
   - type: tip
     content: Some weapons (such as the minigun) visually point to a slightly different

@@ -1,11 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedDoingGangDriveby
-server:
+shared:
   name: setPedDoingGangDriveby
   description: This function sets the driveby state of a ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped element whose state is to be changed.
+  - name: state
+    type: bool
+    description: A boolean value representing the drive-by state, true meaning enabled
+      and false disabled.
   examples:
   - path: examples/setPedDoingGangDriveby-1.lua
     description: This example turns on driveby mode when the local player typesdrivebyin
       the console.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the driveby state could be changed, false otherwise.
   requires_review: true

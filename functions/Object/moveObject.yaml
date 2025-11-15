@@ -1,9 +1,51 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/MoveObject
-server:
+shared:
   name: moveObject
   description: This function will smoothly move an object from its current position
     to a specified rotation and position.
-  parameters: []
+  parameters:
+  - name: theObject
+    type: object
+    description: the object that will be moved.
+  - name: time
+    type: int
+    description: the time in milliseconds the object will arrive at the destination.
+  - name: targetx
+    type: float
+    description: the X value of the target position
+  - name: targety
+    type: float
+    description: the Y value of the target position
+  - name: targetz
+    type: float
+    description: the Z value of the target position
+  - name: moverx
+    type: float
+    description: the rotation along the X axis relative to its current rotation, which
+      is its starting angle.
+  - name: movery
+    type: float
+    description: the rotation along the Y axis relative to its current rotation, which
+      is its starting angle.
+  - name: moverz
+    type: float
+    description: the rotation along the Z axis relative to its current rotation, which
+      is its starting angle.
+  - name: strEasingType
+    type: string
+    description: the easing function to use for the interpolation (default is "Linear")
+  - name: fEasingPeriod
+    type: float
+    description: the period of the easing function (only some easing functions use
+      this parameter)
+  - name: fEasingAmplitude
+    type: float
+    description: the amplitude of the easing function (only some easing functions
+      use this parameter)
+  - name: fEasingOvershoot
+    type: float
+    description: the overshoot of the easing function (only some easing functions
+      use this parameter)
   examples:
   - path: examples/moveObject-1.lua
     description: Example 1:This example moves every object in the game up 100 units
@@ -23,6 +65,14 @@ server:
   - path: examples/moveObject-4.lua
     description: Example 4:This example move a gate with easing.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: object
+    method: move
+    static: false
   issues:
   - id: '549'
     description: Object rotation is wrong after moveObject serverside

@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleTaxiLightOn
-server:
+shared:
   name: setVehicleTaxiLightOn
   description: This function will set the taxi light on in a taxi (vehicle ID's 420
     and 438\)
-  parameters: []
+  parameters:
+  - name: taxi
+    type: vehicle
+    description: The vehicle element of the taxi that you wish to turn the light on.
+  - name: LightState
+    type: bool
+    description: whether the light is on. True for on, False for off.
   examples:
   - path: examples/setVehicleTaxiLightOn-1.lua
     description: This example allows the driver of a taxi to toggle on/off taxi light
       with a command
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the state was successfully set, false otherwise.
+  oop:
+    element: vehicle
+    method: setTaxiLightOn
+    variable: taxiLightOn
+    static: false
   pair: isVehicleTaxiLightOn
   requires_review: true

@@ -1,11 +1,50 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CallRemote
-server:
+shared:
   name: callRemote
   description: This function allows you to call functions that have been exported
     with HTTP access by other MTA servers. The calls are asynchronous so you do not
     get an immediate result from the call, instead a callback function you specify
     is called when the call returns.
-  parameters: []
+  parameters:
+  - name: host
+    type: string
+    description: This is a host name - including the HTTP port - of the server you
+      wish to connect to.
+  - name: queueName
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"default"'
+  - name: connectionAttempts
+    type: int
+    description: Number of times to retry if the remote host does not respond. In
+      the case of a non-responding remote server, each connection attempt will timeout
+      after 6 seconds. Therefore, the default setting of 10 connection attempts means
+      it will be 60 seconds before your script gets a callback about the error. Reducing
+      this value to 2 for example, will decrease that period to 12 seconds
+    default: '10'
+  - name: connectTimeout
+    type: int
+    description: Number of milliseconds each connection attempt will take before timing
+      out
+    default: '10000'
+  - name: resourceName
+    type: string
+    description: This is a name of the resource that contains the exported function
+      you want to call.
+  - name: functionName
+    type: string
+    description: This is a string with the name of the function which you want to
+      call.
+  - name: callbackFunction
+    type: callback
+    description: This is the function that should receive the data returned from the
+      remote function call. The argument list should match the format of the data
+      returned. The callback function will be passed a string containing "ERROR" followed
+      by an integer indicating the error code when an error occurs calling the function.
+      A list of error codes can be found here .
+  - name: arguments...
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/callRemote-1.lua
     description: PHP:(for the page that Lua expects to be athttp://www.example.com/page.php)
@@ -28,4 +67,9 @@ server:
     description: 'ACL #2:Finally, modify the ACL on each receiving server to allow
       guest http communication with your resource:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function has been called, false otherwise.
   requires_review: true

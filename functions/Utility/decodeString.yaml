@@ -1,16 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DecodeString
-server:
+shared:
   name: decodeString
   description: This function decodes an encoded [string](/wiki/String "String") using
     the specified algorithm. The counterpart of this function is [encodeString](/wiki/EncodeString
     "EncodeString").
-  parameters: []
+  parameters:
+  - name: algorithm
+    type: string
+    description: The algorithm to use.
+  - name: input
+    type: string
+    description: The input to decode.
+  - name: options
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: callback
+    type: function
+    description: providing a callback will run this function asynchronously, the arguments
+      to the callback are the same as the returned values below.
   examples:
   - path: examples/decodeString-1.lua
     description: Adds a/decodecommand in which you can provide an algorithm, key and
       data to decode.
     side: server
-  requires_review: true
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the decoded string if successful, false otherwise. If a callback
+      was provided, the decoded string is argument to the callback.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -18,3 +36,4 @@ server:
       - Missing section: Options for each algorithm
 
       '
+  requires_review: true

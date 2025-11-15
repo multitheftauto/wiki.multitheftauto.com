@@ -1,14 +1,49 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponFlags
-client:
+shared:
   name: setWeaponFlags
   description: This function sets a [custom weapon](/wiki/Element/Weapon "Element/Weapon")
     flags, used to change how it behaves or finds a possible target to shoot.
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: the weapon element to set the flag of.
+  - name: theFlag
+    type: string
+    description: 'the weapon flag to change (all of them can be true or false ): disable_model
+      : makes the weapon and muzzle effect invisible or not. flags : configures the
+      flags used to get where the gun shoots at. They are based on processLineOfSight
+      ''s. You have to specify all the eight flags for the function to succeed. These
+      flags are (by order): checkBuildings : allows the shoot to be blocked by GTA''s
+      internally placed buildings, i.e. the world map. checkCarTires : allows the
+      shoot to be blocked by vehicle tires. checkDummies : allows the shoot to be
+      blocked by GTA''s internal dummies. These are not used in the current MTA version
+      so this argument can be set to false . checkObjects : allows the shoot to be
+      blocked by objects . checkPeds : allows the shoot to be blocked by peds and
+      players . checkVehicles : allows the shoot to be blocked by vehicles . checkSeeThroughStuff
+      : allows the shoot to be blocked by translucent game objects, e.g. glass. checkShootThroughStuff
+      : allows the shoot to be blocked by things that can be shot through. instant_reload
+      : if enabled, the weapon will reload instantly rather than waiting the reload
+      time until shooting again. shoot_if_out_of_range : if enabled, the weapon will
+      still fire its target beyond the weapon range distance. shoot_if_blocked : if
+      enabled, the weapon will still fire its target even if it''s blocked by something.'
+  - name: enable
+    type: bool
+    description: whether to enable or disable the specified flag.
   examples:
   - path: examples/setWeaponFlags-1.lua
     description: This example creates a minigun that will kill any player who approaches
       the center of the map, no matter if he takes cover or not.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if all arguments are valid and the flags where changed;
+      false otherwise.
+  oop:
+    element: weapon
+    method: setFlags
+    static: false
   pair: getWeaponFlags
   notes:
   - type: info

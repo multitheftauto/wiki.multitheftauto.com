@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetGravity
-server:
+shared:
   name: getGravity
   description: This function returns the current gravity level for the context in
     which it is called (server or client).
@@ -8,4 +8,10 @@ server:
   - path: examples/getGravity-1.lua
     description: This serverside command outputs the serverside gravity level.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float with the current server or client (depending on where
+      you call the function) gravity level.
   requires_review: true

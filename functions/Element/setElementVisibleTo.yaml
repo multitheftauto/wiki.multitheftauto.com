@@ -1,9 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementVisibleTo
-server:
+shared:
   name: setElementVisibleTo
   description: This function can change an [element](/wiki/Element "Element")'s [visibility](/wiki/Visibility
     "Visibility").
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you want to control the visibility of.
+  - name: visibleTo
+    type: element
+    description: The element you wish the element to be visible or invisible to. Any
+      child elements that are players will also be able to see the element. See visibility
+      .
+  - name: visible
+    type: bool
+    description: Whether you are making it visible or invisible to the player.
   examples:
   - path: examples/setElementVisibleTo-1.lua
     description: This example creates a marker and makes it only visibile to the player
@@ -13,5 +24,16 @@ server:
     description: The following example shows how to make the marker visible to everyone
       except anotherguy
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the element's visibility was changed successfully,
+      false otherwise, for example if you are trying to change the visibility of a
+      vehicle, player or object.
+  oop:
+    element: element
+    method: setVisibleTo
+    static: false
   pair: isElementVisibleTo
   requires_review: true

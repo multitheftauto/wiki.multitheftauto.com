@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraViewMode
-client:
+shared:
   name: getCameraViewMode
   description: This function allows you to get the active camera view modes. This
     indicates at what distance the camera will follow the player or vehicle.
@@ -9,5 +9,18 @@ client:
     description: This example tells the player their current camera view when they
       change it
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    description: Returns two ints indicating the current vehicle and ped camera view
+      mode respectively. Their meanings can be seen below.
+  oop:
+    element: Camera
+    method: getCameraViewMode
+    variable: viewMode
+    static: true
   pair: setCameraViewMode
   requires_review: true

@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetVerticalScrollPosition
-client:
+shared:
   name: guiGridListGetVerticalScrollPosition
   description: This function is used to get the vertical scroll position from a grid
     list
-  parameters: []
+  parameters:
+  - name: guiGridlist
+    type: element
+    description: The grid list you want to get the vertical scroll position from
   examples:
   - path: examples/guiGridListGetVerticalScrollPosition-1.lua
     description: This example gets the position of the vertical scroll and outputs
       it to the chatbox.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a integer between 0 and 100 indicating the vertical scroll
+      position, or false otherwise.
+  oop:
+    element: guigridlist
+    method: getVerticalScrollPosition
+    variable: verticalScrollPosition
+    static: false
   pair: guiGridListSetVerticalScrollPosition
   requires_review: true

@@ -1,9 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementRotation
-server:
+shared:
   name: setElementRotation
   description: Sets the rotation of elements according to the world (does not work
     with players that are on the ground).
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element whose rotation will be set
+  - name: rotX
+    type: float
+    description: The element's rotation around the x axis in degrees
+  - name: rotY
+    type: float
+    description: The element's rotation around the y axis in degrees
+  - name: rotZ
+    type: float
+    description: The element's rotation around the z axis in degrees
+  - name: rotOrder
+    type: string
+    description: 'A string representing the rotation order desired when interpreting
+      the provided euler angles . If omitted, default value is "default" . Allowed
+      values are: "default": default MTA behavior prior to 1.1, where rotation order
+      depends on element type "ZXY": rotation about the Z axis ( up ), then about
+      the resulting X axis ( right ), and finally about the resulting Y axis ( front
+      ). This is the default rotation order for objects "ZYX": rotation about the
+      Z axis ( up ), then about the resulting Y axis ( front ), and finally about
+      the resulting X axis ( right ). This is the default rotation order for vehicles'
+    default: '"default"'
+  - name: conformPedRotation
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/setElementRotation-1.lua
     description: ''
@@ -11,6 +38,17 @@ server:
   - path: examples/setElementRotation-2.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the element rotation was successfully set and false
+      otherwise.
+  oop:
+    element: element
+    method: setRotation
+    variable: rotation
+    static: false
   pair: getElementRotation
   notes:
   - type: info

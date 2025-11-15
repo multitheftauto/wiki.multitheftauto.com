@@ -1,12 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleDummyPosition
-client:
+shared:
   name: setVehicleDummyPosition
   description: This function sets the position of the dummy for the given [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you want to set the dummy position for.
+  - name: dummy
+    type: string
+    description: The dummy whose position you want to set.
+  - name: x
+    type: float
+    description: ''
+  - name: "y"
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z
+    type: float
+    description: MISSING_PARAM_DESC
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the dummy position has been successfully set, false
+      otherwise.
+  oop:
+    element: vehicle
+    method: setDummyPosition
+    static: false
   pair: getVehicleDummyPosition
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -14,3 +38,4 @@ client:
       - Missing section: Allowed Dummies
 
       '
+  requires_review: true

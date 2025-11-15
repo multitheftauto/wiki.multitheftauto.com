@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPickupAmount
-server:
+shared:
   name: getPickupAmount
   description: This function retrieves the amount of health or armor given from a
     pickup.
-  parameters: []
+  parameters:
+  - name: thePickup
+    type: pickup
+    description: The pickup you wish to retrieve the amount from.
   examples:
   - path: examples/getPickupAmount-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer of the amount the pickup is set to, false if it's
+      invalid, 0 if it's no health or amor pickup.
   requires_review: true

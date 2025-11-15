@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWaveHeight
-server:
+shared:
   name: getWaveHeight
   description: This function returns the current wave height.
   parameters: []
@@ -7,5 +7,14 @@ server:
   - path: examples/getWaveHeight-1.lua
     description: This example changes the wave height to the given amount.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the height as a float , false otherwise.
+  oop:
+    element: Water
+    method: )
+    static: true
   pair: setWaveHeight
   requires_review: true

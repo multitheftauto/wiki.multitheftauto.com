@@ -1,13 +1,37 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateTexture
-client:
+shared:
   name: dxCreateTexture
   description: This function creates a [texture](/wiki/Texture "Texture") element
     that can be used in the dxDraw functions.
-  parameters: []
+  parameters:
+  - name: pixels / string filepath
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: textureFormat
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"argb"'
+  - name: mipmaps
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'true'
+  - name: textureEdge
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"wrap"'
   examples:
   - path: examples/dxCreateTexture-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a texture if successful, false if invalid arguments were
+      passed to the function.
+  oop:
+    element: texture
+    constructorclass: DxTexture
   notes:
   - type: info
     content: The times shown at the right of the page are only the time needed to

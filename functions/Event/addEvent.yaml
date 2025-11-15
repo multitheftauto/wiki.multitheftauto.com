@@ -1,10 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddEvent
-server:
+shared:
   name: addEvent
   description: This function allows you to register a custom [event](/wiki/Event "Event").
     Custom events function exactly like the built\-in events. See [event system](/wiki/Event_system
     "Event system") for more information on the event system.
-  parameters: []
+  parameters:
+  - name: eventName
+    type: string
+    description: The name of the event you wish to create.
+  - name: allowRemoteTrigger
+    type: bool
+    description: A boolean specifying whether this event can be called remotely using
+      triggerClientEvent / triggerServerEvent or not.
+    default: 'false'
   examples:
   - path: examples/addEvent-1.lua
     description: This example will define a new event calledonSpecialEvent.
@@ -12,4 +20,10 @@ server:
   - path: examples/addEvent-2.lua
     description: 'You can then trigger this event later on using:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event was added successfully, false if the event
+      was already added.
   requires_review: true

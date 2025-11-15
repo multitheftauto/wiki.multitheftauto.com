@@ -1,13 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetFont
-client:
+shared:
   name: guiSetFont
   description: This function sets the font of a [GUI element](/wiki/GUI_widgets "GUI
     widgets") to be used when drawing text.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: The GUI element you wish to change the font of
+  - name: font
+    type: mixed
+    description: Either a custom GUI font element or the name of a built-in GUI font.
+      See Standard GUI Font Names
   examples:
   - path: examples/guiSetFont-1.lua
     description: This example sets and gets the font of a pre-made gui element and
       outputs it to chat box.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the font has been successfully set on the gui element,
+      false otherwise.
+  oop:
+    element: guielement
+    method: setFont
+    variable: font
+    static: false
   pair: guiGetFont
   requires_review: true

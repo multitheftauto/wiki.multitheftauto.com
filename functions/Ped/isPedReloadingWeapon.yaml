@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedReloadingWeapon
-server:
+shared:
   name: isPedReloadingWeapon
   description: This function is used to determine whether or not a ped is currently
     reloading their weapon. Useful to stop certain quick reload exploits.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped you are checking.
   examples:
   - path: examples/isPedReloadingWeapon-1.lua
     description: This example checks if the player who enters the/amireloadingcommand
       is reloading and outputs a message.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is currently reloading a weapon, false otherwise.
+  oop:
+    element: ped
+    method: isReloadingWeapon
+    variable: reloadingWeapon
+    static: false
   requires_review: true

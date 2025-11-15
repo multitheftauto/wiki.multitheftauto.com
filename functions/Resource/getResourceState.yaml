@@ -1,11 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceState
-server:
+shared:
   name: getResourceState
   description: This function returns the state of a given resource
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: The resource you wish to get the state of.
   examples:
   - path: examples/getResourceState-1.lua
     description: This example returns the state of a given resource. Syntax:/state
       <Resource Name>
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: 'If successful returns a string with the resource state in it, false
+      otherwise.
+
+      The state can be one of:'
+  oop:
+    element: resource
+    method: getState
+    variable: state
+    static: false
   requires_review: true

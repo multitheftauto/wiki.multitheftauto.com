@@ -1,11 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetItemText
-client:
+shared:
   name: guiGridListSetItemText
   description: This function changes the text of a gridlist item.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: The grid list element
+  - name: rowIndex
+    type: int
+    description: Row ID
+  - name: columnIndex
+    type: int
+    description: Column ID
+  - name: text
+    type: string
+    description: The text you want to put in (does NOT accept numbers, use tostring()
+      for that)
+  - name: section
+    type: bool
+    description: Determines if the item is a section
+  - name: number
+    type: bool
+    description: Tells whether the text item is a number value or not (used for sorting)
   examples:
   - path: examples/guiGridListSetItemText-1.lua
     description: This example creates a player list on the right of the screen and
       fills it
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the item text was set successfully, false otherwise.
+  oop:
+    element: guigridlist
+    method: setItemText
+    static: false
   requires_review: true

@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RefreshResources
-server:
+shared:
   name: refreshResources
   description: This function finds new resources and checks for changes to the current
     ones.
-  parameters: []
+  parameters:
+  - name: refreshAll
+    type: bool
+    description: If true MTA will check for changes in all resources. If false , MTA
+      will only check for new resources and try to reload resources with errors
+    default: 'false'
+  - name: targetResource
+    type: resource
+    description: MISSING_PARAM_DESC
+    default: nil
   examples:
   - path: examples/refreshResources-1.lua
     description: This example will refresh resources when a player uses the /refreshresources
       command just like the hardcoded /refreshall.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if refresh was successful, false otherwise.
   notes:
   - type: info
     content: The resource using this function needs access to function.refreshResources

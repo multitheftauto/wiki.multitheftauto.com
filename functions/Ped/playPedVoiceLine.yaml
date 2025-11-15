@@ -1,10 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/PlayPedVoiceLine
-client:
+shared:
   name: playPedVoiceLine
   description: This function allows playing specific voice lines of a [ped](/wiki/Ped
     "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped who will speak the lines.
+  - name: lineId
+    type: number
+    description: The ID of the line to be spoken (0-359). See ID List
+  - name: probability
+    type: float
+    description: The probability that the line will be spoken (0 - 1), where 1 means
+      100%.
+    default: '1.0'
   examples: []
+  returns:
+    values:
+    - type: nil
+      name: value
+    description: The function returns nothing, always nil .
+  oop:
+    element: element
+    method: playPedVoiceLine
+    static: false
   notes:
   - type: info
     content: Voice lines are assigned to a specific skin ID, so using setPedVoice

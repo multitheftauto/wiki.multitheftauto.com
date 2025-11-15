@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsObjectBreakable
-server:
+shared:
   name: isObjectBreakable
   description: This function checks if an object / model ID is breakable.
-  parameters: []
+  parameters:
+  - name: theObject / int modelId
+    type: object
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/isObjectBreakable-1.lua
     description: This example creates an object when the resource starts and checks
       if the object is breakable.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This example creates an object when the resource starts and checks
+      if the object is breakable.
+  oop:
+    element: object
+    method: isBreakable
+    variable: breakable
+    static: false
   pair: setObjectBreakable
   requires_review: true

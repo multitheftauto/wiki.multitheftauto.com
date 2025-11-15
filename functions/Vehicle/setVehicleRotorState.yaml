@@ -1,15 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleRotorState
-client:
+shared:
   name: setVehicleRotorState
   description: Turns the rotor on/off for an plane or helicopter. A vehicle with the
     rotor turned off cannot hover in the air.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle (helicopter or plane) whose rotor you want to toggle.
+  - name: state
+    type: bool
+    description: The rotor state, which determines whether it should be on ( true
+      ) or off ( false ).
+  - name: stopRotor
+    type: bool
+    description: Specifies whether the rotor should be stopped after being turned
+      off. If false, the rotor will continue spinning at a constant speed (it won't
+      slow down or accelerate). It will also not be able to lift off the ground. You
+      can also use setVehicleRotorSpeed to manage the rotor speed.
+    default: 'true'
   examples:
   - path: examples/setVehicleRotorState-1.lua
     description: This example code will add a command called '/rotorstart' that will
       either shut your vehicle's rotors off or start them up again. Do note that once
       rotors are stopped you will simply fall from the sky.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: vehicle
+    method: setRotorState
+    variable: rotorState
+    static: false
   pair: getVehicleRotorState
   notes:
   - type: info

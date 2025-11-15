@@ -1,12 +1,60 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialLine3D
-client:
+shared:
   name: dxDrawMaterialLine3D
   description: This function draws a textured 3D line between two points in the 3D
     world \- rendered for one frame. This should be used in conjunction with [onClientPreRender](/wiki/OnClientPreRender
     "OnClientPreRender") in order to display continuously.
-  parameters: []
+  parameters:
+  - name: startX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: flipUV
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  - name: material
+    type: element
+    description: A material to draw the line with.
+  - name: width
+    type: float
+    description: The width/thickness of the line in GTA world units. (This is 1/75th
+      of the width used in dxDrawLine3D)
+  - name: color
+    type: int
+    description: MISSING_PARAM_DESC
+    default: white
+  - name: string stage
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: '"postfx", ] float faceTowardX'
+  - name: faceTowardY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: faceTowardZ
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxDrawMaterialLine3D-1.lua
     description: 'Drawsan imagein coordiantes -2422.68555, -608.78986, 132.56250:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
   requires_review: true

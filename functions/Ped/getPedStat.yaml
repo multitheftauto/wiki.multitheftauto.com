@@ -1,11 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedStat
-server:
+shared:
   name: getPedStat
   description: This function returns the value of the specified statistic of a specific
     [ped](/wiki/Ped "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose stat you want to retrieve.
+  - name: stat
+    type: int
+    description: A whole number determining the stat ID.
   examples:
   - path: examples/getPedStat-1.lua
     description: This example announces whether a player is fat upon spawn
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the value of the requested statistic.
+  oop:
+    element: ped
+    method: getStat
+    static: false
   requires_review: true

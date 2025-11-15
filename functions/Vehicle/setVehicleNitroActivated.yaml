@@ -1,13 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleNitroActivated
-server:
+shared:
   name: setVehicleNitroActivated
   description: This function activates or deactivates the nitro on the specified [vehicle](/wiki/Vehicle
     "Vehicle"), like if a player pressed the button for activating nitro.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: ''
+  - name: state
+    type: bool
+    description: ''
   examples:
   - path: examples/setVehicleNitroActivated-1.lua
     description: This example adds and activates nitro in the vehicle the player enters.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the nitro activation state was modified successfully,
+      false otherwise.
   notes:
   - type: warning
     content: Only works if the vehicle is streamed in.

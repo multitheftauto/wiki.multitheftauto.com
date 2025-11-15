@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVersion
-server:
+shared:
   name: getVersion
   description: This function gives you various version information about MTA and the
     operating system.
@@ -17,6 +17,12 @@ server:
       which will output version information of your client, whilst the example above
       outputs information of the server you are connected to.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with version information. Specifically these keys
+      are present in the table:'
   notes:
   - type: info
     content: Clientside will return the version from the player, and the server-sided

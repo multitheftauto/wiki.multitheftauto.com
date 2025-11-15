@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetCoronaReflectionsEnabled
-client:
+shared:
   name: setCoronaReflectionsEnabled
   description: This function sets visibility of corona reflections.
-  parameters: []
+  parameters:
+  - name: enabled
+    type: int
+    description: '0 : disabled 1 : enabled (will be visible during rain) 2 : force
+      enabled (will be visible even if there is no rain)'
   examples:
   - path: examples/setCoronaReflectionsEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if passed arguments are correct, false otherwise.
   issues:
   - id: '2755'
     description: Corona reflections do not render on custom placed objects

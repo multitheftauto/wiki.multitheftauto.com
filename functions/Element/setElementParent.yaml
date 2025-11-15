@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementParent
-server:
+shared:
   name: setElementParent
   description: This function is used for setting an element as the parent of another
     element.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element that you wish to set the parent of.
+  - name: parent
+    type: element
+    description: The element you wish to be the parent of theElement .
   examples:
   - path: examples/setElementParent-1.lua
     description: 'This example sets the parent of each spawnpoint to a dummy element:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if both elements are valid, false otherwise.
+  oop:
+    element: element
+    method: setParent
+    variable: parent
+    static: false
   pair: getElementParent
   notes:
   - type: info

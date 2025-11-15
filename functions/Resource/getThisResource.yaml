@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetThisResource
-server:
+shared:
   name: getThisResource
   description: This function retrieves the resource from which the function call was
     made.
@@ -11,6 +11,16 @@ server:
       called only when thecurrentresource is started rather than whenanyresource is
       started, thereby reducing unnecessary overhead.
     side: server
+  returns:
+    values:
+    - type: resource
+      name: value
+    description: Returns the resource in which the current script is.
+  oop:
+    element: Resource
+    note: This function is a static function underneath the Resource class.
+    method: )
+    static: true
   notes:
   - type: info
     content: Every resource has a predefined global variable called resource that

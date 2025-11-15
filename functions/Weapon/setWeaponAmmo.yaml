@@ -1,12 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponAmmo
-server:
+shared:
   name: setWeaponAmmo
   description: Sets the ammo to a certain amount for a specified weapon (if they already
     have it), regardless of current ammo.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: A player object referencing the specified player
+  - name: weapon
+    type: int
+    description: A whole number integer that refers to a weapon ID.
+  - name: totalAmmo
+    type: int
+    description: A whole number integer serving as the total ammo amount for the given
+      weapon (including ammo in clip).
+  - name: ammoInClip
+    type: int
+    description: The amount of ammo to set in the player's clip.  This will be taken
+      from the main ammo.  If left unspecified or set to 0, the current clip will
+      remain.
+    default: '0'
   examples:
   - path: examples/setWeaponAmmo-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a boolean value true or false that tells you if it was successful
+      or not.
+  oop:
+    element: weapon
+    method: setAmmo
+    variable: ammo
+    static: false
   pair: getWeaponAmmo
   requires_review: true

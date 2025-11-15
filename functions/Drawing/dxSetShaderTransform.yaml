@@ -1,11 +1,64 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxSetShaderTransform
-client:
+shared:
   name: dxSetShaderTransform
   description: This function applies a 3D transformation to a [shader](/wiki/Shader
     "Shader") element when it is drawn with [dxDrawImage](/wiki/DxDrawImage "DxDrawImage").
-  parameters: []
+  parameters:
+  - name: theShader
+    type: element
+    description: The shader element whose transformation is to be changed
+  - name: rotationX
+    type: float
+    description: Rotation angle in degrees around the X axis (Left,right). This will
+      make the shader rotate along its width.
+  - name: rotationY
+    type: float
+    description: Rotation angle in degrees around the Y axis (Up,down). This will
+      make the shader rotate along its height.
+  - name: rotationZ
+    type: float
+    description: Rotation angle in degrees around the Z axis (In,out). This will make
+      the shader rotate in a similar way to the rotation argument in dxDrawImage .
+  - name: rotationCenterOffsetX
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: rotationCenterOffsetY
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: rotationCenterOffsetZ
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: bRotationCenterOffsetOriginIsScreen
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  - name: perspectiveCenterOffsetX
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: perspectiveCenterOffsetY
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: bPerspectiveCenterOffsetOriginIsScreen
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/dxSetShaderTransform-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the shader element's transform was successfully changed,
+      false otherwise.
+  oop:
+    element: shader
+    method: setTransform
+    static: false
   requires_review: true

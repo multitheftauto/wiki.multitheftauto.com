@@ -1,13 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetAlpha
-client:
+shared:
   name: guiSetAlpha
   description: This changes the alpha level (the visibleness/transparency) of a GUI
     element
-  parameters: []
+  parameters:
+  - name: guielement
+    type: element
+    description: MISSING_PARAM_DESC
+  - name: alpha
+    type: float
+    description: The visibility/transparency of the GUI element. Ranges from 0 (fully
+      transparent) to 1 (fully opaque). Default value is 0.80.
   examples:
   - path: examples/guiSetAlpha-1.lua
     description: This creates a GUI window and allows a player to change it's alpha
       (the visibleness/transparency) value with a command.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the gui element's alpha was successfully changed,
+      false otherwise.
+  oop:
+    element: guielement
+    method: setAlpha
+    variable: alpha
+    static: false
   pair: guiGetAlpha
   requires_review: true

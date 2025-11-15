@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponAmmo
-client:
+shared:
   name: getWeaponAmmo
   description: This function gets the total ammo a [custom weapon](/wiki/Element/Weapon
     "Element/Weapon") has.
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: The weapon to get the ammo of.
   examples:
   - path: examples/getWeaponAmmo-1.lua
     description: This example gets the ammo of the custom weapon and outputs it to
       the chatbox.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer containing how many ammo left has the weapon.
+      Returns false if an error occured.
+  oop:
+    element: weapon
+    method: getAmmo
+    variable: ammo
+    static: false
   pair: setWeaponAmmo
   requires_review: true

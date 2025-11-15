@@ -1,13 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleModelExhaustFumesPosition
-client:
+shared:
   name: setVehicleModelExhaustFumesPosition
   description: This function sets the position of the exhaust fumes the vehicle model
     emits. Use [setVehicleComponentPosition](/wiki/SetVehicleComponentPosition "SetVehicleComponentPosition")
     to adjust the exhaust position.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: The model ID which you want to apply the change to
+  - name: posX
+    type: float
+    description: The desired position
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setVehicleModelExhaustFumesPosition-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if everything went fine, false otherwise.
+  oop:
+    element: Vehicle
+    method: )
+    static: true
   pair: getVehicleModelExhaustFumesPosition
   requires_review: true

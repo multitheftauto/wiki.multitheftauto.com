@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementOnScreen
-client:
+shared:
   name: isElementOnScreen
   description: This function will check if an element is on the screen. Elements behind
     objects but still in the camera view count as being on screen.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element of which you wish to check wether it's being rendered
+      on screen.
   examples:
   - path: examples/isElementOnScreen-1.lua
     description: This function will check if you can see your killer when you die.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if element is on screen, false if not.
+  oop:
+    element: element
+    method: isOnScreen
+    variable: onScreen
+    static: false
   issues:
   - id: '2029'
     description: isElementOnScreen doesn't work for markers

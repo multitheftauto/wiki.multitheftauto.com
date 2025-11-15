@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTrainSpeed
-server:
+shared:
   name: getTrainSpeed
   description: Gets the speed at which a train is traveling on the rails.
-  parameters: []
+  parameters:
+  - name: train
+    type: vehicle
+    description: the train of which to retrieve the speed.
   examples:
   - path: examples/getTrainSpeed-1.lua
     description: This example outputs how fast a player is going if they're in a train.
       The command is "/speed".
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the train's speed if successful, false otherwise.
+  oop:
+    element: vehicle
+    method: getTrainSpeed
+    variable: trainSpeed
+    static: false
   pair: setTrainSpeed
   requires_review: true

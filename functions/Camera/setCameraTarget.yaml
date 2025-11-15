@@ -1,12 +1,53 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraTarget
-server:
+client:
   name: setCameraTarget
   description: 'This function allows you to set a player''s camera to follow other
     elements instead. Currently supported element type is:'
-  parameters: []
+  parameters:
+  - name: targetX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: targetY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: targetZ
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setCameraTarget-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
+  oop: &id001
+    element: player
+    method: setCameraTarget
+    variable: cameraTarget
+    static: false
+  pair: getCameraTarget
+  requires_review: true
+server:
+  name: setCameraTarget
+  description: 'This function allows you to set a player''s camera to follow other
+    elements instead. Currently supported element type is:'
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player whose camera you wish to modify.
+  - name: target
+    type: element
+    description: The element who you want the camera to follow. If none is specified,
+      the camera will target the player.
+    default: nil
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
+  oop: *id001
   pair: getCameraTarget
   requires_review: true

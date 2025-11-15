@@ -1,9 +1,16 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RemoveVehicleUpgrade
-server:
+shared:
   name: removeVehicleUpgrade
   description: 'This function removes an already existing upgrade from the specified
     vehicle, eg: nos, hydraulics. Defined in San Andreas\\data\\maps\\veh\_mods\\veh\_mods.ide.'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The element representing the vehicle you wish to remove the upgrade
+      from
+  - name: upgrade
+    type: int
+    description: The ID of the upgrade you wish to remove.
   examples:
   - path: examples/removeVehicleUpgrade-1.lua
     description: This script defines a 'nos' console command that adds a NOS upgrade
@@ -16,4 +23,10 @@ server:
       adds a 'removenos' command which allows removal of a player's nos.  This example
       is clientside and may cause desync.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the upgrade was successfully removed from the vehicle,
+      otherwise false .
   requires_review: true

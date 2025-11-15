@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayersInTeam
-server:
+shared:
   name: getPlayersInTeam
   description: This function retrieves all the players of the specified team.
-  parameters: []
+  parameters:
+  - name: theTeam
+    type: team
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getPlayersInTeam-1.lua
     description: Find and kill all the players in the specified team (for example
@@ -12,4 +15,15 @@ server:
     description: This example will show all players in a team when a player types
       the 'showTeam TeamName' command.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of all the players in the team, or an empty one if
+      there are none else false if invalid arguments are passed.
+  oop:
+    element: team
+    method: getPlayers
+    variable: players
+    static: false
   requires_review: true

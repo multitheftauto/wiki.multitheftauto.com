@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetObjectGroupPhysicalProperty
-client:
+shared:
   name: engineSetObjectGroupPhysicalProperty
   description: This function sets physical property of given properties group.
-  parameters: []
+  parameters:
+  - name: groupID
+    type: int
+    description: the id of physical properties group which you wish to set a property
+      of.
+  - name: property
+    type: objectgroup-modifiable
+    description: MISSING_PARAM_DESC
+  - name: newValue
+    type: var
+    description: new value of the property, with proper type as specified in table
+      below
   examples:
   - path: examples/engineSetObjectGroupPhysicalProperty-1.lua
     description: ''
     side: client
-  requires_review: true
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if everything went well, error is raised otherwise.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -27,3 +42,4 @@ client:
       - Missing section: Fx Effect
 
       '
+  requires_review: true

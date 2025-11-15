@@ -1,10 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SvgSetUpdateCallback
-client:
+shared:
   name: svgSetUpdateCallback
   description: Sets the update callback of an [svg](/wiki/Svg "Svg") element
-  parameters: []
+  parameters:
+  - name: svgElement
+    type: svg
+    description: The svg you want to set the callback function of.
+  - name: / bool callback
+    type: function
+    description: MISSING_PARAM_DESC
   examples: []
-  requires_review: true
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: For example of callback usage, see svgSetSize or svgSetDocumentXML
+      .
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -12,3 +23,4 @@ client:
       - Missing section: Contents
 
       '
+  requires_review: true

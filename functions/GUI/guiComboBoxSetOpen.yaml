@@ -1,11 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxSetOpen
-client:
+shared:
   name: guiComboBoxSetOpen
   description: This function set combo box state as open or close.
-  parameters: []
+  parameters:
+  - name: comboBox
+    type: element
+    description: The combobox to be opened or closed.
+  - name: state
+    type: bool
+    description: The state of combobox. true, if the combobox is to be opened. false
+      if the combobox is to be closed.
   examples:
   - path: examples/guiComboBoxSetOpen-1.lua
     description: This example opens/closes the combobox after clicking the button.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if is successful, false otherwise.
+  oop:
+    element: guicombobox
+    method: setOpen
+    variable: open
+    static: false
   pair: guiComboBoxIsOpen
   requires_review: true

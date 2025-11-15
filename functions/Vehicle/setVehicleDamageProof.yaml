@@ -1,14 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleDamageProof
-server:
+shared:
   name: setVehicleDamageProof
   description: This functions makes a vehicle damage proof, so it won't take damage
     from bullets, hits, explosions or fire. A damage proof's vehicle health can still
     be changed via script.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to make damage proof.
+  - name: damageProof
+    type: bool
+    description: true is damage proof, false is damageable.
   examples:
   - path: examples/setVehicleDamageProof-1.lua
     description: This example spawns a vehicle and sets it damage proof immediately.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was set damage proof succesfully, false
+      if the arguments are invalid or it failed.
+  oop:
+    element: vehicle
+    method: setDamageProof
+    variable: damageProof
+    static: false
   pair: isVehicleDamageProof
   notes:
   - type: info

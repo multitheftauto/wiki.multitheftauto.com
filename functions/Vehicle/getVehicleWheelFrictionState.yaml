@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleWheelFrictionState
-client:
+shared:
   name: getVehicleWheelFrictionState
   description: This function returns the current wheel friction state of the [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you wish to get the wheel friction state.
+  - name: wheel
+    type: int
+    description: 'The wheel you want to check. (0: front left, 1: rear left, 2: front
+      right, 3: rear right)'
   examples:
   - path: examples/getVehicleWheelFrictionState-1.lua
     description: 'This example will show the friction state of each wheel of the player''s
       current vehicle:'
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: 'Returns a int indicating the wheel friction state. This value can
+      be:'
+  oop:
+    element: vehicle
+    method: getWheelFrictionState
+    static: false
   requires_review: true

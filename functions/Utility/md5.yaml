@@ -1,13 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Md5
-server:
+shared:
   name: md5
   description: Calculates the MD5 hash of the specified string and returns its hexadecimal
     representation.
-  parameters: []
+  parameters:
+  - name: str
+    type: string
+    description: the string to hash.
   examples:
   - path: examples/md5-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the MD5 hash of the input string if successful, false otherwise.
   notes:
   - type: warning
     content: It is strongly recommended to use passwordHash to hash passwords, md5

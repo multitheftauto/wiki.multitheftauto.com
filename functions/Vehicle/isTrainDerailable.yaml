@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsTrainDerailable
-server:
+shared:
   name: isTrainDerailable
   description: This function will check if a train or tram is derailable.
-  parameters: []
+  parameters:
+  - name: vehicleToCheck
+    type: vehicle
+    description: The vehicle you wish to check.
   examples:
   - path: examples/isTrainDerailable-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the train is derailable, false otherwise.
+  oop:
+    element: vehicle
+    method: isDerailable
+    variable: derailable
+    static: false
   pair: setTrainDerailable
   requires_review: true

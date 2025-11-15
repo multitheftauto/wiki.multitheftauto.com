@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponTarget
-client:
+shared:
   name: getWeaponTarget
   description: This functions gets the target of a [custom weapon](/wiki/Element/Weapon
     "Element/Weapon").
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: The weapon to get the target of.
   examples:
   - path: examples/getWeaponTarget-1.lua
     description: This example gets the weapon target when the player hit the colshape
       and outputs it to the chatbox.
     side: client
+  returns:
+    values:
+    - type: nil/element/float
+      name: value
+    description: This example gets the weapon target when the player hit the colshape
+      and outputs it to the chatbox.
+  oop:
+    element: weapon
+    note: Variable is read only.
+    method: getTarget
+    variable: target
+    static: false
   pair: setWeaponTarget
   requires_review: true

@@ -1,13 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponProperty
-server:
+shared:
   name: setWeaponProperty
   description: This function sets the weapon property of the specified weapons specified
     weapon type. See lower down the page for documentation related to weapon creation.
-  parameters: []
+  parameters:
+  - name: weaponID/string weaponName
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: weaponSkill
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: property
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: theValue
+    type: int/float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setWeaponProperty-1.lua
     description: This example sets the weapon range of the M4 at poor skill level
       to 75
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: 'On success:'
+  oop:
+    element: weapon
+    method: setProperty
+    static: false
   pair: getWeaponProperty
   requires_review: true

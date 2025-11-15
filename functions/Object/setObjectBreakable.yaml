@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetObjectBreakable
-server:
+shared:
   name: setObjectBreakable
   description: This function sets an object to be breakable/unbreakable.
-  parameters: []
+  parameters:
+  - name: theObject
+    type: object
+    description: MISSING_PARAM_DESC
+  - name: breakable
+    type: bool
+    description: ''
   examples:
   - path: examples/setObjectBreakable-1.lua
     description: This example creates an object when the resource starts and sets
       it to be breakable.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This example creates an object when the resource starts and sets
+      it to be breakable.
+  oop:
+    element: object
+    method: setBreakable
+    variable: breakable
+    static: false
   pair: isObjectBreakable
   requires_review: true

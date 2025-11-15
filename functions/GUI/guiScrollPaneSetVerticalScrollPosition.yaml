@@ -1,12 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiScrollPaneSetVerticalScrollPosition
-client:
+shared:
   name: guiScrollPaneSetVerticalScrollPosition
   description: This function is used to set the position of a vertical scroll pane
     as a percentage.
-  parameters: []
+  parameters:
+  - name: verticalScrollPane
+    type: element
+    description: The scroll pane you want to change the position of
+  - name: position
+    type: float
+    description: a float ranging from 0 - 100
   examples:
   - path: examples/guiScrollPaneSetVerticalScrollPosition-1.lua
     description: This example sets the position of a scroll pane called "myScrollPane"
       created withguiCreateScrollPane, and outputs it to the chatbox.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the position was set, false otherwise.
   requires_review: true

@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsTimer
-server:
+shared:
   name: isTimer
   description: This function checks if a variable is a [timer](/wiki/Timer "Timer").
-  parameters: []
+  parameters:
+  - name: theTimer
+    type: timer
+    description: The variable that we want to check.
   examples:
   - path: examples/isTimer-1.lua
     description: This example uses isTimer to prevent players from using chat/teamchat/me
       more than once a second, to prevent spammers.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the passed value is a timer, false otherwise.
+  oop:
+    element: timer
+    method: isValid
+    variable: valid
+    static: false
   notes:
   - type: info
     content: This function is not reliable as timer ids are eventually recycled. Always

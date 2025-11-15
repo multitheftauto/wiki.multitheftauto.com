@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainSpeed
-server:
+shared:
   name: setTrainSpeed
   description: Sets the on\-track speed of a train.
-  parameters: []
+  parameters:
+  - name: train
+    type: vehicle
+    description: the train whose speed to change.
+  - name: speed
+    type: float
+    description: the new on-track speed of the train. A positive value will make it
+      go clockwise, a negative value counter clockwise.
   examples:
   - path: examples/setTrainSpeed-1.lua
     description: This example will make a train east of LS station which can not be
       derailed, and start moving it.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: vehicle
+    method: setTrainSpeed
+    variable: trainSpeed
+    static: false
   pair: getTrainSpeed
   requires_review: true

@@ -1,13 +1,55 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleSirens
-server:
+shared:
   name: setVehicleSirens
   description: This function changes the properties of a vehicles siren point.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle to modify
+  - name: sirenPoint
+    type: int
+    description: The siren point to modify
+  - name: posX
+    type: float
+    description: The x position of this siren point from the center of the vehicle
+  - name: posY
+    type: float
+    description: The y position of this siren point from the center of the vehicle
+  - name: posZ
+    type: float
+    description: The z position of this siren point from the center of the vehicle
+  - name: red
+    type: float
+    description: The amount of red from 0 to 255
+  - name: green
+    type: float
+    description: The amount of green from 0 to 255
+  - name: blue
+    type: float
+    description: The amount of blue from 0 to 255
+  - name: alpha
+    type: float
+    description: The alpha of the siren from 0 to 255
+    default: '255'
+  - name: minAlpha
+    type: float
+    description: The minimum alpha of the light during day time
+    default: '0.0'
   examples:
   - path: examples/setVehicleSirens-1.lua
     description: This example adds a siren for the vehicle, then sets two custom sirens
       at the top of the vehicle. And then removes the siren when getting out the vehicle.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the siren point was successfully changed on the vehicle,
+      false otherwise.
+  oop:
+    element: vehicle
+    method: setSirens
+    static: false
   pair: getVehicleSirens
   notes:
   - type: info

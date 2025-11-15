@@ -1,7 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelFlags
-client:
+shared:
   name: engineGetModelFlags
   description: This function returns [model flags](/wiki/Model_flags "Model flags").
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: ID of the model you want to get flags.
   examples: []
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns int with model flags in GTA format, throws an error otherwise.
+  oop:
+    element: Engine
+    method: getModelFlags
+    static: true
   requires_review: true

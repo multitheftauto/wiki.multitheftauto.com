@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerMapBoundingBox
-client:
+shared:
   name: getPlayerMapBoundingBox
   description: This function gets the GUI bounding box of the player map (F11\) texture.
   parameters: []
@@ -13,4 +13,16 @@ client:
       with the left mouse button in the desired place in the F11 world map, and delete
       it by clicking with the right mouse button.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    description: This example draws the text "Center of SA map" in the F11 map screen
+      where the center of world coordinates is.
   requires_review: true

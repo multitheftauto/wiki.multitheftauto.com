@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetSunColor
-server:
+shared:
   name: resetSunColor
   description: This function is used to reset the color of the sun to its normal color.
   parameters: []
@@ -7,4 +7,9 @@ server:
   - path: examples/resetSunColor-1.lua
     description: This example lets any player reset the color of the sun like /resetsuncolor
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the color of the sun was reset, false otherwise.
   requires_review: true

@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/KillTimer
-server:
+shared:
   name: killTimer
   description: This function allows you to kill/halt existing timers.
-  parameters: []
+  parameters:
+  - name: theTimer
+    type: timer
+    description: The timer you wish to halt.
   examples:
   - path: examples/killTimer-1.lua
     description: This example kills all timers with a remaining time of less than
@@ -11,4 +14,14 @@ server:
   - path: examples/killTimer-2.lua
     description: This example checks if the time then kill the timer.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the timer was successfully killed, false if no such
+      timer existed.
+  oop:
+    element: timer
+    method: destroy
+    static: false
   requires_review: true

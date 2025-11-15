@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetKeyboardLayout
-client:
+shared:
   name: getKeyboardLayout
   description: This function gets the player's keyboard layout settings, which they
     are currently (keyboard layout can be changed at any moment) using at the time
@@ -9,4 +9,9 @@ client:
   - path: examples/getKeyboardLayout-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with keyboard layout properties:'
   requires_review: true

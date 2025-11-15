@@ -1,10 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DbConnect
-server:
+shared:
   name: dbConnect
   description: This function opens a connection to a database and returns an element
     that can be used with [dbQuery](/wiki/DbQuery "DbQuery"). To disconnect use [destroyElement](/wiki/DestroyElement
     "DestroyElement").
-  parameters: []
+  parameters:
+  - name: databaseType
+    type: string
+    description: The type of database. This can be either sqlite or mysql
+  - name: host
+    type: string
+    description: Host address e.g. host=127.0.0.1
+  - name: username
+    type: string
+    description: Usually required for MySQL, ignored by SQLite
+    default: '""'
+  - name: password
+    type: string
+    description: Usually required for MySQL, ignored by SQLite
+    default: '""'
+  - name: options
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '""'
   examples:
   - path: examples/dbConnect-1.lua
     description: This example opens a connection to a SQLite database file in the
@@ -40,6 +58,15 @@ server:
     description: 'The folowing example shows how you could approach a common resource
       for database operations with exported functions (queryandexecute):'
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a database connection element unless there are problems,
+      in which case it return false .
+  oop:
+    element: connection
+    constructorclass: Connection
   notes:
   - type: info
     content: Connecting and disconnecting many times can have a performance impact

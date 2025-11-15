@@ -1,11 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DbPrepareString
-server:
+shared:
   name: dbPrepareString
   description: This function escapes arguments in the same way as [dbQuery](/wiki/DbQuery
     "DbQuery"), except dbPrepareString returns the query string instead of processing
     the query. This allows you to safely build complex query strings from component
     parts and help prevent (one class of) SQL injection.
-  parameters: []
+  parameters:
+  - name: databaseConnection
+    type: element
+    description: A database connection element previously returned from dbConnect
+  - name: query
+    type: string
+    description: An SQL query. Positions where parameter values will be inserted are
+      marked with a ?
+  - name: param1 [, var param2 ...]
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dbPrepareString-1.lua
     description: This example shows how to safely build a dynamic SELECT query
@@ -14,4 +24,13 @@ server:
     description: This example shows how to build an INSERT/UPDATE query for multiple
       rows. (Query syntax is MySQL only and assumes one column is a unique key)
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a prepare SQL query string, or false if an error occurred.
+  oop:
+    element: connection
+    method: prepareString
+    static: false
   requires_review: true

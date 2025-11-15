@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerVoiceBroadcastTo
-server:
+shared:
   name: setPlayerVoiceBroadcastTo
   description: This function allows you to change who can hear the voice of a player.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: element
+    description: The player you wish to change
+  - name: broadcastTo
+    type: mixed
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setPlayerVoiceBroadcastTo-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the value was set successfully, false otherwise.
+  oop:
+    element: player
+    method: setVoiceBroadcastTo
+    variable: voiceBroadcastTo
+    static: false
   notes:
   - type: important
     content: This function should only be used as a low-level function for advanced

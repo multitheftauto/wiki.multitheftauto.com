@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetJetpackMaxHeight
-server:
+shared:
   name: getJetpackMaxHeight
   description: This function gets the maximum height at which your jetpack can fly
     without failing to go higher.
@@ -9,4 +9,9 @@ server:
     description: This example returns the max jetpack height to a player if they use
       the command 'jetpackmaxheight'.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float containing the max jetpack height.
   requires_review: true

@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsOOPEnabled
-server:
+shared:
   name: isOOPEnabled
   description: This function checks whether *[OOP](/wiki/OOP "OOP")* (Object Oriented
     Programming) is enabled in the current [resource](/wiki/Resource "Resource") or
@@ -9,4 +9,10 @@ server:
   - path: examples/isOOPEnabled-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true or false if OOP is enabled or not. Returns nil if an
+      error arised.
   requires_review: true

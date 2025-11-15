@@ -1,11 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TriggerEvent
-server:
+shared:
   name: triggerEvent
   description: This function will trigger a named [event](/wiki/Event "Event") on
     a specific [element](/wiki/Element "Element") in the [element tree](/wiki/Element_tree
     "Element tree"). See [event system](/wiki/Event_system "Event system") for more
     information on how the event system works.
-  parameters: []
+  parameters:
+  - name: eventName
+    type: string
+    description: The name of the event you wish to trigger
+  - name: baseElement
+    type: element
+    description: The element you wish to trigger the event on. See event system for
+      information on how this works.
+  - name: argument1
+    type: var
+    description: 'The first argument that the event handler expects should be added
+      after the baseElement variable. NOTE: This function can have more than one of
+      these arguments specified, once for each argument the event handler is expecting.'
+  - name: '...'
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/triggerEvent-1.lua
     description: 'If you define a new custom event as follows:'
@@ -13,6 +28,11 @@ server:
   - path: examples/triggerEvent-2.lua
     description: 'You can then trigger this event later on using:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: 'If you define a new custom event as follows:'
   notes:
   - type: info
     content: You should avoid triggering events on the root element unless you really

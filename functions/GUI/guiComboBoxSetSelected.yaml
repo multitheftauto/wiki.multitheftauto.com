@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxSetSelected
-client:
+shared:
   name: guiComboBoxSetSelected
   description: This function sets the selected item from a combobox.
-  parameters: []
+  parameters:
+  - name: comboBox
+    type: element
+    description: the combobox you want to select an item from
+  - name: itemIndex
+    type: int
+    description: the item you want to select (item 0 is the first item). If -1 is
+      specified, then the combo box text is set to it's caption .
   examples:
   - path: examples/guiComboBoxSetSelected-1.lua
     description: This example creates a GUI window with a checked and an unchecked
       combo box and adds a command to toggle their visibility
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the selected item has been changed successfully,
+      false otherwise.
+  oop:
+    element: guicombobox
+    method: setSelected
+    variable: selected
+    static: false
   pair: guiComboBoxGetSelected
   requires_review: true

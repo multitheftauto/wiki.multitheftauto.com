@@ -1,11 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetSunColor
-server:
+shared:
   name: setSunColor
   description: This function is used to set the color of the sun.
-  parameters: []
+  parameters:
+  - name: aRed
+    type: int
+    description: The amount of red (0-255) you want the sun to be.
+  - name: aGreen
+    type: int
+    description: The amount of green (0-255) you want the sun to be.
+  - name: aBlue
+    type: int
+    description: The amount of blue (0-255) you want the sun to be.
+  - name: bRed
+    type: int
+    description: The amount of red (0-255) you want the sun to be.
+  - name: bGreen
+    type: int
+    description: The amount of green (0-255) you want the sun to be.
+  - name: bBlue
+    type: int
+    description: The amount of blue (0-255) you want the sun to be.
   examples:
   - path: examples/setSunColor-1.lua
     description: This example lets any player set the color of the sun like /setsuncolor
       255 0 0
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the color of the sun was set, false otherwise.
   requires_review: true

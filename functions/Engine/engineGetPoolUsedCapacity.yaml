@@ -1,10 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetPoolUsedCapacity
-client:
+shared:
   name: engineGetPoolUsedCapacity
   description: This function returns the used capacity of the provided pool.
-  parameters: []
+  parameters:
+  - name: pool
+    type: string
+    description: Name of the pool
   examples: []
-  requires_review: true
+  returns:
+    values:
+    - type: number
+      name: value
+    description: The used capacity of the provided pool as positive number
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -12,3 +19,4 @@ client:
       - Missing section: Engine pools
 
       '
+  requires_review: true

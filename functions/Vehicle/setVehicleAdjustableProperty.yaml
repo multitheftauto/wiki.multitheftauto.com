@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleAdjustableProperty
-client:
+shared:
   name: setVehicleAdjustableProperty
   description: 'This function is used for adjusting the movable parts of a model,
     for example hydra jets or dump truck tray.
 
     This function only works on vehicles with adjustable properties.'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: element
+    description: The vehicle you wish to change the adjustable property of.
+  - name: value
+    type: int
+    description: A value from 0 between ?. (Set the adjustable value between 0 and
+      N. 0 is the default value. It is possible to force the setting beyond default
+      maximum, for example setting above 5000 on the dump truck (normal max 2500)
+      will cause the tray to be fully vertical.)
   examples:
   - path: examples/setVehicleAdjustableProperty-1.lua
     description: 'This clientside function allows the user to set the vehicle adjustable
       property of a vehicle that the user is in by typing a command:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the adjustable property was set, false otherwise.
   requires_review: true

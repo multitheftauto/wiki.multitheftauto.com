@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleEngineState
-server:
+shared:
   name: getVehicleEngineState
   description: This function returns a vehicle's engine state (on or off).
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle you wish to get the engine state of.
   examples:
   - path: examples/getVehicleEngineState-1.lua
     description: This example will switch the vehicle engine state with the command
       "/switchengine".
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle's engine is started, false otherwise.
+  oop:
+    element: vehicle
+    method: getEngineState
+    variable: engineState
+    static: false
   pair: setVehicleEngineState
   requires_review: true

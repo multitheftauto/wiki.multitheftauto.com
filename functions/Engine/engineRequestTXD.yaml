@@ -1,10 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineRequestTXD
-client:
+shared:
   name: engineRequestTXD
   description: This function is used to register the next available TXD ID.
-  parameters: []
+  parameters:
+  - name: name
+    type: string
+    description: TXD name string up to 24 characters.
   examples:
   - path: examples/engineRequestTXD-1.lua
     description: This example replaces textures for some Grove Street buildings.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: 'Returns an integer of the TXD ID that was available to be assigned
+      to game models, false if no free TXD ID available.
+
+      Do not rely on the id numbers returned being consistent across multiple clients
+      or multiple runs of resources. There is no guarantee for the order of the numbers.'
   requires_review: true

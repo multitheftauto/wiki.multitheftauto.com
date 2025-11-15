@@ -1,14 +1,74 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextCreateTextItem
-server:
+shared:
   name: textCreateTextItem
   description: This function creates a text item. A text item represents a single
     area of text, much like a label does in standard GUI programming. A text item
     can only be seen by players if it is added to a [textdisplay](/wiki/Textdisplay
     "Textdisplay") using [textDisplayAddText](/wiki/TextDisplayAddText "TextDisplayAddText").
     Each text item can be added to multiple displays, if need be.
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: A string of text you want to display
+  - name: x
+    type: float
+    description: A floating point number between 0.0 and 1.0 indicating how far across
+      the screen the text should be shown, as a percentage of the width, from the
+      left hand side.
+  - name: "y"
+    type: float
+    description: A floating point number between 0.0 and 1.0 indicating how far down
+      the screen the text should be shown, as a percentage of the height, from the
+      top.
+  - name: priority
+    type: string
+    description: 'How important it is that this text should be up to date on client''s
+      screens. Valid values are: "low", "medium", "high" which are aliases for 0,
+      1 and 2 respectively.'
+  - name: red
+    type: int
+    description: A value between 0 and 255 indicating how red the text should be.
+    default: '255'
+  - name: green
+    type: int
+    description: A value between 0 and 255 indicating how green the text should be.
+    default: '255'
+  - name: blue
+    type: int
+    description: A value between 0 and 255 indicating how blue the text should be.
+    default: '255'
+  - name: alpha
+    type: int
+    description: A value between 0 and 255 indicating how transparent the text should
+      be, with 0 being fully transparent, and 255 being opaque.
+    default: '255'
+  - name: scale
+    type: float
+    description: A floating point value indicating the scale of the text. The default
+      is 1.0, which is around 12pt.
+    default: '1'
+  - name: alignX
+    type: string
+    description: A string representing the X-alignment of the text. ("left", "center",
+      "right")
+    default: '"left"'
+  - name: alignY
+    type: string
+    description: A string representing the Y-alignment of the text. ("top", "center",
+      "bottom")
+    default: '"top"'
+  - name: shadowAlpha
+    type: int
+    description: A value between 0 and 255 indicating how dark the drop shadow should
+      be.
+    default: '0'
   examples:
   - path: examples/textCreateTextItem-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: textitem
+      name: value
+    description: Returns a textitem object.
   requires_review: true

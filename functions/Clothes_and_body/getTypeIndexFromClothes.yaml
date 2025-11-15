@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTypeIndexFromClothes
-server:
+shared:
   name: getTypeIndexFromClothes
   description: 'This function is used to get the clothes type and index from the texture
     and model.
 
     (Scans through the list of clothes for the specific type).'
-  parameters: []
+  parameters:
+  - name: clothesTexture
+    type: string
+    description: A string determining the clothes texture that you wish to retrieve
+      the type and index from. See the clothes catalog .
+  - name: clothesModel
+    type: string
+    description: A string determining the corresponding clothes model that you wish
+      to retrieve the type and index from. See the clothes catalog .
   examples:
   - path: examples/getTypeIndexFromClothes-1.lua
     description: This example gets the current clothes of a certain type on a player,
       then swaps with the previous in the clothes list.
     side: server
+  returns:
+    values:
+    - type: int int
+      name: value
+    description: This function returns two integers, type and index respectively,
+      false if invalid arguments were passed to the function.
   requires_review: true

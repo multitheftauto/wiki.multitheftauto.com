@@ -1,10 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWorldSoundEnabled
-client:
+shared:
   name: setWorldSoundEnabled
   description: This function allows you to disable world sounds. A world sound is
     a sound effect which has ***not*** been caused by [playSound](/wiki/PlaySound
     "PlaySound") or [playSound3D](/wiki/PlaySound3D "PlaySound3D").
-  parameters: []
+  parameters:
+  - name: group
+    type: int
+    description: An integer representing the world sound group .
+  - name: index
+    type: int
+    description: An integer representing an individual sound within the group
+    default: '-1'
+  - name: enable
+    type: bool
+    description: Set to false to disable, true to enable.
+  - name: immediate
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/setWorldSoundEnabled-1.lua
     description: This is a simplified example that lets the client toggle their weapon
@@ -17,6 +31,12 @@ client:
     description: This example disables the wind sound effect immediately without changing
       the interior afterwards.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the world sound was correctly enabled/disabled, false
+      if invalid values were passed.
   notes:
   - type: info
     content: 'The values for group and index can be determined by using the client

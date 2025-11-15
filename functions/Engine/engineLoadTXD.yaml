@@ -1,10 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadTXD
-client:
+shared:
   name: engineLoadTXD
   description: This function loads a RenderWare Texture Dictionary (TXD) file into
     GTA. The texture dictionary can then be used to provide textures.
-  parameters: []
+  parameters:
+  - name: txd_file / string raw_data
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: filteringEnabled
+    type: bool
+    description: Whether to enable texture filtering.
+    default: 'true'
   examples: []
+  returns:
+    values:
+    - type: txd
+      name: value
+    description: Returns a TXD if the file was loaded, false otherwise.
+  oop:
+    element: txd
+    constructorclass: EngineTXD
   notes:
   - type: info
     content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example

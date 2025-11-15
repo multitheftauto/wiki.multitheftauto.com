@@ -1,10 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddClothingModel
-server:
+shared:
   name: addClothingModel
   description: This function adds a new wearable clothing item for CJ.
-  parameters: []
+  parameters:
+  - name: clothesTexture
+    type: string
+    description: A string determining the clothes texture that will be added.
+  - name: clothesModel
+    type: string
+    description: A string determining the clothes model that will be added.
+  - name: clothesType
+    type: int
+    description: A integer representing the clothes slot/type the clothes should be
+      added to. See the clothes catalog .
   examples:
   - path: examples/addClothingModel-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the clothing was added, and false otherwise.
   requires_review: true

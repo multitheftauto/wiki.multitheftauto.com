@@ -1,19 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementData
-server:
+client:
   name: setElementData
   description: This function stores [element data](/wiki/Element_data "Element data")
     under a certain key, attached to an element. Element data set using this is then
     synced with all clients and the server. The data can contain server\-created elements,
     but you should avoid passing data that is not able to be synced such as xmlnodes,
     acls, aclgroups etc.
-  parameters: []
-  examples:
-  - path: examples/setElementData-1.lua
-    description: This example allows a player to add a custom tag onto their nickname,
-      and also reverts it back to normal if they wish.
-    side: server
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you wish to attach the data to.
+  - name: key
+    type: string
+    description: The key you wish to store the data under. (Maximum 128 characters.)
+  - name: value
+    type: var
+    description: The value you wish to store. See element data for a list of acceptable
+      datatypes.
+  - name: synchronize
+    type: bool
+    description: Determines whether or not the data will be synchronized with the
+      server.
+    default: 'true'
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the data was set successfully, false otherwise.
+  oop: &id001
+    element: element
+    method: setData
+    static: false
   pair: getElementData
-  notes:
+  notes: &id002
   - type: info
     content: See Script security for tips on preventing cheaters when using events
       and element data.
@@ -26,4 +46,48 @@ server:
   - type: tip
     content: A simple and efficient way to make a variable known to the server and
       clients is to use setElementData on the root element.
+  requires_review: true
+server:
+  name: setElementData
+  description: This function stores [element data](/wiki/Element_data "Element data")
+    under a certain key, attached to an element. Element data set using this is then
+    synced with all clients and the server. The data can contain server\-created elements,
+    but you should avoid passing data that is not able to be synced such as xmlnodes,
+    acls, aclgroups etc.
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you wish to attach the data to.
+  - name: key
+    type: string
+    description: The key you wish to store the data under. (Maximum 128 characters.)
+  - name: value
+    type: var
+    description: The value you wish to store. See element data for a list of acceptable
+      datatypes.
+  - name: syncMode
+    type: string
+    description: Synchronization mode. "broadcast" - Synchronize to all clients (default
+      behavior). You can also parse true for this option. "local" - Don't synchronize.
+      You can also parse false for this option. "subscribe" - Only synchronize to
+      specific clients. See addElementDataSubscriber and removeElementDataSubscriber
+      .
+    default: '"broadcast"'
+  - name: clientChangesPolicy
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"default"'
+  examples:
+  - path: examples/setElementData-1.lua
+    description: This example allows a player to add a custom tag onto their nickname,
+      and also reverts it back to normal if they wish.
+    side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the data was set successfully, false otherwise.
+  oop: *id001
+  pair: getElementData
+  notes: *id002
   requires_review: true

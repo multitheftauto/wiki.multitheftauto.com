@@ -1,13 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceDetails
-client:
+shared:
   name: setDiscordRichPresenceDetails
   description: This function sets the details text of Discord Rich Presence.
-  parameters: []
+  parameters:
+  - name: details
+    type: string
+    description: a string containing the details text
   examples:
   - path: examples/setDiscordRichPresenceDetails-1.lua
     description: This example shows how to change the state and details of the Discord
       Rich Presence application.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if function succeeds, false otherwise.
+  oop:
+    element: discordrpc
+    method: setDetails
+    static: false
   notes:
   - type: important
     content: To use this function, you must set up your own application setDiscordApplicationID

@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetMarkerIcon
-server:
+shared:
   name: setMarkerIcon
   description: This function allows changing the icon of a checkpoint marker.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: The marker to change the visual style of
+  - name: icon
+    type: string
+    description: 'A string referring to the type of icon, acceptable values are: "none"
+      : No icon "arrow" : Arrow icon. Only 5 arrows can be visible at the same time.
+      "finish" : Finish icon (at end of race)'
   examples:
   - path: examples/setMarkerIcon-1.lua
     description: This example creates a finish marker as you'd expect for the end
       of a race.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: marker
+    method: setIcon
+    variable: icon
+    static: false
   pair: getMarkerIcon
   requires_review: true

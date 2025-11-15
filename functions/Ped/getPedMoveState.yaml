@@ -1,12 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedMoveState
-client:
+shared:
   name: getPedMoveState
   description: This function returns the current move state for the specified [ped](/wiki/Ped
     "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose move state you want to know
   examples:
   - path: examples/getPedMoveState-1.lua
     description: Example 1:This example shows how you can output a players current
       movestate.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string indicating the ped's move state, or false if the
+      ped is not streamed in, the movement type is unknown, the ped is in a vehicle
+      or the ped is invalid.
   requires_review: true

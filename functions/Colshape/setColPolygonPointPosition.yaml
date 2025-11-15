@@ -1,12 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetColPolygonPointPosition
-server:
+shared:
   name: setColPolygonPointPosition
   description: This function is used to set the position of a bound point in a [colshape
     polygon](/wiki/CreateColPolygon "CreateColPolygon").
-  parameters: []
+  parameters:
+  - name: shape
+    type: colshape
+    description: The colshape polygon you wish to change.
+  - name: index
+    type: int
+    description: The index of the point you wish to change. The points are indexed
+      in order, with 1 being the first bound point.
+  - name: fX
+    type: float
+    description: The new X position of the bound point.
+  - name: fY
+    type: float
+    description: The new Y position of the bound point.
   examples:
   - path: examples/setColPolygonPointPosition-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the polygon was changed, false if invalid arguments
+      were passed.
+  oop:
+    element: colshape
+    method: setPointPosition
+    static: false
   pair: getColPolygonPointPosition
   requires_review: true

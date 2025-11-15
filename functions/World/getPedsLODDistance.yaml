@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedsLODDistance
-client:
+shared:
   name: getPedsLODDistance
   description: This function gets the peds LOD distance.
   parameters: []
@@ -8,4 +8,9 @@ client:
     description: This example adds a/getpedsloddistancecommand which outputs the peds
       LOD distance to the chatbox.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: This function returns a float containing the peds LOD distance.
   requires_review: true

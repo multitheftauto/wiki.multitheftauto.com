@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTarget
-server:
+shared:
   name: getPedTarget
   description: This function is used to get the element a [ped](/wiki/Ped "Ped") is
     currently targeting.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose target you want to retrieve.
   examples:
   - path: examples/getPedTarget-1.lua
     description: This example blows up any vehicle a player targets (aims at).
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the element that's being targeted, or false if there isn't
+      one.
+  oop:
+    element: ped
+    method: getTarget
+    static: false
   requires_review: true

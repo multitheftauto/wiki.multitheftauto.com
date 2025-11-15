@@ -1,8 +1,15 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetPlayerHudComponentProperty
-client:
+shared:
   name: resetPlayerHudComponentProperty
   description: This function resets the specified property to its default value.
-  parameters: []
+  parameters:
+  - name: component
+    type: string
+    description: The component whose property you want to reset. See HUD Components
+      .
+  - name: property
+    type: string
+    description: The name of the property you want to reset. See HUD Properties .
   examples:
   - path: examples/resetPlayerHudComponentProperty-1.lua
     description: ''
@@ -11,5 +18,14 @@ client:
     description: It’s also possible to use all to reset all properties of a specific
       component or all properties of all components (the entire HUD).
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: player
+    method: getHudComponentProperty
+    static: false
   pair: setPlayerHudComponentProperty
   requires_review: true

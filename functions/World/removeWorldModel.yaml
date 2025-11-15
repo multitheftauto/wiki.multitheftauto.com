@@ -1,9 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RemoveWorldModel
-server:
+shared:
   name: removeWorldModel
   description: This function is used to remove a world object. Use [restoreWorldModel](/wiki/RestoreWorldModel
     "RestoreWorldModel") to reverse this action.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: A whole integer specifying the GTASA object model ID.
+  - name: radius
+    type: float
+    description: A floating point number representing the radius that will be eliminated.
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: interior
+    type: int
+    description: The interior ID to apply the removal to. Some objects in interior
+      13 show in all interiors so if you want to remove everything in interior 0 also
+      remove everything in interior 13. A value of -1 here will affect all interiors.
+    default: '-1'
   examples:
   - path: examples/removeWorldModel-1.lua
     description: 'This example will removes buildings on BigEar:'
@@ -14,6 +35,12 @@ server:
   - path: examples/removeWorldModel-3.lua
     description: 'This server script example removes all models, everywhere:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the world object was removed, false if invalid arguments
+      were passed.
   notes:
   - type: info
     content: Removing world models doesn't remove their occlusions. This may cause

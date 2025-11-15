@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsConsoleActive
-client:
+shared:
   name: isConsoleActive
   description: This function returns whether the ingame console window is visible
     or not.
@@ -8,4 +8,14 @@ client:
   - path: examples/isConsoleActive-1.lua
     description: This example does...
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the console is visible, false if not.
+  oop:
+    element: guielement
+    method: isConsoleActive
+    variable: consoleActive
+    static: false
   requires_review: true

@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleComponents
-client:
+shared:
   name: getVehicleComponents
   description: This function gets a table of the components currently on a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to get the components of.
   examples:
   - path: examples/getVehicleComponents-1.lua
     description: ''
@@ -11,4 +14,15 @@ client:
   - path: examples/getVehicleComponents-2.lua
     description: This example draw all components names on the player screen.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table containing the name of the component as the key and
+      visibility flag of that component as the value
+  oop:
+    element: vehicle
+    method: getComponents
+    variable: components
+    static: false
   requires_review: true

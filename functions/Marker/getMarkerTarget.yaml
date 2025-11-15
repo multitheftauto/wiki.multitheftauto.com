@@ -1,15 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerTarget
-server:
+shared:
   name: getMarkerTarget
   description: This function returns the position of the specified marker's target,
     the position it points to. This only works for checkpoint markers and ring markers.
     For checkpoints it returns the position the arrow is pointing to, for ring markers
     it returns the position the ring is facing. You can set this target with [setMarkerTarget](/wiki/SetMarkerTarget
     "SetMarkerTarget").
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: The marker you wish to retrieve the target position of.
   examples:
   - path: examples/getMarkerTarget-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: Returns three float s if a target is set, or false in the first variable
+      and nil in the two others if the marker is invalid or no target is set.
+  oop:
+    element: marker
+    method: getTarget
+    variable: target
+    static: false
   pair: setMarkerTarget
   requires_review: true

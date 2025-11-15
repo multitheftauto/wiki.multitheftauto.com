@@ -1,11 +1,81 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxCreateParticle
-client:
+shared:
   name: fxCreateParticle
   description: Creates the given particles of the specified color. Can be useful for
     creating flares, toxic fumes, reward effects, etc.
-  parameters: []
+  parameters:
+  - name: particle
+    type: string
+    description: The name of the particle to create. See particles list.
+  - name: posX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: r
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: g
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: b
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: a
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: randomizeColors
+    type: bool
+    description: Specifies whether the color should be fixed (r,g,b) or randomly calculated
+      for each particle based on the given color. This allows to create colorful effects.
+    default: 'false'
+  - name: count
+    type: int
+    description: the number of flying particles to create. Depending on the particle,
+      a very large count may cause the game to lag or freeze (50k+).
+    default: '1'
+  - name: brightness
+    type: float
+    description: the brightness. Ranges from 0 (almost black) to 1 (normal color).
+    default: '1.0'
+  - name: size
+    type: float
+    description: Particles size. If randomSizes is set then when 0 is specified the
+      minimum size is 0.3.
+    default: '0.3'
+  - name: randomSizes
+    type: bool
+    description: Specifies whether all particles should be the same fixed size or
+      each particle should have a random size.
+    default: 'false'
+  - name: life
+    type: float
+    description: the higher this value, the longer the particles survive before they
+      disappear. This parameter may be ignored by some particles.
+    default: '1.0'
   examples:
   - path: examples/fxCreateParticle-1.lua
     description: This example creates a constant green, toxic fume over the biowell.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

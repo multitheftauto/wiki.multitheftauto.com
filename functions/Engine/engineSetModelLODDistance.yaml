@@ -1,10 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelLODDistance
-client:
+shared:
   name: engineSetModelLODDistance
   description: This function sets a custom LOD distance for any object / model ID.
     This is the distance at which objects of that model ID are switched to their LOD
     model, or (if there is no LOD model) become invisible.
-  parameters: []
+  parameters:
+  - name: model
+    type: int
+    description: The model / object ID number you want to change the LOD distance
+      of.
+  - name: distance
+    type: float
+    description: New LOD distance value in San Andreas units.
+  - name: extendedLod
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/engineSetModelLODDistance-1.lua
     description: This example will set the LOD distance of all script-created objects.
@@ -17,4 +28,13 @@ client:
   - path: examples/engineSetModelLODDistance-3.lua
     description: This example shows how to use LOD's with buildings.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function executed succesfully, false otherwise.
+  oop:
+    element: Engine
+    method: setModelLODDistance
+    static: true
   requires_review: true

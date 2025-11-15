@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetInteriorSoundsEnabled
-server:
+shared:
   name: setInteriorSoundsEnabled
   description: This function disables or enables the ambient sounds played by GTA
     in most interiors, like restaurants, casinos, clubs, houses, etc.
-  parameters: []
+  parameters:
+  - name: enabled
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setInteriorSoundsEnabled-1.lua
     description: This example disables the dancing club ambient music, without disabling
       other interiors' ambient sounds.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: If a boolean was passed to the function, it always succeeds and returns
+      true .
   requires_review: true

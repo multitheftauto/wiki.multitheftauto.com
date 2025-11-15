@@ -1,13 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleDoorOpenRatio
-server:
+shared:
   name: setVehicleDoorOpenRatio
   description: This function sets how much a vehicle's door is open. Doors include
     the boot/trunk and the bonnet of the vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: door
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: ratio
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: time
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
   examples:
   - path: examples/setVehicleDoorOpenRatio-1.lua
     description: This example opens all the doors of the vehicle gradually over 2.5
       seconds.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the door open ratio was successfully set, false if
+      invalid arguments are passed.
+  oop:
+    element: vehicle
+    method: setDoorOpenRatio
+    static: false
   pair: getVehicleDoorOpenRatio
   requires_review: true

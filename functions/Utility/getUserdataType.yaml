@@ -1,13 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetUserdataType
-server:
+shared:
   name: getUserdataType
   description: This function gets the type of a userdata value, which is not always
     a [element](/wiki/Element "Element") in the element tree.
-  parameters: []
+  parameters:
+  - name: value
+    type: userdata
+    description: 'A userdata value to get the type of. Userdata types can be: Shared
+      resource-data : a resource pointer . xml-node : a XML node . lua-timer : a timer
+      . vector2 : a 2D vector, used in the Vector2 class. vector3 : a 3D vector, used
+      in the Vector3 class. vector4 : a 4D vector, used in the Vector4 class. matrix
+      : a matrix, used in the Matrix class. request : a userdata type returned via
+      fetchRemote (since r21436 ) userdata : a fallback userdata type return value,
+      when no other type could be found for the object. Server only account : a player
+      account . db-query : a database query handle . acl : an ACL entry . acl-group
+      : an ACL group . ban : a player ban . text-item : a text display item . text-display
+      : a text display item .'
   examples:
   - path: examples/getUserdataType-1.lua
     description: This example shows a function that can be used to work around the
       impossibility to transfer vectors as arguments when usingtriggerClientEventandtriggerServerEvent,
       by converting them into a table which can be used safely.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string containing the specified userdata's type, or false
+      plus an error message if the given value is not userdata.
   requires_review: true

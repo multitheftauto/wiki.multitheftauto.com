@@ -1,10 +1,13 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FromJSON
-server:
+shared:
   name: fromJSON
   description: This function parses a [JSON](/wiki/JSON "JSON") formatted string into
     variables. You can use [toJSON](/wiki/ToJSON "ToJSON") to encode variables into
     a JSON string that can be read by this function.
-  parameters: []
+  parameters:
+  - name: json
+    type: string
+    description: A JSON formatted string
   examples:
   - path: examples/fromJSON-1.lua
     description: This makes data equal:{ ["1"] = "cat", ["2"] = "mouse", ["3"] = 5,
@@ -13,4 +16,9 @@ server:
   - path: examples/fromJSON-2.lua
     description: 'This shows how to extract data from JSON:'
     side: server
+  returns:
+    values:
+    - type: var
+      name: value
+    description: Returns variables read from the JSON string.
   requires_review: true

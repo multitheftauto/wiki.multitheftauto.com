@@ -1,11 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxGetMaterialSize
-client:
+shared:
   name: dxGetMaterialSize
   description: This gets the dimensions of the supplied [material](/wiki/Material
     "Material") element.
-  parameters: []
+  parameters:
+  - name: material
+    type: element
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxGetMaterialSize-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int [
+      name: value2
+    - type: int]
+      name: value3
+    description: "Returns two ints representing the width and height in pixels of\
+      \ the material, or false if an invalid parameter was passed to the function.\
+      \ \nIf the material is a volume texture, this function will return three ints\
+      \ representing the width, height and depth."
+  oop:
+    element: material
+    method: getSize
+    static: false
   requires_review: true

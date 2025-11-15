@@ -1,13 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetSearchLightStartPosition
-client:
+shared:
   name: setSearchLightStartPosition
   description: This function sets the start position of a [searchlight](/wiki/Element/Searchlight
     "Element/Searchlight") element.
-  parameters: []
+  parameters:
+  - name: theSearchLight
+    type: searchlight
+    description: the searchlight to modify the property of.
+  - name: startX
+    type: float
+    description: the X coordinate where the searchlight light cone will start.
+  - name: startY
+    type: float
+    description: the Y coordinate where the searchlight light cone will start.
+  - name: startZ
+    type: float
+    description: the Z coordinate where the searchlight light cone will start.
   examples:
   - path: examples/setSearchLightStartPosition-1.lua
     description: This example creates a searchlight that originates in the camera
       position and targets the center of the map.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: If every argument is correct, this function returns true . If not,
+      it will return false plus an error message.
+  oop:
+    element: searchlight
+    method: setStartPosition
+    variable: startPosition
+    static: false
   pair: getSearchLightStartPosition
   requires_review: true

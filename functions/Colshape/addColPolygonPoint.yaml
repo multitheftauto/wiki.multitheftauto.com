@@ -1,12 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddColPolygonPoint
-server:
+shared:
   name: addColPolygonPoint
   description: This function is used to add a new point to an existing [colshape polygon](/wiki/CreateColPolygon
     "CreateColPolygon").
-  parameters: []
+  parameters:
+  - name: shape
+    type: colshape
+    description: The colshape polygon you wish add a point to.
+  - name: fX
+    type: float
+    description: The X position of the new bound point.
+  - name: fY
+    type: float
+    description: The Y position of the new bound point.
+  - name: index
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
   examples:
   - path: examples/addColPolygonPoint-1.lua
     description: This examples adds a point to an existing polygon shape by a command.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the polygon was changed, false if invalid arguments
+      were passed.
+  oop:
+    element: colshape
+    method: addPoint
+    static: false
   pair: removeColPolygonPoint
   requires_review: true

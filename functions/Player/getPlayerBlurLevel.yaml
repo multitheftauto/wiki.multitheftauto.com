@@ -1,13 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerBlurLevel
-server:
+client:
   name: getPlayerBlurLevel
   description: This function allows you to check the current blur level of a specified
     [player](/wiki/Player "Player").
   parameters: []
+  examples: []
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the local blur level.
+  oop: &id001
+    element: player
+    method: getBlurLevel
+    static: false
+  pair: setPlayerBlurLevel
+  requires_review: true
+server:
+  name: getPlayerBlurLevel
+  description: This function allows you to check the current blur level of a specified
+    [player](/wiki/Player "Player").
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player whose blur level you want to check.
   examples:
   - path: examples/getPlayerBlurLevel-1.lua
     description: This example adds a commandblurlevelwith which you can check your
       current blur level.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the player's blur level if successful, false if an invalid
+      player was given.
+  oop: *id001
   pair: setPlayerBlurLevel
   requires_review: true

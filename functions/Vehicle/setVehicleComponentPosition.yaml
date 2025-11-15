@@ -1,12 +1,45 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleComponentPosition
-client:
+shared:
   name: setVehicleComponentPosition
   description: This function sets the component position of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to set component position.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
+  - name: posX
+    type: float
+    description: The new x position of this component.
+  - name: posY
+    type: float
+    description: The new y position of this component.
+  - name: posZ
+    type: float
+    description: The new z position of this component.
+  - name: base
+    type: string
+    description: 'A string representing what the supplied position ( posX , posY ,
+      posZ ) is relative to. It can be one of the following values: parent : The position
+      is relative to the parent component. root (default if not specified): The position
+      is relative to the root component. world : The position is a world position,
+      relative to the world''s center of coordinates.'
+    default: '"root"'
   examples:
   - path: examples/setVehicleComponentPosition-1.lua
     description: Example 1:This example would set the position of the component.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if component position was set successfully, false otherwise.
+  oop:
+    element: vehicle
+    method: setComponentPosition
+    static: false
   pair: getVehicleComponentPosition
   requires_review: true

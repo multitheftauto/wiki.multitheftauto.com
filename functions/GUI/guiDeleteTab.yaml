@@ -1,11 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiDeleteTab
-client:
+shared:
   name: guiDeleteTab
   description: This function deletes a tab from a tab panel.
-  parameters: []
+  parameters:
+  - name: tabToDelete
+    type: element
+    description: This is an element representing the tab that you want to delete.
+  - name: tabPanel
+    type: element
+    description: This is the tab panel parent that the tab is attached to.
   examples:
   - path: examples/guiDeleteTab-1.lua
     description: This example removes a tab panel if a user LeftCtrl+Clicks a tab
       panel.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true the tab was successfully deleted, false otherwise.
+  oop:
+    element: guitab
+    method: delete
+    static: false
   requires_review: true

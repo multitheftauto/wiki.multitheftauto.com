@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetSelectionMode
-client:
+shared:
   name: guiGridListGetSelectionMode
   description: This function retrieves the current selection mode of a gui gridlist.
-  parameters: []
+  parameters:
+  - name: gridlist
+    type: gui-Element
+    description: The gridlist you want to get the selection mode of.
   examples:
   - path: examples/guiGridListGetSelectionMode-1.lua
     description: This example creates a grid list and adds the command 'getmode' which
       will show the gridlist selection mode.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the ID of the current gridlist's selection mode.
+  oop:
+    element: guigridlist
+    method: getSelectionMode
+    variable: selectionMode
+    static: false
   requires_review: true

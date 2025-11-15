@@ -1,10 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetRadarAreaColor
-server:
+shared:
   name: setRadarAreaColor
   description: Sets the color of an existing radar area.
-  parameters: []
+  parameters:
+  - name: theRadarArea
+    type: radararea
+    description: the radararea element whose color you wish to set.
+  - name: r
+    type: int
+    description: an integer representing the amount of red in the color (0 for no
+      red, 255 for solid red)
+  - name: g
+    type: int
+    description: an integer representing the amount of green in the color (0 for no
+      green, 255 for solid green)
+  - name: b
+    type: int
+    description: an integer representing the amount of blue in the color (0 for no
+      blue, 255 for solid blue)
+  - name: a
+    type: int
+    description: an integer representing the color's alpha (0 for transparent, 255
+      for opaque)
   examples:
   - path: examples/setRadarAreaColor-1.lua
     description: 'This example creates a radar area and changes its color right away:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the color was set successfully, false if the radar
+      area doesn't exist or the color arguments are improper.
+  oop:
+    element: radararea
+    method: setColor
+    static: false
   requires_review: true

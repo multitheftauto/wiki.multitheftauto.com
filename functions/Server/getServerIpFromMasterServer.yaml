@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetServerIpFromMasterServer
-server:
+shared:
   name: getServerIpFromMasterServer
   description: This function returns the remote address as reported by the first master
     server that provides this value.
@@ -9,6 +9,12 @@ server:
     description: This example creates a console command that outputs the server's
       IP to the chatbox.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: A string containing the remote address of the server as reported,
+      once it's available.
   notes:
   - type: info
     content: It might take a while until the master server responds to the query sent

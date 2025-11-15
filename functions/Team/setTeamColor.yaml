@@ -1,11 +1,33 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTeamColor
-server:
+shared:
   name: setTeamColor
   description: This function is for setting the color of a specified team. This color
     is shown, for example, in the team players' nametags.
-  parameters: []
+  parameters:
+  - name: theTeam
+    type: team
+    description: The team you want to change the color of.
+  - name: colorR
+    type: int
+    description: An integer representing the red color value, from 0 to 255.
+  - name: colorG
+    type: int
+    description: An integer representing the green color value, from 0 to 255.
+  - name: colorB
+    type: int
+    description: An integer representing the blue color value, from 0 to 255.
   examples:
   - path: examples/setTeamColor-1.lua
     description: This example creates a new team then changes its name and color.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the team is valid and the color is different, otherwise
+      false .
+  oop:
+    element: team
+    method: setColor
+    static: false
   requires_review: true

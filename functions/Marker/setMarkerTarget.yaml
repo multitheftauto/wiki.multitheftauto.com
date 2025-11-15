@@ -1,12 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetMarkerTarget
-server:
+shared:
   name: setMarkerTarget
   description: This function sets the 'target' for a marker. Only the *checkpoint*
     and *ring* marker types can have a target.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: The marker to set the target of
+  - name: x
+    type: float
+    description: The x axis of the coordinate to target the marker at
+  - name: "y"
+    type: float
+    description: The y axis of the coordinate to target the marker at
+  - name: z
+    type: float
+    description: The z axis of the coordinate to target the marker at
   examples:
   - path: examples/setMarkerTarget-1.lua
     description: Creates a marker in the center of the map and points it north.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if target was set, false otherwise.
+  oop:
+    element: marker
+    method: setTarget
+    variable: target
+    static: false
   pair: getMarkerTarget
   requires_review: true

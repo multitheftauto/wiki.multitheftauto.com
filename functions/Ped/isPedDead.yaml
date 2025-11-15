@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedDead
-server:
+shared:
   name: isPedDead
   description: This function checks if the specified [ped](/wiki/Ped "Ped") is dead
     or not.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped you want to check up on.
   examples:
   - path: examples/isPedDead-1.lua
     description: This example allows a player to use the command 'amidead' to see
       if they are dead or not.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is dead, false otherwise.
+  oop:
+    element: ped
+    method: isDead
+    variable: dead
+    static: false
   requires_review: true

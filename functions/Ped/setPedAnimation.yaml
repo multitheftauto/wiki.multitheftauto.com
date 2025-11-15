@@ -1,10 +1,53 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedAnimation
-server:
+shared:
   name: setPedAnimation
   description: Sets the current [animation](/wiki/Animations "Animations") of a [player](/wiki/Player
     "Player") or [ped](/wiki/Ped "Ped"). Not specifying the type of animation will
     automatically cancel the current one.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the player or ped you want to apply an animation to.
+  - name: block
+    type: string
+    description: the animation block's name.
+    default: nil
+  - name: anim
+    type: string
+    description: the name of the animation within the block.
+    default: nil
+  - name: time
+    type: int
+    description: how long the animation will run for in milliseconds.
+    default: '-1'
+  - name: loop
+    type: bool
+    description: indicates whether or not the animation will loop.
+    default: 'true'
+  - name: updatePosition
+    type: bool
+    description: will change the actual coordinates of the ped according to the animation.
+      Use this for e.g. walking animations.
+    default: 'true'
+  - name: interruptable
+    type: bool
+    description: if set to false other tasks wont be able to interupt the animation.
+      Setting this to 'false' also gives this function more power to override other
+      animations that are running. For example, squatting after a jump can be terminated.
+    default: 'true'
+  - name: freezeLastFrame
+    type: bool
+    description: if set to true after animation the last frame will be frozen, otherwise
+      the animation will end and controls will return.
+    default: 'true'
+  - name: blendTime
+    type: int
+    description: how long the animation will mixed with the previous one in milliseconds.
+    default: '250'
+  - name: retainPedState
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/setPedAnimation-1.lua
     description: 'This example creates a ped, rotates him, and makes him walk:'
@@ -13,6 +56,15 @@ server:
     description: This example makes the player sit down and stand up using the command
       /sit.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if succesful, false otherwise.
+  oop:
+    element: ped
+    method: setAnimation
+    static: false
   pair: getPedAnimation
   notes:
   - type: warning

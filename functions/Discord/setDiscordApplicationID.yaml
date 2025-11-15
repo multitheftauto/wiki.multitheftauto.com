@@ -1,15 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordApplicationID
-client:
+shared:
   name: setDiscordApplicationID
   description: 'The function can assign your own application to use in Rich Presence.
 
     You can create an application **[here](https://discord.com/developers/applications)**'
-  parameters: []
+  parameters:
+  - name: applicationID
+    type: string
+    description: a string representing your Discord application's ID.
   examples:
   - path: examples/setDiscordApplicationID-1.lua
     description: This example outputs whether the application was successfully setup
       and sets a custom asset image.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if function succeeds, false if the client has disabled
+      rich presence.
+  oop:
+    element: discordrpc
+    method: setApplication
+    static: false
   notes:
   - type: important
     content: To reset the application ID, please use resetDiscordRichPresenceData

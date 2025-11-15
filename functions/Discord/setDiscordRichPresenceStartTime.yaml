@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceStartTime
-client:
+shared:
   name: setDiscordRichPresenceStartTime
   description: This function sets the elapsed time of Discord Rich Presence.
-  parameters: []
+  parameters:
+  - name: seconds
+    type: int
+    description: an integer representing the number of seconds that has elapsed. If
+      0, the timer will not be displayed.
   examples:
   - path: examples/setDiscordRichPresenceStartTime-1.lua
     description: This example shows how to change the elapsed timer of the Discord
       Rich Presence application.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if function succeeds, false otherwise.
+  oop:
+    element: discordrpc
+    method: setStartTime
+    static: false
   notes:
   - type: important
     content: To use this function, you must set up your own application setDiscordApplicationID

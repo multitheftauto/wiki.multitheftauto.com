@@ -1,10 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawLine
-client:
+shared:
   name: dxDrawLine
   description: This function draws a 2D line across the screen \- rendered for **one**
     frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
     "OnClientRender") in order to display continuously.
-  parameters: []
+  parameters:
+  - name: startX
+    type: int
+    description: An integer representing the absolute start X position of the line,
+      represented by pixels on the screen.
+  - name: startY
+    type: int
+    description: An integer representing the absolute start Y position of the line,
+      represented by pixels on the screen.
+  - name: endX
+    type: int
+    description: An integer representing the absolute end X position of the line,
+      represented by pixels on the screen.
+  - name: endY
+    type: int
+    description: An integer representing the absolute end Y position of the line,
+      represented by pixels on the screen.
+  - name: color
+    type: int
+    description: An integer of the hex color, produced using tocolor or 0xAARRGGBB
+      (AA = alpha, RR = red, GG = green, BB = blue).
+  - name: width
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '1.0'
+  - name: postGUI
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/dxDrawLine-1.lua
     description: This example draws an 'X' across the screen.
@@ -12,4 +40,9 @@ client:
   - path: examples/dxDrawLine-2.lua
     description: This example draws a couple of circles
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
   requires_review: true

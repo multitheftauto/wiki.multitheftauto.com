@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleWindowOpen
-client:
+shared:
   name: isVehicleWindowOpen
   description: This function gets the vehicle window state.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you wish to get the window state.
+  - name: window
+    type: int
+    description: 'An integer representing a vehicle window. It can be: 0: motorbike
+      shield 1: rear window 2: right front window 3: right back window 4: left front
+      (driver) window 5: left back window 6: windshield'
   examples:
   - path: examples/isVehicleWindowOpen-1.lua
     description: This example opens the vehicle windows when the local player use
       /openwindow <window number>.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns a boolean which represents window open state.
   requires_review: true

@@ -1,13 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerFromName
-server:
+shared:
   name: getPlayerFromName
   description: This function returns a [player](/wiki/Player "Player") [element](/wiki/Element
     "Element") for the player with the name passed to the function.
-  parameters: []
+  parameters:
+  - name: playerName
+    type: string
+    description: A string containing the name of the player you want to reference
   examples:
   - path: examples/getPlayerFromName-1.lua
     description: 'This example finds aplayeras specified in the command and outputs
       the direction and distance he is from the player who entered the command. For
       example: ''locate someguy''.'
     side: server
+  returns:
+    values:
+    - type: player
+      name: value
+    description: Returns a player element for the player with the nickname provided.
+      If there is no player with that name, false is returned.
+  oop:
+    element: player
+    constructorclass: Player
   requires_review: true

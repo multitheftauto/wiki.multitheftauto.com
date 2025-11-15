@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceLoadTime
-server:
+shared:
   name: getResourceLoadTime
   description: Gets the date and time at which a resource was last loaded in the server.
-  parameters: []
+  parameters:
+  - name: res
+    type: resource
+    description: the resource you want to know the load time of.
   examples:
   - path: examples/getResourceLoadTime-1.lua
     description: This code outputs the date and time at which the scoreboard resource
@@ -12,4 +15,16 @@ server:
     description: This code outputs the date and time at which the specified resource
       started.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: If successful, returns the UNIX timestamp when the resource was loaded,
+      otherwise false. Use in conjunction with getRealTime in order to retrieve detailed
+      information.
+  oop:
+    element: resource
+    method: getLoadTime
+    variable: loadTime
+    static: false
   requires_review: true

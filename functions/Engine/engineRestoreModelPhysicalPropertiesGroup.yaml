@@ -1,11 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreModelPhysicalPropertiesGroup
-client:
+shared:
   name: engineRestoreModelPhysicalPropertiesGroup
   description: This function restores original physical properties group used by given
     model.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: the id of model which you wish to restore original physical properties
+      group of.
   examples:
   - path: examples/engineRestoreModelPhysicalPropertiesGroup-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if there were no issues, if passed arguments were invalid
+      an error is raised.
   requires_review: true

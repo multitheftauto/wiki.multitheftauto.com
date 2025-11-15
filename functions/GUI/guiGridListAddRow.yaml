@@ -1,13 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListAddRow
-client:
+shared:
   name: guiGridListAddRow
   description: Adds a row to a grid list, and optionally add simple text items with
     your rows. Use [guiGridListSetItemText](/wiki/GuiGridListSetItemText "GuiGridListSetItemText")
     to add row headers.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: The grid list you want to add a row to
+  - name: itemText1
+    type: int/string
+    description: The text for the first column item in the row.  Either a string or
+      a number can be passed (use numbers for sorting purposes).
+  - name: itemText2
+    type: int/string
+    description: The text for the second column item in the row.  Either a string
+      or a number can be passed (use numbers for sorting purposes).
+  - name: '...'
+    type: unknown
+    description: Item text for any other columns
   examples:
   - path: examples/guiGridListAddRow-1.lua
     description: This example creates a player list on the right side of the screen
       and fills it with the names of the connected players.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the row id if it has been created, false otherwise.
+  oop:
+    element: guigridlist
+    method: addRow
+    static: false
   requires_review: true

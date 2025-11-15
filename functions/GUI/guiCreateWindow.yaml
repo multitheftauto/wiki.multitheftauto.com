@@ -1,10 +1,37 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateWindow
-client:
+shared:
   name: guiCreateWindow
   description: This function is for creating a new GUI window. This provides a base
     for other gui elements to be created within. However, windows do not have a parent
     and cannot be created in any GUI elements.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float of the 2D x position of the GUI window on a player's screen.  This
+      is affected by the relative argument.
+  - name: "y"
+    type: float
+    description: A float of the 2D y position of the GUI window on a player's screen.
+      This is affected by the relative argument.
+  - name: width
+    type: float
+    description: A float of the width of the GUI window. This is affected by the relative
+      argument.
+  - name: height
+    type: float
+    description: A float of the height of the GUI window. This is affected by the
+      relative argument.
+  - name: titleBarText
+    type: string
+    description: A string of the text that will be displayed in the title bar of the
+      window.
+  - name: relative
+    type: bool
+    description: This is whether sizes and positioning are relative.  If this is true
+      , then all x,y,width,height floats must be between 0 and 1, representing sizes/positions
+      as a fraction of the screen size. If false , then the size and co-ordinates
+      are based on client's resolution, accessible using guiGetScreenSize .
+    default: 'false'
   examples:
   - path: examples/guiCreateWindow-1.lua
     description: Example 1:This example creates a information window and adds two
@@ -15,4 +42,13 @@ client:
       with a window, gridlist and a button. Users can select a shotgun or a machine
       gun. The window is not movable or sizable.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a gui window element if it was created successfully, false
+      otherwise.
+  oop:
+    element: element
+    constructorclass: GuiWindow
   requires_review: true

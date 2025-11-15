@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DownloadFile
-client:
+shared:
   name: downloadFile
   description: This function ensures the requested resource file is correct and then
     triggers [onClientFileDownloadComplete](/wiki/OnClientFileDownloadComplete "OnClientFileDownloadComplete").
@@ -8,12 +8,20 @@ client:
     "OnClientFileDownloadComplete") will still run. The **file** should also be included
     in the resource meta.xml with the **download** attribute set to "false", see [meta.xml](/wiki/Meta.xml
     "Meta.xml") for more details.
-  parameters: []
+  parameters:
+  - name: fileName
+    type: string
+    description: A string referencing the name of the file to download
   examples:
   - path: examples/downloadFile-1.lua
     description: Example 1:This client side event downloads a file when the current
       resource has started.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if file download has been queued, false otherwise.
   notes:
   - type: info
     content: This function may cause performance issues with client and/or server.

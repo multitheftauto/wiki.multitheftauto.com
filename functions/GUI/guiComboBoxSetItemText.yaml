@@ -1,10 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxSetItemText
-client:
+shared:
   name: guiComboBoxSetItemText
   description: This function changes the text of a combobox item.
-  parameters: []
+  parameters:
+  - name: comboBox
+    type: element
+    description: The combobox containing the item you're interested in
+  - name: itemId
+    type: int
+    description: The index of the item
+  - name: text
+    type: string
+    description: The text you want to put in (does NOT accept numbers, use tostring()
+      for that)
   examples:
   - path: examples/guiComboBoxSetItemText-1.lua
     description: This changes the text of the selected item using commandsetText.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the text was set successfully, false otherwise.
+  oop:
+    element: guicombobox
+    method: setItemText
+    static: false
   requires_review: true

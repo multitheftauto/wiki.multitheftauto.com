@@ -1,9 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementVelocity
-server:
+shared:
   name: setElementVelocity
   description: This function sets the velocity (movement speeds) along each axis,
     for an element.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you wish to set the velocity of.
+  - name: speedX
+    type: float
+    description: A floating point value determining the speed along the X axis.
+  - name: speedY
+    type: float
+    description: A floating point value determining the speed along the Y axis.
+  - name: speedZ
+    type: float
+    description: A floating point value determining the speed along the Z axis.
   examples:
   - path: examples/setElementVelocity-1.lua
     description: This example adds a function which copies the speed of a random player
@@ -13,5 +25,16 @@ server:
     description: This example lets players jump their vehicle into the air (if they
       are the driver).
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the speed was set successfully, false if a bad element
+      was specified or other bad arguments.
+  oop:
+    element: element
+    method: setVelocity
+    variable: velocity
+    static: false
   pair: getElementVelocity
   requires_review: true

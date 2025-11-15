@@ -1,14 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateFont
-client:
+shared:
   name: dxCreateFont
   description: This function creates a [DX font](/wiki/DX_font "DX font") element
     that can be used in [dxDrawText](/wiki/DxDrawText "DxDrawText"). Successful font
     creation is not guaranteed, and may fail due to hardware or memory limitations.
-  parameters: []
+  parameters:
+  - name: filepath
+    type: string
+    description: the name of the file containing the font
+  - name: size
+    type: int
+    description: size of the font
+    default: '9'
+  - name: bold
+    type: bool
+    description: flag to indicate if the font should be bold
+    default: 'false'
+  - name: quality
+    type: string
+    description: 'the font quality "default": not the actual default "draft" "proof":
+      the default "nonantialiased" "antialiased" "cleartype" "cleartype_natural"'
+    default: '"proof"'
   examples:
   - path: examples/dxCreateFont-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a DX font element if successful, false if invalid arguments
+      were passed to the function, or there is insufficient resources available.
+  oop:
+    element: dx_font
+    constructorclass: DxFont
   notes:
   - type: info
     content: The size can't be less than 5 or more than 150. Use this function after

@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextItemSetPosition
-server:
+shared:
   name: textItemSetPosition
   description: This function allows the setting of the position of a text item.
-  parameters: []
+  parameters:
+  - name: theTextItem
+    type: textitem
+    description: The text item that you want to move
+  - name: x
+    type: float
+    description: A floating point number between 0.0 and 1.0 indicating how far across
+      the screen the text should be shown, as a percentage of the width, from the
+      left hand side.
+  - name: "y"
+    type: float
+    description: A floating point number between 0.0 and 1.0 indicating how far down
+      the screen the text should be shown, as a percentage of the height, from the
+      top.
   examples:
   - path: examples/textItemSetPosition-1.lua
     description: This example creates a text item 'myTextItem' only if the text item
       'otherTextItem' is not in the same position, to prevent overlap. If it is in
       the same position, then it moves it down.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the position was successfully set, false otherwise.
   requires_review: true

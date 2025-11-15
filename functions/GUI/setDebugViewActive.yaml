@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetDebugViewActive
-client:
+shared:
   name: setDebugViewActive
   description: This function enables or disables the debug window.
-  parameters: []
+  parameters:
+  - name: enabled
+    type: bool
+    description: true if debug window should be visible, false otherwise.
   examples:
   - path: examples/setDebugViewActive-1.lua
     description: This example enables or disables the debug window.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true , false if invalid parameters are passed.
+  oop:
+    element: GuiElement
+    method: )
+    variable: debugViewActive
+    static: true
   pair: isDebugViewActive
   requires_review: true

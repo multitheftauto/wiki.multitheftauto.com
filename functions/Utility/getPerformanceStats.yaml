@@ -1,10 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPerformanceStats
-server:
+shared:
   name: getPerformanceStats
   description: This function returns performance information.
-  parameters: []
+  parameters:
+  - name: category
+    type: string
+    description: Performance statistics category. If empty string is given, list of
+      all categories is returned.See categories for more information.
+  - name: options
+    type: string
+    description: Category specific ',' separated options. All categories supports
+      'h' option for help.
+    default: '""'
+  - name: filter
+    type: string
+    description: Case-sensitive filter used to select returned rows. Only 'name' column
+      is filtered.
+    default: '""'
   examples:
   - path: examples/getPerformanceStats-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: table table
+      name: value
+    description: Returns two tables. First contains column names. The second contains
+      result rows. Each row is table of cells.
   requires_review: true

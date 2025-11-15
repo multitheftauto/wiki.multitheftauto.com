@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetRadarAreaSize
-server:
+shared:
   name: getRadarAreaSize
   description: This function is used for getting the X and Y size of an existing [radar
     area](/wiki/Radararea "Radararea").
-  parameters: []
+  parameters:
+  - name: theRadararea
+    type: radararea
+    description: The radar area element whose size you wish to get.
   examples:
   - path: examples/getRadarAreaSize-1.lua
     description: 'The following example looks for radar areas whose size is smaller
       than 100 by 100:'
     side: server
+  returns:
+    values:
+    - type: float
+      name: value1
+    - type: float
+      name: value2
+    description: Returns two floats indicating the X and Y length of the radar area
+      respectively, false if the radar area is invalid.
+  oop:
+    element: radararea
+    method: getSize
+    static: false
   requires_review: true

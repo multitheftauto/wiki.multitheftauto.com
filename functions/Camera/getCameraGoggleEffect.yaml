@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraGoggleEffect
-client:
+shared:
   name: getCameraGoggleEffect
   description: This function returns what goggle effect is currently affecting the
     camera.
@@ -9,5 +9,16 @@ client:
     description: This example adds a command to enable or disable the nightvision
       effect.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: This example adds a command to enable or disable the nightvision
+      effect.
+  oop:
+    element: Camera
+    method: getGoggleEffect
+    variable: goggleEffect
+    static: true
   pair: setCameraGoggleEffect
   requires_review: true

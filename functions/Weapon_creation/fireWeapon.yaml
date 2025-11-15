@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FireWeapon
-client:
+shared:
   name: fireWeapon
   description: Fires one shot from a [custom weapon](/wiki/Element/Weapon "Element/Weapon").
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: The weapon to be fired.
   examples:
   - path: examples/fireWeapon-1.lua
     description: This function creates and fires a weapon.
@@ -12,4 +15,14 @@ client:
       fire it every frame. Be aware that neither the weapon nor the shots are synced
       between players and that normally weapons don't fire every frame.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the shot weapon is valid and therefore the shot was
+      fired, false otherwise.
+  oop:
+    element: weapon
+    method: fire
+    static: false
   requires_review: true

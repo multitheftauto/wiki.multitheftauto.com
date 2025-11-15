@@ -1,11 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiMoveToBack
-client:
+shared:
   name: guiMoveToBack
   description: This function moves a GUI element to the very back of all other GUI
     elements.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: the GUI element that you want to move to the back
   examples:
   - path: examples/guiMoveToBack-1.lua
     description: This example creates a gui window and moves it to the back
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
+  oop:
+    element: guielement
+    method: moveToBack
+    static: false
   requires_review: true

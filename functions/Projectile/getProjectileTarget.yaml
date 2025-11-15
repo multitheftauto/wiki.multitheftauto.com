@@ -1,10 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileTarget
-client:
+shared:
   name: getProjectileTarget
   description: This function returns the target of the specified projectile.
-  parameters: []
+  parameters:
+  - name: theProjectile
+    type: projectile
+    description: The projectile element which target you want to retrieve.
   examples:
   - path: examples/getProjectileTarget-1.lua
     description: This example allows a player to send projectiles at other players.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the element which is the projectile's target if the projectile
+      is valid and can have a target (like a heat-seeking rocket), false otherwise.
+  oop:
+    element: projectile
+    method: getTarget
+    variable: target
+    static: false
   requires_review: true

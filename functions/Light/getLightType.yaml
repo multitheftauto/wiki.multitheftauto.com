@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetLightType
-client:
+shared:
   name: getLightType
   description: This function returns the type for a [light](/wiki/Element/Light "Element/Light")
     element.
-  parameters: []
+  parameters:
+  - name: theLight
+    type: light
+    description: The light that you wish to retrieve the type of.
   examples:
   - path: examples/getLightType-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int containing the type of the specified light, false
+      if invalid arguments were passed.
+  oop:
+    element: light
+    method: getType
+    static: false
   requires_review: true

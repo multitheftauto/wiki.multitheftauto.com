@@ -1,15 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetSurfaceProperties
-client:
+shared:
   name: engineGetSurfaceProperties
   description: This function retrieves the value of a surface property.
-  parameters: []
+  parameters:
+  - name: surfaceID
+    type: int
+    description: Material ID from 0 to 178
+  - name: property
+    type: string
+    description: Property name
   examples:
   - path: examples/engineGetSurfaceProperties-1.lua
     description: In this example, we retrieve the surface property value for a material
       with ID 5 and the property name “audio.” If successful, it displays the value;
       otherwise, it indicates an invalid input
     side: client
-  requires_review: true
+  returns:
+    values:
+    - type: mixed
+      name: value
+    description: Returns the current property value. See the table below for possible
+      values.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -19,3 +30,4 @@ client:
       - Missing section: Materials, surfaces properties
 
       '
+  requires_review: true

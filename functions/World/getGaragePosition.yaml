@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetGaragePosition
-client:
+shared:
   name: getGaragePosition
   description: This function outputs X, Y and Z position of given garage.
-  parameters: []
+  parameters:
+  - name: garageID
+    type: int
+    description: The garage ID that represents the garage door that is being checked.
   examples:
   - path: examples/getGaragePosition-1.lua
     description: This element has to create a blip at the nearest garage and removes
       it in 10 seconds.
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three float s indicating the position of the garage, x ,
+      y and z respectively, false when garageID was invalid.
   requires_review: true

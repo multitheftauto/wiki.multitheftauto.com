@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPickupSpawned
-server:
+shared:
   name: isPickupSpawned
   description: This function checks if a pickup is currently spawned (is visible and
     can be picked up) or not (a player picked it up recently).
-  parameters: []
+  parameters:
+  - name: thePickup
+    type: pickup
+    description: the pickup you want to check.
   examples:
   - path: examples/isPickupSpawned-1.lua
     description: This example outputs to the player that' using the pick that the
       pickup is either available/unavailable.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the pickup is spawned, false if it's not spawned
+      or an invalid pickup was specified.
   requires_review: true

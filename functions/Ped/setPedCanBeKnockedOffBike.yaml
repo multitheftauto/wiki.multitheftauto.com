@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedCanBeKnockedOffBike
-client:
+shared:
   name: setPedCanBeKnockedOffBike
   description: This function controls if a ped can fall of his bike by accident \-
     namely by banging into a wall.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose knockoffstatus is being changed
+  - name: canBeKnockedOffBike
+    type: bool
+    description: true or false
   examples:
   - path: examples/setPedCanBeKnockedOffBike-1.lua
     description: This example adds a console command with which the local player can
       toggle if he can fall off bikes.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: ped
+    method: setCanBeKnockedOffBike
+    static: false
   pair: canPedBeKnockedOffBike
   notes:
   - type: info

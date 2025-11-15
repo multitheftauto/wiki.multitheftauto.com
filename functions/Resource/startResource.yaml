@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/StartResource
-server:
+shared:
   name: startResource
   description: This function starts a resource either persistently or as a dependency
     of the current resource. If you start the resource persistently, the resource
@@ -7,9 +7,69 @@ server:
     or by the server admin. A resource started as a dependency will stop when your
     resource stops, if no other resources have it as a depdendency. This is the same
     effect as using an *include* in your [meta.xml](/wiki/Meta.xml "Meta.xml") file.
-  parameters: []
+  parameters:
+  - name: resourceToStart
+    type: resource
+    description: The resource that should be started.
+  - name: persistent
+    type: bool
+    description: A boolean specifying if the resource should continue to run even
+      after the current resource has been stopped or not. If this is true then the
+      resource will run until another resource or user terminates it or the server
+      shuts down. If this is false then resourceToStart will stop when thisResource
+      stops.
+    default: 'false'
+  - name: startIncludedResources
+    type: bool
+    description: A boolean specifying if the resource's included/dependant resources
+      will be started.
+    default: 'true'
+  - name: loadServerConfigs
+    type: bool
+    description: A boolean specifying if server side config (XML) files should be
+      loaded with the resource.
+    default: 'true'
+  - name: loadMaps
+    type: bool
+    description: A boolean specifying if any .map files will be started with the resource.
+    default: 'true'
+  - name: loadServerScripts
+    type: bool
+    description: A boolean specifying if server side script files should be started
+      alongside the resource.
+    default: 'true'
+  - name: loadHTML
+    type: bool
+    description: A boolean specifying if HTML files should be started alongside the
+      resource.
+    default: 'true'
+  - name: loadClientConfigs
+    type: bool
+    description: A boolean specifying if client configs should be loaded alongside
+      the resource.
+    default: 'true'
+  - name: loadClientScripts
+    type: bool
+    description: A boolean specifying if client scripts should be loaded and started
+      alongside the resource.
+    default: 'true'
+  - name: loadFiles
+    type: bool
+    description: A boolean specifying if client-side files should be loaded alongside
+      the resource.
+    default: 'true'
   examples:
   - path: examples/startResource-1.lua
     description: This example starts a specified resource with the command; "/resource-start".
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the resource has been started successfully, false
+      otherwise.
+  oop:
+    element: resource
+    method: start
+    static: false
   requires_review: true

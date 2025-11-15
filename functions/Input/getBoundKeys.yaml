@@ -1,13 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetBoundKeys
-client:
+shared:
   name: getBoundKeys
   description: Returns a list of key names that are bound to the specified game [control](/wiki/Control_names
     "Control names") or console command.
-  parameters: []
+  parameters:
+  - name: command/control
+    type: string
+    description: the name of a game control or a console command. See the control
+      names page for valid controls.
   examples:
   - path: examples/getBoundKeys-1.lua
     description: This code adds a command handler with which you can check out the
       keybinds for any game control. As an example, typing "/keys forwards" would
       list all the keys which you can press to make the player walk forward.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: If one or more keys are bound to the specified control or console
+      command, a table is returned indexed by the names of the keys and containing
+      key states as values. If no keys are bound or an invalid name was passed, returns
+      false .
   requires_review: true

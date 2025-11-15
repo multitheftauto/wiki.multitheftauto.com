@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleIdleRespawnDelay
-server:
+shared:
   name: getVehicleIdleRespawnDelay
   description: 'This function gets the time delay (in milliseconds)
 
     the vehicle will remain at its position while empty.'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to get the idle delay of.
   examples:
   - path: examples/getVehicleIdleRespawnDelay-1.lua
     description: This example gets the idle delay of a current occupying vehicle.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the delay in milliseconds.
+  oop:
+    element: vehicle
+    method: getIdleRespawnDelay
+    variable: idleRespawnDelay
+    static: false
   pair: setVehicleIdleRespawnDelay
   requires_review: true

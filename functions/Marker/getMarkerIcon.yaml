@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerIcon
-server:
+shared:
   name: getMarkerIcon
   description: This function returns the icon name for a marker.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: A marker element referencing the specified marker.
   examples:
   - path: examples/getMarkerIcon-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: 'Returns false if the marker passed is invalid or a string containing
+      one of the following:'
+  oop:
+    element: marker
+    method: getIcon
+    variable: icon
+    static: false
   pair: setMarkerIcon
   requires_review: true

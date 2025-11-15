@@ -1,11 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.remove
-server:
+shared:
   name: utf8.remove
   description: This function removes a substring in a UTF\-8 string by using a position
     range.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: start
+    type: int
+    description: An integer representing the beginning position.
+    default: '1'
+  - name: stop
+    type: int
+    description: An integer representing the ending position.
+    default: '-1'
   examples:
   - path: examples/utf8.remove-1.lua
     description: This example shows how to remove substrings from strings.
     side: server
+  returns:
+    values:
+    - type: string utf8.remove
+      name: value
+    description: Returns the string with the removed substring from the range.
   requires_review: true

@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerIdleTime
-server:
+shared:
   name: getPlayerIdleTime
   description: This function gets the amount of time in milliseconds that a players
     position has not changed.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish to get the idle time of.
   examples:
   - path: examples/getPlayerIdleTime-1.lua
     description: This example will kick a player if they don't move for 5 minutes
       and the resource has access to "function.kickPlayer"
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the amount of time in milliseconds that a player has been
+      idle, false otherwise.
+  oop:
+    element: player
+    method: getIdleTime
+    variable: idleTime
+    static: false
   requires_review: true

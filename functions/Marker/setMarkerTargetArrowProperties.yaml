@@ -1,11 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetMarkerTargetArrowProperties
-server:
+shared:
   name: setMarkerTargetArrowProperties
   description: This function changes the color and size of the checkpoint marker's
     target arrow.
-  parameters: []
+  parameters:
+  - name: marker
+    type: element
+    description: MISSING_PARAM_DESC
+  - name: r
+    type: int
+    description: The amount of red in the final color (0 to 255).
+    default: '255'
+  - name: g
+    type: int
+    description: The amount of green in the final color (0 to 255).
+    default: '64'
+  - name: b
+    type: int
+    description: The amount of blue in the final color (0 to 255).
+    default: '64'
+  - name: a
+    type: int
+    description: The amount of alpha in the final color (0 to 255).
+    default: '255'
+  - name: size
+    type: float
+    description: Target arrow size.
+    default: markerSize * 0.625
   examples:
   - path: examples/setMarkerTargetArrowProperties-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
   requires_review: true

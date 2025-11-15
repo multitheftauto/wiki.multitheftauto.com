@@ -1,7 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineResetModelFlags
-client:
+shared:
   name: engineResetModelFlags
   description: This function restores model flags to default state.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: ID of the model you want to reset.
   examples: []
+  returns:
+    values:
+    - type: boolean
+      name: value
+    description: Returns true if model flags was successfully restored, false otherwise.
+  oop:
+    element: Engine
+    method: resetModelFlags
+    static: true
   requires_review: true

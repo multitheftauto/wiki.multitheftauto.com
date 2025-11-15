@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextCreateDisplay
-server:
+shared:
   name: textCreateDisplay
   description: A [text display](/wiki/Textdisplay "Textdisplay") is like a canvas
     that can contain many [items of text](/wiki/Textitem "Textitem"). Each display
@@ -9,4 +9,8 @@ server:
   - path: examples/textCreateDisplay-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: textdisplay
+      name: value
   requires_review: true

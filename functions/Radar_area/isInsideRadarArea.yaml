@@ -1,11 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsInsideRadarArea
-server:
+shared:
   name: isInsideRadarArea
   description: This function checks if a 2D position is inside a [radar area](/wiki/Radararea
     "Radararea") or not.
-  parameters: []
+  parameters:
+  - name: theArea
+    type: radararea
+    description: The radar area you're checking the position against.
+  - name: posX
+    type: float
+    description: The X coordinate of the position you're checking.
+  - name: posY
+    type: float
+    description: The Y coordinate of the position you're checking.
   examples:
   - path: examples/isInsideRadarArea-1.lua
     description: This function checks if an element is within a radar area.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the position is inside the radar area, false if it
+      isn't or if any parameters are invalid.
+  oop:
+    element: radararea
+    method: isInside
+    static: false
   requires_review: true

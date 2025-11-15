@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTargetStart
-client:
+shared:
   name: getPedTargetStart
   description: This function allows retrieval of the position a ped's target range
     begins, when he is aiming with a weapon.
-  parameters: []
+  parameters:
+  - name: targetingPed
+    type: ped
+    description: The ped whose target start you wish to retrieve
   examples:
   - path: examples/getPedTargetStart-1.lua
     description: This Example draws a line from where the Ped´s Target Starts to the
       Point where the Target Ends
     side: client
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: Returns three floats, x,y,z, representing the position where the
+      ped's target starts, or false if it was unsuccessful.
   requires_review: true

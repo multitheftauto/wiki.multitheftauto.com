@@ -1,4 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetValidPedModels
+client:
+  name: getValidPedModels
+  description: This function returns all valid ped models. The syntax is different
+    for server and client sides.
+  parameters:
+  - name: includeCustom
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'true'
+  examples: []
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table with all valid ped models that exist on the client,
+      containing the custom model IDs unless includeCustom is false.
+  requires_review: true
 server:
   name: getValidPedModels
   description: This function returns all valid ped models. The syntax is different
@@ -9,4 +26,9 @@ server:
     description: This example will check if the specified skin ID is a valid skin
       via a command.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table with all valid ped models that exist on the server.
   requires_review: true

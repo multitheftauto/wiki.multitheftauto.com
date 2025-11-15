@@ -1,15 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleUpgradeOnSlot
-server:
+shared:
   name: getVehicleUpgradeOnSlot
   description: 'This function returns the current upgrade id on the specified vehicle''s
     ''upgrade slot''
 
     An upgrade slot is a certain type of upgrade (eg: exhaust, spoiler), there are
     17 slots (0 to 16\).'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle whose upgrade you want to retrieve.
+  - name: slot
+    type: int
+    description: The slot id of the upgrade. ( Upgrade list ordered by slot number)
   examples:
   - path: examples/getVehicleUpgradeOnSlot-1.lua
     description: This example prints the name and upgrades on each slot of an entered
       vehicle to the chat.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer with the upgrade on the slot if correct arguments
+      were passed, false otherwise.
+  oop:
+    element: vehicle
+    method: getUpgradeOnSlot
+    static: false
   requires_review: true

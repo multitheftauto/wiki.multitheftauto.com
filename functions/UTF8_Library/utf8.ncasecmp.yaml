@@ -1,9 +1,15 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.ncasecmp
-server:
+shared:
   name: utf8.ncasecmp
   description: Compares two strings in lower\-case and returns the difference indicator
     (see table below) as an integer value.
-  parameters: []
+  parameters:
+  - name: a
+    type: string
+    description: A string character sequence
+  - name: b
+    type: string
+    description: A string character sequence
   examples:
   - path: examples/utf8.ncasecmp-1.lua
     description: This example shows a simple comparsion of two different strings.
@@ -12,7 +18,12 @@ server:
     description: This example shows how to greet a player, when he write 'hello' into
       the chat.
     side: server
-  requires_review: true
+  returns:
+    values:
+    - type: int utf8.ncasecmp
+      name: value
+    description: Returns an integer , which indicates the difference, see the table
+      below for further information.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -20,3 +31,4 @@ server:
       - Missing section: Indicators
 
       '
+  requires_review: true

@@ -1,12 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerColor
-server:
+shared:
   name: getMarkerColor
   description: This function returns the color and transparency for a marker element.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: The marker that you wish to retrieve the color of.
   examples:
   - path: examples/getMarkerColor-1.lua
     description: This example script fully heals players who hit a white marker, and
       kills players who hit a red one.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    description: Returns four ints corresponding to the amount of red , green , blue
+      and alpha (respectively) of the marker, false if invalid arguments were passed.
+  oop:
+    element: marker
+    method: getColor
+    static: false
   pair: setMarkerColor
   requires_review: true

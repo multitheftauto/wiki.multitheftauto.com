@@ -1,10 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetJetpackWeaponEnabled
-server:
+shared:
   name: getJetpackWeaponEnabled
   description: This function checks if a weapon is usable while on a Jetpack.
-  parameters: []
+  parameters:
+  - name: weapon
+    type: string
+    description: The weapon that's being checked if it's usable on a Jetpack.
   examples:
   - path: examples/getJetpackWeaponEnabled-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the weapon is enabled, else false if the weapon isn't
+      or invalid arguments are passed.
   requires_review: true

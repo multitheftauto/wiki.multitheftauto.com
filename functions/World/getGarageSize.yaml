@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetGarageSize
-client:
+shared:
   name: getGarageSize
   description: This function outputs the size of garage.
-  parameters: []
+  parameters:
+  - name: garageID
+    type: int
+    description: The garage ID that represents the garage door that is being checked.
   examples:
   - path: examples/getGarageSize-1.lua
     description: This example adds the command /garagesize <garage ID>
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three float s indicating the size of the garage, false if
+      an invalid garageID has been provided.
   notes:
   - type: info
     content: The values returned by this function are sizeZ, sizeX and sizeY respectively.

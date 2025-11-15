@@ -1,12 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWeaponState
-client:
+shared:
   name: setWeaponState
   description: This function sets a [custom weapon](/wiki/Element/Weapon "Element/Weapon")'s
     state.
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: the weapon you wish to set the state of.
+  - name: theState
+    type: string
+    description: 'the state you wish to set: reloading : makes the weapon reload.
+      firing : makes the weapon constantly fire its target (unless any shooting blocking
+      flags are set) according to its assigned firing rate. ready : makes the weapon
+      stop reloading or firing.'
   examples:
   - path: examples/setWeaponState-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true on success, false otherwise.
+  oop:
+    element: weapon
+    method: setState
+    variable: state
+    static: false
   pair: getWeaponState
   requires_review: true

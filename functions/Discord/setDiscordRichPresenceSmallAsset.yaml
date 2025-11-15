@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceSmallAsset
-client:
+shared:
   name: setDiscordRichPresenceSmallAsset
   description: Using this function, you can set the small image asset of the application.
     The maximum size of assets is *1024x1024*, the minimum *512x512*.
-  parameters: []
+  parameters:
+  - name: assetImage
+    type: string
+    description: a string containing the key of the small image asset you uploaded
+      to your application's asset list.
+  - name: text
+    type: string
+    description: a string containing the hover text of the small image asset.
   examples:
   - path: examples/setDiscordRichPresenceSmallAsset-1.lua
     description: The example sets the small image asset to my_logo.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if function succeeds, false otherwise.
+  oop:
+    element: discordrpc
+    method: setSmallAsset
+    static: false
   notes:
   - type: important
     content: To use this function, you must set up your own application setDiscordApplicationID

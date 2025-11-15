@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTrafficLightState
-server:
+shared:
   name: getTrafficLightState
   description: Gets the current traffic light state. This state controls the traffic
     light colors. For instance, state **1** will cause the north and south traffic
@@ -10,4 +10,9 @@ server:
     description: This example causes all traffic lights to be out of order. (flashing
       amber)
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the current state of the traffic lights.
   requires_review: true

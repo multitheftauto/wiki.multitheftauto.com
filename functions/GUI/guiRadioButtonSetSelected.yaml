@@ -1,13 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiRadioButtonSetSelected
-client:
+shared:
   name: guiRadioButtonSetSelected
   description: This function selects or unselects a radio button.
-  parameters: []
+  parameters:
+  - name: guiRadioButton
+    type: element
+    description: The GUI radio button in which you wish to change the selection state
+      of
+  - name: state
+    type: bool
+    description: The state of the radio button, where true indicates selected, and
+      false indicates unselected.
   examples:
   - path: examples/guiRadioButtonSetSelected-1.lua
     description: This example creates a radio button then checks if one is selected
       and if it is, then it's output the title and sets the next radio button selected.
       (TESTED!)
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the radio button's selection state was successfully
+      set, false otherwise.
+  oop:
+    element: guiradiobutton
+    method: setSelected
+    variable: selected
+    static: false
   pair: guiRadioButtonGetSelected
   requires_review: true

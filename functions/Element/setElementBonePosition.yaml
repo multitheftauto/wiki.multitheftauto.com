@@ -1,14 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementBonePosition
-client:
+shared:
   name: setElementBonePosition
   description: This function sets the position of a bone to the specified coordinates.
     Currently the [Player](/wiki/Element/Player "Element/Player") and [Ped](/wiki/Element/Ped
     "Element/Ped") element types are accepted.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: the element to set the bone position on.
+  - name: bone
+    type: int
+    description: the ID of the bone to set the position of. See Bone IDs .
+  - name: x
+    type: float
+    description: The X coordinate of the destination.
+  - name: "y"
+    type: float
+    description: The Y coordinate of the destination.
+  - name: z
+    type: float
+    description: The Z coordinate of the destination.
   examples:
   - path: examples/setElementBonePosition-1.lua
     description: This example shows a surprised CJ with a long neck
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
   notes:
   - type: info
     content: You need to use this function together with onClientPedsProcessed .

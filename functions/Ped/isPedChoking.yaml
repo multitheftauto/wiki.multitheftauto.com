@@ -1,14 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedChoking
-server:
+shared:
   name: isPedChoking
   description: This function checks if the specified [ped](/wiki/Ped "Ped") is choking
     (coughing) or not. This happens as a result of weapons that produce smoke \- smoke
     grenades, fire extinguisher and the spray can.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped you wish to check
   examples:
   - path: examples/isPedChoking-1.lua
     description: This example checks if a random player is choking or not, and if
       so displays a message in the chat box.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is choking, false otherwise.
+  oop:
+    element: ped
+    method: isChoking
+    variable: choking
+    static: false
   pair: setPedChoking
   requires_review: true

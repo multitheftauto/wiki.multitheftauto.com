@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTeamFriendlyFire
-server:
+shared:
   name: getTeamFriendlyFire
   description: This function tells you if friendly fire is turned on for the specified
     team.
-  parameters: []
+  parameters:
+  - name: theTeam
+    type: team
+    description: The team object that will be checked
   examples:
   - path: examples/getTeamFriendlyFire-1.lua
     description: This example makes a command that checks if friendly fire is on for
       each team, and toggles it on if it isn't.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if friendly fire is on for the specified team, false
+      if it is turned off or if invalid arguments are specified.
+  oop:
+    element: team
+    method: getFriendlyFire
+    variable: friendlyFire
+    static: false
   pair: setTeamFriendlyFire
   requires_review: true

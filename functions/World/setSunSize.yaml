@@ -1,11 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetSunSize
-server:
+shared:
   name: setSunSize
   description: This function is used to set the size of the sun.
-  parameters: []
+  parameters:
+  - name: Size
+    type: int
+    description: The size you want the sun to be in the sky.
   examples:
   - path: examples/setSunSize-1.lua
     description: This example lets any player set the size of the sun like /setsunsize
       2
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the size of the sun was set, false otherwise.
   requires_review: true

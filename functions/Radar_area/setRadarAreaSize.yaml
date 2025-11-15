@@ -1,9 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetRadarAreaSize
-server:
+shared:
   name: setRadarAreaSize
   description: This function changes the size of an existing [radar area](/wiki/Radararea
     "Radararea").
-  parameters: []
+  parameters:
+  - name: theRadararea
+    type: radararea
+    description: the radararea element whose size is to be changed.
+  - name: x
+    type: float
+    description: the x length of the radar area.
+  - name: "y"
+    type: float
+    description: the y length of the radar area.
   examples:
   - path: examples/setRadarAreaSize-1.lua
     description: 'Example 1:This example decreases the size of a team''s radar area
@@ -13,4 +22,14 @@ server:
     description: 'Example 2:This example creates a radar area and resets its size
       right away:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the size was set successfully, false if invalid arguments
+      are passed.
+  oop:
+    element: radararea
+    method: setSize
+    static: false
   requires_review: true

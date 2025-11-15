@@ -1,11 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreObjectGroupPhysicalProperties
-client:
+shared:
   name: engineRestoreObjectGroupPhysicalProperties
   description: This function restores all physical properties of given properties
     group.
-  parameters: []
+  parameters:
+  - name: groupID
+    type: int
+    description: the id of physical properties group which you wish to restore.
   examples:
   - path: examples/engineRestoreObjectGroupPhysicalProperties-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if everything went well, error is raised otherwise.
   requires_review: true

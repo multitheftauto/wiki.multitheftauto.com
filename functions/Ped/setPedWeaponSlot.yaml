@@ -1,9 +1,16 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedWeaponSlot
-server:
+shared:
   name: setPedWeaponSlot
   description: This function changes the selected weapon slot of a [ped](/wiki/Ped
     "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose weapon slot you want to set. In a clientside script,
+      this cannot be used on remote players.
+  - name: weaponSlot
+    type: int
+    description: the weapon slot to set.
   examples:
   - path: examples/setPedWeaponSlot-1.lua
     description: This example allows the player to type the command 'giveweapons',
@@ -11,5 +18,16 @@ server:
       given weapon, the script randomly decides which weapon to equip after all the
       weapons are given.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful in setting the ped's equipped weapon slot,
+      false otherwise.
+  oop:
+    element: ped
+    method: setWeaponSlot
+    variable: weaponSlot
+    static: false
   pair: getPedWeaponSlot
   requires_review: true

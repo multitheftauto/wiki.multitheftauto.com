@@ -1,11 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementLighting
-client:
+shared:
   name: setElementLighting
   description: This function changes the lighting value for the specified [element](/wiki/Element
     "Element"). This can be a [player](/wiki/Player "Player"), [ped](/wiki/Ped "Ped"),
     [vehicle](/wiki/Vehicle "Vehicle"), [object](/wiki/Object "Object"), [weapon](/wiki/Element/Weapon
     "Element/Weapon").
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element whose lighting you want to change.
+  - name: lighting
+    type: float
+    description: The lighting value that you want to set.
   examples:
   - path: examples/setElementLighting-1.lua
     description: This example sets the lighting value of all players and vehicles
@@ -15,6 +21,17 @@ client:
     description: This example sets the lighting value to 10 only for our player, while
       keeping other players at the default value.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise. This
+      function can fail if called right after element creation.
+  oop:
+    element: element
+    method: setLighting
+    variable: lighting
+    static: false
   pair: getElementLighting
   notes:
   - type: info

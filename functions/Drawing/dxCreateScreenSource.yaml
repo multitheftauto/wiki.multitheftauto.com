@@ -1,11 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateScreenSource
-client:
+shared:
   name: dxCreateScreenSource
   description: This function creates a screen source, which is a special type of [texture](/wiki/Texture
     "Texture") that contains the screen as rendered by GTA
-  parameters: []
+  parameters:
+  - name: width
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: height
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxCreateScreenSource-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a texture element if successful, false if invalid arguments
+      were passed to the function.
+  oop:
+    element: texture
+    constructorclass: DxScreenSource
   requires_review: true

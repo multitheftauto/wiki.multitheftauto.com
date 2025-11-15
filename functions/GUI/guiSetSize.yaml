@@ -1,14 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetSize
-client:
+shared:
   name: guiSetSize
   description: This function sets the dimensions (size) of a GUI element. It refers
     to the bounding box size for GUI elements. It does not make GUI elements smaller
     or larger in appearance.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: the GUI element whose visibility is to be changed
+  - name: width
+    type: float
+    description: The desired width setting for the gui element
+  - name: height
+    type: float
+    description: The desired height setting for the gui element
+  - name: relative
+    type: bool
+    description: This is whether sizes and positioning are relative.  If this is true
+      , then all x,y,width,height floats must be between 0 and 1, representing sizes
+      relative to the parent.
   examples:
   - path: examples/guiSetSize-1.lua
     description: This example creates a gui window and changes the x and y width of
       the window every 2 seconds.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the gui element's size was set successfully, false
+      otherwise.
+  oop:
+    element: guielement
+    method: setSize
+    static: false
   pair: guiGetSize
   requires_review: true

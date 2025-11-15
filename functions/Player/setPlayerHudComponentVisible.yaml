@@ -1,13 +1,15 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerHudComponentVisible
-server:
+client:
   name: setPlayerHudComponentVisible
   description: This function will show or hide a part of the player's HUD.
-  parameters: []
+  parameters:
+  - name: component
+    type: string
+    description: 'The component you wish to show or hide. Valid values are:'
+  - name: show
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
-  - path: examples/setPlayerHudComponentVisible-1.lua
-    description: This example hides the ammo and weapon displays for players when
-      they join.
-    side: server
   - path: examples/setPlayerHudComponentVisible-2.lua
     description: This example lets players hide or bring up their bottom-left radar
       with a command
@@ -17,4 +19,40 @@ server:
       money, breath bar, armor bar & wanted level stars displays for players when
       they join.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the component was shown or hidden succesfully, false
+      if an invalid argument was specified.
+  oop: &id001
+    element: player
+    method: setHudComponentVisible
+    static: false
+  requires_review: true
+server:
+  name: setPlayerHudComponentVisible
+  description: This function will show or hide a part of the player's HUD.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player element for which you wish to show/hide a HUD component
+  - name: component
+    type: string
+    description: 'The component you wish to show or hide. Valid values are:'
+  - name: show
+    type: bool
+    description: MISSING_PARAM_DESC
+  examples:
+  - path: examples/setPlayerHudComponentVisible-1.lua
+    description: This example hides the ammo and weapon displays for players when
+      they join.
+    side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the component was shown or hidden succesfully, false
+      if an invalid argument was specified.
+  oop: *id001
   requires_review: true

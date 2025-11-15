@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsResourceProtected
-server:
+shared:
   name: isResourceProtected
   description: This will check if a resource is currently protected, as defined in
     [mtaserver.conf](/wiki/Server_mtaserver.conf#resource "Server mtaserver.conf").
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource to check
   examples:
   - path: examples/isResourceProtected-1.lua
     description: This example creates a command which allows you to check if the given
       resource with the name provided is protected. The command is "/isprotected [Resource
       Name]".
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the resource is 'protected', false otherwise.
+  oop:
+    element: resource
+    method: isProtected
+    variable: protected
+    static: false
   requires_review: true

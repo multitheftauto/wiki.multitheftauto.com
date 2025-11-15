@@ -1,8 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleWheelStates
-server:
+shared:
   name: setVehicleWheelStates
   description: This function sets the state of wheels on the vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: frontLeft
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: rearLeft
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '-1'
+  - name: frontRight
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '-1'
+  - name: rearRight
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '-1'
   examples:
   - path: examples/setVehicleWheelStates-1.lua
     description: This example displays the states of the vehicle's wheels and changes
@@ -12,8 +30,17 @@ server:
     description: This example displays the states of the vehicle's wheels and changes
       their states if any arguments were passed.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a boolean value true or false that tells you if it was successful
+      or not.
+  oop:
+    element: vehicle
+    method: setWheelStates
+    static: false
   pair: getVehicleWheelStates
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -21,3 +48,4 @@ server:
       - Missing section: Wheel-State values
 
       '
+  requires_review: true

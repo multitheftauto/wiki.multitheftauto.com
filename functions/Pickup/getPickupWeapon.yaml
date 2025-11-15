@@ -1,10 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPickupWeapon
-server:
+shared:
   name: getPickupWeapon
   description: This function retrieves the weapon ID of a weapon pickup.
-  parameters: []
+  parameters:
+  - name: thePickup
+    type: pickup
+    description: The pickup of which you wish to retrieve the weapon
   examples:
   - path: examples/getPickupWeapon-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the Weapon ID of the pickup, or false if the pickup is invalid.
   requires_review: true

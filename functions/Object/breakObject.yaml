@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/BreakObject
-server:
+shared:
   name: breakObject
   description: This function breaks a specific object.
-  parameters: []
+  parameters:
+  - name: theObject
+    type: object
+    description: an object element
   examples:
   - path: examples/breakObject-1.lua
     description: This example checks if the object created is breakable and if it
       is then breaks it.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This example checks if the object created is breakable and if it
+      is then breaks it.
+  oop:
+    element: object
+    method: break
+    static: false
   notes:
   - type: info
     content: Only breakable objects can be broken.

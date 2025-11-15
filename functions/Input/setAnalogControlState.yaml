@@ -1,10 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetAnalogControlState
-client:
+shared:
   name: setAnalogControlState
   description: This sets the analog control state of a control for the local player.
     To change the analog controls for a [ped](/wiki/Ped "Ped"), please use [setPedAnalogControlState](/wiki/SetPedAnalogControlState
     "SetPedAnalogControlState").
-  parameters: []
+  parameters:
+  - name: control
+    type: string
+    description: The control that you want to set the state of. See control names
+      for a list of possible controls.
+  - name: state
+    type: float
+    description: A float between 0 and 1 indicating the amount the control is pressed.
+      If no value is provided, the analog control is removed.
+  - name: forceOverrideNextFrame
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/setAnalogControlState-1.lua
     description: This creates an/forwardscommand, which toggles yourforwardscontrol
@@ -13,4 +25,9 @@ client:
   - path: examples/setAnalogControlState-2.lua
     description: This script invertes left and right vehicle steering for the player.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the control state was successfully set, false otherwise.
   requires_review: true

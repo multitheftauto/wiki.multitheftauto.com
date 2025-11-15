@@ -1,12 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsWorldSpecialPropertyEnabled
-server:
+shared:
   name: isWorldSpecialPropertyEnabled
   description: Checks if a special world property (cheat) is enabled or not.
-  parameters: []
+  parameters:
+  - name: propname
+    type: string
+    description: the name of the property to retrieve. Possible values are listed
+      on SetWorldSpecialPropertyEnabled .
   examples:
   - path: examples/isWorldSpecialPropertyEnabled-1.lua
     description: This code allows you to enable/disable aircars world property using
       /toggleAirCars command.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the property is enabled, false if it is disabled
+      or the specified property name is invalid.
   pair: setWorldSpecialPropertyEnabled
   requires_review: true

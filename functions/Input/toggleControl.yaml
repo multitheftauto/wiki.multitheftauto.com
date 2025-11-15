@@ -1,19 +1,55 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ToggleControl
+client:
+  name: toggleControl
+  description: Enables or disables the use of a GTA control for a specific player.
+  parameters:
+  - name: control
+    type: string
+    description: The control that you want to toggle the ability of. See control names
+      for a list of possible controls.
+  - name: enabled
+    type: bool
+    description: A boolean value representing whether or not the key will be usable
+      or not.
+  examples:
+  - path: examples/toggleControl-2.lua
+    description: This function will disable the use of the vehicle secondary-fire
+      key for anyone in a Hydra, consequently removing the ability to fire rockets.
+    side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function true if the control was set successfully, false otherwise.
+  notes: &id001
+  - type: info
+    content: If you want to disable weapons fire, remember to also disable the control
+      action in addition to the control fire .
+  requires_review: true
 server:
   name: toggleControl
   description: Enables or disables the use of a GTA control for a specific player.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish to toggle the control ability of.
+  - name: control
+    type: string
+    description: The control that you want to toggle the ability of. See control names
+      for a list of possible controls.
+  - name: enabled
+    type: bool
+    description: A boolean value representing whether or not the key will be usable
+      or not.
   examples:
   - path: examples/toggleControl-1.lua
     description: This function will disable the use of the vehicle secondary-fire
       key for anyone in a Hydra, consequently removing the ability to fire rockets.
     side: server
-  - path: examples/toggleControl-2.lua
-    description: This function will disable the use of the vehicle secondary-fire
-      key for anyone in a Hydra, consequently removing the ability to fire rockets.
-    side: client
-  notes:
-  - type: info
-    content: If you want to disable weapons fire, remember to also disable the control
-      action in addition to the control fire .
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function true if the control was set successfully, false otherwise.
+  notes: *id001
   requires_review: true

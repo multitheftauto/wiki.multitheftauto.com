@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedOxygenLevel
-client:
+shared:
   name: getPedOxygenLevel
   description: This function returns the current oxygen level of the specified [ped](/wiki/Ped
     "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose oxygen level you want to check
   examples:
   - path: examples/getPedOxygenLevel-1.lua
     description: This example defines a "showoxygen" console command that shows the
       player that executes it which oxygen level he has.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: A float with the oxygen level, false if an invalid ped was given.
+  oop:
+    element: ped
+    method: getOxygenLevel
+    variable: oxygenLevel
+    static: false
   pair: setPedOxygenLevel
   requires_review: true

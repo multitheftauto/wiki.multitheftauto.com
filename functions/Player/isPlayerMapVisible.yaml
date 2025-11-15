@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPlayerMapVisible
-client:
+shared:
   name: isPlayerMapVisible
   description: This function checks if the local player has their map showing (F11\).
   parameters: []
@@ -10,4 +10,9 @@ client:
   - path: examples/isPlayerMapVisible-2.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player has the map visible, false otherwise.
   requires_review: true

@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedDucked
-server:
+shared:
   name: isPedDucked
   description: This function checks if the specified [ped](/wiki/Ped "Ped") is ducked
     (crouched) or not.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped to check.
   examples:
   - path: examples/isPedDucked-1.lua
     description: This example checks if a random player is ducked or not, and if so
       displays a message in the chat box.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is ducked, false otherwise.
+  oop:
+    element: ped
+    method: isDucked
+    variable: ducked
+    static: false
   requires_review: true

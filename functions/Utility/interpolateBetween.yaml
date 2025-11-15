@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/InterpolateBetween
-server:
+shared:
   name: interpolateBetween
   description: 'Interpolates a 3D Vector between a source value and a target value
     using either linear interpolation or any other [easing function](/wiki/Easing
@@ -7,7 +7,45 @@ server:
 
     It can also be used to interpolate 2D vectors or scalars by only setting some
     of the x, y, z values and putting 0 to the others.'
-  parameters: []
+  parameters:
+  - name: x1
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"1
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z1
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: x2
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"2
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z2
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: fProgress
+    type: float
+    description: float between 0 and 1 indicating the interpolation progress (0 at
+      the beginning of the interpolation, 1 at the end). If it is higher than 1, it
+      will start from the beginning.
+  - name: strEasingType
+    type: string
+    description: the easing function to use for the interpolation
+  - name: fEasingPeriod
+    type: float
+    description: the period of the easing function (only some easing functions use
+      this parameter)
+  - name: fEasingAmplitude
+    type: float
+    description: the amplitude of the easing function (only some easing functions
+      use this parameter)
+  - name: fEasingOvershoot
+    type: float
+    description: the overshoot of the easing function (only some easing functions
+      use this parameter)
   examples:
   - path: examples/interpolateBetween-1.lua
     description: 'This clientside example uses interpolateBetween to create position
@@ -38,4 +76,14 @@ server:
       When the camera pops up it uses "OutQuad" as the strEasingType to create the
       slow down effect.'
     side: client
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: 'Returns x, y, z the interpolated 3D vector/value if successful,
+      false otherwise (error in parameters).
+
+      As mentioned before, interpolateBetween can be used on 2D vectors or scalars
+      in which case only some (x, y or just x) of the returned values are to be used
+      (cf. alpha interpolation in marker example or size interpolation in window example).'
   requires_review: true

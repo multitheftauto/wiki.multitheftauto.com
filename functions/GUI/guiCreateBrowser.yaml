@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateBrowser
-client:
+shared:
   name: guiCreateBrowser
   description: "This function creates a new CEGUI web [browser](/wiki/Element/Browser\
     \ \"Element/Browser\") element.\n  \nThe difference between this and createBrowser\
@@ -7,7 +7,45 @@ client:
     \ windows. So the createBrowser function is more suitable for custom dx based\
     \ interfaces, while this one is favorable for CEGUI all\\-in\\-all integration.\n\
     You can learn more about the differences \\[[here](https://forum.mtasa.com/topic/80422-dx-browser-vs-gui-browser/?do=findComment&comment=737334)]."
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float of the 2D x position of the browser on a player's screen.  This
+      is affected by the relative argument.
+  - name: "y"
+    type: float
+    description: A float of the 2D y position of the browser on a player's screen.
+      This is affected by the relative argument.
+  - name: width
+    type: float
+    description: The browser's native width. This should be greater than or equal
+      to 1.
+  - name: height
+    type: float
+    description: The browser's native height. This should be greater than or equal
+      to 1.
+  - name: isLocal
+    type: bool
+    description: Sets whether the browser can only show local content or content from
+      the internet (see examples over here for more information)
+  - name: isTransparent
+    type: bool
+    description: true if you want the browser to support transparency, false otherwise
+  - name: isRelative
+    type: bool
+    description: This is whether sizes and positioning are relative.  If this is true
+      , then all x,y,width,height floats must be between 0 and 1, representing sizes/positions
+      as a fraction of the screen size. If false , then the size and co-ordinates
+      are based on client's resolution, accessible using guiGetScreenSize .
+    default: 'false'
+  - name: parent
+    type: gui-element
+    description: This is the parent that the radio button is attached to. If the relative
+      argument is true, sizes and positioning will be made relative to this parent.
+      If the relative argument is false, positioning will be the number of offset
+      pixels from the parent's origin. If no parent is passed, the parent will become
+      the screen - causing positioning and sizing according to screen positioning.
+    default: nil
   examples:
   - path: examples/guiCreateBrowser-1.lua
     description: This examples simply creates a web browser and loads an URL
@@ -15,4 +53,14 @@ client:
   - path: examples/guiCreateBrowser-2.lua
     description: This examples attaches a web browser to a CEGUI window.
     side: client
+  returns:
+    values:
+    - type: gui-browser
+      name: value
+    description: Returns a gui-browser element if it was created successfully, false
+      otherwise. Returns also false , if the user disabled remote pages and isLocal
+      was set to false .
+  oop:
+    element: element
+    constructorclass: GuiBrowser
   requires_review: true

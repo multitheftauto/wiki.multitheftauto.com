@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetEnabled
-client:
+shared:
   name: guiGetEnabled
   description: This function determines if a GUI element is enabled.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: the GUI element to be checked.
   examples:
   - path: examples/guiGetEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the element is enabled, false otherwise.
+  oop:
+    element: guielement
+    method: getEnabled
+    variable: enabled
+    static: false
   pair: guiSetEnabled
   requires_review: true

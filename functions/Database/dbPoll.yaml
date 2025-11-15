@@ -1,8 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DbPoll
-server:
+shared:
   name: dbPoll
   description: This function checks the progress of a database query.
-  parameters: []
+  parameters:
+  - name: queryHandle
+    type: handle
+    description: A query handle previously returned from dbQuery
+  - name: timeout
+    type: int
+    description: 'How many milliseconds to wait for a result. Use 0 for an instant
+      response (which may return nil). Use -1 to wait until a result is ready. Note:
+      A wait here will freeze the entire server just like executeSQLQuery'
+  - name: multipleResults
+    type: bool
+    description: Set to true to enable the return values from multiple queries
+    default: 'false'
   examples:
   - path: examples/dbPoll-1.lua
     description: 'This example waits until a result is ready:'
@@ -36,6 +48,15 @@ server:
   - path: examples/dbPoll-10.lua
     description: This example shows how to obtain data without server freeze.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'The table is of the format:'
+  oop:
+    element: queryhandle
+    method: poll
+    static: false
   notes:
   - type: info
     content: If a column contained a number it is returned as a number, this includes

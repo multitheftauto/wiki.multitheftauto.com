@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainDirection
-server:
+shared:
   name: setTrainDirection
   description: Sets the direction in which a train or tram drives over the rails (clockwise
     or counterclockwise).
-  parameters: []
+  parameters:
+  - name: train
+    type: vehicle
+    description: the train whose direction to change.
+  - name: clockwise
+    type: bool
+    description: if true , will make the train go clockwise. If false , makes it go
+      counterclockwise.
   examples:
   - path: examples/setTrainDirection-1.lua
     description: This function will make a train driving clockwise.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: vehicle
+    method: setDirection
+    variable: direction
+    static: false
   pair: getTrainDirection
   requires_review: true

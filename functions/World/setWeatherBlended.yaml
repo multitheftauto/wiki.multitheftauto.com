@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWeatherBlended
-server:
+shared:
   name: setWeatherBlended
   description: This function will change the current [weather](/wiki/Weather "Weather")
     to another in a smooth manner, over the period of 1\-2 in\-game hours (unlike
@@ -7,11 +7,20 @@ server:
     To ensure this transition performs as expected, you should not call this function
     until [getWeather](/wiki/GetWeather "GetWeather") indicates that no transition
     is already being done.
-  parameters: []
+  parameters:
+  - name: weatherID
+    type: int
+    description: The ID of the weather state you wish to set. Valid values are 0 to
+      255 inclusive.
   examples:
   - path: examples/setWeatherBlended-1.lua
     description: This example sets the weather to sunny, then makes it change to a
       foggy over the period of one-two hours (assuming that a in-game hour is a minute
       in real time).
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false if an invalid weatherID is passed.
   requires_review: true

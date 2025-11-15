@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsTransferBoxVisible
-server:
+shared:
   name: isTransferBoxVisible
   description: Determines if the transfer box is visible.
   parameters: []
@@ -7,4 +7,10 @@ server:
   - path: examples/isTransferBoxVisible-1.lua
     description: This example defines a command to remove the player's transfer box.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: On server this returns a boolean, whether the transfer box should
+      be visible during downloads or not.
   requires_review: true

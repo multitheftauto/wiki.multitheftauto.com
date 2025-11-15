@@ -1,12 +1,54 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddDebris
-client:
+shared:
   name: fxAddDebris
   description: Creates a debris particle effect (e.g. bits that fly off a car when
     ramming a wall).
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: colorR
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  - name: colorG
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: colorB
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: colorA
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '255'
+  - name: scale
+    type: float
+    description: the size of the chunks.
+    default: '1.0'
+  - name: count
+    type: int
+    description: the number of chunks to create.
+    default: '1'
   examples:
   - path: examples/fxAddDebris-1.lua
     description: This example will create a Debris Effect next to you when typing/debrisin
       the Chatbox.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

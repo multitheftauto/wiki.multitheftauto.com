@@ -1,13 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleTurretPosition
-server:
+shared:
   name: setVehicleTurretPosition
   description: This function sets the position of a vehicle's turret, if it has one.
     This can be used to influence the turret's rotation, so it doesn't follow the
     camera. Vehicles with turrets include firetrucks and tanks.
-  parameters: []
+  parameters:
+  - name: turretVehicle
+    type: vehicle
+    description: The vehicle whose turret position you want to retrieve. This should
+      be a vehicle with a turret.
+  - name: positionX
+    type: float
+    description: The horizontal position of the turret. In radians
+  - name: positionY
+    type: float
+    description: The vertical position of the turret. In radians
   examples:
   - path: examples/setVehicleTurretPosition-1.lua
     description: This example will force vehicle turrets to aim straight forwards.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if a valid vehicle element and valid positions were
+      passed, false otherwise.
+  oop:
+    element: vehicle
+    method: setTurretPosition
+    variable: turretPosition
+    static: false
   pair: getVehicleTurretPosition
   requires_review: true

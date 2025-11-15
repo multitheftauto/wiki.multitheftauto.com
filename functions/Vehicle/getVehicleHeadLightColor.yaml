@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleHeadLightColor
-server:
+shared:
   name: getVehicleHeadLightColor
   description: This function will get the headlight color of a vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you wish to set the headlight color of.
   examples:
   - path: examples/getVehicleHeadLightColor-1.lua
     description: ''
@@ -10,5 +13,19 @@ server:
   - path: examples/getVehicleHeadLightColor-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    description: Returns three integers for the red, green and blue of the headlight
+      color for the specified vehicle, false if an invalid vehicle was specified.
+  oop:
+    element: vehicle
+    method: getHeadLightColor
+    static: false
   pair: setVehicleHeadLightColor
   requires_review: true

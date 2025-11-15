@@ -1,8 +1,14 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetVisible
-client:
+shared:
   name: guiSetVisible
   description: This function changes the visibility state of a GUI element.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: the GUI element whose visibility is to be changed
+  - name: state
+    type: bool
+    description: the new visibility state
   examples:
   - path: examples/guiSetVisible-1.lua
     description: This example creates a GUI window and changes its visibility every
@@ -12,5 +18,16 @@ client:
     description: This example creates a GUI window withyesandnobuttons and you can
       toggle its visibility with thexkey.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the element's visibility could be changed, false
+      otherwise.
+  oop:
+    element: guielement
+    method: setVisible
+    variable: visible
+    static: false
   pair: guiGetVisible
   requires_review: true

@@ -1,13 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleRotorSpeed
-client:
+shared:
   name: setVehicleRotorSpeed
   description: Sets the rotor speed of a helicopter or plane. This function now applies
     to both helicopters and planes.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle (helicopter or plane) to adjust the rotor of.
+  - name: speed
+    type: float
+    description: the new rotor speed. Usual values are 0 if the vehicle is stationary,
+      or 0.2 if the rotor is fully spun up. Higher values than normal will not affect
+      the vehicle's handling. Negative values are allowed and will make the rotor
+      spin in the opposite direction (for helicopters, this pushes it down).
   examples:
   - path: examples/setVehicleRotorSpeed-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: vehicle
+    method: setVehicleRotorSpeed
+    variable: vehicleRotorSpeed
+    static: false
   pair: getVehicleRotorSpeed
   notes:
   - type: info

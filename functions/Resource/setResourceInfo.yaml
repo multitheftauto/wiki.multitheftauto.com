@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetResourceInfo
-server:
+shared:
   name: setResourceInfo
   description: This function sets the value of any attribute in a resource info tag.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource we are setting info to.
+  - name: attribute
+    type: string
+    description: the name of the attribute that is to be set.
+  - name: value
+    type: string
+    description: the value of this attribute
   examples:
   - path: examples/setResourceInfo-1.lua
     description: This function sets the author of the current resource.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the info was successfully set, false otherwise
+  oop:
+    element: resource
+    method: setInfo
+    static: false
   notes:
   - type: info
     content: This function requires the resource to have 'ModifyOtherObjects' ACL

@@ -1,10 +1,44 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddBlood
-client:
+shared:
   name: fxAddBlood
   description: Creates a blood splatter particle effect.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: count
+    type: int
+    description: the number of flying droplets to create.
+    default: '1'
+  - name: brightness
+    type: float
+    description: the brightness. Ranges from 0 (almost black) to 1 (normal color).
+    default: '1.0'
   examples:
   - path: examples/fxAddBlood-1.lua
     description: This example creates blood effects when a player gets shot.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

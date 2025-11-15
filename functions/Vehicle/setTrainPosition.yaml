@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainPosition
-server:
+shared:
   name: setTrainPosition
   description: Sets the position the train is currently on the track
-  parameters: []
+  parameters:
+  - name: train
+    type: vehicle
+    description: the train of which to set the track
+  - name: position
+    type: float
+    description: the position along the track (0 - 18107 a complete way round)
   examples:
   - path: examples/setTrainPosition-1.lua
     description: This example adds a command called "/settrainpos", allowing you to
       set the position of the train.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the train position was set, false otherwise.
+  oop:
+    element: vehicle
+    method: setTrainPosition
+    variable: trainPosition
+    static: false
   pair: getTrainPosition
   requires_review: true

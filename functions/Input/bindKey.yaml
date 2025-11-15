@@ -1,26 +1,79 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/BindKey
-server:
+client:
   name: bindKey
   description: Binds a player's key to a handler function or command, which will be
     called when the key is pressed.
-  parameters: []
+  parameters:
+  - name: key
+    type: string
+    description: The key or control you wish to bind to the command. See key names
+      for a list of possible keys.
+  - name: keyState
+    type: string
+    description: 'A string that has one of the following values: "up": If the bound
+      key should trigger the function when the key is released "down": If the bound
+      key should trigger the function when the key is pressed "both": If the bound
+      key should trigger the function when the key is pressed or released'
+  - name: commandName
+    type: string
+    description: The name of the command that the key should be binded to.
+  - name: arguments
+    type: string
+    description: ''
   examples:
-  - path: examples/bindKey-1.lua
-    description: This example will bind a player's 'F1' key and 'fire' control to
-      1 input function.
-    side: server
   - path: examples/bindKey-2.lua
     description: This example will bind a player's 'F1' key and 'fire' control to
       1 input function, clientside.
     side: client
-  - path: examples/bindKey-3.lua
-    description: This example says how cool is the MTA:SA is if players wants to move.
-    side: server
-  notes:
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the key was bound, false otherwise.
+  notes: &id001
   - type: info
     content: Using escape key or F8 key will always return false. Use onClientKey
       event instead.
   - type: info
     content: Handler function won't be triggered while focused in CEGUI editbox. You
       can use guiSetInputMode or onClientKey in order to fix that.
+  requires_review: true
+server:
+  name: bindKey
+  description: Binds a player's key to a handler function or command, which will be
+    called when the key is pressed.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish to bind the key of.
+  - name: key
+    type: string
+    description: The key or control you wish to bind to the command. See key names
+      for a list of possible keys.
+  - name: keyState
+    type: string
+    description: 'A string that has one of the following values: "up": If the bound
+      key should trigger the function when the key is released "down": If the bound
+      key should trigger the function when the key is pressed "both": If the bound
+      key should trigger the function when the key is pressed or released'
+  - name: commandName
+    type: string
+    description: The name of the command that the key should be binded to.
+  - name: arguments
+    type: string
+    description: ''
+  examples:
+  - path: examples/bindKey-1.lua
+    description: This example will bind a player's 'F1' key and 'fire' control to
+      1 input function.
+    side: server
+  - path: examples/bindKey-3.lua
+    description: This example says how cool is the MTA:SA is if players wants to move.
+    side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the key was bound, false otherwise.
+  notes: *id001
   requires_review: true

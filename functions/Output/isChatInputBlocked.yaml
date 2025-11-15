@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsChatInputBlocked
-client:
+shared:
   name: isChatInputBlocked
   description: This function checks if the player's chat input is blocked.
   parameters: []
@@ -7,4 +7,9 @@ client:
   - path: examples/isChatInputBlocked-1.lua
     description: 'This example shows how to block and unblock the chat input:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the chat input is blocked, false otherwise.
   requires_review: true

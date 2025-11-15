@@ -1,8 +1,14 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetGarageOpen
-server:
+shared:
   name: setGarageOpen
   description: This function opens or closes the specified garage door in the world.
-  parameters: []
+  parameters:
+  - name: garageID
+    type: int
+    description: The garage ID that represents the garage door being opened or closed.
+  - name: open
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setGarageOpen-1.lua
     description: 'This example opens a garage door when a player enters a collision
@@ -12,6 +18,11 @@ server:
     description: 'This example opens each garage door when a player enters a collision
       shape near it, and closes it when they leave:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false if an invalid garage id was given.
   notes:
   - type: info
     content: setGarageOpen does not work with ID 32 (Pay 'n' Spray near Royal Casino).

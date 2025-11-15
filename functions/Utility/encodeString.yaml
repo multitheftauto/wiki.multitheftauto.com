@@ -1,10 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EncodeString
-server:
+shared:
   name: encodeString
   description: This function encodes a [string](/wiki/String "String") using the specified
     algorithm. The counterpart of this function is [decodeString](/wiki/DecodeString
     "DecodeString").
-  parameters: []
+  parameters:
+  - name: algorithm
+    type: string
+    description: The algorithm to use.
+  - name: input
+    type: string
+    description: The input to encode.
+  - name: options
+    type: table
+    description: A table with options and other necessary data for the algorithm,
+      as detailed below.
+  - name: callback
+    type: function
+    description: providing a callback will run this function asynchronously, the arguments
+      to the callback are the same as the returned values below.
   examples:
   - path: examples/encodeString-1.lua
     description: Adds an/encodecommand in which you can provide an algorithm, key
@@ -15,12 +29,15 @@ server:
     description: This example shows you how to use the RSA encryption with a simple
       string message.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
   notes:
   - type: tip
     content: If it doesn't matter which algorithm you use for the encoding, keep in
       mind that aes128 uses hardware acceleration so it may outperform the tea algorithm
       on most processors.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -30,3 +47,4 @@ server:
       - Missing section: Returns for each algorithm
 
       '
+  requires_review: true

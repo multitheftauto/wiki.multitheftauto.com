@@ -1,12 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedVoice
-client:
+shared:
   name: setPedVoice
   description: Changes the voice of a ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose voice to change.
+  - name: voiceType
+    type: string
+    description: the voice type. See ped voices for possible types.
+  - name: voiceName
+    type: string
+    description: the voice name within the specified type. See ped voices for possible
+      voices.
   examples:
   - path: examples/setPedVoice-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true when the voice was successfully set, false otherwise.
+  oop:
+    element: ped
+    method: setVoice
+    static: false
   notes:
   - type: info
     content: A ped voice is one of the GTA built in voice character types. Not to

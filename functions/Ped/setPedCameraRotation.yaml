@@ -1,16 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedCameraRotation
-client:
+shared:
   name: setPedCameraRotation
   description: This function sets the camera rotation of a ped, e.g. where its camera
     will look at. Don't confuse this with [getCameraMatrix](/wiki/GetCameraMatrix
     "GetCameraMatrix"), because that function is designed for fixed (scripted) camera
     moves.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose camera rotation is to be changed.
+  - name: cameraRotation
+    type: float
+    description: The new direction that the ped will walk if you set their forwards
+      control state. If the ped is the local player, it will also change where his
+      camera is looking at if it isn't fixed (i.e. camera target is the local player).
   examples:
   - path: examples/setPedCameraRotation-1.lua
     description: The next code snippet adds a command called /rotatecam, which rotates
       the camera of the player who uses it.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the camera rotation was changed, false otherwise.
+  oop:
+    element: ped
+    method: setCameraRotation
+    variable: cameraRotation
+    static: false
   pair: getPedCameraRotation
   notes:
   - type: info

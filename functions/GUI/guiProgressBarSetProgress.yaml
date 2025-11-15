@@ -1,11 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiProgressBarSetProgress
-client:
+shared:
   name: guiProgressBarSetProgress
   description: This function is used to set the progress of a progressbar as a percentage.
-  parameters: []
+  parameters:
+  - name: theProgressbar
+    type: progressBar
+    description: The progressbar you want to change the progress of
+  - name: progress
+    type: float
+    description: a float ranging from 0 - 100
   examples:
   - path: examples/guiProgressBarSetProgress-1.lua
     description: This example sets the progress of a bar called "somebar" created
       withguiCreateProgressBar, and outputs it to the chatbox.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the progress was set, false otherwise.
   requires_review: true

@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/PregFind
-server:
+shared:
   name: pregFind
   description: This function stops at the first occurrence of the pattern in the input
     string and returns the result of the search.
-  parameters: []
+  parameters:
+  - name: subject
+    type: string
+    description: The input string
+  - name: pattern
+    type: string
+    description: The pattern string to search for in the input string .
+  - name: flags
+    type: int/string
+    description: Conjuncted value that contains flags ( 1 - ignorecase, 2 - multiline,
+      4 - dotall, 8 - extended, 16 - unicode ) or ( i - Ignore case, m - Multiline,
+      d - Dotall, e - Extended, u - Unicode )
   examples:
   - path: examples/pregFind-1.lua
     description: 'Some examples:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the pattern was found in the input string, false
+      otherwise.
   notes:
   - type: warning
     content: When declaring a pattern string in quotes, the backslash character should

@@ -1,12 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTeamFromName
-server:
+shared:
   name: getTeamFromName
   description: This function finds a [team](/wiki/Team "Team") element using the provided
     team name.
-  parameters: []
+  parameters:
+  - name: teamName
+    type: string
+    description: A string determining the name of the team you wish to find.
   examples:
   - path: examples/getTeamFromName-1.lua
     description: 'This example creates a team, and sets the player''s team to it''s
       partial name:'
     side: server
+  returns:
+    values:
+    - type: team
+      name: value
+    description: Returns the team element if it was found, false otherwise.
+  oop:
+    element: Team
+    method: getFromName
+    static: true
   requires_review: true

@@ -1,10 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehiclesLODDistance
-client:
+shared:
   name: setVehiclesLODDistance
   description: Sets the distance of vehicles LOD.
-  parameters: []
+  parameters:
+  - name: vehiclesDistance
+    type: float
+    description: general distance used for most vehicles, this value is clamped to
+      0 – 500
+  - name: trainsAndPlanesDistance
+    type: float
+    description: distance used for trains and planes, this value is clamped to 0 –
+      500
+    default: vehiclesDistance * 2.14
   examples:
   - path: examples/setVehiclesLODDistance-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns true if arguments are valid. Returns false
+      otherwise.
   requires_review: true

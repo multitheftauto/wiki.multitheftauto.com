@@ -1,12 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementPosition
-server:
+shared:
   name: setElementPosition
   description: This function sets the position of an element to the specified coordinates.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: A valid element to be moved.
+  - name: x
+    type: float
+    description: The x coordinate of the destination.
+  - name: "y"
+    type: float
+    description: The y coordinate of the destination.
+  - name: z
+    type: float
+    description: The z coordinate of the destination.
+  - name: warp
+    type: bool
+    description: teleports players, resetting any animations they were doing. Setting
+      this to false preserves the current animation.
+    default: 'true'
   examples:
   - path: examples/setElementPosition-1.lua
     description: This example lets admins teleport 5 random players to themselves
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
+  oop:
+    element: element
+    method: setPosition
+    variable: position
+    static: false
   pair: getElementPosition
   notes:
   - type: warning

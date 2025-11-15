@@ -1,14 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleRespawnDelay
-server:
+shared:
   name: setVehicleRespawnDelay
   description: This function sets the time delay (in milliseconds) the vehicle will
     remain wrecked before respawning.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to change the respawn delay of.
+  - name: timeDelay
+    type: int
+    description: The amount of milliseconds to delay.
   examples:
   - path: examples/setVehicleRespawnDelay-1.lua
     description: This example creates a vehicle and makes it so that it will respawn
       at its original position 20 seconds after it has blown up.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was found and edited.
+  oop:
+    element: vehicle
+    method: setRespawnDelay
+    variable: respawnDelay
+    static: false
   pair: getVehicleRespawnDelay
   notes:
   - type: important

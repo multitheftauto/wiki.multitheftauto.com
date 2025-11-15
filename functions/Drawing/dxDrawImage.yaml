@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawImage
-client:
+shared:
   name: dxDrawImage
   description: "Draws an image on the screen for a single frame. In order for the\
     \ image to stay visible continuously, you need to call this function with the\
@@ -7,12 +7,40 @@ client:
     \ \"OnClientRender\")).  \n\nImage files should ideally have dimensions that are\
     \ a power of two, to prevent possible blurring.  \n\n**Power of two: 2px, 4px,\
     \ 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...**"
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: the absolute X coordinate of the top left corner of the image
+  - name: posY
+    type: float
+    description: the absolute Y coordinate of the top left corner of the image
+  - name: width
+    type: float
+    description: the absolute width of the image
+  - name: height
+    type: float
+    description: the absolute height of the image
+  - name: image
+    type: mixed
+    description: Either a material element or a filepath of the image which is going
+      to be drawn. (.dds images are also supported). Image files should ideally have
+      dimensions that are a power of two, to prevent possible blurring. Use a texture
+      created with dxCreateTexture to speed up drawing .
+  - name: float rotation
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: "0, float rotationCenterOffsetX = 0, float rotationCenterOffsetY = 0,\n\
+      \                   int color = tocolor(255,255,255,255"
   examples:
   - path: examples/dxDrawImage-1.lua
     description: Example of a pendulum swinging from the top of the screen, made using
       dxDrawImage.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   notes:
   - type: tip
     content: To help prevent edge artifacts when drawing textures, set textureEdge

@@ -1,11 +1,45 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateEdit
-client:
+shared:
   name: guiCreateEdit
   description: This function is for creating a new GUI edit box. This is a text box
     in which the user can input text. Edit boxes only allow a single line of text.
     If you want to allow multiple lines of text create a memo box using [guiCreateMemo](/wiki/GuiCreateMemo
     "GuiCreateMemo").
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float of the 2D x position of the GUI edit box on a player's screen.  This
+      is affected by the relative argument.
+  - name: "y"
+    type: float
+    description: A float of the 2D y position of the GUI edit box on a player's screen.
+      This is affected by the relative argument.
+  - name: width
+    type: float
+    description: A float of the width of the GUI edit box. This is affected by the
+      relative argument.
+  - name: height
+    type: float
+    description: A float of the height of the GUI edit box. This is affected by the
+      relative argument.
+  - name: text
+    type: string
+    description: A string of the text that will be displayed by default in the edit
+      box.
+  - name: relative
+    type: bool
+    description: This is whether sizes and positioning are relative.  If this is true
+      , then all x,y,width,height floats must be between 0 and 1, representing measures
+      relative to the parent.
+    default: 'false'
+  - name: parent
+    type: gui-element
+    description: This is the parent that the GUI edit box is attached to.  If the
+      relative argument is true, sizes and positioning will be made relative to this
+      parent. If the relative argument is false, positioning will be the number of
+      offset pixels from the parent's origin. If no parent is passed, the parent will
+      become the screen - causing positioning and sizing according to screen positioning.
+    default: nil
   examples:
   - path: examples/guiCreateEdit-1.lua
     description: This example creates an edit box alongside an "Output!" button.  When
@@ -16,4 +50,13 @@ client:
     description: 'This example creates an edit box and sets the input focus so the
       player does not have to click before typing:'
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a gui-edit element of the created edit box if it was successfully
+      created, false otherwise.
+  oop:
+    element: element
+    constructorclass: GuiEdit
   requires_review: true

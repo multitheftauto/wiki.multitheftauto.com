@@ -1,9 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementInterior
-server:
+shared:
   name: setElementInterior
   description: This function allows you to set the [interior](/wiki/Interior "Interior")
     of any element. An interior is the current loaded place, 0 being outside.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element in which you'd like to set the interior of.
+  - name: interior
+    type: int
+    description: The interior you want to set the element to. Valid values are 0 to
+      255.
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
   examples:
   - path: examples/setElementInterior-1.lua
     description: In this example, if a player were to type /interior 1, they would
@@ -13,6 +29,17 @@ server:
     description: In this example, if a player were to type /interior 1, they would
       be teleported into this interior
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if theElement and interior are valid arguments, false
+      otherwise.
+  oop:
+    element: element
+    method: setInterior
+    variable: interior
+    static: false
   pair: getElementInterior
   notes:
   - type: info

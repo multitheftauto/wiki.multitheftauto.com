@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraClip
-client:
+shared:
   name: getCameraClip
   description: This function checks if the camera will "collide" with any objects
     or vehicles in its way. Read more about this [here](/wiki/SetCameraClip "SetCameraClip").
@@ -8,5 +8,16 @@ client:
   - path: examples/getCameraClip-1.lua
     description: This function checks the clip status.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value1
+    - type: bool
+      name: value2
+    description: This function checks the clip status.
+  oop:
+    element: Camera
+    method: )
+    static: true
   pair: setCameraClip
   requires_review: true

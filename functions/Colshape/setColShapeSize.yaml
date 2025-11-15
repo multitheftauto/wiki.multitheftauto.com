@@ -9,8 +9,11 @@ server:
   - path: examples/setColShapeSize-1.lua
     description: ''
     side: server
+  oop:
+    element: colshape
+    method: setSize
+    static: false
   pair: getColShapeSize
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -22,3 +25,4 @@ server:
       - Missing section: Syntax (Tube)
 
       '
+  requires_review: true

@@ -1,12 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWorldFromScreenPosition
-client:
+shared:
   name: getWorldFromScreenPosition
   description: This function allows you to retrieve the world position corresponding
     to a 2D position on the screen, at a certain depth.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A float value indicating the x position on the screen, in pixels.
+  - name: "y"
+    type: float
+    description: A float value indicating the y position on the screen, in pixels.
+  - name: depth
+    type: float
+    description: A float value indicating the distance from the camera of the point
+      whose coordinates we are retrieving, in units.
   examples:
   - path: examples/getWorldFromScreenPosition-1.lua
     description: This example binds the local player's "i" key to a function that
       creates an explosion in the middle of the screen.
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: Returns three x , y , z floats indicating the world position if successful,
+      false otherwise.
   requires_review: true

@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleDoorOpenRatio
-server:
+shared:
   name: getVehicleDoorOpenRatio
   description: This function tells you how open a door is (the 'open ratio'). Doors
     include boots/trunks and bonnets on vehicles that have them.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: door
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getVehicleDoorOpenRatio-1.lua
     description: This example opens all the doors of the vehicle gradually over 2.5
       seconds.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a number between 0 and 1 that indicates how open the door
+      is. 0 is closed, and 1 is fully open. Returns false if invalid arguments are
+      passed.
+  oop:
+    element: vehicle
+    method: getDoorOpenRatio
+    static: false
   pair: setVehicleDoorOpenRatio
   requires_review: true

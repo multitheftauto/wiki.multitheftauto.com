@@ -1,14 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleModelWheelSize
-client:
+shared:
   name: getVehicleModelWheelSize
   description: This function gets the size of a group of wheels for a [vehicle model](/wiki/Vehicle_IDs
     "Vehicle IDs").
-  parameters: []
+  parameters:
+  - name: vehicleModel
+    type: int
+    description: The vehicle model ID.
+  - name: wheelGroup
+    type: string
+    description: 'The group of wheels of the vehicle model to retrieve their size
+      value. If not specified, it defaults to all_wheels . The following values are
+      supported: front_axle : Represents the wheels in the front axle. rear_axle :
+      Represents the wheels in the rear axle. all_wheels : Convenience group that
+      returns all the wheel sizes in a table of the following format:'
   examples:
   - path: examples/getVehicleModelWheelSize-1.lua
     description: This example adds ahovermecommand that exploits the fact that the
       wheel size changes the ground clearance of a vehicle model to make it hover
       over the ground.
     side: client
+  returns:
+    values:
+    - type: float|table
+      name: value
+    description: Returns a decimal number or a table, depending on the specified wheel
+      group. If the specified vehicle model ID or wheel group are not valid, an error
+      is raised instead. The meaning of the wheel size values is documented in setVehicleModelWheelSize
+      .
+  oop:
+    element: Vehicle
+    method: )
+    static: true
   pair: setVehicleModelWheelSize
   requires_review: true

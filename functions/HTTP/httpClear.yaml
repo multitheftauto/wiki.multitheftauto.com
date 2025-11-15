@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/HttpClear
-server:
+shared:
   name: httpClear
   description: This function removes all text from the current HTML output.
   parameters: []
@@ -15,4 +15,10 @@ server:
   - path: examples/httpClear-3.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the output buffer was cleared successfully, false
+      otherwise.
   requires_review: true

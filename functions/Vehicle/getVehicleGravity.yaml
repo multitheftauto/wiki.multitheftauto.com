@@ -1,13 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleGravity
-client:
+shared:
   name: getVehicleGravity
   description: Retrieves the current gravity vector of a vehicle. This is the direction
     in which the vehicle falls, also the cameras of any passengers will be rotated
     to match it.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle to retrieve the gravity vector of.
   examples:
   - path: examples/getVehicleGravity-1.lua
     description: This command will get gravity of your vehicle and output to chat
       using the /grav command
     side: client
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: Returns the x, y and z components of the gravity vector if successful,
+      false otherwise.
   requires_review: true

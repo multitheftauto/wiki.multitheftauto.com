@@ -1,13 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleIdleRespawnDelay
-server:
+shared:
   name: setVehicleIdleRespawnDelay
   description: This function sets the time delay (in milliseconds) the vehicle will
     remain at its position while empty.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to change the respawn delay of.
+  - name: timeDelay
+    type: int
+    description: The number of milliseconds the vehicle will be allowed to remain
+      unused until it respawns.
   examples:
   - path: examples/setVehicleIdleRespawnDelay-1.lua
     description: This example creates a vehicle and sets its respawn delay to 20 seconds.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was found and edited.
+  oop:
+    element: vehicle
+    method: setIdleRespawnDelay
+    variable: idleRespawnDelay
+    static: false
   pair: getVehicleIdleRespawnDelay
   notes:
   - type: important

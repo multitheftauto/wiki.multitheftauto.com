@@ -1,9 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SvgCreate
-client:
+shared:
   name: svgCreate
   description: Creates an [svg](/wiki/Svg "Svg") from size (blank document), filepath
     or raw data.
-  parameters: []
+  parameters:
+  - name: width
+    type: int
+    description: Desired width, preferably power of two (16, 32, 64 etc.), maximum
+      is 4096
+  - name: height
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: string pathOrRawData, function callback ( element svg
+    type: '[,'
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/svgCreate-1.lua
     description: This is a basic example of how you can create an SVG from raw data
@@ -14,6 +24,12 @@ client:
       argument. You can use the F2 key to set the SVG to a random size and see the
       update callback output a message to debugscript.
     side: client
+  returns:
+    values:
+    - type: svg
+      name: value
+    description: This is a basic example of how you can create an SVG from raw data
+      (or path) and draw it with dxDrawImage via onClientRender .
   notes:
   - type: info
     content: SVG in MTA is handled by the lunasvg rendering engine - Some features

@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetServerConfigSetting
-server:
+shared:
   name: setServerConfigSetting
   description: This function sets server settings which are stored in the [mtaserver.conf](/wiki/Server_mtaserver.conf
     "Server mtaserver.conf") file.
-  parameters: []
+  parameters:
+  - name: name
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: value
+    type: string
+    description: The value of the setting
+  - name: bSave
+    type: bool
+    description: Set to true to make the setting permanent, or false for use only
+      until the next server restart.
+    default: 'false'
   examples:
   - path: examples/setServerConfigSetting-1.lua
     description: This example enables network encryption
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the setting was successfully set, or false otherwise.
   notes:
   - type: info
     content: This function is protected by default and must be explicitly allowed

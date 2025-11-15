@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedOnGround
-server:
+shared:
   name: isPedOnGround
   description: This function is used to determine whether or not a ped is on the ground.
     This is for on\-foot usage only.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped you are checking.
   examples:
   - path: examples/isPedOnGround-1.lua
     description: This example checks if the player who enters the 'amiflying' command
       is on the ground and outputs a message.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is on foot and on the ground, false otherwise,
+      even if he is in a car that stands still or on object outside world map.
+  oop:
+    element: ped
+    method: isOnGround
+    variable: onGround
+    static: false
   issues:
   - id: '534'
     description: isPedOnGround issues

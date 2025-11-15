@@ -1,10 +1,45 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TestSphereAgainstWorld
-client:
+shared:
   name: testSphereAgainstWorld
   description: The function checks whether there is an object within the given radius
     and returns information about it. The function works similarly to [processLineOfSight](/wiki/ProcessLineOfSight
     "ProcessLineOfSight"), but instead of a straight line, it operates based on the
     specified radius, forming a sphere.
-  parameters: []
+  parameters:
+  - name: vehicle
+    type: unknown
+    description: MISSING_PARAM_DESC
+  - name: ped
+    type: unknown
+    description: MISSING_PARAM_DESC
+  - name: etc.
+    type: object
+    description: MISSING_PARAM_DESC
   examples: []
+  returns:
+    values:
+    - type: 'bool               -- hit
+
+        element            -- hitElement
+
+        float float float  -- worldModelPositionX'
+      name: value1
+    - type: Y
+      name: value2
+    - type: 'Z
+
+        float float float  -- worldModelRotationX'
+      name: value3
+    - type: Y
+      name: value4
+    - type: 'Z
+
+        int                -- worldModelID
+
+        int                -- worldLODModelID
+
+        string             -- entity'
+      name: value5
+    description: The modelID , lodID , worldModelPositionX,Y,Z , worldModelRotationX,Y,Z
+      and entityType parameters are returned even if hitElement is nil .
   requires_review: true

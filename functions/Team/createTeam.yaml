@@ -1,9 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateTeam
-server:
+shared:
   name: createTeam
   description: This function is for creating a new [team](/wiki/Team "Team"), which
     can be used to group players. Players will not join the team until they are respawned.
-  parameters: []
+  parameters:
+  - name: teamName
+    type: string
+    description: A string representing the teams name.
+  - name: colorR
+    type: int
+    description: An integer representing the red color value.
+    default: '235'
+  - name: colorG
+    type: int
+    description: An integer representing the green color value.
+    default: '221'
+  - name: colorB
+    type: int
+    description: An integer representing the blue color value.
+    default: '178'
   examples:
   - path: examples/createTeam-1.lua
     description: Example 1:This example creates a new team for a player, then adds
@@ -17,4 +32,14 @@ server:
     description: Example 3:This example creates a team for Admin and when an admin
       logs in, he will be set in the Admin team.
     side: server
+  returns:
+    values:
+    - type: team
+      name: value
+    description: Returns a team element if it was successfully created, false if invalid
+      arguments are passed or a team with that name already exists.
+  oop:
+    element: Team
+    method: create
+    static: true
   requires_review: true

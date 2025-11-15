@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/WasEventCancelled
-server:
+shared:
   name: wasEventCancelled
   description: This function checks if the last completed event was cancelled. This
     is mainly useful for custom events created by scripts.
@@ -10,4 +10,10 @@ server:
       if anonMarkerHitevent was triggered on a marker whose parent was aflagelement.
       If the event isn't canceled then an element data value is set on the player.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event was cancelled, false if it wasn't or doesn't
+      exist.
   requires_review: true

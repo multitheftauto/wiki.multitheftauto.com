@@ -1,14 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementDoubleSided
-server:
+shared:
   name: setElementDoubleSided
   description: This function allows you to set the double\-sidedness of an element's
     model. When an element's model is double\-sided, it's back facing triangles become
     visible.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element in which you'd like to set the double-sidedness of.
+  - name: enable
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setElementDoubleSided-1.lua
     description: This example shows how to set the double-sidedness of an object in
       a map file.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if theElement is valid, false otherwise.
+  oop:
+    element: element
+    method: setDoubleSided
+    variable: doubleSided
+    static: false
   pair: isElementDoubleSided
   requires_review: true

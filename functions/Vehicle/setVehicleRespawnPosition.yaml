@@ -1,11 +1,45 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleRespawnPosition
-server:
+shared:
   name: setVehicleRespawnPosition
   description: This function sets the position (and rotation) the vehicle will respawn
     to.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to change the respawn position of.
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: rx
+    type: float
+    description: A floating point number representing the rotation about the X axis
+      in Degrees.
+  - name: ry
+    type: float
+    description: A floating point number representing the rotation about the Y axis
+      in Degrees.
+  - name: rz
+    type: float
+    description: A floating point number representing the rotation about the Z axis
+      in Degrees.
   examples:
   - path: examples/setVehicleRespawnPosition-1.lua
     description: This example creates a vehicle and changes its respawn position.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was found and edited, false otherwise.
+  oop:
+    element: vehicle
+    method: setRespawnPosition
+    variable: respawnPosition
+    static: false
   requires_review: true

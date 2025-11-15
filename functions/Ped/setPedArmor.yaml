@@ -1,11 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedArmor
-server:
+shared:
   name: setPedArmor
   description: 'This function allows you to set the armor value of a [ped](/wiki/Ped
     "Ped").
 
     Function also added client\-side.'
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose armor you want to modify.
+  - name: armor
+    type: float
+    description: the amount of armor you want to set on the ped. Valid values are
+      from 0 to 100.
   examples:
   - path: examples/setPedArmor-1.lua
     description: This example removes the armor of a player.
@@ -14,5 +21,17 @@ server:
     description: In this, adds an amount of armor that the player defined in command
       'addarmor'.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the armor was changed succesfully. Returns false
+      if an invalid ped was specified, or the armor value specified is out of acceptable
+      range.
+  oop:
+    element: ped
+    method: setArmor
+    variable: armor
+    static: false
   pair: getPedArmor
   requires_review: true

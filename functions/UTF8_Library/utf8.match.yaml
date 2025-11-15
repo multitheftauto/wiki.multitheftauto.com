@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.match
-server:
+shared:
   name: utf8.match
   description: Extract substrings by matching patterns in the input string. This function
     can be used to extract specific information from a string.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: pattern
+    type: string
+    description: A string match pattern
+  - name: index
+    type: int
+    description: An integer representing the beginning position for the pattern matching
+    default: '1'
   examples:
   - path: examples/utf8.match-1.lua
     description: This example shows how to extract values from an input string by
       using a pattern to match the value parts.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value1
+    - type: '... utf8.match'
+      name: value2
+    description: Returns a sequence of string matches from the input string, nil otherwise.
   requires_review: true

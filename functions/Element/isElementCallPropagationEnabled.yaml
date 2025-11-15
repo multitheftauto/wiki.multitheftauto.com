@@ -1,10 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementCallPropagationEnabled
-server:
+shared:
   name: isElementCallPropagationEnabled
   description: This functions checks if certain element has call propagation enabled.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element to check
   examples:
   - path: examples/isElementCallPropagationEnabled-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the propagation is enabled, false if disabled or
+      invalid arguments have been passed.
+  oop:
+    element: element
+    method: isCallPropagationEnabled
+    static: false
   requires_review: true

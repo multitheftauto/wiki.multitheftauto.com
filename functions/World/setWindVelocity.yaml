@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWindVelocity
-server:
+shared:
   name: setWindVelocity
   description: This function changes the wind velocity. The wind shakes the vegetation
     and makes particles fly in a direction. The intensity and direction of the effect
     deppends of the wind velocity in each axis.
-  parameters: []
+  parameters:
+  - name: velocityX
+    type: float
+    description: The velocity of the wind along the x axis.
+  - name: velocityY
+    type: float
+    description: The velocity of the wind along the y axis.
+  - name: velocityZ
+    type: float
+    description: The velocity of the wind along the z axis.
   examples:
   - path: examples/setWindVelocity-1.lua
     description: This example shows how to make a simple /windVelocity command.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false if bad arguments were passed.
   requires_review: true

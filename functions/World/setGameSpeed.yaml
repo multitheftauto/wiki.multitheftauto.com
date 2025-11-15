@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetGameSpeed
-server:
+shared:
   name: setGameSpeed
   description: This function sets the game speed to the given value.
-  parameters: []
+  parameters:
+  - name: value
+    type: float
+    description: The float value of the game speed (Range 0 - 10)
   examples:
   - path: examples/setGameSpeed-1.lua
     description: ''
@@ -10,4 +13,11 @@ server:
   - path: examples/setGameSpeed-2.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: 'Returns true if the gamespeed was set successfully, false otherwise.
+
+      The normal game speed is ''1''.'
   requires_review: true

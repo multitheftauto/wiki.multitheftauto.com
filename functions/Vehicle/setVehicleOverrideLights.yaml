@@ -1,8 +1,16 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleOverrideLights
-server:
+shared:
   name: setVehicleOverrideLights
   description: This function changes the light overriding setting on a vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to change the override lights setting of.
+  - name: value
+    type: int
+    description: 'A whole number representing the state of the lights: 0 : No override,
+      lights are set to default. 1 : Lights are forced off. 2 : Lights are forced
+      on.'
   examples:
   - path: examples/setVehicleOverrideLights-1.lua
     description: This example will toggle the car lights on and off for a player's
@@ -12,5 +20,16 @@ server:
     description: This example will toggle the car lights on and off for a player's
       vehicle by using a "vehiclelights" command.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle's lights setting was changed. Otherwise
+      false .
+  oop:
+    element: vehicle
+    method: setOverrideLights
+    variable: overrideLights
+    static: false
   pair: getVehicleOverrideLights
   requires_review: true

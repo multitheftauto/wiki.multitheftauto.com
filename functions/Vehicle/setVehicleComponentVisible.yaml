@@ -1,12 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleComponentVisible
-client:
+shared:
   name: setVehicleComponentVisible
   description: This function sets component visibility for [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to set component visibility of.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the component's frame name (also called
+      'dummy') from the vehicle model's DFF file of which you want to manipulate components)
+  - name: visible
+    type: bool
+    description: a bool which determines if the component should be visible
   examples:
   - path: examples/setVehicleComponentVisible-1.lua
     description: Example 1:This example hide all components when you enter a vehicle.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a bool indicating if the visiblity was changed successfully.
+  oop:
+    element: vehicle
+    method: setComponentVisible
+    static: false
   pair: getVehicleComponentVisible
   requires_review: true

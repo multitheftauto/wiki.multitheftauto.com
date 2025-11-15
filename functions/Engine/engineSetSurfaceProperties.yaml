@@ -1,14 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetSurfaceProperties
-client:
+shared:
   name: engineSetSurfaceProperties
   description: This function changes a property of a surface.
-  parameters: []
+  parameters:
+  - name: surfaceID
+    type: int
+    description: Material ID from 0 to 178
+  - name: property
+    type: string
+    description: Property name
+  - name: value
+    type: mixed
+    description: New value from table below
   examples:
   - path: examples/engineSetSurfaceProperties-1.lua
     description: 'This will disable the smoke for the wheels when going on the surfaces
       with the id below:'
     side: client
-  requires_review: true
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function executed succesfully, false otherwise.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -18,3 +31,4 @@ client:
       - Missing section: Materials, surfaces properties
 
       '
+  requires_review: true

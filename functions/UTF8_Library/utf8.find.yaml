@@ -1,12 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.find
-server:
+shared:
   name: utf8.find
   description: Finds the first occurrence of the [pattern](http://lua-users.org/wiki/PatternsTutorial)
     in the string passed. If an instance of the pattern is found, a pair of values
     representing the start and the end of the matched string is returned.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: pattern
+    type: string
+    description: A string match pattern (you can disable pattern matching by using
+      the optional fourth argument plain )
+  - name: startpos
+    type: int
+    description: An integer representing the beginning position.
+    default: '1'
+  - name: plain
+    type: boolean
+    description: A boolean, if pattern matching should be turned off
+    default: 'false'
   examples:
   - path: examples/utf8.find-1.lua
     description: This example shows how to search for parts of a string.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int utf8.find
+      name: value2
+    description: Returns two number values for the beginning and ending position of
+      the matched string, nil otherwise.
   requires_review: true

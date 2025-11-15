@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPlayerCrosshairVisible
-client:
+shared:
   name: isPlayerCrosshairVisible
   description: This function checks if the local player has showing crosshair.
   parameters: []
@@ -7,6 +7,11 @@ client:
   - path: examples/isPlayerCrosshairVisible-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player has the crosshair visible, false otherwise.
   notes:
   - type: info
     content: This function checks if the crosshair is rendered by GTA. Please note

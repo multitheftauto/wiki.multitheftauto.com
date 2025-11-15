@@ -1,12 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementData
-server:
+shared:
   name: getElementData
   description: This function retrieves [element data](/wiki/Element_data "Element
     data") attached to an element under a certain key.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: This is the element with data you want to retrieve.
+  - name: key
+    type: string
+    description: The name of the element data entry you want to retrieve. (Maximum
+      31 characters.)
+  - name: inherit
+    type: bool
+    description: '- toggles whether or not the function should go up the hierarchy
+      to find the requested key in case the specified element doesn''t have it.'
+    default: 'true'
   examples:
   - path: examples/getElementData-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: var
+      name: value
+    description: This function returns a variable containing the requested element
+      data, or false if the element or the element data does not exist. When getting
+      data corresponding to a XML attribute, this is always a string .
+  oop:
+    element: element
+    method: getData
+    static: false
   pair: setElementData
   requires_review: true

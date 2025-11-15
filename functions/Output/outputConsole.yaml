@@ -1,15 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/OutputConsole
-server:
+client:
   name: outputConsole
   description: This outputs the specified text string to the console window (accessed
     with F8 or \~ key). It can be specified as a message to certain player(s) or all
     players.
-  parameters: []
-  examples:
-  - path: examples/outputConsole-1.lua
-    description: ''
-    side: server
-  notes:
+  parameters:
+  - name: text
+    type: string
+    description: The text string that you wish to send to the console window
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+  notes: &id001
   - type: info
     content: visibleTo can also be a Team object, in this case, the text will be visible
       to all the players of that team.
@@ -17,4 +21,27 @@ server:
     content: The serverside function has a limitation of 1000 characters for the text
       parameter. Anything beyond 1000 characters is trimmed away. This limitation
       does not apply to the clientside version.
+  requires_review: true
+server:
+  name: outputConsole
+  description: This outputs the specified text string to the console window (accessed
+    with F8 or \~ key). It can be specified as a message to certain player(s) or all
+    players.
+  parameters:
+  - name: text
+    type: string
+    description: The text string that you wish to send to the console window
+  - name: element visibleTo
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getRootElement(
+  examples:
+  - path: examples/outputConsole-1.lua
+    description: ''
+    side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+  notes: *id001
   requires_review: true

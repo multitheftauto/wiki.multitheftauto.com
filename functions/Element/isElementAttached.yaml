@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementAttached
-server:
+shared:
   name: isElementAttached
   description: This functions checks whether or not an element is attached to another
     element.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element to check for attachment.
   examples:
   - path: examples/isElementAttached-1.lua
     description: 'This examples checks if a player is attached to anything when they
       enter a console command:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the specified element is attached to another element,
+      false if it is not attached or nil if an improper argument was passed.
+  oop:
+    element: element
+    method: isAttached
+    variable: attached
+    static: false
   requires_review: true

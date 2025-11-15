@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsMTAWindowActive
-client:
+shared:
   name: isMTAWindowActive
   description: 'This function returns whether any system windows that take focus are
     active. This includes:'
@@ -9,6 +9,15 @@ client:
     description: This piece of script will kill a player if he has any of the above
       system windows open
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the focus is on the MTA window, false if it isn't.
+  oop:
+    element: GuiElement
+    method: )
+    static: true
   notes:
   - type: info
     content: You cannot rely on this function to get the focus state of the MTA window

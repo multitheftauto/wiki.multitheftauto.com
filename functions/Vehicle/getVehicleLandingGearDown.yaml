@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleLandingGearDown
-server:
+shared:
   name: getVehicleLandingGearDown
   description: This function is used to check whether a vehicle's landing gear is
     down or not. Only planes can be used with this function.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle of which you wish to check the landing gear state.
   examples:
   - path: examples/getVehicleLandingGearDown-1.lua
     description: This function tells you to pull up the landing gear if you're in
       a Hydra with its landing gear down.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if landing gear is down, false if the landing gear is
+      up. Returns nil if the vehicle has no landing gear, or is invalid.
+  oop:
+    element: vehicle
+    method: getLandingGearDown
+    variable: landingGearDown
+    static: false
   pair: setVehicleLandingGearDown
   requires_review: true

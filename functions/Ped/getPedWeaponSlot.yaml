@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedWeaponSlot
-server:
+shared:
   name: getPedWeaponSlot
   description: This function gets a ped's selected weapon slot.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped to get the current weapon slot of.
   examples:
   - path: examples/getPedWeaponSlot-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the selected weapon slot ID on success, false otherwise.
+  oop:
+    element: ped
+    method: getWeaponSlot
+    variable: weaponSlot
+    static: false
   pair: setPedWeaponSlot
   requires_review: true

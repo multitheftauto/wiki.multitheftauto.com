@@ -1,13 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawPrimitive3D
-client:
+shared:
   name: dxDrawPrimitive3D
   description: This function draws a 3D primitive in the 3D world \- rendered for
     **one** frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
     "OnClientRender") in order to display continuously.
-  parameters: []
+  parameters:
+  - name: primitiveType
+    type: string
+    description: 'The type of primitive to be drawn. This could be:'
+  - name: stage
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: vertex1
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: vertex2
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: vertex3
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: vertex4
+    type: table
+    description: MISSING_PARAM_DESC
+  - name: '...'
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxDrawPrimitive3D-1.lua
     description: This is a small example of creating 3D Primitive object with 4 vertex
       that will spawn on 'The Well Stacked Pizza Co.' in Idlewood.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
   requires_review: true

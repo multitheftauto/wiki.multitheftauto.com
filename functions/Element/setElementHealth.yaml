@@ -1,10 +1,16 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementHealth
-server:
+shared:
   name: setElementHealth
   description: This function sets the health for the specified [element](/wiki/Element
     "Element"). This can be a [ped](/wiki/Ped "Ped"), [object](/wiki/Object "Object")
     or a [vehicle](/wiki/Vehicle "Vehicle").
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The ped , vehicle or object whose health you want to set.
+  - name: newHealth
+    type: float
+    description: A float indicating the new health to set for the element.
   examples:
   - path: examples/setElementHealth-1.lua
     description: This example adds a 'hpslap' console command that lets players "slap"
@@ -13,6 +19,17 @@ server:
   - path: examples/setElementHealth-2.lua
     description: This example setting health by a command.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the new health was set successfully, or false if
+      invalid arguments were passed.
+  oop:
+    element: element
+    method: setHealth
+    variable: health
+    static: false
   pair: getElementHealth
   notes:
   - type: info

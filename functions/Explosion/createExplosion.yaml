@@ -1,16 +1,82 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateExplosion
+client:
+  name: createExplosion
+  description: Creates an explosion of a certain type at a specified point in the
+    world. If creator is specified, the explosion will occur only in its dimension.
+  parameters:
+  - name: x
+    type: float
+    description: a float value that specifies the X world coordinate where the explosion
+      is created at.
+  - name: "y"
+    type: float
+    description: a float value that specifies the Y world coordinate where the explosion
+      is created at.
+  - name: z
+    type: float
+    description: a float value that specifies the Z world coordinate where the explosion
+      is created at.
+  - name: theType
+    type: int
+    description: 'a integer specifying the explosion type, see: Explosion types'
+  - name: makeSound
+    type: bool
+    description: a boolean specifying whether the explosion should be heard or not.
+    default: 'true'
+  - name: camShake
+    type: float
+    description: a float specifying the camera shake's intensity.
+    default: '-1.0'
+  - name: damaging
+    type: bool
+    description: a boolean specifying whether the explosion should cause damage or
+      not.
+    default: 'true'
+  examples:
+  - path: examples/createExplosion-2.lua
+    description: Example 1:This code will create an explosion for the local player
+      when they spawn.
+    side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: true if the explosion was created. false if invalid parameters were
+      passed.
+  requires_review: true
 server:
   name: createExplosion
   description: Creates an explosion of a certain type at a specified point in the
     world. If creator is specified, the explosion will occur only in its dimension.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: a float value that specifies the X world coordinate where the explosion
+      is created at.
+  - name: "y"
+    type: float
+    description: a float value that specifies the Y world coordinate where the explosion
+      is created at.
+  - name: z
+    type: float
+    description: a float value that specifies the Z world coordinate where the explosion
+      is created at.
+  - name: theType
+    type: int
+    description: 'an integer specifying the explosion type, see: Explosion types'
+  - name: creator
+    type: player
+    description: the explosion's simulated creator, the player responsible for it.
+    default: nil
   examples:
   - path: examples/createExplosion-1.lua
     description: Example 1:This code will create an explosion at the player's position
       when they spawn.
     side: server
-  - path: examples/createExplosion-2.lua
-    description: Example 1:This code will create an explosion for the local player
-      when they spawn.
-    side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: true if the explosion was created. false if invalid parameters were
+      passed.
   requires_review: true

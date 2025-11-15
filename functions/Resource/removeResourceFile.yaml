@@ -1,11 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RemoveResourceFile
-server:
+shared:
   name: removeResourceFile
   description: This function removes a file from the resource.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: The resource element.
+  - name: fileName
+    type: string
+    description: The filename what you wan't to delete.
   examples:
   - path: examples/removeResourceFile-1.lua
     description: This example removes a .txt file from the resource sx_remanager (in-game
       script editor) when started.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if file was deleted, otherwise false if the resource
+      is in use or the file doesn't exist.
+  oop:
+    element: resource
+    method: removeFile
+    static: false
   requires_review: true

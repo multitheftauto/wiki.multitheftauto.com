@@ -1,8 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsCoronaReflectionEnabled
-client:
+shared:
   name: isCoronaReflectionEnabled
   description: This function gets visibility of corona reflection.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: marker
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+  oop:
+    element: marker
+    method: isCoronaReflectionEnabled
+    static: false
   pair: setCoronaReflectionEnabled
   requires_review: true

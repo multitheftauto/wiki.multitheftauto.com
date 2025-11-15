@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingRequestModel
-client:
+shared:
   name: engineStreamingRequestModel
   description: This function sends a loading request to the game model streamer.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: number
+    description: ID of the model you want to load
+  - name: addRef
+    type: boolean
+    description: increase references counter to prevent the model from unloading.
+    default: 'false'
+  - name: isBlocking
+    type: boolean
+    description: load model immediately or use async loading.
+    default: 'false'
   examples:
   - path: examples/engineStreamingRequestModel-1.lua
     description: This example draws a model
     side: client
-  requires_review: true
+  returns:
+    values:
+    - type: boolean
+      name: value
+    description: Returns true if a new request was created, false otherwise.
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -15,3 +30,4 @@ client:
       - Missing section: References counter
 
       '
+  requires_review: true

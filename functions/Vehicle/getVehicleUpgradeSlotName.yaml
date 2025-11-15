@@ -1,12 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleUpgradeSlotName
-server:
+shared:
   name: getVehicleUpgradeSlotName
   description: This function returns the name of an upgrade slot name (e.g. roof,
     spoiler).
-  parameters: []
+  parameters:
+  - name: slot/upgrade
+    type: int
+    description: 'the slot ID or corresponding upgrade ID of which you want the name.
+      0 : Hood 1 : Vent 2 : Spoiler 3 : Sideskirt 4 : Front Bullbars 5 : Rear Bullbars
+      6 : Headlights 7 : Roof 8 : Nitro 9 : Hydraulics 10 : Stereo 11 : Unknown 12
+      : Wheels 13 : Exhaust 14 : Front Bumper 15 : Rear Bumper 16 : Misc'
   examples:
   - path: examples/getVehicleUpgradeSlotName-1.lua
     description: This example prints the name and upgrades on each slot of an entered
       vehicle to the chat.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string with the slot name if a valid slot or upgrade ID
+      was given, false otherwise.
   requires_review: true

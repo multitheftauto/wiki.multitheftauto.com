@@ -1,12 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawWiredSphere
-client:
+shared:
   name: dxDrawWiredSphere
   description: This function drawn same sphere as /showcol. It provides 4 levels of
     iterations which mean density of sphere. Adjust radius to iterations to get optimum
     density of mesh. About 50 spheres with iterations \= 4 can cause fps drop.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: "y"
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: z
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: radius
+    type: float
+    description: A radius of sphere.
+  - name: theColor
+    type: int
+    description: A color of sphere from tocolor function.
+  - name: fLineWidth
+    type: float
+    description: A width of line
+  - name: iterations
+    type: uint
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/dxDrawWiredSphere-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
   requires_review: true

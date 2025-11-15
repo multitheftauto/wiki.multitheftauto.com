@@ -1,12 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetObjectScale
-server:
+shared:
   name: setObjectScale
   description: This function changes the visible size of an object.
-  parameters: []
+  parameters:
+  - name: theObject
+    type: object
+    description: the object you wish to change the scale of.
+  - name: scale
+    type: float
+    description: a float containing the new scale. 1.0 is the standard scale, with
+      0.5 being half the size and 2.0 being twice the size. If the scaleY is set,
+      this will be scaleX.
+  - name: scaleY
+    type: float
+    description: a float containing the new scale on the Y axis
+    default: scale
+  - name: scaleZ
+    type: float
+    description: a float containing the new scale on the Z axis
+    default: scale
   examples:
   - path: examples/setObjectScale-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This example creates an antenna, and changes the size of it.
+  oop:
+    element: object
+    method: setScale
+    variable: scale
+    static: false
   pair: getObjectScale
   notes:
   - type: info

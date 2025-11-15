@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiWindowIsSizable
-client:
+shared:
   name: guiWindowIsSizable
   description: This function checks if a GUI window is sizable.
-  parameters: []
+  parameters:
+  - name: guiWindow
+    type: gui-window
+    description: the window to check the sizable flag of
   examples:
   - path: examples/guiWindowIsSizable-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the window is sizable, false if not, nil if an invalid
+      window was provided.
   pair: guiWindowSetSizable
   requires_review: true

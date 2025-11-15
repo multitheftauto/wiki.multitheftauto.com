@@ -1,11 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedWeapon
-server:
+shared:
   name: getPedWeapon
   description: This function tells you which weapon type is in a certain **[weapon
     slot](/wiki/Weapon "Weapon")** of a ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped you want to get the weapon type from.
+  - name: weaponSlot
+    type: int
+    description: an integer representing the weapon slot (set to the ped's current
+      slot if not given).
+    default: current
   examples:
   - path: examples/getPedWeapon-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int indicating the type of the weapon the ped has in the
+      specified slot. If the slot is empty, it returns 0.
+  oop:
+    element: ped
+    method: getWeapon
+    static: false
   requires_review: true

@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CountPlayersInTeam
-server:
+shared:
   name: countPlayersInTeam
   description: This function is for returning the number of players in the specified
     team.
-  parameters: []
+  parameters:
+  - name: theTeam
+    type: team
+    description: The team you wish to retrieve the player count of.
   examples:
   - path: examples/countPlayersInTeam-1.lua
     description: This example adds a command in the console to find out how many players
@@ -19,4 +22,15 @@ server:
       joins the server, or for all players currently in the server when the gamemode
       starts.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer containing the number of players in the team,
+      false if it could not be retrieved.
+  oop:
+    element: team
+    method: countPlayers
+    variable: playerCount
+    static: false
   requires_review: true

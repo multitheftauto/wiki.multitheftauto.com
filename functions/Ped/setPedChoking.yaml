@@ -1,13 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedChoking
-server:
+shared:
   name: setPedChoking
   description: This function can be used to force the ped to do the choking (coughing)
     animation until he respawns or toggled off using this function. The animation
     can not be cancelled by a player it's applied to, and he will not loose health.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose choking status to toggle
+  - name: choking
+    type: bool
+    description: true to make the ped choke, false to no longer force his choking
+      animation
   examples:
   - path: examples/setPedChoking-1.lua
     description: This script will make all players choke on resource start
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise (e.g. player handle is
+      invalid)
+  oop:
+    element: ped
+    method: setChoking
+    variable: choking
+    static: false
   pair: isPedChoking
   requires_review: true

@@ -1,11 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRotorSpeed
-client:
+shared:
   name: getVehicleRotorSpeed
   description: Retrieves the speed at which the rotor of a helicopter or plane rotates.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle element (helicopter or plane) to get the rotor speed
+      of.
   examples:
   - path: examples/getVehicleRotorSpeed-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns the rotor speed if successful. This is 0 when the helicopter
+      or plane is stationary, and about 0.2 when it is fully spun up. It can be negative
+      if the rotor rotates counter-clockwise. Returns false in case of failure (an
+      invalid element or a vehicle element that is not a helicopter or plane was passed).
+  oop:
+    element: vehicle
+    method: getVehicleRotorSpeed
+    variable: vehicleRotorSpeed
+    static: false
   pair: setVehicleRotorSpeed
   requires_review: true

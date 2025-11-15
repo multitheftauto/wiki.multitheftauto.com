@@ -1,13 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleDoorsUndamageable
-server:
+shared:
   name: setVehicleDoorsUndamageable
   description: This function makes a vehicle's doors undamageable, so they won't fall
     off when they're hit. Note that the vehicle **has** to be locked using [setVehicleLocked](/wiki/SetVehicleLocked
     "SetVehicleLocked") for this setting to have any effect.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle of which you wish to set the car door damageability.
+  - name: state
+    type: bool
+    description: A boolean denoting whether the vehicle's doors are undamageable (
+      true ) or damageable ( false ).
   examples:
   - path: examples/setVehicleDoorsUndamageable-1.lua
     description: Here you can disable all vehicles doors damage with /nodamage, and
       enable it with /adddamage.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the damageability state was successfully changed,
+      false if invalid arguments were passed.
+  oop:
+    element: vehicle
+    method: setDoorsUndamageable
+    variable: doorsUndamageable
+    static: false
   requires_review: true

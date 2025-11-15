@@ -1,8 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/KillPed
-server:
+shared:
   name: killPed
   description: This function kills the specified ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped to kill
+  - name: theKiller
+    type: ped
+    description: The ped responsible for the kill
+    default: nil
+  - name: weapon
+    type: int
+    description: The ID of the weapon or Damage Types that should appear to have killed
+      the ped (doesn't affect how they die)
+    default: '255'
+  - name: bodyPart
+    type: int
+    description: 'The ID of the body part that should appear to have been hit by the
+      weapon (doesn''t affect how they die) 3: Torso 4: Ass 5: Left Arm 6: Right Arm
+      7: Left Leg 8: Right Leg 9: Head'
+    default: '255'
+  - name: stealth
+    type: bool
+    description: Boolean value, representing whether or not this a stealth kill
+    default: 'false'
   examples:
   - path: examples/killPed-1.lua
     description: Example 1:This simple example adds akillcommand to commit suicide.
@@ -11,4 +33,14 @@ server:
     description: Example 2:This example enables 1 hit kills if a player is shot in
       the head.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped was killed, false if the ped specified could
+      not be killed or is invalid.
+  oop:
+    element: ped
+    method: kill
+    static: false
   requires_review: true

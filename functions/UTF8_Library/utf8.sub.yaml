@@ -1,10 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.sub
-server:
+shared:
   name: utf8.sub
   description: Returns a substring of the string passed. The substring starts at *i*.
     If the third argument *j* is not given, the substring will end at the end of the
     string. If the third argument is given, the substring ends at and includes *j*.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: int i
+    type: '[,'
+    description: MISSING_PARAM_DESC
+    default: 1, int j = utf8.len( input
   examples:
   - path: examples/utf8.sub-1.lua
     description: This example shows how to extract a substring from a UTF-8 string.
@@ -12,4 +19,10 @@ server:
   - path: examples/utf8.sub-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: string utf8.sub
+      name: value
+    description: Returns a string substring of the original string, containing the
+      selected range from the original string.
   requires_review: true

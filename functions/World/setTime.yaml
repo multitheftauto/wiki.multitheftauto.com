@@ -1,8 +1,14 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTime
-server:
+shared:
   name: setTime
   description: This function sets the current GTA time to the given time.
-  parameters: []
+  parameters:
+  - name: hour
+    type: int
+    description: The hour of the new time (range 0-23).
+  - name: minute
+    type: int
+    description: The minute of the new time (range 0-59).
   examples:
   - path: examples/setTime-1.lua
     description: This serverside function sets the time and notifies players.
@@ -10,4 +16,9 @@ server:
   - path: examples/setTime-2.lua
     description: This example freeze the time.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the new time was successfully set, false otherwise.
   requires_review: true

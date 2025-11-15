@@ -1,8 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetChatboxLayout
-client:
+shared:
   name: getChatboxLayout
   description: Returns information about how the chatbox looks.
-  parameters: []
+  parameters:
+  - name: CVar
+    type: string
+    description: 'the name of the property you want returned. Can be the following
+      values: chat_font - Returns the chatbox font chat_lines - Returns how many lines
+      the chatbox has chat_color - Returns the background color of the chatbox chat_text_color
+      - Returns the chatbox text color chat_input_color - Returns the background color
+      of the chatbox input chat_input_prefix_color - Returns the color of the input
+      prefix text chat_input_text_color - Returns the color of the text in the chatbox
+      input chat_scale - Returns the scale of the text in the chatbox chat_position_offset_x
+      - Returns the x position offset setting chat_position_offset_y - Returns the
+      y position offset setting chat_position_horizontal - Returns the horizontal
+      alignment setting chat_position_vertical - Returns the vertical alignment setting
+      chat_text_alignment - Returns the text alignment setting chat_width - Returns
+      the scale of the background width chat_css_style_text - Returns whether text
+      fades out over time chat_css_style_background - Returns whether the background
+      fades out over time chat_line_life - Returns how long it takes for text to start
+      fading out chat_line_fade_out - Returns how long takes for text to fade out
+      chat_use_cegui - Returns whether CEGUI is used to render the chatbox text_scale
+      - Returns text scale chat_text_outline - Returns whether text black/white outline
+      is used'
   examples:
   - path: examples/getChatboxLayout-1.lua
     description: This code makes the chatbox empty when you type /clear
@@ -11,4 +31,9 @@ client:
     description: This code makes the chatbox empty when you type /clear, but with
       a cleaner code
     side: client
+  returns:
+    values:
+    - type: bool|int|table
+      name: value
+    description: This code makes the chatbox empty when you type /clear
   requires_review: true

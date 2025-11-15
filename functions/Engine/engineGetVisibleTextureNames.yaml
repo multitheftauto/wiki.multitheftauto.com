@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetVisibleTextureNames
-client:
+shared:
   name: engineGetVisibleTextureNames
   description: This function returns a list of the world textures which are being
     used to draw the current scene.
-  parameters: []
+  parameters:
+  - name: nameFilter
+    type: string
+    description: Only include textures that match the wildcard string.
+    default: '"*"'
+  - name: modelId
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '""'
   examples:
   - path: examples/engineGetVisibleTextureNames-1.lua
     description: This example will output the names of all the visible textures that
       start with 'a'
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of texture names.
+  oop:
+    element: Engine
+    method: getVisibleTextureNames
+    static: true
   requires_review: true

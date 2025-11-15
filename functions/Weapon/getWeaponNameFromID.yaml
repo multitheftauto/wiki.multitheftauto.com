@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponNameFromID
-server:
+shared:
   name: getWeaponNameFromID
   description: This function allows you to retrieve the name of a weapon from an ID.
-  parameters: []
+  parameters:
+  - name: id
+    type: int
+    description: The ID you wish to retrieve the name of
   examples:
   - path: examples/getWeaponNameFromID-1.lua
     description: This example displays a death message in the format of "*Killerkilleddead(Weapon)"
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: 'Returns a string of the name of the weapon or death type, false
+      otherwise. Names will be like these: (Ignoring case)'
   notes:
   - type: info
     content: You can also retrieve the name of other methods of death, such as Fall

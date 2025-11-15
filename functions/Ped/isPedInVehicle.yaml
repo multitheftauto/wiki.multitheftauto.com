@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedInVehicle
-server:
+shared:
   name: isPedInVehicle
   description: Checks whether or not a given ped is currently in a vehicle.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped you want to check.
   examples:
   - path: examples/isPedInVehicle-1.lua
     description: This code defines anisinvehiclecommand which tells a player whether
       another player is in a vehicle or not.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is in a vehicle, false if he is on foot or
+      an invalid element was passed.
+  oop:
+    element: ped
+    method: isInVehicle
+    variable: inVehicle
+    static: false
   notes:
   - type: info
     content: 'Client side IsPedInVehicle only returns true if the ped is physically

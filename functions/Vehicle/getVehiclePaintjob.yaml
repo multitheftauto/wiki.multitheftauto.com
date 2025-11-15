@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehiclePaintjob
-server:
+shared:
   name: getVehiclePaintjob
   description: This function gets the current paintjob on the specified vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle you wish to get the paintjob of.
   examples:
   - path: examples/getVehiclePaintjob-1.lua
     description: This example will set the paintjob of a new sultan to '2', then check
       it was set.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer representing the current paintjob on the vehicle.
+  oop:
+    element: vehicle
+    method: getPaintjob
+    variable: paintjob
+    static: false
   pair: setVehiclePaintjob
   notes:
   - type: info

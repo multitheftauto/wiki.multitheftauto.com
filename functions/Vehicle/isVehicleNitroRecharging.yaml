@@ -1,13 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleNitroRecharging
-client:
+shared:
   name: isVehicleNitroRecharging
   description: This function checks if nitro is recharging on the [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: ''
   examples:
   - path: examples/isVehicleNitroRecharging-1.lua
     description: This example will print if vehicle's nitro is already recharging
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the nitro is currently recharging on the vehicle,
+      false otherwise.
   notes:
   - type: warning
     content: Only works if the vehicle is streamed in.

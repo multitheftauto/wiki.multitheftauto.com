@@ -1,15 +1,37 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateColRectangle
-server:
+shared:
   name: createColRectangle
   description: This function creates a collision rectangle. This is a shape that has
     a position and a width and a depth. See [Rectangle](http://en.wikipedia.org/wiki/Rectangle)
     for a definition of a rectangle. XY marks on the south west corner of the colshape.
-  parameters: []
+  parameters:
+  - name: fX
+    type: float
+    description: The X position of the collision rectangle's west side.
+  - name: fY
+    type: float
+    description: The Y position of the collision rectangle's south side.
+  - name: fWidth
+    type: float
+    description: The collision rectangle's width.
+  - name: fHeight
+    type: float
+    description: The collision rectangle's height.
   examples:
   - path: examples/createColRectangle-1.lua
     description: This example displays a chat message when a player enters the colshape
       and allows the colshape to be created using a console functionset_zone.
     side: server
+  returns:
+    values:
+    - type: colshape
+      name: value
+    description: Returns a colshape element if successful, false if invalid arguments
+      were passed to the function.
+  oop:
+    element: ColShape
+    method: Rectangle
+    static: true
   notes:
   - type: info
     content: Attaching a rectangle colshape to another element may give unexpected

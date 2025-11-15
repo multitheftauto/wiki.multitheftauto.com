@@ -1,10 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddResourceConfig
-server:
+shared:
   name: addResourceConfig
   description: This function adds a new empty config file to an existing resource.
-  parameters: []
+  parameters:
+  - name: filePath
+    type: string
+    description: 'The filepath of the file to be created in the following format:
+      ":resourceName/path" . ''resourceName'' is the name of the resource the file
+      is in, and ''path'' is the path from the root directory of the resource to the
+      file.'
+  - name: filetype
+    type: string
+    description: a string indicating whether the file is serverside ("server") or
+      clientside ("client").
+    default: '"server"'
   examples:
   - path: examples/addResourceConfig-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: xmlnode
+      name: value
+    description: Returns the new config's root xmlnode if the config was added successfully,
+      false otherwise.
   requires_review: true

@@ -1,11 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineFreeTXD
-client:
+shared:
   name: engineFreeTXD
   description: This function is used to un\-assign the specified TXD ID from the [engineRequestTXD](/wiki/EngineRequestTXD
     "EngineRequestTXD") assignment.
-  parameters: []
+  parameters:
+  - name: txdID
+    type: int
+    description: the TXD ID you want to have un-assigned.
   examples:
   - path: examples/engineFreeTXD-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the TXD was successfully freed, false otherwise.
   requires_review: true

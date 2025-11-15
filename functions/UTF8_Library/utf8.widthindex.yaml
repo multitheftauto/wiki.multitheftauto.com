@@ -1,11 +1,37 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.widthindex
-server:
+shared:
   name: utf8.widthindex
   description: Returns the location, offset and width of the character at the given
     location in the UTF\-8 string.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: location
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: ambi_is_double
+    type: bool
+    description: A boolean, if set to true , ambiguous character's width is 2 (see
+      example).
+    default: 'false'
+  - name: default_width
+    type: int
+    description: An integer, if given, is used as width for unprintable characters.
+    default: '0'
   examples:
   - path: examples/utf8.widthindex-1.lua
     description: This example
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int utf8.widthindex
+      name: value3
+    description: Returns the given location, the offset in UTF-8 encoding (if cursor
+      is in the middle of the wide char - offset will be 2) and the width of the character,
+      otherwise only the location as integer will be returned.
   requires_review: true

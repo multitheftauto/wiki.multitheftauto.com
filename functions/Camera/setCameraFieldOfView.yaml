@@ -1,16 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraFieldOfView
-client:
+shared:
   name: setCameraFieldOfView
   description: This function sets the field of view of the *dynamic camera* \- this
     is the field of view of the *non\-fixed camera* \- yes, the camera that the user
     can control whilst on foot or in a vehicle. The higher the field of view angle,
     the more you will be able to see to your sides.
-  parameters: []
+  parameters:
+  - name: cameraMode
+    type: string
+    description: 'the camera mode to set the field of view of: "player": whilst walking/running
+      "vehicle": whilst in vehicle "vehicle_max": the max the field of view can go
+      to when the vehicle is moving at a high speed (must be higher than "vehicle"
+      | the normal difference between "vehicle" and "vehicle_max" is 10)'
+  - name: fieldOfView
+    type: float
+    description: The field of view angle, 0 to 179.
+  - name: instant
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/setCameraFieldOfView-1.lua
     description: In this example, the field of view for 'player walking/running' camera
       is set to 20, once resource fully starts.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the arguments are valid, false otherwise.
+  oop:
+    element: Camera
+    method: setFieldOfView
+    static: true
   pair: getCameraFieldOfView
   notes:
   - type: info

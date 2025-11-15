@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementInWater
-server:
+shared:
   name: isElementInWater
   description: This function checks whether an [element](/wiki/Element "Element")
     is submerged in water.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element to check.
   examples:
   - path: examples/isElementInWater-1.lua
     description: ''
@@ -14,4 +17,15 @@ server:
   - path: examples/isElementInWater-3.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the passed element is in water, false if it isn't,
+      or if the element is invalid.
+  oop:
+    element: element
+    method: isInWater
+    variable: inWater
+    static: false
   requires_review: true

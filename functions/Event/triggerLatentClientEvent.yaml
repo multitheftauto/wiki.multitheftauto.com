@@ -1,12 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TriggerLatentClientEvent
-server:
+shared:
   name: triggerLatentClientEvent
   description: 'This function is the same as [triggerClientEvent](/wiki/TriggerClientEvent
     "TriggerClientEvent")  except the transmission rate of the data contained in the
     arguments can be limited
 
     and other network traffic is not blocked while the data is being transferred.'
-  parameters: []
+  parameters:
+  - name: sendTo
+    type: '[table/element'
+    description: The event will be sent to all players that are children of the specified
+      element. By default this is the root element, and hence the event is sent to
+      all players. If you specify a single player it will just be sent to that player.
+      This argument can also be a table of player elements.
+    default: getRootElement(
   examples:
   - path: examples/triggerLatentClientEvent-1.lua
     description: ''
@@ -14,13 +21,18 @@ server:
   - path: examples/triggerLatentClientEvent-2.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event trigger has been sent, false if invalid
+      arguments were specified.
   notes:
   - type: info
     content: You should avoid triggering events on the root element unless you really
       need to. Doing this triggers the event on every element in the element tree
       , which is potentially very CPU intensive. Use as specific (i.e. low down the
       tree) element as you can.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -28,3 +40,4 @@ server:
       - Missing section: triggerClientEvent vs triggerLatentClientEvent test by DreTaX
 
       '
+  requires_review: true

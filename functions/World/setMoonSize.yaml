@@ -1,12 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetMoonSize
-server:
+shared:
   name: setMoonSize
   description: This function sets the moon size. Using this function server\-side
     will overwrite the value that was previously set client\-side.
-  parameters: []
+  parameters:
+  - name: size
+    type: int
+    description: The size, can be 0 or any positive value. Default is 3 .
   examples:
   - path: examples/setMoonSize-1.lua
     description: This example change moon size to looks more realistic for everyone
       when the resource is started.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the moon size was set correctly, false otherwise.
   requires_review: true

@@ -1,9 +1,46 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/BlowVehicle
+client:
+  name: blowVehicle
+  description: This function will blow up a vehicle. This will cause an explosion
+    and will kill the driver and any passengers inside it.
+  parameters:
+  - name: vehicleToBlow
+    type: vehicle
+    description: the vehicle that you wish to blow up.
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was blown up, false if invalid arguments
+      were passed to the function.
+  oop: &id001
+    element: vehicle
+    method: blow
+    variable: blown
+    static: false
+  pair: isVehicleBlown
+  meta:
+  - needs_checking: 'This function was partially migrated from the old wiki. Please
+      review manually:
+
+      - Missing section: Client Class Example
+
+      '
+  requires_review: true
 server:
   name: blowVehicle
   description: This function will blow up a vehicle. This will cause an explosion
     and will kill the driver and any passengers inside it.
-  parameters: []
+  parameters:
+  - name: vehicleToBlow
+    type: vehicle
+    description: the vehicle that you wish to blow up.
+  - name: explode
+    type: bool
+    description: if this argument is true then the vehicle will explode, otherwise
+      it will just be blown up silently.
+    default: 'true'
   examples:
   - path: examples/blowVehicle-1.lua
     description: This example will blow up every vehicle in the game.
@@ -12,8 +49,14 @@ server:
     description: This example will blow a player's vehicle when he enters the car,
       like a carbomb.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle was blown up, false if invalid arguments
+      were passed to the function.
+  oop: *id001
   pair: isVehicleBlown
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -21,3 +64,4 @@ server:
       - Missing section: Client Class Example
 
       '
+  requires_review: true

@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SvgSetDocumentXML
-client:
+shared:
   name: svgSetDocumentXML
   description: Sets the underlying XML document of an SVG element.
-  parameters: []
+  parameters:
+  - name: svgElement
+    type: svg
+    description: The svg element you want to set the XML document of
+  - name: xmlDocument
+    type: xmlnode
+    description: An xmlnode containing the data to be set on the SVG document
+  - name: function callback ( element svg
+    type: '[,'
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/svgSetDocumentXML-1.lua
     description: This example creates ansvgelement including a keybind (F2) to add
       a child rect node, with the use of callbacks to notify in debugscript when the
       SVG was updated.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This example creates an svg element including a keybind (F2) to add
+      a child rect node, with the use of callbacks to notify in debugscript when the
+      SVG was updated.
   requires_review: true

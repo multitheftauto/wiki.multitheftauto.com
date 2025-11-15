@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetAlivePlayers
-server:
+shared:
   name: getAlivePlayers
   description: This function returns a table of all the alive players on the server.
     Opposite function of [getDeadPlayers](/wiki/GetDeadPlayers "GetDeadPlayers").
@@ -9,4 +9,13 @@ server:
     description: This example prints a list of all alive players in a "name, name2,
       name3" format.  If no players are alive then it outputs "none".
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of all the alive players.
+  oop:
+    element: Player
+    method: )
+    static: true
   requires_review: true

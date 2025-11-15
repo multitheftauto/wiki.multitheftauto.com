@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResources
-server:
+shared:
   name: getResources
   description: This function retrieves a table of all the resources that exist on
     the server.
@@ -8,4 +8,13 @@ server:
   - path: examples/getResources-1.lua
     description: This function lists all loaded resources in the console.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of resources.
+  oop:
+    element: Resource
+    method: )
+    static: true
   requires_review: true

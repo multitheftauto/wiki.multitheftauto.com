@@ -11,13 +11,18 @@ client:
       map when the resource which contains it starts and makes the weapon fire the
       new ped's head non-stop.
     side: client
+  oop:
+    element: weapon
+    note: Variable is read only.
+    method: setTarget
+    variable: target
+    static: false
   pair: getWeaponTarget
   notes:
   - type: info
     content: Custom weapons fire targets with no recoil (so they never miss a shot).
       If you want a custom weapon to take into account recoil, you will have to script
       it by firing at fixed coordinates.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -29,3 +34,4 @@ client:
       - Missing section: Syntax (rotational target)
 
       '
+  requires_review: true

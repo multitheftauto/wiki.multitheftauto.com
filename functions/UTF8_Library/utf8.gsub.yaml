@@ -1,9 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.gsub
-server:
+shared:
   name: utf8.gsub
   description: Returns a copy of the original input string with replaced matches from
     the pattern by the replacement value.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: pattern
+    type: string
+    description: A string match pattern
+  - name: replace
+    type: mixed
+    description: A string literal OR an integer value OR a function (see examples
+      below) OR a table ({ match = replacement })
+  - name: int match_limit
+    type: '[,'
+    description: MISSING_PARAM_DESC
+    default: utf8.len( input
   examples:
   - path: examples/utf8.gsub-1.lua
     description: This example shows how to remove color codes from a string and how
@@ -17,6 +31,12 @@ server:
     description: This example shows a simple bad word filter, which censors the word
       'ugly' in the input string.
     side: client
+  returns:
+    values:
+    - type: string utf8.gsub
+      name: value
+    description: Returns a pair of values, the modified string and the integer number
+      of substitutions made.
   notes:
   - type: warning
     content: 'This function may modify your input string even if no changes were made.

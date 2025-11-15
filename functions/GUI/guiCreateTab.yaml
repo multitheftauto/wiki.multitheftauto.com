@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateTab
-client:
+shared:
   name: guiCreateTab
   description: This function creates a tab on a pre\-existing tab panel. A tab is
     a button as well as a 'dimension' that can be used to switch between information
     by clicking on the tabs. Tabs are sorted on a tab panel in the order that they
     are created.
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: The caption for the tab
+  - name: parent
+    type: gui-element
+    description: The parent tab panel, as a tab panel element type
   examples:
   - path: examples/guiCreateTab-1.lua
     description: This example creates a information window and adds two tabs to a
       "tabPanel" tabpanel, and adds some other gui elements to it.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a tab element if successful, false otherwise.
+  oop:
+    element: element
+    constructorclass: GuiTab
   requires_review: true

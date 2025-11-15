@@ -1,14 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetSortingEnabled
-client:
+shared:
   name: guiGridListSetSortingEnabled
   description: This function allows the disabling or enabling of *sorting* within
     a gridlist. Sorting is achieved by clicking a column header. Gridlist items will
     be sorted according to the clicked column. By default, gridlists have sorting
     enabled. This function will allow you to toggle this.
-  parameters: []
+  parameters:
+  - name: guiGridlist
+    type: element
+    description: The GUI gridlist you wish to toggle the sorting of.
+  - name: enabled
+    type: bool
+    description: A boolean representing whether the sorting is enabled, or disabled.
   examples:
   - path: examples/guiGridListSetSortingEnabled-1.lua
     description: Example 1:This example creates a gridlist, fills it with players
       connected to the server and disables the sorting for that gridlist
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if sorting was successfully toggled., false otherwise.
+  oop:
+    element: guigridlist
+    method: setSortingEnabled
+    variable: sortingEnabled
+    static: false
   requires_review: true

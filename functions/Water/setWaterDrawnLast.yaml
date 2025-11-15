@@ -1,10 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWaterDrawnLast
-client:
+shared:
   name: setWaterDrawnLast
   description: This function changes the [water](/wiki/Water "Water") rendering order.
-  parameters: []
+  parameters:
+  - name: bEnabled
+    type: bool
+    description: A boolean value determining whether water should be drawn last.
   examples:
   - path: examples/setWaterDrawnLast-1.lua
     description: This example toggles water to be drawn last.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the rendering order was changed successfully, false
+      otherwise.
   requires_review: true

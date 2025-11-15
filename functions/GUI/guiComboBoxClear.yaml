@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxClear
-client:
+shared:
   name: guiComboBoxClear
   description: This function removes all the items from a combobox.
-  parameters: []
+  parameters:
+  - name: comboBox
+    type: element
+    description: The combobox element to be cleared
   examples:
   - path: examples/guiComboBoxClear-1.lua
     description: This example creates a combo box with all server vehicles on it,
       with a command to clear the combo box.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the combobox element is valid and has been cleared
+      successfully, false otherwise.
+  oop:
+    element: guicombobox
+    method: clear
+    static: false
   requires_review: true

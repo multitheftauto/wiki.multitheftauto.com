@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetEasingValue
-server:
+shared:
   name: getEasingValue
   description: 'Used for custom Lua based interpolation, returns the easing value
     (animation time to use in your custom interpolation) given a progress and an [easing
@@ -8,7 +8,26 @@ server:
     In most cases, either [moveObject](/wiki/MoveObject "MoveObject") or [interpolateBetween](/wiki/InterpolateBetween
     "InterpolateBetween") can do the job. getEasingValue is only provided in case
     you want to do your own custom interpolation based on easing.'
-  parameters: []
+  parameters:
+  - name: fProgress
+    type: float
+    description: float between 0 and 1 indicating the interpolation progress (0 at
+      the beginning of the interpolation, 1 at the end).
+  - name: strEasingType
+    type: string
+    description: the easing function to use for the interpolation
+  - name: fEasingPeriod
+    type: float
+    description: the period of the easing function (only some easing functions use
+      this parameter)
+  - name: fEasingAmplitude
+    type: float
+    description: the amplitude of the easing function (only some easing functions
+      use this parameter)
+  - name: fEasingOvershoot
+    type: float
+    description: the overshoot of the easing function (only some easing functions
+      use this parameter)
   examples:
   - path: examples/getEasingValue-1.lua
     description: 'This clientside example uses getEasingValue to make a custom camera
@@ -23,4 +42,11 @@ server:
       the alpha between 0 and 255 and then 255 and 0 but is example is just to illustrate
       the use of getEasingValue by itself.'
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns fAnimationTime the animation time given by the easing function
+      (can be < 0 or > 1 since some easing functions have overshoot or bounce/spring
+      effects, false otherwise (error in parameters).
   requires_review: true

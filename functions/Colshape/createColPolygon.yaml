@@ -1,12 +1,41 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateColPolygon
-server:
+shared:
   name: createColPolygon
   description: This function creates a collision polygon. See [Wikipedia](http://en.wikipedia.org/wiki/Polygon)
     for a definition of a polygon. The first set of X Y of this shape is not part
     of the colshape bounds, so can set anywhere in the game world, however for performance,
     place it as close to the centre of the polygon as you can. It should be noted
     this shape is **2D**. There should be at least 3 bound points set.
-  parameters: []
+  parameters:
+  - name: fCenterX
+    type: float
+    description: The X position of the collision polygon's position - the position
+      that will be returned from getElementPosition .
+  - name: fCenterY
+    type: float
+    description: The Y position of the collision polygon's position - the position
+      that will be returned from getElementPosition .
+  - name: fX1
+    type: float
+    description: The 1st X position of the collision polygon's bound point
+  - name: fY1
+    type: float
+    description: The 1st Y position of the collision polygon's bound point
+  - name: fX2
+    type: float
+    description: The 2nd X position of the collision polygon's bound point
+  - name: fY2
+    type: float
+    description: The 2nd Y position of the collision polygon's bound point
+  - name: fX3
+    type: float
+    description: The 3rd X position of the collision polygon's bound point
+  - name: fY3
+    type: float
+    description: The 3rd Y position of the collision polygon's bound point
+  - name: '...'
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/createColPolygon-1.lua
     description: This example displays a chat message when any element hits the colshape
@@ -16,6 +45,16 @@ server:
     description: This example displays a chat message when any element hits the colshape
       and allows the colshape to be created using a console functionset_wall.
     side: server
+  returns:
+    values:
+    - type: colshape
+      name: value
+    description: Returns a colshape element if successful, false if invalid arguments
+      were passed to the function.
+  oop:
+    element: ColShape
+    method: Polygon
+    static: true
   notes:
   - type: info
     content: For this function to work correctly, get/set your bound points in an

@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/UtfSub
-server:
+shared:
   name: utfSub
   description: The function returns a sub string, from the specified positions on
     a character.
-  parameters: []
+  parameters:
+  - name: theString
+    type: string
+    description: The string .
+  - name: Start
+    type: int
+    description: An int with the start position.
+  - name: End
+    type: int
+    description: An int with the end position.
   examples:
   - path: examples/utfSub-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string if the function was successful, false otherwise.
   requires_review: true

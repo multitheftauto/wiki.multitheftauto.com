@@ -1,15 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetItemData
-client:
+shared:
   name: guiGridListSetItemData
   description: "This function sets a Item Data associated to a grid list item.  \n\
     \n**Note:** This function will only work **after** you set the item's text using\
     \ [guiGridListSetItemText](/wiki/GuiGridListSetItemText \"GuiGridListSetItemText\"\
     )!"
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: A gridlist element of the data you wish to set to
+  - name: rowIndex
+    type: int
+    description: The row of the item you wish to set to
+  - name: columnIndex
+    type: int
+    description: The column of the item you wish to set to
+  - name: data
+    type: var
+    description: The data you wish to set to the item.
   examples:
   - path: examples/guiGridListSetItemData-1.lua
     description: In this example, the gridlist shows the list of players without their
       color codes and outputs their names with color-codes at the chatbox when player
       is selected.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the data was set successfully, false otherwise
+  oop:
+    element: guigridlist
+    method: setItemData
+    static: false
   requires_review: true

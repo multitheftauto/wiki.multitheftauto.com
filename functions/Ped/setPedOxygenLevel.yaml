@@ -1,12 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedOxygenLevel
-client:
+shared:
   name: setPedOxygenLevel
   description: This function allows you to set the oxygen level of a [ped](/wiki/Ped
     "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose oxygen level you want to modify.
+  - name: oxygen
+    type: float
+    description: the amount of oxygen you want to set on the ped . Native values are
+      from 0 to 1000. Each of the stamina (22) and underwater stamina (225) stat maximum
+      adds a bonus of 1500. So the maximum oxygen level is 4000.
   examples:
   - path: examples/setPedOxygenLevel-1.lua
     description: This example fills the local player's oxygen.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the oxygen level was changed succesfully. Returns
+      false if an invalid ped and/or oxygen level was specified.
+  oop:
+    element: ped
+    method: setOxygenLevel
+    variable: oxygenLevel
+    static: false
   pair: getPedOxygenLevel
   requires_review: true

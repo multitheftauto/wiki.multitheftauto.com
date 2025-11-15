@@ -1,10 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetBirdsEnabled
-client:
+shared:
   name: setBirdsEnabled
   description: This function allows you to disable the flying birds.
-  parameters: []
+  parameters:
+  - name: enable
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setBirdsEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the birds state was changed succesfully, false if
+      an invalid argument was specified.
   requires_review: true

@@ -1,14 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementLighting
-client:
+shared:
   name: getElementLighting
   description: This function returns the lighting value for the specified [element](/wiki/Element
     "Element"). This can be a [player](/wiki/Player "Player"), [ped](/wiki/Ped "Ped"),
     [vehicle](/wiki/Vehicle "Vehicle"), [object](/wiki/Object "Object"), [weapon](/wiki/Element/Weapon
     "Element/Weapon").
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element whose lighting you want to retrieve.
   examples:
   - path: examples/getElementLighting-1.lua
     description: This example displays lighting values of streamed in players.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float (0.0-0.5; 0 = dark; 0.5 = light) indicating the element's
+      lighting, or false if invalid arguments were passed. This function will fail
+      if called right after element creation.
+  oop:
+    element: element
+    method: getLighting
+    variable: lighting
+    static: false
   pair: setElementLighting
   requires_review: true

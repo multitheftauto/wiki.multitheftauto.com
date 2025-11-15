@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementParent
-server:
+shared:
   name: getElementParent
   description: This function is used to determine the parent of an *element*.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The child of the parent element you want returned.
   examples:
   - path: examples/getElementParent-1.lua
     description: 'Consider the following map file:'
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: This returns the parent as an element . It returns false if theElement
+      is invalid, or is the root node.
+  oop:
+    element: element
+    method: getParent
+    variable: parent
+    static: false
   pair: setElementParent
   requires_review: true

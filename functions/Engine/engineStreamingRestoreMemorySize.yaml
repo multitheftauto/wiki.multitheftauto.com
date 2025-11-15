@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingRestoreMemorySize
-client:
+shared:
   name: engineStreamingRestoreMemorySize
   description: Restores the maximum amount of RAM \[in bytes] that can be used for
     streaming to the default value
@@ -9,6 +9,14 @@ client:
     description: This example adds a command that can be used to change the streaming
       memory size, and display the previous value.
     side: client
+  returns:
+    values:
+    - type: nil
+      name: value
+  oop:
+    element: enginestreaming
+    method: restoreMemorySize
+    static: false
   notes:
   - type: tip
     content: The function to manipulate the memory size is engineStreamingSetMemorySize

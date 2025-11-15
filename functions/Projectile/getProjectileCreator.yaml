@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileCreator
-client:
+shared:
   name: getProjectileCreator
   description: This function returns the creator of the specified projectile.
-  parameters: []
+  parameters:
+  - name: theProjectile
+    type: projectile
+    description: The projectile element which creator you want to retrieve.
   examples:
   - path: examples/getProjectileCreator-1.lua
     description: 'This example will output a message in the chatbox saying who created
 
       the projectile.'
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the element which created the projectile if successful, false
+      otherwise.
+  oop:
+    element: projectile
+    method: getCreator
+    variable: creator
+    static: false
   requires_review: true

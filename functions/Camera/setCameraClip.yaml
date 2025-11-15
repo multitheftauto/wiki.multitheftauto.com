@@ -1,14 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraClip
-client:
+shared:
   name: setCameraClip
   description: This function sets if the camera will "collide" with any objects or
     vehicles in its way. This means that if object clip is enabled an object is in
     the way of where the camera actually wants to be, the camera will try to be in
     front of it. This function can disable that.
-  parameters: []
+  parameters:
+  - name: objects
+    type: bool
+    description: Sets if you want the camera to clip on objects.
+    default: 'true'
+  - name: vehicles
+    type: bool
+    description: Sets if you want the camera to clip on vehicles.
+    default: 'true'
   examples:
   - path: examples/setCameraClip-1.lua
     description: This function enables it to look through cars
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Always returns true .
+  oop:
+    element: Camera
+    method: )
+    static: true
   pair: getCameraClip
   requires_review: true

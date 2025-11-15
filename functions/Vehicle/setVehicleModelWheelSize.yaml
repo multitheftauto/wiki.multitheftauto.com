@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleModelWheelSize
-client:
+shared:
   name: setVehicleModelWheelSize
   description: This function sets the size of a group of wheels for a [vehicle model](/wiki/Vehicle_IDs
     "Vehicle IDs"). The wheel size mainly determines their width, collision box (used
@@ -8,7 +8,23 @@ client:
     to the ground). It also changes the visual scale and rotation of the wheels, if
     not all the wheel groups have equal size. The visual scaling is applied before
     the per\-vehicle [wheel scale](/wiki/SetVehicleWheelScale "SetVehicleWheelScale").
-  parameters: []
+  parameters:
+  - name: vehicleModel
+    type: int
+    description: The vehicle model ID.
+  - name: wheelGroup
+    type: string
+    description: 'The group of wheels of the vehicle model that will have its size
+      set by this function. The following values are supported: front_axle : Represents
+      the wheels in the front axle. The default value for this group is read by GTA
+      from the WheelScale_Front field of the vehicles.ide data file. rear_axle : Represents
+      the wheels in the rear axle. The default value for this group is read by GTA
+      from the WheelScale_Rear field of the vehicles.ide data file. all_wheels : Convenience
+      group that contains the other wheel groups: front_axle and rear_axle .'
+  - name: wheelSize
+    type: float
+    description: The wheel size value to set. Default GTA values for automobiles usually
+      are around 0.7. It must be greater than 0.
   examples:
   - path: examples/setVehicleModelWheelSize-1.lua
     description: This example replaces the Infernus model with a Huntley model and
@@ -19,5 +35,15 @@ client:
     description: This example sets the rear axle size of the Bandito to a high value,
       to showcase its effect and make it more funky.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the size for the specified wheel group and vehicle
+      model has been set successfully, or an error if some parameter is invalid.
+  oop:
+    element: Vehicle
+    method: )
+    static: true
   pair: getVehicleModelWheelSize
   requires_review: true

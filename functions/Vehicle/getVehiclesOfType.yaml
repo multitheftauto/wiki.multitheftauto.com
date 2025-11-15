@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehiclesOfType
-server:
+shared:
   name: getVehiclesOfType
   description: This function scans through all the current vehicles and returns the
     ones matching the given model.
-  parameters: []
+  parameters:
+  - name: model
+    type: int
+    description: The model of vehicles you want.
   examples:
   - path: examples/getVehiclesOfType-1.lua
     description: This example finds all landstalkers on the map and moves them 5 units
       to the left.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of existing vehicles matching the specified model.
+  oop:
+    element: Vehicle
+    note: This function is a static function underneath the Vehicle class.
+    method: )
+    static: true
   requires_review: true

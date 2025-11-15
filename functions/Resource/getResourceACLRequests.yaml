@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceACLRequests
-server:
+shared:
   name: getResourceACLRequests
   description: This function retrieves the ACL request section from the meta.xml file
     of the given resource.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource to get the ACL requests for.
   examples:
   - path: examples/getResourceACLRequests-1.lua
     description: This function lists ACL requests from all resources in the client
       console.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table with the ACL requests for the given resource, or
+      false if the resource is not valid. A valid resource with no ACL requests will
+      return an empty table.
+  oop:
+    element: resource
+    method: getACLRequests
+    variable: aclRequests
+    static: false
   requires_review: true

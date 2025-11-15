@@ -1,11 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResendPlayerACInfo
-server:
+shared:
   name: resendPlayerACInfo
   description: This function will force the specified player to resend their AC info,
     triggering the [onPlayerACInfo](/wiki/OnPlayerACInfo "OnPlayerACInfo") event again.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: A player object referencing the specified player
   examples:
   - path: examples/resendPlayerACInfo-1.lua
     description: This example shows how to resend each players AC info duringonResourceStart
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the AC info will be resent, false otherwise.
   requires_review: true

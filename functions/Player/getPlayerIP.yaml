@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerIP
-server:
+shared:
   name: getPlayerIP
   description: This function returns a [string](/wiki/String "String") containing
     the IP address of the [player](/wiki/Player "Player").
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player element you want to get the IP of.
   examples:
   - path: examples/getPlayerIP-1.lua
     description: This example prints a player's IP to the chat.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string containing the requested players's IP, or false
+      if the player passed to the function is invalid.
+  oop:
+    element: player
+    method: getIP
+    variable: ip
+    static: false
   requires_review: true

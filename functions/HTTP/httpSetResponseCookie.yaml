@@ -1,12 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/HttpSetResponseCookie
-server:
+shared:
   name: httpSetResponseCookie
   description: This function sets the value for the specified HTTP cookie of the current
     HTML page.
-  parameters: []
+  parameters:
+  - name: cookieName
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: cookieValue
+    type: string
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/httpSetResponseCookie-1.lua
     description: This example is going to get the current users account name and save
       their name to a cookie.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the cookie value was set successfully, false otherwise.
   requires_review: true

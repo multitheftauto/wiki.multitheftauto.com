@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetSunColor
-server:
+shared:
   name: getSunColor
   description: This function is used to get the color of the sun.
   parameters: []
@@ -7,4 +7,19 @@ server:
   - path: examples/getSunColor-1.lua
     description: This example lets any player get the color of the sun like /getsuncolor
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    - type: int
+      name: value5
+    - type: int
+      name: value6
+    description: Returns the color of the sun as six numbers, false if its default.
   requires_review: true

@@ -1,4 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementsByType
+client:
+  name: getElementsByType
+  description: This function is used to retrieve a list of all elements of the specified
+    type. This can be useful, as it disregards *where* in the element tree it is.
+    It can be used with either the built in types (listed below) or with any custom
+    type used in a .map file. For example, if there is an element of type "flag" (e.g.
+    \<flag /\>) in the .map file, the using "flag" as the type argument would find
+    it.
+  parameters:
+  - name: theType
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: element startat
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getRootElement(
+  examples: []
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table containing all the elements of the specified type.
+      Returns an empty table if there are no elements of the specified type. Returns
+      false if the string specified is invalid (or not a string).
+  oop: &id001
+    element: Element
+    note: This function is a static function underneath the Element class.
+    method: )
+    static: true
+  requires_review: true
 server:
   name: getElementsByType
   description: This function is used to retrieve a list of all elements of the specified
@@ -7,7 +37,14 @@ server:
     type used in a .map file. For example, if there is an element of type "flag" (e.g.
     \<flag /\>) in the .map file, the using "flag" as the type argument would find
     it.
-  parameters: []
+  parameters:
+  - name: theType
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: element startat
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getRootElement(
   examples:
   - path: examples/getElementsByType-1.lua
     description: 'Example 1:This example retrieves a table of the players in the server,
@@ -25,4 +62,12 @@ server:
     description: 'Example 4:This example loops trough all connected players and redirects
       them to another server host:'
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table containing all the elements of the specified type.
+      Returns an empty table if there are no elements of the specified type. Returns
+      false if the string specified is invalid (or not a string).
+  oop: *id001
   requires_review: true

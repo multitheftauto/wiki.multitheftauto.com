@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRespawnDelay
-server:
+shared:
   name: getVehicleRespawnDelay
   description: 'This function gets the time delay (in milliseconds)
 
     the vehicle will remain wrecked before respawning.'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to get the respawn delay of.
   examples:
   - path: examples/getVehicleRespawnDelay-1.lua
     description: This example gets the delay of a current occupying vehicle.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the delay in milliseconds.
+  oop:
+    element: vehicle
+    method: getRespawnDelay
+    variable: respawnDelay
+    static: false
   pair: setVehicleRespawnDelay
   requires_review: true

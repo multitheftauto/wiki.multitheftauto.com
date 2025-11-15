@@ -1,13 +1,33 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/PregReplace
-server:
+shared:
   name: pregReplace
   description: This function performs a regular expression search and replace and
     returns the replaced string.
-  parameters: []
+  parameters:
+  - name: subject
+    type: string
+    description: The input string .
+  - name: pattern
+    type: string
+    description: The pattern string to search for in the input string .
+  - name: replacement
+    type: string
+    description: The replacement string to replace all matches within the input string
+      .
+  - name: flags
+    type: int/string
+    description: Conjuncted value that contains flags ( 1 - ignorecase, 2 - multiline,
+      4 - dotall, 8 - extended, 16 - unicode ) or ( i - Ignore case, m - Multiline,
+      d - Dotall, e - Extended, u - Unicode )
   examples:
   - path: examples/pregReplace-1.lua
     description: 'Some examples:'
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the replaced string , or bool false otherwise.
   notes:
   - type: warning
     content: When declaring a pattern string in quotes, the backslash character should

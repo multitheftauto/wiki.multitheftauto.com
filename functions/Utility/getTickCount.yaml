@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetTickCount
-server:
+shared:
   name: getTickCount
   description: This function returns amount of time that your system has been running
     in milliseconds. By comparing two values of getTickCount, you can determine how
@@ -18,6 +18,12 @@ server:
       displayed every frame. You can log any specific moment in time by outputting
       the currentCount variable.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer containing the number of milliseconds since the
+      system the server is running on started. This has the potential to wrap-around.
   notes:
   - type: important
     content: The value returned by this function client-side may not be reliable if

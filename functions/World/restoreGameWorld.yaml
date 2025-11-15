@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RestoreGameWorld
-server:
+shared:
   name: restoreGameWorld
   description: This function restores the entire game world.
   parameters: []
@@ -7,4 +7,9 @@ server:
   - path: examples/restoreGameWorld-1.lua
     description: This example restores game world.
     side: server
+  returns:
+    values:
+    - type: nil
+      name: value
+    description: This function does not return any value.
   requires_review: true

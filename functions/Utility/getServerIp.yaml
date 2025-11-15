@@ -1,14 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetServerIp
-client:
+shared:
   name: getServerIp
   description: This function returns the IP of the server the client is currently
     connected to.
-  parameters: []
+  parameters:
+  - name: includePort
+    type: bool
+    description: If set to true , the string will include the port of the server at
+      the end of the string, after a colon (:) character.
+    default: 'false'
   examples:
   - path: examples/getServerIp-1.lua
     description: This example creates a console command that outputs the server's
       IP to the chatbox.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: A string containing the remote address of the server the client is
+      currently connected to.
   notes:
   - type: info
     content: On server-side there is the getServerIpFromMasterServer function, which

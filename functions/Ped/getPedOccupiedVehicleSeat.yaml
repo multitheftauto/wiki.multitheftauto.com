@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedOccupiedVehicleSeat
-server:
+shared:
   name: getPedOccupiedVehicleSeat
   description: This function gets the seat that a specific ped is sitting in in a
     vehicle.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose vehicle seat you're looking up.
   examples:
   - path: examples/getPedOccupiedVehicleSeat-1.lua
     description: This example finds what seat a random player is sitting in and outputs
       it to the chat box.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns false if the ped is on foot, or the ped doesn't exist.
+  oop:
+    element: ped
+    note: Prior to 1.5, the variable was .occupiedVehicleSeat
+    method: getOccupiedVehicleSeat
+    variable: vehicleSeat
+    static: false
   requires_review: true

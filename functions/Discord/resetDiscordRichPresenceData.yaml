@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetDiscordRichPresenceData
-client:
+shared:
   name: resetDiscordRichPresenceData
   description: The function resets the Discord Rich Presence configuration to default.
   parameters: []
@@ -8,4 +8,9 @@ client:
     description: The example shows how to reset Discord Rich Presence after using
       a custom application.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if function succeeds, false otherwise.
   requires_review: true

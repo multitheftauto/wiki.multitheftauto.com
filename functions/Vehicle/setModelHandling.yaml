@@ -1,20 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetModelHandling
-server:
+shared:
   name: setModelHandling
   description: This function is used to change the handling data of all vehicles of
     a specified model.
-  parameters: []
+  parameters:
+  - name: modelId
+    type: int
+    description: The vehicle model you wish to set the handling of.
+  - name: property
+    type: string
+    description: The property you wish to set the handling of the vehicle to, or nil
+      if you want to reset the all the handling properties.
+  - name: value
+    type: var
+    description: The value of the models's handling property you wish to set, or nil
+      if you want to reset the handling property to its default value.
   examples:
   - path: examples/setModelHandling-1.lua
     description: This example script changes the handling of all Bullet.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the handling was set successfully, false otherwise.
   issues:
   - id: '553'
     description: setModelHandling doesn't work with already created vehicles
   - id: '1198'
     description: '"setModelHandling" function doesn''t affect vehicles that have been
       changed using "setElementModel"'
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -22,3 +37,4 @@ server:
       - Missing section: Handling Properties
 
       '
+  requires_review: true

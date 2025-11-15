@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineImportTXD
-client:
+shared:
   name: engineImportTXD
   description: This function imports (adds) a loaded RenderWare Texture Dictionary
     into a specific model. This is necessary in order for the DFF loader to find any
@@ -7,8 +7,23 @@ client:
     in order to allow the DFF loading process to find the new textures. This function
     can also replace default GTA textures, so that it becomes possible to e.g. put
     custom images on existing billboards. Ped and weapon textures are also supported.
-  parameters: []
+  parameters:
+  - name: texture
+    type: txd
+    description: The TXD that was loaded with engineLoadTXD
+  - name: model_id
+    type: int
+    description: The model id to import the TXD into
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function executed succesfully, false otherwise.
+  oop:
+    element: txd
+    method: import
+    static: false
   notes:
   - type: info
     content: CJ clothing component textures can be replaced by using the IDs listed

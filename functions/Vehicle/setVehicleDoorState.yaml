@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleDoorState
-server:
+shared:
   name: setVehicleDoorState
   description: This function sets the state of the specified door on a vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: door
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: state
+    type: int
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setVehicleDoorState-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the door state was successfully set, false otherwise.
+  oop:
+    element: vehicle
+    method: setDoorState
+    static: false
   pair: getVehicleDoorState
   notes:
   - type: info

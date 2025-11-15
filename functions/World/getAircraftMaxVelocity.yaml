@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetAircraftMaxVelocity
-server:
+shared:
   name: getAircraftMaxVelocity
   description: This function returns the maximum velocity at which aircrafts could
     fly. Using this function server\-side will return the server\-side value, not
@@ -14,4 +14,10 @@ server:
     description: This example will tell the max velocity to everyone when the resource
       is started.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float being the max velocity that is currently set, depending
+      on which side it is used.
   requires_review: true

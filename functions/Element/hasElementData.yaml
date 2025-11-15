@@ -1,11 +1,34 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/HasElementData
-server:
+shared:
   name: hasElementData
   description: This function checks if an element has [element data](/wiki/Element_data
     "Element data") available under a certain key.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: This is the element with data you want to check.
+  - name: key
+    type: string
+    description: The name of the element data entry you want to check for. (Maximum
+      31 characters.)
+  - name: inherit
+    type: bool
+    description: '- toggles whether or not the function should go up the hierarchy
+      to find the requested key in case the specified element doesn''t have it.'
+    default: 'true'
   examples:
   - path: examples/hasElementData-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns true if the element contains element data for
+      key , or false if the element doesn't exist or there is no data associated with
+      the key .
+  oop:
+    element: element
+    method: hasData
+    static: false
   requires_review: true

@@ -1,8 +1,15 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DetachTrailerFromVehicle
-server:
+shared:
   name: detachTrailerFromVehicle
   description: This function detaches an already attached trailer from a vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to detach a trailer from.
+  - name: theTrailer
+    type: vehicle
+    description: The trailer you wish to be detached.
+    default: nil
   examples:
   - path: examples/detachTrailerFromVehicle-1.lua
     description: 'Example 1:A command for players to detach a trailer attached to
@@ -12,6 +19,16 @@ server:
     description: 'Example 2:This example attaches a trailer to a truck, and detaches
       it if the trailer is damaged:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns 'true' if the vehicle's were successfully detached, 'false'
+      otherwise.
+  oop:
+    element: vehicle
+    method: detachTrailer
+    static: false
   notes:
   - type: info
     content: If 'theTrailer' is specified, it will only detach if this matches. If

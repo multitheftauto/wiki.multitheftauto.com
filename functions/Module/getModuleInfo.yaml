@@ -1,12 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetModuleInfo
-server:
+shared:
   name: getModuleInfo
   description: This function returns information about the specified [module](/wiki/Modules
     "Modules").
-  parameters: []
+  parameters:
+  - name: moduleName
+    type: string
+    description: A string containing the module you wish to get information of e.g.
+      "hashing.dll"
   examples:
   - path: examples/getModuleInfo-1.lua
     description: This example adds a commandcheckmoduleswith which you can view information
       about currently loaded modules.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table containing information about module. These keys
+      are present in the table:'
   requires_review: true

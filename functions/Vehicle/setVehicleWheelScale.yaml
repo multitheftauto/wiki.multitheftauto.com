@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleWheelScale
-client:
+shared:
   name: setVehicleWheelScale
   description: This function sets the scale of all the wheels of a [vehicle](/wiki/Vehicle
     "Vehicle"). The wheel scale multiplies the visible height and length (but not
@@ -7,12 +7,29 @@ client:
     handling, similarly to [setVehicleComponentScale](/wiki/SetVehicleComponentScale
     "SetVehicleComponentScale"). The wheel scale is applied after the [model wheel
     size](/wiki/SetVehicleModelWheelSize "SetVehicleModelWheelSize").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle whose wheel scale you wish to modify.
+  - name: wheelScale
+    type: float
+    description: The wheel scale value to set.
   examples:
   - path: examples/setVehicleWheelScale-1.lua
     description: This example adds ashrinkwheelscommand that reduces the wheel scale
       of a vehicle in half each time it is invoked.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the wheel scale has been set successfully, or an
+      error if some parameter is invalid.
+  oop:
+    element: vehicle
+    method: setWheelScale
+    variable: wheelScale
+    static: false
   pair: getVehicleWheelScale
   notes:
   - type: info

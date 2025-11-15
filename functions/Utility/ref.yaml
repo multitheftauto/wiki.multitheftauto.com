@@ -1,9 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Ref
-server:
+shared:
   name: ref
   description: This function will create a reference to the given argument.
-  parameters: []
+  parameters:
+  - name: objectToReference
+    type: mixed
+    description: MISSING_PARAM_DESC
   examples: []
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int if the reference were successfully created. Returns
+      false if the parameter were invalid.
   notes:
   - type: info
     content: This function was originally created to prevent garbage-collection of

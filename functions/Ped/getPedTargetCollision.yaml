@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTargetCollision
-client:
+shared:
   name: getPedTargetCollision
   description: This function allows retrieval of where a ped's target is blocked.
     It will only be blocked if there is an obstacle within a ped's target range.
-  parameters: []
+  parameters:
+  - name: targetingPed
+    type: ped
+    description: This is the ped whose target collision you wish to retrieve
   examples:
   - path: examples/getPedTargetCollision-1.lua
     description: This Example draws a line from where the Ped´s Target Starts to the
       Point where the Targets Collision is.
     side: client
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: Returns three floats, x , y , z , representing the position where
+      the ped's target collides, or false if it was unsuccessful.
   requires_review: true

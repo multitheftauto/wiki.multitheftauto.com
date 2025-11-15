@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedWalkingStyle
-server:
+shared:
   name: getPedWalkingStyle
   description: Returns the walking style ID of a ped. This ID determines the set of
     animations that is used for walking, running etc.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose walking style to retrieve.
   examples:
   - path: examples/getPedWalkingStyle-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: 'Returns the walking style ID if successful, false otherwise. The
+      possible walking styles are as follows:'
+  oop:
+    element: ped
+    method: getWalkingStyle
+    variable: walkingStyle
+    static: false
   pair: setPedWalkingStyle
   requires_review: true

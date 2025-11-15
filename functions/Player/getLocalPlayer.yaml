@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetLocalPlayer
-client:
+shared:
   name: getLocalPlayer
   description: This function gets the player element of the client running the current
     script.
@@ -13,4 +13,9 @@ client:
     description: Example 2:This client side script makes the local player's camera
       flash red after being hit.
     side: client
+  returns:
+    values:
+    - type: player
+      name: value
+    description: Returns the local player element.
   requires_review: true

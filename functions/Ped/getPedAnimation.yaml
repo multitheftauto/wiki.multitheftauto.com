@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedAnimation
-client:
+shared:
   name: getPedAnimation
   description: Gets the animation of a player or ped that was set using [setPedAnimation](/wiki/SetPedAnimation
     "SetPedAnimation").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the player or ped you want to get the animation of.
   examples:
   - path: examples/getPedAnimation-1.lua
     description: This example adds a command that allows you to copy the animation
@@ -14,6 +17,32 @@ client:
       performing. Note this will return "N/A" if you did not set an animation withsetPedAnimation.
       If you want to see what the player ped is doing as you control them that isgetPedTask.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value1
+    - type: string
+      name: value2
+    - type: int
+      name: value3
+    - type: int
+      name: value4
+    - type: bool
+      name: value5
+    - type: bool
+      name: value6
+    - type: bool
+      name: value7
+    - type: int
+      name: value8
+    - type: bool
+      name: value9
+    description: 'The function returns 9 values in the same order as required by setPedAnimation
+      :'
+  oop:
+    element: ped
+    method: getAnimation
+    static: false
   pair: setPedAnimation
   notes:
   - type: info

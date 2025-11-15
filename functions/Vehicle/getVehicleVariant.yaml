@@ -1,15 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleVariant
-server:
+shared:
   name: getVehicleVariant
   description: 'This function gets the variant of a specified vehicle. In GTA: San
     Andreas some vehicles are different; for example the labelling on trucks or the
     contents of a pick\-up truck and the varying types of a motor bike. For the default
     variant list see: [Vehicle variants](/wiki/Vehicle_variants "Vehicle variants").'
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you want to get the variant of.
   examples:
   - path: examples/getVehicleVariant-1.lua
     description: 'This example tells theplayerin thevehiclewhat their vehicle variants
       are with a command namedgetvehvar:'
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    description: Returns 2 int containing the vehicle variants, false otherwise (the
+      specified vehicle doesn't exist).
+  oop:
+    element: vehicle
+    method: getVariant
+    static: false
   pair: setVehicleVariant
   requires_review: true

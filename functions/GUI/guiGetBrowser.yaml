@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetBrowser
-client:
+shared:
   name: guiGetBrowser
   description: This function gets the browser element behind a gui\-browser (a browser
     that has been created via [guiCreateBrowser](/wiki/GuiCreateBrowser "GuiCreateBrowser")).
-  parameters: []
+  parameters:
+  - name: theBrowser
+    type: gui-browser
+    description: The gui-browser
   examples:
   - path: examples/guiGetBrowser-1.lua
     description: This examples get's browser element from gui-browser and attach a
       webbrowser to a CEGUI window.
     side: client
+  returns:
+    values:
+    - type: browser
+      name: value
+    description: Returns the Browser element if a correct gui-browser has been passed,
+      false otherwise.
+  oop:
+    element: guibrowser
+    method: getBrowser
+    variable: browser
+    static: false
   requires_review: true

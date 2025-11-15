@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleMaxPassengers
-server:
+shared:
   name: getVehicleMaxPassengers
   description: This function returns the maximum number of passengers that a specified
     vehicle can hold. Only passenger seats are counted, the driver seat is excluded.
-  parameters: []
+  parameters:
+  - name: theVehicle / int modelID
+    type: vehicle
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getVehicleMaxPassengers-1.lua
     description: This example creates a vehicle then gets the number of passenger
       seats and outputs it in the chat box.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int indicating the maximum number of passengers that can
+      enter a vehicle. Returns false if vehicle (or its ID) is a trailer
+  oop:
+    element: vehicle
+    method: getMaxPassengers
+    variable: maxPassengers
+    static: false
   notes:
   - type: important
     content: Only passenger seats are counted, the driver seat is excluded.

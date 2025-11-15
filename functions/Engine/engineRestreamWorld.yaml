@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestreamWorld
-client:
+shared:
   name: engineRestreamWorld
   description: This function re\-streams everything in the GTA world. Read [this pull
     request](https://github.com/multitheftauto/mtasa-blue/pull/1735) to understand
@@ -9,4 +9,9 @@ client:
   - path: examples/engineRestreamWorld-1.lua
     description: 'This function can be used after a model (or more) is loaded withengineLoadDFF:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the world was restreamed successfully, false otherwise.
   requires_review: true

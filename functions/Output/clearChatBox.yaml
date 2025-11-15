@@ -1,10 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ClearChatBox
-server:
+client:
   name: clearChatBox
   description: This function clears the chatbox. It does not clear the console (F8\)
   parameters: []
+  examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player's chat was cleared successfully, false
+      otherwise.
+  requires_review: true
+server:
+  name: clearChatBox
+  description: This function clears the chatbox. It does not clear the console (F8\)
+  parameters:
+  - name: element clearFor
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: getRootElement(
   examples:
   - path: examples/clearChatBox-1.lua
     description: This example adds an admin command to clear the chatbox for everyone
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player's chat was cleared successfully, false
+      otherwise.
   requires_review: true

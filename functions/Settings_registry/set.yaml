@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Set
-server:
+shared:
   name: set
   description: This function is used to save arbitrary data under a certain name on
     the [settings registry](/wiki/Settings_system "Settings system").
-  parameters: []
+  parameters:
+  - name: settingName
+    type: string
+    description: The name of the setting you want to set. See setting names for information
+      on settings names.
+  - name: value
+    type: var
+    description: The value to set the setting to. This can be any Lua data type, except
+      for functions, most userdata (only resources can't be stored) and threads.
   examples:
   - path: examples/set-1.lua
     description: This example sets a specified setting with a Value. This is alocalsetting
       belonging to the resource that the code is run in.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the setting has been set, false if you do not have
+      access to the setting or invalid arguments were passed.
   requires_review: true

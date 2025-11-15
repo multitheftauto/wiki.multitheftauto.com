@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsWeaponRenderEnabled
-client:
+shared:
   name: isWeaponRenderEnabled
   description: This function checks whether GTA weapon rendering is enabled for [ped](/wiki/Ped
     "Ped") and [player](/wiki/Player "Player").
@@ -8,4 +8,10 @@ client:
   - path: examples/isWeaponRenderEnabled-1.lua
     description: This example allows you to disable/enable weapon rendering by using/weaponrendercommand.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if weapon rendering is enabled, otherwise returns false
+      .
   requires_review: true

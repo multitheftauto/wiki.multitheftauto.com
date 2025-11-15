@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ToggleObjectRespawn
-server:
+shared:
   name: toggleObjectRespawn
   description: This function is used to toggle if an object should respawn after it
     got destroyed
-  parameters: []
+  parameters:
+  - name: theObject
+    type: object
+    description: the object you want to toggle the respawn from
+  - name: respawn
+    type: bool
+    description: a bool denoting whether we want to enable ( true ) or disable ( false
+      ) respawning
   examples:
   - path: examples/toggleObjectRespawn-1.lua
     description: This example adds commandtosthat toggles respawn of all the objects.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This example adds command tos that toggles respawn of all the objects.
+  oop:
+    element: object
+    method: toggleRespawn
+    static: false
   notes:
   - type: info
     content: The object will be respawned when it is streamed

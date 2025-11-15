@@ -1,12 +1,45 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleComponentScale
-client:
+shared:
   name: setVehicleComponentScale
   description: This function sets the component scale of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to set component scale.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
+  - name: scaleX
+    type: float
+    description: The new x scale of this component.
+  - name: scaleY
+    type: float
+    description: The new y scale of this component.
+  - name: scaleZ
+    type: float
+    description: The new z scale of this component.
+  - name: base
+    type: string
+    description: 'A string representing what the supplied scale ( scaleX , scaleY
+      , scaleZ ) is relative to. It can be one of the following values: parent : The
+      scale is relative to the parent component. root : The scale is relative to the
+      root component. world : The scale is a world scale, relative to the world''s
+      center of coordinates.'
+    default: '"parent"'
   examples:
   - path: examples/setVehicleComponentScale-1.lua
     description: Example 1:This example would set the scale of the component.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if component scale was set successfully, false otherwise.
+  oop:
+    element: vehicle
+    method: setComponentScale
+    static: false
   pair: getVehicleComponentScale
   requires_review: true

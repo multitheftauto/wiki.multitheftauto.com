@@ -1,10 +1,74 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddSparks
-client:
+shared:
   name: fxAddSparks
   description: Creates a number of sparks originating from a point or along a line.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: posZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: dirZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: force
+    type: float
+    description: 'speed factor: the higher this value, the faster and further the
+      sparks fly.'
+    default: '1.0'
+  - name: count
+    type: int
+    description: the number of effects to create.
+    default: '1'
+  - name: acrossLineX
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0.0'
+  - name: acrossLineY
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0.0'
+  - name: acrossLineZ
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0.0'
+  - name: blur
+    type: bool
+    description: if false , creates standard bullet impact-like sparks. If true ,
+      adds motion blur to the sparks.
+    default: 'false'
+  - name: spread
+    type: float
+    description: determines how strongly the particles deviate from each other. With
+      low values the particles will stay quite close together, high values will make
+      them fly in all directions. Also affects their speed.
+    default: '1.0'
+  - name: life
+    type: float
+    description: the higher this value, the longer the sparks survive before they
+      disappear.
+    default: '1.0'
   examples:
   - path: examples/fxAddSparks-1.lua
     description: This example will add Fire Bins to all locations added in the table.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

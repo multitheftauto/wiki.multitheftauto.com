@@ -1,14 +1,66 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawCircle
-client:
+shared:
   name: dxDrawCircle
   description: This function draws a circle shape on the screen \- rendered for **one**
     frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
     "OnClientRender") in order to be display continuously.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: An integer representing the absolute X position of the circle center,
+      represented by pixels on the screen.
+  - name: posY
+    type: float
+    description: An integer representing the absolute Y position of the circle center,
+      represented by pixels on the screen.
+  - name: radius
+    type: float
+    description: An integer representing the radius scale of the circle that is being
+      drawn.
+  - name: startAngle
+    type: float
+    description: An integer representing the angle of the first point of the circle.
+    default: '0.0'
+  - name: stopAngle
+    type: float
+    description: An integer representing the angle of the last point of the circle.
+    default: '360.0'
+  - name: theColor
+    type: int
+    description: An integer of the hex color, produced using tocolor or 0xAARRGGBB
+      (AA = alpha, RR = red, GG = green, BB = blue).
+    default: white
+  - name: theCenterColor
+    type: int
+    description: An integer of the hex color, produced using tocolor or 0xAARRGGBB
+      (AA = alpha, RR = red, GG = green, BB = blue).
+    default: theColor
+  - name: segments
+    type: int
+    description: 'An integer ranging from 3-1024 representing how many triangles are
+      used to form the circle, more segments = smoother circle. Note: using lots of
+      segments may cause lag.'
+    default: '32'
+  - name: ratio
+    type: int
+    description: 'Ratio between width and height, e.g: 2 would mean that the width
+      of the circle is 2 times the height.'
+    default: '1'
+  - name: postGUI
+    type: bool
+    description: A bool representing whether the circle should be drawn on top of
+      or behind any ingame GUI (rendered by CEGUI).
+    default: 'false'
   examples:
   - path: examples/dxDrawCircle-1.lua
     description: This function draws a rectangle with rounded corners.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the creation of the 2D circle was successful, false
+      otherwise.
   notes:
   - type: info
     content: By documentation this function does perform a triangle approximation

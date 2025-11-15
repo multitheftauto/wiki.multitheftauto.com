@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraViewMode
-client:
+shared:
   name: setCameraViewMode
   description: This function allows you to set the camera view modes. This indicates
     at what distance the camera will follow the player or vehicle.
-  parameters: []
+  parameters:
+  - name: vehicleCameraMode
+    type: int
+    description: The view mode you wish to use when inside vehicles.
+  - name: pedCameraMode
+    type: int
+    description: The view mode you wish to use when you are not inside vehicles.
   examples:
   - path: examples/setCameraViewMode-1.lua
     description: This example sets the camera to bumper view when the local player
       enters any vehicle.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the view(s) were set correctly, false otherwise.
+  oop:
+    element: Camera
+    method: setCameraViewMode
+    variable: viewMode
+    static: true
   pair: getCameraViewMode
   requires_review: true

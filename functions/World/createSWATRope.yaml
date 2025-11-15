@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateSWATRope
-client:
+shared:
   name: createSWATRope
   description: Creates a SWAT rope like that of the rope in single player used by
     SWAT Teams abseiling from the Police Maverick.
-  parameters: []
+  parameters:
+  - name: fx
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: fy
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: fZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: duration
+    type: int
+    description: the amount in miliseconds the rope will be there before falling to
+      the ground.
   examples:
   - path: examples/createSWATRope-1.lua
     description: This example creates a Swat rope in police maverick when you use
       the command /createrope
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
   requires_review: true

@@ -1,11 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/HttpSetResponseHeader
-server:
+shared:
   name: httpSetResponseHeader
   description: This function sets the value for the specified HTTP response header
     of the current HTML page.
-  parameters: []
+  parameters:
+  - name: headerName
+    type: string
+    description: MISSING_PARAM_DESC
+  - name: headerValue
+    type: string
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/httpSetResponseHeader-1.lua
     description: Using httpSetResponseHeader to set the content type. (Example fromhttpWrite)
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the header value was set successfully, false otherwise.
   requires_review: true

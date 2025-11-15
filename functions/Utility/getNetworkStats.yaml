@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetNetworkStats
-server:
+client:
   name: getNetworkStats
   description: This function returns network status information.
   parameters: []
@@ -8,4 +8,24 @@ server:
     description: This example outputs the local players network status information
       to their console when using the /netstatus command
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table, the indexes in the table are the following:'
+  requires_review: true
+server:
+  name: getNetworkStats
+  description: This function returns network status information.
+  parameters:
+  - name: thePlayer
+    type: element
+    description: MISSING_PARAM_DESC
+    default: nil
+  examples: []
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table, the indexes in the table are the following:'
   requires_review: true

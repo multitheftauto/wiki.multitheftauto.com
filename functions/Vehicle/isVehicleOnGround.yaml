@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleOnGround
-server:
+shared:
   name: isVehicleOnGround
   description: Checks to see if a vehicle has contact with the ground.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to check.
   examples:
   - path: examples/isVehicleOnGround-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if vehicle is on the ground, false if it is not.
+  oop:
+    element: vehicle
+    method: isOnGround
+    variable: onGround
+    static: false
   notes:
   - type: info
     content: This function has a few issues, see below. Consider using the clientside

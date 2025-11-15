@@ -1,14 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementSyncer
-server:
+shared:
   name: setElementSyncer
   description: This function can be used to change the syncer ([player](/wiki/Player
     "Player")) of an element. The syncer is the player who is responsible for informing
     the server about the state of that element \- it's position, orientation and other
     state information. The function can be also used to remove an element's syncer.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element whose syncer you wish to change.
+  - name: thePlayer
+    type: player
+    description: The player who should be the new syncer of the element. If set to
+      false , this element will not have a syncer. If set to true , MTA will pick
+      automatically the nearest or most relevant player to that element.
+  - name: persist
+    type: bool
+    description: If true , the server will not automatically change the syncer. If
+      set to false , default syncer behavior resumes.
+    default: 'false'
   examples:
   - path: examples/setElementSyncer-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the syncer was changed successfully, false if the
+      element passed was not a ped or vehicle.
+  oop:
+    element: element
+    method: setSyncer
+    variable: syncer
+    static: false
   pair: getElementSyncer
   requires_review: true

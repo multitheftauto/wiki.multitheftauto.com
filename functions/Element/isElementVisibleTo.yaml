@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsElementVisibleTo
-server:
+shared:
   name: isElementVisibleTo
   description: This checks if an element is visible to a player. This does not check
     if the player can literally see the element, just that they are aware that it
@@ -7,10 +7,26 @@ server:
     "Per-player elements (page does not exist)") are able to be visible only to some
     players, as such this checks if this is the case for a particular element/player
     combination.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you want to check the visibility of
+  - name: visibleTo
+    type: element
+    description: The player you want to check against
   examples:
   - path: examples/isElementVisibleTo-1.lua
     description: This checks if the player is visible to them selves.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if element is visible to the specified player, false
+      if not or an invalid argument was passed to the function.
+  oop:
+    element: element
+    method: isVisibleTo
+    static: false
   pair: setElementVisibleTo
   requires_review: true

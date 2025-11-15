@@ -1,15 +1,38 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GivePedWeapon
-client:
+shared:
   name: givePedWeapon
   description: This function gives the specified weapon to the specified ped. This
     function can't be used on players, use [giveWeapon](/wiki/GiveWeapon "GiveWeapon")
     for that.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: A ped element.
+  - name: weapon
+    type: int
+    description: A whole number integer that refers to a Weapon ID. Click here for
+      a list of possible weapon IDs.
+  - name: ammo
+    type: int
+    description: A whole number integer serving as the ammo amount for the given weapon.
+      For weapons that do not require ammo, such as melee, this should be at least
+      1.
+    default: '30'
+  - name: setAsCurrent
+    type: bool
+    description: A boolean value determining whether or not the weapon will be set
+      as the peds currently selected weapon.
+    default: 'false'
   examples:
   - path: examples/givePedWeapon-1.lua
     description: Example 1:This example creates a client side ped, gives them an M4
       and make them shoot once you do the command '/armedped'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if weapon was successfully given to the ped, false otherwise.
   notes:
   - type: info
     content: When setting ammo for weapons in slot 0,1,10,11 or 12 the maximum ammo

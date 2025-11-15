@@ -1,11 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineReplaceCOL
-client:
+shared:
   name: engineReplaceCOL
   description: This function replaces the collision file of the given model id to
     the collision file passed. Use [engineLoadCOL](/wiki/EngineLoadCOL "EngineLoadCOL")
     to load the collision file first.
-  parameters: []
+  parameters:
+  - name: theCol
+    type: col
+    description: The collision file to replace with
+  - name: modelID
+    type: int
+    description: The model ID whose collision file you want to replace
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the collision was successfully replaced, false or
+      nil if the collision could not be replaced for a reason.
+  oop:
+    element: col
+    method: replace
+    static: false
   notes:
   - type: info
     content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example

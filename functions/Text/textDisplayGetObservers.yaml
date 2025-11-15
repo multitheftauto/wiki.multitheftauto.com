@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextDisplayGetObservers
-server:
+shared:
   name: textDisplayGetObservers
   description: This function can be used to retrieve all the [players](/wiki/Player
     "Player") currently observing a specified [textdisplay](/wiki/Textdisplay "Textdisplay").
-  parameters: []
+  parameters:
+  - name: theDisplay
+    type: textdisplay
+    description: The textdisplay of which observers you want to get.
   examples:
   - path: examples/textDisplayGetObservers-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of players that are observers of the display or false
+      if invalid textdisplay is passed.
   requires_review: true

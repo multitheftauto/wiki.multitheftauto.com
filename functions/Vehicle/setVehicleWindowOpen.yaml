@@ -1,10 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleWindowOpen
-client:
+shared:
   name: setVehicleWindowOpen
   description: This function sets the vehicle window state.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you wish to change the window state.
+  - name: window
+    type: int
+    description: 'An integer representing window. 0: motorbike shield 1: rear window
+      2: right front window 3: right back window 4: left front (driver) window 5:
+      left back window 6: windshield'
+  - name: open
+    type: bool
+    description: Boolean which represent window open state.
   examples:
   - path: examples/setVehicleWindowOpen-1.lua
     description: Command which allow player to open window which near sits.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Command which allow player to open window which near sits.
   requires_review: true

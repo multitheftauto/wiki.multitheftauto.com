@@ -1,11 +1,47 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddVehicleSirens
-server:
+shared:
   name: addVehicleSirens
   description: This function adds sirens to a vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle to add sirens
+  - name: sirenCount
+    type: int
+    description: The amount of siren points on the vehicle (8 maximum)
+  - name: sirenType
+    type: int
+    description: 'An integer between 1 and 6 (1: invisible, 2: single, 3+: dual)'
+  - name: flag360
+    type: bool
+    description: Visible from all directions (applies to single type only)
+    default: 'false'
+  - name: checkLosFlag
+    type: bool
+    description: Check line of sight between camera and light so it won't draw if
+      blocked
+    default: 'true'
+  - name: useRandomiser
+    type: bool
+    description: Randomise the light order, false for sequential
+    default: 'true'
+  - name: silentFlag
+    type: bool
+    description: If you want the siren to be silent set this to true
+    default: 'false'
   examples:
   - path: examples/addVehicleSirens-1.lua
     description: This example adds a siren for the vehicle, then sets two custom sirens
       at the top of the vehicle. And then removes the siren when getting out the vehicle.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if sirens were successfully added to the vehicle, false
+      otherwise.
+  oop:
+    element: vehicle
+    method: addSirens
+    static: false
   requires_review: true

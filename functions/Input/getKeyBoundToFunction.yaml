@@ -1,11 +1,37 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetKeyBoundToFunction
-server:
+client:
   name: getKeyBoundToFunction
   description: getKeyBoundToFunction allows retrieval of the first key bound to a
     function.
-  parameters: []
+  parameters:
+  - name: theFunction
+    type: function
+    description: The function in which you would like to check the bound key
   examples:
   - path: examples/getKeyBoundToFunction-1.lua
     description: /key command gives bounded key to our chat function
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string of the first key the function was bound to.
+  requires_review: true
+server:
+  name: getKeyBoundToFunction
+  description: getKeyBoundToFunction allows retrieval of the first key bound to a
+    function.
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you are checking the function bound to a key
+  - name: theFunction
+    type: function
+    description: The function in which you would like to check the bound key
+  examples: []
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string of the first key the function was bound to.
   requires_review: true

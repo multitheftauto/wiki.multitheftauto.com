@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceLoadFailureReason
-server:
+shared:
   name: getResourceLoadFailureReason
   description: This function retrieves the reason why a resource failed to start.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: The resource you wish to check.
   examples:
   - path: examples/getResourceLoadFailureReason-1.lua
     description: 'This example checks if there''s a resource that failed to load,
       then outputs "Resource: ''resourceName'' failed to load because ''reason''."
       .'
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: If the resource failed to load, returns a string with the failure
+      reason in it. If it loaded successfully, returns an empty string. Returns false
+      if the resource doesn't exist.
+  oop:
+    element: resource
+    method: getLoadFailureReason
+    variable: loadFailureReason
+    static: false
   requires_review: true

@@ -1,14 +1,44 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CloneElement
-server:
+shared:
   name: cloneElement
   description: This function clones (creates an exact copy of) an already existing
     element. The root node, and player elements, cannot be cloned. If a player element
     is a child of an element that is cloned, it will be skipped, along with the elements
     that exist as a child to the player element.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element that you wish to clone.
+  - name: xPos
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+    default: '0'
+  - name: "y"Pos
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+    default: '0'
+  - name: zPos
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+    default: '0'
+  - name: cloneChildren
+    type: bool
+    description: A boolean value representing whether or not the element's children
+      will be cloned.
+    default: 'false'
   examples:
   - path: examples/cloneElement-1.lua
     description: This example clones the vehicle a player is in.  This allows carrying
       over of the current state of the vehicle, including mods, for example.
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the handle of the new cloned element of the parent, false
+      if invalid arguments were passed.
+  oop:
+    element: element
+    method: clone
+    static: false
   requires_review: true

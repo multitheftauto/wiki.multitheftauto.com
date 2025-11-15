@@ -1,13 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetGlitchEnabled
-server:
+shared:
   name: setGlitchEnabled
   description: This function enables or disables glitches that are found in the original
     Single Player game that can be used to gain an advantage in multiplayer.
-  parameters: []
+  parameters:
+  - name: glitchName
+    type: string
+    description: 'the name of the property to set. Possible values are:'
+  - name: enable
+    type: bool
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setGlitchEnabled-1.lua
     description: This example allows you to toggle specific glitch usingtrueorfalse.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   notes:
   - type: info
     content: By default all these glitches are disabled - use this function to enable

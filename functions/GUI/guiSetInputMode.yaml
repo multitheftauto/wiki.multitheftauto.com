@@ -1,15 +1,33 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetInputMode
-client:
+shared:
   name: guiSetInputMode
   description: 'This function controls the input mode to define whether or not (and
     when) keybinds or MTA binds are overridden (disabled) so that text can be input
     into an editbox, for example.
 
     Available input modes are:'
-  parameters: []
+  parameters:
+  - name: mode
+    type: string
+    description: 'a string representing the desired input mode. Accepted values are:
+      "allow_binds": binds are enabled, hence using a key such as t in an editbox
+      will still open the chatbox (default) "no_binds": binds are disabled, hence
+      using a key such as t will never open the chatbox "no_binds_when_editing": binds
+      are enabled except when an editbox or memo has input focus'
   examples:
   - path: examples/guiSetInputMode-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if input mode could be changed, false if invalid parameters
+      are passed.
+  oop:
+    element: GuiElement
+    method: )
+    variable: inputMode
+    static: true
   pair: guiGetInputMode
   requires_review: true

@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleOccupant
-server:
+shared:
   name: getVehicleOccupant
   description: This function gets the player sitting/trying to enter the specified
     vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle of which you wish to retrieve the driver or a passenger.
+  - name: seat
+    type: int
+    description: the seat where the player is sitting (0 for driver, 1+ for passengers).
+    default: '0'
   examples:
   - path: examples/getVehicleOccupant-1.lua
     description: 'This example announces the driver of a certain vehicle whenever
       it is damaged:'
     side: server
+  returns:
+    values:
+    - type: player
+      name: value
+    description: Returns the player sitting in the vehicle, or false if the seat is
+      unoccupied or doesn't exist.
+  oop:
+    element: vehicle
+    method: getOccupant
+    static: false
   requires_review: true

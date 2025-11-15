@@ -1,9 +1,36 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreatePickup
-server:
+shared:
   name: createPickup
   description: This function creates a pickup element, which is placed in the GTA
     world and can be picked up to retrieve a health, armour or a weapon.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: theType
+    type: int
+    description: 'This is an integer representing the type of pickup, representing
+      the following types: 0 : Health Pickup 1 : Armour Pickup 2 : Weapon Pickup 3
+      : Custom Pickup'
+  - name: amount/weapon/model
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: respawnTime
+    type: int
+    description: How long before the pickup respawns in milliseconds ( This parameter
+      is ignored on the client! )
+    default: '30000'
+  - name: ammo
+    type: int
+    description: An integer representing the amount of ammo a pickup contains.  This
+      is only valid when the pickup type is a weapon pickup.
+    default: '50'
   examples:
   - path: examples/createPickup-1.lua
     description: This example creates a pickup after a player dies so that he drops
@@ -13,4 +40,14 @@ server:
     description: This example creates a custom pickup(money) after a player dies and
       sets it's value.
     side: server
+  returns:
+    values:
+    - type: pickup
+      name: value
+    description: Returns pickup element if the pickup was created succesfully, otherwise
+      returns false .
+  oop:
+    element: Pickup(
+    method: ''
+    static: true
   requires_review: true

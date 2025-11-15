@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedHeadless
-server:
+shared:
   name: isPedHeadless
   description: With this function, you can check if a ped has a head or not.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped to check.
   examples:
   - path: examples/isPedHeadless-1.lua
     description: Add a command to check whether the player is a zombie or not
@@ -10,4 +13,9 @@ server:
   - path: examples/isPedHeadless-2.lua
     description: Add a command to check whether a player is a zombie or not
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is headless, false otherwise.
   requires_review: true

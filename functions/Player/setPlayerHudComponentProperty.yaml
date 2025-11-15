@@ -1,14 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerHudComponentProperty
-client:
+shared:
   name: setPlayerHudComponentProperty
   description: This function allows for modifying HUD properties, such as text or
     bar color, position, size, and more.
-  parameters: []
+  parameters:
+  - name: component
+    type: string
+    description: The component you wish to modify. See HUD Components .
+  - name: property
+    type: string
+    description: The name of the property you want to modify. See HUD Properties .
+  - name: value
+    type: mixed
+    description: The value you want to set.
   examples:
   - path: examples/setPlayerHudComponentProperty-1.lua
     description: This example makes the HUD look like it does in the picture on the
       side.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the property was successfully modified, false otherwise.
+  oop:
+    element: player
+    method: setHudComponentProperty
+    static: false
   pair: getPlayerHudComponentProperty
   notes:
   - type: info

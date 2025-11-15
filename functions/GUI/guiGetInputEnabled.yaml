@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetInputEnabled
-client:
+shared:
   name: guiGetInputEnabled
   description: This function checks whether user input is focused on the GUI or the
     game.
@@ -9,5 +9,16 @@ client:
     description: This example adds a command with which you can check whether the
       input is focused on GUI or game.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if input is focused on GUI, false if it's focused on
+      the game.
+  oop:
+    element: GuiElement
+    method: )
+    variable: inputEnabled
+    static: true
   pair: guiSetInputEnabled
   requires_review: true

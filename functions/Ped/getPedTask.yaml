@@ -1,12 +1,47 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTask
-client:
+shared:
   name: getPedTask
   description: This function is used to get any simple or complex [task](/wiki/Task
     "Task") of a certain type for a ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose task you want to retrieve.
+  - name: priority
+    type: string
+    description: A string determining which set of tasks you want to retrieve it from.
+      This must be either "primary" or "secondary".
+  - name: taskType
+    type: int
+    description: 'An integer value representing the task type (or slot) you want to
+      get the task from. Types can be: PRIMARY TASKS 0: TASK_PHYSICAL_RESPONSE 1:
+      TASK_EVENT_RESPONSE_TEMP 2: TASK_EVENT_RESPONSE_NONTEMP 3: TASK_PRIMARY 4: TASK_DEFAULT
+      SECONDARY TASKS 0: TASK_SECONDARY_ATTACK 1: TASK_SECONDARY_DUCK 2: TASK_SECONDARY_SAY
+      3: TASK_SECONDARY_FACIAL_COMPLEX 4: TASK_SECONDARY_PARTIAL_ANIM 5: TASK_SECONDARY_IK'
   examples:
   - path: examples/getPedTask-1.lua
     description: This example draws the active primary and secondary tasks (including
       task hierarchy in 1.1) as your local player moves around the world.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value1
+    - type: string
+      name: value2
+    - type: string
+      name: value3
+    - type: string
+      name: value4
+    description: Returns the name of the most complex task. See list of player tasks
+      for valid strings. Returns false if invalid arguments are specified or if there
+      is no task of the type specified. Returns between 1 and 4 strings. The first
+      string contains the name of the most complex task, with simpler sub-tasks being
+      named in the following strings. See list of player tasks for valid strings.
+      Returns false if invalid arguments are specified or if there is no task of the
+      type specified.
+  oop:
+    element: ped
+    method: getTask
+    static: false
   requires_review: true

@@ -1,15 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Iprint
-server:
+shared:
   name: iprint
   description: This function intelligently outputs debug messages into the Debug Console.
     It is similar to [outputDebugString](/wiki/OutputDebugString "OutputDebugString"),
     but outputs useful information for **any** variable type, and does not require
     use of Lua's tostring. This includes information about element types, and table
     structures. It is especially useful for quick debug tasks.
-  parameters: []
+  parameters:
+  - name: var1
+    type: mixed
+    description: A variable of any type to print intelligent information for.
+  - name: var2
+    type: mixed
+    description: MISSING_PARAM_DESC
+  - name: var3...
+    type: mixed
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/iprint-1.lua
     description: 'This example prints some sample debug messages, assuming the server
       is running a typical freeroam/play environment:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Always returns nil .
   requires_review: true

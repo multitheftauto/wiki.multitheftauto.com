@@ -1,17 +1,52 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraInterior
+client:
+  name: setCameraInterior
+  description: Sets the interior of the local camera. Only the interior of the camera
+    is changed, the local player stays in the interior he was in.
+  parameters:
+  - name: interior
+    type: int
+    description: the interior to place the camera in.
+  examples:
+  - path: examples/setCameraInterior-2.lua
+    description: This example make a command to change your cam interior to a selected
+      one.
+    side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the camera's interior was changed successfully, false
+      otherwise.
+  oop: &id001
+    element: player
+    method: setCameraInterior
+    variable: cameraInterior
+    static: false
+  pair: getCameraInterior
+  requires_review: true
 server:
   name: setCameraInterior
   description: Sets the interior of the local camera. Only the interior of the camera
     is changed, the local player stays in the interior he was in.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: the player whose camera interior will be set.
+  - name: interior
+    type: int
+    description: the interior to place the camera in.
   examples:
   - path: examples/setCameraInterior-1.lua
     description: This example make a command to change your cam interior to a selected
       one.
     side: server
-  - path: examples/setCameraInterior-2.lua
-    description: This example make a command to change your cam interior to a selected
-      one.
-    side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the camera's interior was changed successfully, false
+      otherwise.
+  oop: *id001
   pair: getCameraInterior
   requires_review: true

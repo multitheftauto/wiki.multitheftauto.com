@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetServerConfigSetting
-server:
+shared:
   name: getServerConfigSetting
   description: This function retrieves server settings which are usually stored in
     the **mtaserver.conf** file.
-  parameters: []
+  parameters:
+  - name: name
+    type: string
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/getServerConfigSetting-1.lua
     description: This example prints the server minimum allowed client version to
@@ -12,4 +15,11 @@ server:
   - path: examples/getServerConfigSetting-2.lua
     description: 'This example creates agetServerIPhelper function:'
     side: server
+  returns:
+    values:
+    - type: mixed
+      name: value
+    description: Returns a string containing the current value for the named setting,
+      table if name is module or false if the setting does not exist. If the setting
+      name is serverip , may return the string "auto" on local servers.
   requires_review: true

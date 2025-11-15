@@ -1,8 +1,14 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextItemSetText
-server:
+shared:
   name: textItemSetText
   description: Overwrites a previously created text item with the specified text.
-  parameters: []
+  parameters:
+  - name: theTextitem
+    type: textitem
+    description: An existing text item that was previously created with textCreateTextItem
+  - name: text
+    type: string
+    description: The new text for the text item
   examples:
   - path: examples/textItemSetText-1.lua
     description: 'Here, it is being used to update a scoreboard:'

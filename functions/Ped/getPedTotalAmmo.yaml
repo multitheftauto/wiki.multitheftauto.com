@@ -1,14 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedTotalAmmo
-server:
+shared:
   name: getPedTotalAmmo
   description: This function returns an integer that contains the total ammo in a
     specified [ped](/wiki/Ped "Ped")'s weapon. See [Weapon Info](/wiki/Weapon "Weapon")
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose ammo you want to check.
+  - name: weaponSlot
+    type: int
+    description: an integer representing the weapon slot (set to the ped's current
+      slot if not given)
+    default: current
   examples:
   - path: examples/getPedTotalAmmo-1.lua
     description: This example outputs the total amount of ammo a player calledSomeguyhas
       for his weapon.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int containing the total amount of ammo for the specified
+      ped's weapon, or 0 if the ped specified is invalid.
+  oop:
+    element: ped
+    method: getTotalAmmo
+    static: false
   notes:
   - type: info
     content: Clientside, this function will not return a correct value for remote

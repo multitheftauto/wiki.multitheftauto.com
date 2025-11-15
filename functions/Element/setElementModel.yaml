@@ -1,9 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementModel
-server:
+shared:
   name: setElementModel
   description: Sets the model of a given element. This allows you to change the model
     of a player (or ped), a vehicle or an object.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: the element you want to change.
+  - name: model
+    type: int
+    description: 'the model ID to set. For players/peds: A GTASA player model (skin)
+      ID. See Character Skins . For vehicles: The vehicle ID of the vehicle being
+      changed. For objects/projectiles/weapons: An int specifying the model id.'
   examples:
   - path: examples/setElementModel-1.lua
     description: This example allows players to change their own skin with a command
@@ -13,5 +21,15 @@ server:
     description: This example allows players to transform their current vehicle into
       another vehicle model.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: element
+    method: setModel
+    variable: model
+    static: false
   pair: getElementModel
   requires_review: true

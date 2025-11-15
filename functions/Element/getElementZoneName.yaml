@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementZoneName
-server:
+shared:
   name: getElementZoneName
   description: This function allows you to retrieve the zone name of an element (eg.
     Verdant Bluffs or Ocean Docks)
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element which you'd like to retrieve the zone name from
+  - name: citiesonly
+    type: bool
+    description: An optional argument to choose if you want to return the city name
+      (eg Las Venturas)
+    default: 'false'
   examples:
   - path: examples/getElementZoneName-1.lua
     description: This example shows you how to return your own location by doing /loc
       in the chatbox or just loc in console
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the string of the elements zone name.
+  oop:
+    element: element
+    method: getZoneName
+    static: false
   requires_review: true

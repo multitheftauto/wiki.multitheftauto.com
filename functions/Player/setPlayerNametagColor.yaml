@@ -1,14 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPlayerNametagColor
-server:
+shared:
   name: setPlayerNametagColor
   description: This allows you to change the RGB color mixture in the name tags of
     players.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player whose name tag text you wish to change the color of
+  - name: r
+    type: int
+    description: The amount of red you want in the mixture of RGB (0-255 is valid)
+  - name: g
+    type: int
+    description: The amount of green you want in the mixture of RGB (0-255 is valid)
+  - name: b
+    type: int
+    description: The amount of blue you want in the mixture of RGB (0-255 is valid)
   examples:
   - path: examples/setPlayerNametagColor-1.lua
     description: This will allow a player to change the RGB color mixture of their
       nickname. Valid RGB is between 0-255.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
+  oop:
+    element: player
+    method: setNametagColor
+    static: false
   notes:
   - type: info
     content: If the player is using a hexcode in front of their name, it will override

@@ -1,14 +1,33 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedAmmoInClip
-server:
+shared:
   name: getPedAmmoInClip
   description: This function returns an integer that contains the ammo in a specified
     [ped](/wiki/Ped "Ped")'s weapon. See [Weapon Info](/wiki/Weapon "Weapon")
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose ammo you want to check.
+  - name: weaponSlot
+    type: int
+    description: an integer representing the weapon slot (set to the ped's currently
+      selected slot if not specified).
+    default: current
   examples:
   - path: examples/getPedAmmoInClip-1.lua
     description: 'This example outputs the amount of ammo the specified player has
       in his current slot. For example: ''ammo someguy''.'
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an int containing the amount of ammo in the specified ped's
+      currently selected or specified clip, or 0 if the ped specified is invalid.
+  oop:
+    element: ped
+    method: getAmmoInClip
+    variable: ammoInClip
+    static: false
   issues:
   - id: '734'
     description: Sometimes wrong count of player ammo, if get it in onPlayerWeaponFire

@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineImageLinkDFF
-client:
+shared:
   name: engineImageLinkDFF
   description: This function links DFF file with an IMG container. This function does
     not change a model immediately. You should use [engineRestreamWorld](/wiki/EngineRestreamWorld
     "EngineRestreamWorld") to reload models.
-  parameters: []
+  parameters:
+  - name: img_file
+    type: img
+    description: The IMG file you want to link.
+  - name: file_path
+    type: string
+    description: Path to the DFF file you want to link.
+  - name: modelID
+    type: int
+    description: ID of the model you want to link to.
   examples:
   - path: examples/engineImageLinkDFF-1.lua
     description: 'You could use the following code:'
     side: client
+  returns:
+    values:
+    - type: boolean
+      name: value
+    description: Returns true if IMG file was successfully linked, false otherwise.
+  oop:
+    element: img
+    method: linkDFF
+    static: false
   requires_review: true

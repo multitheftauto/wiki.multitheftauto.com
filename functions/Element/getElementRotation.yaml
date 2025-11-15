@@ -1,11 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementRotation
-server:
+shared:
   name: getElementRotation
   description: Retrieve the rotation of elements.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element whose rotation will be retrieved
+  - name: rotOrder
+    type: string
+    description: 'A string representing the rotation order desired when returning
+      the euler angles . If omitted, default value is "default" . Allowed values are:
+      "default": default MTA behavior prior to 1.1, where rotation order depends on
+      element type "ZXY": rotation about the Z axis ( up ), then about the resulting
+      X axis ( right ) and finally about the resulting Y axis ( front ). This is the
+      default rotation order for objects "ZYX": rotation about the Z axis ( up ),
+      then about the resulting Y axis ( front ), and finally about the resulting X
+      axis ( right ). This is the default rotation order for vehicles'
+    default: '"default"'
   examples:
   - path: examples/getElementRotation-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: If a player points at a player element with a gun, its rotation will
+      appear in the chat box.
+  oop:
+    element: element
+    method: getRotation
+    variable: rotation
+    static: false
   pair: setElementRotation
   requires_review: true

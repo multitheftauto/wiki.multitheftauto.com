@@ -1,12 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Sha256
-server:
+shared:
   name: sha256
   description: Calculates the sha256 hash of the specified string.
-  parameters: []
+  parameters:
+  - name: str
+    type: string
+    description: the string to hash.
   examples:
   - path: examples/sha256-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the sha256 hash of the input string if successful, false
+      otherwise.
   notes:
   - type: tip
     content: The sha module and this function may conflict with eachother, if you

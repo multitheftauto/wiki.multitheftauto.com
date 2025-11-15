@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleLocked
-server:
+shared:
   name: isVehicleLocked
   description: This will tell you if a vehicle is locked.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that you want to obtain the locked status of.
   examples:
   - path: examples/isVehicleLocked-1.lua
     description: This example allows a player to lock his vehicle when he is inside
       it.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle specified is locked, false if is unlocked
+      or the vehicle specified is invalid.
+  oop:
+    element: vehicle
+    method: isLocked
+    variable: locked
+    static: false
   pair: setVehicleLocked
   requires_review: true

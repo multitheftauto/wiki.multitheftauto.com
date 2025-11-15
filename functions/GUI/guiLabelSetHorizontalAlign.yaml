@@ -1,10 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelSetHorizontalAlign
-client:
+shared:
   name: guiLabelSetHorizontalAlign
   description: This function sets the horizontal alignment of a text label.
-  parameters: []
+  parameters:
+  - name: theLabel
+    type: element
+    description: The text label to set the horizontal alignment on.
+  - name: align
+    type: string
+    description: 'The alignment type. Valid type strings are: "left" "center" "right"'
+  - name: wordwrap
+    type: bool
+    description: Whether or not to enable wordwrap for the gui-label.
+    default: 'false'
   examples:
   - path: examples/guiLabelSetHorizontalAlign-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true on success, false otherwise.
+  oop:
+    element: guilabel
+    method: setHorizontalAlign
+    variable: horizontalAlign
+    static: false
   requires_review: true

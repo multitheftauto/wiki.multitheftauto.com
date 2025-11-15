@@ -1,10 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementType
-server:
+shared:
   name: getElementType
   description: This function is used to retrieve the type of an element.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you wish to get the type of.
   examples:
   - path: examples/getElementType-1.lua
     description: This example destroys a haystack when a player targets it
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string containing the element type, false if invalid arguments
+      were passed.
+  oop:
+    element: element
+    method: getType
+    variable: type
+    static: false
   requires_review: true

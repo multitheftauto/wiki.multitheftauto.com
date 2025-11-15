@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWeather
-server:
+shared:
   name: getWeather
   description: This function returns the current [Weather](/wiki/Weather "Weather")
     ID.
@@ -8,4 +8,14 @@ server:
   - path: examples/getWeather-1.lua
     description: This example outputs the current weather ID in that chat box.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    description: Returns two integers indicating the weather type that is currently
+      active. The first integer says what weather is currently considered to be active.
+      The second integer is the weather id that is being blended into if any, otherwise
+      it is nil .
   requires_review: true

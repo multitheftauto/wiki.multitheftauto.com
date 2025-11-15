@@ -1,15 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetDevelopmentMode
-server:
+shared:
   name: setDevelopmentMode
   description: This function is used to set the development mode. Setting development
     mode allows access to special commands which can assist with script debugging.
-  parameters: []
+  parameters:
+  - name: enable
+    type: bool
+    description: A boolean to indicate whether development mode is on ( true ) or
+      off ( false )
+  - name: enableWeb
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/setDevelopmentMode-1.lua
     description: Example 1:This example would set the development mode of the client.
       Use /showcol [<0-1>] and /showsound [<0-1>] later to enable/disable respective
       functions.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the mode was set correctly, false otherwise.
   notes:
   - type: info
     content: Enabling development mode on the server side does not enable it on the

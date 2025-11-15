@@ -1,13 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresencePartySize
-client:
+shared:
   name: setDiscordRichPresencePartySize
   description: This function sets the party size of Discord Rich Presence.
-  parameters: []
+  parameters:
+  - name: size
+    type: int
+    description: an integer representing the current party size.
+  - name: max
+    type: int
+    description: an integer representing the maximum party size.
   examples:
   - path: examples/setDiscordRichPresencePartySize-1.lua
     description: This example shows how to change the party size of the Discord Rich
       Presence application.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if function succeeds, false otherwise.
+  oop:
+    element: discordrpc
+    method: setPartySize
+    static: false
   notes:
   - type: info
     content: For the party size to be displayed, the state must be set setDiscordRichPresenceState

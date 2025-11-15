@@ -1,12 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineImageLinkTXD
-client:
+shared:
   name: engineImageLinkTXD
   description: This function links TXD file with an IMG container. This function does
     not change a model immediately. You should use [engineRestreamWorld](/wiki/EngineRestreamWorld
     "EngineRestreamWorld") to reload models.
-  parameters: []
+  parameters:
+  - name: img_file
+    type: img
+    description: The IMG file you want to link.
+  - name: file_path
+    type: string
+    description: Path to the TXD file you want to link.
+  - name: txdID
+    type: int
+    description: ID of the texture dictionary you want to link to. Use engineGetModelTXDID
+      or engineRequestTXD to get this value.
   examples:
   - path: examples/engineImageLinkTXD-1.lua
     description: 'You could use the following code:'
     side: client
+  returns:
+    values:
+    - type: boolean
+      name: value
+    description: Returns true if IMG file was successfully linked, false otherwise.
+  oop:
+    element: img
+    method: linkTXD
+    static: false
   requires_review: true

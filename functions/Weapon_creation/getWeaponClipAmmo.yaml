@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponClipAmmo
-client:
+shared:
   name: getWeaponClipAmmo
   description: This function gets the amount of ammo left in a [custom weapon](/wiki/Element/Weapon
     "Element/Weapon")'s magazine/clip.
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: the weapon to get the clip ammo of.
   examples:
   - path: examples/getWeaponClipAmmo-1.lua
     description: This function outputs the remaining ammo in clip of a specific weapon
       using the command/getammoinclip.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the amount of ammo in the custom weapon 's clip, false if
+      an error occured.
+  oop:
+    element: weapon
+    method: getClipAmmo
+    variable: clipAmmo
+    static: false
   pair: setWeaponClipAmmo
   requires_review: true

@@ -1,12 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraGoggleEffect
-client:
+shared:
   name: setCameraGoggleEffect
   description: This function allows you to set the camera's current goggle effect.
     This means you can activate nightvision or infrared effects by script
-  parameters: []
+  parameters:
+  - name: goggleEffect
+    type: string
+    description: the goggle effect you wish to set
+  - name: noiseEnabled
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'true'
   examples:
   - path: examples/setCameraGoggleEffect-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: true if the effect was set correctly. false otherwise.
+  oop:
+    element: Camera
+    method: setGoggleEffect
+    variable: goggleEffect
+    static: true
   pair: getCameraGoggleEffect
   requires_review: true

@@ -1,10 +1,42 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FetchRemote
-server:
+shared:
   name: fetchRemote
   description: This function allows you to post and receive data from HTTP servers.
     The calls are asynchronous so you do not get an immediate result from the call,
     instead a callback function you specify is called when the download completes.
-  parameters: []
+  parameters:
+  - name: URL
+    type: string
+    description: A full URL in the format http://hostname/path/file.ext . A port can
+      be specified with a colon followed by a port number appended to the hostname.
+  - name: options
+    type: table
+    description: 'A table containing any request options: queueName: Name of the queue
+      to use. Any name can be used. If not set, the queue name is "default". Requests
+      in the same queue are processed in order, one at a time. connectionAttempts:
+      Number of times to retry if the remote host does not respond. (Defaults to 10)
+      connectTimeout: Number of milliseconds each connection attempt will take before
+      timing out. (Defaults to 10000) postData: A string specifying any data you want
+      to send to the remote HTTP server. postIsBinary : A boolean specifying if the
+      data is text, or binary. (Defaults to false) method: A string specifying the
+      request method. (Defaults to GET or POST) headers: A table containing HTTP request
+      headers. e.g.{ Pragma="no-cache" } maxRedirects: An integer limiting the number
+      of HTTP redirections to automatically follow. (Defaults to 8) username: A string
+      specifying the username for protected pages. password: A string specifying the
+      password for protected pages. formFields: A table containing form items to submit.
+      (for POST method only) e.g.{ name="bob", email=" [email protected] " }'
+  - name: callbackFunction
+    type: callback
+    description: 'This is the function that should receive the data returned from
+      the remote server. The callback argument list should be: responseData - A string
+      containing the remote response responseInfo - A table containing: success -
+      A boolean indicating if the request was successful. statusCode - An integer
+      status/error code. See the list of possible error values below. headers - A
+      table containing the HTTP response headers arguments... - The arguments that
+      were passed into fetchRemote'
+  - name: callbackArguments
+    type: table
+    description: A table containing arguments you may want to pass to the callback.
   examples:
   - path: examples/fetchRemote-1.lua
     description: Sending email via a web service (adopted from examples onhttps://documentation.mailgun.com/en/latest/user_manual.html)
@@ -12,6 +44,12 @@ server:
   - path: examples/fetchRemote-2.lua
     description: Changing post content of an IPS forum thread via its API.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a request value which can be used with getRemoteRequestInfo
+      or abortRemoteRequest
   notes:
   - type: info
     content: Client side function only works with the server the player is connected
@@ -22,7 +60,6 @@ server:
     content: When using toJSON for submitting data, make sure to use string.sub(data,
       2, -2) to remove the initial and final brackets, as many APIs will not understand
       the request
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -30,3 +67,4 @@ server:
       - Missing section: CallbackstatusCodeerror values
 
       '
+  requires_review: true

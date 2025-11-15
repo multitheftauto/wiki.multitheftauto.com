@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/UpdateElementRpHAnim
-client:
+shared:
   name: updateElementRpHAnim
   description: This function updates GTA bone animation for a given [element](/wiki/Element
     "Element"). Currently the [Player](/wiki/Element/Player "Element/Player") and
@@ -7,11 +7,19 @@ client:
     called after [setElementBoneRotation](/wiki/SetElementBoneRotation "SetElementBoneRotation")
     for changes to take effect. It should only be called once per frame, after you
     are done rotating bones on that element, as it is quite heavy.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: the element to update the bone animations.
   examples:
   - path: examples/updateElementRpHAnim-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   notes:
   - type: tip
     content: If you want to attach an element to a bone, see attachElementToBone .

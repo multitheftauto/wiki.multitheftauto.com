@@ -1,15 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementID
-server:
+shared:
   name: setElementID
   description: 'This function sets the ID of an element to a string. This can be anything
     from an identifying number, to a name.
 
     You can only change the ID of an element clientside if that element has been created
     clientside as well.'
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element you want to set the ID of.
+  - name: name
+    type: string
+    description: The new ID for theElement.
   examples:
   - path: examples/setElementID-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This returns true if successful. It will return false if theElement
+      is invalid, or does not exist, or if name is invalid, or is not a string.
+  oop:
+    element: element
+    method: setID
+    variable: id
+    static: false
   pair: getElementID
   requires_review: true

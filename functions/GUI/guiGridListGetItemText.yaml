@@ -1,8 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetItemText
-client:
+shared:
   name: guiGridListGetItemText
   description: This function retrieves the text from a specific grid list item.
-  parameters: []
+  parameters:
+  - name: gridList
+    type: element
+    description: the gridlist containing the item you're interested in
+  - name: rowIndex
+    type: int
+    description: row id of the item (first is 0)
+  - name: columnIndex
+    type: int
+    description: column id of the item (first is 0)
   examples:
   - path: examples/guiGridListGetItemText-1.lua
     description: 'Example 1: This example creates a gridlist with entries "Hello"
@@ -13,4 +22,13 @@ client:
     description: 'Example 2: This example creates a player list on resource start,
       clicking on it will output the selected player name to the chatbox.'
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns the text of the item if the arguments are right, false otherwise.
+  oop:
+    element: guigridlist
+    method: getItemText
+    static: false
   requires_review: true

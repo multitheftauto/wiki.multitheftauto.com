@@ -1,12 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetSearchLightStartPosition
-client:
+shared:
   name: getSearchLightStartPosition
   description: This function gets the start position of a [searchlight](/wiki/Element/Searchlight
     "Element/Searchlight") element.
-  parameters: []
+  parameters:
+  - name: theSearchLight
+    type: searchlight
+    description: the searchlight to get the position where the searchlight's light
+      cone starts.
   examples:
   - path: examples/getSearchLightStartPosition-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: x
+    - type: float
+      name: "y"
+    - type: float
+      name: z
+    description: If the specified searchlight element is valid, this function will
+      return three float , which are the three coordinates of searchlight's start
+      position. If not, it will return false plus an error message.
+  oop:
+    element: searchlight
+    method: getStartPosition
+    variable: startPosition
+    static: false
   pair: setSearchLightStartPosition
   requires_review: true

@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsVehicleTaxiLightOn
-server:
+shared:
   name: isVehicleTaxiLightOn
   description: This function will get the taxi light state of a taxi (vehicle IDs
     420 and 438\)
-  parameters: []
+  parameters:
+  - name: taxi
+    type: vehicle
+    description: The vehicle element of the taxi that you wish to get the light state
+      of.
   examples:
   - path: examples/isVehicleTaxiLightOn-1.lua
     description: This example binds the 'o' key to a function that toggles the taxi's
       light on and off, if you're in a taxi.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the light is on, false otherwise.
+  oop:
+    element: vehicle
+    method: isTaxiLightOn
+    variable: taxiLightOn
+    static: false
   pair: setVehicleTaxiLightOn
   requires_review: true

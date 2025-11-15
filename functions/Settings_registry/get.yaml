@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Get
-server:
+shared:
   name: get
   description: This function gets a setting's value, or a group of settings' values,
     from the [settings registry](/wiki/Settings_system "Settings system").
-  parameters: []
+  parameters:
+  - name: settingName
+    type: string
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/get-1.lua
     description: Example returns a value from the settings registry with the name
@@ -12,6 +15,12 @@ server:
   - path: examples/get-2.lua
     description: 'Or easier:'
     side: server
+  returns:
+    values:
+    - type: var
+      name: value
+    description: 'Returns the value of the setting if a single setting was specified
+      and found, or a table (in associative-array form) containing:'
   notes:
   - type: info
     content: Your settings cannot have a period (.) in them. This character is reserved.

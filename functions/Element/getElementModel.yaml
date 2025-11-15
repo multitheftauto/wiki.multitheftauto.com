@@ -1,9 +1,12 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetElementModel
-server:
+shared:
   name: getElementModel
   description: Returns the model ID of a given element. This can be a player/ped skin,
     a pickup model, an object model or a vehicle model.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: the element to retrieve the model ID of.
   examples:
   - path: examples/getElementModel-1.lua
     description: This example destroys a haystack when a player targets it.It only
@@ -13,5 +16,15 @@ server:
     description: This example prints out a message when a Shamal or AT-400 is entered
       by a player.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the model ID if successful, false otherwise.
+  oop:
+    element: element
+    method: getModel
+    variable: model
+    static: false
   pair: setElementModel
   requires_review: true

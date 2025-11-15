@@ -1,21 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SvgSetSize
-client:
+shared:
   name: svgSetSize
   description: Sets the underlying XML document from an SVG element.
-  parameters: []
+  parameters:
+  - name: svgElement
+    type: svg
+    description: The svg element you want to set the size of.
+  - name: width
+    type: int
+    description: Desired width, preferably power of two (16, 32, 64 etc.), maximum
+      is 4096
+  - name: height
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: function callback ( element svg
+    type: '[,'
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/svgSetSize-1.lua
     description: This example creates ansvgelement including a keybind (F2) to resize
       the SVG randomly, with the use of callbacks to notify in debugscript when the
       SVG was updated.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This example creates an svg element including a keybind (F2) to resize
+      the SVG randomly, with the use of callbacks to notify in debugscript when the
+      SVG was updated.
   notes:
   - type: important
     content: Before r21155 ( 3157905 ) the provided callback wasn't stored on the
       SVG and was only fired once after the function had performed its task. This
       is no longer the case - each SVG can now store a single callback function (optional)
       which is fired every time the SVG texture has been changed/updated.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -23,3 +42,4 @@ client:
       - Missing section: Contents
 
       '
+  requires_review: true

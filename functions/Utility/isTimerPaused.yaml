@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsTimerPaused
-server:
+shared:
   name: isTimerPaused
   description: This function allows you to check whether a timer is paused.
-  parameters: []
+  parameters:
+  - name: theTimer
+    type: timer
+    description: The timer you wish to check.
   examples:
   - path: examples/isTimerPaused-1.lua
     description: This example pauses all currently running timers and resumes all
       currently paused timers from this resource.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the timer is currently paused, false if not or if
+      no such timer existed.
   requires_review: true

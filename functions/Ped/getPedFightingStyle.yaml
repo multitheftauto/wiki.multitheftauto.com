@@ -1,14 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedFightingStyle
-server:
+shared:
   name: getPedFightingStyle
   description: 'Retrieves the fighting style a player/ped is currently using.
 
     Function also added client\-side.'
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped whose current fighting style ID you wish to retrieve.
   examples:
   - path: examples/getPedFightingStyle-1.lua
     description: This will allow any player to check what fighting style they are
       currently using, by typing the 'getfightingstyle' command.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the ped's current fighting style as an integer ID, false
+      if it fails to retrieve a value.
+  oop:
+    element: ped
+    method: getFightingStyle
+    variable: fightingStyle
+    static: false
   pair: setPedFightingStyle
   requires_review: true

@@ -1,15 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateRenderTarget
-client:
+shared:
   name: dxCreateRenderTarget
   description: This function creates a render target element, which is a special type
     of [texture](/wiki/Texture "Texture") that can be drawn on with the dx functions.
     Successful render target creation is not guaranteed, and may fail due to hardware
     or memory limitations.
-  parameters: []
+  parameters:
+  - name: width
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: height
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: withAlpha
+    type: bool
+    description: The render target will be created with an alpha channel. 'false'
+      will turn images' alpha channels to black color
+    default: 'false'
   examples:
   - path: examples/dxCreateRenderTarget-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns a texture element if successful, false if the system is unable
+      to create a render target.
+  oop:
+    element: texture
+    constructorclass: DxRenderTarget
   notes:
   - type: info
     content: Render targets are usually cleared when the player minimizes MTA (i.e.
@@ -19,7 +39,6 @@ client:
   - type: tip
     content: It is highly recommended that dxSetTestMode is used when writing and
       testing scripts using dxCreateRenderTarget.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -27,3 +46,4 @@ client:
       - Missing section: Explanation
 
       '
+  requires_review: true

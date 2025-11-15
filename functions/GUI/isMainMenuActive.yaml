@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsMainMenuActive
-client:
+shared:
   name: isMainMenuActive
   description: This function returns whether the user is in the mainmenu or not.
   parameters: []
@@ -7,4 +7,14 @@ client:
   - path: examples/isMainMenuActive-1.lua
     description: This example check if the player is afk.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the mainmenu is visible, false if not.
+  oop:
+    element: GuiElement
+    method: )
+    variable: mainMenuActive
+    static: true
   requires_review: true

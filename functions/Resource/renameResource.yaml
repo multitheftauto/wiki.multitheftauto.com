@@ -1,11 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RenameResource
-server:
+shared:
   name: renameResource
   description: This function renames a resource.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: string/resource
+    description: The name of resource or the resource you want to rename.
+  - name: newResourceName
+    type: string
+    description: The name of what the resource should be renamed to.
+  - name: organizationalPath
+    type: string
+    description: If you want to store the new resource inside a category.
   examples:
   - path: examples/renameResource-1.lua
     description: 'This example renames the resource "reload" to "reload2":'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the resource has been renamed successfully, false
+      otherwise. This could fail if the resource name already is in use, if a directory
+      already exists with the name you've specified (but this isn't a valid resource)
+      or if the name you specify isn't valid. It could also fail if the disk was full
+      or for other similar reasons. Won't work on a started resource or if the resource
+      is not loaded (not known by MTA (use /refresh))
+  oop:
+    element: resource
+    method: rename
+    variable: name
+    static: false
   pair: getResourceName
   requires_review: true

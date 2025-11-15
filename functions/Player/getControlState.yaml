@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetControlState
-server:
+shared:
   name: getControlState
   description: This function will check if a player is pressing a particular control.
     Controls are those that affect GTA. If you wish to get the state of another key,
     use [bindKey](/wiki/BindKey "BindKey") and a command function.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you wish to get the control state of. Do not use this
+      parameter when scripting for client.
+  - name: controlName
+    type: string
+    description: The control that you want to get the state of. See control names
+      for a list of possible controls.
   examples:
   - path: examples/getControlState-1.lua
     description: This example starts a repeating check when a player spawns, if a
       player presses the fire key, they'll be killed.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns the state of the control, false if the control doesn't exist
+      or if the player is dead.
   requires_review: true

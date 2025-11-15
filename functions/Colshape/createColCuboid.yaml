@@ -1,11 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateColCuboid
-server:
+shared:
   name: createColCuboid
   description: This function creates a collision cuboid. This is a shape that has
     a position, width, depth and height. See [Wikipedia](http://en.wikipedia.org/wiki/Cuboid)
     for a definition of a cuboid. The XYZ of the col starts at the southwest bottom
     corner of the shape.
-  parameters: []
+  parameters:
+  - name: fX
+    type: float
+    description: The X position of the collision cuboid's western side.
+  - name: fY
+    type: float
+    description: The Y position of the collision cuboid's southern side.
+  - name: fZ
+    type: float
+    description: The Z position of the collision cuboid's lowest side.
+  - name: fWidth
+    type: float
+    description: The collision cuboid's width.
+  - name: fDepth
+    type: float
+    description: The collision cuboid's depth.
+  - name: fHeight
+    type: float
+    description: The collision cuboid's height.
   examples:
   - path: examples/createColCuboid-1.lua
     description: This example displays a chat message when a player enters the colshape
@@ -14,6 +32,16 @@ server:
   - path: examples/createColCuboid-2.lua
     description: This function creates a cuboid and centers it to given coordinates
     side: server
+  returns:
+    values:
+    - type: colshape
+      name: value
+    description: Returns a colshape element if successful, false if invalid arguments
+      were passed to the function.
+  oop:
+    element: ColShape
+    method: Cuboid
+    static: true
   notes:
   - type: info
     content: Attaching a cuboid colshape to another element may give unexpected results

@@ -1,16 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetMarkerType
-server:
+shared:
   name: setMarkerType
   description: This function changes a marker's type. The type controls how the marker
     is displayed in the game. It's important that you use marker types that users
     are used to from the single player game. For example, checkpoints are used in
     races, rings are used for aircraft races, arrows are used for entering buildings
     etc.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: A marker element referencing the specified marker.
+  - name: markerType
+    type: string
+    description: 'A string denoting the marker type. Valid values are: "checkpoint"
+      : A race checkpoint. These are very tall, but not infinite, light pillars. Checkpoints
+      snap to ground and become invisible after going over a certain Z height. "ring"
+      : Doughnut shaped ring, normally used for aircraft. "cylinder" : Small glowing
+      ground ring. These are the glow markers you walk into to activate missions or
+      events in single player. "arrow" : Arrow pointing down. These are the arrows
+      on the doors you can enter in single player, except MTA''s are not animated
+      by default. "corona" : A glowing ball of light.'
   examples:
   - path: examples/setMarkerType-1.lua
     description: This function changes all existing markers' type to the specified
       one.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the marker type was changed, false if it wasn't or
+      marker values were invalid.
+  oop:
+    element: marker
+    method: setMarkerType
+    variable: markerType
+    static: false
   pair: getMarkerType
   requires_review: true

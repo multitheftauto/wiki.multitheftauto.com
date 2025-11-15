@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Gettok
-server:
+shared:
   name: gettok
   description: This function splits a string using the given separating character
     and returns one specified substring.
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: the string that should be split.
+  - name: tokenNumber
+    type: int
+    description: which token should be returned (1 for the first, 2 for the second,
+      and so on).
+  - name: / int separatingCharacter
+    type: string
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/gettok-1.lua
     description: This example retrieves the startskin and endskin for spawning a player
       from a string of two numbers "a,b"
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string containing the token if it exists, false otherwise.
   requires_review: true

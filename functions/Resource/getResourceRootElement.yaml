@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceRootElement
-server:
+shared:
   name: getResourceRootElement
   description: This function retrieves a resource's root element. The resource's root
     element is the element in the element tree which is the parent of all elements
@@ -7,7 +7,12 @@ server:
     elsewhere). You can attach event handlers to this element to easily capture events
     that originate from your resource (and global events that originate from the root
     element).
-  parameters: []
+  parameters:
+  - name: theResource
+    type: '[resource'
+    description: the resource whose root element we are getting. If not specified,
+      assumes the current resource. (the resource returned from getThisResource )
+    default: getThisResource(
   examples:
   - path: examples/getResourceRootElement-1.lua
     description: This example retrieves the current resource's root element and attaches
@@ -15,4 +20,15 @@ server:
       called only when thecurrentresource is started rather than whenanyresource is
       started, thereby reducing unnecessary overhead.
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns an element representing the resource's root, false if the
+      specified resource doesn't exist.
+  oop:
+    element: resource
+    method: getRootElement
+    variable: rootElement
+    static: false
   requires_review: true

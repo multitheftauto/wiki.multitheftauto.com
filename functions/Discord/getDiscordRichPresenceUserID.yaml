@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetDiscordRichPresenceUserID
-client:
+shared:
   name: getDiscordRichPresenceUserID
   description: The function returns the client Discord UserID.
   parameters: []
@@ -9,6 +9,13 @@ client:
       granted permission to share data. Otherwise, they will receive an appropriate
       message.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: It will return an empty string ("") if the user has not given consent
+      or has disabled the Rich Presence synchronization option. Otherwise, it will
+      return the userid as a string.
   notes:
   - type: important
     content: The function will correctly return the UserID if the user has given consent

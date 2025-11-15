@@ -1,8 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SpawnPlayer
-server:
+shared:
   name: spawnPlayer
   description: This function spawns the player at an arbitrary point on the map.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The player you want to spawn.
+  - name: x
+    type: float
+    description: The x co-ordinate to spawn the player at.
+  - name: "y"
+    type: float
+    description: The y co-ordinate to spawn the player at.
+  - name: z
+    type: float
+    description: The z co-ordinate to spawn the player at.
+  - name: int rotation
+    type: '['
+    description: MISSING_PARAM_DESC
+    default: 0, int skinID = 0, int interior = 0, int dimension = 0, team theTeam
+      = getPlayerTeam(thePlayer
   examples:
   - path: examples/spawnPlayer-1.lua
     description: This example spawns all the players in the middle of the game map.
@@ -10,6 +27,15 @@ server:
   - path: examples/spawnPlayer-2.lua
     description: This example spawns a playerwhen he logs in.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the player was spawned successfully, false otherwise.
+  oop:
+    element: player
+    method: spawn
+    static: false
   notes:
   - type: info
     content: setCameraTarget must be used to focus on the player. Also, all players

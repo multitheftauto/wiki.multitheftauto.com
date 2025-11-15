@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TriggerServerEvent
-client:
+shared:
   name: triggerServerEvent
   description: This function triggers an event previously registered on the server.
     This is the primary means of passing information between the client and the server.
@@ -7,7 +7,19 @@ client:
     function that can do the reverse. You can treat this function as if it was an
     asynchronous function call, using [triggerClientEvent](/wiki/TriggerClientEvent
     "TriggerClientEvent") to pass back any returned information if necessary.
-  parameters: []
+  parameters:
+  - name: event
+    type: string
+    description: The name of the event to trigger server-side. You should register
+      this event with addEvent and add at least one event handler using addEventHandler
+      .
+  - name: theElement
+    type: element
+    description: The element that is the source of the event.
+  - name: arguments...
+    type: unknown
+    description: A list of arguments to trigger with the event. You can pass any lua
+      data type (except functions). You can also pass elements .
   examples:
   - path: examples/triggerServerEvent-1.lua
     description: ''
@@ -21,6 +33,12 @@ client:
   - path: examples/triggerServerEvent-4.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the event trigger has been sent, false if invalid
+      arguments were specified or a client side element was a parameter.
   notes:
   - type: info
     content: It is marginally more efficient to pass one large event than two smaller

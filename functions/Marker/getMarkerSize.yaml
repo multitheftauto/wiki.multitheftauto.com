@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerSize
-server:
+shared:
   name: getMarkerSize
   description: This function returns a [float](/wiki/Float "Float") containing the
     size of the specified marker.
-  parameters: []
+  parameters:
+  - name: myMarker
+    type: marker
+    description: The marker that you wish to retrieve the size of.
   examples:
   - path: examples/getMarkerSize-1.lua
     description: This example creates a marker and outputs the size to everyone.
     side: server
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float containing the size of the specified marker.
+  oop:
+    element: marker
+    method: getSize
+    variable: size
+    static: false
   pair: setMarkerSize
   requires_review: true

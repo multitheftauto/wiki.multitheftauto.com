@@ -1,13 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiRadioButtonGetSelected
-client:
+shared:
   name: guiRadioButtonGetSelected
   description: This function gets a radio button's selection state.
-  parameters: []
+  parameters:
+  - name: guiRadioButton
+    type: element
+    description: The radio button you wish to retrieve the selection state of.
   examples:
   - path: examples/guiRadioButtonGetSelected-1.lua
     description: This example creates a radio button then checks if one is selected
       and if it is, then it's output the title and sets the next radio button selected.
       (TESTED!)
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the radio button is selected, false if it is not.
+  oop:
+    element: guiradiobutton
+    method: getSelected
+    variable: selected
+    static: false
   pair: guiRadioButtonSetSelected
   requires_review: true

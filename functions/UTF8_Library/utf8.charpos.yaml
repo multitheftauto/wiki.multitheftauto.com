@@ -1,8 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.charpos
-server:
+shared:
   name: utf8.charpos
   description: Converts the UTF\-8 codepoint position to byte\-string position.
-  parameters: []
+  parameters:
+  - name: input
+    type: string
+    description: A string character sequence
+  - name: int charpos
+    type: '[,'
+    description: MISSING_PARAM_DESC
+    default: 0 ]
+  - name: offset
+    type: int
+    description: An integer representing the offset to charpos.
+    default: '1'
   examples:
   - path: examples/utf8.charpos-1.lua
     description: This example takes the second codepoint character and shows the byte-string
@@ -13,6 +24,14 @@ server:
       length with the UTF8 functions and the inbuilt Lua function string.sub, which
       processes byte strings.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int utf8.charpos
+      name: value2
+    description: Returns the integer position as in a byte string and the integer
+      codepoint at this position, nil otherwise.
   notes:
   - type: info
     content: Code point characters beyond the byte value range (0-127) require at

@@ -1,10 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EnginePreloadWorldArea
-client:
+shared:
   name: enginePreloadWorldArea
   description: This function allows a specific area to be loaded **immediately**,
     which can be useful when teleporting a player. The function is not based on a
     radius, but a specific zone is loaded.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: Position in the X axis.
+  - name: "y"
+    type: float
+    description: Position in the Y axis
+  - name: z
+    type: float
+    description: Position in the z axis.
+  - name: loadingOption
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"all"'
   examples:
   - path: examples/enginePreloadWorldArea-1.lua
     description: ''
@@ -12,4 +25,9 @@ client:
   - path: examples/enginePreloadWorldArea-2.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: nil
+      name: value
+    description: Nothing
   requires_review: true

@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetWeaponState
-client:
+shared:
   name: getWeaponState
   description: This function gets the state of a [custom weapon](/wiki/Element/Weapon
     "Element/Weapon").
-  parameters: []
+  parameters:
+  - name: theWeapon
+    type: weapon
+    description: the weapon to get the state of.
   examples:
   - path: examples/getWeaponState-1.lua
     description: This example creates a gun where the local player is and informs
       any player about its state.
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: This example creates a gun where the local player is and informs
+      any player about its state.
+  oop:
+    element: weapon
+    method: getState
+    variable: state
+    static: false
   pair: setWeaponState
   requires_review: true

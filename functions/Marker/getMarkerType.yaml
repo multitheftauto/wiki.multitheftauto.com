@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerType
-server:
+shared:
   name: getMarkerType
   description: This function returns a marker's type.
-  parameters: []
+  parameters:
+  - name: theMarker
+    type: marker
+    description: A marker element referencing the specified marker.
   examples:
   - path: examples/getMarkerType-1.lua
     description: This function creates a default marker at a given position and outputs
       its type.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: If an invalid marker is specified, false is returned.
+  oop:
+    element: marker
+    method: getMarkerType
+    variable: markerType
+    static: false
   pair: setMarkerType
   requires_review: true

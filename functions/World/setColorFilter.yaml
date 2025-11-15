@@ -1,12 +1,41 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetColorFilter
-client:
+shared:
   name: setColorFilter
   description: This function is used to override the default color filtering values.
-  parameters: []
+  parameters:
+  - name: aRed
+    type: int
+    description: The amount of red (0-255).
+  - name: aGreen
+    type: int
+    description: The amount of green (0-255).
+  - name: aBlue
+    type: int
+    description: The amount of blue (0-255).
+  - name: aAlpha
+    type: int
+    description: The amount of alpha (0-255).
+  - name: bRed
+    type: int
+    description: The amount of red (0-255).
+  - name: bGreen
+    type: int
+    description: The amount of green (0-255).
+  - name: bBlue
+    type: int
+    description: The amount of blue (0-255).
+  - name: bAlpha
+    type: int
+    description: The amount of alpha (0-255).
   examples:
   - path: examples/setColorFilter-1.lua
     description: 'This example lets any player disable the default color filtering:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the color filter was set, false otherwise.
   notes:
   - type: tip
     content: Normally the game is adding these colors to a screen to simulate weather

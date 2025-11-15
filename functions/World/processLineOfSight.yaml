@@ -1,11 +1,89 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ProcessLineOfSight
-client:
+shared:
   name: processLineOfSight
   description: This function casts a ray between two points in the world, and tells
     you information about the point that was hit, if any. The two positions **must**
     be within the local player's draw distance as the collision data is not loaded
     outside this area, and the call will just fail as if the ray didn't hit.
-  parameters: []
+  parameters:
+  - name: startX
+    type: float
+    description: The start x position
+  - name: startY
+    type: float
+    description: The start y position
+  - name: startZ
+    type: float
+    description: The start z position
+  - name: endX
+    type: float
+    description: The end x position
+  - name: endY
+    type: float
+    description: The end y position
+  - name: endZ
+    type: float
+    description: The end z position
+  - name: checkBuildings
+    type: bool
+    description: Allow the line of sight to be blocked by GTA's internally placed
+      buildings, i.e. the world map.
+    default: 'true'
+  - name: checkVehicles
+    type: bool
+    description: Allow the line of sight to be blocked by vehicles .
+    default: 'true'
+  - name: checkPlayers
+    type: bool
+    description: Allow the line of sight to be blocked by players .
+    default: 'true'
+  - name: checkObjects
+    type: bool
+    description: Allow the line of sight to be blocked by objects .
+    default: 'true'
+  - name: checkDummies
+    type: bool
+    description: Allow the line of sight to be blocked by GTA's internal dummies.  These
+      are not used in the current MTA version so this argument can be set to false
+      .
+    default: 'true'
+  - name: seeThroughStuff
+    type: bool
+    description: Allow the line of sight pass through collision materials that have
+      this flag enabled (By default material IDs 52, 55 and 66 which are some fences
+      that you can shoot throug but still walk on them).
+    default: 'false'
+  - name: ignoreSomeObjectsForCamera
+    type: bool
+    description: Allow the line of sight to pass through objects that have (K) property
+      enabled in "object.dat" data file. (i.e. Most dynamic objects like boxes or
+      barrels)
+    default: 'false'
+  - name: shootThroughStuff
+    type: bool
+    description: Allow the line of sight to pass through collision materials that
+      have this flag enabled (By default material IDs 28, 29, 31, 32, 33, 74, 75,
+      76, 77, 78, 79, 96, 97, 98, 99, 100 which are exclusively sand / beach or underwater
+      objects).
+    default: 'false'
+  - name: ignoredElement
+    type: element
+    description: Allow the line of sight to pass through a certain specified element.
+      This is usually set to the object you are tracing from so it does not interfere
+      with the results.
+    default: nil
+  - name: includeWorldModelInformation
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  - name: bIncludeCarTyres
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  - name: bIncludeExtraMateriaInfo
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/processLineOfSight-1.lua
     description: This example shows how you can tell what position and element the
@@ -17,6 +95,62 @@ client:
       note that this function doesn't count if the vehicle is streamed in or not,
       so expect this function to fail or return incorrect values on unloaded vehicles.
     side: client
+  returns:
+    values:
+    - type: 'bool               -- hit
+
+        float float float  -- hitX'
+      name: value1
+    - type: hitY
+      name: value2
+    - type: 'hitZ
+
+        element            -- hitElement
+
+        float float float  -- normalX'
+      name: value3
+    - type: normalY
+      name: value4
+    - type: 'normalZ
+
+        int                -- material
+
+        float              -- lighting
+
+        int                -- piece
+
+        int                -- worldModelID
+
+        float float float  -- worldModelPositionX'
+      name: value5
+    - type: Y
+      name: value6
+    - type: 'Z
+
+        float float float  -- worldModelRotationX'
+      name: value7
+    - type: Y
+      name: value8
+    - type: 'Z
+
+        int                -- worldLODModelID
+
+        float float        -- uvX'
+      name: value9
+    - type: 'uvY
+
+        string             -- textureName'
+      name: value10
+    - type: string             -- frameName
+      name: value11
+    - type: float float float  -- modelHitX
+      name: value12
+    - type: modelHitY
+      name: value13
+    - type: modelHitZ
+      name: value14
+    description: The other values are only filled if there is a collision, they contain
+      nil otherwise
   notes:
   - type: info
     content: Due to a bug, shootThroughStuff argument does currently check for seeThroughStuff!

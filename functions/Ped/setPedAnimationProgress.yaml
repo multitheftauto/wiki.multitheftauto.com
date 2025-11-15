@@ -1,11 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedAnimationProgress
-server:
+shared:
   name: setPedAnimationProgress
   description: Sets the current animation progress of a player or ped.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the player or ped you want to change animation progress.
+  - name: anim
+    type: string
+    description: the animation name currently applied to ped, if not supplied, the
+      animation will stop
+  - name: progress
+    type: float
+    description: current animation progress you want to apply, value from 0.0 to 1.0,
+      if not supplied will default to 0.0
   examples:
   - path: examples/setPedAnimationProgress-1.lua
     description: This example creates a ped, apply animation to it, and "freeze" the
       animation at half of overall animation time.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
+  oop:
+    element: ped
+    method: setAnimationProgress
+    static: false
   requires_review: true

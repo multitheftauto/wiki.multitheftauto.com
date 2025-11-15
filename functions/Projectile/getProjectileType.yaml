@@ -1,10 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetProjectileType
-client:
+shared:
   name: getProjectileType
   description: This function returns the type of the specified projectile.
-  parameters: []
+  parameters:
+  - name: theProjectile
+    type: projectile
+    description: The projectile element which type you want to retrieve.
   examples:
   - path: examples/getProjectileType-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer over the type of the projectile or false if invalid
+      arguments were passed.
+  oop:
+    element: projectile
+    method: getType
+    variable: type
+    static: false
   requires_review: true

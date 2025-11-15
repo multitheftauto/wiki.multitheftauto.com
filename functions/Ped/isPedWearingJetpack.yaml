@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsPedWearingJetpack
-server:
+shared:
   name: isPedWearingJetpack
   description: Checks whether or not a ped is currently wearing a jetpack.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped you want to check
   examples:
   - path: examples/isPedWearingJetpack-1.lua
     description: Example 1:This examples adds a "jetpack" console command, which toggles
@@ -12,4 +15,15 @@ server:
     description: Example 2:This example provides a check to see if players have a
       jetpack when they enter a particular marker.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is carrying a jetpack, false if he is not
+      or an invalid element was passed.
+  oop:
+    element: ped
+    method: isWearingJetpack
+    variable: jetpack
+    static: false
   requires_review: true

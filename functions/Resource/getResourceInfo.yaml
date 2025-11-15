@@ -1,12 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetResourceInfo
-server:
+shared:
   name: getResourceInfo
   description: This function retrieves the value of any attribute in a resource info
     tag.
-  parameters: []
+  parameters:
+  - name: theResource
+    type: resource
+    description: the resource we are getting the info from.
+  - name: attribute
+    type: string
+    description: the name of the attribute we want info about.
   examples:
   - path: examples/getResourceInfo-1.lua
     description: This function tells the server who's the author who made the currently
       running resource.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns a string with the attribute value if it exists, false otherwise.
+  oop:
+    element: resource
+    method: getInfo
+    static: false
   requires_review: true

@@ -1,12 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetMapInfo
-server:
+shared:
   name: resetMapInfo
   description: This function is used to reset the state of a player. It is intended
     to restore a player to his default state as if he had just joined the server,
     without any scripts affecting him.
-  parameters: []
+  parameters:
+  - name: thePlayer
+    type: player
+    description: The specific player you wish to restore the state of.  Not specifying
+      this will result in all players map info being reset.
+    default: root
   examples:
   - path: examples/resetMapInfo-1.lua
     description: This will reset all map info when the resource is stopped.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the map info was reset successfully, otherwise false
+      .
   requires_review: true

@@ -1,10 +1,41 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SpawnVehicle
-server:
+shared:
   name: spawnVehicle
   description: Spawns a vehicle at any given position and rotation
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to spawn
+  - name: x
+    type: float
+    description: The x position you wish to spawn the vehicle at
+  - name: "y"
+    type: float
+    description: The x position you wish to spawn the vehicle at
+  - name: z
+    type: float
+    description: The x position you wish to spawn the vehicle at
+  - name: rx
+    type: float
+    description: The x rotation you wish to spawn the vehicle at
+  - name: ry
+    type: float
+    description: The y rotation you wish to spawn the vehicle at
+  - name: rz
+    type: float
+    description: The z rotation you wish to spawn the vehicle at
   examples:
   - path: examples/spawnVehicle-1.lua
     description: With this feature, we spawn vehicle
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle spawned successfully, false if the passed
+      argument does not exist or is not a vehicle.
+  oop:
+    element: vehicle
+    method: spawn
+    static: false
   requires_review: true

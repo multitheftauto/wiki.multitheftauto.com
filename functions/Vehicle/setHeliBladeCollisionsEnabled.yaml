@@ -1,13 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetHeliBladeCollisionsEnabled
-client:
+shared:
   name: setHeliBladeCollisionsEnabled
   description: This function changes the state of the helicopter blades collisions
     on the specified vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The helicopter that will have the blades collisions set.
+  - name: collisions
+    type: bool
+    description: The state of the helicopter blades collisions.
   examples:
   - path: examples/setHeliBladeCollisionsEnabled-1.lua
     description: This example disables blades collisions when a player enters a helicopter
       as a driver.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the collisions are set for the specified vehicle,
+      false if the collisions can't be set for the specified vehicle, if the vehicle
+      is not a helicopter or if invalid arguments are specified.
+  oop:
+    element: vehicle
+    method: setHeliBladeCollisionsEnabled
+    variable: heliBladeCollisionsEnabled
+    static: false
   pair: getHeliBladeCollisionsEnabled
   requires_review: true

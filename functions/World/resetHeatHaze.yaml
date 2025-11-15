@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetHeatHaze
-server:
+shared:
   name: resetHeatHaze
   description: This function restores the default heat haze.
   parameters: []
@@ -7,4 +7,9 @@ server:
   - path: examples/resetHeatHaze-1.lua
     description: This example resets the heat haze.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the heat haze was reset correctly, false otherwise.
   requires_review: true

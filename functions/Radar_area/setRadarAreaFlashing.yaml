@@ -1,8 +1,15 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetRadarAreaFlashing
-server:
+shared:
   name: setRadarAreaFlashing
   description: This function makes an existing radar area flash in transparency.
-  parameters: []
+  parameters:
+  - name: theRadarArea
+    type: radararea
+    description: the radararea element we want to change flashing state of.
+  - name: flash
+    type: bool
+    description: a bool indicating whether the radar area should flash ( true to flash,
+      false to not flash).
   examples:
   - path: examples/setRadarAreaFlashing-1.lua
     description: 'Example 1:This example checks to see whether an existing radar area
@@ -13,5 +20,16 @@ server:
       and a colsquare. When the player enters the radar area flashes, it stops flashing
       when a player leaves.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the new flash state was successfully set, false if
+      the radar area doesn't exist or invalid arguments were passed.
+  oop:
+    element: radararea
+    method: setFlashing
+    variable: flashing
+    static: false
   pair: isRadarAreaFlashing
   requires_review: true

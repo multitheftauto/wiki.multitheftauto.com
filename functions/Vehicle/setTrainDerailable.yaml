@@ -1,9 +1,16 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetTrainDerailable
-server:
+shared:
   name: setTrainDerailable
   description: This function will set a train or tram as derailable. This is, if it
     can derail when it goes above the maximum speed.
-  parameters: []
+  parameters:
+  - name: derailableVehicle
+    type: vehicle
+    description: The vehicle that you wish to set derailable.
+  - name: derailable
+    type: bool
+    description: whether the train or tram is derailable. True as derailable, False
+      as non-derailable.
   examples:
   - path: examples/setTrainDerailable-1.lua
     description: This example will allow players to toggle derailability of the train
@@ -13,5 +20,15 @@ server:
     description: This example will make a train east of LS station which can not be
       derailed, and start moving it.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the state was successfully set, false otherwise.
+  oop:
+    element: vehicle
+    method: setDerailable
+    variable: derailable
+    static: false
   pair: isTrainDerailable
   requires_review: true

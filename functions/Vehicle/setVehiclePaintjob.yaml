@@ -1,12 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehiclePaintjob
-server:
+shared:
   name: setVehiclePaintjob
   description: "This function changes the paintjob on the specified vehicle.   \n\n\
     See [paintjob](/wiki/Paintjob \"Paintjob\") for list of supported vehicles.\n\
     To remove a paintjob from a vehicle, apply paintjob number **3** to it."
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to change the paintjob of.
+  - name: value
+    type: int
+    description: A whole number representing the new paintjob id. Ranges from 0 up
+      to 3.
   examples:
   - path: examples/setVehiclePaintjob-1.lua
     description: This example will set the paintjob of a new sultan to '2'.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle's paintjob was changed. Otherwise false
+      .
   requires_review: true

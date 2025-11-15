@@ -1,15 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TestLineAgainstWater
-client:
+shared:
   name: testLineAgainstWater
   description: This function checks to see if a line between two points collides with
     the water. This is similar to [processLineOfSight](/wiki/ProcessLineOfSight "ProcessLineOfSight"),
     but only collides with water. Waves are not taken into account when testing the
     line.
-  parameters: []
+  parameters:
+  - name: startX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: startZ
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endX
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endY
+    type: float
+    description: MISSING_PARAM_DESC
+  - name: endZ
+    type: float
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/testLineAgainstWater-1.lua
     description: This code snippet adds a /isanywaterbelowme command, which checks
       if there is water at 500 units below the ground at the position of the player
       who types it.
     side: client
+  returns:
+    values:
+    - type: bool float float float
+      name: value
+    description: Returns true and the position of the intersection point of the line
+      and the water surface if there is a collision, or false if there is no collision.
   requires_review: true

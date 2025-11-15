@@ -1,8 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateTrayNotification
-client:
+shared:
   name: createTrayNotification
   description: This function creates a notification balloon on the desktop.
-  parameters: []
+  parameters:
+  - name: notificationText
+    type: string
+    description: The text to send in the notification.
+  - name: iconType
+    type: string
+    description: 'The notification icon type. Possible values are: "default" (the
+      MTA icon), "info", "warning", "error"'
+    default: '"default"'
+  - name: useSound
+    type: bool
+    description: A boolean value indicating whether or not to play a sound when receiving
+      the notification.
+    default: 'true'
   examples:
   - path: examples/createTrayNotification-1.lua
     description: ''
@@ -10,6 +23,11 @@ client:
   - path: examples/createTrayNotification-2.lua
     description: 'Example of notification on minimize MTA application:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the notification is correctly created, false otherwise.
   notes:
   - type: info
     content: MTA won't show any tray notifications if the MTA window is focused, because

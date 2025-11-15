@@ -1,11 +1,31 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxUpdateScreenSource
-client:
+shared:
   name: dxUpdateScreenSource
   description: This function updates the contents of a screen source [texture](/wiki/Texture
     "Texture") with the screen output from GTA
-  parameters: []
+  parameters:
+  - name: screenSource
+    type: element
+    description: The screen source element whose pixels we want to fill with the screen
+      capture
+  - name: resampleNow
+    type: bool
+    description: A bool to indicate if the screen should be captured immediately.
+      The default is false which means the screen from the end of the previous frame
+      is used (better for performance and consistency). Use true for layering fullscreen
+      effects.
+    default: 'false'
   examples:
   - path: examples/dxUpdateScreenSource-1.lua
     description: This example will update the screen capture when F7 is pressed
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the screen was successfully captured, false otherwise.
+  oop:
+    element: dxscreensource
+    method: update
+    static: false
   requires_review: true

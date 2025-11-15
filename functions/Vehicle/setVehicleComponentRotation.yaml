@@ -1,14 +1,48 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleComponentRotation
-client:
+shared:
   name: setVehicleComponentRotation
   description: This function sets the component rotation of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to set component rotation of.
+  - name: theComponent
+    type: string
+    description: A vehicle component (this is the frame name from the model file of
+      the component you wish to modify)
+  - name: rotX
+    type: float
+    description: The component's rotation around the x axis in degrees.
+  - name: rotY
+    type: float
+    description: The component's rotation around the y axis in degrees.
+  - name: rotZ
+    type: float
+    description: The component's rotation around the z axis in degrees.
+  - name: base
+    type: string
+    description: 'A string representing what the supplied rotation ( rotX , rotY ,
+      rotZ ) is relative to. It can be one of the following values: parent: The rotation
+      is relative to the parent component. root: The rotation is relative to the root
+      component. world: The rotation is a world rotation, relative to the world''s
+      coordinates axes.'
+    default: '"parent"'
   examples:
   - path: examples/setVehicleComponentRotation-1.lua
     description: Example 1:This example would change the roatation of the component
       when the player enters a vehicle.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the component rotation was set successfully, false
+      otherwise.
+  oop:
+    element: vehicle
+    method: setComponentRotation
+    static: false
   pair: getVehicleComponentRotation
   notes:
   - type: info

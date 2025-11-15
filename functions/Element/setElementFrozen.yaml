@@ -1,14 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetElementFrozen
-server:
+shared:
   name: setElementFrozen
   description: This function freezes an element (stops it in its position and disables
     movement) or unfreezes it.
-  parameters: []
+  parameters:
+  - name: theElement
+    type: element
+    description: The element whose freeze status we want to change.
+  - name: freezeStatus
+    type: bool
+    description: A boolean denoting whether we want to freeze ( true ) or unfreeze
+      ( false ) it.
   examples:
   - path: examples/setElementFrozen-1.lua
     description: This example binds the "p" key to a function to freeze/unfreeze the
       player's current vehicle.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the element was frozen, false if it wasn't or if
+      invalid arguments are passed.
+  oop:
+    element: element
+    method: setFrozen
+    variable: frozen
+    static: false
   pair: isElementFrozen
   notes:
   - type: warning

@@ -1,11 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedTargetingMarkerEnabled
-client:
+shared:
   name: setPedTargetingMarkerEnabled
   description: This function is used to toggle the health target marker on top of
     all pedestrians.
-  parameters: []
+  parameters:
+  - name: enabled
+    type: bool
+    description: A boolean denoting whether we want to enable ( true ) or disable
+      ( false ) the markers.
   examples:
   - path: examples/setPedTargetingMarkerEnabled-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the markers were enabled, false if weren't or if
+      invalid arguments are passed.
   requires_review: true

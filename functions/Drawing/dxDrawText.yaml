@@ -1,10 +1,95 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawText
-client:
+shared:
   name: dxDrawText
   description: Draws a string of text on the screen for one frame. In order for the
     text to stay visible continuously, you need to call this function with the same
     parameters on each frame update (see [onClientRender](/wiki/OnClientRender "OnClientRender")).
-  parameters: []
+  parameters:
+  - name: text
+    type: string
+    description: the text to draw
+  - name: leftX
+    type: float
+    description: the absolute X coordinate of the top left corner of the text
+  - name: topY
+    type: float
+    description: the absolute Y coordinate of the top left corner of the text
+  - name: rightX
+    type: float
+    description: the absolute X coordinate of the right side of the text bounding
+      box. Used for text aligning, clipping and word breaking.
+    default: leftX
+  - name: bottomY
+    type: float
+    description: the absolute Y coordinate of the bottom side of the text bounding
+      box. Used for text aligning, clipping and word breaking.
+    default: topY
+  - name: color
+    type: int
+    description: the color of the text, a value produced by tocolor or 0xAARRGGBB
+      (AA = alpha, RR = red, GG = green, BB = blue).
+    default: white
+  - name: textSize
+    type: float
+    description: the size of the text scale.
+  - name: font
+    type: mixed
+    description: 'Either a custom DX font element or the name of a built-in DX font:
+      Note: Some fonts are incompatible with certain languages such as Arabic. "default":
+      Tahoma "default-bold": Tahoma Bold "clear": Verdana "arial": Arial "sans": Microsoft
+      Sans Serif "pricedown": Pricedown (GTA''s theme text) "bankgothic": Bank Gothic
+      Medium "diploma": Diploma Regular "beckett": Beckett Regular "unifont": Unifont'
+    default: '"default"'
+  - name: alignX
+    type: string
+    description: horizontal alignment of the text within the bounding box. Can be
+      "left" , "center" or "right" .
+    default: '"left"'
+  - name: alignY
+    type: string
+    description: vertical alignment of the text within the bounding box. Can be "top"
+      , "center" or "bottom" .
+    default: '"top"'
+  - name: clip
+    type: bool
+    description: if set to true , the parts of the text that don't fit within the
+      bounding box will be cut off.
+    default: 'false'
+  - name: wordBreak
+    type: bool
+    description: if set to true , the text will wrap to a new line whenever it reaches
+      the right side of the bounding box. If false , the text will always be completely
+      on one line.
+    default: 'false'
+  - name: postGUI
+    type: bool
+    description: A bool representing whether the text should be drawn on top of or
+      behind any ingame GUI (rendered by CEGUI).
+    default: 'false'
+  - name: colorCoded
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  - name: subPixelPositioning
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  - name: fRotation
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0.0'
+  - name: fRotationCenterX
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0.0'
+  - name: fRotationCenterY
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0.0'
+  - name: fLineSpacing
+    type: float
+    description: MISSING_PARAM_DESC
+    default: '0.0'
   examples:
   - path: examples/dxDrawText-1.lua
     description: This example code will add the current zone name in the lower left
@@ -13,6 +98,11 @@ client:
   - path: examples/dxDrawText-2.lua
     description: This example shows how to set both horizontal and vertical text size.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   notes:
   - type: info
     content: The function is known to optimize certain drawing scenarios related to

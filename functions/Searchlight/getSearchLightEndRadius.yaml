@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetSearchLightEndRadius
-client:
+shared:
   name: getSearchLightEndRadius
   description: This function gets the end radius of a [searchlight](/wiki/Element/Searchlight
     "Element/Searchlight") element.
-  parameters: []
+  parameters:
+  - name: theSearchLight
+    type: searchlight
+    description: the searchlight to get the radius of the searchlight's light cone
+      in its end.
   examples:
   - path: examples/getSearchLightEndRadius-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: If the specified searchlight element is valid, this function will
+      return one float , which is the searchlight's end radius. If not, it will return
+      false plus an error message.
+  oop:
+    element: searchlight
+    method: getEndRadius
+    variable: endRadius
+    static: false
   pair: setSearchLightEndRadius
   requires_review: true

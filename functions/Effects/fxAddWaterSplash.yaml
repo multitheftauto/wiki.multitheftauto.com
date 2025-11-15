@@ -1,11 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/FxAddWaterSplash
-client:
+shared:
   name: fxAddWaterSplash
   description: This function creates a water splash particle effect.
-  parameters: []
+  parameters:
+  - name: posX
+    type: float
+    description: A float representing the x position of the splash
+  - name: posY
+    type: float
+    description: A float representing the y position of the splash
+  - name: posZ
+    type: float
+    description: A float representing the z position of the splash
   examples:
   - path: examples/fxAddWaterSplash-1.lua
     description: This example will create a Water Splash at the position of the bullet
       impact whenever you shoot.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns a true if the operation was successful, false otherwise.
+  oop:
+    element: Effect
+    method: )
+    static: true
   requires_review: true

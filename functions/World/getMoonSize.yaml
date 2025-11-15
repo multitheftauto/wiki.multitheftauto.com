@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMoonSize
-server:
+shared:
   name: getMoonSize
   description: This function returns the moon size.
   parameters: []
@@ -8,6 +8,12 @@ server:
     description: This example will tell the moon size to everyone when the resource
       is started.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns a integer being the moon size that is currently set, depending
+      on which side it is used.
   notes:
   - type: info
     content: The function will return false server-side if moon size has not been

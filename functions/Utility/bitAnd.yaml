@@ -1,12 +1,26 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/BitAnd
-server:
+shared:
   name: bitAnd
   description: This function performs a bitwise AND\-conjunction on two or more (unsigned)
     32\-bit [integers](/wiki/Int "Int"). See [Bitwise operation](http://en.wikipedia.org/wiki/Bitwise_operation#AND)
     for more details.
-  parameters: []
+  parameters:
+  - name: var1
+    type: uint
+    description: MISSING_PARAM_DESC
+  - name: var2
+    type: uint
+    description: MISSING_PARAM_DESC
+  - name: '...'
+    type: unknown
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/bitAnd-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: uint
+      name: value
+    description: Returns the conjuncted value.
   requires_review: true

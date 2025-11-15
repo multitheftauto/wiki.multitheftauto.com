@@ -1,13 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetProperties
-client:
+shared:
   name: guiGetProperties
   description: This function gets a list of the CEGUI property names and values of
     a GUI element. To find out what the different properties mean, check out the [CEGUI
     properties page](http://static.cegui.org.uk/static/WindowsLookProperties.html).
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: the GUI element you wish to get the properties of.
   examples:
   - path: examples/guiGetProperties-1.lua
     description: The following example code will create a button and lists its properties
       in the console if the /btn command is entered.
     side: client
+  returns:
+    values:
+    - type: table
+      name: value
+    description: If the function succeeds, the return value is a table. Its keys are
+      property names, the corresponding values are the values of the properties (both
+      names and values are always strings). If the function fails, it returns false
+      .
+  oop:
+    element: guielement
+    method: getProperties
+    variable: properties
+    static: false
   requires_review: true

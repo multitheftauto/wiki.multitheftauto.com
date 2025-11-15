@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetNetworkUsageData
-server:
+shared:
   name: getNetworkUsageData
   description: This function returns a [table](/wiki/Table "Table") containing network
     usage information about inbound and outbound packets.
@@ -9,4 +9,12 @@ server:
     description: This example adds commandndthat shows info about all inbound packets
       with bits bigger than zero.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with two fields: "in" and "out". Each of these contain
+      a table with two fields: "bits" and "count". Each of these contain a table with
+      256 numeric fields ranging from 0 to 255, containing the appropriate network
+      usage data for such packet id.'
   requires_review: true

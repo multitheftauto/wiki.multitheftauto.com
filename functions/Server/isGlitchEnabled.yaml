@@ -1,12 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/IsGlitchEnabled
-server:
+shared:
   name: isGlitchEnabled
   description: This function retrieves whether San Andreas game glitches are enabled
     or not, set by using [setGlitchEnabled](/wiki/SetGlitchEnabled "SetGlitchEnabled")
-  parameters: []
+  parameters:
+  - name: glitchName
+    type: string
+    description: 'the name of the property to set. Possible values are:'
   examples:
   - path: examples/isGlitchEnabled-1.lua
     description: This example outputs weather the "fastmove" glitch is enabled or
       not.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if if the glitch was enabled, or false if it is disabled.
   requires_review: true

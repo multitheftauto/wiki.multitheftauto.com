@@ -1,8 +1,15 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWaterLevel
-server:
+shared:
   name: setWaterLevel
   description: Sets the height of some or all the water in the game world.
-  parameters: []
+  parameters:
+  - name: theWater
+    type: water
+    description: the water element to change.
+  - name: level
+    type: float
+    description: the new Z coordinate of the water surface. All water in the game
+      world is set to this height.
   examples:
   - path: examples/setWaterLevel-1.lua
     description: This example code will slowly drain away all rivers and seas.
@@ -10,6 +17,16 @@ server:
   - path: examples/setWaterLevel-2.lua
     description: This example code will slowly drain away all rivers and seas.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false in case of failure.
+  oop:
+    element: water
+    method: setLevel
+    variable: level
+    static: false
   pair: getWaterLevel
   notes:
   - type: info
@@ -19,7 +36,6 @@ server:
       of the water. Setting the water level to any non-zero value (i.e. setWaterLevel(0.001)
       ) forces alternative rendering and MTA custom objects placed underwater will
       be drawn correctly.
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -27,3 +43,4 @@ server:
       - Missing section: Alternate client-only syntax
 
       '
+  requires_review: true

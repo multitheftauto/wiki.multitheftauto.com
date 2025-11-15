@@ -1,12 +1,28 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiScrollPaneSetScrollBars
-client:
+shared:
   name: guiScrollPaneSetScrollBars
   description: This function allows a scrollpane's scrollbars to be forced **on**,
     or returned to default.
-  parameters: []
+  parameters:
+  - name: scrollPane
+    type: element
+    description: the GUI scrollpane element you want to set the scrollbars of.
+  - name: horizontal
+    type: bool
+    description: A bool where true forces the horizontal scrollbar on, and false returns
+      them to default.
+  - name: vertical
+    type: bool
+    description: A bool where true forces the vertical scrollbar on, and false returns
+      them to default.
   examples:
   - path: examples/guiScrollPaneSetScrollBars-1.lua
     description: This example just checks to see if the scrollpane is created then
       sets the scrollbars. (TESTED!)
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the call was successfully, false otherwise.
   requires_review: true

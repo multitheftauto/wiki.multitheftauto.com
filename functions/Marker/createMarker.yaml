@@ -1,16 +1,70 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateMarker
-server:
+client:
   name: createMarker
   description: This function creates a marker. A marker is a 3D model in the world
     that can highlight a particular point or area, often used to instruct players
     where to go to perform actions such as entering buildings.
-  parameters: []
-  examples:
-  - path: examples/createMarker-1.lua
-    description: 'This example creates a marker next to the player when they type
-      ''createmarker'':'
-    side: server
-  notes:
+  parameters:
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: theType
+    type: string
+    description: 'The visual type of the marker to be created. Possible values: "checkpoint"
+      : A race checkpoint. These are very tall, but not infinite, light pillars. Checkpoints
+      snap to ground and become invisible after going over a certain Z height. "ring"
+      : Doughnut shaped ring, normally used for aircraft. "cylinder" : Small glowing
+      ground ring. These are the glow markers you walk into to activate missions or
+      events in single player. "arrow" : Arrow pointing down. These are the arrows
+      on the doors you can enter in single player, except MTA''s are not animated
+      by default. "corona" : A glowing ball of light.'
+    default: '"checkpoint"'
+  - name: size
+    type: float
+    description: The diameter of the marker to be created, in meters.
+    default: '4.0'
+  - name: r
+    type: int
+    description: An integer number representing the amount of red to use in the colouring
+      of the marker (0 - 255).
+    default: '0'
+  - name: g
+    type: int
+    description: An integer number representing the amount of green to use in the
+      colouring of the marker (0 - 255).
+    default: '0'
+  - name: b
+    type: int
+    description: An integer number representing the amount of blue to use in the colouring
+      of the marker (0 - 255).
+    default: '255'
+  - name: a
+    type: int
+    description: An integer number representing the amount of alpha to use in the
+      colouring of the marker (0 - 255 where 0 is transparent and 255 is opaque).
+    default: '255'
+  - name: ignoreAlphaLimits
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
+  examples: []
+  returns:
+    values:
+    - type: marker
+      name: value
+    description: Returns the marker element that was created, or false if the arguments
+      are incorrect.
+  oop: &id001
+    element: Marker(
+    method: ''
+    static: true
+  notes: &id002
   - type: warning
     content: When using type "arrow" markers, you may experience positioning issues.
       This is a known issue with how GTA creates these types of markers. It is recommended
@@ -19,4 +73,38 @@ server:
     content: '"cylinder" marker type doesn''t have the same size for collisions and
       visible textures. Note that the marker collisions are around 10-20% bigger than
       the visible texture.'
+  requires_review: true
+server:
+  name: createMarker
+  description: This function creates a marker. A marker is a 3D model in the world
+    that can highlight a particular point or area, often used to instruct players
+    where to go to perform actions such as entering buildings.
+  parameters:
+  - name: x
+    type: float
+    description: A floating point number representing the X coordinate on the map.
+  - name: "y"
+    type: float
+    description: A floating point number representing the Y coordinate on the map.
+  - name: z
+    type: float
+    description: A floating point number representing the Z coordinate on the map.
+  - name: string theType
+    type: '[,'
+    description: MISSING_PARAM_DESC
+    default: '"checkpoint", float size = 4.0, int r = 0, int g = 0, int b = 255, int
+      a = 255, element visibleTo = getRootElement('
+  examples:
+  - path: examples/createMarker-1.lua
+    description: 'This example creates a marker next to the player when they type
+      ''createmarker'':'
+    side: server
+  returns:
+    values:
+    - type: marker
+      name: value
+    description: Returns the marker element that was created, or false if the arguments
+      are incorrect.
+  oop: *id001
+  notes: *id002
   requires_review: true

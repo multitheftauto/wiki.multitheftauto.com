@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPlayerCount
-server:
+shared:
   name: getPlayerCount
   description: This function returns the number of players currently connected to
     the server.
@@ -9,11 +9,19 @@ server:
     description: This example displays a chat message with the number of players connected
       to the server when a player joins or quits.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the number of players connected to the server as an int .
+  oop:
+    element: Player
+    method: )
+    static: true
   notes:
   - type: info
     content: '#getElementsByType("player") works the same as this function but also
       works client side unlike this function.'
-  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:
@@ -21,3 +29,4 @@ server:
       - Missing section: Shared implementation of getPlayerCount
 
       '
+  requires_review: true

@@ -1,11 +1,18 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CreateElement
-server:
+shared:
   name: createElement
   description: This function is used to create a new dummy element in the [element
     tree](/wiki/Element_tree "Element tree") which do not necessarily represent an
     entity within the San Andreas world. A common use for this function is for creating
     custom elements, such as a Flag or a Base.
-  parameters: []
+  parameters:
+  - name: elementType
+    type: string
+    description: The type of element being created.
+  - name: elementID
+    type: string
+    description: The ID of the element being created.
+    default: nil
   examples:
   - path: examples/createElement-1.lua
     description: This example creates a "flag" element, named "blue", which will be
@@ -15,4 +22,13 @@ server:
     description: 'Except for it being placed in a different map root, that line will
       have the same effect as having this in a .map file:'
     side: server
+  returns:
+    values:
+    - type: element
+      name: value
+    description: Returns the element if it was successfully created. Returns false
+      if the arguments are wrong.
+  oop:
+    element: element
+    constructorclass: Element
   requires_review: true

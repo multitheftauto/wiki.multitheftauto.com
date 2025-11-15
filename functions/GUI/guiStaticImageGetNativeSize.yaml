@@ -1,12 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiStaticImageGetNativeSize
-client:
+shared:
   name: guiStaticImageGetNativeSize
   description: This function gets the native size of image. That means the original
     size in pixels of the image file.
-  parameters: []
+  parameters:
+  - name: theImage
+    type: element
+    description: The static image element to get the original size of.
   examples:
   - path: examples/guiStaticImageGetNativeSize-1.lua
     description: This example creates an image at the resource's start and changes
       its size to the original size so it keeps the best quality.
     side: client
+  returns:
+    values:
+    - type: int
+      name: value1
+    - type: int
+      name: value2
+    description: Returns two integers where first is the width and second the height
+      of the image in pixels, false if the image element was invalid.
   requires_review: true

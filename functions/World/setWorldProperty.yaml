@@ -1,9 +1,21 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetWorldProperty
-client:
+shared:
   name: setWorldProperty
   description: The downside of overriding is the need to implement custom blending
     (to change weather properties over time creating night / day cycle).
-  parameters: []
+  parameters:
+  - name: property
+    type: string
+    description: The property you wish to override.
+  - name: value
+    type: var
+    description: MISSING_PARAM_DESC
+  - name: value
+    type: var
+    description: MISSING_PARAM_DESC
+  - name: value
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/setWorldProperty-1.lua
     description: 'This example makes volumetric shadows darker:'
@@ -11,6 +23,11 @@ client:
   - path: examples/setWorldProperty-2.lua
     description: 'This example turns off street lights:'
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false otherwise.
   pair: getWorldProperty
   notes:
   - type: info

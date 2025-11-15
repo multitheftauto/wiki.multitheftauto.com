@@ -1,10 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPedControlState
-client:
+shared:
   name: getPedControlState
   description: Checks whether a ped or the localplayer has a certain control pressed.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped you want to check.
+  - name: control
+    type: string
+    description: the control to get the status of. See control names for a list of
+      valid names.
   examples:
   - path: examples/getPedControlState-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the ped is pressing the specified control, false
+      if not or an invalid argument was passed.
+  oop:
+    element: ped
+    method: getControlState
+    static: false
   requires_review: true

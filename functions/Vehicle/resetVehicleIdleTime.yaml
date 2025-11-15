@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetVehicleIdleTime
-server:
+shared:
   name: resetVehicleIdleTime
   description: Resets the vehicle idle time
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to reset the idle time from.
   examples:
   - path: examples/resetVehicleIdleTime-1.lua
     description: This example resets every vehicle's idle time when the resource is
       stopped.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the vehicle idle time has been reset, false if it
+      failed to reset the idle time.
   requires_review: true

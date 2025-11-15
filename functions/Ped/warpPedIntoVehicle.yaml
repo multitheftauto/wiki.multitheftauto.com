@@ -1,13 +1,35 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/WarpPedIntoVehicle
-server:
+shared:
   name: warpPedIntoVehicle
   description: This function is used to warp or force a ped into a vehicle. There
     are no animations involved when this happens.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped which you wish to force inside the vehicle
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to force the ped into
+  - name: seat
+    type: int
+    description: 'An integer representing the seat ID. 0: Front-left 1: Front-right
+      2: Rear-left 3: Rear-right'
+    default: '0'
   examples:
   - path: examples/warpPedIntoVehicle-1.lua
     description: This example creates a vehicle and warps a ped inside immediately.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the operation is successful, false otherwise.
+  oop:
+    element: ped
+    note: Set the variable to nil to executeremovePedFromVehicle
+    method: warpIntoVehicle
+    variable: vehicle
+    static: false
   pair: getPedOccupiedVehicle
   notes:
   - type: important

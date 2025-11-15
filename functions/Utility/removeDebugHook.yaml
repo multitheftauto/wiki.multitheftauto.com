@@ -1,11 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/RemoveDebugHook
-server:
+shared:
   name: removeDebugHook
   description: This function removes hooks added by [addDebugHook](/wiki/AddDebugHook
     "AddDebugHook")
-  parameters: []
+  parameters:
+  - name: hookType
+    type: string
+    description: 'The type of hook to remove. This can be: preEvent postEvent preFunction
+      postFunction'
+  - name: callbackFunction
+    type: function
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/removeDebugHook-1.lua
     description: 'This example adds a hook, then removes it:'
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the hook was successfully removed, or false otherwise.
   requires_review: true

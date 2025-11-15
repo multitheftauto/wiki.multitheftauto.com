@@ -1,12 +1,30 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleSirensOn
-server:
+shared:
   name: setVehicleSirensOn
   description: This function changes the state of the sirens on the specified vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle that will have the sirens set
+  - name: sirensOn
+    type: bool
+    description: The state to set the sirens to
   examples:
   - path: examples/setVehicleSirensOn-1.lua
     description: This example toggles siren state when a player enters a vehicle as
       a driver.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the sirens are set for the specified vehicle, false
+      if the sirens can't be set for the specified vehicle, if the vehicle doesn't
+      have sirens or if invalid arguments are specified.
+  oop:
+    element: vehicle
+    method: setSirensOn
+    variable: sirensOn
+    static: false
   pair: getVehicleSirensOn
   requires_review: true

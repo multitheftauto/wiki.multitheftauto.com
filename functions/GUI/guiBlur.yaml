@@ -1,11 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiBlur
-client:
+shared:
   name: guiBlur
   description: This function defocuses a focused GUI element. Used primarily for edit
     fields and memos.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: the GUI element that you want to defocus
   examples:
   - path: examples/guiBlur-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the function was successful, false otherwise.
+  oop:
+    element: guielement
+    method: blur
+    static: false
   requires_review: true

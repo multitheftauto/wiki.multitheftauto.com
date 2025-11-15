@@ -1,10 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/Shutdown
-server:
+shared:
   name: shutdown
   description: This function shuts down the server.
-  parameters: []
+  parameters:
+  - name: reason
+    type: string
+    description: the reason why the server has been shutdown.
+    default: '"No reason specified"'
+  - name: exitCode
+    type: number
+    description: MISSING_PARAM_DESC
+    default: '0'
   examples:
   - path: examples/shutdown-1.lua
     description: This command shuts down the server on request
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns false if it was not possible to shut down the server.
   requires_review: true

@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleUpgrades
-server:
+shared:
   name: getVehicleUpgrades
   description: This function returns a table of all the upgrades on a specifed vehicle.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle you wish to retrieve the upgrades of.
   examples:
   - path: examples/getVehicleUpgrades-1.lua
     description: This example prints the name and upgrades on each slot of an entered
       vehicle to the chat.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: Returns a table of all the upgrades on each slot of a vehicle, which
+      may be empty, or false if a valid vehicle is not passed.
+  oop:
+    element: vehicle
+    method: getUpgrades
+    variable: upgrades
+    static: false
   requires_review: true

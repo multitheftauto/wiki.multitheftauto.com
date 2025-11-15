@@ -1,10 +1,19 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetPickupAmmo
-server:
+shared:
   name: getPickupAmmo
   description: This function retrieves the amount of ammo in a weapon pickup.
-  parameters: []
+  parameters:
+  - name: thePickup
+    type: pickup
+    description: The pickup in which you wish to retrieve the ammo of
   examples:
   - path: examples/getPickupAmmo-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns an integer of the amount of ammo in the pickup, false if
+      the pickup element is invalid, 0 if it's no weapon pickup.
   requires_review: true

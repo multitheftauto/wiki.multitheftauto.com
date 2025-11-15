@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelPhysicalPropertiesGroup
-client:
+shared:
   name: engineGetModelPhysicalPropertiesGroup
   description: This function gets physical properties group id used by given model.
-  parameters: []
+  parameters:
+  - name: modelID
+    type: int
+    description: the id of model which you wish to get physical properties group of.
   examples:
   - path: examples/engineGetModelPhysicalPropertiesGroup-1.lua
     description: ''
@@ -10,4 +13,11 @@ client:
   - path: examples/engineGetModelPhysicalPropertiesGroup-2.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns id of physical properties group that requested model uses,
+      in range of 0-159 , if the object doesn't have a group assigned, -1 is returned.
+      If passed arguments were wrong, error is triggered.
   requires_review: true

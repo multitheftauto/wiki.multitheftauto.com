@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditIsMasked
-client:
+shared:
   name: guiEditIsMasked
   description: This function checks if an edit box is masked.
-  parameters: []
+  parameters:
+  - name: guiEdit
+    type: gui-edit
+    description: the edit box to check masked flag of.
   examples:
   - path: examples/guiEditIsMasked-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the edit box is masked, false if not, nil if an invalid
+      edit box was provided.
   pair: guiEditSetMasked
   requires_review: true

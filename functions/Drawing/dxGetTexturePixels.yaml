@@ -1,14 +1,53 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/DxGetTexturePixels
-client:
+shared:
   name: dxGetTexturePixels
   description: This function fetches the [pixels](/wiki/Texture_pixels "Texture pixels")
     from a [texture](/wiki/Texture "Texture") element. It can be used with a standard
     texture, render target or screen source.
-  parameters: []
+  parameters:
+  - name: surfaceIndex
+    type: int
+    description: 'Desired slice to get if the texture is a volume texture, or desired
+      face to get if the texture is a cube map. (Cube map faces: 0=+X 1=-X 2=+Y 3=-Y
+      4=+Z 5=-Z)'
+    default: '0'
+  - name: texture
+    type: element
+    description: MISSING_PARAM_DESC
+  - name: pixelsFormat
+    type: string
+    description: MISSING_PARAM_DESC
+    default: '"plain" [, string textureFormat = "unknown"] [, bool mipmaps = true]'
+  - name: x
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: "y"
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: width
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
+  - name: height
+    type: int
+    description: MISSING_PARAM_DESC
+    default: '0'
   examples:
   - path: examples/dxGetTexturePixels-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: string
+      name: value
+    description: Returns pixels string if successful, false if invalid arguments were
+      passed to the function.
+  oop:
+    element: texture
+    method: getPixels
+    static: false
   notes:
   - type: info
     content: This function is slow and not something you want to be doing once a frame.

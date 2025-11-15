@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetMarkerCount
-server:
+shared:
   name: getMarkerCount
   description: Returns the number of markers that currently exist in the world.
   parameters: []
@@ -7,4 +7,9 @@ server:
   - path: examples/getMarkerCount-1.lua
     description: This example outputs the amount of markers to the player.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns the number of markers that currently exist.
   requires_review: true

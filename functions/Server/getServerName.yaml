@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetServerName
-server:
+shared:
   name: getServerName
   description: This function retrieves the server's name.
   parameters: []
@@ -8,4 +8,9 @@ server:
     description: This example creates a console command that outputs the server's
       name to the chatbox.
     side: server
+  returns:
+    values:
+    - type: string
+      name: value
+    description: A string containing the server's name.
   requires_review: true

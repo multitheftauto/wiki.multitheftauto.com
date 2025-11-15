@@ -1,13 +1,22 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleNitroLevel
-client:
+shared:
   name: getVehicleNitroLevel
   description: This function gets the nitro level of the [vehicle](/wiki/Vehicle "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: ''
   examples:
   - path: examples/getVehicleNitroLevel-1.lua
     description: This function displays the nitro level of the vehicle the player
       is entering.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float determining the nitro level (ranges from 0.0001 to
+      1.0) of the vehicle, false if there is no nitro in the vehicle.
   notes:
   - type: warning
     content: Only works if the vehicle is streamed in.

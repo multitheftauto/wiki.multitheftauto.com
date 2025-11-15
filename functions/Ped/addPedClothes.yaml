@@ -1,14 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/AddPedClothes
-server:
+shared:
   name: addPedClothes
   description: This function is used to set the current clothes on a [ped](/wiki/Ped
     "Ped").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped whose clothes you want to change.
+  - name: clothesTexture
+    type: string
+    description: A string determining the clothes texture that will be added. See
+      the clothes catalog .
+  - name: clothesModel
+    type: string
+    description: A string determining the clothes model that will be added. See the
+      clothes catalog .
+  - name: clothesType
+    type: int
+    description: A integer representing the clothes slot/type the clothes should be
+      added to. See the clothes catalog .
   examples:
   - path: examples/addPedClothes-1.lua
     description: This example adds a 'moto' helmet to a player when he gets on a nrg
       bike, and removes it when he gets off.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: This function returns true if the clothes were successfully added
+      to the ped, false otherwise.
+  oop:
+    element: ped
+    method: addClothes
+    static: false
   pair: getPedClothes
   notes:
   - type: info

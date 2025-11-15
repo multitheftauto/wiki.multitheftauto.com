@@ -1,17 +1,39 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/EngineReplaceModel
-client:
+shared:
   name: engineReplaceModel
   description: This function replaces the given model ID with the model contained
     in a DFF file loaded by [engineLoadDFF](/wiki/EngineLoadDFF "EngineLoadDFF").
     This function supports [vehicles](/wiki/Vehicle "Vehicle"), [objects](/wiki/Object
     "Object"), [peds](/wiki/Ped "Ped") and [players](/wiki/Player "Player").
-  parameters: []
+  parameters:
+  - name: theModel
+    type: dff
+    description: The model to replace the given model ID with
+  - name: modelID
+    type: int
+    description: The model it to replace the model of
+  - name: alphaTransparency
+    type: bool
+    description: Set to true if model uses semi-transparent textures, e.g. windows.
+      This will ensure other objects behind the semi-transparent textures are rendered
+      correctly. (Can slightly impact performance, so only set when required)
+    default: 'false'
   examples:
   - path: examples/engineReplaceModel-1.lua
     description: This example allows you to replace single or many models (with ability
       to toggle TXD filtering/DFF alpha transparency) - by usingtable. Do not forget
       to add those file paths tometa.xml
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the model was successfully replaced, false if it
+      failed for some reason, ie. the DFF or the model ID is not valid.
+  oop:
+    element: dff
+    method: replace
+    static: false
   notes:
   - type: info
     content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example

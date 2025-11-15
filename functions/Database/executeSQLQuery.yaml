@@ -1,10 +1,17 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ExecuteSQLQuery
-server:
+shared:
   name: executeSQLQuery
   description: This function executes an arbitrary SQL query and returns the result
     rows if there are any. It allows parameter binding for security (SQL injection
     is rendered impossible).
-  parameters: []
+  parameters:
+  - name: query
+    type: string
+    description: An SQL query. Positions where parameter values will be inserted are
+      marked with a "?".
+  - name: param1 [, var param2 ... ]
+    type: var
+    description: MISSING_PARAM_DESC
   examples:
   - path: examples/executeSQLQuery-1.lua
     description: 'Example equivalents for executeSQLCreateTable:'
@@ -33,6 +40,13 @@ server:
     description: This example shows the amount of money a certain registered player
       has.
     side: server
+  returns:
+    values:
+    - type: table
+      name: value
+    description: 'Returns a table with the result of the query if it was a SELECT
+      query, or false if otherwise. In case of a SELECT query the result table may
+      be empty (if there are no result rows). The table is of the form:'
   notes:
   - type: info
     content: This function only acts upon registry.db. Use dbQuery to query a custom

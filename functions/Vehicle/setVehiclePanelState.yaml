@@ -1,14 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehiclePanelState
-server:
+shared:
   name: setVehiclePanelState
   description: This function allows you to change the state of one of the six panels
     vehicle's can have. When executed on the server\-side resources, the damage will
     be synched for all players, whereas the change is only client\-side if the function
     is used in a client resource.
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: MISSING_PARAM_DESC
+  - name: panelID
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: state
+    type: int
+    description: MISSING_PARAM_DESC
+  - name: spawnFlyingComponent
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'true'
+  - name: breakGlass
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'false'
   examples:
   - path: examples/setVehiclePanelState-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the panel state has been updated, false otherwise
+  oop:
+    element: vehicle
+    method: setPanelState
+    static: false
   pair: getVehiclePanelState
   requires_review: true

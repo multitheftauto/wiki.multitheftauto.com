@@ -1,11 +1,24 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ReloadPedWeapon
-server:
+shared:
   name: reloadPedWeapon
   description: This function makes a pedestrian reload their weapon.
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: The ped who will reload their weapon.
   examples:
   - path: examples/reloadPedWeapon-1.lua
     description: This example adds a 'reloadgun' console command that lets players
       reload their weapon.
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the pedestrian was made to reload, or false if invalid
+      arguments were passed or that pedestrian has a weapon which cannot be reloaded.
+  oop:
+    element: ped
+    method: reloadWeapon
+    static: false
   requires_review: true

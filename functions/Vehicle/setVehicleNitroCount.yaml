@@ -1,14 +1,29 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetVehicleNitroCount
-client:
+shared:
   name: setVehicleNitroCount
   description: This function sets how many times a player can activate the nitro on
     a specified [vehicle](/wiki/Vehicle "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: the vehicle which you want to modify how many times a player can
+      use its nitro.
+  - name: count
+    type: int
+    description: how many times should the player be able to use the nitro of this
+      vehicle (from 0-100 times; 0 means that it can't be used and 101 means that
+      it can be used infinite times).
   examples:
   - path: examples/setVehicleNitroCount-1.lua
     description: This function installs nitro in the vehicle a player enters and then
       makes it usable only twice.
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if the nitro count was set successfully to the vehicle,
+      false otherwise.
   notes:
   - type: warning
     content: Only works if the vehicle is streamed in.

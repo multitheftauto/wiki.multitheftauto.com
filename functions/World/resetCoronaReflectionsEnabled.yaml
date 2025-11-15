@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetCoronaReflectionsEnabled
-client:
+shared:
   name: resetCoronaReflectionsEnabled
   description: This function resets visibility of corona reflections. Default value
     depends on client setting. If client has enabled *corona rain reflections* in
@@ -7,6 +7,11 @@ client:
     value of this option using [dxGetStatus](/wiki/DxGetStatus "DxGetStatus") (*SettingCoronaReflections*).
   parameters: []
   examples: []
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true .
   issues:
   - id: '2755'
     description: Corona reflections do not render on custom placed objects

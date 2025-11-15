@@ -1,11 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TextItemGetPriority
-server:
+shared:
   name: textItemGetPriority
   description: This function retrieves the priority of a text item. Priority defines
     the rate at whihc a text item is updated
-  parameters: []
+  parameters:
+  - name: textitemToCheck
+    type: textitem
+    description: The text item you wish to retrieve the priority of.
   examples:
   - path: examples/textItemGetPriority-1.lua
     description: This page does not have an example.
     side: server
+  returns:
+    values:
+    - type: int
+      name: value
+    description: Returns a integer of the priority of a text item, 0 = low, 1 = medium,
+      2 = high.
   requires_review: true

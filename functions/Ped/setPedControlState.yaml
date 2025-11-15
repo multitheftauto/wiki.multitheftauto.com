@@ -1,13 +1,32 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetPedControlState
-client:
+shared:
   name: setPedControlState
   description: This function makes a [ped](/wiki/Ped "Ped") or [player](/wiki/Player
     "Player") press or release a certain [control](/wiki/Control_names "Control names").
-  parameters: []
+  parameters:
+  - name: thePed
+    type: ped
+    description: the ped you want to press or release a control.
+  - name: control
+    type: string
+    description: the name of the control of which to change the state. See control
+      names for a list of valid names.
+  - name: state
+    type: bool
+    description: the new control state. true means pressed, false is released.
   examples:
   - path: examples/setPedControlState-1.lua
     description: ''
     side: client
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if successful, false if otherwise.
+  oop:
+    element: ped
+    method: setControlState
+    static: false
   notes:
   - type: info
     content: You can't use enter_exit or enter_passenger on a ped. Please use setPedEnterVehicle

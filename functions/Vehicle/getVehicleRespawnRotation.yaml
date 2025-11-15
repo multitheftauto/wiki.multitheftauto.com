@@ -1,11 +1,25 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetVehicleRespawnRotation
-server:
+shared:
   name: getVehicleRespawnRotation
   description: This function retrieves the respawn rotation of a [vehicle](/wiki/Vehicle
     "Vehicle").
-  parameters: []
+  parameters:
+  - name: theVehicle
+    type: vehicle
+    description: The vehicle which you'd like to retrieve the respawn rotation of.
   examples:
   - path: examples/getVehicleRespawnRotation-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: float float float
+      name: value
+    description: Returns three floats indicating the respawn rotation of the vehicle
+      , x , y and z respectively.
+  oop:
+    element: vehicle
+    method: getRespawnRotation
+    variable: respawnRotation
+    static: false
   requires_review: true

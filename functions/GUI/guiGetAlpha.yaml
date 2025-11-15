@@ -1,13 +1,27 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetAlpha
-client:
+shared:
   name: guiGetAlpha
   description: Alpha represents the transparency of a gui element. This function allows
     retrieval of a gui element's current alpha.
-  parameters: []
+  parameters:
+  - name: guiElement
+    type: element
+    description: The gui element in which you want to retrieve the alpha of.
   examples:
   - path: examples/guiGetAlpha-1.lua
     description: This example provides aguiFadefunction, which allows you to fade
       in/out a GUI.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: This function returns a positive integer in between 0 and 1 of the
+      gui element's current alpha, or false if it could not be retrieved.
+  oop:
+    element: guielement
+    method: getAlpha
+    variable: alpha
+    static: false
   pair: guiSetAlpha
   requires_review: true

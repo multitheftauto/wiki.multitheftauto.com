@@ -1,12 +1,20 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiScrollPaneGetHorizontalScrollPosition
-client:
+shared:
   name: guiScrollPaneGetHorizontalScrollPosition
   description: This function is used to get the position of a horizontal scroll pane
     as a percentage.
-  parameters: []
+  parameters:
+  - name: horizontalScrollPane
+    type: element
+    description: The scroll pane you want to know the position of
   examples:
   - path: examples/guiScrollPaneGetHorizontalScrollPosition-1.lua
     description: This example gets the position of a scroll pane called "myScrollPane"
       created withguiCreateScrollPane, and outputs it to the chatbox.
     side: client
+  returns:
+    values:
+    - type: float
+      name: value
+    description: Returns a float ranging between 0 and 100, or false otherwise.
   requires_review: true

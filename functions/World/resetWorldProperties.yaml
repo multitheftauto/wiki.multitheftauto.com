@@ -1,11 +1,46 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/ResetWorldProperties
-server:
+shared:
   name: resetWorldProperties
   description: 'Regardless of the value of the arguments, the following properties
     are reset:'
-  parameters: []
+  parameters:
+  - name: resetSpecialProperties
+    type: bool
+    description: Restores all special world properties changed by setWorldSpecialPropertyEnabled
+      to default.
+    default: 'true'
+  - name: resetWorldProperties
+    type: bool
+    description: Reset all world properties changed by setWorldProperty .
+    default: 'true'
+  - name: resetWeatherProperties
+    type: bool
+    description: Reset all weather properties like heat haze, rain level, sun color
+      etc.
+    default: 'true'
+  - name: resetLODs
+    type: bool
+    description: Reset vehicles and peds lod distance.
+    default: 'true'
+  - name: resetSounds
+    type: bool
+    description: Restore interior sounds, world sounds and ambient sounds.
+    default: 'true'
+  - name: resetGlitches
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'true'
+  - name: resetJetpackWeapons
+    type: bool
+    description: MISSING_PARAM_DESC
+    default: 'true'
   examples:
   - path: examples/resetWorldProperties-1.lua
     description: ''
     side: server
+  returns:
+    values:
+    - type: nil
+      name: value
+    description: This function returns nothing ( nil ).
   requires_review: true

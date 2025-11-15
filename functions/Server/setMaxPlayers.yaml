@@ -1,8 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/SetMaxPlayers
-server:
+shared:
   name: setMaxPlayers
   description: This function sets the maximum number of player slots on the server.
-  parameters: []
+  parameters:
+  - name: slots
+    type: int
+    description: Maximum number of player slots on the server.
   examples:
   - path: examples/setMaxPlayers-1.lua
     description: This example set server slots count to half value from current value.
@@ -10,6 +13,12 @@ server:
   - path: examples/setMaxPlayers-2.lua
     description: This example resets the server slots count to the value from mtaserver.conf
     side: server
+  returns:
+    values:
+    - type: bool
+      name: value
+    description: Returns true if number of player slots was successfully changed,
+      false or nil otherwise.
   notes:
   - type: info
     content: This function cannot set more than <maxplayers> as defined in mtaserver.conf

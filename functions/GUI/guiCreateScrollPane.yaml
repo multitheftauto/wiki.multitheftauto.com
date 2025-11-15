@@ -1,12 +1,44 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateScrollPane
-client:
+shared:
   name: guiCreateScrollPane
   description: This creates a GUI scroll pane.
-  parameters: []
+  parameters:
+  - name: x
+    type: float
+    description: the 2D x offset of the GUI scrollpane from its parent. This is affected
+      by the relative argument.
+  - name: "y"
+    type: float
+    description: the 2D y offset of the GUI scrollpane from its parent. This is affected
+      by the relative argument.
+  - name: width
+    type: float
+    description: the width of the GUI scrollpane. This is affected by the relative
+      argument.
+  - name: height
+    type: float
+    description: the height of the GUI scrollpane. This is affected by the relative
+      argument.
+  - name: relative
+    type: bool
+    description: whether sizes and positions are relative to their parent's. If this
+      is true, then all measures must be between 0 and 1, representing sizes/positions
+      as a fraction of the parent widget's size.
+    default: 'false'
+  - name: parent
+    type: gui-element
+    description: the gui-element this scrollpane is attached to. By default, it is
+      nil, meaning the widget is attached to the background.
+    default: nil
   examples:
   - path: examples/guiCreateScrollPane-1.lua
     description: This example creates a small window with a scrollpane on. Using the
       /fill command you can populate the scrollpane with the names of every player
       in the server.
     side: client
+  returns:
+    values:
+    - type: element
+      name: value
+    description: The gui-element if created, otherwise false.
   requires_review: true
