@@ -346,7 +346,7 @@ def parse_issues(content_div):
             if next_td:
                 issue_desc = next_td.get_text(strip=True)
             issues.append({
-                "id": issue_number,
+                "id": int(issue_number),
                 "description": issue_desc
             })
     return issues
