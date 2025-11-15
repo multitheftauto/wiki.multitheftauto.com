@@ -4,7 +4,7 @@ client:
   description: This function returns the used capacity of the provided pool.
   parameters: []
   examples: []
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

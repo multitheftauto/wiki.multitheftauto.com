@@ -8,4 +8,4 @@ server:
     description: 'This example opens a garage door when a player enters a collision
       shape near it, and closes it when they leave:'
     side: server
-  incomplete: true
+  requires_review: true

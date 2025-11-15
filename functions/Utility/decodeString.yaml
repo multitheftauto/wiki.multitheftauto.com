@@ -10,7 +10,7 @@ server:
     description: Adds a/decodecommand in which you can provide an algorithm, key and
       data to decode.
     side: server
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

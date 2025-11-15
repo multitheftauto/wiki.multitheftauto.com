@@ -9,4 +9,4 @@ server:
       he can use vehicle weapons by disabling or enabling the primary and secondary
       vehicle fire keys. The command handler is trigged with 'toggleweapons'
     side: server
-  incomplete: true
+  requires_review: true

@@ -13,4 +13,4 @@ server:
   - type: info
     content: Starting from version [ r21313 ] and above fpsLimit range is 25-32767
       . In older MTA releases it was 25-100 .
-  incomplete: true
+  requires_review: true

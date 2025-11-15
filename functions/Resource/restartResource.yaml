@@ -22,4 +22,4 @@ server:
       event triggered and the restarted instance will receive an onResourceStart event.
       Remember that the element and resource variables will be invalidated during
       the restart, though of course, the resource's name will not.
-  incomplete: true
+  requires_review: true

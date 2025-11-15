@@ -9,4 +9,4 @@ server:
       its type.
     side: server
   pair: setMarkerType
-  incomplete: true
+  requires_review: true

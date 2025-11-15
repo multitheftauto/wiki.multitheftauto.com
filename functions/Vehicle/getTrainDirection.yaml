@@ -9,4 +9,4 @@ server:
       driving is travelling.
     side: server
   pair: setTrainDirection
-  incomplete: true
+  requires_review: true

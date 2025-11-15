@@ -14,4 +14,4 @@ server:
   - type: info
     content: This function cannot set more than <maxplayers> as defined in mtaserver.conf
       . (To find out the <maxplayers> value, use getServerConfigSetting("maxplayers"))
-  incomplete: true
+  requires_review: true

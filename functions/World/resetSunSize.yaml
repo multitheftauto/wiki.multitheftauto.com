@@ -7,4 +7,4 @@ server:
   - path: examples/resetSunSize-1.lua
     description: This example lets any player reset the size of the sun like /resetsunsize
     side: server
-  incomplete: true
+  requires_review: true

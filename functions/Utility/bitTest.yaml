@@ -10,4 +10,4 @@ server:
   - path: examples/bitTest-1.lua
     description: ''
     side: server
-  incomplete: true
+  requires_review: true

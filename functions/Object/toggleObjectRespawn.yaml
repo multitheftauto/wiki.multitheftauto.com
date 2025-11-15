@@ -11,4 +11,4 @@ server:
   notes:
   - type: info
     content: The object will be respawned when it is streamed
-  incomplete: true
+  requires_review: true

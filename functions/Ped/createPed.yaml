@@ -18,4 +18,4 @@ server:
     description: Ped fireing Projectiles doesn't work
   - id: '492'
     description: Peds shooting incorrectly
-  incomplete: true
+  requires_review: true

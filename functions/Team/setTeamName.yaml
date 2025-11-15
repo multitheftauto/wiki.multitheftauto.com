@@ -9,4 +9,4 @@ server:
       name.
     side: server
   pair: getTeamName
-  incomplete: true
+  requires_review: true

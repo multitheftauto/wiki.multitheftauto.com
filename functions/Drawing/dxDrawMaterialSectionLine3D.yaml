@@ -9,4 +9,4 @@ client:
   - path: examples/dxDrawMaterialSectionLine3D-1.lua
     description: This example draws corona like effects near the player
     side: client
-  incomplete: true
+  requires_review: true

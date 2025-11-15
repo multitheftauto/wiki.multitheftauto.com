@@ -15,4 +15,4 @@ server:
   notes:
   - type: warning
     content: Only use this function if you know what you are doing!
-  incomplete: true
+  requires_review: true

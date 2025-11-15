@@ -9,4 +9,4 @@ server:
     description: ''
     side: server
   pair: setVehicleTurretPosition
-  incomplete: true
+  requires_review: true

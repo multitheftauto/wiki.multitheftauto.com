@@ -19,4 +19,4 @@ server:
       3'' would output ''Team Base 3: Factory'' with the .map file below, even though
       it''s no base.'
     side: server
-  incomplete: true
+  requires_review: true

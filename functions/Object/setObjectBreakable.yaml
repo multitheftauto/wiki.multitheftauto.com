@@ -9,4 +9,4 @@ server:
       it to be breakable.
     side: server
   pair: isObjectBreakable
-  incomplete: true
+  requires_review: true

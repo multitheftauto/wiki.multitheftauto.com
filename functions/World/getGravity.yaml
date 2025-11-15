@@ -8,4 +8,4 @@ server:
   - path: examples/getGravity-1.lua
     description: This serverside command outputs the serverside gravity level.
     side: server
-  incomplete: true
+  requires_review: true

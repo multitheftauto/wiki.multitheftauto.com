@@ -18,4 +18,4 @@ server:
       jetpack and bug when skin is changed
   - id: '529'
     description: Player falls from his bike when its teleported by setElementPosition
-  incomplete: true
+  requires_review: true

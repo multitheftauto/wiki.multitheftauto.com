@@ -21,4 +21,4 @@ client:
     content: Lighting is calculated in real-time every frame. Therefore, to correctly
       override the lighting, you should use this function in combination with the
       onClientPedsProcessed event, not only for peds, but also for vehicles and objects.
-  incomplete: true
+  requires_review: true

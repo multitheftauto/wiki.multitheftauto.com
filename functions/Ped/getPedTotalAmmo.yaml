@@ -16,4 +16,4 @@ server:
   issues:
   - id: '734'
     description: Sometimes wrong count of player ammo, if get it in onPlayerWeaponFire
-  incomplete: true
+  requires_review: true

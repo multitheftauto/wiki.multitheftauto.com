@@ -18,4 +18,4 @@ client:
   - type: important
     content: If the user has not enabled screen uploading in the settings, the function
       will use a 32x32 empty texture as a basis.
-  incomplete: true
+  requires_review: true

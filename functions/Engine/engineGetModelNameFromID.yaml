@@ -10,4 +10,4 @@ client:
     description: This example gets the model name of an element you target (doesn't
       work for San Andreas world)
     side: client
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ server:
   - path: examples/respawnVehicle-1.lua
     description: This example makes an exploded vehicle re-spawn after 5 seconds.
     side: server
-  incomplete: true
+  requires_review: true

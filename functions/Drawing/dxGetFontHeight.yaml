@@ -12,4 +12,4 @@ client:
   - type: info
     content: The returned height will be in logical units which are 1.75 times the
       actual pixel height.
-  incomplete: true
+  requires_review: true

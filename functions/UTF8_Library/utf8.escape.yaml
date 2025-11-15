@@ -9,7 +9,7 @@ server:
     description: This example escapes two byte-string literals to UTF-8 format by
       using the utf8.escape function.
     side: server
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

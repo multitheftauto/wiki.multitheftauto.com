@@ -11,4 +11,4 @@ server:
   - type: info
     content: The function will return false server-side if sun size has not been set
       before the function is called.
-  incomplete: true
+  requires_review: true

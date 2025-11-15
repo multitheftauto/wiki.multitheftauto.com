@@ -8,4 +8,4 @@ client:
   - path: examples/dxSetShaderTransform-1.lua
     description: ''
     side: client
-  incomplete: true
+  requires_review: true

@@ -28,4 +28,4 @@ server:
     description: 'ACL #2:Finally, modify the ACL on each receiving server to allow
       guest http communication with your resource:'
     side: server
-  incomplete: true
+  requires_review: true

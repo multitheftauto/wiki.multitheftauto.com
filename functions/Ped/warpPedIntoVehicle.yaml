@@ -16,4 +16,4 @@ server:
   issues:
   - id: '475'
     description: Network trouble when calling warpPedIntoVehicle on resourceStart
-  incomplete: true
+  requires_review: true

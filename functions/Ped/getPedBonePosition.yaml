@@ -13,4 +13,4 @@ client:
   notes:
   - type: tip
     content: If you want attach element to ped bone, use [ pAttach ] resource
-  incomplete: true
+  requires_review: true

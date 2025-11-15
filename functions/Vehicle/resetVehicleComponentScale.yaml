@@ -9,4 +9,4 @@ client:
     description: Example 1:This example would change the scale of the component when
       the player enters a vehicle and resets it when he exit.
     side: client
-  incomplete: true
+  requires_review: true

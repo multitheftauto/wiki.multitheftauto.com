@@ -10,4 +10,4 @@ client:
       if the user is holding the Left Control button.
     side: client
   pair: guiEditGetCaretIndex
-  incomplete: true
+  requires_review: true

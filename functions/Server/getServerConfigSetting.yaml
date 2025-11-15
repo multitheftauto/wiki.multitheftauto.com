@@ -12,4 +12,4 @@ server:
   - path: examples/getServerConfigSetting-2.lua
     description: 'This example creates agetServerIPhelper function:'
     side: server
-  incomplete: true
+  requires_review: true

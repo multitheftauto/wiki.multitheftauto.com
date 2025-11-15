@@ -38,4 +38,4 @@ server:
       When the camera pops up it uses "OutQuad" as the strEasingType to create the
       slow down effect.'
     side: client
-  incomplete: true
+  requires_review: true

@@ -19,7 +19,7 @@ client:
   - type: tip
     content: It is highly recommended that dxSetTestMode is used when writing and
       testing scripts using dxCreateRenderTarget.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

@@ -7,4 +7,4 @@ client:
   - path: examples/isMainMenuActive-1.lua
     description: This example check if the player is afk.
     side: client
-  incomplete: true
+  requires_review: true

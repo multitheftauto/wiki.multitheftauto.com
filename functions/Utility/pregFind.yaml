@@ -14,4 +14,4 @@ server:
       be doubled up. e.g. "\\(" will match a single bracket.
   - type: warning
     content: Multiline flag does not work correctly
-  incomplete: true
+  requires_review: true

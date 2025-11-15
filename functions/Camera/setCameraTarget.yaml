@@ -9,4 +9,4 @@ server:
     description: ''
     side: client
   pair: getCameraTarget
-  incomplete: true
+  requires_review: true

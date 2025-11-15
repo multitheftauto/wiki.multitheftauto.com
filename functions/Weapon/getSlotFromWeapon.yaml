@@ -9,4 +9,4 @@ server:
     description: This will output to the chatbox what weapon slot a given weapon number
       belongs to when entered into the console (i.e. 'getWeaponSlot 10').
     side: server
-  incomplete: true
+  requires_review: true

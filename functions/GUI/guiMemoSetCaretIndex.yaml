@@ -10,4 +10,4 @@ client:
       in "Hi".
     side: client
   pair: guiMemoGetCaretIndex
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ client:
       keybinds for any game control. As an example, typing "/keys forwards" would
       list all the keys which you can press to make the player walk forward.
     side: client
-  incomplete: true
+  requires_review: true

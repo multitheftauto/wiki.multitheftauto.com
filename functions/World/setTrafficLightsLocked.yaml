@@ -9,4 +9,4 @@ server:
   - path: examples/setTrafficLightsLocked-1.lua
     description: This example toggles traffic lights between 'locked' and 'unlocked'.
     side: server
-  incomplete: true
+  requires_review: true

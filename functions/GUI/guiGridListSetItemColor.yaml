@@ -9,4 +9,4 @@ client:
       fills it with players online and sets the grid list item color according to
       their nametag color.
     side: client
-  incomplete: true
+  requires_review: true

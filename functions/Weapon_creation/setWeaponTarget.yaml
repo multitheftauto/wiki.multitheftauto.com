@@ -17,7 +17,7 @@ client:
     content: Custom weapons fire targets with no recoil (so they never miss a shot).
       If you want a custom weapon to take into account recoil, you will have to script
       it by firing at fixed coordinates.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

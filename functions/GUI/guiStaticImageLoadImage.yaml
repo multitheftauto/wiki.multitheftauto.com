@@ -11,4 +11,4 @@ client:
     description: This example creates a static image ("myimage.png") and replaces
       it with other image ("otherimage.png") 10 seconds after creation.
     side: client
-  incomplete: true
+  requires_review: true

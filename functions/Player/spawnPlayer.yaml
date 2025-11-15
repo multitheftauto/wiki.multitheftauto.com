@@ -15,4 +15,4 @@ server:
     content: setCameraTarget must be used to focus on the player. Also, all players
       have their camera initially faded out after connect. To ensure that the camera
       is faded in, please do a fadeCamera after.
-  incomplete: true
+  requires_review: true

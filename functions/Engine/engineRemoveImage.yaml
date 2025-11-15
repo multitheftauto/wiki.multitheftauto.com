@@ -8,4 +8,4 @@ client:
     description: This example loads IMG file, adds it to GTA and after 10 seconds
       removes it.
     side: client
-  incomplete: true
+  requires_review: true

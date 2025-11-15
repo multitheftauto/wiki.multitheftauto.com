@@ -9,4 +9,4 @@ client:
       combo box and adds a command to toggle their visibility
     side: client
   pair: guiComboBoxGetSelected
-  incomplete: true
+  requires_review: true

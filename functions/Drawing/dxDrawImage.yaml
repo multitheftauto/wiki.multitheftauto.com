@@ -24,4 +24,4 @@ client:
     content: For further optimising your DX code, see dxCreateRenderTarget . You should
       use render target whenever possible, in order to dramatically reduce CPU usage
       caused by many dxDraw* calls.
-  incomplete: true
+  requires_review: true

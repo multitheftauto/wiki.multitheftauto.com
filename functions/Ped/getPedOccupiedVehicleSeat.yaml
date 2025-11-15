@@ -9,4 +9,4 @@ server:
     description: This example finds what seat a random player is sitting in and outputs
       it to the chat box.
     side: server
-  incomplete: true
+  requires_review: true

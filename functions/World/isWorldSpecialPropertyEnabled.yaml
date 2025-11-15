@@ -9,4 +9,4 @@ server:
       /toggleAirCars command.
     side: server
   pair: setWorldSpecialPropertyEnabled
-  incomplete: true
+  requires_review: true

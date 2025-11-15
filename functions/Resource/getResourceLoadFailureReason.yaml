@@ -9,4 +9,4 @@ server:
       then outputs "Resource: ''resourceName'' failed to load because ''reason''."
       .'
     side: server
-  incomplete: true
+  requires_review: true

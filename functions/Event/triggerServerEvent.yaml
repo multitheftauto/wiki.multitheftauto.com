@@ -39,4 +39,4 @@ client:
       to restrict event to single certain resource (although cheater could still trigger
       it from different resource, by using getResourceRootElement and passing respective
       resource root element)
-  incomplete: true
+  requires_review: true

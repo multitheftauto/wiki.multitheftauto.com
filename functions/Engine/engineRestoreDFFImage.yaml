@@ -7,4 +7,4 @@ client:
   notes:
   - type: warning
     content: This article is incomplete and may contain errors
-  incomplete: true
+  requires_review: true

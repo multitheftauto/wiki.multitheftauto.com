@@ -14,4 +14,4 @@ server:
       foggy over the period of one-two hours (assuming that a in-game hour is a minute
       in real time).
     side: server
-  incomplete: true
+  requires_review: true

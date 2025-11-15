@@ -10,4 +10,4 @@ server:
       up or not every time somebody types "/taxi".
     side: server
   pair: blowVehicle
-  incomplete: true
+  requires_review: true

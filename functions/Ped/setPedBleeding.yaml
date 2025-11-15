@@ -9,4 +9,4 @@ client:
     description: This example causes the player to bleed.
     side: client
   pair: isPedBleeding
-  incomplete: true
+  requires_review: true

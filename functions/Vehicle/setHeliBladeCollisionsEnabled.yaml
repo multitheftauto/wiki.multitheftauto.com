@@ -10,4 +10,4 @@ client:
       as a driver.
     side: client
   pair: getHeliBladeCollisionsEnabled
-  incomplete: true
+  requires_review: true

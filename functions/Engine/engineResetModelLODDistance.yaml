@@ -9,4 +9,4 @@ client:
       also implements a counter which will show how many objects have been affected
       by this script.
     side: client
-  incomplete: true
+  requires_review: true

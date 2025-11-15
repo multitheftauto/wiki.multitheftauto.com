@@ -16,4 +16,4 @@ server:
     content: All resources have a predefined global variable called root that has
       the root element as value. The variable exists server side as well as client
       side.
-  incomplete: true
+  requires_review: true

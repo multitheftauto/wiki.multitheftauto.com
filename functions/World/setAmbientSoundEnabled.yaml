@@ -8,4 +8,4 @@ client:
   - path: examples/setAmbientSoundEnabled-1.lua
     description: 'This example turns off the ambient water and gunfire sounds:'
     side: client
-  incomplete: true
+  requires_review: true

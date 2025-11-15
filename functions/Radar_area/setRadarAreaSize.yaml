@@ -13,4 +13,4 @@ server:
     description: 'Example 2:This example creates a radar area and resets its size
       right away:'
     side: server
-  incomplete: true
+  requires_review: true

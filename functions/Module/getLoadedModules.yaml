@@ -8,4 +8,4 @@ server:
   - path: examples/getLoadedModules-1.lua
     description: Adds a command that lists all loaded modules in the server log.
     side: server
-  incomplete: true
+  requires_review: true

@@ -15,4 +15,4 @@ client:
       with a window, gridlist and a button. Users can select a shotgun or a machine
       gun. The window is not movable or sizable.
     side: client
-  incomplete: true
+  requires_review: true

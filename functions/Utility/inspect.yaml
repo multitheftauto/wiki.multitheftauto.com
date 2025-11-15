@@ -8,4 +8,4 @@ server:
   - path: examples/inspect-1.lua
     description: 'This example draws the contents of a table and its data type:'
     side: client
-  incomplete: true
+  requires_review: true

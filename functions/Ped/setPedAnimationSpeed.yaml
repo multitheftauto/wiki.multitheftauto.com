@@ -12,4 +12,4 @@ server:
   notes:
   - type: important
     content: 'Warning: Setting speed higher than 1 can cause issues with some animations.'
-  incomplete: true
+  requires_review: true

@@ -37,4 +37,4 @@ server:
   - type: info
     content: This function only acts upon registry.db. Use dbQuery to query a custom
       SQL database.
-  incomplete: true
+  requires_review: true

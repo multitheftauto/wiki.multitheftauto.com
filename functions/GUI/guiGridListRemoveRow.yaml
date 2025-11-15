@@ -9,4 +9,4 @@ client:
       and 2 rows, which have text assigned to them. After 3 seconds, one row is randomly
       deleted.
     side: client
-  incomplete: true
+  requires_review: true

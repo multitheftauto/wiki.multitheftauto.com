@@ -7,4 +7,4 @@ server:
   - path: examples/getSunColor-1.lua
     description: This example lets any player get the color of the sun like /getsuncolor
     side: server
-  incomplete: true
+  requires_review: true

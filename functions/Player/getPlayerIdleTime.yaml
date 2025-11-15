@@ -9,4 +9,4 @@ server:
     description: This example will kick a player if they don't move for 5 minutes
       and the resource has access to "function.kickPlayer"
     side: server
-  incomplete: true
+  requires_review: true

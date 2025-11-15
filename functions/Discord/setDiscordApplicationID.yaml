@@ -16,4 +16,4 @@ client:
   - type: important
     content: In order for the function to work correctly, the user must have their
       activity privacy/status enabled in Discord.
-  incomplete: true
+  requires_review: true

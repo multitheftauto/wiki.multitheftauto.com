@@ -7,4 +7,4 @@ client:
   - path: examples/setWaterDrawnLast-1.lua
     description: This example toggles water to be drawn last.
     side: client
-  incomplete: true
+  requires_review: true

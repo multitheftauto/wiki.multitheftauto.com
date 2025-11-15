@@ -20,4 +20,4 @@ client:
   - type: tip
     content: Do your TXD files take megabytes of disk space? You can read some tips
       on reducing the size of TXD files to compress them without ruining texture quality.
-  incomplete: true
+  requires_review: true

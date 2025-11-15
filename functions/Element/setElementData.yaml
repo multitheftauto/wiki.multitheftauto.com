@@ -26,4 +26,4 @@ server:
   - type: tip
     content: A simple and efficient way to make a variable known to the server and
       clients is to use setElementData on the root element.
-  incomplete: true
+  requires_review: true

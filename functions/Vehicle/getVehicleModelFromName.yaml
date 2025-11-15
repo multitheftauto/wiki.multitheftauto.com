@@ -9,4 +9,4 @@ server:
     description: This will allow the player to create a vehicle by name and it's model
       ID will be displayed in the chatbox when the vehicle is spawned.
     side: server
-  incomplete: true
+  requires_review: true

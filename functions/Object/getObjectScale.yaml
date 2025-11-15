@@ -9,4 +9,4 @@ server:
       and prints out the scale of it.
     side: client
   pair: setObjectScale
-  incomplete: true
+  requires_review: true

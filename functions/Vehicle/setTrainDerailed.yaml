@@ -9,4 +9,4 @@ server:
       when you want
     side: server
   pair: isTrainDerailed
-  incomplete: true
+  requires_review: true

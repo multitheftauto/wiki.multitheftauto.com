@@ -10,4 +10,4 @@ client:
     description: 'This example starts to shake the player''s camera if there is no
       roof over him:'
     side: client
-  incomplete: true
+  requires_review: true

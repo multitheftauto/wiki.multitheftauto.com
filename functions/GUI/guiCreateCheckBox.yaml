@@ -8,4 +8,4 @@ client:
     description: This example creates a GUI window with a checked and an unchecked
       checkbox and adds a command to toggle their visibility
     side: client
-  incomplete: true
+  requires_review: true

@@ -11,4 +11,4 @@ server:
       'showhealth', and their vehicle's health.
     side: client
   pair: setElementHealth
-  incomplete: true
+  requires_review: true

@@ -18,4 +18,4 @@ client:
     content: The function is known to optimize certain drawing scenarios related to
       scaling and opacity (so called text on raster optimisation ). You can find out
       more about it here .
-  incomplete: true
+  requires_review: true

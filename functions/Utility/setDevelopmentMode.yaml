@@ -14,4 +14,4 @@ server:
   - type: info
     content: Enabling development mode on the server side does not enable it on the
       client side. These functions work independently on both sides
-  incomplete: true
+  requires_review: true

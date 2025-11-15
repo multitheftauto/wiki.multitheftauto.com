@@ -7,4 +7,4 @@ client:
   - path: examples/engineStreamingReleaseModel-1.lua
     description: This example draws a model
     side: client
-  incomplete: true
+  requires_review: true

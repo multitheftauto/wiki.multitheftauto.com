@@ -11,4 +11,4 @@ server:
       currently using, by typing the 'getfightingstyle' command.
     side: server
   pair: setPedFightingStyle
-  incomplete: true
+  requires_review: true

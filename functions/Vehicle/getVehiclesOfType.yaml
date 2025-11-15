@@ -9,4 +9,4 @@ server:
     description: This example finds all landstalkers on the map and moves them 5 units
       to the left.
     side: server
-  incomplete: true
+  requires_review: true

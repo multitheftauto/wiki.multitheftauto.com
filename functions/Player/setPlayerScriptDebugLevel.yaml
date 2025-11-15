@@ -11,4 +11,4 @@ server:
       your logs).
     side: server
   pair: getPlayerScriptDebugLevel
-  incomplete: true
+  requires_review: true

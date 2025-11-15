@@ -18,4 +18,4 @@ server:
   - type: info
     content: Removing world models doesn't remove their occlusions. This may cause
       nearby map parts to disappear. Use setOcclusionsEnabled (false) to fix it.
-  incomplete: true
+  requires_review: true

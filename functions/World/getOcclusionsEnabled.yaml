@@ -14,4 +14,4 @@ server:
       are (normally) obscured by certain large buildings. However when removeWorldModel
       is used they may also have the undesired effect of making parts of the map disappear.
       Disabling occlusions will fix that.
-  incomplete: true
+  requires_review: true

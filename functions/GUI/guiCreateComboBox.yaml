@@ -14,4 +14,4 @@ client:
     content: The height of a combobox must be enough to fit the drop down menu, else
       the drop down won't appear. See guiComboBoxAdjustHeight to give your combobox
       the correct height.
-  incomplete: true
+  requires_review: true

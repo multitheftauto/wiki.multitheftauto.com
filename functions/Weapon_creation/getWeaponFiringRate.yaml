@@ -10,4 +10,4 @@ client:
       a/fireratecommand that outputs its firerate to the player who types it.
     side: client
   pair: setWeaponFiringRate
-  incomplete: true
+  requires_review: true

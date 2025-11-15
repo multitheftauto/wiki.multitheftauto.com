@@ -17,4 +17,4 @@ server:
   - type: info
     content: Code point characters beyond the byte value range (0-127) require at
       least 2 bytes to represent the character
-  incomplete: true
+  requires_review: true

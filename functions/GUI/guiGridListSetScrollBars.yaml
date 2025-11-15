@@ -9,4 +9,4 @@ client:
     description: This example creates a gridlist and checks if it's created then sets
       the scroll bars. (TESTED!)
     side: client
-  incomplete: true
+  requires_review: true

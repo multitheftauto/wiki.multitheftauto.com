@@ -16,4 +16,4 @@ client:
     content: You should only use this function when you are sure that the searchlight
       will point upwards or downwards . Using them horizontally or almost horizontally
       will generate visual artifacts in the searchlight.
-  incomplete: true
+  requires_review: true

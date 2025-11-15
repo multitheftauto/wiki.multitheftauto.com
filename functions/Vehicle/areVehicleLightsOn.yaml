@@ -15,4 +15,4 @@ client:
       return true if the lights were turned on by natural causes. Unless setVehicleOverrideLights
       is used, vehicles always automatically disable their lights at 06:25 and enable
       them at 20:26.
-  incomplete: true
+  requires_review: true

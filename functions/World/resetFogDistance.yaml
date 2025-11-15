@@ -11,4 +11,4 @@ server:
   - type: info
     content: The function will reset the fog render distance to false server-side,
       as there is no default value to begin with.
-  incomplete: true
+  requires_review: true

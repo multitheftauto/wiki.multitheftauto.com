@@ -13,4 +13,4 @@ server:
   notes:
   - type: info
     content: Color values are only applied when debug level is 0 or 4.
-  incomplete: true
+  requires_review: true

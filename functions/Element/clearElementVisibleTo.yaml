@@ -10,4 +10,4 @@ server:
     description: This example clears any visibility settings after a player dies,
       so everyone can see his blip for a short period
     side: server
-  incomplete: true
+  requires_review: true

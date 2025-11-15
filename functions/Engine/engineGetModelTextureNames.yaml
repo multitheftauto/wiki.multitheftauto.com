@@ -11,4 +11,4 @@ client:
   - path: examples/engineGetModelTextureNames-2.lua
     description: The model name can also be used.
     side: client
-  incomplete: true
+  requires_review: true

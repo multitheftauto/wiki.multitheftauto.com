@@ -36,7 +36,7 @@ server:
     content: Due to how GTA works, creating a lot of vehicles in the same place will
       cause lag. The more geometries and unique textures has model the bigger the
       lag is. Even a lot of default vehicles will cause lag if in the same place.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

@@ -10,4 +10,4 @@ client:
     description: This Example draws a red 3D-Line when a Player shoots,between the
       Players WeaponMuzzlePosition and the Point where the Bullet hits.[Tested]
     side: client
-  incomplete: true
+  requires_review: true

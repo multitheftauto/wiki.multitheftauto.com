@@ -13,4 +13,4 @@ client:
       with the left mouse button in the desired place in the F11 world map, and delete
       it by clicking with the right mouse button.
     side: client
-  incomplete: true
+  requires_review: true

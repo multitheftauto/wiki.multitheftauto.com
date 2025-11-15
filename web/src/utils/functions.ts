@@ -132,6 +132,7 @@ export function getFunctionInfo(data: FunctionData): FunctionInfo {
     const details: FunctionInfo = data[type];
     details.type = type;
     details.typePretty = getFunctionTypePretty(data);
+    details.requiresReview = data[type].requires_review === true;
     return details;
 }
 

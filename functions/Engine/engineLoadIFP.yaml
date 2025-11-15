@@ -17,4 +17,4 @@ client:
   notes:
   - type: tip
     content: If you want to synchronize animations, you can check [ ifp_demo ] resource
-  incomplete: true
+  requires_review: true

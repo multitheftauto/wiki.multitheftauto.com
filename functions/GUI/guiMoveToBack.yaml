@@ -8,4 +8,4 @@ client:
   - path: examples/guiMoveToBack-1.lua
     description: This example creates a gui window and moves it to the back
     side: client
-  incomplete: true
+  requires_review: true

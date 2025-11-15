@@ -13,4 +13,4 @@ client:
     description: 'This example shows how to usemodulate_addandaddto avoid quality
       problems when using a render target:'
     side: client
-  incomplete: true
+  requires_review: true

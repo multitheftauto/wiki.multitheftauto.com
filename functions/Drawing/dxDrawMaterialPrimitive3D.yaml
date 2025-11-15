@@ -38,7 +38,7 @@ client:
       set of vertices for the purpose shown above. By using this function in such
       a way it can perform all the operations in the same quality such as the simpler
       dxDrawMaterialPrimitive function.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

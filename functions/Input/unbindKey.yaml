@@ -16,4 +16,4 @@ server:
     content: unbindKey on the server may return true on failure
   - type: info
     content: 'If you call unbindKey twice, it will break other scripts: Issue 497'
-  incomplete: true
+  requires_review: true

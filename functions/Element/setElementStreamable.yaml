@@ -23,4 +23,4 @@ client:
       to stream in new elements of that type. In general, if you disable too many
       elements (of the same type or not) to stream out, GTA will always try to render
       them, so it can cause a noticeable FPS drop.'
-  incomplete: true
+  requires_review: true

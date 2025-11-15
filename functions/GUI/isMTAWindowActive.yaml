@@ -13,4 +13,4 @@ client:
   - type: info
     content: You cannot rely on this function to get the focus state of the MTA window
       - use isMTAWindowFocused instead
-  incomplete: true
+  requires_review: true

@@ -13,4 +13,4 @@ server:
       use this function uninstall the module! This function returns an uppercase string,
       so make sure you string.upper() anything else you are checking against that
       has been sha256'd elsewhere.
-  incomplete: true
+  requires_review: true

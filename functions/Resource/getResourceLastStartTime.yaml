@@ -7,4 +7,4 @@ server:
   - path: examples/getResourceLastStartTime-1.lua
     description: This function outputs to chatbox when the current resource was started.
     side: server
-  incomplete: true
+  requires_review: true

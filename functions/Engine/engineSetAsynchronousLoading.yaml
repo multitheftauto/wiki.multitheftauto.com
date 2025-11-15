@@ -15,7 +15,7 @@ client:
   - type: warning
     content: Using this function with a large amounts of engineReplace* at the same
       time may cause loading times to be exponentially slower.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

@@ -9,4 +9,4 @@ server:
     description: This example outputs the path of the current resource when it is
       started.
     side: server
-  incomplete: true
+  requires_review: true

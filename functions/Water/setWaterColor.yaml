@@ -9,4 +9,4 @@ server:
       the water colour.
     side: server
   pair: getWaterColor
-  incomplete: true
+  requires_review: true

@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 from html_to_markdown import convert_to_markdown
 import yaml
+import re
 
 import time
 import os
@@ -581,9 +582,6 @@ def parse_event_page(page_url: str, category: str, name: str, source: str) -> di
     if event_issues:
         yaml_dict["issues"] = event_issues
 
-    if (any(param["description"] == "MISSING_PARAM_DESC" for param in event_parameters)):
-        yaml_dict["incomplete"] = True
-    
     return yaml_dict
 
 def stop_if_deprecated(content_div, page_url: str):
@@ -597,6 +595,624 @@ def stop_if_deprecated(content_div, page_url: str):
     for text in deprecated_texts:
         if content_div.find(string=lambda s: s and text in s):
             raise ValueError(f"Found {text} in {page_url}. Please review manually.")
+
+def parse_function_syntax(content_div, page_url: str):
+    """Parse function syntax section(s). Returns list of syntax objects."""
+    syntax_header = content_div.find("span", id="Syntax")
+    if not syntax_header:
+        return []
+    
+    syntax_variants = []
+    
+    # Check if syntax is split by client/server sections
+    syntax_h2 = syntax_header.find_parent("h2")
+    if not syntax_h2:
+        return []
+    
+    # Look for section divs (client/server specific syntax)
+    current = syntax_h2.find_next_sibling()
+    found_sections = False
+    
+    while current:
+        if current.name in ["h2", "h3"]:
+            # Reached next major section
+            break
+        
+        # Check for server/client header divs
+        if current.name == "div" and "serverHeader" in current.get("class", []):
+            found_sections = True
+            # Find the corresponding content div
+            content_div_section = current.find_next_sibling()
+            if content_div_section and content_div_section.get("id", "").startswith("section"):
+                pre_tag = content_div_section.find("pre", class_=lambda x: x and "prettyprint" in x and "lang-lua" in x)
+                if pre_tag:
+                    syntax_line = pre_tag.get_text(strip=True)
+                    syntax_variants.append({
+                        "type": "server",
+                        "syntax_line": syntax_line,
+                        "section_element": content_div_section
+                    })
+        
+        elif current.name == "div" and "clientHeader" in current.get("class", []):
+            found_sections = True
+            # Find the corresponding content div
+            content_div_section = current.find_next_sibling()
+            if content_div_section and content_div_section.get("id", "").startswith("section"):
+                pre_tag = content_div_section.find("pre", class_=lambda x: x and "prettyprint" in x and "lang-lua" in x)
+                if pre_tag:
+                    syntax_line = pre_tag.get_text(strip=True)
+                    syntax_variants.append({
+                        "type": "client",
+                        "syntax_line": syntax_line,
+                        "section_element": content_div_section
+                    })
+        
+        current = current.find_next_sibling()
+    
+    # If no sections found, look for a single shared syntax
+    if not found_sections:
+        # Look for pre tag directly after syntax header
+        current = syntax_h2.find_next_sibling()
+        while current:
+            if current.name in ["h2", "h3"]:
+                break
+            if current.name == "pre":
+                classes = current.get("class", [])
+                if any("prettyprint" in str(c) for c in classes) and any("lang-lua" in str(c) for c in classes):
+                    syntax_line = current.get_text(strip=True)
+                    syntax_variants.append({
+                        "type": "shared",
+                        "syntax_line": syntax_line,
+                        "section_element": None  # Parameters/returns are outside sections
+                    })
+                    break
+            current = current.find_next_sibling()
+    
+    return syntax_variants
+
+def parse_function_parameters(syntax_obj, content_div, page_url: str):
+    """Parse function parameters from syntax line and argument sections."""
+    syntax_line = syntax_obj["syntax_line"]
+    section_element = syntax_obj.get("section_element")
+    
+    # Parse syntax line to extract parameters
+    # Format: returnType functionName ( param1, param2, [ optionalParam = default ] )
+    
+    # Extract the part inside parentheses
+    params_match = re.search(r'\(([^)]*)\)', syntax_line)
+    if not params_match:
+        return []
+    
+    params_text = params_match.group(1).strip()
+    if not params_text:
+        return []
+    
+    # Split parameters, handling brackets for optional params
+    parameters = []
+    current_param = ""
+    bracket_depth = 0
+    
+    for char in params_text:
+        if char == '[':
+            if bracket_depth == 0:
+                # We're entering brackets - finalize current parameter first
+                if current_param.strip():
+                    parameters.append(current_param.strip())
+                current_param = ""
+            bracket_depth += 1
+            current_param += char
+        elif char == ']':
+            bracket_depth -= 1
+            current_param += char
+            if bracket_depth == 0:
+                # We've closed all brackets - finalize this bracket group
+                if current_param.strip():
+                    parameters.append(current_param.strip())
+                current_param = ""
+        elif char == ',' and bracket_depth == 0:
+            # Comma outside brackets - split parameter
+            if current_param.strip():
+                parameters.append(current_param.strip())
+            current_param = ""
+        else:
+            current_param += char
+    
+    if current_param.strip():
+        parameters.append(current_param.strip())
+    
+    # Parse each parameter to extract type, name, and default
+    parsed_params = []
+    for param in parameters:
+        param = param.strip()
+        # Remove brackets for optional params
+        is_optional = param.startswith('[') and param.endswith(']')
+        if is_optional:
+            param = param[1:-1].strip()
+            # If the bracket content contains commas, split into multiple optional parameters
+            if ',' in param:
+                # Split by comma, but be careful with default values that might contain commas
+                # We'll split on commas that are not inside parentheses or other brackets
+                sub_params = []
+                current_sub = ""
+                paren_depth = 0
+                bracket_depth = 0
+                
+                for char in param:
+                    if char == '(':
+                        paren_depth += 1
+                        current_sub += char
+                    elif char == ')':
+                        paren_depth -= 1
+                        current_sub += char
+                    elif char == '[':
+                        bracket_depth += 1
+                        current_sub += char
+                    elif char == ']':
+                        bracket_depth -= 1
+                        current_sub += char
+                    elif char == ',' and paren_depth == 0 and bracket_depth == 0:
+                        if current_sub.strip():
+                            sub_params.append(current_sub.strip())
+                        current_sub = ""
+                    else:
+                        current_sub += char
+                
+                if current_sub.strip():
+                    sub_params.append(current_sub.strip())
+                
+                # Parse each sub-parameter
+                for sub_param in sub_params:
+                    sub_param = sub_param.strip()
+                    default_value = None
+                    if '=' in sub_param:
+                        parts = sub_param.split('=', 1)
+                        sub_param = parts[0].strip()
+                        default_value = parts[1].strip()
+                    
+                    # Extract type and name
+                    parts = sub_param.split(None, 1)
+                    if len(parts) == 2:
+                        param_type, param_name = parts
+                        parsed_params.append({
+                            "name": param_name.strip(),
+                            "type": param_type.strip(),
+                            "default": default_value,
+                            "is_optional": True
+                        })
+                    elif len(parts) == 1:
+                        parsed_params.append({
+                            "name": parts[0].strip(),
+                            "type": "unknown",
+                            "default": default_value,
+                            "is_optional": True
+                        })
+                continue
+        
+        # Extract default value if present (for non-bracketed params or single bracketed param)
+        default_value = None
+        if '=' in param:
+            parts = param.split('=', 1)
+            param = parts[0].strip()
+            default_value = parts[1].strip()
+        
+        # Extract type and name
+        parts = param.split(None, 1)
+        if len(parts) == 2:
+            param_type, param_name = parts
+            parsed_params.append({
+                "name": param_name.strip(),
+                "type": param_type.strip(),
+                "default": default_value,
+                "is_optional": is_optional
+            })
+        elif len(parts) == 1:
+            # Sometimes type is omitted, just use the name
+            parsed_params.append({
+                "name": parts[0].strip(),
+                "type": "unknown",
+                "default": default_value,
+                "is_optional": is_optional
+            })
+    
+    # Now find descriptions from Required/Optional Arguments sections
+    search_element = section_element if section_element else content_div
+    
+    # Find Required Arguments
+    required_header = None
+    for header in search_element.find_all(["h3"]):
+        span = header.find("span", class_="mw-headline")
+        if span:
+            header_text = span.get_text(strip=True).lower()
+            if "required arguments" in header_text or "required arguments" == header_text:
+                required_header = header
+                break
+    
+    # Find Optional Arguments
+    optional_header = None
+    for header in search_element.find_all(["h3"]):
+        span = header.find("span", class_="mw-headline")
+        if span:
+            header_text = span.get_text(strip=True).lower()
+            if "optional arguments" in header_text or "optional arguments" == header_text:
+                optional_header = header
+                break
+    
+    # Parse required arguments list
+    if required_header:
+        ul = required_header.find_next_sibling("ul")
+        if not ul:
+            # Sometimes it's in a div
+            next_elem = required_header.find_next_sibling()
+            if next_elem and next_elem.name == "div":
+                ul = next_elem.find("ul")
+        
+        if ul:
+            for li in ul.find_all("li"):
+                b_tag = li.find("b")
+                if b_tag:
+                    param_name = b_tag.get_text(strip=True).rstrip(":")
+                    # Find description after the colon
+                    desc_text = li.get_text(" ", strip=True)
+                    if ":" in desc_text:
+                        desc = desc_text.split(":", 1)[1].strip()
+                    else:
+                        desc = ""
+                    
+                    # Match with parsed params
+                    for param in parsed_params:
+                        if param["name"] == param_name:
+                            param["description"] = desc
+                            break
+    
+    # Parse optional arguments list
+    if optional_header:
+        ul = optional_header.find_next_sibling("ul")
+        if not ul:
+            # Sometimes it's in a div
+            next_elem = optional_header.find_next_sibling()
+            if next_elem and next_elem.name == "div":
+                ul = next_elem.find("ul")
+        
+        if ul:
+            for li in ul.find_all("li"):
+                b_tag = li.find("b")
+                if b_tag:
+                    param_name = b_tag.get_text(strip=True).rstrip(":")
+                    # Find description after the colon
+                    desc_text = li.get_text(" ", strip=True)
+                    if ":" in desc_text:
+                        desc = desc_text.split(":", 1)[1].strip()
+                    else:
+                        desc = ""
+                    
+                    # Match with parsed params
+                    for param in parsed_params:
+                        if param["name"] == param_name:
+                            param["description"] = desc
+                            break
+    
+    # Convert to final format
+    result = []
+    for param in parsed_params:
+        param_obj = {
+            "name": param["name"],
+            "type": param["type"],
+            "description": param.get("description", "MISSING_PARAM_DESC")
+        }
+        if param.get("default"):
+            param_obj["default"] = param["default"]
+        result.append(param_obj)
+    
+    return result
+
+def parse_function_returns(syntax_obj, content_div, page_url: str):
+    """Parse function return types and description."""
+    syntax_line = syntax_obj["syntax_line"]
+    section_element = syntax_obj.get("section_element")
+    
+    # Parse return types from syntax line
+    # Format: returnType1, returnType2 functionName ( ... )
+    
+    # Extract everything before the function name and opening parenthesis
+    # Format: returnType1, returnType2 functionName ( ... )
+    # Try to match: return types, then function name, then opening paren
+    match = re.match(r'^([^(]+?)\s+\w+\s*\(', syntax_line)
+    if not match:
+        # Try without function name (unlikely but possible)
+        match = re.match(r'^([^(]+?)\s*\(', syntax_line)
+    
+    return_types = []
+    if match:
+        return_part = match.group(1).strip()
+        if return_part and return_part != "void":
+            # Split by comma
+            return_types = [t.strip() for t in return_part.split(",")]
+    
+    # Find Returns section
+    # First try in section_element if provided, then fall back to main content_div
+    # (Returns might be shared and outside client/server sections)
+    returns_header = None
+    
+    if section_element:
+        # Search within the section first
+        for header in section_element.find_all(["h3"]):
+            span = header.find("span", class_="mw-headline")
+            if span:
+                header_text = span.get_text(strip=True).lower()
+                if header_text == "returns":
+                    returns_header = header
+                    break
+    
+    # If not found in section, search in main content
+    if not returns_header:
+        returns_span = content_div.find("span", id="Returns")
+        if returns_span:
+            returns_header = returns_span.find_parent(["h2", "h3"])
+        else:
+            # Also try searching all h3 headers in main content
+            for header in content_div.find_all(["h3"]):
+                span = header.find("span", class_="mw-headline")
+                if span:
+                    header_text = span.get_text(strip=True).lower()
+                    if header_text == "returns":
+                        returns_header = header
+                        break
+    
+    return_description = ""
+    if returns_header:
+        # Get description from paragraph after header
+        p = returns_header.find_next_sibling("p")
+        if p:
+            return_description = p.get_text(" ", strip=True)
+        else:
+            # Sometimes it's directly in the header's next text
+            next_elem = returns_header.find_next_sibling()
+            if next_elem:
+                return_description = next_elem.get_text(" ", strip=True)
+    
+    # Create return values array
+    return_values = []
+    if return_types:
+        # If multiple return types, name them sequentially (x, y, z for positions, etc.)
+        # For now, use generic names
+        for i, ret_type in enumerate(return_types):
+            if len(return_types) == 1:
+                return_values.append({
+                    "type": ret_type,
+                    "name": "value"
+                })
+            else:
+                # Use common naming patterns
+                if ret_type == "float" and len(return_types) == 3:
+                    names = ["x", "y", "z"]
+                    return_values.append({
+                        "type": ret_type,
+                        "name": names[i] if i < len(names) else f"value{i+1}"
+                    })
+                else:
+                    return_values.append({
+                        "type": ret_type,
+                        "name": f"value{i+1}"
+                    })
+    elif return_description:
+        # Try to infer return type from description
+        # Common patterns: "Returns true/false" -> bool, "Returns a..." -> element/string/etc
+        desc_lower = return_description.lower()
+        if "true" in desc_lower or "false" in desc_lower or "boolean" in desc_lower:
+            return_values.append({
+                "type": "bool",
+                "name": "value"
+            })
+        elif "element" in desc_lower:
+            return_values.append({
+                "type": "element",
+                "name": "value"
+            })
+        # If we can't infer, we'll still create the returns object but without values
+    
+    result = {
+        "values": return_values
+    }
+    if return_description:
+        result["description"] = return_description
+    
+    return result if return_values or return_description else None
+
+def parse_oop_syntax(content_div, page_url: str):
+    """Parse OOP Syntax section from function page."""
+    # Look for OOP Syntax section
+    # It can be in a <p> with <u><b>OOP Syntax</b></u> or just a <dl> structure
+    
+    oop_dl = None
+    
+    # First, try to find the OOP Syntax heading
+    oop_heading = None
+    for p in content_div.find_all("p"):
+        u_tag = p.find("u")
+        if u_tag:
+            b_tag = u_tag.find("b")
+            if b_tag and "OOP Syntax" in b_tag.get_text():
+                oop_heading = p
+                break
+    
+    if oop_heading:
+        # Find the <dl> tag after the heading
+        oop_dl = oop_heading.find_next_sibling("dl")
+        if not oop_dl:
+            # Sometimes it's in the next element
+            next_elem = oop_heading.find_next_sibling()
+            if next_elem and next_elem.name == "dl":
+                oop_dl = next_elem
+    
+    # If not found, try searching for any <dl> with OOP-related content
+    if not oop_dl:
+        for dl in content_div.find_all("dl"):
+            dds = dl.find_all("dd")
+            for dd in dds:
+                b_tag = dd.find("b")
+                if b_tag:
+                    text = b_tag.get_text(strip=True)
+                    if text in ["Method", "Variable", "Constructor", "Note", "Counterpart"]:
+                        oop_dl = dl
+                        break
+            if oop_dl:
+                break
+    
+    if not oop_dl:
+        return None
+    
+    oop_data = {}
+    
+    # Parse <dd> elements
+    for dd in oop_dl.find_all("dd"):
+        b_tag = dd.find("b")
+        if not b_tag:
+            continue
+        
+        label = b_tag.get_text(strip=True)
+        i_tag = dd.find("i")
+        
+        if label == "Note":
+            if i_tag:
+                note_text = i_tag.get_text(strip=True)
+                oop_data["note"] = note_text
+        
+        elif label == "Method":
+            if i_tag:
+                # Extract method information
+                # Format: <i><a href="...">element</a>:methodName(...)</i>
+                # or: <i>Element.methodName(...)</i> for static
+                # or: <i><a href="...">ClassName</a>(...)</i> for constructor (mislabeled as Method)
+                # or: <i>ClassName(...)</i> for constructor without link
+                method_text = i_tag.get_text(strip=True)
+                a_tag = i_tag.find("a")
+                
+                if a_tag:
+                    element_name = a_tag.get_text(strip=True)
+                    # Get text after the link to determine if it's a constructor
+                    # If the link is followed by just (...), it's a constructor
+                    link_text = a_tag.get_text()
+                    # Get all text nodes in the i_tag
+                    all_text = i_tag.get_text()
+                    # Check what comes after the link text
+                    after_link = all_text[len(link_text):].strip()
+                    
+                    # Check if it's static (has dot) or instance (has colon)
+                    if ":" in method_text:
+                        # Instance method: element:methodName
+                        method_name = method_text.split(":")[-1].split("(")[0].strip()
+                        oop_data["method"] = method_name
+                        oop_data["element"] = element_name.lower()
+                        oop_data["static"] = False
+                    elif "." in method_text and not after_link.startswith("("):
+                        # Static method: Element.methodName (has dot and doesn't start with ( after link)
+                        method_name = method_text.split(".")[-1].split("(")[0].strip()
+                        oop_data["method"] = method_name
+                        oop_data["element"] = element_name
+                        oop_data["static"] = True
+                    elif after_link.startswith("(") or (not "." in method_text and not ":" in method_text):
+                        # Constructor: link text followed by (...) or no : or . in method_text
+                        # Extract class name from link
+                        oop_data["constructorclass"] = element_name
+                        # Try to extract element from link href
+                        href = a_tag.get("href", "")
+                        if href:
+                            # Extract from /wiki/ElementName
+                            href_element = href.replace("/wiki/", "").split("/")[0]
+                            oop_data["element"] = href_element.lower()
+                        else:
+                            oop_data["element"] = element_name.lower()
+                    else:
+                        # Fallback: treat as static method if has dot
+                        if "." in method_text:
+                            method_name = method_text.split(".")[-1].split("(")[0].strip()
+                            oop_data["method"] = method_name
+                            oop_data["element"] = element_name
+                            oop_data["static"] = True
+                else:
+                    # No link, try to parse from text
+                    if ":" in method_text:
+                        parts = method_text.split(":")
+                        if len(parts) >= 2:
+                            element_name = parts[0].strip()
+                            method_name = parts[1].split("(")[0].strip()
+                            oop_data["method"] = method_name
+                            oop_data["element"] = element_name.lower()
+                            oop_data["static"] = False
+                    elif "." in method_text:
+                        parts = method_text.split(".")
+                        if len(parts) >= 2:
+                            element_name = parts[0].strip()
+                            method_name = parts[1].split("(")[0].strip()
+                            oop_data["method"] = method_name
+                            oop_data["element"] = element_name
+                            oop_data["static"] = True
+                    else:
+                        # No : or . means it's a constructor (ClassName(...))
+                        class_name = method_text.split("(")[0].strip()
+                        oop_data["constructorclass"] = class_name
+                        oop_data["element"] = class_name.lower()
+        
+        elif label == "Variable":
+            if i_tag:
+                var_text = i_tag.get_text(strip=True)
+                # Remove leading dot if present
+                if var_text.startswith("."):
+                    var_text = var_text[1:]
+                oop_data["variable"] = var_text
+        
+        elif label == "Constructor":
+            if i_tag:
+                # Constructor format: <i><a href="...">ClassName</a>(...)</i>
+                constructor_text = i_tag.get_text(strip=True)
+                a_tag = i_tag.find("a")
+                if a_tag:
+                    class_name = a_tag.get_text(strip=True)
+                    oop_data["constructorclass"] = class_name
+                    # Try to extract element from link href
+                    href = a_tag.get("href", "")
+                    if href:
+                        # Extract from /wiki/ElementName
+                        element_name = href.replace("/wiki/", "").split("/")[0]
+                        oop_data["element"] = element_name
+        
+        elif label == "Counterpart":
+            # Counterpart is just for reference, we already parse it elsewhere
+            # But we can note it if needed
+            pass
+    
+    # Ensure element is set (required by schema)
+    if "element" not in oop_data:
+        # Try to infer from method or constructor
+        if "method" in oop_data:
+            # Already set above
+            pass
+        elif "constructorclass" in oop_data:
+            # Element should be set from constructor parsing
+            pass
+        else:
+            # Can't determine element, skip OOP
+            return None
+    
+    # Return in schema format
+    result = {
+        "element": oop_data["element"]
+    }
+    
+    if "note" in oop_data:
+        result["note"] = oop_data["note"]
+    
+    if "constructorclass" in oop_data:
+        result["constructorclass"] = oop_data["constructorclass"]
+    else:
+        if "method" in oop_data:
+            result["method"] = oop_data["method"]
+        if "variable" in oop_data:
+            result["variable"] = oop_data["variable"]
+        if "static" in oop_data:
+            result["static"] = oop_data["static"]
+    
+    return result if result else None
 
 def parse_function_page(page_url: str, category: str, name: str, source: str) -> dict:
     response_text = get_page_from_cache_or_fetch(page_url, name)
@@ -626,8 +1242,8 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     func_notes, func_meta = parse_notes(content_div)
     handled_header_names.append("Remarks")
 
-    # TODO: Syntax: parameters and returns
-    # also ignore_parameters if needed
+    # Parse Syntax, Parameters, Returns, and OOP
+    syntax_variants = parse_function_syntax(content_div, page_url)
     handled_header_names.append("Syntax")
     handled_header_names.append("Parameters")
     handled_header_names.append("Arguments")
@@ -636,8 +1252,25 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
     handled_header_names.append("Optional Arguments")
     handled_header_names.append("Optional arguments")
     handled_header_names.append("Returns")
-    # TODO parse OOP syntax
-
+    
+    # Parse OOP syntax (typically shared)
+    oop_data = parse_oop_syntax(content_div, page_url)
+    
+    # Parse parameters and returns for each syntax variant
+    syntax_data = {}
+    for variant in syntax_variants:
+        variant_type = variant["type"]
+        params = parse_function_parameters(variant, content_div, page_url)
+        returns = parse_function_returns(variant, content_div, page_url)
+        
+        syntax_data[variant_type] = {
+            "parameters": params,
+            "returns": returns
+        }
+    
+    # If no syntax found, log warning
+    if not syntax_variants:
+        log(f"Warning: No syntax found for {name} in {page_url}")
     
     # Examples
     examples = parse_examples(content_div)
@@ -670,34 +1303,116 @@ def parse_function_page(page_url: str, category: str, name: str, source: str) ->
 
     extra_headers = get_additional_headers_found_in_page(content_div, handled_header_names, page_url)
 
-    yaml_dict = {
-        func_type: {
+    # Build YAML structure based on syntax variants
+    yaml_dict = {}
+    
+    if "shared" in syntax_data:
+        # Single shared syntax
+        yaml_dict["shared"] = {
+            "name": name,
+            "description": func_description,
+            "parameters": syntax_data["shared"]["parameters"],
+            "examples": added_examples,
+        }
+        if syntax_data["shared"]["returns"]:
+            yaml_dict["shared"]["returns"] = syntax_data["shared"]["returns"]
+        if oop_data:
+            yaml_dict["shared"]["oop"] = oop_data
+        if func_pair:
+            yaml_dict["shared"]["pair"] = func_pair
+        if func_notes:
+            yaml_dict["shared"]["notes"] = func_notes
+        if func_meta:
+            yaml_dict["shared"]["meta"] = func_meta
+        if func_issues:
+            yaml_dict["shared"]["issues"] = func_issues
+    elif "client" in syntax_data or "server" in syntax_data:
+        # Client/server specific syntaxes
+        # Check if returns are shared (same for both sides)
+        shared_returns = None
+        if "client" in syntax_data and "server" in syntax_data:
+            client_returns = syntax_data["client"]["returns"]
+            server_returns = syntax_data["server"]["returns"]
+            if client_returns and server_returns:
+                # Compare returns (simple string comparison for now)
+                if str(client_returns) == str(server_returns):
+                    shared_returns = client_returns
+        
+        if "client" in syntax_data:
+            yaml_dict["client"] = {
+                "name": name,
+                "description": func_description,
+                "parameters": syntax_data["client"]["parameters"],
+                "examples": [e for e in added_examples if e.get("side") == "client" or e.get("side") == "shared"],
+            }
+            if syntax_data["client"]["returns"]:
+                yaml_dict["client"]["returns"] = syntax_data["client"]["returns"]
+            elif shared_returns:
+                yaml_dict["client"]["returns"] = shared_returns
+            if oop_data:
+                yaml_dict["client"]["oop"] = oop_data
+            if func_pair:
+                yaml_dict["client"]["pair"] = func_pair
+            if func_notes:
+                yaml_dict["client"]["notes"] = func_notes
+            if func_meta:
+                yaml_dict["client"]["meta"] = func_meta
+            if func_issues:
+                yaml_dict["client"]["issues"] = func_issues
+        
+        if "server" in syntax_data:
+            yaml_dict["server"] = {
+                "name": name,
+                "description": func_description,
+                "parameters": syntax_data["server"]["parameters"],
+                "examples": [e for e in added_examples if e.get("side") == "server" or e.get("side") == "shared"],
+            }
+            if syntax_data["server"]["returns"]:
+                yaml_dict["server"]["returns"] = syntax_data["server"]["returns"]
+            elif shared_returns:
+                yaml_dict["server"]["returns"] = shared_returns
+            if oop_data:
+                yaml_dict["server"]["oop"] = oop_data
+            if func_pair:
+                yaml_dict["server"]["pair"] = func_pair
+            if func_notes:
+                yaml_dict["server"]["notes"] = func_notes
+            if func_meta:
+                yaml_dict["server"]["meta"] = func_meta
+            if func_issues:
+                yaml_dict["server"]["issues"] = func_issues
+    else:
+        # Fallback: use func_type (from source) if no syntax found
+        yaml_dict[func_type] = {
             "name": name,
             "description": func_description,
             "parameters": [],
             "examples": added_examples,
         }
-    }
-    if func_pair:
-        yaml_dict[func_type]["pair"] = func_pair
-    if func_notes:
-        yaml_dict[func_type]["notes"] = func_notes
-    if func_meta:
-        yaml_dict[func_type]["meta"] = func_meta
-    if func_issues:
-        yaml_dict[func_type]["issues"] = func_issues
+        if oop_data:
+            yaml_dict[func_type]["oop"] = oop_data
+        if func_pair:
+            yaml_dict[func_type]["pair"] = func_pair
+        if func_notes:
+            yaml_dict[func_type]["notes"] = func_notes
+        if func_meta:
+            yaml_dict[func_type]["meta"] = func_meta
+        if func_issues:
+            yaml_dict[func_type]["issues"] = func_issues
     
-    # This parser is unfinished, so mark as incomplete
-    yaml_dict[func_type]["incomplete"] = True
-
     if extra_headers:
-        yaml_dict[func_type]["meta"] = yaml_dict.get("meta", [])
-        headears_missing = "This function was partially migrated from the old wiki. Please review manually:\n"
-        for header in extra_headers:
-            headears_missing += f"- Missing section: {header}\n"
-        yaml_dict[func_type]["meta"].append({
-            "needs_checking": headears_missing
-        })
+        for key in yaml_dict:
+            if "meta" not in yaml_dict[key]:
+                yaml_dict[key]["meta"] = []
+            headears_missing = "This function was partially migrated from the old wiki. Please review manually:\n"
+            for header in extra_headers:
+                headears_missing += f"- Missing section: {header}\n"
+            yaml_dict[key]["meta"].append({
+                "needs_checking": headears_missing
+            })
+
+    for key in yaml_dict:
+        yaml_dict[key]["requires_review"] = True
 
     return yaml_dict
 

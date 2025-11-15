@@ -16,4 +16,4 @@ server:
     content: Every resource has a predefined global variable called resource that
       contains the resource pointer for that resource, in other words, the value that
       this function returns.
-  incomplete: true
+  requires_review: true

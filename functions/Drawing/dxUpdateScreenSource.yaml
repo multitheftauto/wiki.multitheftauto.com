@@ -8,4 +8,4 @@ client:
   - path: examples/dxUpdateScreenSource-1.lua
     description: This example will update the screen capture when F7 is pressed
     side: client
-  incomplete: true
+  requires_review: true

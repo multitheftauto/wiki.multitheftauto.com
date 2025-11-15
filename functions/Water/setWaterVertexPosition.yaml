@@ -13,4 +13,4 @@ server:
   - type: info
     content: X and Y positions will be changed to an even integer. i.e. -2, 0, 2,
       4 etc.
-  incomplete: true
+  requires_review: true

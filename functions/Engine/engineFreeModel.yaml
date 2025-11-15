@@ -21,4 +21,4 @@ client:
       are still streamed-in. Creators of custom model systems have to be careful though
       as custom model IDs should only be released if all elements that use said ID
       are streamed-out or destroyed.
-  incomplete: true
+  requires_review: true

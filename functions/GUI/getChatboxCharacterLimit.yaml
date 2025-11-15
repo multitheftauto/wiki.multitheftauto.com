@@ -10,4 +10,4 @@ client:
       limit via command
     side: client
   pair: setChatboxCharacterLimit
-  incomplete: true
+  requires_review: true

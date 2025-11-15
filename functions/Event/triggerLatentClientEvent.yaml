@@ -20,7 +20,7 @@ server:
       need to. Doing this triggers the event on every element in the element tree
       , which is potentially very CPU intensive. Use as specific (i.e. low down the
       tree) element as you can.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

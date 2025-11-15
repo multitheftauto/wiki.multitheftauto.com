@@ -10,4 +10,4 @@ client:
       (TESTED!)
     side: client
   pair: guiRadioButtonSetSelected
-  incomplete: true
+  requires_review: true

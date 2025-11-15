@@ -24,4 +24,4 @@ client:
     content: Due to a bug, seeThroughStuff argument has no effect. It mistakenly checks
       for "shootThrough" surfaces and will always behave as if the argument is set
       to FALSE (It will never hit).
-  incomplete: true
+  requires_review: true

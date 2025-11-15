@@ -20,4 +20,4 @@ client:
   - type: tip
     content: You can use it for example with optimized bone_attach resource called
       pAttach .
-  incomplete: true
+  requires_review: true

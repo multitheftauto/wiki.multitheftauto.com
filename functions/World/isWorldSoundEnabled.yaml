@@ -9,7 +9,7 @@ client:
     description: This is a simplified example that lets the client toggle their weapon
       sounds.
     side: client
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

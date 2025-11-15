@@ -13,4 +13,4 @@ client:
   - type: info
     content: The size can't be less than 5 or more than 150. Use this function after
       onClientResourceStart, otherwise some characters may be displayed incorrectly.
-  incomplete: true
+  requires_review: true

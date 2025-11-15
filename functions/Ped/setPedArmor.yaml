@@ -15,4 +15,4 @@ server:
       'addarmor'.
     side: server
   pair: getPedArmor
-  incomplete: true
+  requires_review: true

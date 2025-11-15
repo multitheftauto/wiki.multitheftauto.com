@@ -13,7 +13,7 @@ server:
     description: This example implements a serverside command for the player to spawn
       a red and white Banshee, using the palette colors.
     side: server
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

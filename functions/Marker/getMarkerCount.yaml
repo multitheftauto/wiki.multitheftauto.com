@@ -7,4 +7,4 @@ server:
   - path: examples/getMarkerCount-1.lua
     description: This example outputs the amount of markers to the player.
     side: server
-  incomplete: true
+  requires_review: true

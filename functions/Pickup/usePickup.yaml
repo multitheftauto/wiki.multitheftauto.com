@@ -7,4 +7,4 @@ server:
   - path: examples/usePickup-1.lua
     description: This example gives a random player 100% armor by using a pickup.
     side: server
-  incomplete: true
+  requires_review: true

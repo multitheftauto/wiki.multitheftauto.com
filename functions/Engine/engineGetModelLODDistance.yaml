@@ -8,4 +8,4 @@ client:
     description: This example calculates the actual LOD distance by taking into account
       the Video tab 'Draw distance' setting
     side: client
-  incomplete: true
+  requires_review: true

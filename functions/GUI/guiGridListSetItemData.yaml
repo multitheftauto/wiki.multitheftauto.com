@@ -12,4 +12,4 @@ client:
       color codes and outputs their names with color-codes at the chatbox when player
       is selected.
     side: client
-  incomplete: true
+  requires_review: true

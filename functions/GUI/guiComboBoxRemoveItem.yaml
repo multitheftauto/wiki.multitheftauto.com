@@ -7,4 +7,4 @@ client:
   - path: examples/guiComboBoxRemoveItem-1.lua
     description: This example removes selected item.
     side: client
-  incomplete: true
+  requires_review: true

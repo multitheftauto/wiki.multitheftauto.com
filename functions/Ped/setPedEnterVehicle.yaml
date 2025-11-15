@@ -30,4 +30,4 @@ client:
       the respective seat while the ped is running toward it. Exception: If the ped
       is forced to enter as a passenger and is going to use the front door, the ped
       can wait if someone is using it to go the driver seat.'
-  incomplete: true
+  requires_review: true

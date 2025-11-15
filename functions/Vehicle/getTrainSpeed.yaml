@@ -9,4 +9,4 @@ server:
       The command is "/speed".
     side: server
   pair: setTrainSpeed
-  incomplete: true
+  requires_review: true

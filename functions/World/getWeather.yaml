@@ -8,4 +8,4 @@ server:
   - path: examples/getWeather-1.lua
     description: This example outputs the current weather ID in that chat box.
     side: server
-  incomplete: true
+  requires_review: true

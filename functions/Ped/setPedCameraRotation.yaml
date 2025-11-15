@@ -16,4 +16,4 @@ client:
   - type: info
     content: getPedCameraRotation may not return the value set by this function. Please
       refer to getPedCameraRotation for details.
-  incomplete: true
+  requires_review: true

@@ -13,4 +13,4 @@ server:
       that it starts stopping until the onResourceStop event for that resource is
       triggered. This happens after the scripts are done executing for this server
       frame.
-  incomplete: true
+  requires_review: true

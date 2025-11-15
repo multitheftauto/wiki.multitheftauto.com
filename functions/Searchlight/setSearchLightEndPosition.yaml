@@ -10,4 +10,4 @@ client:
       position and targets to the front of it.
     side: client
   pair: getSearchLightEndPosition
-  incomplete: true
+  requires_review: true

@@ -16,4 +16,4 @@ client:
       its normal color to red and hover color to yellow.
     side: client
   pair: guiGetProperty
-  incomplete: true
+  requires_review: true

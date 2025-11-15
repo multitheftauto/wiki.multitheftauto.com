@@ -12,4 +12,4 @@ server:
       weapons are given.
     side: server
   pair: getPedWeaponSlot
-  incomplete: true
+  requires_review: true

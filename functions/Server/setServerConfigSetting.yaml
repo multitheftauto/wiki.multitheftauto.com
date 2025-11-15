@@ -15,4 +15,4 @@ server:
   - type: warning
     content: '"bandwidth_reduction" set to ''maximum'' will cause player movement
       synchronization issues, on locations built outside 3000m radius from world center.'
-  incomplete: true
+  requires_review: true

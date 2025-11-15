@@ -7,4 +7,4 @@ server:
   - path: examples/shutdown-1.lua
     description: This command shuts down the server on request
     side: server
-  incomplete: true
+  requires_review: true

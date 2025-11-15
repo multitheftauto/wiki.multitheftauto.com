@@ -11,7 +11,7 @@ client:
       sitting in up and down, after he uses /move command.
     side: client
   pair: getVehicleModelDummyPosition
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

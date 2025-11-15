@@ -9,4 +9,4 @@ server:
   - path: examples/textDestroyDisplay-1.lua
     description: This example creates a display then destroys it again straight away.
     side: server
-  incomplete: true
+  requires_review: true

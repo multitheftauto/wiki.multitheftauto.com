@@ -15,4 +15,4 @@ server:
       the replacement string.
   - type: warning
     content: Multiline flag does not work correctly
-  incomplete: true
+  requires_review: true

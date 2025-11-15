@@ -9,4 +9,4 @@ client:
   - path: examples/engineImageLinkTXD-1.lua
     description: 'You could use the following code:'
     side: client
-  incomplete: true
+  requires_review: true

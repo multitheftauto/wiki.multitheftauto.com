@@ -16,4 +16,4 @@ server:
   - type: info
     content: Your settings cannot have a period (.) in them. This character is reserved.
       Read below for more details.
-  incomplete: true
+  requires_review: true

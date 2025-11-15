@@ -12,4 +12,4 @@ server:
   - type: info
     content: setObjectScale does not affect the collision models for the object, as
       such is unsuitable for use for interaction with players, vehicles or other objects.
-  incomplete: true
+  requires_review: true

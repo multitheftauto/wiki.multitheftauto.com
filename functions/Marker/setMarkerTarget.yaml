@@ -9,4 +9,4 @@ server:
     description: Creates a marker in the center of the map and points it north.
     side: server
   pair: getMarkerTarget
-  incomplete: true
+  requires_review: true

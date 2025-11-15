@@ -14,4 +14,4 @@ server:
   - type: info
     content: If you want to remove the data in client side you can use 'setElementData(element,
       key, nil)'.
-  incomplete: true
+  requires_review: true

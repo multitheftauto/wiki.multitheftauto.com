@@ -16,4 +16,4 @@ client:
       and number plates (like a emergency vehicle siren light does). Two or more lights
       will apply illumination effects to everything (excluding objects) that is in
       range of, at least, two of them.
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ client:
       of a projectile explosion.
     side: client
   pair: getProjectileCounter
-  incomplete: true
+  requires_review: true

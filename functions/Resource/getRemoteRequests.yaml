@@ -11,4 +11,4 @@ server:
   - path: examples/getRemoteRequests-2.lua
     description: This example prints how many request are currently pending.
     side: client
-  incomplete: true
+  requires_review: true

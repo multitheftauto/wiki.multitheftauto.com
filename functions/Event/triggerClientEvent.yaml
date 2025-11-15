@@ -43,4 +43,4 @@ server:
       preferred and highly advisable. resourceRoot can also be used as alternative
       choice, if addEventHandler is bound to root element, or to resourceRoot when
       there is need to restrict event to single certain resource.
-  incomplete: true
+  requires_review: true

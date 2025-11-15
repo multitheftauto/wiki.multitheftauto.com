@@ -9,4 +9,4 @@ server:
       derailed.
     side: server
   pair: setTrainDerailed
-  incomplete: true
+  requires_review: true

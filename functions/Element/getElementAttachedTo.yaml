@@ -9,4 +9,4 @@ server:
     description: This example defines a console command that outputs the type of the
       element that the player is attached to.
     side: server
-  incomplete: true
+  requires_review: true

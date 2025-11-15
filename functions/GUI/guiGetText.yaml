@@ -10,4 +10,4 @@ client:
       it to chat box.
     side: client
   pair: guiSetText
-  incomplete: true
+  requires_review: true

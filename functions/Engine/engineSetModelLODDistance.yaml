@@ -17,4 +17,4 @@ client:
   - path: examples/engineSetModelLODDistance-3.lua
     description: This example shows how to use LOD's with buildings.
     side: client
-  incomplete: true
+  requires_review: true

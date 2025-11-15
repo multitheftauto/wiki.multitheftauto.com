@@ -13,4 +13,4 @@ server:
     description: This loops through all the keys and outputs the keyname and the function
       bound to that key.
     side: server
-  incomplete: true
+  requires_review: true

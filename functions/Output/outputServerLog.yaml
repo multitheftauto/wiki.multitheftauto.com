@@ -8,4 +8,4 @@ server:
   - path: examples/outputServerLog-1.lua
     description: Example 1:This example outputs client logins to the server log.
     side: server
-  incomplete: true
+  requires_review: true

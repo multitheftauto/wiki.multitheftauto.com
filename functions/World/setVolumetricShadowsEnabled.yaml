@@ -8,4 +8,4 @@ client:
     description: This example check if volumetric shadows enabled, if not enabled
       then enable it and set the shadow alpha.
     side: client
-  incomplete: true
+  requires_review: true

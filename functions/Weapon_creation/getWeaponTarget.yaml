@@ -10,4 +10,4 @@ client:
       and outputs it to the chatbox.
     side: client
   pair: setWeaponTarget
-  incomplete: true
+  requires_review: true

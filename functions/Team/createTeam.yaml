@@ -17,4 +17,4 @@ server:
     description: Example 3:This example creates a team for Admin and when an admin
       logs in, he will be set in the Admin team.
     side: server
-  incomplete: true
+  requires_review: true

@@ -21,4 +21,4 @@ server:
       separately to be sure the position will be set.
   - type: info
     content: Some objects / buildings in interior 13 show in all interiors.
-  incomplete: true
+  requires_review: true

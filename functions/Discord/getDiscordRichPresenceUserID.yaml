@@ -13,4 +13,4 @@ client:
   - type: important
     content: The function will correctly return the UserID if the user has given consent
       beforehand and is connected to the Rich Presence application.
-  incomplete: true
+  requires_review: true

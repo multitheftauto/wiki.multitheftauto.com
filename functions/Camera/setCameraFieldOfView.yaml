@@ -19,4 +19,4 @@ client:
   - type: info
     content: 'It doesn''t affect the FOV for the following camera modes: 1) Player
       aiming 2) Vehicle front bumper camera 3) Fixed camera'
-  incomplete: true
+  requires_review: true

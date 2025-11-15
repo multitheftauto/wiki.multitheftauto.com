@@ -7,4 +7,4 @@ client:
   - path: examples/getVehiclesLODDistance-1.lua
     description: This example shows the lod distance of vehicles
     side: client
-  incomplete: true
+  requires_review: true

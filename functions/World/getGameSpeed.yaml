@@ -8,4 +8,4 @@ server:
     description: This example adds a 'gamespeed' console command that prints the game
       speed to the chatbox.
     side: server
-  incomplete: true
+  requires_review: true

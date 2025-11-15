@@ -8,4 +8,4 @@ server:
     description: This example outputs server's HTTP port to the chat box when player
       uses commandgetHttpPort
     side: server
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
   - path: examples/getDevelopmentMode-1.lua
     description: This command enables / disables the development mode
     side: client
-  incomplete: true
+  requires_review: true

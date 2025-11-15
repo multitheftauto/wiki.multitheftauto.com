@@ -17,4 +17,4 @@ client:
       to test this function you should use a Timer and switch to your desktop.
   - type: info
     content: You can only show a tray notification every 30 seconds.
-  incomplete: true
+  requires_review: true

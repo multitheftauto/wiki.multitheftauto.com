@@ -7,4 +7,4 @@ client:
   - path: examples/engineGetModelTextures-1.lua
     description: Get the textures for model ID 3722 and draw them with dxDrawImage.
     side: client
-  incomplete: true
+  requires_review: true

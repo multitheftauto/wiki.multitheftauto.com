@@ -10,4 +10,4 @@ client:
       change it
     side: client
   pair: setCameraViewMode
-  incomplete: true
+  requires_review: true

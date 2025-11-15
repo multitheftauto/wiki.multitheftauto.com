@@ -12,4 +12,4 @@ server:
   - path: examples/startResource-1.lua
     description: This example starts a specified resource with the command; "/resource-start".
     side: server
-  incomplete: true
+  requires_review: true

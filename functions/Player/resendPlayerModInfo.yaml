@@ -9,4 +9,4 @@ server:
   - path: examples/resendPlayerModInfo-1.lua
     description: This example shows how to resend each players mod info duringonResourceStart
     side: server
-  incomplete: true
+  requires_review: true

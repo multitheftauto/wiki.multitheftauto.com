@@ -9,4 +9,4 @@ server:
       it.
     side: server
   pair: setVehicleLocked
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
     description: This example prints the name and upgrades on each slot of an entered
       vehicle to the chat.
     side: server
-  incomplete: true
+  requires_review: true

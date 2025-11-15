@@ -9,4 +9,4 @@ server:
     description: This example remove a polygon colshape point by command 'removepoint'.
     side: server
   pair: addColPolygonPoint
-  incomplete: true
+  requires_review: true

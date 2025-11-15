@@ -32,4 +32,4 @@ client:
       "cj_ped_hat", "cj_ped_torso", "cj_ped_legs", "cj_ped_feet", "cj_ped_glasses",
       "cj_ped_necklace", "cj_ped_watch" and "cj_ped_extra1". Latest version of shader_tex_names
       will show what is being used.'
-  incomplete: true
+  requires_review: true

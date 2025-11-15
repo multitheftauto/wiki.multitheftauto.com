@@ -7,4 +7,4 @@ server:
   - path: examples/textItemSetText-1.lua
     description: 'Here, it is being used to update a scoreboard:'
     side: server
-  incomplete: true
+  requires_review: true

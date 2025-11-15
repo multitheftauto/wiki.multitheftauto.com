@@ -21,4 +21,4 @@ server:
     content: If you want to retrieve the server IP address from the server configuration,
       then you should use getServerConfigSetting("serverip") , but this might yield
       only "auto" if the default value was used.
-  incomplete: true
+  requires_review: true

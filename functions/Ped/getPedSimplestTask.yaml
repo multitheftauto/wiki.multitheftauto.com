@@ -12,4 +12,4 @@ client:
   notes:
   - type: info
     content: See getPedTask to get a ped's task.
-  incomplete: true
+  requires_review: true

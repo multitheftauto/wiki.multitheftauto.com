@@ -9,4 +9,4 @@ client:
       a child rect node, with the use of callbacks to notify in debugscript when the
       SVG was updated.
     side: client
-  incomplete: true
+  requires_review: true

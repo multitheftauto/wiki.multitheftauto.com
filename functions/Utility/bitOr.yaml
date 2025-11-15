@@ -9,4 +9,4 @@ server:
   - path: examples/bitOr-1.lua
     description: This example will do a bitwise OR of x1, x2, ...
     side: server
-  incomplete: true
+  requires_review: true

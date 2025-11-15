@@ -21,4 +21,4 @@ server:
       present the fact that the script wants to express ownership to a legal entity.
       This can be used as argument in a court of law or for DRM purposes. You can
       find the general idea here .
-  incomplete: true
+  requires_review: true

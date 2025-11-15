@@ -8,7 +8,7 @@ server:
   - path: examples/hash-1.lua
     description: ''
     side: server
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

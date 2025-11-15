@@ -9,4 +9,4 @@ client:
       center of the screen
     side: client
   pair: .gear
-  incomplete: true
+  requires_review: true

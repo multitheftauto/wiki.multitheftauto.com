@@ -9,4 +9,4 @@ server:
       the position of the train.
     side: server
   pair: setTrainPosition
-  incomplete: true
+  requires_review: true

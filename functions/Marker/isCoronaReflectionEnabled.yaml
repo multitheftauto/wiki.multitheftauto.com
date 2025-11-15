@@ -5,4 +5,4 @@ client:
   parameters: []
   examples: []
   pair: setCoronaReflectionEnabled
-  incomplete: true
+  requires_review: true

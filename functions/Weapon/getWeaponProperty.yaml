@@ -10,4 +10,4 @@ server:
     description: This example gets the weapon range of the M4 at poor skill level
     side: server
   pair: setWeaponProperty
-  incomplete: true
+  requires_review: true

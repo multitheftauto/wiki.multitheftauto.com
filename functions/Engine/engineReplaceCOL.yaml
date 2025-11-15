@@ -13,4 +13,4 @@ client:
       to technical limitations. Collision libraries (.col files containing multiple
       collision models) are not supported. See COL for details. Object models are
       supported only (no vehicles or players).
-  incomplete: true
+  requires_review: true

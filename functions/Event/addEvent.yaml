@@ -12,4 +12,4 @@ server:
   - path: examples/addEvent-2.lua
     description: 'You can then trigger this event later on using:'
     side: server
-  incomplete: true
+  requires_review: true

@@ -16,7 +16,7 @@ client:
       otherwise 0 is returned. If you create an element at the player's position which
       is going to be streamed in, call the function in the next frame to obtain the
       correct value (with setTimer 0ms, for example).
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

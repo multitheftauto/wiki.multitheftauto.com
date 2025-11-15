@@ -10,4 +10,4 @@ server:
   - path: examples/isPedHeadless-2.lua
     description: Add a command to check whether a player is a zombie or not
     side: server
-  incomplete: true
+  requires_review: true

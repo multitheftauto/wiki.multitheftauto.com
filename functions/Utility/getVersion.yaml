@@ -24,4 +24,4 @@ server:
   - type: info
     content: 'Current MTA version: mta -> 1.6 netcode -> 474 number -> 352 sortable
       -> 1.6.0-9.22279.0 tag -> 1.6-release-22279 type -> Release'
-  incomplete: true
+  requires_review: true

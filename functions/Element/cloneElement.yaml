@@ -11,4 +11,4 @@ server:
     description: This example clones the vehicle a player is in.  This allows carrying
       over of the current state of the vehicle, including mods, for example.
     side: server
-  incomplete: true
+  requires_review: true

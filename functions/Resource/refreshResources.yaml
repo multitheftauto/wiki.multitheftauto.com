@@ -15,4 +15,4 @@ server:
       in order for this function to work. You can give it the access by including
       an aclrequest command in its meta.xml file or by adding it to the admin ACL
       group.
-  incomplete: true
+  requires_review: true

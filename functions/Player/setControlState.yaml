@@ -10,4 +10,4 @@ server:
       and handbrake keys, then force the accelerate on for any player who enters a
       vehicle.
     side: server
-  incomplete: true
+  requires_review: true

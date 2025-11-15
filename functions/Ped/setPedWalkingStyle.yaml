@@ -10,4 +10,4 @@ server:
       is started
     side: client
   pair: getPedWalkingStyle
-  incomplete: true
+  requires_review: true

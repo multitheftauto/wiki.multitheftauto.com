@@ -12,4 +12,4 @@ server:
   - type: info
     content: Weapons are removed when a ped dies by default. This means that it is
       only appropriate to use this function while a ped is alive.
-  incomplete: true
+  requires_review: true

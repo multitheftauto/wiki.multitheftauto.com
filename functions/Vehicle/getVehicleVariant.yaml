@@ -12,4 +12,4 @@ server:
       are with a command namedgetvehvar:'
     side: client
   pair: setVehicleVariant
-  incomplete: true
+  requires_review: true

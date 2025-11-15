@@ -13,4 +13,4 @@ server:
     description: Example 2:In this example player gets message what type of vehicle
       he just entered.
     side: server
-  incomplete: true
+  requires_review: true

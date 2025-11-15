@@ -11,4 +11,4 @@ client:
       in the edit box into the chatbox.
     side: client
   pair: guiEditGetMaxLength
-  incomplete: true
+  requires_review: true

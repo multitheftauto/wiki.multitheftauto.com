@@ -8,4 +8,4 @@ server:
   - path: examples/getKeyBoundToFunction-1.lua
     description: /key command gives bounded key to our chat function
     side: client
-  incomplete: true
+  requires_review: true

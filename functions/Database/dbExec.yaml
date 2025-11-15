@@ -20,4 +20,4 @@ server:
   - type: tip
     content: The server command debugdb 2 will output verbose information on each
       query to a logging file (usually logs/db.log )
-  incomplete: true
+  requires_review: true

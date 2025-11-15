@@ -8,4 +8,4 @@ server:
   - path: examples/restoreWorldModel-1.lua
     description: Remove every lamp post (object 1226) besides Grove Street.
     side: server
-  incomplete: true
+  requires_review: true

@@ -16,4 +16,4 @@ client:
     content: Normally the game is adding these colors to a screen to simulate weather
       effects. Sometimes it can be important to disable these effects. You can get
       rid of the effects by calling setColorFilter with zero values.
-  incomplete: true
+  requires_review: true

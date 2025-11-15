@@ -23,4 +23,4 @@ server:
   - type: tip
     content: If you only want one variant, set ' variant2' to 255 . If you want no
       variants, then set both ' variant1' and ' variant2' to 255 .
-  incomplete: true
+  requires_review: true

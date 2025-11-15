@@ -12,4 +12,4 @@ server:
       the debug.getregistry function. Since at the moment MTA does not make use of
       advanced garbage-collector semantics, this function serves little purpose other
       than leak memory!
-  incomplete: true
+  requires_review: true

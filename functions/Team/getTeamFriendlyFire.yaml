@@ -10,4 +10,4 @@ server:
       each team, and toggles it on if it isn't.
     side: server
   pair: setTeamFriendlyFire
-  incomplete: true
+  requires_review: true

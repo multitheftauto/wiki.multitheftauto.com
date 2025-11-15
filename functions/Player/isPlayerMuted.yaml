@@ -8,4 +8,4 @@ server:
     description: ''
     side: server
   pair: setPlayerMuted
-  incomplete: true
+  requires_review: true

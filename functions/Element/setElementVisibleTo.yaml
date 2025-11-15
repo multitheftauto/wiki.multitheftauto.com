@@ -14,4 +14,4 @@ server:
       except anotherguy
     side: server
   pair: isElementVisibleTo
-  incomplete: true
+  requires_review: true

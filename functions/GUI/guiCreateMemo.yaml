@@ -8,7 +8,7 @@ client:
   - path: examples/guiCreateMemo-1.lua
     description: ''
     side: client
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

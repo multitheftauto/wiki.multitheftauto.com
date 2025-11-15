@@ -9,4 +9,4 @@ client:
     content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
       - as other orders can cause collisions, textures or the DFF not to load due
       to technical limitations.
-  incomplete: true
+  requires_review: true

@@ -8,4 +8,4 @@ client:
     description: This example creates a grid list and adds the command 'getmode' which
       will show the gridlist selection mode.
     side: client
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
     description: Example:This example creates a car with a minigun
     side: client
   pair: setElementAttachedOffsets
-  incomplete: true
+  requires_review: true

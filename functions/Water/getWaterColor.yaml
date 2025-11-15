@@ -11,4 +11,4 @@ server:
     description: ''
     side: server
   pair: setWaterColor
-  incomplete: true
+  requires_review: true

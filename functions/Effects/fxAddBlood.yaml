@@ -7,4 +7,4 @@ client:
   - path: examples/fxAddBlood-1.lua
     description: This example creates blood effects when a player gets shot.
     side: client
-  incomplete: true
+  requires_review: true

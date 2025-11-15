@@ -7,4 +7,4 @@ client:
   - path: examples/setVehiclesLODDistance-1.lua
     description: ''
     side: client
-  incomplete: true
+  requires_review: true

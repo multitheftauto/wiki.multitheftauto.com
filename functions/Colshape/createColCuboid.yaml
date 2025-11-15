@@ -22,4 +22,4 @@ server:
   - type: tip
     content: To visualize a colshape when writing scripts, use the client console
       command showcol
-  incomplete: true
+  requires_review: true

@@ -13,4 +13,4 @@ client:
   - type: info
     content: In vehicles with 3 wheels, the wheels are combined 2 in 1, in motorbikes
       only the left - "front_left" and "rear_left"
-  incomplete: true
+  requires_review: true

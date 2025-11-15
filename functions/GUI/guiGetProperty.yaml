@@ -12,4 +12,4 @@ client:
       clickable).
     side: client
   pair: guiSetProperty
-  incomplete: true
+  requires_review: true

@@ -7,4 +7,4 @@ client:
   - path: examples/guiComboBoxSetItemText-1.lua
     description: This changes the text of the selected item using commandsetText.
     side: client
-  incomplete: true
+  requires_review: true

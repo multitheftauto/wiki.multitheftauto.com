@@ -10,4 +10,4 @@ client:
       tab to the next available tab.
     side: client
   pair: guiSetSelectedTab
-  incomplete: true
+  requires_review: true

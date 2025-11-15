@@ -10,4 +10,4 @@ client:
       is on or off.
     side: client
   pair: setDebugViewActive
-  incomplete: true
+  requires_review: true

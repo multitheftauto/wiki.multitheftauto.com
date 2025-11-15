@@ -24,4 +24,4 @@ server:
       1 When setting ammo for weapons in slot 3,4,5, the ammo is added When setting
       ammo for weapons in slot 2,6,7,8,9 and the slot weapon is changing, the ammo
       is replaced
-  incomplete: true
+  requires_review: true

@@ -25,4 +25,4 @@ client:
       calculation from the texcoord (0.5, 0.5) to the currently drawing pixel. Then
       the HLSL clip function can be used to not render any pixels outside of the circle.
       Read more about it in this post .
-  incomplete: true
+  requires_review: true

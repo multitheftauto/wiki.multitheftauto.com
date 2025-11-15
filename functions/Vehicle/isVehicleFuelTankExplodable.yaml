@@ -12,4 +12,4 @@ server:
     description: This example toggles vehicle fuel tank explodable when the player
       typefueltankin the chat.
     side: server
-  incomplete: true
+  requires_review: true

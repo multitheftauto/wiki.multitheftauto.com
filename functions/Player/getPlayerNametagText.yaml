@@ -10,4 +10,4 @@ server:
       'myNametag'.
     side: server
   pair: setPlayerNametagText
-  incomplete: true
+  requires_review: true

@@ -15,7 +15,7 @@ server:
     description: This example adds a hook which will only be triggered for the named
       functions
     side: server
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

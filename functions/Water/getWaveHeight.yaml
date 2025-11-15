@@ -8,4 +8,4 @@ server:
     description: This example changes the wave height to the given amount.
     side: server
   pair: setWaveHeight
-  incomplete: true
+  requires_review: true

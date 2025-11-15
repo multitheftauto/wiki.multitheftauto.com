@@ -13,4 +13,4 @@ server:
       "score" value.
     side: server
   pair: getPlayerAnnounceValue
-  incomplete: true
+  requires_review: true

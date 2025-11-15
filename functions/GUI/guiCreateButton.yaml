@@ -10,4 +10,4 @@ client:
       the button is clicked, it will output the message in the edit box into the Chat
       Box.
     side: client
-  incomplete: true
+  requires_review: true

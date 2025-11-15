@@ -18,4 +18,4 @@ client:
   notes:
   - type: info
     content: Use getPedTask to monitor what movements the player is currently doing.
-  incomplete: true
+  requires_review: true

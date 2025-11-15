@@ -8,4 +8,4 @@ client:
   - path: examples/engineGetModelVisibleTime-1.lua
     description: Make Los Santos Tower visible only between 10 and 12 AM.
     side: client
-  incomplete: true
+  requires_review: true

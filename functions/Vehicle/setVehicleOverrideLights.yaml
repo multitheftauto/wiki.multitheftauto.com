@@ -13,4 +13,4 @@ server:
       vehicle by using a "vehiclelights" command.
     side: client
   pair: getVehicleOverrideLights
-  incomplete: true
+  requires_review: true

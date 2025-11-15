@@ -10,4 +10,4 @@ server:
   - path: examples/setHeatHaze-2.lua
     description: 'Example 2:This example will have an interesting effect:'
     side: server
-  incomplete: true
+  requires_review: true

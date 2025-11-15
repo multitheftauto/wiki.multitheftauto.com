@@ -20,4 +20,4 @@ server:
   - type: info
     content: Alternatively, you can use getVersion on the server or client to obtain
       more information.
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ client:
       it to the chatbox.
     side: client
   pair: guiGridListSetHorizontalScrollPosition
-  incomplete: true
+  requires_review: true

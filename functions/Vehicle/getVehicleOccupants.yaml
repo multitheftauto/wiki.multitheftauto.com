@@ -8,4 +8,4 @@ server:
     description: 'This example prints all vehicle occupants into the F8 console if
       "/occupants" is typed:'
     side: server
-  incomplete: true
+  requires_review: true

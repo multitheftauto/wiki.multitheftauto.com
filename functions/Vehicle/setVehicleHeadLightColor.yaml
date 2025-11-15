@@ -10,4 +10,4 @@ server:
       It shows a message if color changed successful.
     side: server
   pair: getVehicleHeadLightColor
-  incomplete: true
+  requires_review: true

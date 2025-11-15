@@ -13,4 +13,4 @@ server:
   notes:
   - type: info
     content: This function only works with peds using CJ skin (ID 0).
-  incomplete: true
+  requires_review: true

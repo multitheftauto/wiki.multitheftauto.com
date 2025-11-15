@@ -15,4 +15,4 @@ client:
       might return the server IP under certain conditions. You should consider using
       a third-party service via fetchServerIp (not an MTA function) if the previous
       function is unreliable for you.
-  incomplete: true
+  requires_review: true

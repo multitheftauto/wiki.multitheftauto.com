@@ -8,4 +8,4 @@ client:
   - path: examples/resetNearClipDistance-1.lua
     description: This example will reset near clip distance.
     side: client
-  incomplete: true
+  requires_review: true

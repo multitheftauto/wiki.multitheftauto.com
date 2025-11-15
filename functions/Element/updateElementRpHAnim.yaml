@@ -15,4 +15,4 @@ client:
   notes:
   - type: tip
     content: If you want to attach an element to a bone, see attachElementToBone .
-  incomplete: true
+  requires_review: true

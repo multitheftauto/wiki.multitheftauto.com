@@ -13,4 +13,4 @@ client:
   - path: examples/guiGridListGetItemData-1.lua
     description: This example displays a random item data from the gridlist.
     side: client
-  incomplete: true
+  requires_review: true

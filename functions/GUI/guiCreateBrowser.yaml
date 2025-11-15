@@ -15,4 +15,4 @@ client:
   - path: examples/guiCreateBrowser-2.lua
     description: This examples attaches a web browser to a CEGUI window.
     side: client
-  incomplete: true
+  requires_review: true

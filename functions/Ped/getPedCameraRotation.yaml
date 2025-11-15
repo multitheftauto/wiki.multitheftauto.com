@@ -15,4 +15,4 @@ client:
     content: The camera rotation angle returned by this function is 360º - α (where
       α is the actual camera rotation angle). See example to know how to deal with
       this.
-  incomplete: true
+  requires_review: true

@@ -20,4 +20,4 @@ client:
       visible without anisotropic filtering . It is recommended to set filteringEnabled
       to false if the TXD was created with mipmaps (the filtering mode can be changed
       in a TXD editor).
-  incomplete: true
+  requires_review: true

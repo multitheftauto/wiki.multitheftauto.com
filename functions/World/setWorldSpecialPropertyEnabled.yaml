@@ -14,4 +14,4 @@ server:
       for properties like " underworldwarp ", " burnflippedcars ", " extendedwatercannons
       ", " flyingcomponents ", " vehicle_engine_autostart " to avoid possible data
       desynchronization.
-  incomplete: true
+  requires_review: true

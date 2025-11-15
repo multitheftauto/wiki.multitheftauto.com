@@ -19,4 +19,4 @@ client:
   - id: '8686'
     description: setWeaponFlags(weapon, "flags") always returns false, but getWeaponFlags(weapon,
       "flags") works correctly
-  incomplete: true
+  requires_review: true

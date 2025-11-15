@@ -11,4 +11,4 @@ server:
     description: ''
     side: server
   pair: getVehiclePanelState
-  incomplete: true
+  requires_review: true

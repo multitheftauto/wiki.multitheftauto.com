@@ -12,4 +12,4 @@ client:
       if there is water at 500 units below the ground at the position of the player
       who types it.
     side: client
-  incomplete: true
+  requires_review: true

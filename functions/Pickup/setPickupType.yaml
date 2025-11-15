@@ -12,4 +12,4 @@ server:
   - path: examples/setPickupType-2.lua
     description: ''
     side: client
-  incomplete: true
+  requires_review: true

@@ -14,4 +14,4 @@ server:
   - type: info
     content: You may want to read up on case folding for more information about the
       use of this function.
-  incomplete: true
+  requires_review: true

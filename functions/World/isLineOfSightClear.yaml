@@ -18,4 +18,4 @@ client:
       flag enabled. That means: isLineOfSightClear will never collide with such collisions
       and this can lead to unreliabilities. The "shootthrough" flag is used by many
       beach/sand/underwater objects.'
-  incomplete: true
+  requires_review: true

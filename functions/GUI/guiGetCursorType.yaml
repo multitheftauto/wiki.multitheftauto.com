@@ -7,4 +7,4 @@ client:
   - path: examples/guiGetCursorType-1.lua
     description: This example prints the current cursor type in the console.
     side: client
-  incomplete: true
+  requires_review: true

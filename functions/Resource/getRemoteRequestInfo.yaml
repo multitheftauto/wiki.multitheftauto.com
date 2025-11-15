@@ -13,4 +13,4 @@ server:
     description: This example gets infos about all pending requests and prints them
       in debugscript
     side: client
-  incomplete: true
+  requires_review: true

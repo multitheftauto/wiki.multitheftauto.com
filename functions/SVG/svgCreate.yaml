@@ -26,4 +26,4 @@ client:
       the function had performed its task. This is no longer the case - each SVG can
       now store a single callback function (optional) which is fired every time the
       SVG texture has been changed/updated.
-  incomplete: true
+  requires_review: true

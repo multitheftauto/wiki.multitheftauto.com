@@ -20,4 +20,4 @@ client:
       issues . Using a very high value might result in more crashes, while using a
       value too low might lead to frequent pop-in [and due to the way MTA works micro-stutter
       as well]
-  incomplete: true
+  requires_review: true

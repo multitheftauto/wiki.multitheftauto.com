@@ -9,4 +9,4 @@ client:
   - path: examples/dxSetTestMode-1.lua
     description: With this example you can use /setmode command to set the test mode.
     side: client
-  incomplete: true
+  requires_review: true

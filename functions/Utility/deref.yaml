@@ -12,4 +12,4 @@ server:
       reference them. The storage of those references can be obtained by a call to
       the debug.getregistry function. The ref and deref template can easily be remade
       using a locally-hidden Lua table and two such function implementations.
-  incomplete: true
+  requires_review: true

@@ -17,4 +17,4 @@ server:
   - type: info
     content: The ID in this context is the value of the 'id' data item of the element
       (the id=".." attribute in the .map file), NOT the model ID, weapon ID or similiar.
-  incomplete: true
+  requires_review: true

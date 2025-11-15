@@ -33,4 +33,4 @@ server:
     content: It is strongly recommended to use this function asynchronously, as presented
       in "This example starts a select query and processes the result in an inline
       callback function with custom arguments:"
-  incomplete: true
+  requires_review: true

@@ -13,7 +13,7 @@ server:
   - type: info
     content: '#getElementsByType("player") works the same as this function but also
       works client side unlike this function.'
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

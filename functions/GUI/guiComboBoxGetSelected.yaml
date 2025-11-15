@@ -8,4 +8,4 @@ client:
     description: This example outputs selected item's text and ID to the chat.
     side: client
   pair: guiComboBoxSetSelected
-  incomplete: true
+  requires_review: true

@@ -12,4 +12,4 @@ client:
     description: A command that allows the player to flash their window after a certain
       period of time for a certain count.
     side: client
-  incomplete: true
+  requires_review: true

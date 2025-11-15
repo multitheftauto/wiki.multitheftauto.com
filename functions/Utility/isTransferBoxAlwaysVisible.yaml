@@ -6,4 +6,4 @@ client:
     by scripts.
   parameters: []
   examples: []
-  incomplete: true
+  requires_review: true

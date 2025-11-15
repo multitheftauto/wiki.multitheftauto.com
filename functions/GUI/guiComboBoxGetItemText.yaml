@@ -7,4 +7,4 @@ client:
   - path: examples/guiComboBoxGetItemText-1.lua
     description: This outputs selected item's text to the chatbox.
     side: client
-  incomplete: true
+  requires_review: true

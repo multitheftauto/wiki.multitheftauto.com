@@ -12,4 +12,4 @@ server:
     description: Example 2:This example provides a check to see if players have a
       jetpack when they enter a particular marker.
     side: server
-  incomplete: true
+  requires_review: true

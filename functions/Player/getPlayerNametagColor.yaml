@@ -11,4 +11,4 @@ server:
       0-255.
     side: server
   pair: setPlayerNametagColor
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ server:
   - path: examples/detonateSatchels-2.lua
     description: ''
     side: server
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ client:
       Checking if combobox is opened and change button text.
     side: client
   pair: guiComboBoxSetOpen
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
       of a race.
     side: server
   pair: getMarkerIcon
-  incomplete: true
+  requires_review: true

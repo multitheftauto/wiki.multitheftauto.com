@@ -14,4 +14,4 @@ server:
       when a player leaves.
     side: server
   pair: isRadarAreaFlashing
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
       it on if it isn't.
     side: server
   pair: getTeamFriendlyFire
-  incomplete: true
+  requires_review: true

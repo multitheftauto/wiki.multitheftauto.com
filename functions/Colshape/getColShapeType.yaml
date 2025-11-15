@@ -7,4 +7,4 @@ server:
   - path: examples/getColShapeType-1.lua
     description: This example outputs the type of all colshapes.
     side: server
-  incomplete: true
+  requires_review: true

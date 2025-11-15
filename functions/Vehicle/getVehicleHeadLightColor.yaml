@@ -11,4 +11,4 @@ server:
     description: ''
     side: server
   pair: setVehicleHeadLightColor
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ client:
       to a random color.
     side: client
   pair: guiLabelGetColor
-  incomplete: true
+  requires_review: true

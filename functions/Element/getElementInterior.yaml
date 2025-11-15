@@ -10,4 +10,4 @@ server:
       the command 'AmIOutside'.
     side: server
   pair: setElementInterior
-  incomplete: true
+  requires_review: true

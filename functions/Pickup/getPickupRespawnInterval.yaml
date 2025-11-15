@@ -9,4 +9,4 @@ server:
     description: This example outputs to the player that picked up the pickup, that
       it's not going to spawn again for another ... secs.
     side: server
-  incomplete: true
+  requires_review: true

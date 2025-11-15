@@ -8,4 +8,4 @@ server:
     description: This example calculates the length of the input of the command /length
       and shows it in the chatbox.
     side: client
-  incomplete: true
+  requires_review: true

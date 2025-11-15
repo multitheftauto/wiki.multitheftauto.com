@@ -12,4 +12,4 @@ client:
   - type: tip
     content: You can use the useful function CreateGarageColShape to create the garage
       colshape.
-  incomplete: true
+  requires_review: true

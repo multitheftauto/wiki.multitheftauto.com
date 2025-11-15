@@ -14,4 +14,4 @@ server:
     description: Example 2:This example will destroy the loaded map data after 30
       seconds.
     side: server
-  incomplete: true
+  requires_review: true

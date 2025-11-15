@@ -9,4 +9,4 @@ client:
       position and sets its speed to 5.
     side: client
   pair: getEffectSpeed
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
   - path: examples/bitNot-1.lua
     description: --In this example we make a command which you can do a bitNot operator
     side: server
-  incomplete: true
+  requires_review: true

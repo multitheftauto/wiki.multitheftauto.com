@@ -15,4 +15,4 @@ server:
     description: 'This example adds a command handler that briefly shows the position
       of ''huntedPlayer'', and removes the command handler when ''huntedPlayer'' dies:'
     side: client
-  incomplete: true
+  requires_review: true

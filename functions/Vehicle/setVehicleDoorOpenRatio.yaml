@@ -10,4 +10,4 @@ server:
       seconds.
     side: server
   pair: getVehicleDoorOpenRatio
-  incomplete: true
+  requires_review: true

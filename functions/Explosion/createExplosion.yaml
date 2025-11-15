@@ -13,4 +13,4 @@ server:
     description: Example 1:This code will create an explosion for the local player
       when they spawn.
     side: client
-  incomplete: true
+  requires_review: true

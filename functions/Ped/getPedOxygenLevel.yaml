@@ -10,4 +10,4 @@ client:
       player that executes it which oxygen level he has.
     side: client
   pair: setPedOxygenLevel
-  incomplete: true
+  requires_review: true

@@ -24,4 +24,4 @@ client:
       client calls setPedControlState on the ped. The other game clients - the ones
       where setPedControlState was not manually called by scripts - will see the ped
       teleport around. It will clearly look as if synchronization were broken.
-  incomplete: true
+  requires_review: true

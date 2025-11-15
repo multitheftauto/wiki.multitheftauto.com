@@ -63,4 +63,4 @@ server:
       accompanied by a prior debug error explaining the problem. In that case you
       should check the Server Manual to see if you have missed any recommended (best-effort)
       steps for server set-up.
-  incomplete: true
+  requires_review: true

@@ -10,7 +10,7 @@ client:
       position specified as an argument.
     side: client
   pair: setVehicleDummyPosition
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

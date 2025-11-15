@@ -9,4 +9,4 @@ server:
   - path: examples/removePedFromVehicle-1.lua
     description: Small example to show how to remove a ped from any vehicle it's in.
     side: server
-  incomplete: true
+  requires_review: true

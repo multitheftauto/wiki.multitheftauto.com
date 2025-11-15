@@ -7,4 +7,4 @@ server:
   - path: examples/textDestroyTextItem-1.lua
     description: This example creates then destroys atextitem.
     side: server
-  incomplete: true
+  requires_review: true

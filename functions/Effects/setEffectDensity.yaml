@@ -14,4 +14,4 @@ client:
   - type: warning
     content: Upper density limit of this function depends on client FX Quality setting.
       The limit is 1 for Low, 1.5 for Medium, and 2 for High/Very high.
-  incomplete: true
+  requires_review: true

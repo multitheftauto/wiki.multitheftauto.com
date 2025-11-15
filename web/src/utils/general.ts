@@ -210,33 +210,6 @@ export function getSeeAlsoLinksForItem(theItem: any): SeeAlsoLinkGroup[] {
   return getSeeAlsoLinksFromList(allSeeAlso);
 }
 
-export function getUnfinishedPages(pageType: 'functions' | 'events'): string[] {
-  const unfinishedPages: string[] = [];
-  const pagesByCategory = {
-    functions: getFunctionsByCategory(),
-    events: getEventsByCategory(),
-  };
-  for (const category in pagesByCategory[pageType]) {
-    const items = pagesByCategory[pageType][category];
-    for (const item of items) {
-      const data = item.data.shared || item.data.client || item.data.server || item.data;
-      // Check if the item is marked as incomplete
-      if (data && data.incomplete) {
-        unfinishedPages.push(item.id);
-      } else {
-        // Check if the item has no code examples
-        const examples = item.data.shared?.examples || item.data.client?.examples || item.data.server?.examples || item.data.examples;
-        if (!examples || examples.length === 0) {
-          unfinishedPages.push(item.id);
-        }
-      }
-    }
-  }
-  // Sort alphabetically
-  unfinishedPages.sort((a, b) => a.localeCompare(b));
-  return unfinishedPages;
-}
-
 export function extractVersion(versionString: string): string | null {
   const match = versionString?.match(/^(\d+\.\d+\.\d+)/);
   return match ? match[1] : null;

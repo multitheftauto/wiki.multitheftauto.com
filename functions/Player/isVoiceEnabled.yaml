@@ -10,4 +10,4 @@ server:
   - path: examples/isVoiceEnabled-1.lua
     description: This example shows how to forbid use voice for muted (in chat) players
     side: server
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ client:
       is visible or not.
     side: client
   pair: setVehicleComponentVisible
-  incomplete: true
+  requires_review: true

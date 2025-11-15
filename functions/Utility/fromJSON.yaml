@@ -13,4 +13,4 @@ server:
   - path: examples/fromJSON-2.lua
     description: 'This shows how to extract data from JSON:'
     side: server
-  incomplete: true
+  requires_review: true

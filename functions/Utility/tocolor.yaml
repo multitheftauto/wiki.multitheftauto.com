@@ -11,4 +11,4 @@ server:
     description: This example displays the text "Tuna" in small at the top left side
       of your screen. The color of this text can be changed using the command /tunaColor.
     side: client
-  incomplete: true
+  requires_review: true

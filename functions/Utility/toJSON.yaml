@@ -19,4 +19,4 @@ server:
   - type: important
     content: Due to technical limitations (partly of json-c) the stringified keys
       will be truncated to the first 255 characters
-  incomplete: true
+  requires_review: true

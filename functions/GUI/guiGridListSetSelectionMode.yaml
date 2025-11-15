@@ -12,4 +12,4 @@ client:
       on. The player can use the command ''setmode #'' to change how the grid list
       can be selected.'
     side: client
-  incomplete: true
+  requires_review: true

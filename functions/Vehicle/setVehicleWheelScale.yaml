@@ -23,4 +23,4 @@ client:
       the wheels in the model as usual. On the other hand, the default value for vehicles
       with a wheel upgrade is the size of the wheels in the front axle of the vehicle
       model.
-  incomplete: true
+  requires_review: true

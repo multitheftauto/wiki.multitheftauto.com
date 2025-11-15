@@ -10,4 +10,4 @@ client:
   - path: examples/isElementStreamedIn-1.lua
     description: This command shows you how many objects you have streamed in.
     side: client
-  incomplete: true
+  requires_review: true

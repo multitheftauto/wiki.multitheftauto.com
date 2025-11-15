@@ -9,4 +9,4 @@ server:
     description: This example will create a trailer and a trailer tower, then attach
       them.
     side: server
-  incomplete: true
+  requires_review: true

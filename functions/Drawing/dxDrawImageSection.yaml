@@ -18,4 +18,4 @@ client:
   - type: tip
     content: To help prevent edge artifacts when drawing textures, set textureEdge
       to "clamp" when calling dxCreateTexture
-  incomplete: true
+  requires_review: true

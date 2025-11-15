@@ -17,4 +17,4 @@ server:
     content: The serverside function has a limitation of 1000 characters for the text
       parameter. Anything beyond 1000 characters is trimmed away. This limitation
       does not apply to the clientside version.
-  incomplete: true
+  requires_review: true

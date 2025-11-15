@@ -25,4 +25,4 @@ client:
       (Just like the example below does)
   - type: important
     content: parentID should be the same model type to prevent crashes.
-  incomplete: true
+  requires_review: true

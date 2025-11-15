@@ -15,4 +15,4 @@ client:
     content: Some small water areas within parts of the city do not count as water
       to be used with this function. For example, the shallow water area in Northwest
       San Fierro.
-  incomplete: true
+  requires_review: true

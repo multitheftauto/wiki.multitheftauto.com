@@ -11,4 +11,4 @@ client:
   notes:
   - type: info
     content: This function only works in development mode.
-  incomplete: true
+  requires_review: true

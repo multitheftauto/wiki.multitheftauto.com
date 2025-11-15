@@ -11,4 +11,4 @@ server:
     description: This example gets the current clothes of a certain type on a player,
       then swaps with the next in the clothes list.
     side: server
-  incomplete: true
+  requires_review: true

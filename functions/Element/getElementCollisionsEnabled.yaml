@@ -10,4 +10,4 @@ server:
     description: This example check if there are any players with collisions disabled.
     side: server
   pair: setElementCollisionsEnabled
-  incomplete: true
+  requires_review: true

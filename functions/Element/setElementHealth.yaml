@@ -23,4 +23,4 @@ server:
   issues:
   - id: '414'
     description: Using setElementHealth on a dead ped makes it invincible
-  incomplete: true
+  requires_review: true

@@ -8,4 +8,4 @@ server:
   - path: examples/getMinuteDuration-1.lua
     description: This example prints the server's minute duration
     side: server
-  incomplete: true
+  requires_review: true

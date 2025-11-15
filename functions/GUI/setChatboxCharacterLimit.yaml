@@ -10,4 +10,4 @@ client:
       join).
     side: client
   pair: getChatboxCharacterLimit
-  incomplete: true
+  requires_review: true

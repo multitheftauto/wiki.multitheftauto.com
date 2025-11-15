@@ -9,4 +9,4 @@ client:
       the player's position and outputs its speed to the chatbox.
     side: client
   pair: setEffectSpeed
-  incomplete: true
+  requires_review: true

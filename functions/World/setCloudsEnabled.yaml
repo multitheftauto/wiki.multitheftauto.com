@@ -8,4 +8,4 @@ server:
   - path: examples/setCloudsEnabled-1.lua
     description: This example disables clouds for all players when resource starts.
     side: server
-  incomplete: true
+  requires_review: true

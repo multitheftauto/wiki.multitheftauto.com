@@ -10,4 +10,4 @@ server:
     content: The maximum number of components that can be created simultaneously is
       150. Beyond this limit, no new components will be created until an existing
       component is removed and the count drops below 150.
-  incomplete: true
+  requires_review: true

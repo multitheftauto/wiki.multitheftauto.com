@@ -6,7 +6,7 @@ client:
   parameters: []
   examples: []
   pair: getVehicleDummyPosition
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

@@ -19,4 +19,4 @@ server:
   meta:
   - needs_checking: Things like infinite run, fire proof CJ, 150 armor have special
       activation flags. They need a way to be triggered on/off.
-  incomplete: true
+  requires_review: true

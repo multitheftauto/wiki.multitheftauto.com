@@ -12,7 +12,7 @@ server:
     description: This example shows how to greet a player, when he write 'hello' into
       the chat.
     side: server
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

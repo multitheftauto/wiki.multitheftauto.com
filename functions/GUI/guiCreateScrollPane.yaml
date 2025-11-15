@@ -9,4 +9,4 @@ client:
       /fill command you can populate the scrollpane with the names of every player
       in the server.
     side: client
-  incomplete: true
+  requires_review: true

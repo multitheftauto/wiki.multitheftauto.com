@@ -16,4 +16,4 @@ client:
     description: 'This example creates an edit box and sets the input focus so the
       player does not have to click before typing:'
     side: client
-  incomplete: true
+  requires_review: true

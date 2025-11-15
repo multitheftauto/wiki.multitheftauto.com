@@ -7,4 +7,4 @@ client:
   - path: examples/guiGridListClear-1.lua
     description: 'This creates a player list and then clears it when a button is clicked:'
     side: client
-  incomplete: true
+  requires_review: true

@@ -8,4 +8,4 @@ client:
   - path: examples/setTimeFrozen-1.lua
     description: This example let you freeze the time
     side: client
-  incomplete: true
+  requires_review: true

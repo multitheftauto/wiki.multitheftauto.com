@@ -16,4 +16,4 @@ server:
       adds a 'removenos' command which allows removal of a player's nos.  This example
       is clientside and may cause desync.
     side: client
-  incomplete: true
+  requires_review: true

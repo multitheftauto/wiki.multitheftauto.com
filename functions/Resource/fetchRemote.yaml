@@ -22,7 +22,7 @@ server:
     content: When using toJSON for submitting data, make sure to use string.sub(data,
       2, -2) to remove the initial and final brackets, as many APIs will not understand
       the request
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

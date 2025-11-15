@@ -14,4 +14,4 @@ server:
   issues:
   - id: '514'
     description: getWeaponNameFromID() returns duplicate ID's for 10/11 and 12/13
-  incomplete: true
+  requires_review: true

@@ -12,4 +12,4 @@ client:
   notes:
   - type: important
     content: To use this function, you must set up your own application setDiscordApplicationID
-  incomplete: true
+  requires_review: true

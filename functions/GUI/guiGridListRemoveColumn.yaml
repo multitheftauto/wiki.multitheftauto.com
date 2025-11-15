@@ -9,4 +9,4 @@ client:
       script starts. After 3 seconds, it randomly deletes a column and outputs to
       the chat box which column was deleted.
     side: client
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
       kills players who hit a red one.
     side: server
   pair: setMarkerColor
-  incomplete: true
+  requires_review: true

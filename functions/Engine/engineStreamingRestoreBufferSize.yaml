@@ -8,4 +8,4 @@ client:
   - path: examples/engineStreamingRestoreBufferSize-1.lua
     description: This example restores streaming buffer size.
     side: client
-  incomplete: true
+  requires_review: true

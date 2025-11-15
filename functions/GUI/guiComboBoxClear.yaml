@@ -8,4 +8,4 @@ client:
     description: This example creates a combo box with all server vehicles on it,
       with a command to clear the combo box.
     side: client
-  incomplete: true
+  requires_review: true

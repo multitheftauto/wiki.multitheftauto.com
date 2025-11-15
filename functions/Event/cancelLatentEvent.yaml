@@ -16,4 +16,4 @@ server:
   - path: examples/cancelLatentEvent-4.lua
     description: ''
     side: client
-  incomplete: true
+  requires_review: true

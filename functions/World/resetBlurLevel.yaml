@@ -9,4 +9,4 @@ client:
     description: 'This example allows the player to reset their blur level with a
       command:'
     side: client
-  incomplete: true
+  requires_review: true

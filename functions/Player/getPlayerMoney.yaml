@@ -13,4 +13,4 @@ server:
   - type: info
     content: The amount may vary between the server and client, you shouldn't trust
       the client side value to always be accurate.
-  incomplete: true
+  requires_review: true

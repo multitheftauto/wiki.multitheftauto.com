@@ -10,4 +10,4 @@ server:
       a driver.
     side: server
   pair: setVehicleSirensOn
-  incomplete: true
+  requires_review: true

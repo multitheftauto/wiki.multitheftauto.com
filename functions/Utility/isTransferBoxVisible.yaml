@@ -7,4 +7,4 @@ server:
   - path: examples/isTransferBoxVisible-1.lua
     description: This example defines a command to remove the player's transfer box.
     side: client
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
     description: This example disables the dancing club ambient music, without disabling
       other interiors' ambient sounds.
     side: client
-  incomplete: true
+  requires_review: true

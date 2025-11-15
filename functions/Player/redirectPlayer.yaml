@@ -18,4 +18,4 @@ server:
   notes:
   - type: info
     content: A resource using this function needs ACL rights in order to work (function.redirectPlayer)
-  incomplete: true
+  requires_review: true

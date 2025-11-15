@@ -9,4 +9,4 @@ client:
       on 1-100 scale. This function just works with projectiles which you throw so
       just grenades, satchel charge etc
     side: client
-  incomplete: true
+  requires_review: true

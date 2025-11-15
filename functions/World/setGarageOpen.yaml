@@ -19,4 +19,4 @@ server:
       (see TheJizzy's video "BETA Leftovers and Glitches" at 12:12 timestamp). You
       can remove the door by using removeWorldModel and recreating it for later with
       moveObject .
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ client:
       and if it is, then it's output the title and sets the next radio button selected.
       (TESTED!)
     side: client
-  incomplete: true
+  requires_review: true

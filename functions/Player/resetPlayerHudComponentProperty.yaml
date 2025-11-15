@@ -12,4 +12,4 @@ client:
       component or all properties of all components (the entire HUD).
     side: client
   pair: setPlayerHudComponentProperty
-  incomplete: true
+  requires_review: true

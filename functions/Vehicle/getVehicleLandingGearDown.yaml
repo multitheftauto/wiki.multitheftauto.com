@@ -10,4 +10,4 @@ server:
       a Hydra with its landing gear down.
     side: server
   pair: setVehicleLandingGearDown
-  incomplete: true
+  requires_review: true

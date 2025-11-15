@@ -12,4 +12,4 @@ server:
   notes:
   - type: important
     content: Only passenger seats are counted, the driver seat is excluded.
-  incomplete: true
+  requires_review: true

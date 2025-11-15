@@ -7,7 +7,7 @@ client:
   - path: examples/engineStreamingRequestModel-1.lua
     description: This example draws a model
     side: client
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

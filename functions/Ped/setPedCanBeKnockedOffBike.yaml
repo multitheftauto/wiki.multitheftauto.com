@@ -18,4 +18,4 @@ client:
   - type: info
     content: The ped will not get knocked off a bike that is set damage proof through
       setVehicleDamageProof . Refer to the note on that method for more information.
-  incomplete: true
+  requires_review: true

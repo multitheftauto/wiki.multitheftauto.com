@@ -12,4 +12,4 @@ client:
   notes:
   - type: warning
     content: Only works if the vehicle is streamed in.
-  incomplete: true
+  requires_review: true

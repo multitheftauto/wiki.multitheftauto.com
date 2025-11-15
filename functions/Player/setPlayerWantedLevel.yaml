@@ -10,4 +10,4 @@ server:
       enter a certain colshape:'
     side: server
   pair: getPlayerWantedLevel
-  incomplete: true
+  requires_review: true

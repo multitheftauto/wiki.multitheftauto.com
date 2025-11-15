@@ -10,4 +10,4 @@ server:
       vehicle
     side: server
   pair: setVehicleOverrideLights
-  incomplete: true
+  requires_review: true

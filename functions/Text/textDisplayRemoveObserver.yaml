@@ -11,4 +11,4 @@ server:
     description: This example creates a new display and a "Hello World" text item
       for a player.  It then removes it from his screen 5 seconds later
     side: server
-  incomplete: true
+  requires_review: true

@@ -8,4 +8,4 @@ server:
   - path: examples/getInteriorSoundsEnabled-1.lua
     description: Command check_sounds checks if the interior sounds enabled or not
     side: server
-  incomplete: true
+  requires_review: true

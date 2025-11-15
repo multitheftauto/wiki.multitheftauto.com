@@ -8,4 +8,4 @@ server:
     description: Displays a message in the chat what is the player's debug level.
     side: server
   pair: setPlayerScriptDebugLevel
-  incomplete: true
+  requires_review: true

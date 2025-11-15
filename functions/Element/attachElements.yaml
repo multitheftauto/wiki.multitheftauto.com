@@ -22,4 +22,4 @@ server:
       for more details. Due to a limitation in GTA, unexpected attach rotations may
       occur if all rotation offsets are non-zero. (i.e. Try to ensure at least one
       of 'xRotOffset', 'yRotOffset' or 'zRotOffset' is zero).
-  incomplete: true
+  requires_review: true

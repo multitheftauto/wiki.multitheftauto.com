@@ -9,4 +9,4 @@ client:
     description: Example 1:This example shows how you can output a players current
       movestate.
     side: client
-  incomplete: true
+  requires_review: true

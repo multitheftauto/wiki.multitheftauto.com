@@ -23,4 +23,4 @@ server:
   - id: '442'
     description: Client-side setElementFrozen should sync vehicle driven by local
       player
-  incomplete: true
+  requires_review: true

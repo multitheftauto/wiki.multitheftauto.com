@@ -9,4 +9,4 @@ client:
     description: This example will create a Bullet Impact Effect on the position of
       the bullet impact.
     side: client
-  incomplete: true
+  requires_review: true

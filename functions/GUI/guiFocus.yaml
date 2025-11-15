@@ -8,4 +8,4 @@ client:
   - path: examples/guiFocus-1.lua
     description: ''
     side: client
-  incomplete: true
+  requires_review: true

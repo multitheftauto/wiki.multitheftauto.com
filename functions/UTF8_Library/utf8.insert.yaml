@@ -10,4 +10,4 @@ server:
     description: This example shows a command handler for '/insert [something]', which
       will concatenate the '[something]' after the 'hello ' string in 2 ways.
     side: server
-  incomplete: true
+  requires_review: true

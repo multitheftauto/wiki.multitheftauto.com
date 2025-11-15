@@ -23,4 +23,4 @@ client:
     description: createProjectile creates one projectile for every person in the vehicle
   - id: '616'
     description: Projectile rotation is set exactly opposite for creator
-  incomplete: true
+  requires_review: true

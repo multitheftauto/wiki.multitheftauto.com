@@ -14,4 +14,4 @@ client:
     content: Not all effects support rotation (e.g. the "fire" - effect doesn't).
   - type: info
     content: All effects have their own duration.
-  incomplete: true
+  requires_review: true

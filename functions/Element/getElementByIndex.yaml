@@ -14,4 +14,4 @@ server:
   - type: important
     content: If you wish to retrieve more than one element at a time, it is more efficient
       to use getElementsByType instead.
-  incomplete: true
+  requires_review: true

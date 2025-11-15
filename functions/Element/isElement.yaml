@@ -15,4 +15,4 @@ server:
       Always make sure you nil variables containing an element after calling destroyElement
       or handle onElementDestroy for players and elements that might be destroyed
       by another resource
-  incomplete: true
+  requires_review: true

@@ -26,4 +26,4 @@ client:
       textures (causing dxTextures to pile up) when they should no longer display
       per your script, which causes FPS lag and crashes all over MTA due to so many
       scripters missing it
-  incomplete: true
+  requires_review: true

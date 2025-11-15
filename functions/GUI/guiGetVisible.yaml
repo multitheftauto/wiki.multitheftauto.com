@@ -8,4 +8,4 @@ client:
     description: This example toggles the visibility of myWindow.
     side: client
   pair: guiSetVisible
-  incomplete: true
+  requires_review: true

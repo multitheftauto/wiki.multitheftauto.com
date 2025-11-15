@@ -13,4 +13,4 @@ client:
       toggle its visibility with thexkey.
     side: client
   pair: guiGetVisible
-  incomplete: true
+  requires_review: true

@@ -14,4 +14,4 @@ server:
   - type: important
     content: toggleVehicleRespawn must be set to true for this function to have any
       effect
-  incomplete: true
+  requires_review: true

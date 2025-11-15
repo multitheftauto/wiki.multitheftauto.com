@@ -8,4 +8,4 @@ server:
     description: This will retrieve the name of a car so its name can be displayed
       when the player chooses to spawn a car by model ID.
     side: server
-  incomplete: true
+  requires_review: true

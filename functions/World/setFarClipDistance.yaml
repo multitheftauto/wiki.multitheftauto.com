@@ -11,4 +11,4 @@ server:
   - path: examples/setFarClipDistance-2.lua
     description: This example adjusts the visibility range of the game world.
     side: client
-  incomplete: true
+  requires_review: true

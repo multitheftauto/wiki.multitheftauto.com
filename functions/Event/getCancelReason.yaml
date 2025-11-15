@@ -8,4 +8,4 @@ server:
     description: This example cancels when a hunterPlayer tries to enter a vehicle
       and outputs to the world what the player tried to do.
     side: server
-  incomplete: true
+  requires_review: true

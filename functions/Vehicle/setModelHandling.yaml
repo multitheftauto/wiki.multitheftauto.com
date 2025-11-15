@@ -14,7 +14,7 @@ server:
   - id: '1198'
     description: '"setModelHandling" function doesn''t affect vehicles that have been
       changed using "setElementModel"'
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

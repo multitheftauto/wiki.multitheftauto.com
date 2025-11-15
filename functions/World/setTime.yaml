@@ -10,4 +10,4 @@ server:
   - path: examples/setTime-2.lua
     description: This example freeze the time.
     side: client
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ server:
       returns true if any of the doors on a vehicle are open.
     side: server
   pair: setVehicleDoorState
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ client:
   - path: examples/setGrainMultiplier-1.lua
     description: This example disables a grain effect for the rain.
     side: client
-  incomplete: true
+  requires_review: true

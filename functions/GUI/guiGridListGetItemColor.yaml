@@ -11,4 +11,4 @@ client:
 
       When the player clicks on a grid list item, it''ll output the color of it.'
     side: client
-  incomplete: true
+  requires_review: true

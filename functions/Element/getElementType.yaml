@@ -7,4 +7,4 @@ server:
   - path: examples/getElementType-1.lua
     description: This example destroys a haystack when a player targets it
     side: server
-  incomplete: true
+  requires_review: true

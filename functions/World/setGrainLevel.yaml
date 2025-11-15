@@ -9,4 +9,4 @@ client:
   - path: examples/setGrainLevel-1.lua
     description: 'This example creates a radioactive zone at Missionary Hills:'
     side: client
-  incomplete: true
+  requires_review: true

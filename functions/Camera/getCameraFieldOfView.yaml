@@ -10,4 +10,4 @@ client:
       the /getfov command is written
     side: client
   pair: setCameraFieldOfView
-  incomplete: true
+  requires_review: true

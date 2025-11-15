@@ -14,4 +14,4 @@ server:
     content: Although you may be able to add sirens to any vehice, this function may
       not work. This function fails on certain vehicle models ( https://wiki.multitheftauto.com/wiki/Vehicle_IDs#Lua_table_of_vehicles_that_doesn.27t_support_siren_lights
       ).
-  incomplete: true
+  requires_review: true

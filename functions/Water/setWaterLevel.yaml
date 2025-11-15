@@ -19,7 +19,7 @@ server:
       of the water. Setting the water level to any non-zero value (i.e. setWaterLevel(0.001)
       ) forces alternative rendering and MTA custom objects placed underwater will
       be drawn correctly.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

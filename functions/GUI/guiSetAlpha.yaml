@@ -10,4 +10,4 @@ client:
       (the visibleness/transparency) value with a command.
     side: client
   pair: guiGetAlpha
-  incomplete: true
+  requires_review: true

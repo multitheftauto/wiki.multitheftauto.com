@@ -9,4 +9,4 @@ server:
   - path: examples/utf8.find-1.lua
     description: This example shows how to search for parts of a string.
     side: server
-  incomplete: true
+  requires_review: true

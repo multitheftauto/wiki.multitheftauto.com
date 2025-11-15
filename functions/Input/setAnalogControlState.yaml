@@ -13,4 +13,4 @@ client:
   - path: examples/setAnalogControlState-2.lua
     description: This script invertes left and right vehicle steering for the player.
     side: client
-  incomplete: true
+  requires_review: true

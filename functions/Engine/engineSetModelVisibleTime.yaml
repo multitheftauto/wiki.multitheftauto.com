@@ -10,4 +10,4 @@ client:
       keep in mind that this function does not affect collision - the building is
       still there, it''s just invisible:'
     side: client
-  incomplete: true
+  requires_review: true

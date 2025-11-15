@@ -9,4 +9,4 @@ client:
   - path: examples/resetPedsLODDistance-1.lua
     description: This adds a command "resetlod", which resets the peds LOD distance.
     side: client
-  incomplete: true
+  requires_review: true

@@ -18,4 +18,4 @@ server:
       "€") returns 3 but #split("a€cb", "€") returns 2.'
   - type: info
     content: 'You can''t use same char twice as a separator. Eg.:'
-  incomplete: true
+  requires_review: true

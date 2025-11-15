@@ -9,4 +9,4 @@ client:
     description: This example makes the Desert Eagle gun fire faster.
     side: client
   pair: getWeaponFiringRate
-  incomplete: true
+  requires_review: true

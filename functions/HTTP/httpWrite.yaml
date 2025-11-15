@@ -19,7 +19,7 @@ server:
       This is useful as the internal server doesn't not support subdirectories reliably
       so you can create a page to return files to you.
     side: server
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

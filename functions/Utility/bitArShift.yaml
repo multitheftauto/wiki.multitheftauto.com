@@ -14,4 +14,4 @@ server:
     description: This example adds the clientside command/arshift [value] [positions
       = 1], which will print the result from the functionbitArShift.
     side: client
-  incomplete: true
+  requires_review: true

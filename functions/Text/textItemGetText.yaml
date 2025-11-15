@@ -9,4 +9,4 @@ server:
     description: Increment a score display. In real scripts it's of course better
       to keep a global 'score' variable which can be incremented directly.
     side: server
-  incomplete: true
+  requires_review: true

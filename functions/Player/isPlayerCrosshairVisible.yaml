@@ -13,4 +13,4 @@ client:
       that hud components are not associated with this function, so the function may
       return true even if the "crosshair" component is hidden with setPlayerHudComponentVisible
       . If you need checking use isPlayerHudComponentVisible .
-  incomplete: true
+  requires_review: true

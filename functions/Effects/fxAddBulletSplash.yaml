@@ -9,4 +9,4 @@ client:
     description: This example will add a Bullet Splash Effect next to your player
       when typing/bsplashin the Chatbox.
     side: client
-  incomplete: true
+  requires_review: true

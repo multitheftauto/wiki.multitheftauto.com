@@ -8,4 +8,4 @@ server:
   - path: examples/getVehicleColor-1.lua
     description: This will output the 4 colors of any car that the player enters.
     side: server
-  incomplete: true
+  requires_review: true

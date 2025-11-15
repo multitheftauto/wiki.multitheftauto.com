@@ -10,4 +10,4 @@ client:
   notes:
   - type: info
     content: Physics can only be disabled for newly created objects and buildings
-  incomplete: true
+  requires_review: true

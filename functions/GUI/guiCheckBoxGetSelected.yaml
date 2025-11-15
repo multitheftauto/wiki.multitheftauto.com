@@ -9,4 +9,4 @@ client:
       has been clicked.
     side: client
   pair: guiCheckBoxSetSelected
-  incomplete: true
+  requires_review: true

@@ -15,4 +15,4 @@ client:
     content: Before r6974 the component rotations went the wrong way (i.e. opposite
       to the vehicle rotations). This has been corrected, so you'll have to modify
       any scripts written before r6974 that use this function.
-  incomplete: true
+  requires_review: true

@@ -12,4 +12,4 @@ client:
   meta:
   - needs_checking: The example should depict better how does this function actually
       work with a texture.
-  incomplete: true
+  requires_review: true

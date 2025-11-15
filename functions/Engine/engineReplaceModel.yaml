@@ -24,4 +24,4 @@ client:
       and the original model is not loaded/streamed-in at the time of replacement,
       this function will succeed and you won't see any error message, neither when
       the model replacement fails once the original model starts to load/stream-in.
-  incomplete: true
+  requires_review: true

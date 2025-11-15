@@ -10,4 +10,4 @@ server:
     description: This simple example will output the names of the functions that the
       "scoreboard" resource exports.
     side: server
-  incomplete: true
+  requires_review: true

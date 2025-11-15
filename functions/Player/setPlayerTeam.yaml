@@ -11,4 +11,4 @@ server:
       add him to it. It also adds a command to remove him from his team.
     side: server
   pair: getPlayerTeam
-  incomplete: true
+  requires_review: true

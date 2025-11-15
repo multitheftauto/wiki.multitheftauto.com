@@ -9,4 +9,4 @@ server:
   - path: examples/resetMapInfo-1.lua
     description: This will reset all map info when the resource is stopped.
     side: server
-  incomplete: true
+  requires_review: true

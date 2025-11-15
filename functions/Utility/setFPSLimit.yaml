@@ -13,7 +13,7 @@ server:
     content: When set client side, the actual limit used is the lowest of both the
       server and client set values. Starting from version [ r21313 ] and above fpsLimit
       range is 25-32767 . In older MTA releases it was 25-100 .
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

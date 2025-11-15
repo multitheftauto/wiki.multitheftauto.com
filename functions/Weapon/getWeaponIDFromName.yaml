@@ -8,4 +8,4 @@ server:
     description: This example will give the player the weapon they specify 20 ammo
       whenever they type "weaponname" into the console.
     side: server
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ server:
       it toggles the nametag of the player who entered the command.
     side: server
   pair: setPlayerNametagShowing
-  incomplete: true
+  requires_review: true

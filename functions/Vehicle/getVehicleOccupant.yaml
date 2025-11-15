@@ -9,4 +9,4 @@ server:
     description: 'This example announces the driver of a certain vehicle whenever
       it is damaged:'
     side: server
-  incomplete: true
+  requires_review: true

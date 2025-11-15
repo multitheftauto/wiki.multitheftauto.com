@@ -24,4 +24,4 @@ server:
       variables are available even if you use exports.*:* Using this function straight
       away on resource start might cause elements to not be passed properly, use setTimer
       in order to delay function execution and to avoid this issue.
-  incomplete: true
+  requires_review: true

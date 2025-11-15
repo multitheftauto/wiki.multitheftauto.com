@@ -16,4 +16,4 @@ server:
     description: isVehicleOnGround sometimes returns false incorrectly
   - id: '2093'
     description: isVehicleOnGround does not work after setVehicleHandling
-  incomplete: true
+  requires_review: true

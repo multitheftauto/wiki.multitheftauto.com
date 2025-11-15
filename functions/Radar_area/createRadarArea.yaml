@@ -9,4 +9,4 @@ server:
       and a colsquare. When the player enters the radar area it flashes, and stops
       flashing when a player leaves it.
     side: server
-  incomplete: true
+  requires_review: true

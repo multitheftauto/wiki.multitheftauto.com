@@ -19,4 +19,4 @@ server:
   - type: info
     content: Using this function client side (not recommended) will not change a players
       money server side.
-  incomplete: true
+  requires_review: true

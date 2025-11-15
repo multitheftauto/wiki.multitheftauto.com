@@ -15,4 +15,4 @@ server:
   notes:
   - type: info
     content: The speed of the effect depends directly on the current gamespeed.
-  incomplete: true
+  requires_review: true

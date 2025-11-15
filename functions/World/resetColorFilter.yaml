@@ -7,4 +7,4 @@ client:
   - path: examples/resetColorFilter-1.lua
     description: 'This example lets any player reset the color filtering:'
     side: client
-  incomplete: true
+  requires_review: true

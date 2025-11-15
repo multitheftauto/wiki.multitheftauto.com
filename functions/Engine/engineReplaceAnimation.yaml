@@ -17,4 +17,4 @@ client:
       press C on your keyboard, the custom animation will be played instead of crouch
       animation.
     side: client
-  incomplete: true
+  requires_review: true

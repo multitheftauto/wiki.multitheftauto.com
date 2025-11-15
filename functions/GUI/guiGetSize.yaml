@@ -9,4 +9,4 @@ client:
       to the chatbox.
     side: client
   pair: guiSetSize
-  incomplete: true
+  requires_review: true

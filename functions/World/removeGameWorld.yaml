@@ -8,4 +8,4 @@ server:
   - path: examples/removeGameWorld-1.lua
     description: This example removes game world.
     side: server
-  incomplete: true
+  requires_review: true

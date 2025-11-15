@@ -15,4 +15,4 @@ client:
   - type: info
     content: Using setElementPosition/Rotation/Matrix on the camera element will automatically
       clear any target set with setCameraTarget
-  incomplete: true
+  requires_review: true

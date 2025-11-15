@@ -8,4 +8,4 @@ server:
   - path: examples/setPickupRespawnInterval-1.lua
     description: This example adds 3000ms to the current pickup respawn time.
     side: server
-  incomplete: true
+  requires_review: true

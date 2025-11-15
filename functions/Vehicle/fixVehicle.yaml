@@ -10,4 +10,4 @@ server:
   - path: examples/fixVehicle-1.lua
     description: This example fixes all the vehicles that exist in the map.
     side: server
-  incomplete: true
+  requires_review: true

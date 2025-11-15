@@ -8,4 +8,4 @@ server:
     description: This example prints the killer and body part to the chat on the wasted/kill
       event.
     side: server
-  incomplete: true
+  requires_review: true

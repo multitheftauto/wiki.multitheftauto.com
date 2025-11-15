@@ -9,4 +9,4 @@ server:
     description: 'The following example looks for radar areas whose size is smaller
       than 100 by 100:'
     side: server
-  incomplete: true
+  requires_review: true

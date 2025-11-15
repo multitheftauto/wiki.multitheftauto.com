@@ -24,4 +24,4 @@ client:
   - type: tip
     content: Avoid using fileExists before calling downloadFile . Always call downloadFile
       and handle the result in onClientFileDownloadComplete
-  incomplete: true
+  requires_review: true

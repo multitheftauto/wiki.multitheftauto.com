@@ -61,8 +61,8 @@ $defs:
         $ref: 'common-defs.yaml#/$defs/examples'
       see_also:
         $ref: 'common-defs.yaml#/$defs/see_also'
-      incomplete:
-        $ref: 'common-defs.yaml#/$defs/incomplete'
+      requires_review:
+        $ref: 'common-defs.yaml#/$defs/requires_review'
   
   oop:
     type: object

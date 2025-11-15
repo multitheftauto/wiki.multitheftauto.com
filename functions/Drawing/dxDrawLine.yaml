@@ -12,4 +12,4 @@ client:
   - path: examples/dxDrawLine-2.lua
     description: This example draws a couple of circles
     side: client
-  incomplete: true
+  requires_review: true

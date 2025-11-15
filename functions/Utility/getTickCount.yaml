@@ -22,4 +22,4 @@ server:
   - type: important
     content: The value returned by this function client-side may not be reliable if
       a client is maliciously modifying their operating system speed.
-  incomplete: true
+  requires_review: true

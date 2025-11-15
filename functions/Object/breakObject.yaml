@@ -11,4 +11,4 @@ server:
   notes:
   - type: info
     content: Only breakable objects can be broken.
-  incomplete: true
+  requires_review: true

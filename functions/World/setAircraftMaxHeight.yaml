@@ -7,4 +7,4 @@ server:
   - path: examples/setAircraftMaxHeight-1.lua
     description: This example shows you a command to set your maximum aircraft height.
     side: client
-  incomplete: true
+  requires_review: true

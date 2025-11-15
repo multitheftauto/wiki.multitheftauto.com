@@ -8,4 +8,4 @@ server:
   - path: examples/getDeadPlayers-1.lua
     description: This example prints the list of dead players to the chat box.
     side: server
-  incomplete: true
+  requires_review: true

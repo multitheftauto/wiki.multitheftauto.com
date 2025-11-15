@@ -9,4 +9,4 @@ client:
     description: This example binds the local player's "i" key to a function that
       creates an explosion in the middle of the screen.
     side: client
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
       player's current vehicle.
     side: server
   pair: setElementFrozen
-  incomplete: true
+  requires_review: true

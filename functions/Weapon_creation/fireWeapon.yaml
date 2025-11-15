@@ -12,4 +12,4 @@ client:
       fire it every frame. Be aware that neither the weapon nor the shots are synced
       between players and that normally weapons don't fire every frame.
     side: client
-  incomplete: true
+  requires_review: true

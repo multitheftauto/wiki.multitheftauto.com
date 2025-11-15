@@ -8,4 +8,4 @@ server:
   - path: examples/getResources-1.lua
     description: This function lists all loaded resources in the console.
     side: server
-  incomplete: true
+  requires_review: true

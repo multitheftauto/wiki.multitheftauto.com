@@ -9,4 +9,4 @@ client:
       toggle whether he can fall off bikes.
     side: client
   pair: setPedCanBeKnockedOffBike
-  incomplete: true
+  requires_review: true

@@ -10,4 +10,4 @@ client:
       of a vehicle in half each time it is invoked.
     side: client
   pair: setVehicleWheelScale
-  incomplete: true
+  requires_review: true

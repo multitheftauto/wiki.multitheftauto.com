@@ -10,4 +10,4 @@ server:
       resource with the name provided is protected. The command is "/isprotected [Resource
       Name]".
     side: server
-  incomplete: true
+  requires_review: true

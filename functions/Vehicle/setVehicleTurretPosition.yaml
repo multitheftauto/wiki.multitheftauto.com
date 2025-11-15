@@ -10,4 +10,4 @@ server:
     description: This example will force vehicle turrets to aim straight forwards.
     side: server
   pair: getVehicleTurretPosition
-  incomplete: true
+  requires_review: true

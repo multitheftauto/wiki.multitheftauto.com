@@ -8,4 +8,4 @@ server:
     description: ''
     side: server
   pair: setPedWeaponSlot
-  incomplete: true
+  requires_review: true

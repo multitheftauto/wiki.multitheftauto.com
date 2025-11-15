@@ -4,4 +4,4 @@ client:
   description: This function adds new CJ clothing model.
   parameters: []
   examples: []
-  incomplete: true
+  requires_review: true

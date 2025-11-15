@@ -8,4 +8,4 @@ server:
   - path: examples/getPedTarget-1.lua
     description: This example blows up any vehicle a player targets (aims at).
     side: server
-  incomplete: true
+  requires_review: true

@@ -9,4 +9,4 @@ server:
       if the object is breakable.
     side: server
   pair: setObjectBreakable
-  incomplete: true
+  requires_review: true

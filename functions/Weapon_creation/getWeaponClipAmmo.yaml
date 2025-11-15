@@ -10,4 +10,4 @@ client:
       using the command/getammoinclip.
     side: client
   pair: setWeaponClipAmmo
-  incomplete: true
+  requires_review: true

@@ -8,4 +8,4 @@ client:
     description: This example gets the progress of a bar called "somebar" created
       withguiCreateProgressBar, and outputs it to the chatbox.
     side: client
-  incomplete: true
+  requires_review: true

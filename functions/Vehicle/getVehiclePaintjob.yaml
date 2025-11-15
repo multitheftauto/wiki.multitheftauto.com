@@ -12,4 +12,4 @@ server:
   notes:
   - type: info
     content: Always returns 3 if paintjobs are not supported for the vehicle.
-  incomplete: true
+  requires_review: true

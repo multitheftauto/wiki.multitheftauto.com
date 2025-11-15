@@ -44,4 +44,4 @@ server:
   - type: important
     content: It is strongly recommended to use this function in callback, as presented
       in "This example shows how to obtain data without server freeze."
-  incomplete: true
+  requires_review: true

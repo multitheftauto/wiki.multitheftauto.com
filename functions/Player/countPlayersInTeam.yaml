@@ -19,4 +19,4 @@ server:
       joins the server, or for all players currently in the server when the gamemode
       starts.
     side: server
-  incomplete: true
+  requires_review: true

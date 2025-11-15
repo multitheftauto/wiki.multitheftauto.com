@@ -15,4 +15,4 @@ server:
     description: 'Except for it being placed in a different map root, that line will
       have the same effect as having this in a .map file:'
     side: server
-  incomplete: true
+  requires_review: true

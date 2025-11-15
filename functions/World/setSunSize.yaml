@@ -8,4 +8,4 @@ server:
     description: This example lets any player set the size of the sun like /setsunsize
       2
     side: server
-  incomplete: true
+  requires_review: true

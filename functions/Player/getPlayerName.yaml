@@ -12,7 +12,7 @@ server:
     description: This example outputs the local player name to the chatbox.
     side: client
   pair: setPlayerName
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

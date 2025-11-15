@@ -20,4 +20,4 @@ server:
   - type: info
     content: Disabling a peds collisions will cause some problems, such as it being
       unable to move or wrong rotation after creation.
-  incomplete: true
+  requires_review: true

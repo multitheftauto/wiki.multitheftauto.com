@@ -15,4 +15,4 @@ client:
   - type: important
     content: This function is meant for advanced users only, as it can lead to stability
       issues . If you use it too often, the map might start to flicker.
-  incomplete: true
+  requires_review: true

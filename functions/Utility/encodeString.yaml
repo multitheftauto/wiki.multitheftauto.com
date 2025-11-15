@@ -20,7 +20,7 @@ server:
     content: If it doesn't matter which algorithm you use for the encoding, keep in
       mind that aes128 uses hardware acceleration so it may outperform the tea algorithm
       on most processors.
-  incomplete: true
+  requires_review: true
   meta:
   - needs_checking: 'This function was partially migrated from the old wiki. Please
       review manually:

@@ -14,4 +14,4 @@ client:
   - type: info
     content: The camera shaking duration depends on the force. High values ​​can result
       in very long durations
-  incomplete: true
+  requires_review: true

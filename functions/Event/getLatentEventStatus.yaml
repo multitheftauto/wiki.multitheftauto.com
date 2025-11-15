@@ -8,4 +8,4 @@ server:
     description: The example starts a latent event and outputs the status of the transfer
       to the client console
     side: client
-  incomplete: true
+  requires_review: true

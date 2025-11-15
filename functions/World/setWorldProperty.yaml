@@ -23,4 +23,4 @@ client:
       (to change weather properties over time creating night / day cycle).
   - type: tip
     content: 'Test resource: worldprops.zip'
-  incomplete: true
+  requires_review: true

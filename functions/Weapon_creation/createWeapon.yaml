@@ -14,4 +14,4 @@ client:
     content: Some weapons (such as the minigun) visually point to a slightly different
       direction to where they fire. To adjust this, use setWeaponProperty with 'fire_rotation'.
       See the example below.
-  incomplete: true
+  requires_review: true

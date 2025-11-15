@@ -7,4 +7,4 @@ server:
   - path: examples/getZoneName-1.lua
     description: Example 1:This example returns the player's City & Zone.
     side: server
-  incomplete: true
+  requires_review: true

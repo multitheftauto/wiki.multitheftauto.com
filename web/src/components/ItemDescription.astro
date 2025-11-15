@@ -4,10 +4,10 @@ import { SITE_CONTRIBUTING_URL } from '@src/content.constants';
 
 interface Props {
   description: string;
-  incomplete?: boolean;
+  requiresReview?: boolean;
 }
 
-const { description, incomplete = false } = Astro.props;
+const { description, requiresReview = false } = Astro.props;
 
 let path = Astro.url.pathname;
 // Remove trailing slash if any
@@ -16,10 +16,9 @@ path = path.endsWith('/') ? path.slice(0, -1) : path;
 path = path.substring(path.lastIndexOf('/'));
 ---
 <div pagefind-weight="6">
-  {incomplete && (
-      <p style="color: var(--sl-color-orange); font-size: 1.6rem;"><strong>This page is incomplete! Help wanted!</strong></p>
-      <p style="color: var(--sl-color-orange); font-size: 1.25rem;">Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>.
-      <br>Go to <a target="_blank" href={SITE_CONTRIBUTING_URL}>Contribution guidelines</a> for more information.</p>
+  {requiresReview && (
+      <p style="color: var(--sl-color-orange); font-size: 1.6rem;"><strong>Manual Review Required</strong></p>
+      <p style="color: var(--sl-color-orange); font-size: 1.25rem;">Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>. Go to <a target="_blank" href={SITE_CONTRIBUTING_URL}>Contribution guidelines</a> for more information.</p>
       <hr>
   )}
 

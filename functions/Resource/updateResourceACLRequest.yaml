@@ -11,4 +11,4 @@ server:
   - type: info
     content: This function is protected by default and must be explicitly allowed
       in the server ACL.
-  incomplete: true
+  requires_review: true

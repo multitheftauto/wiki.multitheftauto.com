@@ -8,4 +8,4 @@ server:
   - path: examples/getPedStat-1.lua
     description: This example announces whether a player is fat upon spawn
     side: server
-  incomplete: true
+  requires_review: true

@@ -7,4 +7,4 @@ client:
   - path: examples/setVehicleWindowOpen-1.lua
     description: Command which allow player to open window which near sits.
     side: client
-  incomplete: true
+  requires_review: true

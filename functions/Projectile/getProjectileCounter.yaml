@@ -9,4 +9,4 @@ client:
       to explode/end
     side: client
   pair: setProjectileCounter
-  incomplete: true
+  requires_review: true

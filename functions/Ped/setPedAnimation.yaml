@@ -34,4 +34,4 @@ server:
     description: setPedAnimation() removes player jetpack
   - id: '884'
     description: setPedAnimation() messes up collisions of peds inside vehicles
-  incomplete: true
+  requires_review: true

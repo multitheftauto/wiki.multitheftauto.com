@@ -12,4 +12,4 @@ server:
   issues:
   - id: '534'
     description: isPedOnGround issues
-  incomplete: true
+  requires_review: true

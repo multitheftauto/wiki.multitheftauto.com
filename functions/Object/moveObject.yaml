@@ -26,4 +26,4 @@ server:
   issues:
   - id: '549'
     description: Object rotation is wrong after moveObject serverside
-  incomplete: true
+  requires_review: true

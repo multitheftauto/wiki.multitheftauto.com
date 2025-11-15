@@ -14,4 +14,4 @@ server:
     description: This example shows how to build an INSERT/UPDATE query for multiple
       rows. (Query syntax is MySQL only and assumes one column is a unique key)
     side: server
-  incomplete: true
+  requires_review: true

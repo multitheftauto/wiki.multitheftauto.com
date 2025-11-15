@@ -9,4 +9,4 @@ client:
   - path: examples/isPedTargetingMarkerEnabled-1.lua
     description: This example will toggle the targeting markers with the command /togtargetmarkers.
     side: client
-  incomplete: true
+  requires_review: true

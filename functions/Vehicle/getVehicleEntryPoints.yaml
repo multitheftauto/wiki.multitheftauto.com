@@ -23,4 +23,4 @@ client:
       vehicles with two doors can have multiple entry points to the same door.
   - type: info
     content: The vehicle needs to be streamed in for this function to work.
-  incomplete: true
+  requires_review: true

@@ -12,4 +12,4 @@ server:
   - path: examples/bitRShift-1.lua
     description: This example shows the usage of the functionbitRShift.
     side: server
-  incomplete: true
+  requires_review: true

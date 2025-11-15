@@ -11,4 +11,4 @@ server:
   - path: examples/bitLRotate-1.lua
     description: This example shows the usage of the functionbitLRotate.
     side: server
-  incomplete: true
+  requires_review: true

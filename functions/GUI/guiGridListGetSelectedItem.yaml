@@ -10,4 +10,4 @@ client:
       connected players. When the user selects an item, its text (the player name)
       will be output in the chat box.
     side: client
-  incomplete: true
+  requires_review: true

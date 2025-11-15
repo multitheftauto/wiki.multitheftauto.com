@@ -15,4 +15,4 @@ server:
     description: 'This example add a command to output list of all commands for the
       resource in the chat. Syntax: /commands [resource-name]'
     side: server
-  incomplete: true
+  requires_review: true

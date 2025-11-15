@@ -10,4 +10,4 @@ client:
     description: The following example code will create a button and lists its properties
       in the console if the /btn command is entered.
     side: client
-  incomplete: true
+  requires_review: true

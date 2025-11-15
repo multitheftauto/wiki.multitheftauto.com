@@ -9,4 +9,4 @@ server:
   - path: examples/saveMapData-1.lua
     description: Saving your resource's data to anmap file(untested)
     side: server
-  incomplete: true
+  requires_review: true

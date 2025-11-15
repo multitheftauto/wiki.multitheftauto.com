@@ -8,4 +8,4 @@ client:
     description: This example allows you to trigger huge camera shake effect near
       you and then cancels the effect after 5 seconds.
     side: client
-  incomplete: true
+  requires_review: true
