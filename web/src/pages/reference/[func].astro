@@ -285,7 +285,7 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
                         ))}
                     </ul>
 
-                    <EnhancedMarkdown content={syntax.returns.description}/>
+                    <EnhancedMarkdown content={syntax.returns.description || ""}/>
                 )}
             </div>
         ))}
