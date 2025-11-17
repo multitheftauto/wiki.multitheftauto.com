@@ -4794,6 +4794,7 @@ export const lod_table = [
     [13559, null, 'CE_ground07A', 'CE_ground01', null, null, null],
     [13560, null, 'cuntEground33A', 'CE_ground14', null, null, null],
     [13561, null, 'cuntEground31A', 'CE_ground14', null, null, null],
+    [13562, null, 'bigsprunkpole', 'sprunkworks', null, null, 'countrye'],
     [13563, null, 'cuntEground30A', 'CE_ground14', null, null, null],
     [11421, null, 'roadsupp1_01', 'desn_desert', null, null, null],
     [11424, null, 'con_tunll_sup03', 'desertroads', null, null, null],
