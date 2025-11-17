@@ -1,6 +1,6 @@
 name: 'account'
 description: |
-  The **account** class represents a [player](/player)'s server account. You can get the **account** object associated to any client using [getPlayerAccount](/getPlayerAccount).
+  The **account** class represents a [[player]]'s server account. You can get the **account** object associated to any client using [[getPlayerAccount]].
 
   Accounts are unique to each client and can be used to store information that is persistent across map changes and user sessions. Clients that join without an account are given a temporary 'guest' account. This can store information like any other account, but isn't saved across sessions.
 
