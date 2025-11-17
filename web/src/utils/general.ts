@@ -16,6 +16,17 @@ export function getAssetImagePath(imageFilename: string): any {
   }
 }
 
+const audioFromAssets = import.meta.glob<{ default: ImageMetadata }>('/src/assets/audio/**/*.{mp3,ogg,wav}');
+export async function getAssetAudioPath(audioFilename: string) {
+  const audioPath = `/src/assets/audio/${audioFilename}`;
+  if (audioFromAssets[audioPath]) {
+    const mod = await audioFromAssets[audioPath]();
+    return mod.default;
+  } else {
+    throw new Error(`Audio not found: ${audioFilename}`);
+  }
+}
+
 export function renderInlineMarkdown(markdown: string): string | Promise<string> {
   const html = marked.parseInline(markdown);
   return html;

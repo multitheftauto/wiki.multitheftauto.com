@@ -1,13 +1,12 @@
 ---
-import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
-
-import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import { getAssetAudioPath, getSeeAlsoLinksFromList } from "@src/utils/general";
 import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
 
 import { Code } from "@astrojs/starlight/components";
 import NoteBox from "@src/components/NoteBox.astro";
 
 import { materials } from "@src/data/materials";
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
 
 // Group materials by category
 const materialsByCategory: Record<string, typeof materials> = {};
@@ -29,11 +28,11 @@ materials.forEach((material) => {
 luaTable += `}`;
 ---
 
-<StarlightPage
+<AutoStarlightPage
   frontmatter={{
     template: "doc",
     title: "Surface Materials",
-    tableOfContents: false,
+    tableOfContents: true,
   }}
 >
   <p>
@@ -52,11 +51,8 @@ luaTable += `}`;
     >
   </p>
 
-  <NoteBox type="tip"
-    >Even though many surfaces have the same sound, they have different physical
-    properties. For example, water (shallow) causes a splashing effect when
-    walking.</NoteBox
-  >
+<h2>Groups</h2>
+<hr/>
 
   {
     sortedCategories.map((category) => (
@@ -84,8 +80,71 @@ luaTable += `}`;
     ))
   }
 
+  <h2>Collision surface sounds</h2>
+  <hr/>
+  <br/>
+
+  <NoteBox type="tip"
+    >Even though many surfaces have the same sound, they have different physical
+    properties. For example, water (shallow) causes a splashing effect when
+    walking.</NoteBox
+  >
+
+  <table class="audio-table">
+    <thead>
+      <tr>
+        <th>Groups</th>
+        <th>Sound</th>
+        <th>Surface types</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default, Concrete, Gravel, Dirt, Sand, Stone, Misc</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_default.mp3")} type="audio/mpeg"></audio></td>
+        <td>Default, Tarmac, Tarmac (fucked), Tarmac (really fucked), Pavement, Pavement (fucked), Concrete (fucked), Painted Ground, P Concrete, P Poolside, P Concrete (litter), P Alley Rubish, P Airport Ground, Floor (concrete), P Roadside, Waste Ground, Woodland Ground, Mud Wet, P Woodland, P Wood Dense, P Waste Ground, P Roadside Des, Steep Clif, Rock (dry), Rock (wet), Rock (cliff), Transparent Stone, Stairs (stone), Empty1, Empty2, Cardboard Box, Ped, Transparent Cloth, Rubber, Plastic, Plastic Barrier</td>
+      </tr>
+      <tr>
+        <td>Concrete, Gravel, Dirt, Sand, Misc</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_sand.mp3")} type="audio/mpeg"></audio></td>
+        <td>Concrete (beach), P Docklands, P Industrial, P Building Site, P Dirt (rocky), P Dirt (weeds), P River Edge, P Forest (stumps), P Forest (sticks), P Forest (leaves), Forest (dry), Sand (deep), Sand (medium), Sand (compact), Sand (arid), Sand (more), Sand (beach), P Sand, P Sand (dense), P Sand (arid), P Sand (compact), P Sand (rocky), P Sand (beach), P Desert Rocks, Carpet, Bin Bag, Plastic Cone, Plastic Dumpster, Gore</td>
+      </tr>
+      <tr>
+        <td>Concrete, Wood, Misc</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_wood.mp3")} type="audio/mpeg"></audio></td>
+        <td>P Industrial Jetty, Wood (crates), Wood (solid), Wood (thin), Wood (bench), Floorboard, Stairs (wood), Wood Picket Fence, Wood Slatted Fence, Wood Ranch Fence, P Office Desk, P 711 Shelf 1, P 711 Shelf 2, P 711 Shelf 3, P Restaurant Table, P Bar Table, P Bedroom Floor, P Livingroom Floor, P corridor Floor, P Skanky Floor, Door, Stairs (carpet)</td>
+      </tr>
+      <tr>
+        <td>Gravel, Dirt, Stone, Misc</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_gravel.mp3")} type="audio/mpeg"></audio></td>
+        <td>Gravel, P Rubble, P Junkyard Piles, Mud (dry), Dirt, Dirt Track, P Junkyard Ground, P Dump, P Mountain, Rail Track</td>
+      </tr>
+      <tr>
+        <td>Grass, Dirt, Sand, Vegetation, Misc</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_grass.mp3")} type="audio/mpeg"></audio></td>
+        <td>Grass (short, lush), Grass (medium, lush), Grass (long, lush), Grass (short, dry), Grass (medium, dry), Grass (long, dry), Golf Grass (rough), Golf Grass (smooth), Steep Slidy Grass, Meadow, P Grass (short), P Grass (meadow), P Grass (dry), P Grass (wee flowers), P Grass (dry, tall), P Grass (lush, tall), P Grass (green, mix) P Grass (brown, mix), P Grass (low), P Grass (rocky), P Grass (small tress), P Grass (weeds), P Grass (light), P Grass (lighter), P Grass (lighter 2), P Grass (mid 1), P Grass (mid 2), P Grass (dark), P Grass (dark 2), P Grass (dirt, mix), Park Grass, Flower Bed, Corn Field, P Flowerbed, P Marsh, P Sparse Flowers, P Cornfield, P Cactus Dense, P Seaweed, Vegetation, Hedge, P Bushy, P Bushy (mix), P Bushy (dry), P Bushy (mid), Hay Bale</td>
+      </tr>
+      <tr>
+        <td>Dirt, Sand, Stone, Water</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_water.mp3")} type="audio/mpeg"></audio></td>
+        <td>P Riverbed, P Riverbed (shallow), P Riverbed (weeds), P Underwater (lush), P Underwater (barren), P Underwater (coral), P Underwater (deep), P Riverbed (stone), Water (riverbed), Water (shallow)</td>
+      </tr>
+      <tr>
+        <td>Glass, Misc</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_glass.mp3")} type="audio/mpeg"></audio></td>
+        <td>Glass, Glass Windows (large), Glass Windows (small), Unbreakable Glass, P Kitchen Floor, P 711 Floor, P Fast Food Floor</td>
+      </tr>
+      <tr>
+        <td>Metal, Misc</td>
+        <td><audio controls><source src={await getAssetAudioPath("Surface-sounds/Surface_metal.mp3")} type="audio/mpeg"></audio></td>
+        <td>Garage Door, Thick Metal Plate, Scaffold Pole, Lamp Post, Metal Gate, Metal Chain Fence, Girder, Fire Hydrant, Container, News Vendor, Car, Car (panel), Car (moving component), Stairs (metal), Floor (metal), Thin Metal Sheet, Metal Barrel, Metal Dumpster, Wheelbase</td>
+      </tr>
+    </tbody>
+  </table>
+
   <section data-pagefind-ignore>
-    <h4>All materials in a Lua table:</h4>
+    <h2>All materials in a Lua table:</h2>
+    <hr/><br/>
     <Code lang="lua" code={luaTable} />
   </section>
 
@@ -93,4 +152,4 @@ luaTable += `}`;
     seeAlsoLinks={getSeeAlsoLinksFromList(["reference:ID_Lists"])}
     currentId=""
   />
-</StarlightPage>
+</AutoStarlightPage>
