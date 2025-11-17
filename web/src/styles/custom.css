@@ -204,6 +204,7 @@ th, td {
   border: 1px solid var(--sl-color-gray-3);
   padding: 8px;
   text-align: center;
+  vertical-align: middle !important;
   color: var(--sl-color-text);
 }
     
@@ -218,4 +219,10 @@ th {
 
 td {
   background-color: var(--sl-color-bg-inline-code);
+}
+
+.sl-heading-wrapper {
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
