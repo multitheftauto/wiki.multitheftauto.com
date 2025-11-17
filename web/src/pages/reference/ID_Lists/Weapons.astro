@@ -21,11 +21,13 @@ import { weapons } from '@src/data/weapons';
 }}>
     <p>Scripting functions that ask for a <strong>Weapon ID</strong> need an integer that refers to the GTASA weapon ID list, defined below. Each weapon is represented by an object that is identified by its model ID.</p>
 
-    <NoteBox type='info'>Weapon <strong>Name</strong> is compatible with functions <a href="/reference/getWeaponNameFromID">getWeaponNameFromID</a> and <a href="/reference/getWeaponIDFromName">getWeaponIDFromName</a>.</NoteBox>
-    <NoteBox type='info'><strong>Bullet Sync</strong> refers to whether they are triggered by the <a href="/reference/onPlayerWeaponFire">onPlayerWeaponFire</a> event.</NoteBox>
-    <NoteBox type='info'>For death reasons, especially in event handlers for <a href="/reference/onPlayerWasted">onPlayerWasted</a> or similar, also have a look at the <a href="/reference/ID_Lists/Damage_Types">Damage Types</a>.</NoteBox>
-    <NoteBox type='info'>GTASA <a href="/reference/ID_Lists/Weapon_skill_levels">Weapon Stats</a> will affect movement, accuracy, damage, and dual wield capability. See <a href="/reference/setPedStat">setPedStat</a> to change these stats. The default MTA server package comes with a resource called "defaultStats" that sets GTASA weapon stats to 999. See the weapon stats link for more info.</NoteBox>
-    <NoteBox type='info'>Clip size () denotes clip size when the weapon is dual wielded. Weapons without this specification are not dual wield weapons.</NoteBox>
+    <NoteBox type='info'>
+        - Weapon <strong>Name</strong> is compatible with functions <a href="/reference/getWeaponNameFromID">getWeaponNameFromID</a> and <a href="/reference/getWeaponIDFromName">getWeaponIDFromName</a>.<br/>
+        - <strong>Bullet Sync</strong> refers to whether they are triggered by the <a href="/reference/onPlayerWeaponFire">onPlayerWeaponFire</a> event.<br/>
+        - For death reasons, especially in event handlers for <a href="/reference/onPlayerWasted">onPlayerWasted</a> or similar, also have a look at the <a href="/reference/ID_Lists/Damage_Types">Damage Types</a>.<br/>
+        - GTASA <a href="/reference/ID_Lists/Weapon_skill_levels">Weapon Stats</a> will affect movement, accuracy, damage, and dual wield capability. See <a href="/reference/setPedStat">setPedStat</a> to change these stats. The default MTA server package comes with a resource called <b>defaultStats</b> that sets GTASA weapon stats to 999. See the weapon stats link for more info.<br/>
+        - Clip size () denotes clip size when the weapon is dual wielded. Weapons without this specification are not dual wield weapons.
+    </NoteBox>
 
     <table class="weapon-table">
         <thead>
@@ -103,11 +105,18 @@ local weaponIDsBySlot = {
         overflow-x: auto;
         white-space: nowrap;
     }
+    .weapon-table td {
+        text-align: center;
+        vertical-align: middle !important;
+    }
     .weapon-image-container {
-        background-color: rgba(255, 255, 255, 1);
+        background-color: var(--sl-color-gray-5);
         border-radius: 6px;
         padding: 6px;
         margin: 0 auto;
+    }
+    :root[data-theme='dark'] .weapon-image-container {
+        background-color: var(--sl-color-gray-4);
     }
     .weapon-image {
         max-width: 50px;
