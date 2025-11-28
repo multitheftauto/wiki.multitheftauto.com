@@ -42,6 +42,7 @@ export type FunctionInfo = {
     notes?: NotesType;
     version?: VersionInfo;
     issues?: IssuesTable;
+    redirect?: string;
 };
 
 export type FunctionData = {

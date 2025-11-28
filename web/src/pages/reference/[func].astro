@@ -34,6 +34,9 @@ const { func } = Astro.props;
 func.data.itemType = 'function';
 
 const funcInfo = getFunctionInfo(func.data);
+if (funcInfo.redirect)
+    return Astro.redirect('/reference/' + funcInfo.redirect);
+
 const funcType = funcInfo.type;
 const funcPair = funcInfo.pair;
 const funcPath = path.dirname(func.filePath ?? "");

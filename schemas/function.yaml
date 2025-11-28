@@ -23,6 +23,9 @@ $defs:
     required:
       - name
     properties:
+      redirect:
+        type: string
+        description: The page to redirect to.
       name:
         type: string
         description: Name of the function.
