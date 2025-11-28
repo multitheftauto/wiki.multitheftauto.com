@@ -32,26 +32,30 @@ function buildSyntaxString(
     ? `${returns.values.map(v => v.type).join(`,${ZERO_WIDTH_SPACE} `)}`
     : '';
 
-  const requiredParams = parameters.filter(p => p.default === undefined);
-  const optionalParams = parameters.filter(p => p.default !== undefined);
+  const paramParts: string[] = [];
+  let optionalGroup: string[] = [];
 
-  const requiredStr = requiredParams
-    .map(p => `${p.type} ${p.name}`)
-    .join(', ');
+  const flushOptional = () => {
+    if (optionalGroup.length) {
+      paramParts.push(`[ ${optionalGroup.join(', ')} ]`);
+      optionalGroup = [];
+    }
+  };
 
-  const optionalStr = optionalParams
-    .map(p => `${p.type} ${p.name} = ${p.default}`)
-    .join(', ');
+  for (const p of parameters) {
+    const str = `${p.type} ${p.name}${p.default !== undefined ? ` = ${p.default}` : ''}`;
 
-  let paramStr = '';
-  if (requiredParams.length && optionalParams.length) {
-    paramStr = `${requiredStr}, [ ${optionalStr} ]`;
-  } else if (!requiredParams.length && optionalParams.length) {
-    paramStr = `[ ${optionalStr} ]`;
-  } else {
-    paramStr = requiredStr;
+    if (p.default !== undefined) {
+      optionalGroup.push(str);
+    } else {
+      flushOptional();
+      paramParts.push(str);
+    }
   }
 
+  flushOptional();
+
+  const paramStr = paramParts.join(', ');
   const spacedParams = paramStr.trim() === '' ? ' ' : ` ${paramStr} `;
 
   return `${returnString} ${funcName} (${spacedParams})`;
