@@ -1,10 +1,11 @@
 let allFunctions = new Set();
 
 const wantedScopes = new Set([
-    "support.function.mta-shared",
-    "support.function.mta-server",
-    "support.function.mta-client",
-    "keyword.mta"
+  "support.function.mta-shared",
+  "support.function.mta-server",
+  "support.function.mta-client",
+  "keyword.mta",
+  "support.function.library.lua"
 ]);
 
 function extractFunctions(tmLanguage, textContent) {
@@ -19,15 +20,27 @@ function extractFunctions(tmLanguage, textContent) {
       while ((m = regex.exec(textContent)) !== null) {
         if (m[0]) result.add(m[0]);
       }
+      return;
+    } else if (name === "support.function.library.lua") {
+      const regex = /([a-zA-Z0-9_]+)\\?\.\(([^)]+)\)/g;
+      const matches = [...match.matchAll(regex)];
+
+      matches.forEach(m => {
+        const lib = m[1];
+        const funcs = m[2].split("|");
+        funcs.forEach(fn => result.add(`${lib}.${fn}`));
+      });
+      return;
     } else {
       const matches = match.match(/\\b\(([^)]+)\)\\b/)?.[1]?.split("|") || [];
       matches.forEach(w => result.add(w));
+
+      return;
     }
   });
 
   return Array.from(result);
 }
-
 
 function initKeywordLinker() {
   function onDomReady() {
@@ -39,7 +52,13 @@ function initKeywordLinker() {
     spans.forEach(span => {
       const text = span.textContent;
       if (allFunctions.has(text)) {
-        span.innerHTML = `<a href="/reference/${text}" class="mta-keyword-link">${text}</a>`;
+        let url = `/reference/${text}`;
+        const [lib] = text.split(".");
+        if (["string", "math", "table", "os", "debug", "coroutine"].includes(lib)) {
+          url = `https://www.lua.org/manual/5.1/manual.html#pdf-${text}`;
+        }
+
+        span.innerHTML = `<a href="${url}" class="mta-keyword-link">${text}</a>`;
       }
     });
   }
