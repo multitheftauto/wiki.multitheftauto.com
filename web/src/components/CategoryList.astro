@@ -69,6 +69,8 @@ const categoryEmojis: Record<string, string> = {
 };
 
 function displayTitle(title: string) {
+    title = title.replace(/_/g, ' ');
+
     switch (what) {
         case 'all_functions':
         case 'client_functions':
