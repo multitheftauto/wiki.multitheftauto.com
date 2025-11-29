@@ -81,7 +81,7 @@ $defs:
 
   version:
     type: object
-    description: Version information when the item got added/deprecated/removed.
+    description: Version information when the item got added/updated/deprecated/removed.
     properties:
       added:
         type: string
@@ -92,6 +92,9 @@ $defs:
       deprecated:
         type: string
         description: Version when this item was deprecated in MTA.
+      updated:
+        type: string
+        description: Version when this item was updated in MTA.
       replacement:
         type: string
         description: An optional replacement for this item.

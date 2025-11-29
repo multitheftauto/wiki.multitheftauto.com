@@ -1,4 +1,7 @@
 ---
+import { renderRevisionLink } from '@src/utils/general';
+import EnhancedMarkdown from './EnhancedMarkdown.astro';
+
 interface ChangelogEntry {
   version: string;
   description: string;
@@ -17,8 +20,8 @@ const { entries } = Astro.props;
     <div class="changelog-list">
       {entries.map(entry => (
         <li>
-          <span class="changelog-version">{entry.version}</span>
-          <span class="changelog-description">{entry.description}</span>
+          <span class="changelog-version" set:html={renderRevisionLink(entry.version)}></span>
+          <span class="changelog-description"><EnhancedMarkdown content={entry.description}/></span>
         </li>
       ))}
     </div>
@@ -40,6 +43,7 @@ const { entries } = Astro.props;
   font-weight: bold;
   color: var(--sl-color-orange-high);
   display: block;
+  text-decoration: none;
 }
 
 .changelog-description {
