@@ -93,14 +93,27 @@ export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData):
     return ordinalWords[index - 1] || `${index}th`;
   };
 
-  const pushExtraSyntaxes = (base: any) => {
+  const pushExtraSyntaxes = (base: any, mainType: string) => {
     if (!base?.syntaxes) return;
 
     let index = 2;
     for (const s of base.syntaxes) {
       const params = s.parameters || [];
       const returns = s.returns || null;
-      const syntaxType = `${getOrdinalWord(index)}`;
+
+      const ordinal = getOrdinalWord(index);
+      let syntaxType: string;
+
+      if (mainType === 'shared') {
+        syntaxType = `${ordinal}`;
+      } else if (mainType === 'client') {
+        syntaxType = `${ordinal} Client`;
+      } else if (mainType === 'server') {
+        syntaxType = `${ordinal} Server`;
+      } else {
+        syntaxType = `${ordinal} Syntax`;
+      }
+
       pushSyntax(syntaxType, params, returns, s.displayParams ?? true, s.name || funcName);
 
       index++;
@@ -129,19 +142,19 @@ export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData):
       JSON.stringify(clientReturns) === JSON.stringify(serverReturns)
     ) {
       pushSyntax('shared', sharedParams, sharedReturns);
-      pushExtraSyntaxes(shared);
+      pushExtraSyntaxes(shared, 'shared');
     } else {
       pushSyntax('client', clientParams, clientReturns);
-      pushExtraSyntaxes(client);
+      pushExtraSyntaxes(client, 'client');
       pushSyntax('server', serverParams, serverReturns);
-      pushExtraSyntaxes(server);
+      pushExtraSyntaxes(server, 'server');
     }
   } else if (funcType === 'client') {
     pushSyntax('client', client?.parameters || [], client?.returns || null);
-    pushExtraSyntaxes(client);
+    pushExtraSyntaxes(client, 'client');
   } else if (funcType === 'server') {
     pushSyntax('server', server?.parameters || [], server?.returns || null);
-    pushExtraSyntaxes(server);
+    pushExtraSyntaxes(server, 'server');
   }
 
   return syntaxes;
