@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.widthindex
 shared:
   name: utf8.widthindex
   description: Returns the location, offset and width of the character at the given
@@ -6,10 +5,13 @@ shared:
   parameters:
   - name: input
     type: string
-    description: A string character sequence
+    description: A string character sequence.
   - name: location
     type: int
-    description: MISSING_PARAM_DESC
+    description: |
+      The target display width (in monospace columns).
+      The function walks through the input string, accumulating each character's display width, until the total width reaches or exceeds this value.
+      It then returns the index of the character at which this happens.
   - name: ambi_is_double
     type: bool
     description: A boolean, if set to true , ambiguous character's width is 2 (see
@@ -21,17 +23,78 @@ shared:
     default: '0'
   examples:
   - path: examples/utf8.widthindex-1.lua
-    description: This example
-    side: server
+    description: |
+      This example output (enhanced, not raw):
+
+      <br/>
+      <table>
+        <thead>
+          <th>Character</th>
+          <th>Location</th>
+          <th>Offset</th>
+          <th>Width</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>д</td>
+            <td>1</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>д</td>
+            <td>1</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>н</td>
+            <td>2</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>н</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>ё</td>
+            <td>3</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>ё</td>
+            <td>3</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>м</td>
+            <td>4</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>м</td>
+            <td>4</td>
+            <td>2</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+
   returns:
     values:
     - type: int
-      name: value1
+      name: location
     - type: int
-      name: value2
-    - type: int utf8.widthindex
-      name: value3
+      name: offset
+    - type: int
+      name: width
     description: Returns the given location, the offset in UTF-8 encoding (if cursor
       is in the middle of the wide char - offset will be 2) and the width of the character,
       otherwise only the location as integer will be returned.
-  requires_review: true

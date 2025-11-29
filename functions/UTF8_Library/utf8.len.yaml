@@ -1,23 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.len
-shared:
+shared: &shared
   name: utf8.len
   description: Returns the length of the string passed.
   parameters:
   - name: input
     type: string
-    description: A string character sequence
-  - name: int i
-    type: '[,'
-    description: MISSING_PARAM_DESC
-    default: 1, int j = utf8.len( input
-  examples:
-  - path: examples/utf8.len-1.lua
-    description: This example calculates the length of the input of the command /length
-      and shows it in the chatbox.
-    side: client
+    description: A string character sequence.
+  - name: i
+    type: 'int'
+    description: An integer representing the beginning position for measuring the length of the section (may be negative).
+    default: '1'
+  - name: j
+    type: 'int'
+    description: An integer representing the ending position for measuring the length of the section (may be negative).
+    default: 'utf8.len( input )'
   returns:
     values:
-    - type: int utf8.len
-      name: value
-    description: Returns the length of the string as an integer .
-  requires_review: true
+    - type: int
+      name: length
+    description: Returns the length of the string as an integer.
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/utf8.len-1.lua
+    description: This example calculates the length of the input of the command <code>/length</code> and shows it in the chatbox.

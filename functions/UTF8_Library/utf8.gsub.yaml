@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.gsub
 shared:
   name: utf8.gsub
   description: Returns a copy of the original input string with replaced matches from
@@ -6,39 +5,35 @@ shared:
   parameters:
   - name: input
     type: string
-    description: A string character sequence
+    description: A string character sequence.
   - name: pattern
     type: string
-    description: A string match pattern
+    description: A string match [pattern](http://lua-users.org/wiki/PatternsTutorial)
   - name: replace
     type: mixed
     description: A string literal OR an integer value OR a function (see examples
       below) OR a table ({ match = replacement })
-  - name: int match_limit
-    type: '[,'
-    description: MISSING_PARAM_DESC
-    default: utf8.len( input
+  - name: match_limit
+    type: 'int'
+    description: An integer to limit the number of substitutions made.
+    default: utf8.len( input )
   examples:
   - path: examples/utf8.gsub-1.lua
     description: This example shows how to remove color codes from a string and how
       to uppercase each single character in a string.
-    side: server
   - path: examples/utf8.gsub-2.lua
     description: This example uses a table to replace specific words in the input
       string by an other value.
-    side: server
   - path: examples/utf8.gsub-3.lua
     description: This example shows a simple bad word filter, which censors the word
       'ugly' in the input string.
-    side: client
   returns:
     values:
-    - type: string utf8.gsub
+    - type: string
       name: value
     description: Returns a pair of values, the modified string and the integer number
       of substitutions made.
   notes:
-  - type: warning
+  - type: important
     content: 'This function may modify your input string even if no changes were made.
-      Try it with runcode: srun utf8.gsub(utf8.char(66376), "", "") == utf8.char(66376)'
-  requires_review: true
+      Try it with runcode:<br/> <code>srun utf8.gsub(utf8.char(66376), "", "") == utf8.char(66376)</code>'

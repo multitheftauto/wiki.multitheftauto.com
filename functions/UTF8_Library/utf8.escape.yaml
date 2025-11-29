@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.escape
 shared:
   name: utf8.escape
   description: Escapes a string to a UTF\-8 format string. It supports several escape
@@ -6,23 +5,15 @@ shared:
   parameters:
   - name: input
     type: string
-    description: A string character sequence
+    templateList: 'utf8Formatting'
+    description: A string character sequence.
   examples:
   - path: examples/utf8.escape-1.lua
     description: This example escapes two byte-string literals to UTF-8 format by
       using the utf8.escape function.
-    side: server
   returns:
     values:
-    - type: string utf8.escape
+    - type: string
       name: value
     description: Returns a string containing the escaped UTF-8 characters from the
       original string.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Formatting
-
-      '
-  requires_review: true

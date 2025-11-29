@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.insert
 shared:
   name: utf8.insert
   description: Inserts a substring into input string. If insert\-position is given,
@@ -7,19 +6,19 @@ shared:
   parameters:
   - name: input
     type: string
-    description: A string character sequence
-  - name: int insert_pos
-    type: '[,'
-    description: MISSING_PARAM_DESC
-    default: utf8.len( input
+    description: A string character sequence.
+  - name: insert_pos
+    type: 'int'
+    description: An integer representing the position, where the substring will be inserted at.
+    default: utf8.len( input ) + 1
+  - name: substring
+    type: string
+    description: A string character sequence which should be inserted.
   examples:
   - path: examples/utf8.insert-1.lua
-    description: This example shows a command handler for '/insert [something]', which
-      will concatenate the '[something]' after the 'hello ' string in 2 ways.
-    side: server
+    description: This example will concatenate the '[something]' after the 'hello ' string in 2 ways.
   returns:
     values:
-    - type: string utf8.insert
+    - type: string
       name: value
-    description: Returns a string with the inserted substring value.
-  requires_review: true
+    description: Returns a [[string]] with the inserted substring value.

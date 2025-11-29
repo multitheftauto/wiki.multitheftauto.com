@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.width
 shared:
   name: utf8.width
   description: Calculates the width of UTF\-8 strings with special/unprintable characters,
@@ -18,12 +17,10 @@ shared:
     default: '0'
   examples:
   - path: examples/utf8.width-1.lua
-    description: This example shows the difference whenambi_is_doubleis set tofalseortrue.
-    side: server
+    description: This example shows the difference when **ambi_is_double** is set to false or true.
   returns:
     values:
-    - type: int utf8.width
-      name: value
+    - type: int
+      name: width
     description: Returns the integer width of the input string OR the width of the
       codepoint integer.
-  requires_review: true

@@ -1,4 +1,7 @@
 ---
+import { marked } from "marked";
+import EnhancedMarkdown from "./EnhancedMarkdown.astro";
+
 const { name } = Astro.props;
 
 const lists: Record<string, { id: number | string; label?: string }[]> = {
@@ -84,13 +87,38 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
     ],
 
     "browser-properties": [
-        {id: "mobile", label: "Surfing the web as mobile"}
+        { id: "mobile", label: "Surfing the web as mobile" },
     ],
 
     "browser-settings": [
-        {id: "RemoteEnabled", label: "true if remote websites are enabled, false otherwise"},
-        {id: "RemoteJavascript", label: "true if Javascript is enabled on remote websites, false otherwise"},
-        {id: "PluginsEnabled", label: "true if plugins such as Flash, Silverlight (but not Java) are enabled, false otherwise. This setting is false by default."},
+        {
+            id: "RemoteEnabled",
+            label: "true if remote websites are enabled, false otherwise",
+        },
+        {
+            id: "RemoteJavascript",
+            label: "true if Javascript is enabled on remote websites, false otherwise",
+        },
+        {
+            id: "PluginsEnabled",
+            label: "true if plugins such as Flash, Silverlight (but not Java) are enabled, false otherwise. This setting is false by default.",
+        },
+    ],
+
+    utf8Formatting: [
+        { id: "%ddd", label: "ddd is a decimal number with variable length." },
+        { id: "%{ddd}", label: "same as above, but enclosed in brackets." },
+        { id: "%uddd", label: "same as **%ddd**, 'u' stands for unicode." },
+        { id: "%u{ddd}", label: "same as above, but enclosed in brackets." },
+        { id: "%xhhh", label: "hexadigit version of <b>%ddd</b>." },
+        { id: "%x{hhh}", label: "same as above, but enclosed in brackets." },
+        { id: "%?", label: "'?' stands for any other character to be escaped."},
+    ],
+
+    utf8CaseIndicators: [
+        {id: "-1", label: "<code>a < b</code>"},
+        {id: "0", label: "<code>a == b</code>"},
+        {id: "1", label: "<code>a > b</code>"},
     ],
 };
 
@@ -109,7 +137,9 @@ const icon = icons[name] || "●";
             {items.map((item) => (
                 <li>
                     <strong>{item.id}</strong>
-                    {item.label && <>: {item.label}</>}
+                    {item.label && (
+                        <span set:html={marked.parseInline(`: ${item.label}`)} />
+                    )}
                 </li>
             ))}
         </ul>

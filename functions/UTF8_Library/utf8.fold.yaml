@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/Utf8.fold
 shared:
   name: utf8.fold
   description: Converts a UTF\-8 string to folded case (lowercase), which can be used
@@ -7,19 +6,26 @@ shared:
   parameters:
   - name: input
     type: string|int
-    description: A string character sequence OR an integer value
+    description: A string character sequence OR an integer value.
   examples:
   - path: examples/utf8.fold-1.lua
     description: This example shows how to convert a string to lowercase, which can
       be used to compare with other folded strings.
-    side: server
   returns:
     values:
-    - type: string|int utf8.fold
+    - type: string|int
       name: value
     description: Returns a string in lowercase OR returns an integer (see description).
+  syntaxes:
+    - name: utf8.lower
+      parameters:
+        - name: input
+          type: string|int
+      returns:
+        values:
+        - type: string|int
+      displayParams: false
   notes:
   - type: info
-    content: You may want to read up on case folding for more information about the
+    content: You may want to read up on [case folding](https://www.w3.org/International/wiki/Case_folding) for more information about the
       use of this function.
-  requires_review: true
