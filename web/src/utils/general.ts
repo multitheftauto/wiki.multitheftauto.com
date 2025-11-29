@@ -248,12 +248,33 @@ export function isVersionLE(v: string, ref: string): boolean {
 }
 
 export function renderRevisionLink(versionRaw: string) {
-  const match = versionRaw.match(/r(\d+)/);
-  if (!match) return versionRaw;
+  if (!versionRaw) return versionRaw;
 
-  const revisionNumber = match[1];
-  const beforeRevision = versionRaw.slice(0, match.index);
+  let revisionNumber: string | null = null;
+  let matchedText: string | null = null;
+
+  // Case 1: rNNNNN
+  const matchR = versionRaw.match(/r(\d+)/i);
+  if (matchR) {
+    revisionNumber = matchR[1];
+    matchedText = matchR[0];
+  }
+
+  // Case 2: versions like 1.5.5-9.13999 → take last .number
+  if (!revisionNumber) {
+    const matchVersion = versionRaw.match(/(\d+)(?!.*\d)/);
+    if (matchVersion) {
+      revisionNumber = matchVersion[1];
+      matchedText = matchVersion[0];
+    }
+  }
+
+  if (!revisionNumber || !matchedText) return versionRaw;
+
   const url = `https://buildinfo.mtasa.com/?Author=&Branch=&Revision=${revisionNumber}`;
 
-  return `${beforeRevision}<a href="${url}" target="_blank" rel="noopener noreferrer">r${revisionNumber}</a>`;
+  return versionRaw.replace(
+    matchedText,
+    `<a href="${url}" target="_blank" rel="noopener noreferrer">${matchedText}</a>`
+  );
 }
