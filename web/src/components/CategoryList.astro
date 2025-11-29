@@ -103,6 +103,8 @@ function displayItem(item: any) {
     return '?';
 }
 function displayCategory(category: string) {
+  category = category.replace(/_/g, ' ');
+
   // Add emoji if available
   if (categoryEmojis[category]) {
     return `${categoryEmojis[category]} ${category}`;
