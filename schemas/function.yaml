@@ -5,10 +5,7 @@ type: object
 
 properties:
   shared:
-    description: |
-      A shared specification of a function.
-      You must always create a server and a client property, and merge this into both
-      using a reference.
+    description: A shared specification of a function.
     $ref: '#/$defs/common_properties'
   server:
     description: A server-side specification of a function.
@@ -20,6 +17,18 @@ properties:
 $defs:
   common_properties:
     type: object
+    syntaxes:
+      type: array
+      description: Additional syntaxes for function.
+      items:
+        allOf:
+          - $ref: '#/$defs/common_properties'
+          - type: object
+            properties:
+              displayParams:
+                type: boolean
+                description: Specifies whether to display the parameters and returns sections.
+                default: true
     required:
       - name
     properties:
@@ -119,6 +128,7 @@ $defs:
         description:
           type: string
           description: Describe the usage, contraints and other useful information about the parameter.
+          default: ""
         default:
           type: string
           description: |
@@ -145,6 +155,7 @@ $defs:
       description:
         type: string
         description: A summary for the return values.
+        default: ""
       values:
         type: array
         description: A list of named values returned by the function.

@@ -3,6 +3,8 @@ import path from 'path';
 
 import type { FunctionData, FunctionInfo, FunctionsByCategory, FunctionsByTypeByCategory, FunctionType, Parameter, ReturnBlock, Syntax } from './types';
 
+const ordinalWords = ['First', 'Second', 'Third'];
+
 export const functionTypePrettyName = {
     'client': 'Client-side',
     'server': 'Server-side',
@@ -71,17 +73,51 @@ export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData):
 
   const funcType = getFunctionType(funcData);
 
+  const pushSyntax = (
+    type: string,
+    params: Parameter[],
+    returns: ReturnBlock | null,
+    displayParams: boolean = true,
+    customFuncName?: string,
+  ) => {
+    syntaxes.push({
+      type,
+      parameters: params,
+      returns,
+      syntaxString: buildSyntaxString(customFuncName || funcName, params, returns),
+      displayParams,
+    });
+  };
+
+  const getOrdinalWord = (index: number) => {
+    return ordinalWords[index - 1] || `${index}th`;
+  };
+
+  const pushExtraSyntaxes = (base: any) => {
+    if (!base?.syntaxes) return;
+
+    let index = 2;
+    for (const s of base.syntaxes) {
+      const params = s.parameters || [];
+      const returns = s.returns || null;
+      const syntaxType = `${getOrdinalWord(index)}`;
+      pushSyntax(syntaxType, params, returns, s.displayParams ?? true, s.name || funcName);
+
+      index++;
+    }
+  };
+
   if (funcType === 'shared') {
     const sharedParams = shared?.parameters || [];
     const sharedReturns = shared?.returns || null;
 
     const clientParams =
-    client?.parameters !== undefined
+      client?.parameters !== undefined
         ? stripIgnored(client.parameters, client.ignore_parameters || [])
         : stripIgnored(sharedParams, client?.ignore_parameters || []);
 
     const serverParams =
-    server?.parameters !== undefined
+      server?.parameters !== undefined
         ? stripIgnored(server.parameters, server.ignore_parameters || [])
         : stripIgnored(sharedParams, server?.ignore_parameters || []);
 
@@ -92,41 +128,20 @@ export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData):
       JSON.stringify(clientParams) === JSON.stringify(serverParams) &&
       JSON.stringify(clientReturns) === JSON.stringify(serverReturns)
     ) {
-      syntaxes.push({
-        type: 'shared',
-        parameters: sharedParams,
-        returns: sharedReturns,
-        syntaxString: buildSyntaxString(funcName, sharedParams, sharedReturns),
-      });
+      pushSyntax('shared', sharedParams, sharedReturns);
     } else {
-      syntaxes.push({
-        type: 'client',
-        parameters: clientParams,
-        returns: clientReturns,
-        syntaxString: buildSyntaxString(funcName, clientParams, clientReturns),
-      });
-      syntaxes.push({
-        type: 'server',
-        parameters: serverParams,
-        returns: serverReturns,
-        syntaxString: buildSyntaxString(funcName, serverParams, serverReturns),
-      });
+      pushSyntax('client', clientParams, clientReturns);
+      pushSyntax('server', serverParams, serverReturns);
     }
   } else if (funcType === 'client') {
-    syntaxes.push({
-      type: 'client',
-      parameters: client?.parameters || [],
-      returns: client?.returns || null,
-      syntaxString: buildSyntaxString(funcName, client?.parameters || [], client?.returns || null),
-    });
+    pushSyntax('client', client?.parameters || [], client?.returns || null);
   } else if (funcType === 'server') {
-    syntaxes.push({
-      type: 'server',
-      parameters: server?.parameters || [],
-      returns: server?.returns || null,
-      syntaxString: buildSyntaxString(funcName, server?.parameters || [], server?.returns || null),
-    });
+    pushSyntax('server', server?.parameters || [], server?.returns || null);
   }
+
+  pushExtraSyntaxes(shared);
+  pushExtraSyntaxes(client);
+  pushExtraSyntaxes(server);
 
   return syntaxes;
 }

@@ -9,11 +9,10 @@ import { Code } from '@astrojs/starlight/components';
 import { MTA_CURRENT_VERSION } from '@src/content.constants';
 
 import NoteBox from '@src/components/NoteBox.astro';
-import type { NotesType, IssuesTable } from '@src/utils/types';
+import type { NotesType, IssuesTable, MetaItem } from '@src/utils/types';
 
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
 import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
-
 import ChangelogList from '@src/components/ChangelogList.astro';
 import ItemDescription from '@src/components/ItemDescription.astro';
 import EnhancedMarkdown from '@src/components/EnhancedMarkdown.astro';
@@ -23,41 +22,41 @@ import TemplateList from '@src/components/TemplateList.astro';
 import { marked } from 'marked';
 
 export async function getStaticPaths() {
-    const functions = await getCollection('functions');
-    return functions.map(func => ({
-        params: { func: func.id },
-        props: { func },
-    }));
+  const functions = await getCollection('functions');
+  return functions.map(func => ({
+    params: { func: func.id },
+    props: { func },
+  }));
 }
 
 const { func } = Astro.props;
 func.data.itemType = 'function';
 
 const funcInfo = getFunctionInfo(func.data);
-if (funcInfo.redirect)
-    return Astro.redirect('/reference/' + funcInfo.redirect);
+if (funcInfo.redirect) return Astro.redirect('/reference/' + funcInfo.redirect);
 
 const funcType = funcInfo.type;
 const funcPair = funcInfo.pair;
 const funcPath = path.dirname(func.filePath ?? "");
 
-// join shared, client and server examples (in func.data) if any
+// Join shared, client, and server examples
 let funcExamples: any[] = [];
-if (func.data.shared && func.data.shared.examples) {
+
+if (func.data.shared?.examples) {
   funcExamples = [
     ...funcExamples,
     ...func.data.shared.examples.map((ex: any) => ({ ...ex, side: 'shared' })),
   ];
 }
 
-if (func.data.client && func.data.client.examples) {
+if (func.data.client?.examples) {
   funcExamples = [
     ...funcExamples,
     ...func.data.client.examples.map((ex: any) => ({ ...ex, side: 'client' })),
   ];
 }
 
-if (func.data.server && func.data.server.examples) {
+if (func.data.server?.examples) {
   funcExamples = [
     ...funcExamples,
     ...func.data.server.examples.map((ex: any) => ({ ...ex, side: 'server' })),
@@ -65,262 +64,240 @@ if (func.data.server && func.data.server.examples) {
 }
 
 funcExamples = funcExamples.map((example: any) => {
-    try {
-        const luaCode = fs.readFileSync(path.resolve(`${funcPath}`, example.path), "utf8"); 
-        return { ...example, luaCode };
-    } catch (error) {
-        console.error(`Error reading ${example.path}:`, error);
-        return { ...example, luaCode: "Loading example error." };
-    }
+  try {
+    const luaCode = fs.readFileSync(path.resolve(funcPath, example.path), "utf8");
+    return { ...example, luaCode };
+  } catch (error) {
+    console.error(`Error reading ${example.path}:`, error);
+    return { ...example, luaCode: "Loading example error." };
+  }
 });
 
 let notesContent: NotesType = [];
 if (Array.isArray(funcInfo.notes) && funcInfo.notes.length > 0) {
-    notesContent = funcInfo.notes;
+  notesContent = funcInfo.notes;
 }
 
-const metaArray = func.data[funcInfo.type]?.meta ?? [];
-const changelogEntries = metaArray.find(m => m.changelog)?.changelog ?? [];
-const needsChecking = metaArray.find(m => m.needs_checking)?.needs_checking ?? undefined;
+const metaArray: MetaItem[] = func.data[funcInfo.type]?.meta ?? [];
+const changelogEntries = metaArray.find((m: MetaItem) => m.changelog)?.changelog ?? [];
+const needsChecking = metaArray.find((m: MetaItem) => m.needs_checking)?.needs_checking;
 
 let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
 ---
 
-<div class={"show-type-badge-" + funcType}>
-    <StarlightPage frontmatter={{
-        template: 'doc',
-        title: func.id,
-        tableOfContents: false,
-    }}>
-        {needsChecking && (
-            <div class="notes-section">
-                <NoteBox type="needs_checking">
-                    <EnhancedMarkdown content={needsChecking}/>
-                </NoteBox>
-            </div>
-        )}
+<div class={`show-type-badge-${funcType}`}>
+  <StarlightPage
+    frontmatter={{
+      template: 'doc',
+      title: func.id,
+      tableOfContents: false,
+    }}
+  >
+    {needsChecking && (
+      <div class="notes-section">
+        <NoteBox type="needs_checking">
+          <EnhancedMarkdown content={needsChecking} />
+        </NoteBox>
+      </div>
+    )}
 
-        <!-- Pair Function Ref -->
-        {funcPair && (
-            <p><strong>Pair:</strong> <a href={`/reference/${funcPair}`}>{ funcPair }</a></p>
-        )}
+    {funcPair && (
+      <p>
+        <strong>Pair:</strong> <a href={`/reference/${funcPair}`}>{funcPair}</a>
+      </p>
+    )}
 
-        <!-- Description -->
-        {funcInfo.version ? (() => {
-            const CURRENT = MTA_CURRENT_VERSION.full;
+    <!-- Description -->
+    {funcInfo.version ? (() => {
+      const CURRENT = MTA_CURRENT_VERSION.full;
 
-            const addedVersionRaw = funcInfo.version.added || "";
-            const updatedVersionRaw = funcInfo.version.updated || "";
-            const removedVersionRaw = funcInfo.version.removed || "";
+      const addedVersionRaw = funcInfo.version.added || "";
+      const updatedVersionRaw = funcInfo.version.updated || "";
+      const removedVersionRaw = funcInfo.version.removed || "";
 
-            const addedVersion = extractVersion(addedVersionRaw);
-            const updatedVersion = extractVersion(updatedVersionRaw);
+      const addedVersion = extractVersion(addedVersionRaw);
+      const updatedVersion = extractVersion(updatedVersionRaw);
 
-            const showAdded = !!addedVersion && isVersionLE(CURRENT, addedVersion);
-            const showUpdated = !!updatedVersion && isVersionLE(CURRENT, updatedVersion);
-            const showRemoved = !!removedVersionRaw;
+      const showAdded = !!addedVersion && isVersionLE(CURRENT, addedVersion);
+      const showUpdated = !!updatedVersion && isVersionLE(CURRENT, updatedVersion);
+      const showRemoved = !!removedVersionRaw;
 
-            if (!showRemoved && !showAdded && !showUpdated) {
-                return (
-                    <ItemDescription
-                        description={funcInfo.description}
-                        requiresReview={funcInfo.requiresReview}
-                    />
-                );
-            }
+      if (!showRemoved && !showAdded && !showUpdated) {
+        return (
+          <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
+        );
+      }
 
-            return (
-                <div
-                    class={
-                        "added-updated-description-box" +
-                        (showRemoved ? " removed-box" : "")
-                    }
-                >
-                    <div class="added-updated-description-box-header">
-                        <p>
-                            {showRemoved ? (
-                            <>
-                                <strong>Before</strong> <span set:html={renderRevisionLink(removedVersionRaw)} />
-                            </>
-                            ) : (
-                            <>
-                                {showUpdated && (
-                                <strong>
-                                    Updated in <span set:html={renderRevisionLink(updatedVersionRaw)} />
-                                </strong>
-                                )}
-                                {showUpdated && showAdded && ' | '}
-                                {showAdded && (
-                                <strong>
-                                    Added in <span set:html={renderRevisionLink(addedVersionRaw)} />
-                                </strong>
-                                )}
-                            </>
-                            )}
-                        </p>
-                    </div>
-
-                    <div class="added-updated-description-box-body">
-                        <ItemDescription
-                            description={funcInfo.description}
-                            requiresReview={funcInfo.requiresReview}
-                        />
-                    </div>
-                </div>
-            );
-        })() : (
-            <ItemDescription
-                description={funcInfo.description}
-                requiresReview={funcInfo.requiresReview}
-            />
-        )}
-
-        <!-- Notes -->
-        {notesContent.length > 0 && (
-            <div class="notes-section">
-                {notesContent.map((note) => (
-                    <NoteBox type={note.type}>
-                        <EnhancedMarkdown content={note.content} />
-                    </NoteBox>
-                ))}
-            </div>
-        )}
-
-        <!-- OOP Syntax -->
-        {funcInfo.oop && (
-        <>
-        <div class="function-oop">
-            <h4>OOP Syntax <a class="small-text" href="/reference/OOP">Help! I don't understand this!</a></h4>
-            <ul>
-
-            {funcInfo.oop.note && (
-                <li><i><Fragment set:html={marked("<b>Note:</b> " + funcInfo.oop.note)} /></i></li>
-            )}
-
-            {funcInfo.oop.constructorclass ? (
-                <li>
-                <strong>Constructor</strong>:
-                <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.constructorclass}</a>(...)
-                </li>
-            ) : (
+      return (
+        <div class={`added-updated-description-box${showRemoved ? " removed-box" : ""}`}>
+          <div class="added-updated-description-box-header">
+            <p>
+              {showRemoved ? (
                 <>
-                    {funcInfo.oop.method && (
-                        <li>
-                        <strong>Method</strong>:
-                        <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
-                        </li>
-                    )}
-
-                    {funcInfo.oop.variable && (
-                        <li>
-                        <strong>Variable</strong>:
-                        .{funcInfo.oop.variable}
-                        </li>
-                    )}
+                  <strong>Before</strong> <span set:html={renderRevisionLink(removedVersionRaw)} />
                 </>
-            )}
-            </ul>
+              ) : (
+                <>
+                  {showUpdated && (
+                    <strong>Updated in <span set:html={renderRevisionLink(updatedVersionRaw)} /></strong>
+                  )}
+                  {showUpdated && showAdded && ' | '}
+                  {showAdded && (
+                    <strong>Added in <span set:html={renderRevisionLink(addedVersionRaw)} /></strong>
+                  )}
+                </>
+              )}
+            </p>
+          </div>
+          <div class="added-updated-description-box-body">
+            <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
+          </div>
         </div>
-        </>
-        )}
+      );
+    })() : (
+      <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
+    )}
 
-        <!-- Syntaxes -->
-        {funcSyntaxes.length > 0 && funcSyntaxes.map((syntax: any) => (
-            <div class="function-syntax">
-                {funcType === syntax.type && (
-                    <h4>Syntax</h4>
-                ) || (
-                    <h4>{syntax.type.charAt(0).toUpperCase() + syntax.type.slice(1)} Syntax</h4>
-                )}
-                <Code code={syntax.syntaxString} lang="lua" />
-                {syntax.parameters.length > 0 && (
-                <>
-                    {syntax.parameters.some((param: any) => !param.default) && (
-                    <>
-                        <h5>Required Arguments</h5>
-                        <ul>
-                        {syntax.parameters
-                            .filter((param: any) => !param.default)
-                            .map((param: any) => (
-                            <li>
-                                <strong>{param.name}</strong>:
-                                <EnhancedMarkdown content={param.description} inline={true}/>
-                                {param.templateList && (
-                                    <TemplateList name={param.templateList}/>
-                                )}
-                            </li>
-                            ))}
-                        </ul>
-                    </>
-                    )}
+    <!-- Notes -->
+    {notesContent.length > 0 && (
+      <div class="notes-section">
+        {notesContent.map(note => (
+          <NoteBox type={note.type}>
+            <EnhancedMarkdown content={note.content} />
+          </NoteBox>
+        ))}
+      </div>
+    )}
 
-                    {syntax.parameters.some((param: any) => param.default) && (
-                    <>
-                        <h5>Optional Arguments</h5>
-                        <p><strong>NOTE</strong>: When using <a href="/reference/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
-                        <ul>
-                        {syntax.parameters
-                            .filter((param: any) => param.default)
-                            .map((param: any) => (
-                            <li>
-                                <strong>{param.name}</strong> (default: <em>{param.default}</em>):
-                                <EnhancedMarkdown content={param.description} inline={true}/>
-                                {param.templateList && (
-                                    <TemplateList name={param.templateList}/>
-                                )}
-                            </li>
-                            ))}
-                        </ul>
-                    </>
-                    )}
-                </>
-                )}
-                {syntax.returns && (
-                    <h4>Returns</h4>
+    <!-- OOP Syntax -->
+    {funcInfo.oop && (
+      <div class="function-oop">
+        <h4>OOP Syntax <a class="small-text" href="/reference/OOP">Help! I don't understand this!</a></h4>
+        <ul>
+          {funcInfo.oop.note && (
+            <li><i><Fragment set:html={marked("<b>Note:</b> " + funcInfo.oop.note)} /></i></li>
+          )}
+
+          {funcInfo.oop.constructorclass ? (
+            <li>
+              <strong>Constructor</strong>:
+              <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.constructorclass}</a>(...)
+            </li>
+          ) : (
+            <>
+              {funcInfo.oop.method && (
+                <li>
+                  <strong>Method</strong>:
+                  <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
+                </li>
+              )}
+              {funcInfo.oop.variable && (
+                <li>
+                  <strong>Variable</strong>: .{funcInfo.oop.variable}
+                </li>
+              )}
+            </>
+          )}
+        </ul>
+      </div>
+    )}
+
+    <!-- Syntaxes -->
+    {funcSyntaxes.length > 0 && funcSyntaxes.map((syntax: any) => (
+      <div class="function-syntax">
+        <h4>
+          {funcType === syntax.type ? "Syntax" : `${syntax.type.charAt(0).toUpperCase() + syntax.type.slice(1)} Syntax`}
+        </h4>
+        <Code code={syntax.syntaxString} lang="lua" />
+        {syntax.displayParams && (
+          <>
+            {syntax.parameters.length > 0 && (
+              <>
+                {syntax.parameters.some((param: any) => !param.default) && (
+                  <>
+                    <h5>Required Arguments</h5>
                     <ul>
-                        {syntax.returns.values.map((ret: any) => (
-                            <li>
-                                <strong>{ret.type}</strong>: {renderInlineMarkdown(ret.name)}
-                                {ret.templateList && (
-                                    <TemplateList name={ret.templateList}/>
-                                )}
-                            </li>
+                      {syntax.parameters
+                        .filter((param: any) => !param.default)
+                        .map((param: any) => (
+                          <li>
+                            <strong>{param.name}</strong>:
+                            <EnhancedMarkdown content={param.description ?? ""} inline={true} />
+                            {param.templateList && <TemplateList name={param.templateList} />}
+                          </li>
                         ))}
                     </ul>
-
-                    <EnhancedMarkdown content={syntax.returns.description || ""}/>
+                  </>
                 )}
-            </div>
-        ))}
 
-        <CodeExamplesSection codeExamples={funcExamples}, examplesRequired={true} theItem={func} />
+                {syntax.parameters.some((param: any) => param.default) && (
+                  <>
+                    <h5>Optional Arguments</h5>
+                    <p><strong>NOTE</strong>: When using <a href="/reference/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
+                    <ul>
+                      {syntax.parameters
+                        .filter((param: any) => param.default)
+                        .map((param: any) => (
+                          <li>
+                            <strong>{param.name}</strong> (default: <em>{param.default}</em>):
+                            <EnhancedMarkdown content={param.description ?? ""} inline={true} />
+                            {param.templateList && <TemplateList name={param.templateList} />}
+                          </li>
+                        ))}
+                    </ul>
+                  </>
+                )}
+              </>
+            )}
 
-        <!-- Preview Images -->
-        <PreviewImages images={funcInfo.preview_images} />
-        
-        <!-- Changelog -->
-        <ChangelogList entries={changelogEntries} />
-
-        <!-- Issues -->
-        {funcInfo.issues && funcInfo.issues.length > 0 && (
-            <h4>Issues</h4>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>ID</th>
-                        <th>Description</th>
-                    </tr>
-
-                {funcInfo.issues.map((issue) => (
-                    <tr>
-                        <td><a href={`https://github.com/multitheftauto/mtasa-blue/issues/${issue.id}`}>{issue.id}</a></td>
-                        <td>{issue.description}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
+            {syntax.returns && (
+              <>
+                <h4>Returns</h4>
+                <ul>
+                  {syntax.returns.values.map((ret: any) => (
+                    <li>
+                      <strong>{ret.type}</strong>: {renderInlineMarkdown(ret.name ?? "")}
+                      {ret.templateList && <TemplateList name={ret.templateList} />}
+                    </li>
+                  ))}
+                </ul>
+                <EnhancedMarkdown content={syntax.returns.description ?? ""} />
+              </>
+            )}
+          </>
         )}
+      </div>
+    ))}
 
-        <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(func)} currentId={func.id} />
-    </StarlightPage>
+    <CodeExamplesSection codeExamples={funcExamples} examplesRequired={true} theItem={func} />
+
+    <!-- Preview Images -->
+    <PreviewImages images={funcInfo.preview_images} />
+
+    <!-- Changelog -->
+    <ChangelogList entries={changelogEntries} />
+
+    <!-- Issues -->
+    {funcInfo.issues && funcInfo.issues.length > 0 && (
+      <>
+        <h4>Issues</h4>
+        <table>
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+            </tr>
+            {funcInfo.issues.map(issue => (
+              <tr>
+                <td><a href={`https://github.com/multitheftauto/mtasa-blue/issues/${issue.id}`}>{issue.id}</a></td>
+                <td>{issue.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    )}
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(func)} currentId={func.id} />
+  </StarlightPage>
 </div>

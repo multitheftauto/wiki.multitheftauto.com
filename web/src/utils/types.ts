@@ -89,8 +89,14 @@ export type ReturnBlock = {
 };
 
 export type Syntax = {
-  type: 'shared' | 'server' | 'client';
+  type: string;
   parameters: Parameter[];
   returns: ReturnBlock | null;
   syntaxString: string;
+  displayParams?: boolean;
+};
+
+export type MetaItem = {
+  needs_checking?: string;
+  changelog?: { version: string; description: string }[];
 };
