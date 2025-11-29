@@ -7,9 +7,13 @@ shared: &shared
       content: These sounds don't work when [[fadeCamera]] has been used to make the screen black.
   description: This function plays a frontend sound for the specified player.
   oop:
-    element: player
-    method: playSoundFrontEnd
-    note: For client-side use Sound.playFrontEnd()
+    - element: player
+      method: playSoundFrontEnd
+      side: server
+    - element: sound
+      method: playFrontEnd
+      static: true
+      side: client
   parameters:
     - name: thePlayer
       type: player
