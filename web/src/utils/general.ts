@@ -47,14 +47,22 @@ const titleCase = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
 const makeTitle = (subType: string, category: string, type: string): string => {
-  const isUpperCase = category === category.toUpperCase();
-  const categoryPart = isUpperCase ? category : titleCase(category);
-  const typePart = titleCase(type);
+  const displayName = (name: string) => name.replace(/_/g, ' ');
+
+  const smartTitleCase = (str: string) => {
+    return str
+      .split(' ')
+      .map(word => (/^[A-Z0-9]+$/.test(word) ? word : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()))
+      .join(' ');
+  };
+
+  const categoryPart = smartTitleCase(displayName(category));
+  const typePart = smartTitleCase(type);
+
   if (subType === 'any') {
     return `${categoryPart} ${typePart}`;
   } else {
-    const isUpperCase2 = subType === subType.toUpperCase();
-    const subTypePart = isUpperCase2 ? subType : titleCase(subType);
+    const subTypePart = smartTitleCase(displayName(subType));
     return `${subTypePart} ${categoryPart} ${typePart}`;
   }
 };

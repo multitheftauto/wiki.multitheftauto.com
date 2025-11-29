@@ -165,7 +165,6 @@ let functionsByTypeByCategory: FunctionsByTypeByCategory = {
 
 for (let func of functionsCollection) {
     let folder = path.basename(path.dirname(func.filePath || ''));
-    folder = folder.replace(/_/g, ' ');
 
     if (!functionsByCategory[folder]) {
         functionsByCategory[folder] = [];
