@@ -1,0 +1,79 @@
+shared: &shared
+  name: setCameraMatrix
+  pair: getCameraMatrix
+  description: This function sets the camera's position and direction. The first three arguments are the point at which the camera lies, the last three are the point the camera faces (or the point it "looks at").
+  oop:
+    - element: player
+      method: setCameraMatrix
+      variable: matrix
+      side: server
+    - element: camera
+      method: setMatrix
+      variable: matrix
+      static: true
+      side: client
+  notes:
+    - type: info
+      content: Calling this function takes the camera's focus away from the player and sets the camera in a fixed position and rotation. The camera's focus can be brought back to the player using the [[setCameraTarget]] function.
+    - type: tip
+      content: Instead of six coordinates, or two vectors, a [[Matrix]] can be supplied as position.
+  parameters:
+    - name: thePlayer
+      type: player
+      description: The player whose camera is to be changed.
+    - name: positionX
+      type: float
+      description: The x coordinate of the camera's position.
+    - name: positionY
+      type: float
+      description: The y coordinate of the camera's position.
+    - name: positionZ
+      type: float
+      description: The z coordinate of the camera's position.
+    - name: lookAtX
+      type: float
+      description: The x coordinate of the point the camera faces.
+      default: '0'
+    - name: lookAtY
+      type: float
+      description: The y coordinate of the point the camera faces.
+      default: '0'
+    - name: lookAtZ
+      type: float
+      description: The z coordinate of the point the camera faces.
+      default: '0'
+    - name: roll
+      type: float
+      description: The camera roll angle, -180 to 180. A value of 0 means the camera sits straight, positive values will turn it counter-clockwise and negative values will turn it clockwise. -180 or 180 means the camera is upside down.
+      default: '0'
+    - name: fov
+      type: float
+      description: The field of view angle, 0.01 to 179. The higher this value is, the more you will be able to see what is to your sides.
+      default: '70'
+  returns:
+    description: Returns true if the arguments are valid, false otherwise.
+    values:
+      - type: bool
+        name: result
+client:
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
+  examples:
+    - path: examples/setCameraMatrix-2.lua
+      description: This code fixates the camera onto the Vinewood sign in Los Santos for local player that joins the server.
+    - path: examples/setCameraMatrix_OOP-2.lua
+      description: This code fixates the camera onto the Vinewood sign in Los Santos for local player that joins the server.
+      oop: true
+    - path: examples/setCameraMatrix_OOP-3.lua
+      oop: true
+      title: Vector as position
+
+server:
+  <<: *shared
+  examples:
+    - path: examples/setCameraMatrix-1.lua
+      description: This code fixates the camera onto the Vinewood sign in Los Santos for any player that joins the server.
+    - path: examples/setCameraMatrix_OOP-1.lua
+      description: This code fixates the camera onto the Vinewood sign in Los Santos for any player that joins the server.
+      oop: true

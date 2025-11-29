@@ -1,52 +1,46 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraInterior
+shared: &shared
+  name: setCameraInterior
+  pair: getCameraInterior
+  description: Sets the interior of the local camera. Only the interior of the camera is changed, the local player stays in the interior he was in.
+  oop:
+    - element: player
+      method: setCameraInterior
+      variable: cameraInterior
+      side: server
+    - element: camera
+      method: setInterior
+      variable: interior
+      side: client
+      static: true
+  parameters:
+    - name: thePlayer
+      type: player
+      description: The player whose camera interior will be set.
+    - name: interior
+      type: int
+      description: The interior to place the camera in.
+  returns:
+    description: Returns true if the camera's interior was changed successfully, false otherwise.
+    values:
+      - type: bool
+        name: result
+
 client:
-  name: setCameraInterior
-  description: Sets the interior of the local camera. Only the interior of the camera
-    is changed, the local player stays in the interior he was in.
-  parameters:
-  - name: interior
-    type: int
-    description: the interior to place the camera in.
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
   examples:
-  - path: examples/setCameraInterior-2.lua
-    description: This example make a command to change your cam interior to a selected
-      one.
-    side: client
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the camera's interior was changed successfully, false
-      otherwise.
-  oop: &id001
-    element: player
-    method: setCameraInterior
-    variable: cameraInterior
-    static: false
-  pair: getCameraInterior
-  requires_review: true
+    - path: examples/setCameraInterior-1.lua
+      description: This example make a command to change your cam interior to a selected one.
+    - path: examples/setCameraInterior_OOP-1.lua
+      description: This example make a command to change your cam interior to a selected one.
+      oop: true
+
 server:
-  name: setCameraInterior
-  description: Sets the interior of the local camera. Only the interior of the camera
-    is changed, the local player stays in the interior he was in.
-  parameters:
-  - name: thePlayer
-    type: player
-    description: the player whose camera interior will be set.
-  - name: interior
-    type: int
-    description: the interior to place the camera in.
+  <<: *shared
   examples:
-  - path: examples/setCameraInterior-1.lua
-    description: This example make a command to change your cam interior to a selected
-      one.
-    side: server
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the camera's interior was changed successfully, false
-      otherwise.
-  oop: *id001
-  pair: getCameraInterior
-  requires_review: true
+    - path: examples/setCameraInterior-2.lua
+      description: This example make a command to change your cam interior to a selected one.
+    - path: examples/setCameraInterior_OOP-2.lua
+      description: This example make a command to change your cam interior to a selected one.
+      oop: true

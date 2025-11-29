@@ -1,5 +1,5 @@
 function isTargetPlayer( thePlayer )
-    local target = getCameraTarget ( thePlayer )
+    local target = thePlayer.cameraTarget -- or thePlayer:getCameraTarget()
     if ( getElementType ( target ) == "player" ) then -- If target is a player
         return true -- Return true
     else

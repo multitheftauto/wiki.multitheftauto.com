@@ -1,6 +1,6 @@
 function setCam(command, int)
     if (int) then
-        local setInt = setCameraInterior(int)
+        local setInt = Camera.setInterior(int)
         if (setInt) then
             outputChatBox("Your camera's interior has been set to " .. int, 255, 255, 0)
         else

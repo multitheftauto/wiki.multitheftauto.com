@@ -1,41 +1,41 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetCameraTarget
-client:
+shared: &shared
   name: getCameraTarget
-  description: This function returns an [element](/wiki/Element "Element") that corresponds
-    to the current target of the specified player's camera (i.e. what it is following).
-  parameters: []
-  examples: []
-  returns:
-    values:
-    - type: element
-      name: value
-    description: This example checks whether a player's camera's target is another
-      player, and returns true or false accordingly.
-  oop: &id001
-    element: player
-    method: getCameraTarget
-    variable: cameraTarget
-    static: false
   pair: setCameraTarget
-  requires_review: true
-server:
-  name: getCameraTarget
-  description: This function returns an [element](/wiki/Element "Element") that corresponds
-    to the current target of the specified player's camera (i.e. what it is following).
+  description: This function returns an [[element]] that corresponds to the current target of the specified player's camera (i.e. what it is following).
+  oop:
+    - element: player
+      method: getCameraTarget
+      variable: cameraTarget
+      side: server
+    - element: camera
+      method: getTarget
+      variable: target
+      side: client
+      static: true
   parameters:
-  - name: thePlayer
-    type: player
-    description: The player whose camera you wish to receive the target of.
-  examples:
-  - path: examples/getCameraTarget-1.lua
-    description: ''
-    side: server
+    - name: thePlayer
+      type: player
+      description: The player whose camera you wish to receive the target of.
   returns:
+    description: Returns an element of the target if the function was successful, or false if bad arguments were specified. Returns false if the camera is in Fixed mode and has no target.
     values:
-    - type: element
-      name: value
-    description: This example checks whether a player's camera's target is another
-      player, and returns true or false accordingly.
-  oop: *id001
-  pair: setCameraTarget
-  requires_review: true
+      - type: element|false
+        name: camera target
+
+server:
+  <<: *shared
+  examples:
+    - path: examples/getCameraTarget-1.lua
+      description: This example checks whether a player's camera's target is another player, and returns true or false accordingly.
+    - path: examples/getCameraTarget_OOP-1.lua
+      description: This example checks whether a player's camera's target is another player, and returns true or false accordingly.
+
+client:
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
+  examples:
+    - path: examples/getCameraTarget-2.lua
+      description: This example checks whether a player's camera's target is another player, and returns true or false accordingly.
+    - path: examples/getCameraTarget_OOP-2.lua
+      description: This example checks whether a player's camera's target is another player, and returns true or false accordingly.

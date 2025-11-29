@@ -1,0 +1,49 @@
+shared: &shared
+  name: getCameraMatrix
+  pair: setCameraMatrix
+  description: This function gets the position of the camera and the position of the point it is facing.
+  notes:
+    - type: important
+      content: Server-side this functions returns false or the latest value set via [[setCameraMatrix]] (called from server or client.) So if you never used [[setCameraMatrix]] on serverside for that player, then it will return <b>false</b>.
+  oop:
+    - element: player
+      method: getCameraMatrix
+      variable: matrix
+      side: server
+    - element: camera
+      method: getMatrix
+      variable: matrix
+      side: client
+      static: true
+  parameters:
+    - name: thePlayer
+      type: player
+      description: The player whose camera matrix is to be returned.
+  returns:
+    description: This function returns 8 floats if the argument is valid (when applicable); the first three indicate the position of the camera, the next three indicate the position of the point it's facing, and the last two are the roll and field of view. Returns false if the argument is invalid.
+    values:
+      - type: float
+        name: positionX
+      - type: float
+        name: positionY
+      - type: float
+        name: positionZ
+      - type: float
+        name: lookAtX
+      - type: float
+        name: lookAtY
+      - type: float
+        name: lookAtZ
+      - type: float
+        name: roll
+      - type: float
+        name: fov
+
+client:
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
+  examples:
+    - path: examples/getCameraMatrix-1.lua
+    - path: examples/getCameraMatrix_OOP-1.lua
+      oop: true

@@ -105,7 +105,7 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
         },
     ],
 
-    utf8Formatting: [
+    "utf8Formatting": [
         { id: "%ddd", label: "ddd is a decimal number with variable length." },
         { id: "%{ddd}", label: "same as above, but enclosed in brackets." },
         { id: "%uddd", label: "same as **%ddd**, 'u' stands for unicode." },
@@ -115,11 +115,38 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
         { id: "%?", label: "'?' stands for any other character to be escaped."},
     ],
 
-    utf8CaseIndicators: [
+    "utf8CaseIndicators": [
         {id: "-1", label: "<code>a < b</code>"},
         {id: "0", label: "<code>a == b</code>"},
         {id: "1", label: "<code>a > b</code>"},
     ],
+
+    "cameraFOVModes": [
+        {id: "player", label: "whilst walking/running"},
+        {id: "vehicle", label: "whilst in vehicle"},
+        {id: "vehicle_max", label: "the max the field of view can go to when the vehicle is moving at a high speed (must be higher than \"vehicle\")"},
+    ],
+
+    "cameraGoggleEffects": [
+        {id: "normal", label: "No camera goggle effect"},
+        {id: "nightvision", label: "Nightvision camera"},
+        {id: "thermalvision", label: "Infrared camera"},
+    ],
+
+    "vehicleCameraViewModes": [
+        {id: 0, label: "Bumper"},
+        {id: 1, label: "Close external"},
+        {id: 2, label: "Middle external"},
+        {id: 3, label: "Far external"},
+        {id: 4, label: "Low external"},
+        {id: 5, label: "Cinematic"},
+    ],
+
+    "pedCameraViewModes": [
+        {id: 0, label: "Close"},
+        {id: 1, label: "Middle"},
+        {id: 2, label: "Far"},
+    ]
 };
 
 const icons: Record<string, string> = {

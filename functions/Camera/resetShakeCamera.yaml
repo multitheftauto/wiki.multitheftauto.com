@@ -1,16 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ResetShakeCamera
-shared:
+client:
   name: resetShakeCamera
-  description: This function cancels the shaking effect caused by **shakeCamera**
-  parameters: []
+  pair: shakeCamera
+  description: This function cancels the shaking effect caused by [[shakeCamera]].
   examples:
   - path: examples/resetShakeCamera-1.lua
-    description: This example allows you to trigger huge camera shake effect near
-      you and then cancels the effect after 5 seconds.
-    side: client
+    description: This example allows you to trigger huge camera shake effect near you and then cancels the effect after 5 seconds.
   returns:
     values:
     - type: bool
-      name: value
-    description: Always returns true .
-  requires_review: true
+      name: result
+    description: Always returns true.
+  version:
+    added: 1.6.0 r22631

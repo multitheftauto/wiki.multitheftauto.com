@@ -1,6 +1,6 @@
 function addRednessOnDamage ( )
-      fadeCamera ( source, false, 1.0, 255, 0, 0 )         -- fade the player's camera to red over a period of 1 second
-      setTimer ( fadeCameraDelayed, 500, 1, source )   -- don't let it go to opaque red, interrupt it after half a second and fade back to normal
+      fadeCamera ( source, false, 1.0, 255, 0, 0 ) -- fade the player's camera to red over a period of 1 second
+      setTimer ( fadeCameraDelayed, 500, 1, source )  -- don't let it go to opaque red, interrupt it after half a second and fade back to normal
 end
 addEventHandler ( "onPlayerDamage", root, addRednessOnDamage )
 

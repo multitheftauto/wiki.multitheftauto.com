@@ -1,53 +1,59 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraTarget
+shared: &shared
+  name: setCameraTarget
+  pair: getCameraTarget
+  description: This function allows you to set a player's camera to follow other elements instead. Currently supported element type is [[player]], [[ped]] and [[vehicle]].
+  oop:
+    - element: player
+      method: setCameraTarget
+      variable: target
+      side: server
+    - element: camera
+      method: setTarget
+      variable: target
+      static: true
+      side: client
+  parameters:
+    - name: thePlayer
+      type: player
+      description: The player whose camera you wish to modify.
+    - name: target
+      type: element
+      description: The element who you want the camera to follow. If none is specified, the camera will target the player.
+      default: nil
+  returns:
+    description: Returns true if the function was successful, false otherwise.
+    values:
+      - type: bool
+        name: result
+  meta:
+    - changelog:
+        - version: 1.5.8-9.20683
+          description: Added support for **vehicle** and **ped** types.
+
 client:
-  name: setCameraTarget
-  description: 'This function allows you to set a player''s camera to follow other
-    elements instead. Currently supported element type is:'
-  parameters:
-  - name: targetX
-    type: float
-    description: MISSING_PARAM_DESC
-  - name: targetY
-    type: float
-    description: MISSING_PARAM_DESC
-  - name: targetZ
-    type: float
-    description: MISSING_PARAM_DESC
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
+  syntaxes:
+    - name: setCameraTarget
+      parameters:
+        - name: "targetX"
+          type: float
+          description: The target X position that you want the local camera to look at.
+        - name: "targetY"
+          type: float
+          description: The target Y position that you want the local camera to look at.
+        - name: "targetZ"
+          type: float
+          description: The target Z position that you want the local camera to look at.
+      returns:
+        description: Returns true if the function was successful, false otherwise.
+        values:
+          - type: bool
+            name: result
   examples:
-  - path: examples/setCameraTarget-1.lua
-    description: ''
-    side: client
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the function was successful, false otherwise.
-  oop: &id001
-    element: player
-    method: setCameraTarget
-    variable: cameraTarget
-    static: false
-  pair: getCameraTarget
-  requires_review: true
-server:
-  name: setCameraTarget
-  description: 'This function allows you to set a player''s camera to follow other
-    elements instead. Currently supported element type is:'
-  parameters:
-  - name: thePlayer
-    type: player
-    description: The player whose camera you wish to modify.
-  - name: target
-    type: element
-    description: The element who you want the camera to follow. If none is specified,
-      the camera will target the player.
-    default: nil
-  examples: []
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the function was successful, false otherwise.
-  oop: *id001
-  pair: getCameraTarget
-  requires_review: true
+    - path: examples/setCameraTarget-1.lua
+      description: This is an example of how one could implement a spectator function. Using the left and right arrow keys you can view other players. Note that this code isn't complete as it doesn't take into account joining or quitting players.
+    - path: examples/setCameraTarget_OOP-1.lua
+      description: This is an example of how one could implement a spectator function. Using the left and right arrow keys you can view other players. Note that this code isn't complete as it doesn't take into account joining or quitting players.
+      oop: true

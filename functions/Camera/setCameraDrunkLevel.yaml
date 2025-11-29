@@ -1,22 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraDrunkLevel
-shared:
+client:
   name: setCameraDrunkLevel
-  description: Drunk effect is a wavy motion of the camera depicting the player being
-    drunk. This function used to be called [setCameraShakeLevel](/wiki/SetCameraShakeLevel
-    "SetCameraShakeLevel") which has since been deprecated.
+  description: Drunk effect is a wavy motion of the camera depicting the player being drunk.
   parameters:
   - name: shakeLevel
     type: int
-    description: MISSING_PARAM_DESC
+    description: An integer between 0 and 255, which represents the camera drunk intensity level.
   examples:
   - path: examples/setCameraDrunkLevel-1.lua
-    description: This example adds a/camdrunkcommand which allows any player to manually
-      change its camera drunk level.
-    side: client
+    description: This example adds a <code>/camdrunkcommand</code> which allows any player to manually change its camera drunk level.
   returns:
     values:
     - type: bool
       name: value
-    description: Returns true if the camera drunk level was changed, false if the
-      required argument is incorrect or missing.
-  requires_review: true
+    description: Returns true if the camera drunk level was changed, false if the required argument is incorrect or missing.
+  version:
+    updated:  1.6.0 r21795
+  meta:
+    - changelog:
+        - version:  1.6.0 r21795
+          description: This function was renamed from **setCameraShakeLevel**.

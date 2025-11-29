@@ -1,4 +1,4 @@
-g_Players = getElementsByType("player") -- get a list of all players in the server
+g_Players = Element.getAllByType("player") -- get a list of all players in the server
 for i, aPlayer in ipairs(g_Players) do -- find out what index the local player has in the list
     if aPlayer == localPlayer then
         g_CurrentSpectated = i
@@ -12,7 +12,7 @@ function spectatePrevious() -- decrement the spectate index and spectate the cor
     else
         g_CurrentSpectated = g_CurrentSpectated - 1
     end
-    setCameraTarget(g_Players[g_CurrentSpectated])
+    Camera.target = (g_Players[g_CurrentSpectated])
 end
 
 function spectateNext() -- increment the spectate index and spectate the corresponding player
@@ -21,7 +21,7 @@ function spectateNext() -- increment the spectate index and spectate the corresp
     else
         g_CurrentSpectated = g_CurrentSpectated + 1
     end
-    setCameraTarget(g_Players[g_CurrentSpectated])
+    Camera.target = (g_Players[g_CurrentSpectated])
 end
 
 -- Bind above functions to arrow keys

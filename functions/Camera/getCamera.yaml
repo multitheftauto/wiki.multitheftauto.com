@@ -1,23 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetCamera
-shared:
+client:
   name: getCamera
-  description: This function returns an [element](/wiki/Element "Element") that corresponds
-    to the game camera
-  parameters: []
+  description: This function returns an [[element]] that corresponds to the game camera.
   examples:
   - path: examples/getCamera-1.lua
     description: This example attaches (fixes) the camera to a vehicle.
-    side: client
   returns:
     values:
     - type: element
-      name: value
-    description: Returns an element that corresponds to the game camera
+      name: camera element
+    description: Returns an [[camera]] [[element]] that corresponds to the game camera.
   notes:
   - type: info
-    content: Using attachElements with the camera and the main player can interfere
-      with movement
-  - type: info
-    content: Using setElementPosition/Rotation/Matrix on the camera element will automatically
-      clear any target set with setCameraTarget
-  requires_review: true
+    content: |
+      - Using attachElements with the camera and the main player can interfere with movement.
+      - Using **setElementPosition/Rotation/Matrix** on the camera element will automatically clear any target set with [[setCameraTarget]].

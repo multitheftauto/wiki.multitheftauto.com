@@ -1,95 +1,58 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FadeCamera
-client:
+shared: &shared
   name: fadeCamera
-  description: This function will fade a player's camera to a color or back to normal
-    over a specified time period. This will also affect the sound volume for the player
-    (50% faded \= 50% volume, full fade \= no sound). For clientside scripts you can
-    perform 2 fade ins or fade outs in a row, but for serverside scripts you must
-    use one then the other.
+  description: This function will fade a player's camera to a color or back to normal over a specified time period.
+  notes:
+    - type: info
+      content: |
+        - This will also affect the sound volume for the player (50% faded = 50% volume, full fade = no sound).
+        - For **clientside** scripts you can perform 2 fade ins or fade outs in a row, but for serverside scripts you must use one then the other.
+  oop:
+    - element: player
+      method: fadeCamera
+      side: server
+    - element: camera
+      method: fade
+      static: true
+      side: client
   parameters:
-  - name: fadeIn
-    type: bool
-    description: Should the camera be faded in our out? Pass true to fade the camera
-      in, false to fade it out to a color.
-  - name: timeToFade
-    type: float
-    description: The number of seconds it should take to fade.
-    default: '1.0'
-  - name: red
-    type: int
-    description: The amount of red in the color that the camera fades out to (0 -
-      255). Not required for fading in.
-    default: '0'
-  - name: green
-    type: int
-    description: The amount of green in the color that the camera fades out to (0
-      - 255). Not required for fading in.
-    default: '0'
-  - name: blue
-    type: int
-    description: The amount of blue in the color that the camera fades out to (0 -
-      255). Not required for fading in.
-    default: '0'
-  examples: []
+    - name: thePlayer
+      type: player
+      description: The [[player]] whose camera you wish to fade.
+    - name: fadeIn
+      type: bool
+      description: Should the camera be faded in or out? Pass **true** to fade the camera in, **false** to fade it out to a color.
+    - name: timeToFade
+      type: float
+      description: The number of seconds it should take to fade.
+      default: '1.0'
+    - name: red
+      type: int
+      description: The amount of red in the color that the camera fades out to (0 - 255). Not required for fading in.
+      default: '0'
+    - name: green
+      type: int
+      description: The amount of green in the color that the camera fades out to (0 - 255). Not required for fading in.
+      default: '0'
+    - name: blue
+      type: int
+      description: The amount of blue in the color that the camera fades out to (0 - 255). Not required for fading in.
+      default: '0'
   returns:
+    description: Returns true if the camera was faded successfully, false if invalid arguments were passed to the function.
     values:
-    - type: bool
-      name: value
-    description: Returns true if the camera was faded successfully, false if invalid
-      arguments were passed to the function.
-  oop: &id001
-    element: player
-    method: fadeCamera
-    static: false
-  notes: &id002
-  - type: info
-    content: The speed of the effect depends directly on the current gamespeed.
-  requires_review: true
+      - type: bool
+        name: result
+
 server:
-  name: fadeCamera
-  description: This function will fade a player's camera to a color or back to normal
-    over a specified time period. This will also affect the sound volume for the player
-    (50% faded \= 50% volume, full fade \= no sound). For clientside scripts you can
-    perform 2 fade ins or fade outs in a row, but for serverside scripts you must
-    use one then the other.
-  parameters:
-  - name: thePlayer
-    type: player
-    description: The player whose camera you wish to fade.
-  - name: fadeIn
-    type: bool
-    description: Should the camera be faded in or out? Pass true to fade the camera
-      in, false to fade it out to a color.
-  - name: timeToFade
-    type: float
-    description: The number of seconds it should take to fade.
-    default: '1.0'
-  - name: red
-    type: int
-    description: The amount of red in the color that the camera fades out to (0 -
-      255). Not required for fading in.
-    default: '0'
-  - name: green
-    type: int
-    description: The amount of green in the color that the camera fades out to (0
-      - 255). Not required for fading in.
-    default: '0'
-  - name: blue
-    type: int
-    description: The amount of blue in the color that the camera fades out to (0 -
-      255). Not required for fading in.
-    default: '0'
+  <<: *shared
   examples:
-  - path: examples/fadeCamera-1.lua
-    description: When a player gets damaged, place a quick fade-to-red effect on his
-      screen.
-    side: server
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the camera was faded successfully, false if invalid
-      arguments were passed to the function.
-  oop: *id001
-  notes: *id002
-  requires_review: true
+    - path: 'examples/fadeCamera-1.lua'
+      description: When a [[player]] gets damaged, place a quick fade-to-red effect on his screen.
+    - path: 'examples/fadeCamera_OOP-1.lua'
+      description: When a [[player]] gets damaged, place a quick fade-to-red effect on his screen.
+      oop: true
+
+client:
+  <<: *shared
+  ignore_parameters:
+    - thePlayer

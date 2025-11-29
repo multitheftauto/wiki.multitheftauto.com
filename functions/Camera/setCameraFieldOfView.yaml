@@ -1,44 +1,44 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraFieldOfView
-shared:
+client:
   name: setCameraFieldOfView
-  description: This function sets the field of view of the *dynamic camera* \- this
-    is the field of view of the *non\-fixed camera* \- yes, the camera that the user
-    can control whilst on foot or in a vehicle. The higher the field of view angle,
-    the more you will be able to see to your sides.
-  parameters:
-  - name: cameraMode
-    type: string
-    description: 'the camera mode to set the field of view of: "player": whilst walking/running
-      "vehicle": whilst in vehicle "vehicle_max": the max the field of view can go
-      to when the vehicle is moving at a high speed (must be higher than "vehicle"
-      | the normal difference between "vehicle" and "vehicle_max" is 10)'
-  - name: fieldOfView
-    type: float
-    description: The field of view angle, 0 to 179.
-  - name: instant
-    type: bool
-    description: MISSING_PARAM_DESC
-    default: 'false'
-  examples:
-  - path: examples/setCameraFieldOfView-1.lua
-    description: In this example, the field of view for 'player walking/running' camera
-      is set to 20, once resource fully starts.
-    side: client
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the arguments are valid, false otherwise.
+  pair: getCameraFieldOfView
+  description: This function sets the field of view of the dynamic camera - this is the field of view of the non-fixed camera - yes, the camera that the user can control whilst on foot or in a vehicle. The higher the field of view angle, the more you will be able to see to your sides.
   oop:
-    element: Camera
+    element: camera
     method: setFieldOfView
     static: true
-  pair: getCameraFieldOfView
   notes:
-  - type: info
-    content: This function omits (but doesn't override) the user game option in Settings
-      -> Video -> FOV
-  - type: info
-    content: 'It doesn''t affect the FOV for the following camera modes: 1) Player
-      aiming 2) Vehicle front bumper camera 3) Fixed camera'
-  requires_review: true
+    - type: info
+      content: |
+        - This function omits (but doesn't override) the user game option in <b>Settings -> Video -> FOV</b>.
+        - It doesn't affect the FOV for the following camera modes: player aiming, vehicle front bumper camera, fixed camera.
+    - type: warning
+      content: When fov is > 100, some unexpected things may happen to the camera, particularly in vehicles, use carefully!
+  parameters:
+    - name: cameraMode
+      type: string
+      description: The camera mode to set the field of view of.
+      templateList: cameraFOVModes
+    - name: fieldOfView
+      type: float
+      description: The field of view angle, 0 to 179.
+    - name: instant
+      type: bool
+      description: If set to true, the value is applied immediately, without delay (does not work with "vehicle_max").
+      default: 'false'
+  returns:
+    description: Returns true if the arguments are valid, false otherwise.
+    values:
+      - type: bool
+        name: result
+  examples:
+    - path: examples/setCameraFieldOfView-1.lua
+      description: In this example, the field of view for 'player walking/running' camera is set to 20, once resource fully starts.
+    - path: examples/setCameraFieldOfView_OOP-1.lua
+      description: In this example, the field of view for 'player walking/running' camera is set to 20, once resource fully starts.
+      oop: true
+  version:
+    updated: 1.6.0 r23300
+  meta:
+    - changelog:
+        - version: 1.6.0 r23300
+          description: Added **instant** argument.

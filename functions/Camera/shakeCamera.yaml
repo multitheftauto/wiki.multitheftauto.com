@@ -1,22 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ShakeCamera
-shared:
+client:
   name: shakeCamera
-  description: This function allows you to trigger camera shake effect (just like
-    explosion does).
+  description: This function allows you to trigger camera shake effect (just like explosion does).
   parameters:
   - name: force
     type: float
-    description: Intensity and time of the shake. The higher the value, the longer
-      the camera shakes
+    description: Intensity and time of the shake. The higher the value, the longer the camera shakes.
   - name: x
     type: float
     description: Center X coordinate of the shake.
+    default: nil
   - name: "y"
     type: float
     description: Center Y coordinate of the shake.
+    default: nil
   - name: z
     type: float
     description: Center Z coordinate of the shake.
+    default: nil
   examples:
   - path: examples/shakeCamera-1.lua
     description: This example allows you to constantly trigger camera shake effect
@@ -26,10 +26,12 @@ shared:
   returns:
     values:
     - type: bool
-      name: value
-    description: Always returns true .
+      name: result
+    description: Always returns true.
   notes:
   - type: info
-    content: The camera shaking duration depends on the force. High values ​​can result
-      in very long durations
-  requires_review: true
+    content: |
+      - The camera shaking duration depends on the force. High values can result in very long durations. That's why [[resetShakeCamera]] exists.
+      - If position not given, it will defaults to local player position.
+  version:
+    added: 1.6.0 r22631

@@ -1,6 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetCameraClip
-shared:
+client:
   name: setCameraClip
+  pair: getCameraClip
   description: This function sets if the camera will "collide" with any objects or
     vehicles in its way. This means that if object clip is enabled an object is in
     the way of where the camera actually wants to be, the camera will try to be in
@@ -16,16 +16,16 @@ shared:
     default: 'true'
   examples:
   - path: examples/setCameraClip-1.lua
-    description: This function enables it to look through cars
-    side: client
+    description: This function enables it to look through cars.
+  - path: examples/setCameraClip_OOP-1.lua
+    description: This function enables it to look through cars.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Always returns true .
+      name: result
+    description: Always returns true.
   oop:
     element: Camera
-    method: )
+    method: setClip
     static: true
-  pair: getCameraClip
-  requires_review: true
