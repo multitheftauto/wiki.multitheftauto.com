@@ -129,19 +129,20 @@ export function parseFunctionSyntaxes(funcName: string, funcData: FunctionData):
       JSON.stringify(clientReturns) === JSON.stringify(serverReturns)
     ) {
       pushSyntax('shared', sharedParams, sharedReturns);
+      pushExtraSyntaxes(shared);
     } else {
       pushSyntax('client', clientParams, clientReturns);
+      pushExtraSyntaxes(client);
       pushSyntax('server', serverParams, serverReturns);
+      pushExtraSyntaxes(server);
     }
   } else if (funcType === 'client') {
     pushSyntax('client', client?.parameters || [], client?.returns || null);
+    pushExtraSyntaxes(client);
   } else if (funcType === 'server') {
     pushSyntax('server', server?.parameters || [], server?.returns || null);
+    pushExtraSyntaxes(server);
   }
-
-  pushExtraSyntaxes(shared);
-  pushExtraSyntaxes(client);
-  pushExtraSyntaxes(server);
 
   return syntaxes;
 }
