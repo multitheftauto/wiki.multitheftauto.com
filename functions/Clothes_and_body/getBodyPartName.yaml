@@ -1,22 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetBodyPartName
-shared:
+shared: &shared
   name: getBodyPartName
   description: This function is used to get the name of a body part on a player.
   parameters:
   - name: bodyPartID
     type: int
-    description: 'An integer representing the body part ID you wish to retrieve the
-      name of. 3: Torso 4: Ass 5: Left Arm 6: Right Arm 7: Left Leg 8: Right Leg 9:
-      Head'
-  examples:
-  - path: examples/getBodyPartName-1.lua
-    description: This example prints the killer and body part to the chat on the wasted/kill
-      event.
-    side: server
+    description: An integer representing the body part ID you wish to retrieve the name of.
+    templateList: bodyParts
   returns:
     values:
     - type: string
-      name: value
-    description: This function returns a string containing the body part name if the
-      ID is valid, false otherwise.
-  requires_review: true
+      name: body part name
+    description: This function returns a string containing the body part name if the ID is valid, false otherwise.
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/getBodyPartName-1.lua
+    description: This example prints the killer and body part to the chat on the wasted/kill event.
