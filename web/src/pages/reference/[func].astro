@@ -83,6 +83,8 @@ const changelogEntries = metaArray.find((m: MetaItem) => m.changelog)?.changelog
 const needsChecking = metaArray.find((m: MetaItem) => m.needs_checking)?.needs_checking;
 
 let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
+
+const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [funcInfo.oop]: [];
 ---
 
 <div class={`show-type-badge-${funcType}`}>
@@ -170,35 +172,87 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
     )}
 
     <!-- OOP Syntax -->
-    {funcInfo.oop && (
+    {oopList.length > 0 && (
       <div class="function-oop">
-        <h4>OOP Syntax <a class="small-text" href="/reference/OOP">Help! I don't understand this!</a></h4>
-        <ul>
-          {funcInfo.oop.note && (
-            <li><i><Fragment set:html={marked("<b>Note:</b> " + funcInfo.oop.note)} /></i></li>
-          )}
+        <h4>
+          OOP Syntax 
+          <a class="small-text" href="/reference/OOP">Help! I don't understand this!</a>
+        </h4>
 
-          {funcInfo.oop.constructorclass ? (
-            <li>
-              <strong>Constructor</strong>:
-              <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.constructorclass}</a>(...)
-            </li>
-          ) : (
-            <>
-              {funcInfo.oop.method && (
-                <li>
-                  <strong>Method</strong>:
-                  <a href={`/reference/${funcInfo.oop.element}`}>{funcInfo.oop.static ? getFixedStaticOOPClass(funcInfo.oop.element) : funcInfo.oop.element}</a>{funcInfo.oop.static ? '.' : ':'}{funcInfo.oop.method}(...)
-                </li>
+        {oopList.length > 1 && (
+          oopList.map((oopItem) => (
+            <div class="oop-block">
+              {oopItem.side && (
+                <h5>{oopItem.side.charAt(0).toUpperCase() + oopItem.side.slice(1)} OOP syntax</h5>
               )}
-              {funcInfo.oop.variable && (
-                <li>
-                  <strong>Variable</strong>: .{funcInfo.oop.variable}
-                </li>
-              )}
-            </>
-          )}
-        </ul>
+              <ul>
+                {oopItem.note && (
+                  <li>
+                    <i>
+                      <Fragment set:html={marked("<b>Note:</b> " + oopItem.note)} />
+                    </i>
+                  </li>
+                )}
+
+                {oopItem.constructorclass ? (
+                  <li>
+                    <strong>Constructor</strong>:
+                    <a href={`/reference/${oopItem.element}`}>{oopItem.constructorclass}</a>(...)
+                  </li>
+                ) : (
+                  <>
+                    {oopItem.method && (
+                      <li>
+                        <strong>Method</strong>:<a href={`/reference/${oopItem.element}`}>{oopItem.static ? getFixedStaticOOPClass(oopItem.element) : oopItem.element}</a>{oopItem.static ? "." : ":"}{oopItem.method}(...)
+                      </li>
+                    )}
+                    {oopItem.variable && (
+                      <li>
+                        <strong>Variable</strong>: .{oopItem.variable}
+                      </li>
+                    )}
+                  </>
+                )}
+              </ul>
+            </div>
+          ))
+        )}
+
+        {oopList.length === 1 && (
+          // We already have several dozen functions documented, so we need to maintain backward compatibility - that’s why it’s here
+          <ul>
+            {oopList[0].note && (
+              <li>
+                <i>
+                  <Fragment set:html={marked("<b>Note:</b> " + oopList[0].note)} />
+                </i>
+              </li>
+            )}
+
+            {oopList[0].constructorclass ? (
+              <li>
+                <strong>Constructor</strong>:
+                <a href={`/reference/${oopList[0].element}`}>
+                  {oopList[0].constructorclass}
+                </a>(...)
+              </li>
+            ) : (
+              <>
+                {oopList[0].method && (
+                  <li>
+                    <strong>Method</strong>:<a href={`/reference/${oopList[0].element}`}>{oopList[0].static ? getFixedStaticOOPClass(oopList[0].element) : oopList[0].element}</a>{oopList[0].static ? "." : ":"}{oopList[0].method}(...)
+                  </li>
+                )}
+
+                {oopList[0].variable && (
+                  <li>
+                    <strong>Variable</strong>: .{oopList[0].variable}
+                  </li>
+                )}
+              </>
+            )}
+          </ul>
+        )}
       </div>
     )}
 

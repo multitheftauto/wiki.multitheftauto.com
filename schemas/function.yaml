@@ -6,13 +6,13 @@ type: object
 properties:
   shared:
     description: A shared specification of a function.
-    $ref: '#/$defs/common_properties'
+    $ref: "#/$defs/common_properties"
   server:
     description: A server-side specification of a function.
-    $ref: '#/$defs/common_properties'
+    $ref: "#/$defs/common_properties"
   client:
     description: A client-side specification of a function.
-    $ref: '#/$defs/common_properties'
+    $ref: "#/$defs/common_properties"
 
 $defs:
   common_properties:
@@ -22,13 +22,13 @@ $defs:
       description: Additional syntaxes for function.
       items:
         allOf:
-          - $ref: '#/$defs/common_properties'
+          - $ref: "#/$defs/common_properties"
           - type: object
             properties:
               displayParams:
-                type: boolean
-                description: Specifies whether to display the parameters and returns sections.
-                default: true
+              type: boolean
+              description: Specifies whether to display the parameters and returns sections.
+              default: true
     required:
       - name
     properties:
@@ -45,69 +45,95 @@ $defs:
         type: string
         description: Associates this function with another getter or setter function.
       oop:
-        $ref: '#/$defs/oop'
+        $ref: "#/$defs/oop"
       disabled:
-          description: |
-            Describe why the function was disabled, and if there is an alternative approach;
-            or just set the property to "true".
-          anyOf:
-            - type: string
-            - const: true
+        description: |
+          Describe why the function was disabled, and if there is an alternative approach;
+          or just set the property to "true".
+        anyOf:
+          - type: string
+          - const: true
       parameters:
-        $ref: '#/$defs/parameters'
+        $ref: "#/$defs/parameters"
       ignore_parameters:
-        $ref: '#/$defs/ignore_parameters'
+        $ref: "#/$defs/ignore_parameters"
       returns:
-        $ref: '#/$defs/returns'
+        $ref: "#/$defs/returns"
       meta:
-        $ref: 'common-defs.yaml#/$defs/meta'
+        $ref: "common-defs.yaml#/$defs/meta"
       notes:
-        $ref: 'common-defs.yaml#/$defs/notes'
+        $ref: "common-defs.yaml#/$defs/notes"
       preview_images:
-        $ref: 'common-defs.yaml#/$defs/preview_images'
+        $ref: "common-defs.yaml#/$defs/preview_images"
       version:
-        $ref: 'common-defs.yaml#/$defs/version'
+        $ref: "common-defs.yaml#/$defs/version"
       issues:
-        $ref: 'common-defs.yaml#/$defs/issues'
+        $ref: "common-defs.yaml#/$defs/issues"
       examples:
-        $ref: 'common-defs.yaml#/$defs/examples'
+        $ref: "common-defs.yaml#/$defs/examples"
       see_also:
-        $ref: 'common-defs.yaml#/$defs/see_also'
+        $ref: "common-defs.yaml#/$defs/see_also"
       requires_review:
-        $ref: 'common-defs.yaml#/$defs/requires_review'
-  
+        $ref: "common-defs.yaml#/$defs/requires_review"
+
   oop:
-    type: object
     description: Object-Oriented Programming (OOP) information block for the function.
-    required:
-      - element
-    properties:
-      note:
-        type: string
-        description: A piece of information to show alongside OOP syntax.
-      element:
-        type: string
-        description: Name of the element or userdata.
     oneOf:
-      - required:
-          - method
+      - type: object
+        required:
+          - element
         properties:
-          method:
+          note:
             type: string
-            description: Name of the method.
-          static:
-            type: boolean
-            default: false
-            description: If set to true, this method will be marked as static.
-          variable:
+          element:
             type: string
-            description: Name of the variable without a leading dot.
-      - required:
-          - constructorclass
-        properties:
-          constructorclass:
+          side:
             type: string
-            description: Name of the constructor class.
+            enum: [client, server]
+
+          oneOf:
+            - required: [method]
+              properties:
+                method:
+                  type: string
+                static:
+                  type: boolean
+                  default: false
+                variable:
+                  type: string
+            - required: [constructorclass]
+              properties:
+                constructorclass:
+                  type: string
+
+      - type: array
+        items:
+          type: object
+          required:
+            - element
+          properties:
+            note:
+              type: string
+            element:
+              type: string
+            side:
+              type: string
+              enum: [client, server]
+
+            oneOf:
+              - required: [method]
+                properties:
+                  method:
+                    type: string
+                  static:
+                    type: boolean
+                  variable:
+                    type: string
+
+              - required: [constructorclass]
+                properties:
+                  constructorclass:
+                    type: string
 
   parameters:
     type: array
