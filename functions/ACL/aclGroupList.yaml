@@ -9,7 +9,7 @@ server:
     values:
       - type: table
         name: acl groups list
-    description: Returns a [[table]] of all the ACL groups if successful, returns an empty table if no ACL groups exist. false/nil can be returned if this function fails for some other reason.
+    description: Returns a [[table]] of all the ACL groups if successful, returns an empty [[table]] if no ACL groups exist. **false/nil** can be returned if this function fails for some other reason.
   examples:
     - path: examples/aclGroupList-1.lua
       description: This example shows, how to output all ACL Group names by <code>showAclGroups</code>.

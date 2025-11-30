@@ -6,7 +6,7 @@ local function banPlayerCommand(thisPlayer, commandName, bannedName, reason)
             thisPlayer:outputChat("ban: " .. bannedName .. " successfully banned") -- Send the banner a succes message
             thisPlayer:outputChat("At Serial: " ..theBan.serial) -- And send him the serial of the banned player
         else
-            thisPlayer:outputChat("Player "..bannedName." not found")
+            thisPlayer:outputChat("Player "..bannedName.." not found")
         end
     else
         thisPlayer:outputChat("ban: You don't have enough permissions") -- If the command user doesn't have the permissions

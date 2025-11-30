@@ -26,7 +26,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns a true if the account data was set, false if an invalid argument was specified.
+    description: Returns a **true** if the account data was set, **false** if an invalid argument was specified.
   examples:
     - path: examples/setAccountData-1.lua
       description: |

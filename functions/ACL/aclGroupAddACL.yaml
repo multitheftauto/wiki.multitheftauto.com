@@ -16,7 +16,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[ACL]] could be successfully added to the [ACL group](/reference/aclgroup), false/nil if either of the elements are invalid, the ACL is already in that group or if something else goes wrong.
+    description: Returns **true** if the [[ACL]] could be successfully added to the [ACL group](/reference/aclgroup), **false/nil** if either of the elements are invalid, the ACL is already in that group or if something else goes wrong.
   examples:
     - path: examples/aclGroupAddACL-1.lua
       description: This example adds a command <code>addAclGroup</code> with which you can easily add new access control lists to specified acl Groups.

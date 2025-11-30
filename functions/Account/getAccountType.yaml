@@ -14,10 +14,10 @@ server:
     values:
       - type: string
         name: account type
-    description: Returns string containing the type **(player, guest or console)** of the account if the account is valid.
+    description: Returns [[string]] containing the type **(player, guest** or **console)** of the account if the account is valid, **unknown** or error otherwise.
   examples:
     - path: examples/getAccountType-1.lua
-      description: This example adds command accountInfo that outputs provided account info.
+      description: This example adds command <code>accountInfo</code> that outputs provided account info.
     - path: examples/getAccountType_OOP-1.lua
-      description: This example adds command accountInfo that outputs provided account info.
+      description: This example adds command <code>accountInfo</code> that outputs provided account info.
       oop: true

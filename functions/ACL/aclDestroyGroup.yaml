@@ -12,7 +12,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the ACL group was successfully deleted, false if it could not be deleted for some reason (ie. invalid argument).
+    description: Returns **true** if the ACL group was successfully deleted, **false** if it could not be deleted for some reason (ie. invalid argument).
   examples:
     - path: examples/aclDestroyGroup-1.lua
       description: This example allows admins to remove an ACL group they specify.

@@ -12,7 +12,7 @@ server:
     values:
       - type: bool
         name: resullt
-    description: Returns true if successfully destroyed and false if it could not be deleted (ie. it's not valid).
+    description: Returns **true** if successfully destroyed and **false** if it could not be deleted (ie. it's not valid).
   examples:
     - path: examples/aclDestroy-1.lua
       description: This example shows you a command to delete an ACL.

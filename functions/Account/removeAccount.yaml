@@ -13,7 +13,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if account was successfully removed, false if the account does not exist.
+    description: Returns **true** if account was successfully removed, **false** if the account does not exist.
   examples:
     - path: examples/removeAccount-1.lua
       description: This example deletes the specified account when the <code>deregister</code> command is entered.

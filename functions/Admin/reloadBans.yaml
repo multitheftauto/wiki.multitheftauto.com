@@ -9,7 +9,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the ban list was reloaded successfully, false otherwise.
+    description: Returns **true** if the ban list was reloaded successfully, **false** otherwise.
   examples:
     - path: examples/reloadBans-1.lua
       description: This example add command <code>reloadban</code> to reload the server ban list file.

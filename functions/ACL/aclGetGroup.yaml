@@ -13,7 +13,7 @@ server:
     values:
       - type: aclgroup|false
         name: acl group
-    description: Returns the [[aclgroup]] if it could be found. Returns false/nil if it did not exist or failed for some reason.
+    description: Returns the [[aclgroup]] if it could be found. Returns **false/nil** if it did not exist or failed for some reason.
   examples:
     - path: examples/aclGetGroup-1.lua
       description: This example makes every player able to use a command named <code>giveAccountAdminRights</code> that will add a specific accountname as an ACL object to the <code>Admin</code> group.

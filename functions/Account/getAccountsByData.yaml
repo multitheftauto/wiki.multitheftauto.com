@@ -16,7 +16,7 @@ server:
     values:
       - type: table|false
         name: accounts table
-    description: Returns [[table]] containing the accounts associated with specified value at dataName. Returns false if invalid arguments were specified.
+    description: Returns [[table]] containing the accounts associated with specified value at dataName. Returns **false** if invalid arguments were specified.
   examples:
     - path: examples/getAccountsByData-1.lua
       description: This example displays in the chat how many players are working in the police in a sample RPG gamemode after typing the command <code>policecount</code>.

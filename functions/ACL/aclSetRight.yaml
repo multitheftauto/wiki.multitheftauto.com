@@ -19,7 +19,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the access was successfully changed, false or nil if it failed for some reason, ie. invalid ACL or the rightName is invalid.
+    description: Returns **true** if the access was successfully changed, **false** or **nil** if it failed for some reason, ie. invalid ACL or the rightName is invalid.
   examples:
     - path: examples/aclSetRight-1.lua
       description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.

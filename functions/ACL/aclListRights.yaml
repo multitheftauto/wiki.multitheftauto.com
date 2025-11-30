@@ -16,7 +16,7 @@ server:
     values:
       - type: table|false
         name: acl rights list
-    description: Returns a [[table]] over the rights as strings in the given [[ACL]]. This table might be empty. Returns false or nil if theACL is invalid or it fails for some other reason.
+    description: Returns a [[table]] over the rights as strings in the given [[ACL]]. This table might be empty. Returns **false** or **nil** if theACL is invalid or it fails for some other reason.
   examples:
     - path: examples/aclListRights-1.lua
       description: This example outputs the rights of the given acl. 

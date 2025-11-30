@@ -13,7 +13,7 @@ server:
     values:
       - type: int|false
         name: ban time
-    description: Returns an integer of the banning time in the format of seconds from the year 1970. Use in conjunction with [[getRealTime]] in order to retrieve detailed information. Returns false if invalid arguments were specified or if there was no banning time specified for the [[ban]].
+    description: Returns an [integer](/reference/int) of the banning time in the format of seconds from the year 1970. Use in conjunction with [[getRealTime]] in order to retrieve detailed information. Returns **false** if invalid arguments were specified or if there was no banning time specified for the [[ban]].
   examples:
     - path: examples/getBanTime-1.lua
     - path: examples/getBanTime_OOP-1.lua

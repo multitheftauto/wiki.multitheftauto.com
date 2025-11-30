@@ -15,7 +15,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the given right was successfully removed from the given [[ACL]], false or nil if it could not be removed for some reason, ie. it didn't exist in the ACL.
+    description: Returns **true** if the given right was successfully removed from the given [[ACL]], **false** or **nil** if it could not be removed for some reason, ie. it didn't exist in the ACL.
   examples:
     - path: examples/aclRemoveRight-1.lua
       description: This example removes an acl right on resource start.

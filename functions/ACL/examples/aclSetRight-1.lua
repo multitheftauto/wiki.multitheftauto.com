@@ -1,6 +1,6 @@
 local function setACLRight(thePlayer, commandName, aclName, rightName, access)
     -- turn the boolean string to lower case
-    access = string.lower ( access )
+    access = string.lower(access)
     -- access has to be either true or false (booleans)
     if (access ~= "true" and access ~= "false") then
         -- print out error message to debug window

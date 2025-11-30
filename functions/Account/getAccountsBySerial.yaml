@@ -13,7 +13,7 @@ server:
     values:
       - type: table|false
         name: accounts table
-    description: Returns [[table]] containing the accounts associated with specified [[serial]]. Returns false if invalid arguments were specified.
+    description: Returns [[table]] containing the accounts associated with specified [serial](/articles/serial). Returns **false** if invalid arguments were specified.
   examples:
     - path: examples/getAccountsBySerial-1.lua
       description: This example adds command <code>getAccounts</code> that outputs the number of accounts a player has in the chat box.

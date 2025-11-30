@@ -13,7 +13,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the game type was set, false if an invalid argument was passed to the function.
+    description: Returns **true** if the game type was set, **false** if an invalid argument was passed to the function.
   examples:
     - path: examples/setGameType-1.lua
       description: This example adds a command to change the game type.

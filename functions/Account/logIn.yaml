@@ -19,7 +19,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[player]] was successfully logged into the given [[account]]. Returns false or nil if the log in failed for some reason, ie. the player was already logged in to some account (use [[logOut]] first), if the account was already in use or if it failed for some other reason.
+    description: Returns **true** if the [[player]] was successfully logged into the given [[account]]. Returns **false** if the log in failed for some reason, ie. the player was already logged in to some account (use [[logOut]] first), if the account was already in use or if it failed for some other reason.
   examples:
     - path: examples/logIn-1.lua
       description: This example logs the player into the specified account when the <code>log-in</code> command is entered, if the account & password is correct.

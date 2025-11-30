@@ -14,7 +14,7 @@ server:
     values:
       - type: string|false
         name: admin name
-    description: Returns a [[string]] of the admin if everything was successful, false if invalid arguments are specified if there was no admin specified for the ban.
+    description: Returns a [[string]] of the admin if everything was successful, **false** if invalid arguments are specified if there was no admin specified for the ban.
   examples:
     - path: examples/getBanAdmin-1.lua
     - path: examples/getBanAdmin_OOP-1.lua

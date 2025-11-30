@@ -1,4 +1,4 @@
-addCommandHandler("aclObjectList",function(player,command,aclGroup)
+addCommandHandler("aclObjectList", function(player, command, aclGroup)
 	if (not aclGroup) then -- Was the group name provided?
 		player:outputChat("You must provide the group name!", 255, 255, 255)
 		return
@@ -9,7 +9,7 @@ addCommandHandler("aclObjectList",function(player,command,aclGroup)
 		local objects = group.objects -- or group:listObjects()
 		player:outputChat("List of objects in group "..aclGroup.." (#"..#objects..")", 255, 255, 255)
 
-		for k,v in ipairs(objects) do
+		for k, v in ipairs(objects) do
 			player:outputChat("- "..v)
 		end
 	else

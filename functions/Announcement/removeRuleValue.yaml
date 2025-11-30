@@ -4,12 +4,12 @@ server:
   parameters:
     - name: key
       type: string
-      description: he name of the rule you wish to remove.
+      description: The name of the rule you wish to remove.
   returns:
     values:
       - type: bool
         name: result
-    description: Returns true if the rule value was removed, false if it failed.
+    description: Returns **true** if the rule value was removed, **false** if it failed.
   examples:
     - path: examples/removeRuleValue-1.lua
       description: This example shows how you could unset/remove a rule that shows that your script is running on the server.

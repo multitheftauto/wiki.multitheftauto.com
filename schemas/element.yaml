@@ -6,6 +6,9 @@ required:
   - name
   - description
 properties:
+  redirect:
+    type: string
+    description: Redirect to other page.
   name:
     type: string
     description: Lowercase name of the element.

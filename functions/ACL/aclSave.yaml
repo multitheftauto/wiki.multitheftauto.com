@@ -9,7 +9,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[ACL]] was successfully changed, false or nil if it could not be saved for some reason, ie. file in use.
+    description: Returns **true** if the [[ACL]] was successfully changed, **false** if it could not be saved for some reason, ie. file in use.
   examples:
     - path: examples/aclSave-1.lua
       description: This example saves the ACL when somebody types <code>/save-acl</code>.

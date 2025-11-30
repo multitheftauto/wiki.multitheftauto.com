@@ -9,7 +9,7 @@ server:
     values:
       - type: account|false
         name: account
-    description: Returns account associated with specified ID. Returns false if invalid arguments were specified or there is no account with this ID..
+    description: Returns [[account]] associated with specified ID. Returns **false** if invalid arguments were specified or there is no account with this ID..
   examples:
     - path: 'examples/getAccountByID-1.lua'
-      description: This example adds command *getAccount* that outputs the account-name of the account with ID.
+      description: This example adds command <code>/getAccount</code> that outputs the account-name of the account with ID.

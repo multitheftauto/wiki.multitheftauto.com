@@ -6,7 +6,7 @@ local function banPlayerCommand(thisPlayer, commandName, bannedName, reason)
             outputChatBox("ban: " .. bannedName .. " successfully banned", thisPlayer) -- Send the banner a succes message
             outputChatBox("At IP Adress: " ..getBanIP(theBan), thisPlayer) -- And send him the IP adress of the banned player
         else
-            outputChatBox("Player "..bannedName." not found", thisPlayer)
+            outputChatBox("Player "..bannedName.." not found", thisPlayer)
         end
     else
         outputChatBox("ban: You don't have enough permissions", thisPlayer) -- If the command user doesn't have the permissions

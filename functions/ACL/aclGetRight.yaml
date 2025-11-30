@@ -16,7 +16,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true or false if the [[ACL]] gives access or not to the given function. Returns nil if it failed for some reason, e.g. an invalid ACL was specified or the right specified does not exist in the ACL.
+    description: Returns **true** or **false** if the [[ACL]] gives access or not to the given function. Returns **nil** if it failed for some reason, e.g. an invalid ACL was specified or the right specified does not exist in the ACL.
   examples:
     - path: examples/aclGetRight-1.lua
       description: This example lets players check if an ACL group has access to something or not.

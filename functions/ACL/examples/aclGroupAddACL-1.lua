@@ -11,10 +11,10 @@ local function addAclGroup(thePlayer, commandName, groupName, aclName)
             aclGroupAddACL(group, acl)
             aclSave()
         else
-            outputChatBox("Group with the name "..groupName.." does not exist", thePlayer, 255, 255, 255)
+            outputChatBox("Group with the name " .. groupName .." does not exist", thePlayer, 255, 255, 255)
         end
     else
-        outputChatBox("ACL "..aclName.." does not exist", thePlayer, 255, 255, 255)
+        outputChatBox("ACL " .. aclName .. " does not exist", thePlayer, 255, 255, 255)
     end
 end
 addCommandHandler("addAclGroup", addAclGroup)

@@ -17,7 +17,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if changed, false otherwise.
+    description: Returns **true** if changed, **false** otherwise.
   examples:
     - path: examples/setBanNick-1.lua
     - path: examples/setBanNick_OOP-1.lua

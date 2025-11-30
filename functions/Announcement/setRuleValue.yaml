@@ -13,7 +13,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the rule value was set, false if invalid arguments were specified.
+    description: Returns **true** if the rule value was set, **false** if invalid arguments were specified.
   examples:
     - path: examples/setRuleValue-1.lua
       description: This example shows how you could set a rule that shows that your script is running on the server.

@@ -13,7 +13,7 @@ server:
     values:
       - type: int|false
         name: account id
-    description: Returns a int containing the account's ID, false if the account does not exist or an invalid argument was passed to the function.
+    description: Returns a [[int]] containing the account's ID, **false** if the account does not exist or an invalid argument was passed to the function.
   examples:
     - path: examples/getAccountID-1.lua
       description: This example announces into the console when a player logs into his account.

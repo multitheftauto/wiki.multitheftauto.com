@@ -20,7 +20,7 @@ server:
     values:
       - type: account|false
         name: result
-    description: Returns an account or false if an account matching the username specified (and password, if specified) could not be found.
+    description: Returns an [[account]] or **false** if an account matching the username specified (and password, if specified) could not be found.
   examples:
     - path: 'examples/getAccount-1.lua'
       description: This function checks if the account mentioned exists in the internal.db database file.

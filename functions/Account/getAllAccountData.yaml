@@ -13,7 +13,7 @@ server:
     values:
       - type: table|false
         name: accounts table
-    description: A table containing all the user data. This table might be empty. False if invalid argument.
+    description: A [[table]] containing all the user data, this table might be empty. **false** if invalid argument.
   examples:
     - path: examples/getAllAccountData-1.lua
       description: |

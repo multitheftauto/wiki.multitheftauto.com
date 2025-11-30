@@ -14,7 +14,7 @@ server:
     values:
       - type: account|false
         name: player's account
-    description: Returns the player's account object, or false if the player passed to the function is invalid.
+    description: Returns the player's [[account]] object, or **false** if the player passed to the function is invalid.
   examples:
     - path: examples/getPlayerAccount-1.lua
       description: This example sets a player's money and also stores the value is his account.

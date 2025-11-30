@@ -17,7 +17,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if changed successfully, false otherwise.
+    description: Returns **true** if changed successfully, **false** otherwise.
   examples:
     - path: examples/setUnbanTime-1.lua
     - path: examples/setUnbanTime_OOP-1.lua

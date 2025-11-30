@@ -18,7 +18,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the object is in the specified group, false otherwise.
+    description: Returns **true** if the object is in the specified group, **false** otherwise.
   examples:
     - path: examples/isObjectInACLGroup-1.lua
       description: This example adds a <code>jetpack</code> command that is only available to admins. When entering the command, it will toggle the player's jetpack.

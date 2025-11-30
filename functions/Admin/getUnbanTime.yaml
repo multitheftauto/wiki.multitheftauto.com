@@ -14,7 +14,7 @@ server:
     values:
       - type: int|false
         name: unban time
-    description: Returns an integer of the unbanning time in the format of seconds from the year 1970. Use in conjunction with [[getRealTime]] in order to retrieve detailed information. Returns false if invalid arguments are specified or if there was no unbanning time specified for the [[ban]].
+    description: Returns an [integer](/reference/int) of the unbanning time in the format of seconds from the year 1970. Use in conjunction with [[getRealTime]] in order to retrieve detailed information. Returns **false** if invalid arguments are specified or if there was no unbanning time specified for the [[ban]].
   examples:
     - path: examples/getUnbanTime-1.lua
     - path: examples/getUnbanTime_OOP-1.lua

@@ -21,7 +21,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns a true if the account name was set, false if an invalid argument was specified.
+    description: Returns a **true** if the account name was set, **false** if an invalid argument was specified.
   examples:
     - path: examples/setAccountName-1.lua
       description: Change the name of an account.

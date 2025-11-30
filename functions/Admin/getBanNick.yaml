@@ -14,7 +14,7 @@ server:
     values:
       - type: string|false
         name: nick
-    description: Returns a string of the nickname if everything was successfull, false if invalid arguments are specified if there was no nickname specified for the [[ban]] element.
+    description: Returns a [[string]] of the nickname if everything was successfull, **false** if invalid arguments are specified if there was no nickname specified for the [[ban]] element.
   examples:
     - path: examples/getBanNick-1.lua
     - path: examples/getBanNick_OOP-1.lua

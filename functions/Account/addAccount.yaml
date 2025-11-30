@@ -28,7 +28,7 @@ server:
     values:
       - type: account|false
         name: result
-    description: Returns an [[account]] or false if the account already exists or an error occured.
+    description: Returns an [[account]] or **false** if the account already exists or an error occured.
   examples:
     - path: 'examples/addAccount-1.lua'
       description: This enables players to register on your server by using <code>/register &lt;password&gt;</code> in the chat window.

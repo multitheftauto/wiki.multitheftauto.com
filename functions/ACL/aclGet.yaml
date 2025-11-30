@@ -13,7 +13,7 @@ server:
     values:
       - type: acl|false
         name: acl
-    description: Returns the [[ACL]] with that name if it could be retrieved, false/nil if the ACL does not exist or it fails for some other reason.
+    description: Returns the [[ACL]] with that name if it could be retrieved, **false/nil** if the ACL does not exist or it fails for some other reason.
   examples:
     - path: examples/aclGet-1.lua
       description: This example adds a command <code>setaclright</code> with which you can easily add new rights to specified access control lists.

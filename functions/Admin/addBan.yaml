@@ -6,10 +6,9 @@ server:
       content: 'One of the three: IP, Username or Serial have to be specified.'
     - type: warning
       content: |
-        Banning based on username is not recommended, because the player can change their nickname at any time and thus bypass the ban.
-        This feature is a leftover from the times when MTA used [MTA Community](http://community.mtasa.com/) accounts for gameplay — today it's an outdated option, kept only for backward compatibility.
-    - type: warning
-      content: Banning based solely on IP is not recommended, as a player can change their IP, for example by using a VPN. The safest option is to ban the [[serial]].
+        - Banning based on username is not recommended, because the player can change their nickname at any time and thus bypass the ban.
+        This feature is a leftover from the times when MTA used [MTA Community](http://community.mtasa.com/) accounts for gameplay - today it's an outdated option, kept only for backward compatibility.
+        - Banning based solely on IP is not recommended, as a player can change their IP, for example by using a VPN. The safest option is to ban the [serial](/articles/serial).
   oop:
     element: ban
     constructorclass: Ban
@@ -39,7 +38,7 @@ server:
     values:
       - type: ban|false
         name: ban
-    description: Returns the new [[ban]] if the IP/username/serial was banned successfully, false if invalid arguments are specified.
+    description: Returns the new [[ban]] if the IP/username/serial was banned successfully, **false** if invalid arguments are specified.
   examples:
     - path: examples/addBan-1.lua
       description: This example add command to ban player serial.

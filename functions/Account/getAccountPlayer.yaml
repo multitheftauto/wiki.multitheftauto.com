@@ -13,7 +13,7 @@ server:
     values:
       - type: player|false
         name: account's player
-    description: Returns a [[player]] element if the account is currently in use, false otherwise.
+    description: Returns a [[player]] element if the account is currently in use, **false** otherwise.
   examples:
     - path: examples/getAccountPlayer-1.lua
       description: This example checks if the user attached to an account is a player, and if so if they're alive.

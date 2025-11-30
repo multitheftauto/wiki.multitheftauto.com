@@ -17,7 +17,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if changed, false otherwise.
+    description: Returns **true** if changed, **false** otherwise.
   examples:
     - path: examples/setBanAdmin-1.lua
       description: This example changes the [[ban]] admin to the admin's IP (If it's a player), when someone gets banned.

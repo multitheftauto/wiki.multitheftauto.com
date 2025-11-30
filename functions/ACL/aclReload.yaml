@@ -9,7 +9,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the XML was successfully reloaded from the file, false or nil if the XML was invalid, didn't exist or could not be loaded for some other reason.
+    description: Returns **true** if the XML was successfully reloaded from the file, **false** if the XML was invalid, didn't exist or could not be loaded for some other reason.
   examples:
     - path: examples/aclReload-1.lua
       description: This example allows an admin to reload the ACL by typing <code>/reloadACL</code>.

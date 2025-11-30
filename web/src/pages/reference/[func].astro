@@ -310,7 +310,7 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
                 <ul>
                   {syntax.returns.values.map((ret: any) => (
                     <li>
-                      <strong>{ret.type}</strong>: {renderInlineMarkdown(ret.name ?? "")}
+                      <strong>{ret.type}</strong>: {<EnhancedMarkdown content={ret.name ?? ""} inline={true} />}
                       {ret.templateList && <TemplateList name={ret.templateList} />}
                     </li>
                   ))}

@@ -11,10 +11,10 @@ local function addAclGroup(thePlayer, commandName, groupName, aclName)
             group:addACL(acl)
             ACL.save()
         else
-            thePlayer:outputChat("Group with the name "..groupName.." does not exist", 255, 255, 255)
+            thePlayer:outputChat("Group with the name " .. groupName .." does not exist", 255, 255, 255)
         end
     else
-        thePlayer:outputChat("ACL "..aclName.." does not exist", 255, 255, 255)
+        thePlayer:outputChat("ACL " .. aclName .. " does not exist", 255, 255, 255)
     end
 end
 addCommandHandler("addAclGroup", addAclGroup)

@@ -21,6 +21,9 @@ export async function getStaticPaths() {
 }
 
 const { element } = Astro.props;
+if (element.data.redirect)
+  return Astro.redirect(element.data.redirect);
+
 element.data.itemType = 'element';
 element.data.niceName = element.data.name.charAt(0).toUpperCase() + element.data.name.slice(1);
 const elementPath = path.dirname(element.filePath ?? "");

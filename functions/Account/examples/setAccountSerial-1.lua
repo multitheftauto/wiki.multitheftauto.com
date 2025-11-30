@@ -21,10 +21,11 @@ addCommandHandler("setserial", function(player, cmd, targetPlayer, newSerial)
         outputChatBox("Usage: /setserial <player> <32-char-hex-serial>", player)
         return
     end
-    
+
     local target = getPlayerFromName(targetPlayer)
     if (target) then
-        if (string.len(newSerial) == 32 and string.match(newSerial, "^[A-Fa-f0-9]+$")) then
+        if (string.len(newSerial) == 32 and
+            string.match(newSerial, "^[A-Fa-f0-9]+$")) then
             changePlayerSerial(target, newSerial)
         else
             outputChatBox("Serial must be 32 hexadecimal characters!", player, 255, 0, 0)

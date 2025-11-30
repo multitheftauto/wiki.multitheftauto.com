@@ -13,7 +13,7 @@ server:
     values:
       - type: string|false
         name: acl group name
-    description: Returns the name of the given ACL group as a string if successful, otherwise false or nil if the *aclGroup* is invalid or it fails for some other reason.
+    description: Returns the name of the given ACL group as a [[string]] if successful, otherwise **false** or **nil** if the *aclGroup* is invalid or it fails for some other reason.
   examples:
     - path: examples/aclGroupGetName-1.lua
       description: This example outputs to the console that <code>Admin's are ready to watch :)</code>.

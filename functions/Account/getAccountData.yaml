@@ -16,7 +16,7 @@ server:
     values:
       - type: string|false
         name: account data
-    description: Returns a string containing the stored data or false if no data was stored under that key.
+    description: Returns a [[string]] containing the stored data or **false** if no data was stored under that key.
   examples:
     - path: examples/getAccountData-1.lua
       description: |

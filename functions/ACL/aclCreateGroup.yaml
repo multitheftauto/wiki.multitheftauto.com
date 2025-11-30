@@ -12,7 +12,7 @@ server:
     values:
       - type: aclgroup|false
         name: acl group
-    description: Returns the pointer to the created aclgroup if successful. Returns false if failed.
+    description: Returns the created [[aclgroup]] if successful. Returns **false** if failed.
   examples:
     - path: examples/aclCreateGroup-1.lua
       description: This example adds a command <code>addobjecttogroup</code> with which you can easily add new objects to specified access control list groups.

@@ -13,7 +13,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the player was successfully logged out, false or nil if it failed for some reason, ie. the player was never logged in.
+    description: Returns **true** if the [[player]] was successfully logged out, **false** if it failed for some reason, ie. the player was never logged in.
   examples:
     - path: examples/logOut-1.lua
       description: This example logs every player out of their [[account]] when the resource is (re)started. This would be handy for resources that show a login screen [[onClientResourceStart]].

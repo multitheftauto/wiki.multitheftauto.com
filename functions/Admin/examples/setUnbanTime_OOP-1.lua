@@ -9,7 +9,7 @@ addCommandHandler('setbantime', function(plr, cmd, nick, time)
     end
 
     local found = false
-    for k,v in ipairs(Ban.getList()) do
+    for k, v in ipairs(Ban.getList()) do
         if (v.nick == nick) then
             v.unbanTime = time
             found = true
@@ -17,7 +17,7 @@ addCommandHandler('setbantime', function(plr, cmd, nick, time)
     end
 
     if (not found) then
-        plr:outputChat('Player '..nick..' isn\'t banned.')
+        plr:outputChat('Player ' .. nick .. ' isn\'t banned.')
         return
     end
 end)

@@ -1,6 +1,6 @@
 server:
   name: banPlayer
-  description: This function will ban the specified player by either IP, serial or username.
+  description: This function will ban the specified [[player]] by either IP, serial or username.
   oop:
     element: player
     method: ban
@@ -36,7 +36,7 @@ server:
     values:
       - type: ban|false
         name: ban
-    description: Returns a [[ban]] object if banned successfully, or false if unsuccessful.
+    description: Returns a [[ban]] object if banned successfully, or **false** if unsuccessful.
   examples:
     - path: examples/banPlayer-1.lua
       description: This example lets a player ban anyone if he has ACL rights.

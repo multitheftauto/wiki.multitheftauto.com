@@ -1,7 +1,7 @@
 local function addACLGroupObject(thePlayer, commandName, groupName, objectName)
     local ourGroup = aclGetGroup(groupName)
     -- if there is no previous group with this name, we need to create one
-    if (not ourGroup) then
+    if (not ourGroup) then 
         ourGroup = aclCreateGroup(groupName)
     end
 

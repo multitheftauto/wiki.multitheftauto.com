@@ -13,7 +13,7 @@ server:
     values:
       - type: string|false
         name: ip
-    description: Returns a string of the IP if everything was successful, false if invalid arguments are specified if there was no IP specified for the [[ban]].
+    description: Returns a [[string]] of the IP if everything was successful, **false** if invalid arguments are specified if there was no IP specified for the [[ban]].
   examples:
     - path: examples/getBanIP-1.lua
       description: This example will show the user who banned a player the IP adress of that banned player.

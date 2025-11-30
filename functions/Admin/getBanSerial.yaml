@@ -1,6 +1,6 @@
 server:
   name: getBanSerial
-  description: This function will return the serial of the specified [[ban]].
+  description: This function will return the [serial](/articles/serial) of the specified [[ban]].
   oop:
     element: ban
     method: getSerial
@@ -13,7 +13,7 @@ server:
     values:
       - type: string|false
         name: serial
-    description: Returns a string of the serial if everything was successful, false if invalid arguments are specified or if there was no serial specified for the [[ban]].
+    description: Returns a [[string]] of the [serial](/articles/serial) if everything was successful, **false** if invalid arguments are specified or if there was no serial specified for the [[ban]].
   examples:
     - path: examples/getBanSerial-1.lua
       description: This example will show the user who banned a player the serial of that banned player.

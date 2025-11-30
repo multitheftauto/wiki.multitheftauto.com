@@ -21,7 +21,7 @@ addCommandHandler("setserial", function(player, cmd, targetPlayer, newSerial)
         player:outputChat("Usage: /setserial <player> <32-char-hex-serial>")
         return
     end
-    
+
     local target = Player(targetPlayer)
     if (target) then
         if (newSerial:len() == 32 and newSerial:match("^[A-Fa-f0-9]+$")) then

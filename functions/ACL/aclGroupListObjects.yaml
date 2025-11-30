@@ -13,7 +13,7 @@ server:
     values:
       - type: table|false
         name: acl group objects list
-    description: Returns a [[table]] of strings in the given [ACL group](/reference/aclgroup). This table might be empty. Returns false or nil if theGroup is invalid or it fails for some other reason.
+    description: Returns a [[table]] of strings in the given [ACL group](/reference/aclgroup). This table might be empty. Returns **false** or **nil** if theGroup is invalid or it fails for some other reason.
   examples:
     - path: examples/aclGroupListObjects-1.lua
       description: This example outputs a list of objects if the ACL Group is given.

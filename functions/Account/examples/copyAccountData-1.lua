@@ -1,4 +1,4 @@
-function copyDataOnLogin ( previousAccount, currentAccount )
-    copyAccountData ( currentAccount, previousAccount )
+function copyDataOnLogin(previousAccount, currentAccount)
+    copyAccountData(currentAccount, previousAccount)
 end
-addEventHandler ( "onPlayerLogin", getRootElement(), copyDataOnLogin )
+addEventHandler("onPlayerLogin", getRootElement(), copyDataOnLogin)

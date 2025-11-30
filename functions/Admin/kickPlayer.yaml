@@ -20,7 +20,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the player was kicked succesfully, false if invalid arguments are specified.
+    description: Returns **true** if the player was kicked succesfully, **false** if invalid arguments are specified.
   examples:
     - path: examples/kickPlayer-1.lua
       description: This example lets a player kick anyone who has a lower level.

@@ -15,10 +15,10 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the account is a guest account, false otherwise.
+    description: Returns **true** if the account is a guest account, **false** otherwise.
   examples:
     - path: examples/isGuestAccount-1.lua
-      description: This example shows how you could create a call_admin function that only could be run by registered users.
+      description: This example shows how you could create a <code>call_admin</code> function that only could be run by registered users.
     - path: examples/isGuestAccount_OOP-1.lua
-      description: This example shows how you could create a call_admin function that only could be run by registered users.
+      description: This example shows how you could create a <code>call_admin</code> function that only could be run by registered users.
       oop: true

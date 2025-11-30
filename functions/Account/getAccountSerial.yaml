@@ -13,7 +13,7 @@ server:
     values:
       - type: string|false
         name: account's serial.
-    description: Returns string containing the serial, the string is empty if the account was never used. Returns false if invalid arguments were specified.
+    description: Returns [[string]] containing the [serial](/articles/serial), the string is empty if the account was never used. Returns **false** if invalid arguments were specified.
   examples:
     - path: examples/getAccountSerial-1.lua
       description: This example adds command <code>getaccserial</code> that outputs the given account's serial in the chat box.

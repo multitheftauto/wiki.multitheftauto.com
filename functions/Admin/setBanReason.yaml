@@ -17,12 +17,12 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the new reason was set successfully, false otherwise.
+    description: Returns **true** if the new reason was set successfully, **false** otherwise.
   examples:
     - path: examples/setBanReason-1.lua
       description: |
-        This example adds the command <code>setreason</code> which can be used to change the reason of a ban by nickname of the banned player. For example: <code>setreason someguy reason</code>.
+        This example adds the command <code>setreason</code> which can be used to change the reason of a ban by nickname of the banned player.<br/>For example: <code>/setreason someguy reason</code>.
     - path: examples/setBanReason_OOP-1.lua
       description: |
-        This example adds the command <code>setreason</code> which can be used to change the reason of a ban by nickname of the banned player. For example: <code>setreason someguy reason</code>.
+        This example adds the command <code>setreason</code> which can be used to change the reason of a ban by nickname of the banned player.<br/>For example: <code>/setreason someguy reason</code>.
       oop: true

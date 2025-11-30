@@ -15,7 +15,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the object existed in the ACL and could be removed, false if it could not be removed for some reason, ie. it did not exist in the given ACL group.
+    description: Returns **true** if the object existed in the ACL and could be removed, **false** if it could not be removed for some reason, ie. it did not exist in the given ACL group.
   examples:
     - path: examples/aclGroupRemoveObject-1.lua
       description: This example adds the command <code>deladmin</code>, which allows removing the specified account from the **Admin** group.

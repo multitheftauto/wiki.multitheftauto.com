@@ -9,7 +9,7 @@ server:
     values:
       - type: table
         name: acl's list
-    description: Returns a [[table]] of all the ACLs. This table can be empty if no ACLs exist. It can also return false/nil if it failed for some reason.
+    description: Returns a [[table]] of all the ACLs. This table can be empty if no ACLs exist. It can also return **false/nil** if it failed for some reason.
   examples:
     - path: examples/aclList-1.lua
       description: This example adds a command <code>listacls</code> which prints out a name list of all ACLs to the console.

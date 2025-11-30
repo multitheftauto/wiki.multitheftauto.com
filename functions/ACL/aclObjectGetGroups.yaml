@@ -11,7 +11,7 @@ server:
     values:
       - type: table
         name: groups list
-    description: Returns a [[table]] of all groups the object is in on success, false if something went wrong.
+    description: Returns a [[table]] of all groups the object is in on success. This table might be empty. Returns error if something went wrong.
   examples:
     - path: examples/aclObjectGetGroups-1.lua
       description: This example outputs a list of all groups of the calling user.

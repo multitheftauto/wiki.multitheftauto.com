@@ -24,7 +24,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the given object has permission to perform the given action, false otherwise. Returns nil if the function failed because of bad arguments.
+    description: Returns **true** if the given object has permission to perform the given action, **false** otherwise. Returns **nil** if the function failed because of bad arguments.
   examples:
     - path: examples/hasObjectPermissionTo-1.lua
       description: This example kicks a player if the user using it has access to the [[kickPlayer]] function.

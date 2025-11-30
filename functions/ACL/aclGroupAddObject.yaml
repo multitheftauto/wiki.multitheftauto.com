@@ -17,7 +17,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the object was successfully added to the [[ACL]], false if it already existed in the list.
+    description: Returns **true** if the object was successfully added to the [[ACL]], **false** if it already existed in the list.
   examples:
     - path: examples/aclGroupAddObject-1.lua
       description: This example makes every player able to use a command named <code>giveAccountAdminRights</code> that will add a specific accountname as an ACL object to the <code>Admin</code> group.

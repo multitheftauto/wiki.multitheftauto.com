@@ -14,7 +14,7 @@ server:
     values:
       - type: string|false
         name: reason
-    description: Returns a string of the reason if everything was successful, false if invalid arguments are specified if there was no reason specified for the [[ban]].
+    description: Returns a [[string]] of the reason if everything was successful, **false** if invalid arguments are specified if there was no reason specified for the [[ban]].
   examples:
     - path: examples/getBanReason-1.lua
     - path: examples/getBanReason_OOP-1.lua

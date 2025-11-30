@@ -3,7 +3,7 @@ server:
   description: This function removes the given [[ACL]] from the given [ACL group](/reference/aclgroup).
   notes:
     - type: info
-      content: The resource that's using this function needs the right to remove an acl.
+      content: The [[resource]] that's using this function needs the right to remove an acl.
   oop:
     element: aclgroup
     method: removeACL
@@ -18,10 +18,10 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[ACL]] was successfully removed from the [ACL group](/reference/aclgroup), false/nil if it could not be removed for some reason, ie. either of the elements were invalid.
+    description: Returns **true** if the [[ACL]] was successfully removed from the [ACL group](/reference/aclgroup), **false/nil** if it could not be removed for some reason, ie. either of the elements were invalid.
   examples:
     - path: examples/aclGroupRemoveACL-1.lua
-      description: This example outputs to the console if the Admin acl was removed from the Moderator ACL Group.
+      description: This example outputs to the console if the Admin acl was removed from the **Moderator** ACL Group.
     - path: examples/aclGroupRemoveACL_OOP-1.lua
-      description: This example outputs to the console if the Admin acl was removed from the Moderator ACL Group.
+      description: This example outputs to the console if the Admin acl was removed from the **Moderator** ACL Group.
       oop: true

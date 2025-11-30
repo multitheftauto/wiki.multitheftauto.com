@@ -16,7 +16,7 @@ server:
     values:
       - type: bool
         name: result
-    description: Returns true if the ban was removed succesfully, false if invalid arguments are specified.
+    description: Returns **true** if the ban was removed succesfully, **false** if invalid arguments are specified.
   examples:
     - path: examples/removeBan-1.lua
       description: This example removes all the bans when the resource is started and outputs to everyone the players.
