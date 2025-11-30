@@ -260,12 +260,12 @@ export function renderRevisionLink(versionRaw: string) {
     matchedText = matchR[0];
   }
 
-  // Case 2: versions like 1.5.5-9.13999 → take last .number
+  // Case 2: versions like X.Y.Z-*.NNNNN  (revision only if after a dash)
   if (!revisionNumber) {
-    const matchVersion = versionRaw.match(/(\d+)(?!.*\d)/);
-    if (matchVersion) {
-      revisionNumber = matchVersion[1];
-      matchedText = matchVersion[0];
+    const matchDash = versionRaw.match(/-(?:\d+\.)+(\d+)$/);
+    if (matchDash) {
+      revisionNumber = matchDash[1];
+      matchedText = matchDash[1];
     }
   }
 
