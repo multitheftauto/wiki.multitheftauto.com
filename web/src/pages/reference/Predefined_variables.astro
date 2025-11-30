@@ -1,0 +1,130 @@
+---
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import CodeExamplesSection from '@src/components/CodeExamplesSection.astro';
+import { Code } from '@astrojs/starlight/components';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+const sharedVars = [
+    {
+        path: '',
+        side: 'shared',
+        luaCode: `exports -- returns a table of resource names containing all export functions
+resource -- returns a resource element of the resource the snippet was executed in
+resourceRoot -- returns a resource root element of the resource the snippet was executed in
+resourceName -- returns the name of the resource the snippet was executed in 
+root -- returns the root element of the server`
+    },
+];
+
+const clientVars = [
+    {
+        path: '',
+        side: 'client',
+        luaCode: `guiRoot -- returns the root element of all GUI elements.
+localPlayer -- returns the player element of the local player.`
+    },
+];
+
+const sharedEventVars = [
+    {
+        path: '',
+        side: 'shared',
+        luaCode: `source -- The player or element the event was attached to
+this -- Element, which was attached function-handler.
+eventName -- the name of the event ("onResourceStart", "onPlayerWasted" etc.)
+sourceResource -- the resource that called the event
+sourceResourceRoot -- the root of the resource that called the event`
+    },
+];
+
+const serverEventVars = [
+    {
+        path: '',
+        side: 'server',
+        luaCode: `client -- the client that called the event`
+    },
+];
+
+const sharedTimerVars = [
+    {
+        path: '',
+        side: 'shared',
+        luaCode: `sourceTimer -- current timer in callback function.`
+    },
+];
+---
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Predefined variables list',
+    tableOfContents: {
+      maxHeadingLevel: 4
+    }
+}}>
+
+<div id="_top"/>
+
+<h3>Lua Predefined variables</h3>
+<hr/>
+
+<Code lang="lua" code=`
+_G -- returns a table of all global variables
+coroutine -- returns a table containing functions for threads
+debug -- returns a table containing debug functions
+math -- returns a table that contains mathematical functions
+string -- returns a table containing functions for strings
+table -- returns a table that contains functions for tables
+_VERSION -- returns a string of the version of lua in format "Lua 5.1"
+self -- used in methods
+arg -- used in functions which use '...' as an argument (https://www.lua.org/pil/5.2.html)
+`/>
+
+<h3>MTA Predefined variables</h3>
+<hr/>
+<h4>Global</h4>
+<CodeExamplesSection codeExamples={sharedVars} hideHeader />
+<CodeExamplesSection codeExamples={clientVars} hideHeader />
+
+<h4>Event Handlers</h4>
+<a href="/reference/addEventHandler">More details about hidden variables in functions and events</a>
+
+<CodeExamplesSection codeExamples={sharedEventVars} hideHeader />
+<CodeExamplesSection codeExamples={serverEventVars} hideHeader />
+
+<p>Please note, the above pre-defined variables may only be accessible in the relevant scope (i.e, an event handler callback function).
+Further functions defined within that scope may not have access to these pre-defined variables at the time of their execution.
+<br/><br/>
+For this reason, you should always explicitly redefine pre-defined variables as local variables, 
+to ensure they are always available to new functions declared within that scope - for example:</p>
+
+<Code lang="lua" code=`function init()
+    local player = source -- source is a pre-defined variable for this event, containing the player element
+
+    local func = function()
+        print(source) -- prints 'nil', source isn't available anymore
+        print(player) -- prints player element
+    end
+
+    setTimer(func, 1000, 1) -- run above function after 1 second
+end
+addEventHandler("onPlayerResourceStart", root, init)`/>
+
+<h4>Timer callbacks</h4>
+<CodeExamplesSection codeExamples={sharedTimerVars} hideHeader />
+
+<h4>HTTP</h4>
+<p>List Predefined variables available in the HTTP files (<a href="/reference/Resource_Web_Access">more info about it</a>).</p>
+
+<Code lang="lua" code=`requestHeaders -- table, contains all HTTP headlines current page.
+form -- table, contains all POST and GET settings, transferred current page.
+cookies -- table, contains all COOKIE, transferred current page.
+hostname -- string, contains IP or name host, which requested current page.
+url -- string, URL current page.
+user -- element, account user, which requested current page.`/>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:Element_tree',
+])} currentId='' />
+
+</AutoStarlightPage>

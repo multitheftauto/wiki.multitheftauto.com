@@ -15,9 +15,10 @@ export interface Props {
   codeExamples: CodeExample[];
   examplesRequired?: boolean;
   theItem?: any;
+  hideHeader?: boolean;
 }
 
-const { codeExamples, examplesRequired, theItem } = Astro.props;
+const { codeExamples, examplesRequired, theItem, hideHeader } = Astro.props;
 
 if (codeExamples.length === 0 && !examplesRequired) {
   return null;
@@ -25,7 +26,9 @@ if (codeExamples.length === 0 && !examplesRequired) {
 ---
 
 <div class="examples-section">
-  <h4>Code Examples</h4>
+  {!hideHeader && (
+    <h4>Code Examples</h4>
+  )}
 
   {codeExamples.length === 0 && theItem ? (
     <NeedsExample theItem={theItem} />

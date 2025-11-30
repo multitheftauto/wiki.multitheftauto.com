@@ -72,6 +72,7 @@ export default defineConfig({
                   label: "Resource Web Access",
                   link: "/reference/Resource_Web_Access",
                 },
+                {label: 'Predefined variables', link: '/reference/Predefined_variables'},
                 {
                   label: "Functions",
                   collapsed: true,
