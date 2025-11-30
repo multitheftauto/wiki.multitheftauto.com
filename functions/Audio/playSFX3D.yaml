@@ -15,16 +15,12 @@ client:
     - name: containerName
       type: string
       description: The name of the audio container. Possible values are "feet", "genrl", "pain_a", "script", "spc_ea", "spc_fa", "spc_ga", spc_na", "spc_pa", "radio".
-    - name: bankId/radioStation
-      type: int/string
-      description: The audio bank id. If <b>containerName</b> is "radio", then this argument is of type [[string]] and specifies the radio station name. Possible values "Adverts", "Ambience", "Police", "Playback FM", "K-Rose", "K-DST", "Cutscene", "Beats", "Bounce FM", "SF-UR", "Radio Los Santos", "Radio X", "CSR 103.9", "K-Jah West", "Master Sounds 98.3", "WCTR".
-    - name: soundId/trackId
+    - name: bankId
       type: int
-      description: The sound id within the audio bank. If <b>containerName</b> is "radio", then this argument specifies the radio track id within the radio station audio file.
-    - name: looped
-      type: bool
-      description: A [[boolean]] representing whether the sound will be looped.
-      default: 'false'
+      description: The audio bank id.
+    - name: soundId
+      type: int
+      description: The sound id within the audio bank.
     - name: x
       type: float
       description: A floating point number representing the X coordinate on the map.
@@ -34,11 +30,45 @@ client:
     - name: z
       type: float
       description: A floating point number representing the Z coordinate on the map.
+    - name: looped
+      type: bool
+      description: A [[boolean]] representing whether the sound will be looped.
+      default: 'false'
   returns:
     values:
       - type: sound
         name: sound-element
-    description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+    description: Returns a [[sound]] element if the sound was successfully created, **false** otherwise.
+  syntaxes:
+    - name: playSFX3D
+      parameters:
+        - name: "\"radio\""
+          type: string
+          description: The string "radio" (used to differentiate to the first syntax).
+        - name: radioStation
+          type: string
+          description: The radio station. Possible values are "Adverts", "Ambience", "Police", "Playback FM", "K-Rose", "K-DST", "Cutscene", "Beats", "Bounce FM", "SF-UR", "Radio Los Santos", "Radio X", "CSR 103.9", "K-Jah West", "Master Sounds 98.3", "WCTR".
+        - name: trackId
+          type: int
+          description: The radio track id within the radio station audio file.
+        - name: x
+          type: float
+          description: A floating point number representing the X coordinate on the map.
+        - name: 'y'
+          type: float
+          description: A floating point number representing the Y coordinate on the map.
+        - name: z
+          type: float
+          description: A floating point number representing the Z coordinate on the map.
+        - name: looped
+          type: bool
+          description: A [[boolean]] representing whether the sound will be looped.
+          default: 'false'
+      returns:
+        values:
+          - type: sound
+            name: sound-element
+        description: Returns a [[sound]] element if the sound was successfully created, **false** otherwise.
   examples:
     - path: examples/playSFX3D-1.lua
       description: The following example plays a fire alarm sound near you (looped).

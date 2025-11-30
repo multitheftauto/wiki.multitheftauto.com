@@ -26,7 +26,7 @@ shared: &shared
     values:
       - type: bool
         name: result
-    description: Returns true if the sound was successfully played, false otherwise.
+    description: Returns **true** if the sound was successfully played, **false** otherwise.
 
 server:
   <<: *shared
@@ -43,7 +43,7 @@ client:
     - thePlayer
   examples:
     - path: examples/playSoundFrontEnd-2.lua
-      description: This example plays a sound when the player types the command '/sound'.
+      description: This example plays a sound when the player types the command <code>/sound</code>.
     - path: examples/playSoundFrontEnd_OOP-2.lua
-      description: This example plays a sound when the player types the command '/sound'.
+      description: This example plays a sound when the player types the command <code>/sound</code>.
       oop: true

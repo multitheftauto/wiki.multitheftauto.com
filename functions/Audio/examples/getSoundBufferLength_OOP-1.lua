@@ -7,20 +7,20 @@ local ARTIST_POSITION = BOX_POSITION + Vector2(8, 32)
 
 local sound
 
-addCommandHandler("playsound", function ()
+addCommandHandler("playsound", function()
     if isElement(sound) then
         sound:destroy()
     end
     sound = Sound("https://example.com/song.mp3")
 end)
 
-addCommandHandler("stopsound", function ()
+addCommandHandler("stopsound", function()
     if isElement(sound) then
         sound:destroy()
     end
 end)
 
-addEventHandler("onClientRender", root, function ()
+addEventHandler("onClientRender", root, function()
     if isElement(sound) then
         local soundLength = sound.length
         local soundPosition = sound.playbackPosition

@@ -13,7 +13,7 @@ client:
     values:
       - type: float|false
         name: buffer-length
-    description: A [[float]] value indicating the buffer playback length of the sound in seconds. False if the sound is not a stream and [[nil]] if the sound is invalid.
+    description: A [[float]] value indicating the buffer playback length of the sound in seconds. **false** if the sound is not a stream and [[nil]] if the sound is invalid.
   examples:
     - path: examples/getSoundBufferLength-1.lua
       description: This example draws a simple player that shows the length of the downloaded part of the song.

@@ -29,7 +29,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the properties sucessfully set, false otherwise.
+    description: Returns **true** if the properties sucessfully set, **false** otherwise.
   examples:
     - path: examples/setSoundProperties-1.lua
     - path: examples/setSoundProperties_OOP-1.lua

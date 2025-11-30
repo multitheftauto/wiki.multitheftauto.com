@@ -1,2 +1,2 @@
-local mySound = playSound ("sound.mp3")
-setSoundLooped (mySound, true)
+local mySound = playSound("sound.mp3")
+setSoundLooped(mySound, true)

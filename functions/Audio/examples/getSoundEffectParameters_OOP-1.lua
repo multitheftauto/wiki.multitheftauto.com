@@ -1,9 +1,9 @@
-local sound = Sound ("music.mp3")
+local sound = Sound("music.mp3")
 sound:setEffectEnabled("echo", true)
 
 local echoParams = sound:getEffectParameters("echo")
-print (echoParams.feedback) -- 50
-iprint (echoParams)
+print(echoParams.feedback) -- 50
+iprint(echoParams)
 --[[
 {
   feedback = 50,

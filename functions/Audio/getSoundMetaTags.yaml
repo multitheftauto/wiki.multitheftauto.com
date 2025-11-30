@@ -20,7 +20,7 @@ client:
       - type: table|string|false
         name: meta-tags
         templateList: 'sound-meta-tags'
-    description: Returns a [[table]], but only a [[string]] if <b>format</b> is given, with all data available (keys are listed below) for the sound if successful, false otherwise. If any data is unavailable then the associated key is not written to the table.
+    description: Returns a [[table]], but only a [[string]] if <b>format</b> is given, with all data available (keys are listed above) for the sound if successful, **false** otherwise. If any data is unavailable then the associated key is not written to the table.
   examples:
     - path: examples/getSoundMetaTags-1.lua
     - path: examples/getSoundMetaTags_OOP-1.lua

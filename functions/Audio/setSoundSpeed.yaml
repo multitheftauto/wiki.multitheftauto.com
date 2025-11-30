@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the sound element playback speed was successfully changed, false otherwise.
+    description: Returns **true** if the sound element playback speed was successfully changed, **false** otherwise.
   examples:
     - path: examples/setSoundSpeed-1.lua
     - path: examples/setSoundSpeed_OOP-1.lua

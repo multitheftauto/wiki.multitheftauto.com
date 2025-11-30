@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns a true if the max distance was set, false otherwise.
+    description: Returns a **true** if the max distance was set, **false** otherwise.
   examples:
     - path: examples/setSoundMaxDistance-1.lua
     - path: examples/setSoundMaxDistance_OOP-1.lua

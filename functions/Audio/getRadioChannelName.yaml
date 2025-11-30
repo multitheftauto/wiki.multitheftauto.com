@@ -10,7 +10,7 @@ client:
     values:
       - type: string|false
         name: channel-name
-    description: Returns a string containing the station name if successful, false otherwise.
+    description: Returns a [[string]] containing the station name if successful, **false** otherwise.
   examples:
     - path: examples/getRadioChannelName-1.lua
       description: This example prints out the name of your current radio station to the chat box.

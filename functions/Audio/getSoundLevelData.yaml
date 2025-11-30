@@ -14,7 +14,7 @@ client:
         name: leftLevel
       - type: int
         name: rightLevel
-    description: Returns a two integers in range from 0 to 32768. False, nil if wrong sound element passed.
+    description: Returns a two integers in range from 0 to 32768. **false** if wrong sound element passed.
   examples:
     - path: examples/getSoundLevelData-1.lua
     - path: examples/getSoundLevelData_OOP-1.lua

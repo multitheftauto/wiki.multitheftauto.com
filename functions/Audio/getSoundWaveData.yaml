@@ -18,7 +18,7 @@ client:
     values:
       - type: table|false
         name: wave-data
-    description: Returns a [[table]] of <b>samples</b> floats representing the current audio frame waveform. Returns false if the sound is not playing yet or hasn't buffered in the case of streams.
+    description: Returns a [[table]] of <b>samples</b> floats representing the current audio frame waveform. Returns **false** if the sound is not playing yet or hasn't buffered in the case of streams.
   examples:
     - path: examples/getSoundWaveData-1.lua
       description: This example creates a sound visualizer on the top left corner of the screen.

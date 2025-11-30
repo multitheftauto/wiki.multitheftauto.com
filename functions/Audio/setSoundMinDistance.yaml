@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns a true if the minimum distance was set, false otherwise.
+    description: Returns a **true** if the minimum distance was set, **false** otherwise.
   examples:
     - path: examples/setSoundMinDistance-1.lua
     - path: examples/setSoundMinDistance_OOP-1.lua

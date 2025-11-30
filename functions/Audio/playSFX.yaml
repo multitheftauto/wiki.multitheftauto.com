@@ -50,7 +50,7 @@ client:
         values:
           - type: sound
             name: sound-element
-        description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+        description: Returns a [[sound]] element if the sound was successfully created, **false** otherwise.
   examples:
     - path: examples/playSFX-1.lua
       description: The following example plays a firealarm sound (looped).

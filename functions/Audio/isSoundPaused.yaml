@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[sound]] element is paused, false if unpaused or invalid arguments were passed.
+    description: Returns **true** if the [[sound]] element is paused, **false** if unpaused or invalid arguments were passed.
   examples:
     - path: examples/isSoundPaused-1.lua
       description: This example will check and see if the sound is paused or not, and tell the player.

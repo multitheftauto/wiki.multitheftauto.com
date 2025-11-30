@@ -14,7 +14,7 @@ client:
     values:
       - type: int|false
         name: max-distance
-    description: Returns an integer of the max distance, false if invalid arguments where passed.
+    description: Returns an integer of the max distance, **false** if invalid arguments where passed.
   examples:
     - path: examples/getSoundMaxDistance-1.lua
     - path: examples/getSoundMaxDistance_OOP-1.lua

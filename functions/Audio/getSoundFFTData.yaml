@@ -22,7 +22,7 @@ client:
     values:
       - type: table|false
         name: fft-data
-    description: Returns a [[table]] of <b>samples</b>/2 (or <b>bands</b> if <b>bands</b> is used) floats representing the current audio frame. Returns false if the sound is not playing yet or hasn't buffered in the case of streams.
+    description: Returns a [[table]] of <b>samples</b>/2 (or <b>bands</b> if <b>bands</b> is used) floats representing the current audio frame. Returns **false** if the sound is not playing yet or hasn't buffered in the case of streams.
   examples:
     - path: examples/getSoundFFTData-1.lua
     - path: examples/getSoundFFTData_OOP-1.lua

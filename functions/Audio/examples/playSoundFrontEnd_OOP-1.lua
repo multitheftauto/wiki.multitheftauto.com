@@ -1,4 +1,4 @@
-function onPlayerSpawn ( theSpawnpoint, theTeam )
-    source:playSoundFrontEnd( 16 )
+function onPlayerSpawn(theSpawnpoint, theTeam)
+    source:playSoundFrontEnd(16)
 end
-addEventHandler ( "onPlayerSpawn", root, onPlayerSpawn )
+addEventHandler("onPlayerSpawn", root, onPlayerSpawn)

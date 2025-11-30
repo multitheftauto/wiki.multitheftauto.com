@@ -1,2 +1,2 @@
-local mySound = Sound ("sound.mp3")
+local mySound = Sound("sound.mp3")
 mySound.looped = true

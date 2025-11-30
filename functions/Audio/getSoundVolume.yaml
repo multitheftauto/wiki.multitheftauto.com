@@ -13,7 +13,7 @@ client:
     values:
       - type: float|false
         name: volume
-    description: Returns a [[float]] representing the volume level of the [[sound]] element, false if invalid arguments were passed.
+    description: Returns a [[float]] representing the volume level of the [[sound]] element, **false** if invalid arguments were passed.
   examples:
     - path: examples/getSoundVolume-1.lua
       description: This example creates a sound then outputs the volume for it.

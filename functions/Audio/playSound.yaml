@@ -23,7 +23,7 @@ client:
     values:
       - type: sound|false
         name: soundElement
-    description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+    description: Returns a [[sound]] element if the sound was successfully created, **false** otherwise.
   examples:
     - path: examples/playSound-1.lua
     - path: examples/playSound_OOP-1.lua

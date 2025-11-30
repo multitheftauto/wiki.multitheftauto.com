@@ -19,7 +19,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the effect was set successfully, false otherwise.
+    description: Returns **true** if the effect was set successfully, **false** otherwise.
   examples:
     - path: examples/setSoundEffectEnabled-1.lua
       description: This example creates a sound and set's the flanger sound effect enabled.

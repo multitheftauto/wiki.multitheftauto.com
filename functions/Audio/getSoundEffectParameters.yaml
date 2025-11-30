@@ -16,7 +16,7 @@ client:
     values:
       - type: table|false
         name: params
-    description: Returns a [[table]] with the parameter names as the keys, and their values. If the specified effect name is not valid, false is returned.
+    description: Returns a [[table]] with the parameter names as the keys, and their values. If the specified effect name is not valid, **false** is returned.
   examples:
     - path: examples/getSoundEffectParameters-1.lua
     - path: examples/getSoundEffectParameters_OOP-1.lua

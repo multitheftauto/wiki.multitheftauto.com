@@ -14,7 +14,7 @@ client:
     values:
       - type: int|false
         name: min-distance
-    description: Returns an integer of the minimum distance, false if invalid arguements where passed.
+    description: Returns an integer of the minimum distance, **false** if invalid arguements where passed.
   examples:
     - path: examples/getSoundMinDistance-1.lua
     - path: examples/getSoundMinDistance_OOP-1.lua

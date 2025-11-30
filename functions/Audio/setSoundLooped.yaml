@@ -20,7 +20,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[sound]] element loop state was successfully changed, false otherwise.
+    description: Returns **true** if the [[sound]] element loop state was successfully changed, **false** otherwise.
   examples:
     - path: examples/setSoundLooped-1.lua
       description: This example creates a sound element and turn on its looping.

@@ -13,7 +13,7 @@ client:
       - type: table|false
         name: effects
         templateList: sound-effects
-    description: Returns a [[table]] with the effect names as the keys, and their states as the values if successful. Otherwise, it returns false.
+    description: Returns a [[table]] with the effect names as the keys, and their states as the values if successful. Otherwise, it returns **false**.
   examples:
     - path: examples/getSoundEffects-1.lua
     - path: examples/getSoundEffects_OOP-1.lua

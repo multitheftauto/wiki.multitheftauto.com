@@ -14,7 +14,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[sound]] element is looped, false otherwise.
+    description: Returns **true** if the [[sound]] element is looped, **false** otherwise.
   examples:
     - path: examples/isSoundLooped-1.lua
       description: This will create a sound element and change its state to looped, with a command to switch the loop state and output its state.

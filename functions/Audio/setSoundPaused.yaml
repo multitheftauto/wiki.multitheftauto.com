@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[sound]] element was successfully paused, false otherwise.
+    description: Returns **true** if the [[sound]] element was successfully paused, **false** otherwise.
   examples:
     - path: examples/setSoundPaused-1.lua
       description: This example will allow the user to toggle sounds from paused to playing, and from playing to paused

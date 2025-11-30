@@ -16,6 +16,6 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the sound container is available, false otherwise.
+    description: Returns **true** if the sound container is available, **false** otherwise.
   examples:
     - path: examples/getSFXStatus-1.lua

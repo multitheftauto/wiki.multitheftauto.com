@@ -32,7 +32,7 @@ client:
     values:
       - type: sound|false
         name: soundElement
-    description: Returns a [[sound]] element if the sound was successfully created, false otherwise.
+    description: Returns a [[sound]] element if the sound was successfully created, **false** otherwise.
   examples:
     - path: examples/playSound3D-1.lua
       description: This example creates a looping sound within a pizza shop. It's located in San Fierro near Pier 69.

@@ -13,7 +13,7 @@ client:
     values:
       - type: float|false
         name: length
-    description: Returns an [[float]] value indicating the playback length of the [[sound]] element in seconds.
+    description: Returns an [[float]] value indicating the playback length of the [[sound]] element in seconds. **false** if bad sound element is passed.
   examples:
     - path: examples/getSoundLength-1.lua
       description: Plays a sound then outputs the sound length.

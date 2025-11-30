@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the sound element pan was successfully changed, false otherwise.
+    description: Returns **true** if the sound element pan was successfully changed, **false** otherwise.
   examples:
     - path: examples/setSoundPan-1.lua
     - path: examples/setSoundPan_OOP-1.lua

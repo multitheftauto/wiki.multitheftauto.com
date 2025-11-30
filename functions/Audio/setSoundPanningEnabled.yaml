@@ -18,9 +18,9 @@ client:
       - type: bool
         name: result
     description: |
-      Returns true if the sound is valid and good arguments were passed, false if not.
+      Returns **true** if the sound is valid and good arguments were passed, **false** if not.
 
-      If the sound is not 3D, this function will return true as well, but [[isSoundPanningEnabled]] will always return true after this (so it has no effect).
+      If the sound is not 3D, this function will return true as well, but [[isSoundPanningEnabled]] will always return **true** after this (so it has no effect).
   examples:
     - path: examples/setSoundPanningEnabled-1.lua
       description: This example creates a sound at the center of the map when the resource which cointains it starts and adds a command called <code>/soundpanning</code>, which changes the panning of the sound.

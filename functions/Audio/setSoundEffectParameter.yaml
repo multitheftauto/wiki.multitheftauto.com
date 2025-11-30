@@ -22,7 +22,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if effect have been set successfully, false otherwise.
+    description: Returns **true** if effect have been set successfully, **false** otherwise.
   examples:
     - path: examples/setSoundEffectParameter-1.lua
     - path: examples/setSoundEffectParameter_OOP-1.lua

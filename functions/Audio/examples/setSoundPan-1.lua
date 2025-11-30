@@ -1,4 +1,4 @@
-function playMusic ()
+function playMusic()
     local left = playSFX("genrl", 75, 6, true) -- Play loading theme music
     local right = playSFX("genrl", 75, 7, true)
     setSoundPan(left, -1) -- switch the first music to left channel

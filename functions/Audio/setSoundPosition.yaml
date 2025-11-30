@@ -20,7 +20,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[sound]] element's seek position was successfully changed, false otherwise.
+    description: Returns **true** if the [[sound]] element's seek position was successfully changed, **false** otherwise.
   examples:
     - path: examples/setSoundPosition-1.lua
       description: This example allows the player to set how many milliseconds into the song he wants it to play from

@@ -14,7 +14,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if channel was set successfully, false otherwise.
+    description: Returns **true** if channel was set successfully, **false** otherwise.
   examples:
     - path: examples/setRadioChannel-1.lua
       description: This example adds a command setradio which can be used to change the current radio station by ID.

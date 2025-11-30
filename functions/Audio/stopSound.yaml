@@ -12,7 +12,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the sound was successfully stopped, false otherwise.
+    description: Returns **true** if the sound was successfully stopped, **false** otherwise.
   examples:
     - path: examples/stopSound-1.lua
     - path: examples/stopSound_OOP-1.lua

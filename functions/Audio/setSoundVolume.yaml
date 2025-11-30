@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the sound element volume was successfully changed, false otherwise.
+    description: Returns **true** if the sound element volume was successfully changed, **false** otherwise.
   examples:
     - path: examples/setSoundVolume-1.lua
     - path: examples/setSoundVolume_OOP-1.lua

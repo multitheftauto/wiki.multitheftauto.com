@@ -16,7 +16,7 @@ client:
     values:
       - type: int|false
         name: bpm
-    description: Returns the beats per minute of the given sound. False if bad element passed.
+    description: Returns the beats per minute of the given sound. **false** if bad element passed.
   examples:
     - path: examples/getSoundBPM-1.lua
     - path: examples/getSoundBPM_OOP-1.lua

@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the sound is valid and it has panning enabled, false if it does not or is not valid.
+    description: Returns **true** if the sound is valid and it has panning enabled, **false** if it does not or is not valid.
   examples:
     - path: examples/isSoundPanningEnabled-1.lua
       description: This example plays a xy.mp3 file in the root folder of the resource which contains it at the center of the map, and proves that by default a sound enables panning by outputting the result of this function to the chatbox right after creating it. Then it disables the panning of the sound.
