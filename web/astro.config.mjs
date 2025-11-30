@@ -3,11 +3,12 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import mtasaStarlightThemePlugin from "@multitheftauto/starlight-theme-mtasa";
 import { SITE_TITLE, SITE_URL } from "./src/content.constants";
+import starlightScrollToTop from 'starlight-scroll-to-top'
 
 export default defineConfig({
   site: SITE_URL,
   i18n: {
-    locales: ["en", "es", "fr"],
+    locales: ["en", "es", "fr", "pl"],
     defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false,
@@ -15,7 +16,14 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      plugins: [mtasaStarlightThemePlugin()],
+      plugins: [mtasaStarlightThemePlugin(), starlightScrollToTop({
+        tooltipText: {
+          "en": "Scroll to top",
+          "pl": "Na górę",
+        },
+        showTooltip: true,
+        showProgressRing: false,
+      })],
       favicon: "favicon.ico",
       title: SITE_TITLE,
       logo: {
