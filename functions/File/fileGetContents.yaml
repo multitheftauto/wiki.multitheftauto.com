@@ -18,9 +18,9 @@ shared: &shared
       description: Set to true, to compare the computed and the expected checksum of the file content.
       default: 'true'
   returns:
-    description: Returns the bytes that were read from the file, but only if verification was disabled or if the checksum comparison succeeded. On failure, this function returns nil.
+    description: Returns the bytes that were read from the file, but only if verification was disabled or if the checksum comparison succeeded. On failure, this function returns [[nil]].
     values:
-      - type: nil|string
+      - type: string|nil
         name: result
   examples:
     - path: 'examples/fileGetContents-1.lua'

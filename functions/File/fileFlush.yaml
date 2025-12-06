@@ -13,7 +13,7 @@ shared: &shared
       type: 'file'
       description: The file handle of the file you wish to flush.
   returns:
-    description: Returns true if succeeded, false in case of failure (e.g. the file handle is invalid).
+    description: Returns **true** if succeeded, **false** in case of failure (e.g. the file handle is invalid).
     values:
       - type: bool
         name: result

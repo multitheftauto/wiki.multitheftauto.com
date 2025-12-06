@@ -20,7 +20,7 @@ shared: &shared
       description: 'You can provide any number of additional strings to write after string1. These will be written in the order in which they are specified.'
       default: "nil"
   returns:
-    description: Returns the number of bytes successfully written to the file, returns false if invalid arguments were specified.
+    description: Returns the number of bytes successfully written to the file, returns **false** if invalid arguments were specified.
     values:
       - type: int|false
         name: result

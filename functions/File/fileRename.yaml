@@ -18,7 +18,7 @@ shared: &shared
       type: 'string'
       description: Destination [Filepath](/reference/Filepath) for the specified source file in the same format.
   returns:
-    description: If successful, returns true. Otherwise returns false.
+    description: If successful, returns **true**. Otherwise returns **false**.
     values:
       - type: bool
         name: result

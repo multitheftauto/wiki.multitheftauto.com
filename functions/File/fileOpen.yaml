@@ -20,7 +20,7 @@ shared: &shared
       description: By default, the file is opened with reading and writing access. You can specify true for this parameter if you only need reading access.
       default: 'false'
   returns:
-    description: If successful, returns a file handle for the file. Otherwise returns false (f.e. if the file doesn't exist).
+    description: If successful, returns a [[file]] handle for the file. Otherwise returns **false** (f.e. if the file doesn't exist).
     values:
       - type: file|false
         name: result

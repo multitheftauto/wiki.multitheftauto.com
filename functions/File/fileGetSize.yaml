@@ -10,7 +10,7 @@ shared: &shared
       type: 'file'
       description: The file handle you wish to get the size of.
   returns:
-    description: Returns the file size if successful, or false if an error occured (e.g. an invalid file handle was passed).
+    description: Returns the file size if successful, or **false** if an error occured (e.g. an invalid file handle was passed).
     values:
       - type: int|false
         name: result

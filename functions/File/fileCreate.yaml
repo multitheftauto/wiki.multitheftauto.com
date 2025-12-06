@@ -20,7 +20,7 @@ shared: &shared
       type: 'string'
       description: The path of the file you want to copy.
   returns:
-    description: If successful, returns a [[file]] handle which can be used with other file functions ([[fileWrite]], [[fileClose]] etc.). Returns false if an error occured.
+    description: If successful, returns a [[file]] handle which can be used with other file functions ([[fileWrite]], [[fileClose]] etc.). Returns **false** if an error occured.
     values:
       - type: bool
         name: result

@@ -33,7 +33,7 @@ shared: &shared
     values:
       - type: string|nil
         name: file hash
-    description: Returns the hash of the entire file on success, and nil on failure.
+    description: Returns the hash of the entire file on success, and [[nil]] on failure.
   examples:
     - path: examples/fileGetHash-1.lua
       description: This example opens the code.lua file, computes the hash with every algorithm, and then displays them.

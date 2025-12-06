@@ -13,7 +13,7 @@ shared: &shared
         For example, if you want to delete a file name "myFile.txt" in the resource 'fileres', it can be deleted from another resource this way: `fileDelete(":fileres/myFile.txt")`.
         If the file is in the current resource, only the file path is necessary, e.g. `fileDelete("myFile.txt")`.
   returns:
-    description: Returns true if successful, false otherwise (for example if there exists no file with the given name, or it does exist but is in use).
+    description: Returns **true** if successful, **false** otherwise (for example if there exists no file with the given name, or it does exist but is in use).
     values:
       - type: bool
         name: result

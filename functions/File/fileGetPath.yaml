@@ -10,7 +10,7 @@ shared: &shared
       type: 'file'
       description: The file you want to get the path.
   returns:
-    description: Returns a string representing the file path, false if invalid file was provided.
+    description: Returns a [[string]] representing the file path, **false** if invalid file was provided.
     values:
       - type: string|false
         name: result

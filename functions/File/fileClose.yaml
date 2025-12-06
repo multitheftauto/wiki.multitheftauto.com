@@ -13,7 +13,7 @@ shared: &shared
       type: 'file'
       description: The file handle to close. 
   returns:
-    description: Returns true if successful, false otherwise.
+    description: Returns **true** if successful, **false** otherwise.
     values:
       - type: bool
         name: result

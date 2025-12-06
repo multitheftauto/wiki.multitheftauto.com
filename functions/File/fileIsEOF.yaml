@@ -16,7 +16,7 @@ shared: &shared
       type: 'file'
       description: A handle to the file you wish to check.
   returns:
-    description: Returns true if the file position of the specified file is at the end of the file, false otherwise.
+    description: Returns **true** if the file position of the specified file is at the end of the file, **false** otherwise.
     values:
       - type: bool
         name: result

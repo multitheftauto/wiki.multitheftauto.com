@@ -14,7 +14,7 @@ shared: &shared
       type: 'int'
       description: The new position. This is the number of bytes from the beginning of the file. If this value is larger than the file size, it is limited to `52,428,800` bytes (50 MB).
   returns:
-    description: Returns where the **offset** was actually set at. I.e. if offset was past the end of the file, it will be set at the end of the file, and this position will be returned. Returns false in case of failure (e.g. the specified file handle is invalid).
+    description: Returns where the **offset** was actually set at. I.e. if offset was past the end of the file, it will be set at the end of the file, and this position will be returned. Returns **false** in case of failure (e.g. the specified file handle is invalid).
     values:
       - type: int|false
         name: result

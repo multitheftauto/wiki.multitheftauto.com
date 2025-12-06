@@ -21,7 +21,7 @@ shared: &shared
       description: If set to true it will overwrite a file that already exists at `copyToFilePath`.
       default: 'false'
   returns:
-    description: Return true if the file was copied, else false if the `filePath` doesn't exist.
+    description: Return **true** if the file was copied, else **false** if the `filePath` doesn't exist.
     values:
       - type: bool
         name: result

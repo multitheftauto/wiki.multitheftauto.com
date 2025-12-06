@@ -13,7 +13,7 @@ shared: &shared
         For example, if you want to check whether a file named 'myfile.txt' exists in the resource 'mapcreator', it can be done from another resource this way: `fileExists(":mapcreator/myfile.txt")`.
         If the file, whose existence is going to be checked, is in the current resource, only the file path is necessary, e.g. `fileExists("myfile.txt")`. Note that you must use forward slashes '/' for the folders, backslashes '\' will return false.
   returns:
-    description: Returns true if the file exists, false otherwise.
+    description: Returns **true** if the file exists, **false** otherwise.
     values:
       - type: bool
         name: result
