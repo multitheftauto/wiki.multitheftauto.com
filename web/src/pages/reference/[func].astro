@@ -273,13 +273,21 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
                     <ul>
                       {syntax.parameters
                         .filter((param: any) => !param.default)
-                        .map((param: any) => (
-                          <li>
-                            <strong>{param.name}</strong>:
-                            <EnhancedMarkdown content={param.description ?? ""} inline={true} />
-                            {param.templateList && <TemplateList name={param.templateList} />}
-                          </li>
-                        ))}
+                        .map((param: any) => {
+                          const desc = param.description ?? "";
+                          const [firstLine, ...rest] = desc.split(/\n\s*\n/);
+                          const restMarkdown = rest.join("\n\n");
+
+                          return (
+                            <li>
+                              <strong>{param.name}</strong>: <EnhancedMarkdown content={firstLine} inline={true} />
+                              {restMarkdown && (
+                                <EnhancedMarkdown content={restMarkdown} />
+                              )}
+                              {param.templateList && <TemplateList name={param.templateList} />}
+                            </li>
+                          );
+                        })}
                     </ul>
                   </>
                 )}
@@ -291,13 +299,21 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
                     <ul>
                       {syntax.parameters
                         .filter((param: any) => param.default)
-                        .map((param: any) => (
-                          <li>
-                            <strong>{param.name}</strong> (default: <em>{param.default}</em>):
-                            <EnhancedMarkdown content={param.description ?? ""} inline={true} />
-                            {param.templateList && <TemplateList name={param.templateList} />}
-                          </li>
-                        ))}
+                        .map((param: any) => {
+                          const desc = param.description ?? "";
+                          const [firstLine, ...rest] = desc.split(/\n\s*\n/);
+                          const restMarkdown = rest.join("\n\n");
+
+                          return (
+                            <li>
+                              <strong>{param.name}</strong> (default: <em>{param.default}</em>): <EnhancedMarkdown content={firstLine} inline={true} />
+                              {restMarkdown && (
+                                <EnhancedMarkdown content={restMarkdown} />
+                              )}
+                              {param.templateList && <TemplateList name={param.templateList} />}
+                            </li>
+                          );
+                        })}
                     </ul>
                   </>
                 )}
