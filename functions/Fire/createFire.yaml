@@ -13,16 +13,16 @@ client:
       description: The Z coordinate when the initial patch of fire will be created.
     - name: size
       type: float
-      description: A float value indicating the size of the initial patch of fire, this value also affects the duration of how long the fire remains.
+      description: A [[float]] value indicating the size of the initial patch of fire, this value also affects the duration of how long the fire remains.
       default: '1.8'
   returns:
     values:
       - type: bool
         name: result
-    description: Returns true if successful, false if bad arguments were passed or the limit of active fires was reached. There can be a maximum of 60 active fires.
+    description: Returns **true** if successful, **false** if bad arguments were passed or the limit of active fires was reached. There can be a maximum of 60 active fires.
   examples:
     - path: 'examples/createFire-1.lua'
-      description: This example adds a `/fire` command, which creates a patch of fire in the position of the player that types it.
+      description: This example adds a <code>/fire</code> command, which creates a patch of fire in the position of the player that types it.
   preview_images:
     - path: 'fire_particles.png'
       description: Fire with default size (1.8)

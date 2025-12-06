@@ -16,13 +16,13 @@ client:
       default: 'nil'
     - name: radius
       type: float
-      description: A float value indicating the radius in which to extinguish fire.
+      description: A [[float]] value indicating the radius in which to extinguish fire.
       default: '1.0'
   returns:
     values:
       - type: bool
         name: result
-    description: Always returns true.
+    description: Always returns **true**.
   examples:
     - path: 'examples/extinguishFire-1.lua'
       description: This example creates 10 fires and then instantly extinguishes them.
