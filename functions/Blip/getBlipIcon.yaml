@@ -14,7 +14,7 @@ shared: &shared
     values:
       - type: int|false
         name: icon
-    description: Returns an [[int]] indicating which [icon](/reference/ID_Lists/Blips) the [[blip]] has.
+    description: Returns an [[int]] indicating which [icon](/reference/ID_Lists/Blips) the [[blip]] has. **false** if blip element is invalid.
   examples:
     - path: examples/getBlipIcon-1.lua
       description: This example will find all the blips that exist and set them all to the default blip icon.

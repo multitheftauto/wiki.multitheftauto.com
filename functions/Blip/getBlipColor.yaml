@@ -19,7 +19,7 @@ shared: &shared
         name: b
       - type: int
         name: a
-    description: Returns four integers in RGBA format, with a maximum value of 255 for each. The values are, in order, red, green, blue, and alpha. Alpha decides the transparancy where 255 is opaque and 0 is fully transparent. false is returned if the blip is invalid.
+    description: Returns four integers in RGBA format, with a maximum value of 255 for each. The values are, in order, red, green, blue, and alpha. Alpha decides the transparancy where 255 is opaque and 0 is fully transparent. **false** is returned if the blip is invalid.
   examples:
     - path: examples/getBlipColor-1.lua
       description: This example will find all the blips that exist and set them all to white if they aren't white already.

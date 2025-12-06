@@ -25,7 +25,7 @@ shared: &shared
     values:
       - type: bool
         name: result
-    description: Returns true if the blip's color was set successfully. Returns false if the blip passed to the function is invalid, or any of the colors are out of the valid range.
+    description: Returns **true** if the blip's color was set successfully. Returns **false** if the blip passed to the function is invalid, or any of the colors are out of the valid range.
   examples:
     - path: examples/setBlipColor-1.lua
       description: This example will find all the blips that exist and set them all to white if they aren't white already.

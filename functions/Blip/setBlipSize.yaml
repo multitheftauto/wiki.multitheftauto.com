@@ -17,7 +17,7 @@ shared: &shared
     values:
       - type: bool
         name: result
-    description: Returns an true if the blip's size was set successfully. Returns false if the [[element]] passed was not a [[blip]] or if the icon size passed was invalid.
+    description: Returns an **true** if the blip's size was set successfully. Returns **false** if the [[element]] passed was not a [[blip]] or if the icon size passed was invalid.
   examples:
     - path: examples/setBlipSize-1.lua
       description: This example will reset the size of all blips to the default.

@@ -17,7 +17,7 @@ shared: &shared
     values:
       - type: bool
         name: result
-    description: Returns true if successful, false otherwise.
+    description: Returns **true** if successful, **false** otherwise.
   examples:
     - path: examples/setBlipVisibleDistance-1.lua
       description: This example will set the visible distance of all blips to half the original value.

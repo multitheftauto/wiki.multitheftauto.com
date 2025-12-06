@@ -14,7 +14,7 @@ shared: &shared
     values:
       - type: int|false
         name: size
-    description: Returns an [[int]] indicating the size of the [[blip]]. The default value is 2. The maximum value is 25.
+    description: Returns an [[int]] indicating the size of the [[blip]]. The default value is 2. The maximum value is 25. **false** if blip element is invalid.
   examples:
     - path: examples/getBlipSize-1.lua
       description: This example will reset the size of all blips to the default.

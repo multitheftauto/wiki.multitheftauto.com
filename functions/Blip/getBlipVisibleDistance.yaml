@@ -14,7 +14,7 @@ shared: &shared
     values:
       - type: float|false
         name: visibleDistance
-    description: Returns one [[float]] with the blips visible distance, false if the blip is invalid.
+    description: Returns one [[float]] with the blips visible distance, **false** if the blip is invalid.
   examples:
     - path: examples/getBlipVisibleDistance-1.lua
       description: This example will combine the total visible distances of all blips.

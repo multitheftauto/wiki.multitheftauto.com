@@ -54,7 +54,7 @@ shared: &shared
     values:
       - type: blip|false
         name: created-blip
-    description: Returns an element of the [[blip]] if it was created successfully, false otherwise.
+    description: Returns an element of the [[blip]] if it was created successfully, **false** otherwise.
   preview_images:
     - path: radar-blip.png
       description: Example blip.

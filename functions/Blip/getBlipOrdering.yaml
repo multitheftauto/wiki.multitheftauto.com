@@ -14,7 +14,7 @@ shared: &shared
     values:
       - type: int|false
         name: z-ordering
-    description: Returns the Z ordering value of the [[blip]] if successful, false otherwise.
+    description: Returns the Z ordering value of the [[blip]] if successful, **false** otherwise.
   examples:
     - path: examples/getBlipOrdering-1.lua
     - path: examples/getBlipOrdering_OOP-1.lua

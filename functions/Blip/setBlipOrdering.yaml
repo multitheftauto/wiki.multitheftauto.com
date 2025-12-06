@@ -17,7 +17,7 @@ shared: &shared
     values:
       - type: bool
         name: result
-    description: Returns true if the [[blip]] ordering was changed successfully, false otherwise.
+    description: Returns **true** if the [[blip]] ordering was changed successfully, **false** otherwise.
 
 server:
   <<: *shared

@@ -17,7 +17,7 @@ shared: &shared
     values:
       - type: bool
         name: result
-    description: Returns true if the icon was successfully set, false if the element passed was not a valid blip or the icon value was not a valid icon number.
+    description: Returns **true** if the icon was successfully set, **false** if the element passed was not a valid blip or the icon value was not a valid icon number.
   examples:
     - path: examples/setBlipIcon-1.lua
       description: This example resets all blip icons to the default blip icon, 0.
