@@ -16,6 +16,11 @@ shared:
       name: c
       default: 'nil'
       description: height for [cuboid](/reference/createColCuboid).
+  returns:
+    description: Returns **true** if the size was changed, **false** if invalid arguments were passed.
+    values:
+      - type: bool
+        name: result
   oop:
     element: colshape
     method: setSize
