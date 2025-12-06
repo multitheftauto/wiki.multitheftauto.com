@@ -1,30 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetColShapeSize
 shared:
   name: getColShapeSize
-  description: This function is used to get the size of a colshape. Valid types are
-    [rectangle](/wiki/CreateColRectangle "CreateColRectangle"), [cuboid](/wiki/CreateColCuboid
-    "CreateColCuboid") and [tube](/wiki/CreateColTube "CreateColTube").
+  description: This function is used to get the size of a colshape. Valid types are [rectangle](/reference/createColRectangle), [cuboid](/reference/createColCuboid) and [tube](/reference/createColTube).
   parameters:
   - name: shape
     type: colshape
     description: The colshape you wish to get the size of.
-  examples:
-  - path: examples/getColShapeSize-1.lua
-    description: ''
-    side: server
   returns:
     values:
-    - type: float
+    - type: float|false
       name: x
     - type: float
       name: "y"
     - type: float
       name: z
-    description: Returns up to 3 floats depending on the colshape type (see below),
-      false if invalid arguments were passed.
+    description: |
+      Returns up to 3 [[float]]s depending on the colshape type (see below), **false** if invalid arguments were passed.
+
+      <ul>
+      <li> cuboid: width, depth, height</li>
+      <li>rectangle: width, depth</li>
+      <li>tube: height</li>
+      </ul>
   oop:
     element: colshape
     method: getSize
     static: false
   pair: setColShapeSize
-  requires_review: true

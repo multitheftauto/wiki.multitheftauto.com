@@ -1,26 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetColShapeRadius
 shared:
   name: getColShapeRadius
   description: This function is used to get the radius of a colshape. Valid types
-    are [circle](/wiki/CreateColCircle "CreateColCircle"), [sphere](/wiki/CreateColSphere
-    "CreateColSphere") and [tube](/wiki/CreateColTube "CreateColTube").
+    are [circle](/reference/createColCircle), [sphere](/reference/createColSphere) and [tube](/reference/createColTube).
   parameters:
   - name: shape
     type: colshape
     description: The colshape you wish to get the radius of.
-  examples:
-  - path: examples/getColShapeRadius-1.lua
-    description: ''
-    side: server
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float containing the radius of the colshape, false if an
+    - type: float|false
+      name: radius
+    description: Returns a [[float]] containing the radius of the colshape, **false** if an
       invalid colshape was passed.
   oop:
     element: colshape
     method: getRadius
     static: false
   pair: setColShapeRadius
-  requires_review: true

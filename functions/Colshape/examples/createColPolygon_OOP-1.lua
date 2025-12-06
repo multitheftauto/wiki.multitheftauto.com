@@ -3,12 +3,12 @@ local theWall = false
 local function shapeHit(element)
     local descriptor = "undefined"
 
-    if getElementType(element) == "player" then
+    if element.type == "player" then
         -- Use the player's name
-        descriptor = getPlayerName(element)
-    elseif getElementType(element) == "vehicle" then
+        descriptor = element.name
+    elseif element.type == "vehicle" then
         -- Use the vehicle's model name
-        descriptor = getVehicleName(element) or descriptor
+        descriptor = element.name or descriptor
     end
 
     -- Output a message in the chat box for everyone on the server
@@ -18,7 +18,7 @@ end
 function createWallCommandHandler(playerSource, commandName, fromX, fromY, toX, toY)
     -- Verify the player has given us the minimum amount of bound points
     if not (fromX and fromY and toX and toY) then
-        return outputChatBox("Syntax: set_wall <fromX> <fromY> <toX> <toY>", playerSource, 255, 100, 100)
+        return playerSource:outputChat("Syntax: set_wall <fromX> <fromY> <toX> <toY>", 255, 100, 100)
     end
 
     -- Calculate the 90° angle for the line between the two coordinates from the arguments
@@ -38,15 +38,15 @@ function createWallCommandHandler(playerSource, commandName, fromX, fromY, toX, 
     local x4, y4 = fromX + cosinusDepth, fromY + sinusDepth
 
     -- Create the collision shape with the calculated numbers
-    local tempCol = createColPolygon(fromX + (toX - fromX) / 2, fromY + (toY - fromY) / 2, x1, y1, x2, y2, x3, y3, x4, y4)
+    local tempCol = ColShape.Polygon(fromX + (toX - fromX) / 2, fromY + (toY - fromY) / 2, x1, y1, x2, y2, x3, y3, x4, y4)
 
     if not tempCol then
-        return outputChatBox("Error: Couldn't create collision polygon", playerSource, 255, 100, 100)
+        return playerSource:outputChat("Error: Couldn't create collision polygon", 255, 100, 100)
     end
 
     -- Destroy the previous collision polygon shape in case we already have one
     if isElement(theWall) then
-        destroyElement(theWall)
+        theWall:destroy()
     end
 
     -- Use a variable out-of-scope to keep track of the most recently created collision shape element
@@ -55,6 +55,6 @@ function createWallCommandHandler(playerSource, commandName, fromX, fromY, toX, 
     -- Attach an event handler to the element to get notified whenever an element hits our collision shape
     addEventHandler("onColShapeHit", tempCol, shapeHit, false)
 
-    outputChatBox("Success: Collision shape has been created!", playerSource, 100, 255, 100)
+    playerSource:outputChat("Success: Collision shape has been created!", 100, 255, 100)
 end
 addCommandHandler("set_wall", createWallCommandHandler)

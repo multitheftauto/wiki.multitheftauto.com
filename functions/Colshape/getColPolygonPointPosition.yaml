@@ -1,8 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetColPolygonPointPosition
 shared:
   name: getColPolygonPointPosition
   description: This function is used to get the position of a bound point in a [colshape
-    polygon](/wiki/CreateColPolygon "CreateColPolygon").
+    polygon](/reference/createColPolygon).
   parameters:
   - name: shape
     type: colshape
@@ -11,21 +10,15 @@ shared:
     type: int
     description: The index of the point you wish to retrieve. The points are indexed
       in order, with 1 being the first bound point.
-  examples:
-  - path: examples/getColPolygonPointPosition-1.lua
-    description: ''
-    side: server
   returns:
     values:
+    - type: float|false
+      name: x
     - type: float
-      name: value1
-    - type: float
-      name: value2
-    description: Returns two floats , x and y, indicating the position of the point,
-      false if invalid arguments were passed.
+      name: 'y'
+    description: Returns two floats - x and y, indicating the position of the point, **false** if invalid arguments were passed.
   oop:
     element: colshape
     method: getPointPosition
     static: false
   pair: setColPolygonPointPosition
-  requires_review: true

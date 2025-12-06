@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColSphere
-shared:
+shared: &shared
   name: createColSphere
   description: This function creates a collision sphere. This is a shape that has
     a position and a radius. See [Wikipedia](http://en.wikipedia.org/wiki/Sphere)
@@ -17,23 +16,31 @@ shared:
   - name: fRadius
     type: float
     description: The collision sphere's radius.
-  examples:
-  - path: examples/createColSphere-1.lua
-    description: Example 1:This example displays a chat message when a player enters
-      the colshape and allows the colshape to be created using a console functionset_zone.
-    side: server
   returns:
     values:
-    - type: colshape
-      name: value
-    description: Returns a colshape element if successful, false if invalid arguments
+    - type: colshape|false
+      name: col-sphere
+    description: Returns a [[colshape]] element if successful, **false** if invalid arguments
       were passed to the function.
   oop:
-    element: ColShape
+    element: colshape
     method: Sphere
     static: true
   notes:
   - type: tip
-    content: To visualize a colshape when writing scripts, use the client console
-      command showcol
-  requires_review: true
+    content: To visualize a colshape when writing scripts, use the client console command [showcol](/articles/Client_commands#showcol).
+  preview_images:
+    - path: 'Colshapes/shape_sphere.png'
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/createColSphere-1.lua
+    description: Example 1:This example displays a chat message when a player enters
+      the colshape and allows the colshape to be created using a console command <code>set_zone</code>.
+  - path: examples/createColSphere_OOP-1.lua
+    description: Example 1:This example displays a chat message when a player enters
+      the colshape and allows the colshape to be created using a console command <code>set_zone</code>.
+    oop: true
+  - path: examples/createColSphere-2.lua
+    description: This example allows creation of claymores, which trigger and explode.

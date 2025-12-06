@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetColShapeType
 shared:
   name: getColShapeType
   description: This function is used to retrieve the type of an colshape.
@@ -9,16 +8,18 @@ shared:
   examples:
   - path: examples/getColShapeType-1.lua
     description: This example outputs the type of all colshapes.
-    side: server
+  - path: examples/getColShapeType_OOP-1.lua
+    description: This example outputs the type of all colshapes.
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
-    description: 'Returns false if invalid arguments were passed, or an integer of
-      the type of the colshape, which include:'
+    - type: int|false
+      name: colshape-type
+      templateList: colshapeTypes
+    description: 'Returns **false** if invalid arguments were passed, or an integer of
+      the type of the colshape (see above).'
   oop:
     element: colshape
     method: getShapeType
     variable: shapeType
     static: false
-  requires_review: true

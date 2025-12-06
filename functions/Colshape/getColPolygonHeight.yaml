@@ -1,29 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetColPolygonHeight
-shared:
+shared: &shared
   name: getColPolygonHeight
-  description: 'This function is used to get the height of an existing [colshape polygon](/wiki/CreateColPolygon
-    "CreateColPolygon").
-
-    By default, a colshape polygon is infinitely tall.'
+  description: 'This function is used to get the height of an existing [colshape polygon](/reference/createColPolygon). By default, a colshape polygon is infinitely tall.'
   parameters:
   - name: shape
     type: colshape
     description: The colshape polygon.
-  examples:
-  - path: examples/getColPolygonHeight-1.lua
-    description: This example creates a polygon colshape and show height of it with
-      command 'getpolyheight'.
-    side: server
   returns:
     values:
+    - type: float|false
+      name: floor
     - type: float
-      name: value1
-    - type: float
-      name: value2
-    description: Returns two floats , indicating the floor and ceiling of the colshape
-      height, false if invalid arguments were passed.
+      name: ceiling
+    description: Returns two [[float]]s , indicating the floor and ceiling of the colshape
+      height, **false** if invalid arguments were passed.
   oop:
     element: colshape
     method: getHeight
-    static: false
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/getColPolygonHeight-1.lua
+    description: This example creates a polygon colshape and show height of it with
+      command <code>getpolyheight</code>.
+  - path: examples/getColPolygonHeight_OOP-1.lua
+    description: This example creates a polygon colshape and show height of it with
+      command <code>getpolyheight</code>.
+    oop: true

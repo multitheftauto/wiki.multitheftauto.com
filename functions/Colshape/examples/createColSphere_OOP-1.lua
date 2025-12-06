@@ -1,22 +1,22 @@
 local theZone
 
 local function shapeHit(hitElement, matchingDimensions)
-    if (hitElement and getElementType(hitElement) == 'player' and matchingDimensions) then
-        outputChatBox(getPlayerName(thePlayer).. " is in the zone!")
+    if (hitElement and element.type == 'player' and matchingDimensions) then
+        outputChatBox(thePlayer.name.. " is in the zone!")
     end
 end
 
 function setZone(playerSource, commandName, fX, fY, fZ, fRadius)
     local fX, fY, fZ, fRadius = tonumber(fX), tonumber(fY), tonumber(fZ), tonumber(fRadius)
     if (not fX) or (not fY) or (not fZ) or (not fRadius) then
-        outputChatBox("Syntax: /"..commandName.." [X] [Y] [Z] [Radius]", playerSource)
+        playerSource:outputChat("Syntax: /"..commandName.." [X] [Y] [Z] [Radius]")
     else
         if (theZone) then
-            destroyElement(theZone)
+            theZone:destroy()
         end
-        local tempCol = createColSphere(fX, fY, fZ, fRadius)
+        local tempCol = ColShape.Sphere(fX, fY, fZ, fRadius)
         addEventHandler("onColShapeHit", tempCol, shapeHit)
-        outputChatBox("Zone has "..(theZone ~= nil and "moved" or "created").."!", playerSource)
+        playerSource:outputChat("Zone has "..(theZone ~= nil and "moved" or "created").."!")
         theZone = tempCol
     end
 end

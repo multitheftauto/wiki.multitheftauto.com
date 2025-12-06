@@ -1,34 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetColPolygonHeight
-shared:
+shared: &shared
   name: setColPolygonHeight
-  description: 'This function is used to change the height of an existing [colshape
-    polygon](/wiki/CreateColPolygon "CreateColPolygon").
-
-    By default, a colshape polygon is infinitely tall.'
+  description: 'This function is used to change the height of an existing [colshape polygon](/reference/createColPolygon). By default, a colshape polygon is infinitely tall.'
   parameters:
   - name: shape
     type: colshape
     description: The colshape polygon.
   - name: floor
     type: float
-    description: The polygon floor (lowest Z coordinate). Parse false to reset this
-      value to 0.
+    description: The polygon floor (lowest Z coordinate). Parse **false** to reset this value to 0.
   - name: ceil
     type: float
-    description: The polygon ceiling (highest Z coordinate). Parse false to reset
-      this value to infinitely tall.
-  examples:
-  - path: examples/setColPolygonHeight-1.lua
-    description: ''
-    side: server
+    description: The polygon ceiling (highest Z coordinate). Parse **false** to reset this value to infinitely tall.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the polygon was changed, false if invalid arguments
+      name: result
+    description: Returns **true** if the polygon was changed, **false** if invalid arguments
       were passed.
   oop:
     element: colshape
     method: setHeight
     static: false
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setColPolygonHeight-1.lua
+    description: This example sets every polygon colshape's max heigh to 50 units once resource starts.
+  - path: examples/setColPolygonHeight_OOP-1.lua
+    description: This example sets every polygon colshape's max heigh to 50 units once resource starts.
+    oop: true

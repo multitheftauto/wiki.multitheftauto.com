@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColPolygon
-shared:
+shared: &shared
   name: createColPolygon
   description: This function creates a collision polygon. See [Wikipedia](http://en.wikipedia.org/wiki/Polygon)
     for a definition of a polygon. The first set of X Y of this shape is not part
@@ -10,11 +9,11 @@ shared:
   - name: fCenterX
     type: float
     description: The X position of the collision polygon's position - the position
-      that will be returned from getElementPosition .
+      that will be returned from [[getElementPosition]].
   - name: fCenterY
     type: float
     description: The Y position of the collision polygon's position - the position
-      that will be returned from getElementPosition .
+      that will be returned from [[getElementPosition]].
   - name: fX1
     type: float
     description: The 1st X position of the collision polygon's bound point
@@ -34,35 +33,39 @@ shared:
     type: float
     description: The 3rd Y position of the collision polygon's bound point
   - name: '...'
-    type: unknown
-    description: MISSING_PARAM_DESC
+    type: ''
+    description: From the 3rd position you can have as many points as you require to create the colshape.
+  returns:
+    values:
+    - type: colshape|false
+      name: col-polygon
+    description: Returns a [[colshape]] element if successful, **false** if invalid arguments
+      were passed to the function.
+  oop:
+    element: colshape
+    method: Polygon
+    static: true
+  preview_images:
+    - path: 'Colshapes/shape_polygon.png'
+  notes:
+  - type: info
+    content: |
+      - For this function to work correctly, get/set your bound points in an
+      anti-clockwise fashion.
+      - Even though this is a 2D colshape, [[isElementWithinColShape]] returns **false**
+      if an element is in the area but below 0 Z height.
+  - type: tip
+    content: To visualize a colshape when writing scripts, use the client console command [showcol](/articles/Client_commands#showcol).
+
+server:
+  <<: *shared
   examples:
   - path: examples/createColPolygon-1.lua
     description: This example displays a chat message when any element hits the colshape
-      and allows the colshape to be created using a console functionset_zone.
-    side: server
+      and allows the colshape to be created using a console command <code>set_zone</code>.
   - path: examples/createColPolygon-2.lua
     description: This example displays a chat message when any element hits the colshape
-      and allows the colshape to be created using a console functionset_wall.
-    side: server
-  returns:
-    values:
-    - type: colshape
-      name: value
-    description: Returns a colshape element if successful, false if invalid arguments
-      were passed to the function.
-  oop:
-    element: ColShape
-    method: Polygon
-    static: true
-  notes:
-  - type: info
-    content: For this function to work correctly, get/set your bound points in an
-      anti-clockwise fashion.
-  - type: info
-    content: Even though this is a 2D colshape, isElementWithinColShape returns false
-      if an element is in the area but below 0 Z height.
-  - type: tip
-    content: To visualize a colshape when writing scripts, use the client console
-      command showcol
-  requires_review: true
+      and allows the colshape to be created using a console command <code>set_wall</code>.
+  - path: examples/createColPolygon_OOP-1.lua
+    description: This example displays a chat message when any element hits the colshape
+      and allows the colshape to be created using a console command <code>set_wall</code>.

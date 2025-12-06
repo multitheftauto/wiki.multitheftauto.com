@@ -1,8 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColRectangle
-shared:
+shared: &shared
   name: createColRectangle
   description: This function creates a collision rectangle. This is a shape that has
-    a position and a width and a depth. See [Rectangle](http://en.wikipedia.org/wiki/Rectangle)
+    a position and a width and a depth and infinite height. See [Rectangle](http://en.wikipedia.org/wiki/Rectangle)
     for a definition of a rectangle. XY marks on the south west corner of the colshape.
   parameters:
   - name: fX
@@ -14,30 +13,36 @@ shared:
   - name: fWidth
     type: float
     description: The collision rectangle's width.
-  - name: fHeight
+  - name: fDepth
     type: float
-    description: The collision rectangle's height.
-  examples:
-  - path: examples/createColRectangle-1.lua
-    description: This example displays a chat message when a player enters the colshape
-      and allows the colshape to be created using a console functionset_zone.
-    side: server
+    description: The collision rectangle's depth.
   returns:
     values:
-    - type: colshape
-      name: value
-    description: Returns a colshape element if successful, false if invalid arguments
+    - type: colshape|false
+      name: col-rectangle
+    description: Returns a [[colshape]] element if successful, **false** if invalid arguments
       were passed to the function.
   oop:
-    element: ColShape
+    element: colshape
     method: Rectangle
     static: true
   notes:
   - type: info
     content: Attaching a rectangle colshape to another element may give unexpected
-      results as the origin is not at the rectangle centre. Try using a collision
-      circle for attaching instead
+      results as the origin is not at the rectangle centre. Try using a [collision
+      circle](/reference/createColCircle) for attaching instead.
   - type: tip
-    content: To visualize a colshape when writing scripts, use the client console
-      command showcol
-  requires_review: true
+    content: To visualize a colshape when writing scripts, use the client console command [showcol](/articles/Client_commands#showcol).
+  preview_images:
+    - path: 'Colshapes/shape_rectangle.png'
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/createColRectangle-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console command <code>set_zone</code>.
+  - path: examples/createColRectangle_OOP-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console command <code>set_zone</code>.
+    oop: true

@@ -1,9 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColCircle
-shared:
+shared: &shared
   name: createColCircle
-  description: This function creates a collision circle. This is a shape that has
-    a position and a radius and infinite height that you can use to detect a player's
-    presence. Events will be triggered when a player enters or leaves it.
+  description: This function creates a collision circle. This is a shape that has a position and a radius and infinite height. Events will be triggered when a [[element]] enters or leaves it.
   parameters:
   - name: fX
     type: float
@@ -14,23 +11,29 @@ shared:
   - name: radius
     type: float
     description: The radius of the collision circle. Can not be smaller than 0.1.
-  examples:
-  - path: examples/createColCircle-1.lua
-    description: This example displays a chat message when a player enters the colshape
-      and allows the colshape to be created using a console functionset_zone.
-    side: server
   returns:
     values:
-    - type: colshape
-      name: value
-    description: Returns a colshape element if successful, false if invalid arguments
+    - type: colshape|false
+      name: col-circle
+    description: Returns a [[colshape]] element if successful, **false** if invalid arguments
       were passed to the function.
   oop:
-    element: ColShape
+    element: colshape
     method: Circle
     static: true
   notes:
   - type: tip
-    content: To visualize a colshape when writing scripts, use the client console
-      command showcol
-  requires_review: true
+    content: To visualize a colshape when writing scripts, use the client console command [showcol](/articles/Client_commands#showcol).
+  preview_images:
+    - path: 'Colshapes/shape_circle.png'
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/createColCircle-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console command <code>set_zone</code>.
+  - path: examples/createColCircle_OOP-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console command <code>set_zone</code>.
+    oop: true

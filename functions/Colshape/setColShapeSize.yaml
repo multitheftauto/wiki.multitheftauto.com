@@ -1,28 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetColShapeSize
-server:
+shared:
   name: setColShapeSize
-  description: This function is used to set the size of a colshape. Valid types are
-    [rectangle](/wiki/CreateColRectangle "CreateColRectangle"), [cuboid](/wiki/CreateColCuboid
-    "CreateColCuboid") and [tube](/wiki/CreateColTube "CreateColTube").
-  parameters: []
-  examples:
-  - path: examples/setColShapeSize-1.lua
-    description: ''
-    side: server
+  description: This function is used to set the size of a colshape. Valid types are [rectangle](/reference/createColRectangle), [cuboid](/reference/createColCuboid) and [tube](/reference/createColTube).
+  parameters: 
+    - type: colshape
+      name: shape
+      description: The colshape you wish to change the size of.
+    - type: float
+      name: a
+      description: width for [cuboid](/reference/createColCuboid) and [rectangle](/reference/createColRectangle) or height for [tube](/reference/createColTube).
+    - type: float
+      name: b
+      default: 'nil'
+      description: depth for [cuboid](/reference/createColCuboid) or height for [rectangle](/reference/createColRectangle).
+    - type: float
+      name: c
+      default: 'nil'
+      description: height for [cuboid](/reference/createColCuboid).
   oop:
     element: colshape
     method: setSize
     static: false
   pair: getColShapeSize
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Syntax (Cuboid)
-
-      - Missing section: Syntax (Rectangle)
-
-      - Missing section: Syntax (Tube)
-
-      '
-  requires_review: true

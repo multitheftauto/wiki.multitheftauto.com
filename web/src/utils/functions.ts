@@ -207,8 +207,8 @@ export function getFixedStaticOOPClass(elementName: string): string {
       return 'ACLGroup';
     } else if (elementName === "acl") {
       return 'ACL';
-    } else if (elementName === "ban") {
-      return 'Ban';
+    } else if (elementName === "colshape") {
+      return 'ColShape';
     }
     return elementName.charAt(0).toUpperCase() + elementName.slice(1);
 }

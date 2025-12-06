@@ -1,3 +1,3 @@
-function isElementInsideColShape( theElement, theColShape )
-    return isInsideColShape( theColShape, getElementPosition( theElement ) )
+function isElementInsideColShape(theElement, theColShape)
+    return isInsideColShape(theColShape, getElementPosition(theElement))
 end

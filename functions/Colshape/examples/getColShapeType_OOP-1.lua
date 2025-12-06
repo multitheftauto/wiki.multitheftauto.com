@@ -1,0 +1,13 @@
+local circle = ColShape.Circle(0, 0, 1)
+local cubboid = ColShape.Cuboid(0, 0, 0, 0, 0, 0)
+local sphere = ColShape.Sphere(0, 0, 0, 0)
+local rectangle = ColShape.Rectangle(0, 0, 0, 0)
+local polygon = ColShape.Polygon(0, 0, 0, 0, 0, 0, 0, 0)
+local tube = ColShape.Tube(0, 0, 0, 0, 0)
+
+iprint("circle", circle:getShapeType(), circle.shapeType)
+iprint("cubboid", cubboid:getShapeType(), cubboid.shapeType)
+iprint("sphere", sphere:getShapeType(), sphere.shapeType)
+iprint("rectangle", rectangle:getShapeType(), rectangle.shapeType)
+iprint("polygon", polygon:getShapeType(), polygon.shapeType)
+iprint("tube", tube:getShapeType(), tube.shapeType)

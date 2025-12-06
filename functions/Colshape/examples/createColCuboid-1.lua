@@ -1,7 +1,9 @@
 local theZone
 
-function shapeHit(thePlayer)
-    outputChatBox(getPlayerName(thePlayer).. " is in the zone!")
+local function shapeHit(hitElement, matchingDimensions)
+    if (hitElement and getElementType(hitElement) == 'player' and matchingDimensions) then
+        outputChatBox(getPlayerName(thePlayer).. " is in the zone!")
+    end
 end
 
 function setZone(playerSource, commandName, fX, fY, fZ, fWidth, fDepth, fHeight)
@@ -9,7 +11,7 @@ function setZone(playerSource, commandName, fX, fY, fZ, fWidth, fDepth, fHeight)
     if (not fX) or (not fY) or (not fZ) or (not fWidth) or (not fDepth) or (not fHeight) then
         outputChatBox("Syntax: /"..commandName.." [X] [Y] [Z] [Width] [Depth] [Height]", playerSource)
     else
-        if (theZone ~= nil) then
+        if (theZone) then
             destroyElement(theZone)
         end
         local tempCol = createColCuboid(fX, fY, fZ, fWidth, fDepth, fHeight)

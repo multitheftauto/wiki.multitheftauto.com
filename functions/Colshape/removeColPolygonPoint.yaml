@@ -1,8 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveColPolygonPoint
-shared:
+shared: &shared
   name: removeColPolygonPoint
-  description: This function is used to remove a point from an existing [colshape
-    polygon](/wiki/CreateColPolygon "CreateColPolygon").
+  description: This function is used to remove a point from an existing [colshape polygon](/reference/createColPolygon).
   parameters:
   - name: shape
     type: colshape
@@ -11,19 +9,23 @@ shared:
     type: int
     description: The index of the point you wish to remove. The points are indexed
       in order, with 1 being the first bound point. You can't remove the last 3 points.
-  examples:
-  - path: examples/removeColPolygonPoint-1.lua
-    description: This example remove a polygon colshape point by command 'removepoint'.
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the polygon was changed, false if invalid arguments
+      name: result
+    description: Returns **true** if the polygon was changed, **false** if invalid arguments
       were passed.
   oop:
     element: colshape
     method: removePoint
     static: false
   pair: addColPolygonPoint
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/removeColPolygonPoint-1.lua
+    description: This example remove a polygon colshape point by command <code>removepoint</code>.
+  - path: examples/removeColPolygonPoint_OOP-1.lua
+    description: This example remove a polygon colshape point by command <code>removepoint</code>.
+    oop: true

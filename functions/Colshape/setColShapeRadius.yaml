@@ -1,9 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetColShapeRadius
 shared:
   name: setColShapeRadius
   description: This function is used to set the radius of a colshape. Valid types
-    are [circle](/wiki/CreateColCircle "CreateColCircle"), [sphere](/wiki/CreateColSphere
-    "CreateColSphere") and [tube](/wiki/CreateColTube "CreateColTube").
+    are [circle](/reference/createColCircle), [sphere](/reference/createColSphere) and [tube](/reference/createColTube).
   parameters:
   - name: shape
     type: colshape
@@ -11,19 +9,14 @@ shared:
   - name: radius
     type: float
     description: The radius you want to set.
-  examples:
-  - path: examples/setColShapeRadius-1.lua
-    description: ''
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the radius was changed, or false if invalid arguments
+      name: result
+    description: Returns **true** if the radius was changed, or **false** if invalid arguments
       were passed.
   oop:
     element: colshape
     method: setRadius
     static: false
   pair: getColShapeRadius
-  requires_review: true

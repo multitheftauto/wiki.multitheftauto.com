@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CreateColCuboid
-shared:
+shared: &shared
   name: createColCuboid
   description: This function creates a collision cuboid. This is a shape that has
     a position, width, depth and height. See [Wikipedia](http://en.wikipedia.org/wiki/Cuboid)
@@ -24,19 +23,11 @@ shared:
   - name: fHeight
     type: float
     description: The collision cuboid's height.
-  examples:
-  - path: examples/createColCuboid-1.lua
-    description: This example displays a chat message when a player enters the colshape
-      and allows the colshape to be created using a console functionset_zone.
-    side: server
-  - path: examples/createColCuboid-2.lua
-    description: This function creates a cuboid and centers it to given coordinates
-    side: server
   returns:
     values:
-    - type: colshape
-      name: value
-    description: Returns a colshape element if successful, false if invalid arguments
+    - type: colshape|false
+      name: col-cuboid
+    description: Returns a [[colshape]] element if successful, **false** if invalid arguments
       were passed to the function.
   oop:
     element: ColShape
@@ -45,9 +36,21 @@ shared:
   notes:
   - type: info
     content: Attaching a cuboid colshape to another element may give unexpected results
-      as the origin is not at the cuboid centre. Try using a collision sphere for
-      attaching instead
+      as the origin is not at the cuboid centre. Try using a [collision sphere](/reference/createColSphere) for
+      attaching instead.
   - type: tip
-    content: To visualize a colshape when writing scripts, use the client console
-      command showcol
-  requires_review: true
+    content: To visualize a colshape when writing scripts, use the client console command [showcol](/articles/Client_commands#showcol).
+  preview_images:
+    - path: 'Colshapes/shape_cuboid.png'
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/createColCuboid-1.lua
+    description: This example displays a chat message when a player enters the colshape
+      and allows the colshape to be created using a console command <code>set_zone</code>.
+  - path: examples/createColCuboid-2.lua
+    description: This function creates a cuboid and centers it to given coordinates.
+  - path: examples/createColCuboid_OOP-1.lua
+    description: This function creates a cuboid and centers it to given coordinates.
+    oop: true

@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsInsideColShape
 shared:
   name: isInsideColShape
   description: This function checks if a 3D position is inside a colshape or not.
@@ -18,15 +17,16 @@ shared:
   examples:
   - path: examples/isInsideColShape-1.lua
     description: This function checks if an element is within a colshape.
-    side: server
+  - path: examples/isInsideColShape_OOP-1.lua
+    description: This function checks if an element is within a colshape.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the position is inside the colshape, false if it
+      name: result
+    description: Returns **true** if the position is inside the colshape, **false** if it
       isn't or if any parameters are invalid.
   oop:
     element: colshape
     method: isInside
     static: false
-  requires_review: true
