@@ -15,5 +15,5 @@ shared:
     values:
     - type: string
       name: value
-    description: Returns a string containing the escaped UTF-8 characters from the
+    description: Returns a [[string]] containing the escaped UTF-8 characters from the
       original string.

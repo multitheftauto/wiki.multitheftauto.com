@@ -21,4 +21,4 @@ shared:
     values:
     - type: string
       name: new string value
-    description: Returns the string with the removed substring from the range.
+    description: Returns the [[string]] with the removed substring from the range.

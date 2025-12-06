@@ -29,4 +29,4 @@ shared:
     - type: int
       name: end position
     description: Returns two number values for the beginning and ending position of
-      the matched string, nil otherwise.
+      the matched string, [[nil]] otherwise.

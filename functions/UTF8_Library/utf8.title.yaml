@@ -13,7 +13,7 @@ shared:
     values:
     - type: string
       name: uppercase string
-    description: Returns a string in uppercase OR returns an integer (see description).
+    description: Returns a [[string]] in uppercase OR returns an integer (see description).
   syntaxes:
     - name: utf8.upper
       parameters:

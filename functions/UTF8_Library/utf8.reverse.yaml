@@ -12,4 +12,4 @@ shared:
     values:
     - type: string
       name: reversed string
-    description: Returns a string containing the reversed original UTF-8 string.
+    description: Returns a [[string]] containing the reversed original UTF-8 string.

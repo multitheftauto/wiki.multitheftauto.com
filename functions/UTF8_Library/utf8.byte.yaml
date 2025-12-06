@@ -39,4 +39,4 @@ shared:
     - type: '...'
       name: values
     description: Returns a sequence of integer values from the original string if
-      successful, nil otherwise.
+      successful, [[nil]] otherwise.

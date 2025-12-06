@@ -23,4 +23,4 @@ shared:
       name: value 1
     - type: '...'
       name: values
-    description: Returns a sequence of string matches from the input string, nil otherwise.
+    description: Returns a sequence of string matches from the input string, [[nil]] otherwise.

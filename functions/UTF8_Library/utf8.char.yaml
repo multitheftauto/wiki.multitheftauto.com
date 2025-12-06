@@ -18,4 +18,4 @@ shared:
     values:
     - type: string
       name: value
-    description: Returns a string representation of the codepoints passed.
+    description: Returns a [[string]] representation of the codepoints passed.

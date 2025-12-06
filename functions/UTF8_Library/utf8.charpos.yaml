@@ -28,7 +28,7 @@ shared:
     - type: int
       name: value2
     description: Returns the integer position as in a byte string and the integer
-      codepoint at this position, nil otherwise.
+      codepoint at this position, [[nil]] otherwise.
   notes:
   - type: info
     content: Code point characters beyond the byte value range (0-127) require at
