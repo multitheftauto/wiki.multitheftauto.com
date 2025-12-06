@@ -31,3 +31,6 @@ server:
   examples:
   - path: examples/addColPolygonPoint-1.lua
     description: This examples adds a point to an existing polygon shape by a command.
+  - path: examples/addColPolygonPoint_OOP-1.lua
+    description: This examples adds a point to an existing polygon shape by a command.
+    oop: true
