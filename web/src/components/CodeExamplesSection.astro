@@ -96,18 +96,18 @@ if (codeExamples.length === 0 && !examplesRequired) {
       });
     });
 
-    const hash = window.location.hash;
-    const match = hash.match(/^#example(\d+)$/i);
-    if (match) {
+    function activateExampleFromHash() {
+      const hash = window.location.hash;
+      const match = hash.match(/^#example(\d+)$/i);
+      if (!match) return;
+
       const tabIndex = String(parseInt(match[1], 10) - 1);
       const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabIndex}"]`);
-      if (targetBtn) {
-        activateTab(tabIndex);
+      const targetContent = document.querySelector(`.tab-content[data-tab="${tabIndex}"]`);
 
-        const section = document.querySelector('.examples-section');
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
+      if (targetBtn && targetContent) {
+        activateTab(tabIndex);
+        targetBtn.scrollIntoView({ behavior: 'smooth' });
       }
     }
 
@@ -121,6 +121,9 @@ if (codeExamples.length === 0 && !examplesRequired) {
         tabButtons.classList.remove('has-scrollbar');
       }
     }
+
+    activateExampleFromHash();
+    window.addEventListener('hashchange', activateExampleFromHash);
 
     checkOverflow();
     window.addEventListener('resize', checkOverflow);
