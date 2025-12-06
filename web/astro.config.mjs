@@ -130,6 +130,7 @@ export default defineConfig({
                     { label: "Element Types", link: "/reference/Element" },
                     { label: "Element Tree", link: "/reference/Element_tree" },
                     { label: "Entities", link: "/reference/Entity" },
+                    { label: "Visibility", link: "/reference/Visibility" },
                   ],
                 },
                 {

@@ -48,7 +48,7 @@ shared: &shared
       default: '16383.0'
     - name: visibleTo
       type: element
-      description: This defines which elements can see the blip. Defaults to visible to everyone. See [[visibility]].
+      description: This defines which elements can see the blip. Defaults to visible to everyone. See [[Visibility]].
       default: 'getRootElement()'
   returns:
     values:

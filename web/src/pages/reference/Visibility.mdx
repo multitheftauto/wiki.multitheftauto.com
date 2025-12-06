@@ -1,0 +1,38 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { Code } from '@astrojs/starlight/components';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Visibility',
+    tableOfContents: false
+}}>
+
+The visibility system for [markers](/reference/marker), [blips](/reference/blip) and [radar-areas](/reference/radararea) works by the following rule: 
+- **if something is visible to a certain [element](/reference/element), it is also visible to all of that element's children. Also, everything is visible to the root element by default.**
+
+This means that if you want to make e.g. a blip only visible for a few specific players, you need to do two things:
+- Make the blip invisible to the [root](/reference/root) element, using [setElementVisibleTo](/reference/setElementVisibleTo). The blip is now hidden for all players.
+- Make the blip visible again for the desired players.
+
+The same things go for markers.
+
+If you only want something to be visible to certain players the most efficient and least buggy thing to do is to when creating the element instead of the default visibility of [root](/reference/root), set it to [resourceRoot](/reference/resourceRoot) (no player will see it as no player is a child of resourceRoot) and then use [setElementVisibleTo](/reference/setElementVisibleTo) on specific players. Otherwise there is a chance that players will see the blip for a fraction of a second, as the blip is created but then destroyed right after.
+
+This is bad (chance of being seen on minimap for about 50ms):
+<Code lang="lua" code="a = createBlip(0, 0, 0, 41)
+setElementVisibleTo(a, root, false)
+setElementVisibleTo(a, somePlayer, true)" />
+
+This is good:
+
+<Code lang="lua" code="a = createBlip(0, 0, 0, 41, 1, 2, 3, 4, 5, 6, 9999, resourceRoot)
+setElementVisibleTo(a, somePlayer, true)" />
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:Predefined_variables',
+        'reference:Element_tree',
+])} currentId='' />
+
+</AutoStarlightPage>
