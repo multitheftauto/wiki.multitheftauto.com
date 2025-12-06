@@ -12,7 +12,7 @@ shared: &shared
       type: 'xmlnode'
       description: The [xmlnode](/xmlnode) to get the tag name of.
   returns:
-    description: Returns the tag name of the node if successful, false otherwise.
+    description: Returns the tag name of the node if successful, **false** otherwise.
     values:
       - type: 'string|false'
         name: 'name'

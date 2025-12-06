@@ -17,7 +17,7 @@ shared: &shared
       description: By default, the XML file is opened with reading and writing access. You can specify true for this parameter if you only need reading access.
   returns:
     description: |
-      Returns the root [xmlnode](/xmlnode) object of an xml file if successful, or false otherwise.
+      Returns the root [xmlnode](/xmlnode) object of an xml file if successful, or **false** otherwise.
     values:
       - type: 'xmlnode|false'
         name: 'xmlnode'

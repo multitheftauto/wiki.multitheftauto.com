@@ -22,7 +22,7 @@ shared: &shared
       description: 'The name of the root node in the XML document.'
   returns:
     description: |
-      Returns the root [xmlnode](/xmlnode) object of the new XML file if successful, or false otherwise.
+      Returns the root [xmlnode](/xmlnode) object of the new XML file if successful, or **false** otherwise.
     values:
       - type: 'xmlnode|false'
         name: 'xmlnode'

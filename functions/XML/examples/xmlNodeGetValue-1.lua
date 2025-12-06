@@ -5,6 +5,6 @@ if (xmlFile) then -- If it's indeed opened
     xmlUnloadFile(xmlFile)
 
     if (success) then -- Check if it was successful
-        outputChatBox (tostring(success)) -- Output "somevalue" to the chatbox
+        outputChatBox(tostring(success)) -- Output "somevalue" to the chatbox
     end
 end

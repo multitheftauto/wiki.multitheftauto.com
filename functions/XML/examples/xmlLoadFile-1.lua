@@ -1,1 +1,1 @@
-local node = xmlLoadFile ( ":ctv/settings.xml" )
+local node = xmlLoadFile(":ctv/settings.xml")

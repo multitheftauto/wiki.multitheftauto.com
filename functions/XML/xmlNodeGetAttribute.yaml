@@ -15,7 +15,7 @@ shared: &shared
       description: The name of the attribute.
   returns:
     description: |
-      Returns the attribute in string form or false, if the attribute is not defined.
+      Returns the attribute in string form or **false**, if the attribute is not defined.
     values:
       - type: 'string|false'
         name: 'attribute'

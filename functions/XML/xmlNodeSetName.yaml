@@ -15,7 +15,7 @@ shared: &shared
       type: 'string'
       description: The name of the attribute.
   returns:
-    description: Returns true if successful, false otherwise.
+    description: Returns **true** if successful, **false** otherwise.
     values:
       - type: 'bool'
         name: 'result'

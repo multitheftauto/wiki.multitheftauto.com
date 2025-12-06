@@ -17,7 +17,7 @@ shared: &shared
       type: 'string|number|nil'
       description: The value which you wish to change the attribute to. (Note - **nil** will delete the attribute).
   returns:
-    description: Returns true if the attribute was set successfully, false if the node and/or attribute do not exist, or if they're faulty.
+    description: Returns **true** if the attribute was set successfully, **false** if the node and/or attribute do not exist, or if they're faulty.
     values:
       - type: 'bool'
         name: 'result'

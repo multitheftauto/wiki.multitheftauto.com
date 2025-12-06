@@ -12,7 +12,7 @@ shared: &shared
       type: 'xmlnode'
       description: The [xmlnode](/xmlnode) of which you need to know the value.
   returns:
-    description: Returns the value of the node as a string if it was received successfully, false otherwise.
+    description: Returns the value of the node as a [[string]] if it was received successfully, **false** otherwise.
     values:
       - type: 'string|false'
         name: 'name'

@@ -11,7 +11,7 @@ shared: &shared
       type: 'xmlnode'
       description: The node of which you want to know the parent.
   returns:
-    description: Returns the parent node of the specified node if successful. Returns false if the specified node is the root node or an invalid node was passed.
+    description: Returns the parent node of the specified node if successful. Returns **false** if the specified node is the root node or an invalid node was passed.
     values:
       - type: 'xmlnode|false'
         name: 'parent'

@@ -18,7 +18,7 @@ shared: &shared
         This is the 0-based index of the node you wish to find. For example, to find the 5th subnode with a particular name, you would use 4 as the index value. To find the first occurence, use 0.
   returns:
     description: |
-      Returns an [xmlnode](/xmlnode) if the node was found, false otherwise.
+      Returns an [xmlnode](/xmlnode) if the node was found, **false** otherwise.
     values:
       - type: 'xmlnode|false'
         name: 'xmlnode'

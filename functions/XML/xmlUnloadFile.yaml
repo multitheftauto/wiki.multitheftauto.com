@@ -11,7 +11,7 @@ shared: &shared
       description: The root of the XML document to unload.
   returns:
     description: |
-      Returns true if the document was unloaded successfully, false otherwise.
+      Returns **true** if the document was unloaded successfully, **false** otherwise.
     values:
       - type: 'boolean'
         name: 'result'

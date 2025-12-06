@@ -19,7 +19,7 @@ shared: &shared
       description: A boolean indicating if you want the value to be enclosed inside CDATA tags.
       default: 'false'
   returns:
-    description: Returns true if value was successfully set, false otherwise.
+    description: Returns **true** if value was successfully set, **false** otherwise.
     values:
       - type: 'bool'
         name: 'result'

@@ -12,7 +12,7 @@ shared: &shared
       description: The [xmlnode](/xmlnode) to get the attributes of.
   returns:
     description: |
-      If successful, returns a table with as keys the names of the attributes and as values the corresponding attribute values. If the node has no attributes, returns an empty table. In case of failure, returns false.
+      If successful, returns a [[table]] with as keys the names of the attributes and as values the corresponding attribute values. If the node has no attributes, returns an empty table. In case of failure, returns **false**.
     values:
       - type: 'table|false'
         name: 'attributes'

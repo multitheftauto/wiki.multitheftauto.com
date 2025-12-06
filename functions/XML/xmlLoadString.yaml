@@ -13,7 +13,7 @@ shared: &shared
         A string containing XML data.
   returns:
     description: |
-      Returns the root [xmlnode](/xmlnode) object of an xml string if successful, or false otherwise (invalid XML string).
+      Returns the root [xmlnode](/xmlnode) object of an xml string if successful, or **false** otherwise (invalid XML string).
     values:
       - type: 'xmlnode|false'
         name: 'xmlnode'

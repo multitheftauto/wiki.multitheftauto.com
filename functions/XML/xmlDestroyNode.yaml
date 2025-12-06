@@ -11,7 +11,7 @@ shared: &shared
       description: "The [xmlnode](/xmlnode) you want to destroy."
   returns:
     description: |
-      Returns true if the xml node was successfully destroyed, false otherwise.
+      Returns **true** if the xml node was successfully destroyed, **false** otherwise.
     values:
       - type: 'bool'
         name: 'bool'

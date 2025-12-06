@@ -1,1 +1,1 @@
-local node = XML.load ( ":ctv/settings.xml" )
+local node = XML.load(":ctv/settings.xml")

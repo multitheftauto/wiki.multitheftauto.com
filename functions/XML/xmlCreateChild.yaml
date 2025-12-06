@@ -14,7 +14,7 @@ shared: &shared
       description: 'The type of the child node that will be created.'
   returns:
     description: |
-      Returns the created [xmlnode](/xmlnode) if successful, false otherwise.
+      Returns the created [xmlnode](/xmlnode) if successful, **false** otherwise.
     values:
       - type: 'xmlnode|false'
         name: 'xmlnode'

@@ -11,7 +11,7 @@ shared: &shared
       description: The root [xmlnode](/xmlnode) of the loaded XML file.
   returns:
     description: |
-      Returns true if save was successful, false if the XML file does not exist.
+      Returns **true** if save was successful, **false** if the XML file does not exist.
     values:
       - type: 'boolean'
         name: 'result'
