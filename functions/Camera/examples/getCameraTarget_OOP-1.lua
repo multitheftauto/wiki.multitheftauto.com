@@ -1,6 +1,6 @@
-function isTargetPlayer( thePlayer )
+function isTargetPlayer(thePlayer)
     local target = thePlayer.cameraTarget -- or thePlayer:getCameraTarget()
-    if ( getElementType ( target ) == "player" ) then -- If target is a player
+    if (getElementType(target) == "player") then -- If target is a player
         return true -- Return true
     else
         return false -- Otherwise, return false.

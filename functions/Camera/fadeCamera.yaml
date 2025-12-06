@@ -38,7 +38,7 @@ shared: &shared
       description: The amount of blue in the color that the camera fades out to (0 - 255). Not required for fading in.
       default: '0'
   returns:
-    description: Returns true if the camera was faded successfully, false if invalid arguments were passed to the function.
+    description: Returns **true** if the camera was faded successfully, **false** if invalid arguments were passed to the function.
     values:
       - type: bool
         name: result

@@ -10,7 +10,7 @@ client:
     - type: string
       name: goggle effect
       templateList: cameraGoggleEffects
-    description: String indicating the current camera goggle effect. Their meanings can be seen above.
+    description: Returns [[string]] indicating the current camera goggle effect. Their meanings can be seen above.
   oop:
     element: Camera
     method: getGoggleEffect

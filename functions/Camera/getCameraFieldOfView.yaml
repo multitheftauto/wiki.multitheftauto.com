@@ -14,7 +14,7 @@ client:
     values:
     - type: float
       name: fov
-    description: Returns one float - the field of view angle.
+    description: Returns one [[float]] - the field of view angle.
   oop:
     element: camera
     method: getFieldOfView

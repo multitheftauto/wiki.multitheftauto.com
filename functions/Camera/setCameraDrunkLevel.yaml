@@ -12,7 +12,7 @@ client:
     values:
     - type: bool
       name: value
-    description: Returns true if the camera drunk level was changed, false if the required argument is incorrect or missing.
+    description: Returns **true** if the camera drunk level was changed, **false** if the required argument is incorrect or missing.
   version:
     updated:  1.6.0 r21795
   meta:

@@ -51,7 +51,7 @@ shared: &shared
       description: The field of view angle, 0.01 to 179. The higher this value is, the more you will be able to see what is to your sides.
       default: '70'
   returns:
-    description: Returns true if the arguments are valid, false otherwise.
+    description: Returns **true** if the arguments are valid, **false** otherwise.
     values:
       - type: bool
         name: result

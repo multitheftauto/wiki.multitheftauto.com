@@ -23,7 +23,7 @@ client:
     values:
     - type: bool
       name: result
-    description: Always returns true.
+    description: Always returns **true**.
   oop:
     element: Camera
     method: setViewMode

@@ -26,7 +26,7 @@ client:
       description: If set to true, the value is applied immediately, without delay (does not work with "vehicle_max").
       default: 'false'
   returns:
-    description: Returns true if the arguments are valid, false otherwise.
+    description: Returns **true** if the arguments are valid, **false** otherwise.
     values:
       - type: bool
         name: result

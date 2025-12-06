@@ -6,7 +6,7 @@ client:
     - path: examples/getCameraDrunkLevel-1.lua
       description: This example checks for changes in the camera drunk level of any player every frame and outputs different messages according to it.
   returns:
-    description: Returns an integer representing the camera drunk level, from 0 (no drunk effect) to 255 (maximum drunk effect).
+    description: Returns an [[int]] representing the camera drunk level, from 0 (no drunk effect) to 255 (maximum drunk effect).
     values:
       - type: int
         name: drunk level

@@ -9,6 +9,6 @@ client:
     values:
     - type: bool
       name: result
-    description: Always returns true.
+    description: Always returns **true**.
   version:
     added: 1.6.0 r22631

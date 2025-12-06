@@ -17,9 +17,9 @@ shared: &shared
       static: true
       side: client
   returns:
-    description: Returns an integer indicating the camera's interior, false if the argument is invalid.
+    description: Returns an [[int]] indicating the camera's interior, **false** if the argument is invalid.
     values:
-      - type: int
+      - type: int|false
         name: camera interior
 
 client:

@@ -19,7 +19,7 @@ client:
     values:
     - type: bool
       name: value
-    description: true if the effect was set correctly, false otherwise.
+    description: Returns **true** if the effect was set correctly, **false** otherwise.
   oop:
     element: Camera
     method: setGoggleEffect

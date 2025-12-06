@@ -20,7 +20,7 @@ shared: &shared
       type: int
       description: The interior to place the camera in.
   returns:
-    description: Returns true if the camera's interior was changed successfully, false otherwise.
+    description: Returns **true** if the camera's interior was changed successfully, **false** otherwise.
     values:
       - type: bool
         name: result

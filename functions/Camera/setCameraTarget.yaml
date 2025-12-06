@@ -21,7 +21,7 @@ shared: &shared
       description: The element who you want the camera to follow. If none is specified, the camera will target the player.
       default: nil
   returns:
-    description: Returns true if the function was successful, false otherwise.
+    description: Returns **true** if the function was successful, **false** otherwise.
     values:
       - type: bool
         name: result

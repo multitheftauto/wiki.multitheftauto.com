@@ -20,9 +20,9 @@ shared: &shared
       type: player
       description: The player whose camera matrix is to be returned.
   returns:
-    description: This function returns 8 floats if the argument is valid (when applicable); the first three indicate the position of the camera, the next three indicate the position of the point it's facing, and the last two are the roll and field of view. Returns false if the argument is invalid.
+    description: This function returns 8 [[float]]s if the argument is valid (when applicable); the first three indicate the position of the camera, the next three indicate the position of the point it's facing, and the last two are the roll and field of view. Returns **false** if the argument is invalid.
     values:
-      - type: float
+      - type: float|false
         name: positionX
       - type: float
         name: positionY

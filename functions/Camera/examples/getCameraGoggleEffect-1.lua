@@ -5,5 +5,4 @@ function nightvision()
         setCameraGoggleEffect("normal")
     end
 end
-
 addCommandHandler("nightvision", nightvision)

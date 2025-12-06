@@ -27,7 +27,7 @@ client:
     values:
     - type: bool
       name: result
-    description: Always returns true.
+    description: Always returns **true**.
   notes:
   - type: info
     content: |

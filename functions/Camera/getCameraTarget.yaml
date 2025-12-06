@@ -17,7 +17,7 @@ shared: &shared
       type: player
       description: The player whose camera you wish to receive the target of.
   returns:
-    description: Returns an element of the target if the function was successful, or false if bad arguments were specified. Returns false if the camera is in Fixed mode and has no target.
+    description: Returns an [[element]] of the target if the function was successful, or **false** if bad arguments were specified. Returns false if the camera is in Fixed mode and has no target.
     values:
       - type: element|false
         name: camera target
