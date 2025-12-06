@@ -1,11 +1,9 @@
 client:
   name: 'getCursorAlpha'
   pair: 'setCursorAlpha'
-  description: |
-    This function is used to get the client's cursor alpha (transparency).
+  description: This function is used to get the client's cursor alpha (transparency).
   preview_images:
   - path: 'cursor-alpha.jpg'
-    width: 160
     description: 'Visual representation of the cursor alpha:'
   returns:
     description: |
@@ -14,8 +12,6 @@ client:
       - type: 'int'
         name: 'alpha'
   examples:
-    - path: 'examples/getCursorAlpha.lua'
+    - path: 'examples/getCursorAlpha-1.lua'
       description: |
-        This example prints the cursor alpha to chatbox using */cursoralpha* command:
-  meta:
-  - needs_checking: Hello, world
+        This example prints the cursor alpha to chatbox using <code>/cursoralpha</code> command:

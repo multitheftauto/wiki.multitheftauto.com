@@ -1,2 +1,2 @@
-showCursor ( true ) -- shows cursor
-showCursor ( false ) -- hides cursor
+showCursor(true) -- shows cursor
+showCursor(false) -- hides cursor

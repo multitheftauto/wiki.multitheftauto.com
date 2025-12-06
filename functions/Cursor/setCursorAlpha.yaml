@@ -12,11 +12,11 @@ client:
       description: 'The alpha value to set. Value can be in between 0 and 255, where 255 is fully opaque and 0 is fully transparent.'
   returns:
     description: |
-      Returns *true* if the new alpha value was set, or *false* otherwise.
+      Returns **true** if the new alpha value was set, or **false** otherwise.
     values:
       - type: 'bool'
         name: 'result'
   examples:
     - path: 'examples/setCursorAlpha.lua'
       description: |
-        This example sets the cursor alpha to 100 using */cursoralpha* command:
+        This example sets the cursor alpha to 100 using <code>/cursoralpha</code> command:

@@ -1,15 +1,14 @@
 shared: &shared
   name: 'isCursorShowing'
-  description: |
-    This function determines the state of a [player](/player)'s cursor.
+  description: This function determines the state of a [[player]]'s cursor.
   notes:
-    - type: 'warning'
-      content: 'This function only handles the cursor state set by the [showCursor](/showCursor) function, ignoring it if the console, chatbox, or menu is opened.'
-    - type: 'warning'
-      content: 'If you use this function on the server-side, keep in mind that it only detects the [showCursor](/showCursor) function executed on the server-side and not changes done by client-side.'
+    - type: 'info'
+      content: |
+        - This function only handles the cursor state set by the [[showCursor]] function, ignoring it if the console, chatbox, or menu is opened.
+        - If you use this function on the server-side, keep in mind that it only detects the [[showCursor]] function executed on the server-side and not changes done by client-side.
   returns:
     description: |
-      Returns *true* if the [player](/player)'s cursor is visible, and *false* if it is not.
+      Returns **true** if the [[player]]'s cursor is visible, and **false** if it is not.
     values:
       - type: 'bool'
         name: 'result'
@@ -19,21 +18,21 @@ server:
   parameters:
     - name: 'playerElement'
       type: 'player'
-      description: 'The [player](/player) from whom we want to retrieve the cursor state.'
+      description: 'The [[player]] from we want to retrieve the cursor state.'
   examples:
     - path: 'examples/isCursorShowing-1.lua'
       description: |
-        This example creates a function to set the state of the [player](/player)'s cursor using the [showCursor](/showCursor) function.
+        This example creates a function to set the state of the [[player]]'s cursor using the [[showCursor]] function.
     - path: 'examples/isCursorShowing-2.lua'
       description: |
-        This example creates a function that gets the state of the [player](/player)'s cursor and outputs it to the chatbox using the [outputChatBox](/outputChatBox) function.
+        This example creates a function that gets the state of the [[player]]'s cursor and outputs it to the chatbox using the [[outputChatBox]] function.
 
 client:
   <<: *shared
   examples:
     - path: 'examples/isCursorShowing-3.lua'
       description: |
-        This example creates a function to set the state of the [player](/player)'s cursor using the [showCursor](/showCursor) function. 
+        This example creates a function to set the state of the [[player]]'s cursor using the [[showCursor]] function. 
       title: 'Toggle Cursor'
     - path: 'examples/isCursorShowing-4.lua'
       description: |
@@ -42,7 +41,7 @@ client:
       title: 'Toggle Cursor (Advanced)'
     - path: 'examples/isCursorShowing-5.lua'
       description: |
-        This example creates a function that allows the [player](/player) to change the state of the cursor using the [showCursor](/showCursor) and [bindKey](/bindKey) functions. 
+        This example creates a function that allows the [[player]] to change the state of the cursor using the [[showCursor]] and [[bindKey]] functions. 
       title: 'Toggle Cursor by bound key'
     - path: 'examples/isCursorShowing-6.lua'
       description: |

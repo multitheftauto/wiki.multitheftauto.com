@@ -1,5 +1,3 @@
-bindKey("m", "down",
-    function()
-        showCursor(not isCursorShowing())
-    end
-)
+bindKey("m", "down", function()
+    showCursor(not isCursorShowing())
+end)
