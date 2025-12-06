@@ -13,7 +13,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[browser]] was focused or if nil was passed, false if it failed to focus or the browser does not exist.
+    description: Returns **true** if the [[browser]] was focused or if nil was passed, **false** if it failed to focus or the browser does not exist.
   examples:
     - path: examples/focusBrowser-1.lua
       description: This example creates browser and focus it.

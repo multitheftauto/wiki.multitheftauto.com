@@ -30,7 +30,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the URL was successfully loaded.
+    description: Returns **true** if the URL was successfully loaded.
   examples:
     - path: examples/loadBrowserURL-1.lua
     - path: examples/loadBrowserURL_OOP-1.lua

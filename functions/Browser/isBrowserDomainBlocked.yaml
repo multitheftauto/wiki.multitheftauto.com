@@ -17,7 +17,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns false if the URL is able to be loaded, true if it is blocked and nil if an invalid domain/URL was passed.
+    description: Returns **false** if the URL is able to be loaded, **true** if it is blocked and [[nil]] if an invalid domain/URL was passed.
   examples:
     - path: examples/isBrowserDomainBlocked-1.lua
     - path: examples/isBrowserDomainBlocked_OOP-1.lua

@@ -21,7 +21,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the browser is resized successfully, false if there's something wrong.
+    description: Returns **true** if the browser is resized successfully, **false** if there's something wrong.
   examples:
     - path: examples/resizeBrowser-1.lua
       description: Example for resize browser by command.

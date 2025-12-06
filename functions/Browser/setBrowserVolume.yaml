@@ -18,7 +18,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if successfully, false if there's something wrong.
+    description: Returns **true** if successfully, **false** if there's something wrong.
   examples:
     - path: examples/setBrowserVolume-1.lua
     - path: examples/setBrowserVolume_OOP-1.lua

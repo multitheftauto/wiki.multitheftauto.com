@@ -13,7 +13,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the browser has reloaded, false otherwise.
+    description: Returns **true** if the browser has reloaded, **false** otherwise.
   examples:
     - path: examples/reloadBrowserPage-1.lua
       description: This example creates a browser that can return to the last and previous pages and can also be refreshed.

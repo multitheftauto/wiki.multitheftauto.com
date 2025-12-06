@@ -9,23 +9,24 @@ local theBrowser = guiGetBrowser(webBrowser) -- Get the web browser
 addEventHandler("onClientBrowserCreated", theBrowser, function()
     showCursor(true)
     loadBrowserURL(source, "http://m.youtube.com\\")
-end
-)
+end)
 
-addEventHandler( "onClientGUIClick", resourceRoot, function ( )
+addEventHandler("onClientGUIClick", resourceRoot, function()
     if source == propertyState then
-        if isBrowserLoading(theBrowser) then return outputChatBox('Please wait until the browser load!',255,0,0) end -- To avoid mistakes
-        local getType = getBrowserProperty(theBrowser,'mobile') -- Getting the value of the browser property for the "mobile" key
+        if isBrowserLoading(theBrowser) then
+            return outputChatBox('Please wait until the browser load!', 255, 0, 0)
+        end -- To avoid mistakes
+        local getType = getBrowserProperty(theBrowser, 'mobile') -- Getting the value of the browser property for the "mobile" key
         if getType == '0' then -- This checks whether or not the browser appears as a mobile page
             setBrowserProperty(theBrowser, "mobile", '1') -- Show the browser as a mobile page
             reloadBrowserPage(theBrowser) -- Reload the browser page
-            guiSetText( gui, 'mobile_page' )
+            guiSetText(gui, 'mobile_page')
             outputChatBox('You are viewing the browser as a mobile page')
         elseif getType == '1' then
             setBrowserProperty(theBrowser, "mobile", '0') -- Show the browser as a normal page
             reloadBrowserPage(theBrowser) -- Reload the browser page
-            guiSetText( gui, 'web_page' )
+            guiSetText(gui, 'web_page')
             outputChatBox('You are viewing the browser as a web page')
         end
     end
-end )
+end)

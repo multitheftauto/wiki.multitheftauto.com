@@ -13,7 +13,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the [[browser]] is loading a website, false otherwise and nil if invalid arguments were passed.
+    description: Returns **true** if the [[browser]] is loading a website, **false** otherwise and [[nil]] if invalid arguments were passed.
   examples:
     - path: examples/isBrowserLoading-1.lua
       description: This example will add an command <code>/checkload</code> to check if the site is loading or not.

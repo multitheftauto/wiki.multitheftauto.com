@@ -18,7 +18,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the mouse action was successfully injected, false otherwise.
+    description: Returns **true** if the mouse action was successfully injected, **false** otherwise.
   examples:
     - path: examples/injectBrowserMouseWheel-1.lua
     - path: examples/injectBrowserMouseWheel_OOP-1.lua

@@ -13,7 +13,7 @@ client:
     values:
       - type: string|false
         name: title
-    description: Returns the title as a [[string]]. Returns false if invalid arguments were passed.
+    description: Returns the title as a [[string]]. Returns **false** if invalid arguments were passed.
   examples:
     - path: examples/getBrowserTitle-1.lua
     - path: examples/getBrowserTitle_OOP-1.lua

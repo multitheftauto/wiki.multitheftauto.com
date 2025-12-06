@@ -12,7 +12,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the browser can navigate back, false otherwise.
+    description: Returns **true** if the browser can navigate back, **false** otherwise.
   examples:
     - path: examples/canBrowserNavigateBack-1.lua
       description: This example creates a browser that can return to the last and previous pages and can also be refreshed.

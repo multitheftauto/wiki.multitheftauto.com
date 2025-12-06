@@ -15,7 +15,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the click was successfully injected, false otherwise.
+    description: Returns **true** if the click was successfully injected, **false** otherwise.
   examples:
     - path: examples/injectBrowserMouseUp-1.lua
     - path: examples/injectBrowserMouseUp_OOP-1.lua

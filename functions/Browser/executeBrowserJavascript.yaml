@@ -15,7 +15,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if executing Javascript is allowed in the current context, false otherwise.
+    description: Returns **true** if executing Javascript is allowed in the current context, **false** otherwise.
   examples:
     - path: examples/executeBrowserJavascript-1.lua
       description: This example shows how to display the name (nick) of the local player on the webpage.

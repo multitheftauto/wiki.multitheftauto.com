@@ -12,7 +12,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the browser is focused, false otherwise and nil if invalid arguments were passed.
+    description: Returns **true** if the browser is focused, **false** otherwise and [[nil]] if invalid arguments were passed.
   examples:
     - path: examples/isBrowserFocused-1.lua
       description: This example creates a browser. If you press left control it will output to chatbox if the browser is focused or not.

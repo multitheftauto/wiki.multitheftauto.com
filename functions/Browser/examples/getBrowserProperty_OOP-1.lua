@@ -10,12 +10,13 @@ local theBrowser = webBrowser.browser -- Get the web browser
 addEventHandler("onClientBrowserCreated", theBrowser, function()
     showCursor(true)
     source.url = "http://m.youtube.com\\"
-end
-)
+end)
 
-addEventHandler( "onClientGUIClick", resourceRoot, function ( )
+addEventHandler("onClientGUIClick", resourceRoot, function()
     if source == propertyState then
-        if theBrowser.loading then return outputChatBox('Please wait until the browser load!',255,0,0) end -- To avoid mistakes
+        if theBrowser.loading then
+            return outputChatBox('Please wait until the browser load!', 255, 0, 0)
+        end -- To avoid mistakes
         local getType = theBrowser:getProperty('mobile') -- Getting the value of the browser property for the "mobile" key
         if getType == '0' then -- This checks whether or not the browser appears as a mobile page
             theBrowser:setProperty("mobile", '1') -- Show the browser as a mobile page
@@ -29,4 +30,4 @@ addEventHandler( "onClientGUIClick", resourceRoot, function ( )
             outputChatBox('You are viewing the browser as a web page')
         end
     end
-end )
+end)

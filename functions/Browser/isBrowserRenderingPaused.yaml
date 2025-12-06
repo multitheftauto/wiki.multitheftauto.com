@@ -14,7 +14,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the browser rendering is paused, false otherwise.
+    description: Returns **true** if the browser rendering is paused, **false** otherwise.
   examples:
     - path: examples/isBrowserRenderingPaused-1.lua
       description: This will create a [[browser]] element and a command <code>pause</code> to pause the browser rendering.

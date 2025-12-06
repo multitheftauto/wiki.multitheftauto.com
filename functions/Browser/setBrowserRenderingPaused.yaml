@@ -20,7 +20,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the state was successfully changed.
+    description: Returns **true** if the state was successfully changed.
   examples:
     - path: examples/setBrowserRenderingPaused-1.lua
     - path: examples/setBrowserRenderingPaused_OOP-1.lua

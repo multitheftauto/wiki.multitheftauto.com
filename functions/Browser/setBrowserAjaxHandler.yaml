@@ -24,7 +24,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the ajax handler could be created/removed.
+    description: Returns **true** if the ajax handler could be created/removed.
   examples:
     - path: examples/setBrowserAjaxHandler-1.lua
       description: This example will output all GET Parameters as well the number of requests made to the ajax endpoint.

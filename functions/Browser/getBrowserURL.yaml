@@ -14,7 +14,7 @@ client:
     values:
       - type: string|false
         name: url
-    description: Returns the web browser URL.
+    description: Returns the web browser URL. Returns **false** if the browser element is invalid.
   examples:
     - path: examples/getBrowserURL-1.lua
       description: This example creates a command <code>/isyoutubeloaded</code> to check if the browser created have youtube loaded, if it isnt it loads youtube.

@@ -8,6 +8,7 @@ addEventHandler("onClientBrowserDocumentReady",browser,function(url)
     local rnt = getBrowserSource(browser,function(code)     --Get Browser Source and Call Function
         outputChatBox(code)                             --Output Code
     end)
+    
     if rnt then
         outputChatBox("Browser Source Got",0,255,0)
     else

@@ -20,7 +20,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the property was successfully set, false otherwise.
+    description: Returns **true** if the property was successfully set, **false** otherwise.
   examples:
     - path: examples/setBrowserProperty-1.lua
       description: This example will add a command handler for 'mobile' that will toggle mobile browsing for all browsers.

@@ -15,7 +15,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if valid arguments have been passed, false otherwise.
+    description: Returns **true** if valid arguments have been passed, **false** otherwise.
   examples:
     - path: examples/getBrowserSource-1.lua
     - path: examples/getBrowserSource_OOP-1.lua

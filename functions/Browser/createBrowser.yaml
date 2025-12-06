@@ -27,7 +27,7 @@ client:
     values:
       - type: element|false
         name: new browser
-    description: Returns a [[texture]] of the [[browser]] if it was created successfully, false otherwise. Returns also false, if the user disabled remote pages and isLocal was set to false.
+    description: Returns a [[texture]] of the [[browser]] if it was created successfully, **false** otherwise. Returns also **false**, if the user disabled remote pages and isLocal was set to false.
   examples:
     - path: examples/createBrowser-1.lua
       description: This example shows you how to create a fullscreen web browser (showing a local html file) without input-handling.

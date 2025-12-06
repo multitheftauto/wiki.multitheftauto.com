@@ -19,7 +19,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true if the visibility was successfully toggled, false if an error occurred.
+    description: Returns **true** if the visibility was successfully toggled, **false** if an error occurred.
   examples:
     - path: examples/toggleBrowserDevTools-1.lua
       description: This example will output browser console logs to debugscript.

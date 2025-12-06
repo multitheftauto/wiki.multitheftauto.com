@@ -24,7 +24,7 @@ client:
     values:
       - type: bool
         name: result
-    description: Returns true, if the string was successfully read, false otherwise.
+    description: Returns **true**, if the string was successfully read, **false** otherwise.
   examples:
     - path: examples/requestBrowserDomains-1.lua
     - path: examples/requestBrowserDomains_OOP-1.lua
