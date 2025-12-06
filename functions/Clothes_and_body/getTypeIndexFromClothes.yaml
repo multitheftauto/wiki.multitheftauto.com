@@ -10,11 +10,11 @@ shared: &shared
     description: A string determining the corresponding clothes model that you wish to retrieve the type and index from. See the [clothes catalog](/reference/ID_Lists/CJ_Clothes).
   returns:
     values:
-    - type: int
+    - type: int|false
       name: type
     - type: int
       name: index
-    description: This function returns two integers, type and index respectively, false if invalid arguments were passed to the function.
+    description: This function returns two [[int]]s, type and index respectively, **false** if invalid arguments were passed to the function.
 
 server:
   <<: *shared

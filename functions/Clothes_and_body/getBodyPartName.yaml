@@ -8,9 +8,9 @@ shared: &shared
     templateList: bodyParts
   returns:
     values:
-    - type: string
+    - type: string|false
       name: body part name
-    description: This function returns a string containing the body part name if the ID is valid, false otherwise.
+    description: This function returns a [[string]] containing the body part name if the ID is valid, **false** otherwise.
 
 server:
   <<: *shared

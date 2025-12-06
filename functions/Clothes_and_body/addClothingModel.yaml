@@ -10,7 +10,7 @@ client:
     description: A string determining the clothes model that will be added.
   - name: clothesType
     type: int
-    description: A integer representing the clothes slot/type the clothes should be added to.
+    description: A [[int]] representing the clothes slot/type the clothes should be added to.
     templateList: clothingTypes
   examples:
   - path: examples/addClothingModel-1.lua
@@ -18,6 +18,6 @@ client:
     values:
     - type: bool
       name: result
-    description: Returns true if the clothing was added, and false otherwise.
+    description: Returns **true** if the clothing was added, and **false** otherwise.
   version:
     added: 1.6.0 r23124

@@ -8,9 +8,9 @@ shared: &shared
     templateList: clothingTypes
   returns:
     values:
-    - type: string
+    - type: string|false
       name: name
-    description: This function returns a string (the name of the clothes type) if found, false otherwise.
+    description: This function returns a [[string]] (the name of the clothes type) if found, **false** otherwise.
 
 server:
   <<: *shared

@@ -11,11 +11,11 @@ shared: &shared
     description: An integer representing the index (0 based) set of clothes in the list you wish to retrieve. Each type has a different number of valid indexes.
   returns:
     values:
-    - type: string
+    - type: string|false
       name: texture
     - type: string
       name: model
-    description: This function returns 2 strings, a texture and model respectively, false if invalid arguments were passed to the function.
+    description: This function returns 2 [[string]]s, a texture and model respectively, **false** if invalid arguments were passed to the function.
 
 server:
   <<: *shared
