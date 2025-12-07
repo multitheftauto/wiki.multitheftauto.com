@@ -76,11 +76,12 @@ export default defineConfig({
                 { label: "Lua API", link: "/reference/Lua_API" },
                 { label: "ID Lists", link: "/reference/ID_Lists" },
                 { label: "Meta.xml", link: "/reference/Meta.xml" },
+                {label: 'Predefined variables', link: '/reference/Predefined_variables'},
                 {
                   label: "Resource Web Access",
                   link: "/reference/Resource_Web_Access",
                 },
-                {label: 'Predefined variables', link: '/reference/Predefined_variables'},
+                {label: "Texture pixels", link: '/reference/Pixels'},
                 {
                   label: "Functions",
                   collapsed: true,

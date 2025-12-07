@@ -1,0 +1,90 @@
+---
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { Code } from '@astrojs/starlight/components';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+---
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Texture pixels',
+    tableOfContents: {
+      maxHeadingLevel: 3
+    }
+}}>
+
+<div id="_top"/>
+
+<h3>Pixels</h3>
+<hr/>
+
+<ul>
+    <li>MTA refers to the raw information that a <a href="/reference/texture/">texture</a> contains as <b>pixels</b>.</li>
+    <li>Pixels can be retrieved from any <a href="/reference/texture/">texture</a> type including <a href="/reference/dxCreateRenderTarget">render targets</a> and <a href="/reference/dxCreateScreenSource">screen sources</a> by using the function <a href="/reference/dxGetTexturePixels">dxGetTexturePixels</a>.</li>
+    <li>Pixels are just a <a href="/reference/string">string</a> to Lua, so they can be saved to a file or even sent over the internet.</li>
+</ul>
+
+<h3>Pixels properties</h3>
+<hr/>
+<p>Pixels have two properties:</p>
+
+<ul>
+  <li><b>dimensions</b>: (width and height) which is retrieved by using the function <a href="/reference/dxGetPixelsSize">dxGetPixelsSize</a>.</li>
+  <li><b>format</b>: (plain,jpeg,png,dds) which is retrieved by using the function <a href="/reference/dxGetPixelsFormat">dxGetPixelsFormat</a></li>
+  <ul>
+    <li><b>plain</b> - Fastest and simplest - It's default format of the pixels returned by <a href="/reference/dxGetTexturePixels/">dxGetTexturePixels</a> and the only one that can be used with <a href="/reference/dxSetTexturePixels">dxSetTexturePixels</a>, <a href="/reference/dxGetPixelColor">dxGetPixelColor</a> and <a href="/reference/dxSetPixelColor">dxSetPixelColor</a>. But it also uses a lot of bytes, so internet transfers will be longer. Also can't be read by Photoshop or browsers etc.</li>
+    <li><b>png</b> - A few less bytes, still quite big for net transfers. Can be saved to a file and read by Photoshop and browsers etc.</li>
+    <li><b>jpeg</b> - A lot less bytes, so best for net transfers. Can be saved to a file and read by Photoshop and browsers etc.</li>
+    <li><b>dds</b> - DirectDraw Surface. Game's native texture format with various compressed and uncompressed options. Used to store standard, cube or volume textures. Compressed pixels in this format can be loaded nearly instantly by <a href="/reference/dxCreateTexture">dxCreateTexture</a>.</li>
+  </ul>
+</ul>
+
+<p>To convert between the 3 different formats, use the function <a href="/reference/dxConvertPixels">dxConvertPixels</a>.</p>
+
+<h3>Pixels performance</h3>
+<hr/>
+
+<p>Getting/setting pixels from textures is not quick and not something you want to be doing every frame (in <a href="/reference/onClientRender">onClientRender</a> for example).
+  Setting pixels to a <a href="/reference/dxCreateRenderTarget">render target</a> is <b>especially slow</b>. Pixels are ideal however for transferring composite images built on a render target into a normal texture for later use.
+  For example, making a custom radar map.</p>
+
+<h3>Examples</h3>
+<hr/>
+
+<p>Pixels can also be loaded from any png/jpeg file just like this:</p>
+<Code lang="lua" code=`local fileHandler = fileOpen("hello.jpg")
+
+if (not fileHandler) then
+	return false
+end
+
+local fileSize = fileGetSize(fileHandler)
+local filePixels = fileRead(fileHandler, fileSize)
+
+fileClose(fileHandler)` />
+
+<p>Pixels can be used to create textures just like this:</p>
+<Code lang="lua" code=`local newTexture = dxCreateTexture(pixelsData)`/>
+
+<p>Pixels can be used to save textures just like this:</p>
+<Code lang="lua" code=`local texturePixels = dxGetTexturePixels(myRenderTarget)
+local texturePixelsConverted = dxConvertPixels(texturePixels, "jpeg")
+local fileHandler = fileCreate("piccy.jpg")
+
+if (not fileHandler) then
+	return false
+end
+
+fileWrite(fileHandler, texturePixelsConverted)
+fileClose(fileHandler)` />
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:texture',
+        'reference:dxCreateTexture',
+        'reference:dxCreateRenderTarget',
+        'reference:dxSetTexturePixels',
+        'reference:dxGetTexturePixels',
+        'reference:dxConvertPixels',
+])} currentId='' />
+
+</AutoStarlightPage>
