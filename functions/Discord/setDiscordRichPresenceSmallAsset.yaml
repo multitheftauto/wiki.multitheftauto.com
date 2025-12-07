@@ -8,7 +8,7 @@ client:
     description: A [[string]] containing the key of the small image asset you uploaded to your application's asset list.
   - name: text
     type: string
-    description: A [[string]] containing the hover text of the small image asset.
+    description: A [[string]] containing the hover text of the small image asset. Max 128 characters.
   examples:
   - path: examples/setDiscordRichPresenceSmallAsset-1.lua
     description: The example sets the small image asset to `my_logo`.
