@@ -1,28 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetDiscordRichPresenceEndTime
-shared:
+client:
   name: setDiscordRichPresenceEndTime
   description: This function sets the remaining time of Discord Rich Presence.
   parameters:
   - name: seconds
     type: int
-    description: an integer representing the number of seconds that are remaining.
-      If 0, or lower than the start time ( setDiscordRichPresenceStartTime ) the timer
+    description: An integer representing the number of seconds that are remaining.
+      If 0, or lower than the start time ( [[setDiscordRichPresenceStartTime]] ) the timer
       will not be displayed.
   examples:
   - path: examples/setDiscordRichPresenceEndTime-1.lua
-    description: This example shows how to change the remaining timer of the Discord
-      Rich Presence application.
-    side: client
+    description: This example shows how to change the remaining timer of the Discord Rich Presence application.
+  - path: examples/setDiscordRichPresenceEndTime_OOP-1.lua
+    description: This example shows how to change the remaining timer of the Discord Rich Presence application.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if function succeeds, false otherwise.
+      name: result
+    description: Returns **true** if function succeeds, **false** otherwise.
   oop:
     element: discordrpc
     method: setEndTime
-    static: false
+    static: true
   notes:
   - type: important
-    content: To use this function, you must set up your own application setDiscordApplicationID
-  requires_review: true
+    content: To use this function, you must set up your own application [[setDiscordApplicationID]].
+  version:
+    added: 1.6.0 r22276

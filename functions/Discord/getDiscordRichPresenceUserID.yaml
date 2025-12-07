@@ -1,23 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetDiscordRichPresenceUserID
-shared:
+client:
   name: getDiscordRichPresenceUserID
   description: The function returns the client Discord UserID.
-  parameters: []
   examples:
   - path: examples/getDiscordRichPresenceUserID-1.lua
     description: This example displays the user's userid in the chat if they have
       granted permission to share data. Otherwise, they will receive an appropriate
       message.
-    side: client
   returns:
     values:
     - type: string
-      name: value
-    description: It will return an empty string ("") if the user has not given consent
+      name: user id
+    description: It will return an empty [[string]] ("") if the user has not given consent
       or has disabled the Rich Presence synchronization option. Otherwise, it will
-      return the userid as a string.
+      return the userid as a [[string]].
   notes:
   - type: important
     content: The function will correctly return the UserID if the user has given consent
       beforehand and is connected to the Rich Presence application.
-  requires_review: true
+  version:
+    added: 1.6.0 r22342

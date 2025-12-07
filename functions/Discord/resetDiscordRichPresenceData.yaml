@@ -1,16 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ResetDiscordRichPresenceData
-shared:
+client:
   name: resetDiscordRichPresenceData
   description: The function resets the Discord Rich Presence configuration to default.
-  parameters: []
   examples:
   - path: examples/resetDiscordRichPresenceData-1.lua
     description: The example shows how to reset Discord Rich Presence after using
       a custom application.
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if function succeeds, false otherwise.
-  requires_review: true
+      name: result
+    description: Returns **true** if function succeeds, **false** otherwise.
+  version:
+    added: 1.6.0 r22270

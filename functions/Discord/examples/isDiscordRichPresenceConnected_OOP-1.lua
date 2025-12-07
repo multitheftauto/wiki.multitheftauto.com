@@ -1,5 +1,5 @@
 addCommandHandler("checkdiscord", function()
-    if isDiscordRichPresenceConnected() then
+    if DiscordRPC.isConnected() then
         outputChatBox("You are using Discord Rich Presence, that's cool!")
     end
 end)

@@ -209,6 +209,8 @@ export function getFixedStaticOOPClass(elementName: string): string {
       return 'ACL';
     } else if (elementName === "colshape") {
       return 'ColShape';
+    } else if (elementName === 'discordrpc') {
+      return 'DiscordRPC';
     }
     return elementName.charAt(0).toUpperCase() + elementName.slice(1);
 }
