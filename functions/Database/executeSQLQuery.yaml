@@ -1,54 +1,50 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/ExecuteSQLQuery
-shared:
+server:
   name: executeSQLQuery
   description: This function executes an arbitrary SQL query and returns the result
-    rows if there are any. It allows parameter binding for security (SQL injection
+    rows if there are any. It allows parameter binding for security ([SQL injection](https://en.wikipedia.org/wiki/SQL_injection)
     is rendered impossible).
   parameters:
   - name: query
     type: string
     description: An SQL query. Positions where parameter values will be inserted are
-      marked with a "?".
+      marked with a `?`.
   - name: param1 [, var param2 ... ]
     type: var
-    description: MISSING_PARAM_DESC
+    description: |
+      A variable number of parameters. These must be strings or numbers - it is important to make sure they are of the correct type. Also, the number of parameters passed must be equal to the number of `?` characters in the query string.
+  
+      String parameters are automatically quoted and escaped as required. (If you do not want a string quoted, use `??`). Make sure that numbers are in number format as a string number is treated differently.
   examples:
   - path: examples/executeSQLQuery-1.lua
-    description: 'Example equivalents for executeSQLCreateTable:'
-    side: server
-  - path: examples/executeSQLQuery-2.lua
-    description: 'Example equivalents for executeSQLDelete:'
-    side: server
-  - path: examples/executeSQLQuery-3.lua
-    description: 'Example equivalents for executeSQLDropTable:'
-    side: server
-  - path: examples/executeSQLQuery-4.lua
-    description: 'Example equivalents for executeSQLSelect:'
-    side: server
-  - path: examples/executeSQLQuery-5.lua
-    description: 'Example equivalents for executeSQLInsert:'
-    side: server
-  - path: examples/executeSQLQuery-6.lua
-    description: 'Example equivalents for executeSQLUpdate:'
-    side: server
-  - path: examples/executeSQLQuery-7.lua
     description: This example defines a console command that shows the ID's and names
       of all registered (stored in database) players that have more than the specified
       amount of money.
-    side: server
-  - path: examples/executeSQLQuery-8.lua
-    description: This example shows the amount of money a certain registered player
-      has.
-    side: server
+  - path: examples/executeSQLQuery-2.lua
+    description: |
+      This example shows the amount of money a certain registered player has.
+
+      Notice the lack of single quotes around the `?` in this example, even though it represents a string. **executeSQLQuery** will see that the *playerName* variable is a [[string]] and take care of the correct execution of the query by itself.
+
+      The advantage of using **executeSQLQuery** is that it is immune to users trying to exploit the query with an [SQL injection](https://en.wikipedia.org/wiki/SQL_injection) attack. *playerName* may contain special characters like `'`, `"` or `--` that will not influence the query, unlike the older approach where *playerName* would be concatenated into the query string.
   returns:
     values:
-    - type: table
-      name: value
-    description: 'Returns a table with the result of the query if it was a SELECT
-      query, or false if otherwise. In case of a SELECT query the result table may
-      be empty (if there are no result rows). The table is of the form:'
+    - type: table|false
+      name: result
+    description: |
+      Returns a [[table]] with the result of the query if it was a SELECT
+      query, or **false** if otherwise. In case of a SELECT query the result table may
+      be empty (if there are no result rows). The table is of the form:
+
+      <br/>
+      The table is of the format<br/>
+      <code>
+      {
+        { colname1=value1, colname2=value2, ... },
+        { colname1=value3, colname2=value4, ... },
+        ...
+      }
+      </code>
   notes:
   - type: info
-    content: This function only acts upon registry.db. Use dbQuery to query a custom
+    content: This function only acts upon `registry.db`. Use [[dbQuery]] to query a custom
       SQL database.
-  requires_review: true

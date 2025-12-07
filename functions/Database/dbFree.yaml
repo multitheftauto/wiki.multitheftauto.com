@@ -1,20 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DbFree
-shared:
+server:
   name: dbFree
-  description: This function frees a database query handle. dbFree only needs to be
-    used if a result has not been obtained with [dbPoll](/wiki/DbPoll "DbPoll")
+  description: This function frees a database query handle. **dbFree** only needs to be
+    used if a result has not been obtained with [[dbPoll]].
   parameters:
   - name: queryHandle
-    type: handle
-    description: A query handle previously returned from dbQuery
-  examples: []
+    type: db-query
+    description: A [query handle](/reference/db-query) previously returned from [[dbQuery]].
+  examples: 
+    - path: examples/dbFree-1.lua
+      description: Required because [[dbPoll]] was not called.
+    - path: examples/dbFree-2.lua
+      description: Required because [[dbPoll]] was not called.
+    - path: examples/dbFree-3.lua
+      description: Required because [[dbPoll]] is called, but the result was not ready and no more attempts will be made.
+    - path: examples/dbFree-4.lua
+      description: |
+        **This example show when dbFree should NOT be used.**
+
+        Not required because [[dbPoll]] was called with a -1 timeout.
+    - path: examples/dbFree-5.lua
+      description: |
+        **This example show when dbFree should NOT be used.**
+        
+        Not required because [[dbPoll]] was called from the callback.
+    - path: examples/dbFree_OOP-1.lua
+      description: Required because [[dbPoll]] was not called.
+      oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the handle was successfully freed, false otherwise.
+      name: result
+    description: Returns **true** if the handle was successfully freed, **false** otherwise.
   oop:
-    element: queryhandle
+    element: db-query
     method: free
     static: false
-  requires_review: true

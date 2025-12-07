@@ -1,36 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DbPrepareString
-shared:
+server:
   name: dbPrepareString
-  description: This function escapes arguments in the same way as [dbQuery](/wiki/DbQuery
-    "DbQuery"), except dbPrepareString returns the query string instead of processing
+  description: This function escapes arguments in the same way as [[dbQuery]], except **dbPrepareString** returns the query string instead of processing
     the query. This allows you to safely build complex query strings from component
-    parts and help prevent (one class of) SQL injection.
+    parts and help prevent (one class of) [SQL injection](https://en.wikipedia.org/wiki/SQL_injection).
   parameters:
-  - name: databaseConnection
+  - name: db-connection
     type: element
-    description: A database connection element previously returned from dbConnect
+    description: A [database connection](/reference/db-connection) element previously returned from [[dbConnect]].
   - name: query
     type: string
     description: An SQL query. Positions where parameter values will be inserted are
-      marked with a ?
+      marked with a `?`.
   - name: param1 [, var param2 ...]
     type: var
-    description: MISSING_PARAM_DESC
+    description: |
+      A variable number of parameters. These must be strings or numbers - it is important to make sure they are of the correct type. Also, the number of parameters passed must be equal to the number of `?` characters in the query string.
+  
+      String parameters are automatically quoted and escaped as required. (If you do not want a string quoted, use `??`). Make sure that numbers are in number format as a string number is treated differently.
   examples:
   - path: examples/dbPrepareString-1.lua
-    description: This example shows how to safely build a dynamic SELECT query
-    side: server
+    description: This example shows how to safely build a dynamic SELECT query.
+  - path: examples/dbPrepareString_OOP-1.lua
+    description: This example shows how to safely build a dynamic SELECT query.
+    oop: true
   - path: examples/dbPrepareString-2.lua
     description: This example shows how to build an INSERT/UPDATE query for multiple
-      rows. (Query syntax is MySQL only and assumes one column is a unique key)
-    side: server
+      rows. (Query syntax is MySQL only and assumes one column is a unique key).
   returns:
     values:
-    - type: string
-      name: value
-    description: Returns a prepare SQL query string, or false if an error occurred.
+    - type: string|false
+      name: query string
+    description: Returns a prepare SQL query [[string]], or **false** if an error occurred.
   oop:
-    element: connection
+    element: db-connection
     method: prepareString
     static: false
-  requires_review: true

@@ -1,4 +1,4 @@
-local test_db = dbConnect("sqlite", "file.db")
+local test_db = Connection("sqlite", "file.db")
 
 if test_db then
     outputDebugString("Connection with database was successfully established.")

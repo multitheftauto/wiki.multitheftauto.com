@@ -1,68 +1,76 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DbPoll
-shared:
+server:
   name: dbPoll
   description: This function checks the progress of a database query.
   parameters:
   - name: queryHandle
-    type: handle
-    description: A query handle previously returned from dbQuery
+    type: db-query
+    description: A [query handle](/reference/db-query) previously returned from [[dbQuery]].
   - name: timeout
     type: int
     description: 'How many milliseconds to wait for a result. Use 0 for an instant
-      response (which may return nil). Use -1 to wait until a result is ready. Note:
-      A wait here will freeze the entire server just like executeSQLQuery'
+      response (which may return [[nil]]). Use -1 to wait until a result is ready. Note:
+      A wait here will freeze the entire server just like [[executeSQLQuery]].'
   - name: multipleResults
     type: bool
-    description: Set to true to enable the return values from multiple queries
+    description: Set to *true* to enable the return values from multiple queries.
     default: 'false'
   examples:
   - path: examples/dbPoll-1.lua
     description: 'This example waits until a result is ready:'
-    side: server
   - path: examples/dbPoll-2.lua
     description: 'This example shows the possible return values:'
-    side: server
   - path: examples/dbPoll-3.lua
     description: 'This example shows how to handle the result if the query selected
       data:'
-    side: server
   - path: examples/dbPoll-4.lua
     description: 'This example shows how to print the results of the query:'
-    side: server
   - path: examples/dbPoll-5.lua
     description: 'This is another example of printing the results:'
-    side: server
   - path: examples/dbPoll-6.lua
     description: 'This is another example of printing the results:'
-    side: server
   - path: examples/dbPoll-7.lua
     description: 'This is another example of printing the results:'
-    side: server
   - path: examples/dbPoll-8.lua
     description: 'This is another example of printing the results:'
-    side: server
   - path: examples/dbPoll-9.lua
-    description: 'This example shows how to handle the result of a multiple statement
-      query: (SeedbConnectoptionmulti_statements)'
-    side: server
+    description: 'This example shows how to handle the result of a multiple statement query: (SeedbConnectoptionmulti_statements)'
   - path: examples/dbPoll-10.lua
     description: This example shows how to obtain data without server freeze.
-    side: server
+  - path: examples/dbPoll_OOP-1.lua
+    description: This example waits until a result is ready.
   returns:
     values:
-    - type: table
-      name: value
-    description: 'The table is of the format:'
+    - type: table|false
+      name: result
+    description: |
+      Returns [[nil]] if the query results are not yet ready. You should try again in a little while. (If you give up waiting for a result, be sure to call [[dbFree]]).
+
+      Returns **false** if the query string contained an error, the connection has been lost or the query handle is incorrect. This automatically frees the query handle, so you do not have to call [[dbFree]]. This also returns two extra values: error code and error message.
+
+      Returns a [[table]] with the result of the query when the query has successfully completed. This automatically frees the query handle, so you do not have to call [[dbFree]]. If **multipleResults** is set to *true*, it will first return a table pertaining to one query, followed by the results for that query and so on for the next queries. This also returns extra values: number of affected rows and last insert id.
+
+      <br/>
+      The table is of the format<br/>
+      <code>
+      {
+        { colname1=value1, colname2=value2, ... },
+        { colname1=value3, colname2=value4, ... },
+        ...
+      }
+      </code>
   oop:
-    element: queryhandle
+    element: db-query
     method: poll
-    static: false
   notes:
   - type: info
     content: If a column contained a number it is returned as a number, this includes
       things which were stored as string but are numbers such as "1" would be returned
       as 1.
   - type: important
-    content: It is strongly recommended to use this function in callback, as presented
-      in "This example shows how to obtain data without server freeze."
-  requires_review: true
+    content: It is strongly recommended to use this function in callback, as presented in the **Example 10**.
+  meta:
+    - changelog:
+        - version: 1.3.4-9.05862
+          description: Added **last insert id** return value.
+        - version: 1.5.2-9.07972
+          description: Added **multipleResults** argument.

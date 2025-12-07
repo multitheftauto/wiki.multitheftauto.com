@@ -1,2 +1,8 @@
-executeSQLQuery("CREATE TABLE IF NOT EXISTS players (clothes_head_texture TEXT, clothes_head_model TEXT, name TEXT)")
-executeSQLQuery("CREATE TABLE IF NOT EXISTS `players` (`clothes_head_texture` TEXT, `clothes_head_model` TEXT, `name` TEXT)")
+function listPlayersWithMoreMoneyThan(thePlayer, command, amount)
+    local players = executeSQLQuery("SELECT id, name FROM players WHERE money > ?", tonumber(amount))
+    outputConsole("Players with more money than " .. amount .. ":", thePlayer)
+    for i, playerdata in ipairs(players) do
+        outputConsole(playerdata.id .. ": " .. playerdata.name, thePlayer)
+    end
+end
+addCommandHandler("richplayers", listPlayersWithMoreMoneyThan)

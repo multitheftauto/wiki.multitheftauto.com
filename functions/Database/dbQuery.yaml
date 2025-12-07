@@ -1,64 +1,63 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DbQuery
-shared:
+server:
   name: dbQuery
   description: This function starts a database query using the supplied connection.
-    Use the returned query handle with [dbPoll](/wiki/DbPoll "DbPoll") to get the
-    result, or [dbFree](/wiki/DbFree "DbFree") if you don't want the result.
+    Use the returned query handle with [[dbPoll]] to get the
+    result, or [[dbFree]] if you don't want the result.
   parameters:
-  - name: callbackFunction
-    type: function
-    description: An optional function to be called when a result is ready. The function
-      will only be called if the result has not already been read with dbPoll . The
-      function is called with the query handle as the first argument.
-  - name: table callbackArguments, ]
-    type: '['
-    description: MISSING_PARAM_DESC
+  - name: callbackFunction()
+    type: 'function'
+    description: An optional function to be called when a result is ready. The function will only be called if the result has not already been read with [[dbPoll]]. The function is called with the query handle as the first argument.
+    default: nil
+  - name: callbackArguments
+    type: table
+    description: An optional table containing extra arguments (excluding functions) to be sent to the callback function.
+    default: nil
   - name: databaseConnection
-    type: element
-    description: A database connection element previously returned from dbConnect
+    type: db-connection
+    description: A database connection element previously returned from [[dbConnect]].
   - name: query
     type: string
     description: An SQL query. Positions where parameter values will be inserted are
-      marked with a ?
+      marked with a `?`.
   - name: param1 [, var param2 ...]
     type: var
-    description: MISSING_PARAM_DESC
+    description: |
+      A variable number of parameters. These must be strings or numbers - it is important to make sure they are of the correct type. Also, the number of parameters passed must be equal to the number of `?` characters in the query string.
+  
+      String parameters are automatically quoted and escaped as required. (If you do not want a string quoted, use `??`). Make sure that numbers are in number format as a string number is treated differently.
   examples:
   - path: examples/dbQuery-1.lua
-    description: 'This example starts an INSERT query and frees the result:'
-    side: server
+    description: 'This example starts an INSERT query and frees the result.'
+  - path: examples/dbQuery_OOP-1.lua
+    description: 'This example starts an INSERT query and frees the result.'
+    oop: true
   - path: examples/dbQuery-2.lua
     description: 'This example starts a select query and waits for the result: (server
-      freeze included)'
-    side: server
+      freeze included).'
   - path: examples/dbQuery-3.lua
     description: 'This example starts a select query and processes the result in a
-      callback function:'
-    side: server
+      callback function.'
   - path: examples/dbQuery-4.lua
     description: 'This example starts a select query and processes the result in an
-      inline callback function with custom arguments:'
-    side: server
+      inline callback function with custom arguments.'
   - path: examples/dbQuery-5.lua
-    description: 'This example shows how to use backticks and??for parts of the query
-      that are not column values:'
-    side: server
+    description: 'This example shows how to use backticks and `??` for parts of the query
+      that are not column values.'
   returns:
     values:
-    - type: handle
-      name: value
-    description: Returns a query handle unless the connection is incorrect, in which
-      case it return false .
+    - type: db-query
+      name: query handle
+    description: Returns a [query handle](/reference/db-query) unless the connection is incorrect, in which
+      case it return **false**.
   oop:
     element: connection
     method: query
-    static: false
   notes:
   - type: tip
-    content: The server command debugdb 2 will output verbose information on each
-      query to a logging file (usually logs/db.log )
+    content: The server command [debugdb 2](/articles/Server_Commands#debugdb) will output verbose information on each
+      query to a logging file (usually `logs/db.log`).
+  - type: tip
+    content:  It is usually good practice to surround table and column names with backticks (`) in case they contain spaces or SQL keywords (and therefore cause syntax errors). This is especially true when using variables for table and column names, as potential problems may not be apparent when the script is first written.
   - type: important
     content: It is strongly recommended to use this function asynchronously, as presented
-      in "This example starts a select query and processes the result in an inline
-      callback function with custom arguments:"
-  requires_review: true
+      in the [Example 4](/reference/dbQuery#example4).

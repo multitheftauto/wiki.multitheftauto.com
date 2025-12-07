@@ -1,1 +1,1 @@
-test_db = dbConnect( "sqlite", ":resname/file.db" )
+test_db = dbConnect("sqlite", ":resname/file.db")

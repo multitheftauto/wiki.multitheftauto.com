@@ -1,1 +1,1 @@
-test_db = dbConnect( "sqlite", "file.db", "", "", "share=0" )
+test_db = dbConnect("sqlite", "file.db", "", "", "share=0")

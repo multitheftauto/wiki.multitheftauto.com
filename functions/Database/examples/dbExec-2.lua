@@ -1,1 +1,1 @@
-dbExec( connection, "UPDATE ?? SET ??=?", tableName, columnName, columnValue )
+dbExec(connection, "UPDATE ?? SET ??=?", tableName, columnName, columnValue)

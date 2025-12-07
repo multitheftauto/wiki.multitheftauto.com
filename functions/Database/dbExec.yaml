@@ -1,43 +1,43 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DbExec
-shared:
+server:
   name: dbExec
-  description: This function executes a database query using the supplied connection.
-    No query result is returned.
+  description: This function executes a database query using the supplied connection. No query result is returned.
   parameters:
   - name: databaseConnection
-    type: element
-    description: A database connection element previously returned from dbConnect
+    type: db-connection
+    description: A database connection element previously returned from [[dbConnect]].
   - name: query
     type: string
-    description: An SQL query. Positions where parameter values will be inserted are
-      marked with a ?
+    description: An SQL query. Positions where parameter values will be inserted are marked with a `?`.
   - name: param1 [, var param2 ...]
     type: var
-    description: MISSING_PARAM_DESC
+    description: |
+      A variable number of parameters. These must be strings or numbers - it is important to make sure they are of the correct type. Also, the number of parameters passed must be equal to the number of `?` characters in the query string.
+  
+      String parameters are automatically quoted and escaped as required. (If you do not want a string quoted, use `??`). Make sure that numbers are in number format as a string number is treated differently.
   examples:
   - path: examples/dbExec-1.lua
     description: 'This example executes an INSERT query:'
-    side: server
   - path: examples/dbExec-2.lua
-    description: 'This example shows how to use??for parts of the query that are not
+    description: 'This example shows how to use `??` for parts of the query that are not
       column values:'
-    side: server
   - path: examples/dbExec-3.lua
-    description: 'This example shows how to use backticks and??for parts of the query
+    description: 'This example shows how to use backticks and `??` for parts of the query
       that are not column values:'
-    side: server
+  - path: examples/dbExec_OOP-1.lua
+    description: 'This example shows how to use backticks and `??` for parts of the query
+      that are not column values:'
+    oop: true
   returns:
     values:
     - type: bool
       name: value
-    description: Returns true unless the connection is incorrect, in which case it
-      returns false .
+    description: Returns **true** unless the connection is incorrect, in which case it returns **false**.
   oop:
     element: connection
     method: exec
     static: false
   notes:
   - type: tip
-    content: The server command debugdb 2 will output verbose information on each
-      query to a logging file (usually logs/db.log )
-  requires_review: true
+    content: The server command [debugdb 2](/articles/Server_Commands#debugdb) will output verbose information on each query to a logging file (usually `logs/db.log`).
+  - type: tip
+    content:  It is usually good practice to surround table and column names with backticks (`) in case they contain spaces or SQL keywords (and therefore cause syntax errors). This is especially true when using variables for table and column names, as potential problems may not be apparent when the script is first written.

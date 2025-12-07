@@ -1,16 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DbConnect
-shared:
+server:
   name: dbConnect
   description: This function opens a connection to a database and returns an element
-    that can be used with [dbQuery](/wiki/DbQuery "DbQuery"). To disconnect use [destroyElement](/wiki/DestroyElement
-    "DestroyElement").
+    that can be used with [[dbQuery]] and other db functions. To disconnect use [[destroyElement]].
   parameters:
   - name: databaseType
     type: string
-    description: The type of database. This can be either sqlite or mysql
+    description: The type of database. This can be either **sqlite** or **mysql**.
   - name: host
     type: string
-    description: Host address e.g. host=127.0.0.1
+    description: |
+      The target to connect to. The format of this depends on the database type.
+
+      - For SQLite it is a [[filepath]] to a SQLite database file. If the filepath starts with ":/" then the server's global databases directory is used. The file will be created if it does not exist.
+      - For MySQL it is a list of key=value pairs separated by semicolons. Supported keys are:
+        - **dbname**: Name of the database to use e.g. dbname=test
+        - **host**: Host address e.g. host=127.0.0.1
+        - **port**: Host port e.g. port=3306 (optional, defaults to standard MySQL port if not used).
+        - **unix_socket**: Unix socket or named pipe to use (optional).
+        - **charset**: Communicate with the server using a character which is different from the default e.g. charset=utf8 (optional).
   - name: username
     type: string
     description: Usually required for MySQL, ignored by SQLite
@@ -21,73 +28,97 @@ shared:
     default: '""'
   - name: options
     type: string
-    description: MISSING_PARAM_DESC
+    description: |
+      List of key=value pairs separated by semicolons. Supported keys are:
+      
+      - **share**: which can be set to 0 or 1. (Default value for SQLite is "share=1", for MySQL is "share=0"). When set to 1, the connection is shared and will be used by other calls to dbConnect with the same host string. This is usually a good thing for SQLite connections, but not so good for MySQL unless care is taken.
+      - **batch**: which can be set to 0 or 1. (Default is "batch=1"). When set to 1, queries called in the same frame are automatically batched together which can significantly speed up inserts/updates. The downside is you lose control of the feature that is used to achieve batching (For SQLite it is transactions, for MySQL it is autocommit mode). Therefore, if you use transactions, lock tables or control autocommit yourself, you may want to disable this feature.
+      - **autoreconnect**: which can be set to 0 or 1. (Default value "autoreconnect=1"). When set to 1, dropped connections will automatically be reconnected. Note that session variables (incl. SET NAMES), user variables, table locks and temporary tables will be reset because of the reconnection. So if you use these fancy features, you will need to turn autoreconnect off and cope with dropped connections some other way.
+      - **log**: which can be set to 0 or 1. (Default value "log=1"). When set to 0, activity from this connection will not be recorded in the [database debug log file](/articles/Server_Commands#debugdb).
+      - **tag**: (Default value "tag=script"). A string which helps identify activity from this connection in the [database debug log file](/articles/Server_Commands#debugdb).
+      - **suppress**: A comma separated list of error codes to ignore. (eg. "suppress=1062,1169").
+      - **multi_statements**: Enable multiple statements (separated by a semi-colon) in one query. Use [[dbPrepareString]] when building a multiple statement query to reduce SQL injection risks.
+      - **queue**: Name of the queue to use. (Default value for SQLite is "sqlite", for MySQL default is the host string from the host argument). Asynchronous database queries in the same queue are processed in order, one at a time. Any name can be used.
+      - **use_ssl**: which can be set to 0 or 1. (Default value is 0), ignored by SQLite.
+      - **get_server_public_key**: which can be set to 0 or 1. (Default value is 1), ignored by SQLite. When set to 1, this enables the client to request from the server the public key required for RSA key pair-based password exchange. This option applies to clients that authenticate with the `caching_sha2_password`` authentication plugin.
     default: '""'
   examples:
   - path: examples/dbConnect-1.lua
-    description: This example opens a connection to a SQLite database file in the
-      current resource
-    side: server
+    description: This example opens a connection to a SQLite database file in the current resource.
+    title: SQLite
   - path: examples/dbConnect-2.lua
-    description: This example opens a connection to a SQLite database file in another
-      resource
-    side: server
+    description: This example opens a connection to a SQLite database file in another resource.
+    title: SQLite
   - path: examples/dbConnect-3.lua
-    description: This example opens a connection to a SQLite database file in the
-      global databases directory
-    side: server
+    description: This example opens a connection to a SQLite database file in the global databases directory.
+    title: SQLite
   - path: examples/dbConnect-4.lua
-    description: This example opens a connection to a SQLite database file in a sub
-      directory of the global databases directory
-    side: server
+    description: This example opens a connection to a SQLite database file in a sub directory of the global databases directory.
+    title: SQLite
   - path: examples/dbConnect-5.lua
     description: This example opens a connection to a MySQL database called 'frank'
       at server ip 1.2.3.4 using utf8 character set and allows the connection to be
       shared. Note that changing the database or other connection dependent settings
       affect all connections that are shared.
-    side: server
+    title: MySQL
   - path: examples/dbConnect-6.lua
-    description: This example opens a connection to a SQLite database is disallows
-      sharing of the connection
-    side: server
+    description: This example opens a connection to a SQLite database is disallows sharing of the connection.
+    title: SQLite
   - path: examples/dbConnect-7.lua
-    description: This example output debug message, if the connection with SQLite
-      database was established or not
-    side: server
+    description: This example output debug message, if the connection with SQLite database was established or not.
+    title: SQLite
   - path: examples/dbConnect-8.lua
-    description: 'The folowing example shows how you could approach a common resource
-      for database operations with exported functions (queryandexecute):'
-    side: server
+    description: 'The folowing example shows how you could approach a common resource for database operations with exported functions.'
+    title: MySQL
+  - path: examples/dbConnect_OOP-1.lua
+    description: This example output debug message, if the connection with SQLite database was established or not.
+    title: SQLite
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a database connection element unless there are problems,
-      in which case it return false .
+    - type: db-connection
+      name: db connection handle
+    description: Returns a [database connection](/reference/db-connection) element unless there are problems,
+      in which case it return **false**.
   oop:
-    element: connection
+    element: db-connection
     constructorclass: Connection
   notes:
-  - type: info
+  - type: tip
     content: Connecting and disconnecting many times can have a performance impact
-      on the server. For optimal performance it is recommended that you use dbConnect
+      on the server. For optimal performance it is recommended that you use [[dbConnect]]
       only once when the resource starts, and share the connection element with the
       whole script.
   - type: info
-    content: 'In MySQL 8.0 and later, you can choose between `caching_sha2_password`
-      , `sha256_password` , or `mysql_native_password` for password management. If
-      you opt for `caching_sha2_password` or `sha256_password` , SSL is not mandatory
-      but recommended for secure authentication. If you choose `mysql_native_password`
-      , you can set it as the default authentication plugin: In the `mysqld.cnf` configuration
-      file, by adding or modifying the following line: default-authentication-plugin=mysql_native_password
-      Using SQL queries (e.g., ALTER USER). In PHPMyAdmin (via the user settings page).
-      Please note that starting with MySQL 9.0, `mysql_native_password` will no longer
-      be available, and only `caching_sha2_password` and `sha256_password` will be
-      supported.'
+    content: |
+      In MySQL 8.0 and later, you can choose between `caching_sha2_password`, `sha256_password`, or `mysql_native_password` for password management.
+
+      - If you opt for `caching_sha2_password` or `sha256_password`, SSL is not mandatory but recommended for secure authentication.
+      - If you choose `mysql_native_password`, you can set it as the default authentication plugin:
+        - In the `mysqld.cnf` configuration file, by adding or modifying the following line: `default-authentication-plugin=mysql_native_password`.
+        - Using SQL queries (e.g., ALTER USER).
+        - In PHPMyAdmin (via the user settings page).
+      
+      Please note that starting with MySQL 9.0, `mysql_native_password` will no longer be available, and only `caching_sha2_password` and `sha256_password` will be supported.
   - type: info
     content: Under certain platforms, for example on Unix-based OSes like Linux, using
-      this function could fail with a debug warning containing "[Could not connect]"
+      this function could fail with a debug warning containing `[Could not connect]`
       accompanied by a prior debug error explaining the problem. In that case you
-      should check the Server Manual to see if you have missed any recommended (best-effort)
+      should check the [Server Manual](/articles/Server_Manual) to see if you have missed any recommended (best-effort)
       steps for server set-up.
-  requires_review: true
+  meta:
+    - changelog:
+        - version: 1.3.1-9.04817
+          description: Added options **log**, **tag** and **suppress**.
+        - version: 1.3.5-9.06386
+          description: Added option **charset**.
+        - version: 1.5.2-9.07972
+          description: Added option **multi_statements**.
+        - version: 1.5.4-9.11138
+          description: Added option **queue**.
+        - version: 1.6.0-9.22396
+          description: Added option **use_ssl**.
+        - version: 1.6.0-9.22497
+          description: Added option **get_server_public_key**.
+  version:
+    updated: 1.6.0-9.22497
