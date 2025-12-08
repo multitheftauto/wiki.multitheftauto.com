@@ -1,0 +1,227 @@
+---
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import { Code } from "@astrojs/starlight/components";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+---
+
+<AutoStarlightPage
+    frontmatter={{
+        template: "doc",
+        title: "Surface formats",
+        tableOfContents: false
+    }}
+>
+    <div id="_top"></div>
+
+    <p>
+        Based on: <a
+            href="https://learn.microsoft.com/en-us/windows/win32/direct3d9/d3dformat"
+            >this</a
+        >.
+    </p>
+
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Description</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>r8g8b8</td>
+                <td
+                    >32-bit ARGB pixel format with alpha, using 8 bits per
+                    channel.</td
+                >
+            </tr>
+
+            <tr>
+                <td>a8r8g8b8</td>
+                <td
+                    >32-bit ARGB pixel format with alpha, using 8 bits per
+                    channel.</td
+                >
+            </tr>
+
+            <tr>
+                <td>x8r8g8b8</td>
+                <td
+                    >32-bit RGB pixel format, where 8 bits are reserved for each
+                    color.</td
+                >
+            </tr>
+
+            <tr>
+                <td>r5g6b5</td>
+                <td
+                    >16-bit RGB pixel format with 5 bits for red, 6 bits for
+                    green, and 5 bits for blue.</td
+                >
+            </tr>
+
+            <tr>
+                <td>x1r5g5b5</td>
+                <td
+                    >16-bit pixel format where 5 bits are reserved for each
+                    color.</td
+                >
+            </tr>
+
+            <tr>
+                <td>a1r5g5b5</td>
+                <td
+                    >16-bit pixel format where 5 bits are reserved for each
+                    color and 1 bit is reserved for alpha.</td
+                >
+            </tr>
+
+            <tr>
+                <td>a4r4g4b4</td>
+                <td>16-bit ARGB pixel format with 4 bits for each channel.</td>
+            </tr>
+
+            <tr>
+                <td>r3g3b2</td>
+                <td
+                    >8-bit RGB texture format using 3 bits for red, 3 bits for
+                    green, and 2 bits for blue.</td
+                >
+            </tr>
+
+            <tr>
+                <td>a8</td>
+                <td>8-bit alpha only.</td>
+            </tr>
+
+            <tr>
+                <td>a8r3g3b2</td>
+                <td
+                    >16-bit ARGB texture format using 8 bits for alpha, 3 bits
+                    each for red and green, and 2 bits for blue.</td
+                >
+            </tr>
+
+            <tr>
+                <td>x4r4g4b4</td>
+                <td>16-bit RGB pixel format using 4 bits for each color.</td>
+            </tr>
+
+            <tr>
+                <td>a2b10g10r10</td>
+                <td
+                    >32-bit pixel format using 10 bits for each color and 2 bits
+                    for alpha.</td
+                >
+            </tr>
+
+            <tr>
+                <td>a8b8g8r8</td>
+                <td
+                    >32-bit ARGB pixel format with alpha, using 8 bits per
+                    channel.</td
+                >
+            </tr>
+
+            <tr>
+                <td>x8b8g8r8</td>
+                <td
+                    >32-bit RGB pixel format, where 8 bits are reserved for each
+                    color.</td
+                >
+            </tr>
+
+            <tr>
+                <td>g16r16</td>
+                <td
+                    >32-bit pixel format using 16 bits each for green and red.</td
+                >
+            </tr>
+
+            <tr>
+                <td>a2r10g10b10</td>
+                <td
+                    >32-bit pixel format using 10 bits each for red, green, and
+                    blue, and 2 bits for alpha.</td
+                >
+            </tr>
+
+            <tr>
+                <td>a16b16g16r16</td>
+                <td>64-bit pixel format using 16 bits for each component.</td>
+            </tr>
+
+            <tr>
+                <td>a8p8</td>
+                <td>8-bit color indexed with 8 bits of alpha.</td>
+            </tr>
+
+            <tr>
+                <td>p8</td>
+                <td>8-bit color indexed.</td>
+            </tr>
+
+            <tr>
+                <td>l8</td>
+                <td>8-bit luminance only.</td>
+            </tr>
+
+            <tr>
+                <td>l16</td>
+                <td>16-bit luminance only.</td>
+            </tr>
+
+            <tr>
+                <td>a8l8</td>
+                <td>16-bit using 8 bits each for alpha and luminance.</td>
+            </tr>
+
+            <tr>
+                <td>r8g8b8</td>
+                <td>24-bit RGB pixel format with 8 bits per channel.</td>
+            </tr>
+
+            <tr>
+                <td>a4l4</td>
+                <td>8-bit using 4 bits each for alpha and luminance.</td>
+            </tr>
+
+            <tr>
+                <td>r16f</td>
+                <td>16-bit float format using 16 bits for the red channel.</td>
+            </tr>
+
+            <tr>
+                <td>g16r16f</td>
+                <td>32-bit float format using 16 bits for the red channel and 16 bits for the green channel.</td>
+            </tr>
+
+            <tr>
+                <td>a16b16g16r16f</td>
+                <td>64-bit float format using 16 bits for the each channel (alpha, blue, green, red).</td>
+            </tr>
+
+            <tr>
+                <td>r32f</td>
+                <td>32-bit float format using 32 bits for the red channel.</td>
+            </tr>
+
+            <tr>
+                <td>g32r32f</td>
+                <td>64-bit float format using 32 bits for the red channel and 32 bits for the green channel.</td>
+            </tr>
+
+            <tr>
+                <td>a32b32g32r32f</td>
+                <td>128-bit float format using 32 bits for the each channel (alpha, blue, green, red).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <SeeAlsoSection
+        seeAlsoLinks={getSeeAlsoLinksFromList([
+            "reference:dxCreateRenderTarget",
+        ])}
+        currentId=""
+    />
+</AutoStarlightPage>
