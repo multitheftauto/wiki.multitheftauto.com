@@ -415,135 +415,6 @@ technique simple
 }
 ```
 
-## Shader examples
-
-<div style="display: flex; flex-direction: column; gap: 0.5rem; border: 1px solid var(--sl-color-gray-5); padding: 10px;">
-    ### Roadshine
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/roadshine.jpg")} alt="Roadshine" />
-        This resource creates a light reflection effect on the ground (looks best when moving).<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_roadshine3.zip">Download</a>
-    </div>
-
-    ### UV Scroll
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/uvscroll.jpg")} alt="UV scroll" />
-        This resource scrolls a texture from left to right. It doesn't use vertex or pixels shaders, so it should work on all hardware.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_uv_scroll.zip">Download</a>
-    </div>
-    
-    ### UV scripted
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/uvscripted.jpg")} alt="UV scripted" />
-        This resource controls a texture's UVs using Lua. It shows that anything is possible if you can imagine it.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_uv_scripted.zip">Download</a>
-    </div>
-
-    ### Car paint
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/carpaint.jpg")} alt="Car paint" />
-        This resource shows you how to apply a shader to the vehicle models. The shader itself is not that great, so don't get your hopes up.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_car_paint.zip">Download</a>
-    </div>
-
-    ### Water
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/water.jpg")} alt="Water shader" />
-        This resource applies a shader to the GTA world water. The Lua script shows how to use a timer to transfer the conventional water color setting to the shader.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_water.zip">Download</a>
-    </div>
-
-    ### Bloom
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/bloom.jpg")} alt="Bloom" />
-        This resource shows you how 'bounce' full screen effects using a render target pool. It uses the onClientHUDRender event to exclude the HUD from the effect.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_bloom.zip">Download</a>
-    </div>
-
-    ### Block world
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/blockworld.jpg")} alt="Block world" />
-        This resource makes the textures look all blocky. It also changes colors when the 'k' key is pressed.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_block_world.zip">Download</a>
-    </div>
-
-    ### Texture names
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/texnames.jpg")} alt="Texture names" />
-        This resource is only a tool, and doesn't do anything pretty. It shows a list of the current visible texture names, and highlights the selected texture. Ideal for finding a texture name to use with <a href="/reference/engineApplyShaderToWorldTexture">engineApplyShaderToWorldTexture</a>.<br/><br/>
-        num_8 shows/hides the texture list, num_7 and num_9 step through the list, and 'k' copies the current texture name to the clipboard.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_tex_names.zip">Download</a>
-    </div>
-
-    ### Skid marks
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/skidmarks.jpg")} alt="Skid marks" />
-        This resource shows you how to do multiple passes in a shader, and input different variables to the vertex shader for each pass. Use the command /skidmarks 1-4 to see the different effects. (You have skid a car to see it!)<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_skidmarks.zip">Download</a>
-    </div>
-
-    ### HDR contrast
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/hdr.jpg")} alt="HDR" />
-        This resource applies a 'High Dynamic Range' contrast effect. It uses a 1 pixel render target to sample the whole scene, and then uses that to brighten or darken the next frame. So going into somewhere dark will automatically brighten the scene, and visa versa<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_contrast.zip">Download</a>
-    </div>
-
-    ### Tessellation
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/tesselation.jpg")} alt="Tesselation" />
-        This resource shows how to use shader tessellation to animate the shape of a dxDrawImage and use shader transform to give it a 3rd dimension.<br/>
-        The example has a GUI (press numpad-8) so you can fiddle with the settings.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_flag.zip">Download</a>
-    </div>
-
-    ### Radial blur
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/radialblur.jpg")} alt="Radial blur" />
-        This resource sort of looks a little bit like the GTAIV motion blur you get when you move the mouse quickly, or drive a fast car. The fast car effect is a bit more subtle than the screen shot would suggest, as it leaves the center of the screen nice and clear so you can see where you are going.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_radial_blur.zip">Download</a>
-    </div>
-
-    ### Detail
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/detail.jpg")} alt="Details" />
-        Applies a few monochrome detail textures, at various scales, to (parts of) the world.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_detail.zip">Download</a>
-    </div>
-
-    ### Ped morph
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/pedmorph.jpg")} alt="Ped morph" />
-        This resource uses a vertex shader to modify the geometry of a ped model as it is rendered.<br/><br/>
-        When the resource has started, use the 'k' and 'l' keys to change morph size.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_ped_morph.zip">Download</a>
-    </div>
-
-    ### Ped shell
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/pedshell.jpg")} alt="Ped shell" />
-        This resource draws a translucent effect as a shader layer. The first pass is done by GTA, and the vertex shader is only applied in the second to add the effect 'on top' of the standard output.<br/><br/>
-        When the resource has started, use the 'm' key to see the shell effect.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_ped_shell.zip">Download</a>
-    </div>
-
-    ### Hud mask
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/hud_mask.jpg")} alt="HUD mask" />
-        This resource shows how to draw a hud texture with a shape mask.<br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_hud_mask.zip">Download</a>
-    </div>
-
-    ### Circle
-    <div style="display: flex; flex-direction: row; gap: 1rem;">
-        <Image src={getAssetImagePath("Shaders/circle.jpg")} alt="dxDrawCircle" />
-        This resource exports a 'dxDrawCircle' function for use in your own scripts.<br/><br/>
-        Example resource calling dxDrawCircle function from shader_circle: <a href="https://nightly.mtasa.com/files/shaders/circle_example.zip">circle_example.zip</a><br/>
-        <a href="https://nightly.mtasa.com/files/shaders/shader_circle.zip">Download</a>
-    </div>
-</div>
-
-<br/>
 ## MTA Shader Semantics
 HLSL fields are **case-insensitive**
 
@@ -817,3 +688,131 @@ int Color1;
 int TexCoord0;
 int TexCoord1;
 ```
+
+## Shader examples
+
+<div style="display: flex; flex-direction: column; gap: 0.5rem; border: 1px solid var(--sl-color-gray-5); padding: 10px;">
+    ### Roadshine
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/roadshine.jpg")} alt="Roadshine" />
+        This resource creates a light reflection effect on the ground (looks best when moving).<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_roadshine3.zip">Download</a>
+    </div>
+
+    ### UV Scroll
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/uvscroll.jpg")} alt="UV scroll" />
+        This resource scrolls a texture from left to right. It doesn't use vertex or pixels shaders, so it should work on all hardware.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_uv_scroll.zip">Download</a>
+    </div>
+    
+    ### UV scripted
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/uvscripted.jpg")} alt="UV scripted" />
+        This resource controls a texture's UVs using Lua. It shows that anything is possible if you can imagine it.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_uv_scripted.zip">Download</a>
+    </div>
+
+    ### Car paint
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/carpaint.jpg")} alt="Car paint" />
+        This resource shows you how to apply a shader to the vehicle models. The shader itself is not that great, so don't get your hopes up.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_car_paint.zip">Download</a>
+    </div>
+
+    ### Water
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/water.jpg")} alt="Water shader" />
+        This resource applies a shader to the GTA world water. The Lua script shows how to use a timer to transfer the conventional water color setting to the shader.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_water.zip">Download</a>
+    </div>
+
+    ### Bloom
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/bloom.jpg")} alt="Bloom" />
+        This resource shows you how 'bounce' full screen effects using a render target pool. It uses the onClientHUDRender event to exclude the HUD from the effect.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_bloom.zip">Download</a>
+    </div>
+
+    ### Block world
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/blockworld.jpg")} alt="Block world" />
+        This resource makes the textures look all blocky. It also changes colors when the 'k' key is pressed.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_block_world.zip">Download</a>
+    </div>
+
+    ### Texture names
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/texnames.jpg")} alt="Texture names" />
+        This resource is only a tool, and doesn't do anything pretty. It shows a list of the current visible texture names, and highlights the selected texture. Ideal for finding a texture name to use with <a href="/reference/engineApplyShaderToWorldTexture">engineApplyShaderToWorldTexture</a>.<br/><br/>
+        num_8 shows/hides the texture list, num_7 and num_9 step through the list, and 'k' copies the current texture name to the clipboard.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_tex_names.zip">Download</a>
+    </div>
+
+    ### Skid marks
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/skidmarks.jpg")} alt="Skid marks" />
+        This resource shows you how to do multiple passes in a shader, and input different variables to the vertex shader for each pass. Use the command /skidmarks 1-4 to see the different effects. (You have skid a car to see it!)<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_skidmarks.zip">Download</a>
+    </div>
+
+    ### HDR contrast
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/hdr.jpg")} alt="HDR" />
+        This resource applies a 'High Dynamic Range' contrast effect. It uses a 1 pixel render target to sample the whole scene, and then uses that to brighten or darken the next frame. So going into somewhere dark will automatically brighten the scene, and visa versa<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_contrast.zip">Download</a>
+    </div>
+
+    ### Tessellation
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/tesselation.jpg")} alt="Tesselation" />
+        This resource shows how to use shader tessellation to animate the shape of a dxDrawImage and use shader transform to give it a 3rd dimension.<br/>
+        The example has a GUI (press numpad-8) so you can fiddle with the settings.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_flag.zip">Download</a>
+    </div>
+
+    ### Radial blur
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/radialblur.jpg")} alt="Radial blur" />
+        This resource sort of looks a little bit like the GTAIV motion blur you get when you move the mouse quickly, or drive a fast car. The fast car effect is a bit more subtle than the screen shot would suggest, as it leaves the center of the screen nice and clear so you can see where you are going.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_radial_blur.zip">Download</a>
+    </div>
+
+    ### Detail
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/detail.jpg")} alt="Details" />
+        Applies a few monochrome detail textures, at various scales, to (parts of) the world.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_detail.zip">Download</a>
+    </div>
+
+    ### Ped morph
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/pedmorph.jpg")} alt="Ped morph" />
+        This resource uses a vertex shader to modify the geometry of a ped model as it is rendered.<br/><br/>
+        When the resource has started, use the 'k' and 'l' keys to change morph size.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_ped_morph.zip">Download</a>
+    </div>
+
+    ### Ped shell
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/pedshell.jpg")} alt="Ped shell" />
+        This resource draws a translucent effect as a shader layer. The first pass is done by GTA, and the vertex shader is only applied in the second to add the effect 'on top' of the standard output.<br/><br/>
+        When the resource has started, use the 'm' key to see the shell effect.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_ped_shell.zip">Download</a>
+    </div>
+
+    ### Hud mask
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/hud_mask.jpg")} alt="HUD mask" />
+        This resource shows how to draw a hud texture with a shape mask.<br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_hud_mask.zip">Download</a>
+    </div>
+
+    ### Circle
+    <div style="display: flex; flex-direction: row; gap: 1rem;">
+        <Image src={getAssetImagePath("Shaders/circle.jpg")} alt="dxDrawCircle" />
+        This resource exports a 'dxDrawCircle' function for use in your own scripts.<br/><br/>
+        Example resource calling dxDrawCircle function from shader_circle: <a href="https://nightly.mtasa.com/files/shaders/circle_example.zip">circle_example.zip</a><br/>
+        <a href="https://nightly.mtasa.com/files/shaders/shader_circle.zip">Download</a>
+    </div>
+</div>
