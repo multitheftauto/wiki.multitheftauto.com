@@ -36,7 +36,7 @@ if (images?.length) {
 
         <div class="preview-images">
             {images.map(({ src, description, resolvedPath, width, height }) => (
-                <a href={src} class="glightbox" data-description={marked(description)} data-gallery="gallery">
+                <a href={src} class="glightbox" data-description={description ? marked(description) : ""} data-gallery="gallery">
                     <Image
                         width={width}
                         height={height}
