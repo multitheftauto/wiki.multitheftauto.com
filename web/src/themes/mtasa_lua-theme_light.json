@@ -169,14 +169,14 @@
     {
       "scope": "constant.language.lua",
       "settings": {
-        "foreground": "#c6555f",
+        "foreground": "#c655a4",
         "fontStyle": "italic"
       }
     },
     {
       "scope": "variable.language.self.lua",
       "settings": {
-        "foreground": "#c6555f",
+        "foreground": "#c655a4",
         "fontStyle": "italic"
       }
     },
