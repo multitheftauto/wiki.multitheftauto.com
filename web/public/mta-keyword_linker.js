@@ -28,7 +28,18 @@ function extractFunctions(tmLanguage, textContent) {
       matches.forEach(m => {
         const lib = m[1];
         const funcs = m[2].split("|");
-        funcs.forEach(fn => result.add(`${lib}.${fn}`));
+
+        funcs.forEach(fn => {
+          if (lib === "math" && fn.endsWith("?")) { // cosh?|sinh?|atan2?
+            const base = fn.slice(0, -1);
+            const baseWithoutLastLetter = fn.slice(0, -2);
+            
+            result.add(`${lib}.${base}`); // sinh|cosh|atan2
+            result.add(`${lib}.${baseWithoutLastLetter}`); // sin|cos|atan
+          } else {
+            result.add(`${lib}.${fn}`);
+          }
+        });
       });
       return;
     } else {
@@ -58,7 +69,9 @@ function initKeywordLinker() {
           url = `https://www.lua.org/manual/5.1/manual.html#pdf-${text}`;
         }
 
-        span.innerHTML = `<a href="${url}" class="mta-keyword-link">${text}</a>`;
+        const isExternalURL = url.startsWith("https://www.");
+
+        span.innerHTML = `<a href="${url}" class="mta-keyword-link" ${isExternalURL ? 'target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`;
       }
     });
   }
