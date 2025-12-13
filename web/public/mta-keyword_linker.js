@@ -62,6 +62,7 @@ function extractFunctions(tmLanguage, textContent) {
   });
 
   luaGlobals.forEach(name => result.add(name));
+  result.add("nil");
 
   return Array.from(result);
 }
