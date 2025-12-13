@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getAssetImagePath } from "@src/utils/general";
+import { marked } from "marked";
 
 interface Props {
     images?: any[];
@@ -35,7 +36,7 @@ if (images?.length) {
 
         <div class="preview-images">
             {images.map(({ src, description, resolvedPath, width, height }) => (
-                <a href={src} class="glightbox" data-description={description} data-gallery="gallery">
+                <a href={src} class="glightbox" data-description={marked(description)} data-gallery="gallery">
                     <Image
                         width={width}
                         height={height}
