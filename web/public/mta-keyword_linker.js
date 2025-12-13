@@ -5,8 +5,11 @@ const wantedScopes = new Set([
   "support.function.mta-server",
   "support.function.mta-client",
   "keyword.mta",
-  "support.function.library.lua"
+  "support.function.library.lua",
+  "support.function.lua"
 ]);
+
+const luaGlobals = ["_G", "_VERSION", "math.pi", "math.huge"];
 
 function extractFunctions(tmLanguage, textContent) {
   const result = new Set();
@@ -42,6 +45,14 @@ function extractFunctions(tmLanguage, textContent) {
         });
       });
       return;
+    } else if (name === "support.function.lua") {
+      const funcsMatch = [...match.matchAll(/\(([^)]+)\)/g)].map(m => m[1]).filter(s => s.includes("|")).pop() || "";
+      const funcs = funcsMatch.split("|");
+      funcs.forEach(fn => {
+        result.add(fn);
+        luaGlobals.push(fn);
+      });
+      return;
     } else {
       const matches = match.match(/\\b\(([^)]+)\)\\b/)?.[1]?.split("|") || [];
       matches.forEach(w => result.add(w));
@@ -49,6 +60,8 @@ function extractFunctions(tmLanguage, textContent) {
       return;
     }
   });
+
+  luaGlobals.forEach(name => result.add(name));
 
   return Array.from(result);
 }
@@ -65,7 +78,7 @@ function initKeywordLinker() {
       if (allFunctions.has(text)) {
         let url = `/reference/${text}`;
         const [lib] = text.split(".");
-        if (["string", "math", "table", "os", "debug", "coroutine"].includes(lib)) {
+        if (["string", "math", "table", "os", "debug", "coroutine"].includes(lib) || luaGlobals.includes(text)) {
           url = `https://www.lua.org/manual/5.1/manual.html#pdf-${text}`;
         }
 
