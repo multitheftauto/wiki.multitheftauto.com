@@ -1,28 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxConvertPixels
-shared:
+client:
   name: dxConvertPixels
-  description: This function converts [pixels](/wiki/Texture_pixels "Texture pixels")
-    from one format to another.
+  description: This function converts [pixels](/reference/Pixels) from one format to another.
   parameters:
   - name: pixels
     type: string
-    description: MISSING_PARAM_DESC
+    description: The pixels to convert the format of.
   - name: newFormat
     type: string
-    description: MISSING_PARAM_DESC
+    description: The new format required.
+    templateList: pixels-format
   - name: quality
     type: int
-    description: MISSING_PARAM_DESC
+    description: The quality of the returned pixels if the new format is `jpeg`.
     default: '80'
   examples:
   - path: examples/dxConvertPixels-1.lua
     description: The code opens an image, read its pixels, convert the pixels to PNG,
-      and then save it. (You can usethisimage to test.)
-    side: client
+      and then save it.
   returns:
     values:
-    - type: string
-      name: value
-    description: Returns a copy of the pixels in the new format, or false if invalid
+    - type: string|false
+      name: pixels
+    description: Returns a copy of the pixels in the new format, or **false** if invalid
       arguments were passed to the function.
-  requires_review: true

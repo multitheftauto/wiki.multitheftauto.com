@@ -81,6 +81,7 @@ export default defineConfig({
                   label: "Resource Web Access",
                   link: "/reference/Resource_Web_Access",
                 },
+                {label: "Game processing order", link: '/reference/Game_Processing_Order'},
                 {label: "Texture pixels", link: '/reference/Pixels'},
                 {
                   label: "Functions",

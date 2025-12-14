@@ -1,17 +1,17 @@
 local picture = "test.png"
 local worldRenderPositions = { -- create a table with all the world positions
-    
-    { 2483, -1663, 12.4, 0, 0 }, -- top left
-    { 2493, -1663, 12.4, 1, 0 }, -- top right
-    { 2483, -1673, 12.4, 0, 1 }, -- bottom left
-    { 2493, -1673, 12.4, 1, 1 }, -- bottom right
-    
-    }
-    
+
+    {2483, -1663, 12.4, 0, 0}, -- top left
+    {2493, -1663, 12.4, 1, 0}, -- top right
+    {2483, -1673, 12.4, 0, 1}, -- bottom left
+    {2493, -1673, 12.4, 1, 1} -- bottom right
+
+}
+
 function renderPicture()
-    dxDrawMaterialPrimitive3D( "trianglestrip", picture, false, unpack(worldRenderPositions) ) -- use unpack() to separate the points
+    dxDrawMaterialPrimitive3D("trianglestrip", picture, false, unpack(worldRenderPositions)) -- use unpack() to separate the points
 end
-addEventHandler( "onClientRender", root, renderPicture )
+addEventHandler("onClientRender", root, renderPicture)
 
 function flipPicture()
     for index, point in ipairs(worldRenderPositions) do
@@ -27,4 +27,4 @@ function flipPicture()
         end
     end
 end
-addCommandHandler( "flip", flipPicture )
+addCommandHandler("flip", flipPicture)

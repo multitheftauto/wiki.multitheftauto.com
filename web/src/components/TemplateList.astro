@@ -187,6 +187,126 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
         {id: 4, label: "polygon"},
         {id: 5, label: "tube"},
     ],
+
+    'pixels-format': [
+        {id: 'plain', label: ''},
+        {id: 'png', label: ''},
+        {id: 'jpeg', label: ''},
+        {id: 'dds', label: ''},
+    ],
+
+    'dxFont-quality': [
+        {id: "default", label: "not the actual default."},
+        {id: "draft", label: ""},
+        {id: "proof", label: "the default."},
+        {id: "nonantialiased", label: ""},
+        {id: "antialiased", label: ""},
+        {id: "cleartype", label: ""},
+        {id: "cleartype_natural", label: ""},
+    ],
+
+    'texture-formats': [
+        {id: 'argb', label: 'RGB uncompressed 32 bit color (default).'},
+        {id: 'dxt1', label: 'DXT1 compressed - Can take a fraction of a second longer to load (unless the file is already a DXT1 .dds). Uses 8 times less video memory than ARGB and **can speed up drawing**. Quality not as good as ARGB. **It supports alpha blending, but it can only be on or off, that is: either 0 or 255**.'},
+        {id: 'dxt3', label: 'DXT3 compressed - Can take a fraction of a second longer to load (unless the file is already a DXT3 .dds). Uses 4 times less video memory than ARGB and **can speed up drawing**. Quality slightly better than DXT1 and supports crisp alpha blending.'},
+        {id: 'dxt5', label: 'DXT5 compressed - Can take a fraction of a second longer to load (unless the file is already a DXT5 .dds). Uses 4 times less video memory than ARGB and **can speed up drawing**. Quality slightly better than DXT1 and supports smooth alpha blending.'},
+    ],
+
+    'texture-edges': [
+        {id: 'wrap', label: 'Wrap the texture at the edges (default).'},
+        {id: 'clamp', label: 'Clamp the texture at the edges. This may help avoid edge artifacts.'},
+        {id: 'mirror', label: 'Mirror the texture at the edges.'},
+    ],
+
+    'texture-types': [
+        {id: '2d', label: 'Standard texture (default).'},
+        {id: '3d', label: 'Volume texture.'},
+        {id: 'cube', label: 'Cube map.'},
+    ],
+
+    'line-drawing-stages': [
+        {id: 'prefx', label: 'Lines are rendered before the color correction. This stage makes lines look natural to SA but colors could be distorted.'},
+        {id: 'postfx', label: 'Lines are rendered after the color correction. This stage conveys a color from the function to a screen without distortions.'},
+        {id: 'postgui', label: 'Lines are rendered after GUI. The line should be drawn on top of or behind any ingame GUI (rendered by CEGUI).'}
+    ],
+
+    'primitive-drawing-stages': [
+        {id: 'prefx', label: 'Primitives are rendered before the color correction. This stage makes lines look natural to SA but colors could be distorted.'},
+        {id: 'postfx', label: 'Primitives are rendered after the color correction. This stage conveys a color from the function to a screen without distortions.'},
+        {id: 'postgui', label: 'Primitives are rendered after GUI. The line should be drawn on top of or behind any ingame GUI (rendered by CEGUI).'}
+    ],
+
+    'primitives': [
+        {id: 'pointlist', label: 'Renders the vertices as a collection of isolated points.'},
+        {id: 'linelist', label: 'Renders the vertices as a list of isolated straight line segments.'},
+        {id: 'linestrip', label: 'Renders the vertices as a single polyline.'},
+        {id: 'trianglelist', label: 'Renders the specified vertices as a sequence of isolated triangles. Each group of three vertices defines a separate triangle.'},
+        {id: 'trianglestrip', label: 'Renders the vertices as a triangle strip.'},
+        {id: 'trianglefan', label: 'Renders the vertices as a triangle fan.'},
+    ],
+
+    'dx-fonts': [
+        {id: 'default', label: 'Tahoma'},
+        {id: 'default-bold', label: 'Tahoma Bold'},
+        {id: 'clear', label: 'Verdana'},
+        {id: 'arial', label: 'Arial'},
+        {id: 'sans', label: 'Microsoft Sans Serif'},
+        {id: 'pricedown', label: 'Pricedown (GTA\'s theme text)'},
+        {id: 'bankgothic', label: 'Bank Gothic Medium'},
+        {id: 'diploma', label: 'Diploma Regular'},
+        {id: 'beckett', label: 'Beckett Regular'},
+        {id: 'unifont', label: 'Unifont'},
+    ],
+
+    'dx-blend-modes': [
+        {id: 'blend', label: 'The source textures are alpha blended to the screen/render target. This is the default mode for drawing and gives the results we all know and love.'},
+        {id: 'add', label: 'The source textures are added to the screen/render target.'},
+        {id: 'modulate_add', label: 'The source textures are multiplied by the alpha and then added to the screen/render target.'},
+        {id: 'overwrite', label: 'The source textures are overwritten. This can be useful for clearing render targets.'},
+    ],
+
+    'dx-status': [
+        {id: 'TestMode', label: 'The current dx test mode. See [[dxSetTestMode]].'},
+        {id: 'VideoCardName', label: 'The name of the graphics card.'},
+        {id: 'VideoCardRAM', label: 'The installed memory in MB of the graphics card.'},
+        {id: 'VideoCardPSVersion', label: 'The maximum pixel shader version of the graphics card.'},
+        {id: 'VideoCardMaxAnisotropy', label: 'The maximum anisotropic filtering available. (0-4 which respectively mean: off, 2x, 4x, 8x, 16x).'},
+        {id: 'VideoCardNumRenderTargets', label: 'The maximum number of simultaneous render targets a shader can use.'},
+        {id: 'VideoMemoryFreeForMTA', label: 'The amount of memory in MB available for MTA to use. **When this gets zero, creation functions like [dxCreateFont](/reference/dxCreateFont), [dxCreateTexture](/reference/dxCreateTexture), [guiCreateFont](/reference/guiCreateFont) etc. will fail.**'},
+        {id: 'VideoMemoryUsedByFonts', label: 'The amount of graphic memory in MB used by custom fonts.'},
+        {id: 'VideoMemoryUsedByTextures', label: 'The amount of graphic memory in MB used by textures.'},
+        {id: 'VideoMemoryUsedByRenderTargets', label: 'The amount of graphic memory in MB used by render targets.'},
+        {id: 'SettingWindowed', label: 'The windowed setting. (true/false).'},
+        {id: 'SettingFullScreenStyle', label: 'Display style when in full screen mode. (0-2 which respectively mean: Standard, Borderless window, Borderless keep res).'},
+        {id: 'SettingFXQuality', label: 'The FX Quality. (0-3).'},
+        {id: 'SettingDrawDistance', label: 'The draw distance setting. (0-100).'},
+        {id: 'SettingVolumetricShadows', label: 'The volumetric shadows setting. (true/false).'},
+        {id: 'SettingStreamingVideoMemoryForGTA', label: 'The usable graphics memory setting. (64-256).'},
+        {id: 'SettingAnisotropicFiltering', label: 'The anisotropic filtering setting. (0-4 which respectively mean: off, 2x, 4x, 8x, 16x).'},
+        {id: 'SettingAntiAliasing', label: 'The anti-aliasing setting. (0-3 which respectively mean: off, 1x, 2x, 3x).'},
+        {id: 'SettingHeatHaze', label: 'The heat haze setting. (true/false).'},
+        {id: 'SettingGrassEffect', label: 'The grass effect setting. (true/false).'},
+        {id: 'Setting32BitColor', label: 'The color depth of the screen. (false is 16bit, true is 32bit).'},
+        {id: 'SettingHUDMatchAspectRatio', label: 'The hud match aspect ratio setting. (true/false).'},
+        {id: 'SettingAspectRatio', label: 'The aspect ratio setting. ("auto", "4:3", "16:10", "16:9").'},
+        {id: 'SettingFOV', label: 'The FOV setting.'},
+        {id: 'SettingHighDetailVehicles', label: 'High detail vehicles setting. (true/false).'},
+        {id: 'SettingHighDetailPeds', label: 'High detail peds setting. (true/false).'},
+        {id: 'SettingCoronaReflections', label: 'Corona rain reflections setting. (true/false).'},
+        {id: 'SettingDynamicPedShadows', label: 'Dynamic ped shadows setting. (true/false).'},
+        {id: 'AllowScreenUpload', label: 'The allows screen uploads setting. (true/false).'},
+        {id: 'DepthBufferFormat', label: 'The format of the shader readable depth buffer, or "unknown" if not available.'},
+        {id: 'TotalPhysicalMemory', label: 'The amount of total physical memory in MB.'},
+        {id: 'UsingDepthBuffer', label: 'true if the depth buffer is used, false otherwise.'},
+        {id: 'SettingDebugMode', label: 'Selected option in `Settings -> Advanced tab -> Debug setting` ("Default", "#6734 Graphics", "#6732 D3D", "#0000 Log timing", "#0000 Joystick", "#0000 Lua trace", "#0000 Resize always", "#0000 Resize never").'},
+    ],
+
+    'dx-test-modes': [
+        {id: 'none', label: 'Test mode disabled.'},
+        {id: 'no_mem', label: 'Simulate no free video memory available for MTA.'},
+        {id: 'low_mem', label: 'Simulate little free video memory available for MTA.'},
+        {id: 'no_shader', label: 'Simulate shaders failing validation.'},
+    ],
 };
 
 const icons: Record<string, string> = {

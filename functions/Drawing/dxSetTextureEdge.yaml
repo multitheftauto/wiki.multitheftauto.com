@@ -1,32 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetTextureEdge
-shared:
+client:
   name: dxSetTextureEdge
-  description: 'This functions allows you to change the edge handling after creating
-    the texture.
-
-    [![TextureEdges.jpg](/images/thumb/0/08/TextureEdges.jpg/600px-TextureEdges.jpg)](/wiki/File:TextureEdges.jpg)'
+  description: This functions allows you to change the edge handling after creating the texture.
   parameters:
   - name: theTexture
     type: texture
-    description: The affected texture
+    description: The affected texture.
   - name: textureEdge
     type: string
-    description: The texture edge mode. Available modes are wrap, mirror, clamp, border,
-      mirror-once
+    description: The texture edge mode. Available modes are `wrap, mirror, clamp, border,
+      mirror-once`.
   - name: border-color
     type: int
-    description: If textureEdge is set to border, you are able to define a border
-      color here
+    description: If **textureEdge** is set to `border`, you are able to define a border color here.
+    default: nil
   examples:
   - path: examples/dxSetTextureEdge-1.lua
-    description: ''
-    side: client
+    description: The following example draws the image ingame.
+  - path: examples/dxSetTextureEdge_OOP-1.lua
+    description: The following example draws the image ingame.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
+      name: result
+    description: Returns **true** if success, **false** otherwise.
   oop:
     element: texture
     method: setEdge
-    static: false
-  requires_review: true
+  preview_images:
+    - path: dxSetTextureEdge.jpg

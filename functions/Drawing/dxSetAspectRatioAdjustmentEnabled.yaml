@@ -1,27 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetAspectRatioAdjustmentEnabled
-shared:
+client:
   name: dxSetAspectRatioAdjustmentEnabled
-  description: 'This function allows for the positioning of dxDraw calls to be automatically
-    adjusted according to the client''s aspect ratio setting. This lasts for a single
-    execution of an event handler for one of the following events: [onClientRender](/wiki/OnClientRender
-    "OnClientRender"), [onClientPreRender](/wiki/OnClientPreRender "OnClientPreRender")
-    and [onClientHUDRender](/wiki/OnClientHUDRender "OnClientHUDRender"). So the function
-    has to be called every frame, just like dxDraws.'
+  pair: dxIsAspectRatioAdjustmentEnabled
+  description: |
+      This function allows for the positioning of dxDraw calls to be automatically adjusted according to the client's aspect ratio setting. This lasts for a single execution of an event handler for one of the following events: [[onClientRender]], [[onClientPreRender]] and [[onClientHUDRender]]. So the function has to be called every frame, just like dxDraws.
+
+      This is particularly useful for draws that must align with the GTA HUD, for which the sizing and positioning can vary for different aspect ratios.
   parameters:
   - name: bEnabled
     type: bool
     description: Should the adjustment be enabled or disabled.
   - name: sourceRatio
     type: float
-    description: MISSING_PARAM_DESC
+    description: This should be set to the aspect ratio the dxDraws were originally designed in.
     default: 4/3
   examples:
   - path: examples/dxSetAspectRatioAdjustmentEnabled-1.lua
-    description: ''
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true when it was changed successfully, or false otherwise.
-  requires_review: true
+      name: result
+    description: Returns **true** when it was changed successfully, or **false** otherwise.

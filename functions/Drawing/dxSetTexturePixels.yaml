@@ -1,55 +1,55 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetTexturePixels
-shared:
+client:
   name: dxSetTexturePixels
-  description: This function sets the [pixels](/wiki/Texture_pixels "Texture pixels")
-    of a [texture](/wiki/Texture "Texture") element. It can be used with a standard
-    texture, render target or screen source. Only '**plain'** format pixels please.
+  pair: dxGetTexturePixels
+  description: This function sets the [pixels](/reference/Pixels) of a [[texture]] element. It can be used with a standard texture, render target or screen source. Only `plain` pixels format is supported.
   parameters:
   - name: surfaceIndex
     type: int
     description: 'Desired slice to set if the texture is a volume texture, or desired
       face to set if the texture is a cube map. (Cube map faces: 0=+X 1=-X 2=+Y 3=-Y
-      4=+Z 5=-Z)'
+      4=+Z 5=-Z).'
     default: '0'
   - name: texture
-    type: element
-    description: MISSING_PARAM_DESC
+    type: texture
+    description: The texture element to set the pixels of.
   - name: pixels
     type: string
-    description: MISSING_PARAM_DESC
+    description: The **plain** format pixels to use.
   - name: x
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle left position.
     default: '0'
   - name: "y"
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle top position.
     default: '0'
   - name: width
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle width.
     default: '0'
   - name: height
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle height.
     default: '0'
-  examples:
-  - path: examples/dxSetTexturePixels-1.lua
-    description: ''
-    side: client
   returns:
     values:
     - type: bool
       name: value
-    description: Returns a string if successful, false if invalid arguments were passed
+    description: Returns **true** if successful, **false** if invalid arguments were passed
       to the function.
   oop:
     element: texture
     method: setPixels
     static: false
   notes:
+  - type: tip
+    content: 'By default the pixels are set starting at the top left corner of the texture. To set a different region, define a rectangular area using all four of these optional arguments: **x, y, width, height**.'
   - type: info
-    content: This function is slow and not something you want to be doing once a frame.
-      It is very slow when setting pixels to a render target or screen source. And
-      is very slow indeed if the texture format is not "argb" .
-  requires_review: true
+    content: |
+      - This function is slow and not something you want to be doing once a frame.
+      - It is slower when reading pixels from a render target or screen source.
+      - Is very slow indeed if the texture format is not `argb`.
+  meta:
+    - changelog:
+        - version: 1.3.0-9.04021
+          description: Added **surfaceIndex** argument.

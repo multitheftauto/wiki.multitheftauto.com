@@ -1,33 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetPixelColor
-shared:
+client:
   name: dxGetPixelColor
-  description: This function gets the color of a single pixel from [pixels](/wiki/Texture_pixels
-    "Texture pixels") contained in a string. It only works with '**plain'** format
-    pixels.
+  pair: dxSetPixelColor
+  description: This function gets the color of a single pixel from [pixels](/reference/Pixels) contained in a string. It only works with `plain` format pixels.
   parameters:
   - name: pixels
     type: string
-    description: MISSING_PARAM_DESC
+    description: The pixels to use.
   - name: x
     type: int
-    description: The X coordinate for the pixel
+    description: The X coordinate for the pixel.
   - name: "y"
     type: int
-    description: The Y coordinate for the pixel
+    description: The Y coordinate for the pixel.
   examples:
   - path: examples/dxGetPixelColor-1.lua
-    description: ''
-    side: client
   returns:
     values:
+    - type: int|false
+      name: r
     - type: int
-      name: value1
+      name: g
     - type: int
-      name: value2
+      name: b
     - type: int
-      name: value3
-    - type: int
-      name: value4
-    description: Returns 4 int s representing the rgba color value of the pixel if
-      succesful, or false if invalid arguments were passed to the function.
-  requires_review: true
+      name: a
+    description: Returns 4 int s representing the rgba color value of the pixel if succesful, or **false** if invalid arguments were passed to the function.

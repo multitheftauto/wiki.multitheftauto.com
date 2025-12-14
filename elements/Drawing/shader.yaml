@@ -1,6 +1,6 @@
 name: shader
 # In the old wiki, this element is a type of "material" element
 description: |
-  The shader class represents a Microsoft HLSL Effect File(.fx) loaded by the client, which can be used instead of a texture when calling [dxDrawImage](/dxDrawImage).
+  The shader class represents a Microsoft HLSL Effect File(.fx) loaded by the client, which can be used instead of a texture when calling [[dxDrawImage]]. See [shaders article](/articles/shaders) for more.
 
   

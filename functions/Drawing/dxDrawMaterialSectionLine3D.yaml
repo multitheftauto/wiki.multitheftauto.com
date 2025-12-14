@@ -1,72 +1,87 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialSectionLine3D
-shared:
+client:
   name: dxDrawMaterialSectionLine3D
-  description: This function draws a textured 3D line between two points in the 3D
-    world \- rendered for one frame. This should be used in conjunction with [onClientPreRender](/wiki/OnClientPreRender
-    "OnClientPreRender") in order to display continuously.
+  description: This function draws a textured 3D line between two points in the 3D world - rendered for **one** frame. This should be used in conjunction with [[onClientRender]]/[[onClientPreRender]] in order to display continuously.
   parameters:
   - name: startX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The start X position of the 3D line, representing a coordinate in the GTA world.
   - name: startY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The start Y position of the 3D line, representing a coordinate in the GTA world.
   - name: startZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The start Z position of the 3D line, representing a coordinate in the GTA world.
   - name: endX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The end X position of the 3D line, representing a coordinate in the GTA world.
   - name: endY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The end Y position of the 3D line, representing a coordinate in the GTA world.
   - name: endZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The end Z position of the 3D line, representing a coordinate in the GTA world.
   - name: u
     type: float
-    description: the absolute X coordinate of the top left corner of the section
+    description: The absolute X coordinate of the top left corner of the section.
   - name: v
     type: float
-    description: the absolute Y coordinate of the top left corner of the section
+    description: The absolute Y coordinate of the top left corner of the section.
   - name: usize
     type: float
-    description: the absolute width of the section
+    description: The absolute width of the section.
   - name: vsize
     type: float
-    description: the absolute height of the section
+    description: The absolute height of the section.
   - name: flipUV
     type: bool
-    description: MISSING_PARAM_DESC
+    description: A bool representing whether a UV orientation should be flipped.
     default: 'false'
   - name: material
-    type: element
-    description: A material to draw the line with.
+    type: texture
+    description: A [[texture]] to draw the line with.
   - name: width
     type: float
     description: The width/thickness of the line in GTA world units. (This is 1/75th
-      of the width used in dxDrawLine3D)
+      of the width used in [[dxDrawLine3D]]).
   - name: color
     type: int
-    description: MISSING_PARAM_DESC
-    default: white
-  - name: bool stage
-    type: '['
-    description: MISSING_PARAM_DESC
-    default: '"postfx", ] float faceTowardX'
+    description: An integer of the hex color, produced using [[tocolor]] or 0xAARRGGBB.
+    default: tocolor(255,255,255,255)
+  - name: stage
+    type: string
+    description: A string representing a stage at which the actual drawcall should happen.
+    default: '"postfx"'
+    templateList: line-drawing-stages
+  - name: faceTowardX
+    type: float
+    description: The X position the front of the line should face towards. If this is not set, the camera position is used, so the front of the line faces toward the camera.
+    default: nil
   - name: faceTowardY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The Y position the front of the line should face towards. If this is not set, the camera position is used, so the front of the line faces toward the camera.
+    default: nil
   - name: faceTowardZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The Z position the front of the line should face towards. If this is not set, the camera position is used, so the front of the line faces toward the camera.
+    default: nil
   examples:
   - path: examples/dxDrawMaterialSectionLine3D-1.lua
-    description: This example draws corona like effects near the player
-    side: client
+    description: This example draws corona like effects near the player.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
-  requires_review: true
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
+  notes:
+    - type: tip
+      content: |
+        - The 3D line with a large width value effectively becomes a rectangle, so it it possible to construct basic shapes such as boxes with several large width lines and the appropriate values for 'faceToward'.
+        - 3D lines are drawn at a particular place in the [game processing order](/reference/game_processing_order), so use [[onClientPreRender]] for drawing if you are attaching them to world elements.
+  meta:
+    - changelog:
+        - version: 1.5.5-9.11998
+          description: Added **postGUI** argument.
+        - version: 1.5.8-9.20862
+          description: Added **flipUV** argument.
+        - version: 1.5.9 r22465
+          description: The **postGUI** argument has been removed and replaced with a **stage** argument.

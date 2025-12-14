@@ -1,5 +1,5 @@
 function dxwidth(msg)
-    chatbox = getChatboxLayout()
+    local chatbox = getChatboxLayout()
     local length = dxGetTextWidth(msg,chatbox["chat_scale"][1])
     outputChatBox(tostring(length))
 end

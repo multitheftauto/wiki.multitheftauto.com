@@ -1,41 +1,42 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateFont
-shared:
+client:
   name: dxCreateFont
-  description: This function creates a [DX font](/wiki/DX_font "DX font") element
-    that can be used in [dxDrawText](/wiki/DxDrawText "DxDrawText"). Successful font
+  description: This function creates a [DX Font](/reference/dx-font) element
+    that can be used in [[dxDrawText]]. Successful font
     creation is not guaranteed, and may fail due to hardware or memory limitations.
   parameters:
   - name: filepath
     type: string
-    description: the name of the file containing the font
+    description: The name of the file containing the font.
   - name: size
     type: int
-    description: size of the font
+    description: Size of the font.
     default: '9'
   - name: bold
     type: bool
-    description: flag to indicate if the font should be bold
+    description: Flag to indicate if the font should be bold.
     default: 'false'
   - name: quality
     type: string
-    description: 'the font quality "default": not the actual default "draft" "proof":
-      the default "nonantialiased" "antialiased" "cleartype" "cleartype_natural"'
+    description: 'The font quality.'
     default: '"proof"'
+    templateList: dxFont-quality
   examples:
   - path: examples/dxCreateFont-1.lua
-    description: ''
-    side: client
+  - path: examples/dxCreateFont_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a DX font element if successful, false if invalid arguments
+    - type: dx-font|false
+      name: font
+    description: Returns a [DX font](/reference/dx-font) element if successful, **false** if invalid arguments
       were passed to the function, or there is insufficient resources available.
   oop:
-    element: dx_font
+    element: dx-font
     constructorclass: DxFont
   notes:
   - type: info
-    content: The size can't be less than 5 or more than 150. Use this function after
-      onClientResourceStart, otherwise some characters may be displayed incorrectly.
-  requires_review: true
+    content: The size can't be less than 5 or more than 150. Use this function after [[onClientResourceStart]], otherwise some characters may be displayed incorrectly.
+  - type: tip
+    content: |
+      - It is highly recommended that [[dxSetTestMode]] is used when writing and testing scripts using **dxCreateFont**.
+      - You should always check to see if this function has returned **false**.

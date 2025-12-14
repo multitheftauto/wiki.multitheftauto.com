@@ -1,49 +1,74 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateRenderTarget
-shared:
+client:
   name: dxCreateRenderTarget
   description: This function creates a render target element, which is a special type
-    of [texture](/wiki/Texture "Texture") that can be drawn on with the dx functions.
+    of [[texture]] that can be drawn on with the dx functions.
     Successful render target creation is not guaranteed, and may fail due to hardware
     or memory limitations.
   parameters:
   - name: width
     type: int
-    description: MISSING_PARAM_DESC
+    description: The width of the texture in pixels.
   - name: height
     type: int
-    description: MISSING_PARAM_DESC
+    description: The height of the texture in pixels.
   - name: withAlpha
     type: bool
-    description: The render target will be created with an alpha channel. 'false'
-      will turn images' alpha channels to black color
+    description: The render target will be created with an alpha channel. **false**
+      will turn images alpha channels to black color.
     default: 'false'
   examples:
   - path: examples/dxCreateRenderTarget-1.lua
-    description: ''
-    side: client
+    description: |
+      A render target is like a blank canvas. You can draw on the render target as many times as you like - and even clear it.
+
+      If your dxDraw* calls are static (meaning the appearance doesn't change), or only update periodically, then a render target can be useful not only for cleaner code - but for performance reasons too. Instead of making possibly hundreds of dxDraw* calls every frame, you can simply make those calls on a single frame and draw directly to the render target, then use a single [[dxDrawImage]] call every frame afterwards to display the render target.
+
+      Render targets can also be used to create and display the same thing multiple times, as shown in the example below.
+  - path: examples/dxCreateRenderTarget_OOP-1.lua
+    description: |
+      A render target is like a blank canvas. You can draw on the render target as many times as you like - and even clear it.
+
+      If your dxDraw* calls are static (meaning the appearance doesn't change), or only update periodically, then a render target can be useful not only for cleaner code - but for performance reasons too. Instead of making possibly hundreds of dxDraw* calls every frame, you can simply make those calls on a single frame and draw directly to the render target, then use a single [[dxDrawImage]] call every frame afterwards to display the render target.
+
+      Render targets can also be used to create and display the same thing multiple times, as shown in the example below.
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a texture element if successful, false if the system is unable
+    - type: dx-rendertarget
+      name: render-target texture
+    description: Returns a [texture](/reference/dx-rendertarget) element if successful, **false** if the system is unable
       to create a render target.
+  syntaxes:
+    - name: dxCreateRenderTarget
+      parameters:
+        - name: width
+          type: int
+          description: The width of the texture in pixels.
+        - name: height
+          type: int
+          description: The height of the texture in pixels.
+        - name: surfaceFormat
+          type: string
+          description: A [[string]] containing the surface format. See [Surface formats](/reference/Surface_formats). Default format without alpha is `x8r8g8b8`, default with alpha is `a8r8g8b8`.
+      returns:
+        values:
+        - type: dx-rendertarget|false
+          name: render-target texture
+        description: Returns a [texture](/reference/dx-rendertarget) element if successful, **false** if the system is unable to create a render target.
   oop:
-    element: texture
+    element: dx-rendertarget
     constructorclass: DxRenderTarget
   notes:
   - type: info
-    content: Render targets are usually cleared when the player minimizes MTA (i.e.
-      alt-tab). See onClientRestore for details on when to restore any fixed content.
+    content: Render targets are usually cleared when the player minimizes MTA (i.e. alt-tab). See [[onClientRestore]] for details on when to restore any fixed content.
   - type: tip
-    content: Use dxSetBlendMode to get better quality
-  - type: tip
-    content: It is highly recommended that dxSetTestMode is used when writing and
-      testing scripts using dxCreateRenderTarget.
+    content: |
+      - It is highly recommended that [[dxSetTestMode]] is used when writing and testing scripts using **dxCreateRenderTarget**.
+      - Use [[dxSetBlendMode]] to get better quality.
+      - You should always check to see if this function has returned **false**. To see if creation is likely to fail, use [[dxGetStatus]]. (When **VideoMemoryFreeForMTA** is zero, failure is guaranteed.).
+  version:
+    updated: 1.6.0 r21942
   meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Explanation
-
-      '
-  requires_review: true
+    - changelog:
+        - version: 1.6.0 r21942
+          description: Added **surfaceFormat** syntax.

@@ -1,33 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetShaderValue
-shared:
+client:
   name: dxSetShaderValue
-  description: This sets a named parameter for a [shader](/wiki/Shader "Shader") element
+  description: This sets a named parameter for a [[shader]] element.
   parameters:
   - name: theShader
     type: element
-    description: The shader element whose parameter is to be changed
+    description: The shader element whose parameter is to be changed.
   - name: parameterName
     type: string
-    description: The name of parameter
+    description: The name of parameter.
   - name: value
     type: mixed
-    description: The value to set, which can be a texture , a bool, a number or a
-      list of numbers( max 16 floats(numbers) )
+    description: The value to set, which can be a [[texture]], a [[bool]], a [[int]]/[[float]] or a
+      list of numbers **(max 16 floats(numbers) )**.
   examples:
   - path: examples/dxSetShaderValue-1.lua
-    description: ''
-    side: client
+  - path: examples/dxSetShaderValue_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the shader element's parameter was successfully changed,
-      false otherwise.
+      name: result
+    description: Returns **true** if the shader element's parameter was successfully changed, **false** otherwise.
   oop:
     element: shader
     method: setValue
-    static: false
   notes:
   - type: important
-    content: It's enough to set the texture only once if it's a render target
-  requires_review: true
+    content: It's enough to set the texture only once if it's a render target.

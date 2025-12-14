@@ -1,21 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetPixelsFormat
-shared:
+client:
   name: dxGetPixelsFormat
-  description: This function returns the format of [pixels](/wiki/Texture_pixels "Texture
-    pixels") contained in a string.
+  description: This function returns the format of [pixels](/reference/Pixels) contained in a string.
   parameters:
   - name: pixels
     type: string
-    description: MISSING_PARAM_DESC
+    description: The pixels to get the format of.
   examples:
   - path: examples/dxGetPixelsFormat-1.lua
     description: The example loads an image, gets its pixels, and outputs the pixels
-      format. (You can usethisimage to test.)
-    side: client
+      format.
   returns:
     values:
     - type: string
-      name: value
-    description: Returns the format of the pixels if successful (' plain' or ' png'
-      or ' jpeg' or ' dds' ), false if invalid arguments were passed to the function.
-  requires_review: true
+      name: pixels format
+      templateList: pixels-format
+    description: Returns the format of the pixels if successful, **false** if invalid arguments were passed to the function.

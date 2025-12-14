@@ -1,12 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetRenderTarget
-shared:
+client:
   name: dxSetRenderTarget
   description: This function changes the drawing destination for the dx functions.
     It can be used to select a previously created render target, or if called with
     no arguments, restore drawing directly to the screen.
   parameters:
   - name: renderTarget
-    type: element
+    type: dx-rendertarget
     description: The render target element whose pixels we want to draw on.
   - name: clear
     type: bool
@@ -15,26 +14,26 @@ shared:
   examples:
   - path: examples/dxSetRenderTarget-1.lua
     description: ''
-    side: client
   - path: examples/dxSetRenderTarget-2.lua
-    description: This example shows how you can prepare render target contents at
-      anytime (from client version 1.3.0-9.04431)
-    side: client
+    description: This example shows how you can prepare render target contents at anytime.
+  - path: examples/dxSetRenderTarget_OOP-1.lua
+    description: This example shows how you can prepare render target contents at anytime.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the render target was successfully changed, false
+      name: result
+    description: Returns **true** if the render target was successfully changed, **false**
       otherwise.
   oop:
-    element: rendertarget
+    element: dx-rendertarget
     method: setAsTarget
-    static: false
   meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Usage restrictions
-
-      '
-  requires_review: true
+    - changelog:
+        - version: 1.3.0-9.04431
+          description: Removed restrictions on when **dxSetRenderTarget** could be called.
+  notes:
+    - type: info
+      content: |
+        - Items drawn with postGUI set to true will not appear on a custom render target.
+        - dxSetRenderTarget can be set at any time as long as `<min_mta_version>` in **meta.xml** is set to at least `1.3.0-9.04431` e.g. `<min_mta_version client="1.3.0-9.04431" />`.

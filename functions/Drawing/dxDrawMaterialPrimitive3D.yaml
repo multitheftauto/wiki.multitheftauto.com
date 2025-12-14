@@ -1,79 +1,63 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialPrimitive3D
-shared:
+client:
   name: dxDrawMaterialPrimitive3D
-  description: 'This function draws a 3D primitive shape with material applied to
-    it in the 3D world \- rendered for one frame. This should be used in conjunction
-    with [onClientRender](/wiki/OnClientRender "OnClientRender") in order to display
-    continuously.
-
-    If image file is used, it should ideally have dimensions that are a power of two,
-    to prevent possible blurring.
-
-    Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...'
+  description: |
+    This function draws a 3D primitive shape with material applied to it in the 3D world - rendered for **one** frame. This should be used in conjunction with [[onClientRender]]/[[onClientPreRender]] in order to display continuously.
+    
+    If image file is used, it should ideally have dimensions that are a power of two, to prevent possible blurring. 
+    **Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...**
   parameters:
   - name: pType
-    type: primitiveType
-    description: Type of primitive to be drawn.
-  - name: material
-    type: mixed
-    description: MISSING_PARAM_DESC
-  - name: stage
     type: string
-    description: 'A string representing a stage at which the actual drawcall should
-      happen: prefx - Primitives are rendered before the color correction. This stage
-      makes primitives look natural to SA but colors could be distorted. postfx -
-      Primitives are rendered after the color correction. This stage conveys a color
-      from the function to a screen without distortions. postgui - Primitives are
-      rendered after GUI. The primitives should be drawn on top of or behind any ingame
-      GUI (rendered by CEGUI).'
+    description: Type of primitive to be drawn. More info on [MSDN site](https://msdn.microsoft.com/en-us/library/windows/desktop/bb147291(v=vs.85).aspx).
+    templateList: primitives
+  - name: material
+    type: string/texture
+    description: Either a [[texture]] element or a [filepath](/reference/Filepath) of the image which is going to be drawn. Image files should ideally have dimensions that are a power of two, to prevent possible blurring. Use a texture created with [[dxCreateTexture]] to **speed up drawing**.
+  - name: name
+    type: string
+    description: A string representing a stage at which the actual drawcall should happen.
+    templateList: primitive-drawing-stages
   - name: vertex1
     type: table
-    description: MISSING_PARAM_DESC
-  - name: vertex2
+    description: |
+      Tables representing each primitive vertex, required amount of them is determined by primitive type. See vertices format below:
+
+      - **posX** - An [[float]] representing the X position of the vertex in the GTA world.
+      - **posY** - An [[float]] representing the Y position of the vertex in the GTA world.
+      - **posZ** - An [[float]] representing the Z position of the vertex in the GTA world.
+      - **color (optional)** - An [integer](/reference/int) of the hex color, produced using [[tocolor]] or 0xAARRGGBB (AA = alpha, RR = red, GG = green, BB = blue). If it's not specified, white color is used.
+      - **u** - An [[float]] representing the relative X coordinate of the top left corner of the material which should be drawn from image.
+      - **v** - An [[float]] representing the relative Y coordinate of the top left corner of the material which should be drawn from image.
+  - name: vertex2...
     type: table
-    description: MISSING_PARAM_DESC
-  - name: '...'
-    type: unknown
-    description: MISSING_PARAM_DESC
+    description: Tables representing each primitive vertex, required amount of them is determined by primitive type. Check table format above.
+    default: nil
   examples:
   - path: examples/dxDrawMaterialPrimitive3D-1.lua
-    description: This example draws the picture with the file name 'test.png' on the
-      ground of Grove Street and adds a /flip command to flip it. The 'test.png' file
-      needs to be included in themeta.xmlin order for this example to work.
-    side: client
+    description: 'This example draws the picture with the file name "test.png" on the ground of Grove Street and adds a `/flip`` command to flip it.'
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
+  preview_images:
+    - path: primitives.png
+      description: Available primitive types.
   notes:
-  - type: info
-    content: When a 3D draw call is issued by any such material MTA function then
-      the principle to push it directly to the 3D adapter does apply. To achieve this
-      there is no software-side 3D clipping mathematics being performed. This way
-      the vertex data is always being pushed to the vertex shader, leaving the entire
-      freedom to the developer on how to interpret this vertex data in the shader.
-      For example, even though this function does imply an use in 3D world space,
-      the vertex coordinates could be translated directly into Direct3D 9 screen space
-      instead, effectively discarding any multiplication with the camera projection
-      matrix. The mathematical model for translation into valid Direct3D 9 screen-space
-      coordinates is described here . Let's assume that you are drawing the rectangle
-      on a classic sheet of paper with a mathematical 2D X,Y coordinate system.
-  - type: info
-    content: To transform the coordinates you first have to flip the Y coordinate
-      using negation and then apply the Direct3D 9 screen-space rasterization cross-hair
-      by using the screen dimensions (sw, sh). Since linear shapes are being preserved
-      across linear translations, you can simplify each vertex-based figure into it's
-      set of vertices for the purpose shown above. By using this function in such
-      a way it can perform all the operations in the same quality such as the simpler
-      dxDrawMaterialPrimitive function.
+    - type: tip
+      content: |
+        - This function can be used to draw billboards in the game world. You have to [understand the mathematical models about the human vision](https://forum.mtasa.com/topic/133065-naruto-jutsus-help-me/?do=findComment&comment=1003073) to calculate the proper vertices.
+        - When a 3D draw call is issued by any such material MTA function then the principle to **push it directly to the 3D adapter** does apply.
+          To achieve this there is **no software-side 3D clipping mathematics** being performed.
+          This way the vertex data is always being pushed to the vertex shader, leaving the entire freedom to the developer on how to interpret this vertex data in the shader.
+          For example, even though this function does imply an use in 3D world space, the vertex coordinates could be translated directly into Direct3D 9 screen space instead, effectively discarding any multiplication with the camera projection matrix.
+          The mathematical model for translation into valid Direct3D 9 screen-space coordinates is described [here](https://docs.microsoft.com/en-us/windows/win32/direct3d9/viewports-and-clipping).
+          Let's assume that you are drawing the rectangle on a classic sheet of paper with a mathematical 2D X,Y coordinate system.
+
+          To transform the coordinates you first have to flip the Y coordinate using negation and then apply the Direct3D 9 screen-space rasterization cross-hair by using the screen dimensions (sw, sh).
+          Since linear shapes are being preserved across linear translations, you can simplify each vertex-based figure into it's set of vertices for the purpose shown above.
+          By using this function in such a way it can perform all the operations in the same quality such as the simpler [[dxDrawMaterialPrimitive]] function.
   meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Allowed types
-
-      - Missing section: Vertices format
-
-      '
-  requires_review: true
+    - changelog:
+        - version: 1.5.9 r22465
+          description: The **postGUI** argument has been removed and replaced with a **stage** argument.

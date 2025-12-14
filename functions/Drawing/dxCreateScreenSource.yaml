@@ -1,26 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateScreenSource
-shared:
+client:
   name: dxCreateScreenSource
-  description: This function creates a screen source, which is a special type of [texture](/wiki/Texture
-    "Texture") that contains the screen as rendered by GTA
+  description: This function creates a screen source, which is a special type of [[texture]] that contains the screen as rendered by GTA.
   parameters:
   - name: width
     type: int
-    description: MISSING_PARAM_DESC
+    description: The width of the texture in pixels.
   - name: height
     type: int
-    description: MISSING_PARAM_DESC
+    description: The height of the texture in pixels.
   examples:
   - path: examples/dxCreateScreenSource-1.lua
-    description: ''
-    side: client
+  - path: examples/dxCreateScreenSource_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a texture element if successful, false if invalid arguments
-      were passed to the function.
+    - type: dx-screensource|false
+      name: screensource-texture
+    description: Returns a [texture](/reference/dx-screensource) element if successful, **false** if invalid arguments
+      were passed to the function or there is insufficient resources available.
   oop:
-    element: texture
+    element: dx-screensource
     constructorclass: DxScreenSource
-  requires_review: true
+  notes:
+    - type: tip
+      content: Successful screen source creation is not guaranteed, and may fail due to hardware or memory limitations. You should always check to see if this function has returned **false**.

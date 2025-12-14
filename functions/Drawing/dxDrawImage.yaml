@@ -1,55 +1,61 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawImage
-shared:
+client:
   name: dxDrawImage
-  description: "Draws an image on the screen for a single frame. In order for the\
-    \ image to stay visible continuously, you need to call this function with the\
-    \ same parameters on each frame update (see [onClientRender](/wiki/OnClientRender\
-    \ \"OnClientRender\")).  \n\nImage files should ideally have dimensions that are\
-    \ a power of two, to prevent possible blurring.  \n\n**Power of two: 2px, 4px,\
-    \ 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...**"
+  description: |
+    Draws an image on the screen for a **single** frame. In order for the image to stay visible continuously, you need to call this function with the same parameters on each frame update (see [[onClientRender]]).
+    Image files should ideally have dimensions that are a power of two, to prevent possible blurring.
+    **Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...**
   parameters:
   - name: posX
     type: float
-    description: the absolute X coordinate of the top left corner of the image
+    description: The absolute X coordinate of the top left corner of the image.
   - name: posY
     type: float
-    description: the absolute Y coordinate of the top left corner of the image
+    description: The absolute Y coordinate of the top left corner of the image.
   - name: width
     type: float
-    description: the absolute width of the image
+    description: The absolute width of the examples/dxDrawImageSection-1.lua
   - name: height
     type: float
-    description: the absolute height of the image
+    description: The absolute height of the image.
   - name: image
-    type: mixed
-    description: Either a material element or a filepath of the image which is going
-      to be drawn. (.dds images are also supported). Image files should ideally have
-      dimensions that are a power of two, to prevent possible blurring. Use a texture
-      created with dxCreateTexture to speed up drawing .
-  - name: float rotation
-    type: '['
-    description: MISSING_PARAM_DESC
-    default: "0, float rotationCenterOffsetX = 0, float rotationCenterOffsetY = 0,\n\
-      \                   int color = tocolor(255,255,255,255"
+    type: string/texture
+    description: Either a [[texture]] element or a [filepath](/reference/Filepath) of the image which is going
+      to be drawn. Image files should ideally have dimensions that are a power of two, to prevent possible blurring. Use a texture
+      created with [[dxCreateTexture]] to **speed up drawing**.
+  - name: rotation
+    type: 'float'
+    description: The rotation, in degrees for the image.
+    default: '0'
+  - name: rotationCenterOffsetX
+    type: float
+    description: The absolute X offset from the image center for which to rotate the image from.
+    default: '0'
+  - name: rotationCenterOffsetY
+    type: float
+    description: The absolute Y offset from the image center for which to rotate the image from.
+    default: '0'
+  - name: color
+    type: int
+    description: Tints the image with a value produced by [[tocolor]] or hexadecimal number in format 0xAARRGGBB (RR = red, GG = green, BB = blue, AA = alpha).
+    default: tocolor(255,255,255,255)
+  - name: postGUI
+    type: boolean
+    description: A [[bool]] representing whether the image should be drawn on top of or behind any ingame GUI (rendered by CEGUI).
+    default: 'false'
   examples:
   - path: examples/dxDrawImage-1.lua
-    description: Example of a pendulum swinging from the top of the screen, made using
-      dxDrawImage.
-    side: client
+    description: Example of a pendulum swinging from the top of the screen, made using **dxDrawImage**.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if successful, false otherwise.
+      name: result
+    description: Returns **true** if successful, **false** otherwise.
+  preview_images:
+    - path: 'dxDrawImage.png'
+      description: An image drawn on the screen with the **dxDrawImage** function.
   notes:
   - type: tip
-    content: To help prevent edge artifacts when drawing textures, set textureEdge
-      to "clamp" when calling dxCreateTexture .
-  - type: important
-    content: Do not draw image from path. Use a texture created with dxCreateTexture
-      instead to efficiently draw image .
-  - type: important
-    content: For further optimising your DX code, see dxCreateRenderTarget . You should
-      use render target whenever possible, in order to dramatically reduce CPU usage
-      caused by many dxDraw* calls.
-  requires_review: true
+    content: |
+      - Do not draw image from path. Use a texture created with [[dxCreateTexture]] instead to efficiently draw image.
+      - For further optimising your DX code, see [[dxCreateRenderTarget]]. You should use render target whenever possible, in order to dramatically reduce CPU usage caused by many **dxDraw*** calls.
+      - To help prevent edge artifacts when drawing textures, set **textureEdge** to `clamp` when calling [[dxCreateTexture]].

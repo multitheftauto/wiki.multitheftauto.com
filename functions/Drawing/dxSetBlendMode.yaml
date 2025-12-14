@@ -1,6 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetBlendMode
-shared:
+client:
   name: dxSetBlendMode
+  pair: dxGetBlendMode
   description: This function sets the current blend mode for the dxDraw functions.
     Changing the blend mode can increase the quality when drawing text or certain
     other images to a render target. As a general guide use **modulate\_add** when
@@ -10,16 +10,19 @@ shared:
   parameters:
   - name: blendMode
     type: string
-    description: MISSING_PARAM_DESC
+    description: The blend mode to use.
+    templateList: dx-blend-modes
   examples:
   - path: examples/dxSetBlendMode-1.lua
     description: 'This example shows how to usemodulate_addandaddto avoid quality
       problems when using a render target:'
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if successful, or false if invalid arguments were passed
+      name: result
+    description: Returns **true** if successful, or **false** if invalid arguments were passed
       to the function.
-  requires_review: true
+  meta:
+    - changelog:
+        - version: 1.3.0-9.04425
+          description: Added **overwrite** mode.

@@ -1,16 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetBlendMode
-shared:
+client:
   name: dxGetBlendMode
+  pair: dxSetBlendMode
   description: This function returns the current blend mode for the dxDraw functions.
-    The blend mode is set using [dxSetBlendMode](/wiki/DxSetBlendMode "DxSetBlendMode")
+    The blend mode is set using [[dxSetBlendMode]].
   parameters: []
   examples:
   - path: examples/dxGetBlendMode-1.lua
     description: ''
-    side: client
   returns:
     values:
     - type: string
-      name: value
-    description: 'Returns the current blend mode, which can be one of:'
-  requires_review: true
+      name: blend mode
+      templateList: dx-blend-modes
+    description: 'Returns the current blend mode.'

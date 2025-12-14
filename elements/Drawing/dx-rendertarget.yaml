@@ -1,0 +1,2 @@
+name: dx-rendertarget
+description: The **dx-rendertarget** is a special type of [[texture]] that can be drawn on with the dx functions.

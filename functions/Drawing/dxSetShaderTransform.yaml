@@ -1,12 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetShaderTransform
-shared:
+client:
   name: dxSetShaderTransform
-  description: This function applies a 3D transformation to a [shader](/wiki/Shader
-    "Shader") element when it is drawn with [dxDrawImage](/wiki/DxDrawImage "DxDrawImage").
+  description: This function applies a 3D transformation to a [[shader]] element when it is drawn with [[dxDrawImage]].
   parameters:
   - name: theShader
     type: element
-    description: The shader element whose transformation is to be changed
+    description: The [[shader]] element whose transformation is to be changed.
   - name: rotationX
     type: float
     description: Rotation angle in degrees around the X axis (Left,right). This will
@@ -18,47 +16,47 @@ shared:
   - name: rotationZ
     type: float
     description: Rotation angle in degrees around the Z axis (In,out). This will make
-      the shader rotate in a similar way to the rotation argument in dxDrawImage .
+      the shader rotate in a similar way to the rotation argument in [[dxDrawImage]].
   - name: rotationCenterOffsetX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The center of rotation offset X position in screen relative units.
     default: '0'
   - name: rotationCenterOffsetY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The center of rotation offset Y position in screen relative units.
     default: '0'
   - name: rotationCenterOffsetZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The center of rotation offset Z position in screen relative units.
     default: '0'
   - name: bRotationCenterOffsetOriginIsScreen
     type: bool
-    description: MISSING_PARAM_DESC
+    description: Set to true if the center of rotation origin should be the center of the screen rather than the center of the image.
     default: 'false'
   - name: perspectiveCenterOffsetX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The center of perspective offset X position in screen relative units.
     default: '0'
   - name: perspectiveCenterOffsetY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The center of perspective offset Y position in screen relative units.
     default: '0'
   - name: bPerspectiveCenterOffsetOriginIsScreen
     type: bool
-    description: MISSING_PARAM_DESC
+    description: Set to true if the center of perspective origin should be the center of the screen rather than the center of the image.
     default: 'false'
   examples:
   - path: examples/dxSetShaderTransform-1.lua
-    description: ''
-    side: client
+  - path: examples/dxSetShaderTransform_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
       name: value
-    description: Returns true if the shader element's transform was successfully changed,
-      false otherwise.
+    description: Returns **true** if the shader element's transform was successfully changed, **false** otherwise.
   oop:
     element: shader
     method: setTransform
-    static: false
-  requires_review: true
+  notes:
+    - type: tip
+      content: To convert screen relative units into screen pixel coordinates, multiply by the screen size. Conversely, to convert screen pixel coordinates to screen relative units, divide by the screen size.

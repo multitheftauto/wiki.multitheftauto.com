@@ -1,36 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxSetShaderTessellation
-shared:
+client:
   name: dxSetShaderTessellation
-  description: This function sets the amount of geometric sub\-division to use when
-    drawing a [shader](/wiki/Shader "Shader") element with [dxDrawImage](/wiki/DxDrawImage
-    "DxDrawImage").
+  description: This function sets the amount of geometric sub-division to use when drawing a [[shader]] element with [[dxDrawImage]]. Using tessellation allows a shader to manipulate the shape of the rendered image at each sub-division boundary.
   parameters:
   - name: theShader
-    type: element
-    description: The shader element whose tessellation is to be changed
+    type: shader
+    description: The [[shader]] element whose tessellation is to be changed.
   - name: tessellationX
     type: int
-    description: The number of sub-division points along the X axis. Range is 1 to
-      500.
+    description: The number of sub-division points along the X axis. Range is 1 to 500.
   - name: tessellationY
     type: int
-    description: The number of sub-division points along the Y axis. Range is 1 to
-      500.
+    description: The number of sub-division points along the Y axis. Range is 1 to 500.
   examples:
   - path: examples/dxSetShaderTessellation-1.lua
-    description: ''
-    side: client
+  - path: examples/dxSetShaderTessellation_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the shader element's tessellation was successfully
-      changed, false otherwise.
+      name: result
+    description: Returns **true** if the shader element's tessellation was successfully
+      changed, **false** otherwise.
   oop:
     element: shader
     method: setTessellation
-    static: false
   meta:
-  - needs_checking: The example should depict better how does this function actually
-      work with a texture.
-  requires_review: true
+  - needs_checking: The example should depict better how does this function actually work with a texture.

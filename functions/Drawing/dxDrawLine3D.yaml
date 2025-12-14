@@ -1,9 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawLine3D
-shared:
+client:
   name: dxDrawLine3D
-  description: This function draws a 3D line between two points in the 3D world \-
-    rendered for **one** frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
-    "OnClientRender") in order to display continuously.
+  description: This function draws a 3D line between two points in the 3D world - rendered for **one** frame. This should be used in conjunction with [[onClientRender]]/[[onClientPreRender]] in order to display continuously.
   parameters:
   - name: startX
     type: float
@@ -31,24 +28,27 @@ shared:
       GTA world.
   - name: color
     type: int
-    description: MISSING_PARAM_DESC
+    description: An integer of the hex color, produced using [[tocolor]] or 0xAARRGGBB.
     default: '0xFFFFFFFF'
   - name: width
     type: float
-    description: MISSING_PARAM_DESC
+    description: The width/thickness of the line.
     default: '1.0'
   - name: stage
     type: string
-    description: MISSING_PARAM_DESC
+    description: A string representing a stage at which the actual drawcall should happen.
     default: '"postfx"'
+    templateList: line-drawing-stages
   examples:
   - path: examples/dxDrawLine3D-1.lua
     description: This is a small example of creating 3D Line / "Rope" between vehicle
       and player.
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
-  requires_review: true
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
+  meta:
+    - changelog:
+        - version: 1.5.9 r22465
+          description: The **postGUI** argument has been removed and replaced with a **stage** argument.

@@ -1,53 +1,102 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateTexture
-shared:
+client:
   name: dxCreateTexture
-  description: This function creates a [texture](/wiki/Texture "Texture") element
-    that can be used in the dxDraw functions.
+  description: This function creates a [[texture]] element that can be used in the **dxDraw** functions.
   parameters:
-  - name: pixels / string filepath
+  - name: pixels/filepath
     type: string
-    description: MISSING_PARAM_DESC
+    description: '[Pixels](/reference/Pixels/) containing image data. (`plain`, `jpeg` or `png` pixels can be used here). Or The [filepath](/reference/Filepath) of the image. **(.bmp, .dds, .jpg, .png, and .tga images are supported) - for .svg use [[svgCreate]]**. Image files should ideally have dimensions that are a power of two, to prevent possible blurring.'
   - name: textureFormat
     type: string
-    description: MISSING_PARAM_DESC
+    description: A [[string]] representing the desired texture format.
     default: '"argb"'
+    templateList: texture-formats
   - name: mipmaps
     type: bool
-    description: MISSING_PARAM_DESC
+    description: '**true** to create a mip-map chain so the texture looks good when drawn at various sizes.'
     default: 'true'
   - name: textureEdge
     type: string
-    description: MISSING_PARAM_DESC
+    description: A [[string]] representing the desired texture edge handling.
     default: '"wrap"'
+    templateList: texture-edges
   examples:
   - path: examples/dxCreateTexture-1.lua
-    description: ''
-    side: client
+  - path: examples/dxCreateTexture_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a texture if successful, false if invalid arguments were
-      passed to the function.
+    - type: texture|false
+      name: texture element
+    description: Returns a [[texture]] if successful, **false** if invalid arguments were
+      passed to the function or there is insufficient resources available.
   oop:
     element: texture
     constructorclass: DxTexture
+  syntaxes:
+    - name: dxCreateTexture
+      parameters:
+        - name: width
+          type: int
+          description: Desired width, preferably power of two (16, 32, 64 etc.), maximum is 16384.
+        - name: height
+          type: int
+          description: Desired height, preferably power of two (16, 32, 64 etc.), maximum is 16384.
+        - name: textureFormat
+          type: string
+          description: A [[string]] representing the desired texture format.
+          default: '"argb"'
+          templateList: texture-formats
+        - name: textureEdge
+          type: string
+          description: A [[string]] representing the desired texture edge handling.
+          default: '"wrap"'
+          templateList: texture-edges
+        - name: textureFormat
+          type: string
+          description: A [[string]] representing the desired texture type.
+          default: '"2d"'
+          templateList: texture-types
+        - name: depth
+          type: int
+          default: 1
+          description: Desired number of slices when creating a volume texture.
+      returns:
+        values:
+        - type: texture|false
+          name: texture element
+        description: Returns a [[texture]] if successful, **false** if invalid arguments were passed to the function or there is insufficient resources available.
   notes:
-  - type: info
-    content: The times shown at the right of the page are only the time needed to
-      add the thing to the draw queue, its not the actual time it takes to draw them.
   - type: tip
-    content: 'It is recommended to pre-convert textures to whatever format you want
+    content: |
+      - It is recommended to pre-convert textures to whatever format you want
       to load them as. ARGB should be PNG, all other formats are self explanatory.
       By doing this you can load textures on the fly without any hickups (Note: There
-      might still be some if the user has a slow HHD). See DirectXTex texconv tool
-      .'
+      might still be some if the user has a slow HHD). See [DirectXTex texconv tool](https://github.com/microsoft/DirectXTex/releases).
+      - For vector textures (.svg) use [[svgCreate]].
+      - It is highly recommended that [[dxSetTestMode]] is used when writing and testing scripts using **dxCreateTexture**.
+      - You should always check to see if this function has returned **false**.
   - type: important
     content: This function uses significant process RAM, make sure you don't load
       a lot of textures, because you'll run out of memory and crash MTA on your gaming
-      PC beyond the technical limit of 3.5 GB (weak PC users much earlier). Besides
+      PC beyond the technical limit of 3.5-4 GB (weak PC users much earlier). Besides
       that, don't make the common mistake of causing a memory leak by not destroying
       textures (causing dxTextures to pile up) when they should no longer display
       per your script, which causes FPS lag and crashes all over MTA due to so many
-      scripters missing it
-  requires_review: true
+      scripters missing it.
+  preview_images:
+    - path: 'dxCreateTexture_mipmaps_true.png'
+      description: |
+        A speedtest showing the performance of a texture created with various settings of textureFormat, **with mipmaps**.
+        
+        `mipmaps = true; textureEdge = "wrap".`
+    - path: 'dxCreateTexture_mipmaps_false.png'
+      description: |
+        A speedtest showing the performance of a texture created with various settings of textureFormat, **without mipmaps**.
+        
+        `mipmaps = false; textureEdge = "wrap".`
+  meta:
+    - changelog:
+        - version: 1.3.0-9.04021
+          description: Added **textureType** and **depth** arguments.
+        - version: 1.3.0-9.04035
+          description: Added **textureEdge** argument.

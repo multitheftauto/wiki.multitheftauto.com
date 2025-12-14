@@ -1,39 +1,40 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawPrimitive3D
-shared:
+client:
   name: dxDrawPrimitive3D
-  description: This function draws a 3D primitive in the 3D world \- rendered for
-    **one** frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
-    "OnClientRender") in order to display continuously.
+  description: This function draws a 3D primitive in the 3D world - rendered for **one** frame. This should be used in conjunction with [[onClientRender]]/[[onClientPreRender]] in order to display continuously.
   parameters:
-  - name: primitiveType
+  - name: pType
     type: string
-    description: 'The type of primitive to be drawn. This could be:'
+    description: Type of primitive to be drawn.
+    templateList: primitives
   - name: stage
     type: string
-    description: MISSING_PARAM_DESC
+    description: A string representing a stage at which the actual drawcall should happen.
+    templateList: primitive-drawing-stages
   - name: vertex1
     type: table
-    description: MISSING_PARAM_DESC
-  - name: vertex2
+    description: |
+      Tables representing each primitive vertex, required amount of them is determined by primitive type. See vertices format below:
+
+      - **posX** - An [[float]] representing the X position of the vertex in the GTA world.
+      - **posY** - An [[float]] representing the Y position of the vertex in the GTA world.
+      - **posZ** - An [[float]] representing the Z position of the vertex in the GTA world.
+      - **color (optional)** - An [integer](/reference/int) of the hex color, produced using [[tocolor]] or 0xAARRGGBB (AA = alpha, RR = red, GG = green, BB = blue). If it's not specified, white color is used.
+  - name: vertex2...
     type: table
-    description: MISSING_PARAM_DESC
-  - name: vertex3
-    type: table
-    description: MISSING_PARAM_DESC
-  - name: vertex4
-    type: table
-    description: MISSING_PARAM_DESC
-  - name: '...'
-    type: unknown
-    description: MISSING_PARAM_DESC
+    description: Tables representing each primitive vertex, required amount of them is determined by primitive type. Check table format above.
+    default: nil
   examples:
   - path: examples/dxDrawPrimitive3D-1.lua
-    description: This is a small example of creating 3D Primitive object with 4 vertex
-      that will spawn on 'The Well Stacked Pizza Co.' in Idlewood.
-    side: client
+    description: This is a small example of creating 3D Primitive object with 4 vertex that will spawn on 'The Well Stacked Pizza Co.' in Idlewood.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
-  requires_review: true
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
+  preview_images:
+    - path: primitive_3d.png
+      description: A four vertex primitive example using `trianglefan`.
+  meta:
+    - changelog:
+        - version: 1.5.9 r22465
+          description: The **postGUI** argument has been removed and replaced with a **stage** argument.

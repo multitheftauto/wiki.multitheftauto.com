@@ -1,52 +1,41 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawPrimitive
-shared:
+client:
   name: dxDrawPrimitive
-  description: This function draws a 2D primitive shape across the screen \- rendered
-    for one frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
-    "OnClientRender") in order to display continuously.
+  description: This function draws a 2D primitive shape across the screen - rendered for **one** frame. This should be used in conjunction with [[onClientRender]] in order to display continuously.
   parameters:
   - name: pType
     type: string
     description: Type of primitive to be drawn.
+    templateList: primitives
   - name: postGUI
     type: bool
     description: A bool representing whether the line should be drawn on top of or
       behind any ingame GUI (rendered by CEGUI).
   - name: vertex1
     type: table
-    description: MISSING_PARAM_DESC
-  - name: vertex2
+    description: |
+      Tables representing each primitive vertex, required amount of them is determined by primitive type. See vertices format below:
+
+      - **posX** - An [[float]] representing the absolute X position of the vertex, represented by pixels on the screen.
+      - **posY** - An [[float]] representing the absolute Y position of the vertex, represented by pixels on the screen.
+      - **color (optional)** - An [integer](/reference/int) of the hex color, produced using [[tocolor]] or 0xAARRGGBB (AA = alpha, RR = red, GG = green, BB = blue). If it's not specified, white color is used.
+  - name: vertex2...
     type: table
-    description: MISSING_PARAM_DESC
-  - name: '...'
-    type: unknown
-    description: MISSING_PARAM_DESC
+    description: Tables representing each primitive vertex, required amount of them is determined by primitive type. Check table format above.
+    default: nil
   examples:
   - path: examples/dxDrawPrimitive-1.lua
-    description: This is a small example that creates trianglefan primitive with vertices
-      in places that user clicks. It assigns every vertex random color.
-    side: client
+    description: This is a small example that creates trianglefan primitive with vertices in places that user clicks. It assigns every vertex random color.
   - path: examples/dxDrawPrimitive-2.lua
-    description: This example draws one complete oscillation of a sine wave starting
-      in the center of the players screen using a linestrip type primitive.
-    side: client
+    description: This example draws one complete oscillation of a sine wave starting in the center of the players screen using a linestrip type primitive.
   - path: examples/dxDrawPrimitive-3.lua
     description: Modifying the previous example, we can also use it to draw a "loading
       circle"-symbol similar to what some modern games like using to indicate loading
       or cloud saving in progress.
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Allowed types
-
-      - Missing section: Vertices format
-
-      '
-  requires_review: true
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
+  preview_images:
+    - path: primitives.png
+      description: Available primitive types.

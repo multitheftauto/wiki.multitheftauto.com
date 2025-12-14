@@ -1,9 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetTexturePixels
-shared:
+client:
   name: dxGetTexturePixels
-  description: This function fetches the [pixels](/wiki/Texture_pixels "Texture pixels")
-    from a [texture](/wiki/Texture "Texture") element. It can be used with a standard
-    texture, render target or screen source.
+  pair: dxSetTexturePixels
+  description: This function fetches the [pixels](/reference/Pixels) from a [[texture]] element. It can be used with a standard texture, render target or screen source.
   parameters:
   - name: surfaceIndex
     type: int
@@ -12,49 +10,68 @@ shared:
       4=+Z 5=-Z)'
     default: '0'
   - name: texture
-    type: element
-    description: MISSING_PARAM_DESC
+    type: texture
+    description: The [[texture]] element to get the pixels from.
   - name: pixelsFormat
     type: string
-    description: MISSING_PARAM_DESC
-    default: '"plain" [, string textureFormat = "unknown"] [, bool mipmaps = true]'
+    description: Pixels format.
+    default: '"plain"'
+    templateList: pixels-format
+  - name: textureFormat
+    type: string
+    description: A string representing the desired texture format. Use `unkown` to determine automatically based on texture format.
+    templateList: texture-formats
+    default: '"unknown"'
+  - name: mipmaps
+    type: bool
+    description: true to create a mip-map chain for `dds` pixels so the texture looks good when drawn at various sizes.
   - name: x
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle left position.
     default: '0'
   - name: "y"
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle top position.
     default: '0'
   - name: width
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle width.
     default: '0'
   - name: height
     type: int
-    description: MISSING_PARAM_DESC
+    description: Rectangle height.
     default: '0'
   examples:
   - path: examples/dxGetTexturePixels-1.lua
-    description: ''
-    side: client
+  - path: examples/dxGetTexturePixels_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: string
-      name: value
-    description: Returns pixels string if successful, false if invalid arguments were
+    - type: string|false
+      name: pixels
+    description: Returns pixels [[string]] if successful, **false** if invalid arguments were
       passed to the function.
   oop:
     element: texture
     method: getPixels
     static: false
   notes:
+  - type: tip
+    content: 'By default the pixels from the whole texture is returned. To get only a portion of the texture, define a rectangular area using all four of these optional arguments: **x, y, width, height**.'
   - type: info
-    content: This function is slow and not something you want to be doing once a frame.
-      It is slower when reading pixels from a render target or screen source. And
-      is very slow indeed if the texture format is not 'argb' (unless the native '
-      dds' format is used with correct options).
+    content: |
+      - This function is slow and not something you want to be doing once a frame.
+      - It is slower when reading pixels from a render target or screen source.
+      - Is very slow indeed if the texture format is not `argb` (unless the native `
+      dds` format is used with correct options).
   - type: important
     content: If the user has not enabled screen uploading in the settings, the function
       will use a 32x32 empty texture as a basis.
-  requires_review: true
+  meta:
+    - changelog:
+        - version: 1.3.0-9.04021
+          description: Added **surfaceIndex** argument.
+        - version: 1.6.0-9.22188
+          description: Added **dds** pixels format.
+  version:
+    updated: 1.6.0-9.22188

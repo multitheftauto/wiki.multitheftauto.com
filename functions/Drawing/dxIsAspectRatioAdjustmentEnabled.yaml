@@ -1,20 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxIsAspectRatioAdjustmentEnabled
-shared:
+client:
   name: dxIsAspectRatioAdjustmentEnabled
-  description: This function gets the current aspect ratio set by [dxSetAspectRatioAdjustmentEnabled](/wiki/DxSetAspectRatioAdjustmentEnabled
-    "DxSetAspectRatioAdjustmentEnabled").
+  pair: dxSetAspectRatioAdjustmentEnabled
+  description: This function gets the current aspect ratio set by [[dxSetAspectRatioAdjustmentEnabled]].
   parameters: []
   examples:
   - path: examples/dxIsAspectRatioAdjustmentEnabled-1.lua
     description: This example will draw the aspect ratio to screen if aspect ratio
       was enabled previously.
-    side: client
   returns:
     values:
     - type: bool
-      name: value1
+      name: enabled
     - type: float
-      name: value2
-    description: This example will draw the aspect ratio to screen if aspect ratio
-      was enabled previously.
-  requires_review: true
+      name: aspect ratio
+    description: It returns a [[boolean]] indicating whether aspect ratio adjustment is enabled, and a [[float]] representing the aspect ratio.

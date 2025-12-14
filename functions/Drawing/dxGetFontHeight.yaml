@@ -1,37 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetFontHeight
-shared:
+client:
   name: dxGetFontHeight
   description: This function retrieves the theoretical height of a certain piece of
-    text, if it were to be drawn using [dxDrawText](/wiki/DxDrawText "DxDrawText").
+    text, if it were to be drawn using [[dxDrawText]].
   parameters:
   - name: scale
     type: float
     description: The size of the text.
     default: '1'
   - name: font
-    type: mixed
-    description: 'Either a custom DX font element or the name of a built-in dx font:
-      "default": Tahoma "default-bold": Tahoma Bold "clear": Verdana "arial": Arial
-      "sans": Microsoft Sans Serif "pricedown": Pricedown (GTA''s theme text) "bankgothic":
-      Bank Gothic Medium "diploma": Diploma Regular "beckett": Beckett Regular "unifont":
-      Unifont'
+    type: string/dx-font
+    description: 'Either a custom [DX font](/reference/dx-font) element or the name of a built-in DX font. **Note: Some fonts are incompatible with certain languages such as Arabic.**'
     default: '"default"'
+    templateList: dx-fonts
   examples:
   - path: examples/dxGetFontHeight-1.lua
-    description: ''
-    side: client
+  - path: examples/dxGetFontHeight_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns an integer of the height of the text.
+    - type: int|false
+      name: font height
+    description: Returns an integer of the height of the text or **false** if invalid arguments passed.
   oop:
-    element: font
-    note: This syntax requires you to ignore the font argument above
+    element: dx-font
+    note: This syntax requires you to ignore the font argument below.
     method: getHeight
-    static: false
   notes:
   - type: info
-    content: The returned height will be in logical units which are 1.75 times the
-      actual pixel height.
-  requires_review: true
+    content: The returned height will be in logical units which are 1.75 times the actual pixel height.

@@ -1,0 +1,32 @@
+---
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import { Image } from "astro:assets";
+import { getAssetImagePath } from "@src/utils/general";
+---
+
+<AutoStarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Game Processing Order',
+  tableOfContents: false,
+}}>
+
+<p>Here is an overview to show the order in which things get done during an average frame of playing MTA.</p>
+
+<Image src={getAssetImagePath("game_processing_order.png")} alt="Game processing order" />
+
+<p>The <a href="/reference/onClientPreRender">onClientPreRender</a> event is triggered after GTA updates the world, and is the ideal place to do dxDraws that are in some way attached to world elements.</p>
+
+<p>The <a href="/reference/onClientHUDRender">onClientHUDRender</a> event is triggered before GTA renders the in-game HUD, so it the best place to apply any full screen effects that you want 'behind' the HUD.</p>
+
+<p>The <a href="/reference/onClientPedsProcessed">onClientPedsProcessed</a> event is triggered after GTA updates bone transformations for all peds. This event can be used for updating bones.</p>
+</p>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'reference:Dimension',
+      'reference:ID_Lists/Interiors',
+      'reference:Entity',
+])} currentId='' />
+
+</AutoStarlightPage>

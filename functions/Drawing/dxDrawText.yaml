@@ -1,64 +1,58 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawText
-shared:
+client:
   name: dxDrawText
-  description: Draws a string of text on the screen for one frame. In order for the
-    text to stay visible continuously, you need to call this function with the same
-    parameters on each frame update (see [onClientRender](/wiki/OnClientRender "OnClientRender")).
+  description: Draws a string of text on the screen for one frame. In order for the text to stay visible continuously, you need to call this function with the same parameters on each frame update (see [[onClientRender]]).
   parameters:
   - name: text
     type: string
-    description: the text to draw
+    description: The text to draw.
   - name: leftX
     type: float
-    description: the absolute X coordinate of the top left corner of the text
+    description: The absolute X coordinate of the top left corner of the text.
   - name: topY
     type: float
-    description: the absolute Y coordinate of the top left corner of the text
+    description: The absolute Y coordinate of the top left corner of the text.
   - name: rightX
     type: float
-    description: the absolute X coordinate of the right side of the text bounding
+    description: The absolute X coordinate of the right side of the text bounding
       box. Used for text aligning, clipping and word breaking.
     default: leftX
   - name: bottomY
     type: float
-    description: the absolute Y coordinate of the bottom side of the text bounding
+    description: The absolute Y coordinate of the bottom side of the text bounding
       box. Used for text aligning, clipping and word breaking.
     default: topY
   - name: color
     type: int
-    description: the color of the text, a value produced by tocolor or 0xAARRGGBB
+    description: The color of the text, a value produced by tocolor or 0xAARRGGBB
       (AA = alpha, RR = red, GG = green, BB = blue).
     default: white
   - name: textSize
     type: float
-    description: the size of the text scale.
+    description: The size of the text scale.
   - name: font
-    type: mixed
-    description: 'Either a custom DX font element or the name of a built-in DX font:
-      Note: Some fonts are incompatible with certain languages such as Arabic. "default":
-      Tahoma "default-bold": Tahoma Bold "clear": Verdana "arial": Arial "sans": Microsoft
-      Sans Serif "pricedown": Pricedown (GTA''s theme text) "bankgothic": Bank Gothic
-      Medium "diploma": Diploma Regular "beckett": Beckett Regular "unifont": Unifont'
+    type: string/dx-font
+    description: 'Either a custom [DX font](/reference/dx-font) element or the name of a built-in DX font. **Note: Some fonts are incompatible with certain languages such as Arabic.**'
     default: '"default"'
+    templateList: dx-fonts
   - name: alignX
     type: string
-    description: horizontal alignment of the text within the bounding box. Can be
+    description: Horizontal alignment of the text within the bounding box. Can be
       "left" , "center" or "right" .
     default: '"left"'
   - name: alignY
     type: string
-    description: vertical alignment of the text within the bounding box. Can be "top"
+    description: Vertical alignment of the text within the bounding box. Can be "top"
       , "center" or "bottom" .
     default: '"top"'
   - name: clip
     type: bool
-    description: if set to true , the parts of the text that don't fit within the
+    description: If set to **true**, the parts of the text that don't fit within the
       bounding box will be cut off.
     default: 'false'
   - name: wordBreak
     type: bool
-    description: if set to true , the text will wrap to a new line whenever it reaches
-      the right side of the bounding box. If false , the text will always be completely
+    description: If set to **true**, the text will wrap to a new line whenever it reaches
+      the right side of the bounding box. If **false**, the text will always be completely
       on one line.
     default: 'false'
   - name: postGUI
@@ -68,44 +62,59 @@ shared:
     default: 'false'
   - name: colorCoded
     type: bool
-    description: MISSING_PARAM_DESC
+    description: 'Set to **true** to enable embedded #FFFFFF color codes. **Note: clip and wordBreak are forced false if this is set.**'
     default: 'false'
   - name: subPixelPositioning
     type: bool
-    description: MISSING_PARAM_DESC
+    description: A bool representing whether the text can be positioned sub-pixel-ly. Looks nicer for moving/scaling animations.
     default: 'false'
   - name: fRotation
     type: float
-    description: MISSING_PARAM_DESC
+    description: Rotation.
     default: '0.0'
   - name: fRotationCenterX
     type: float
-    description: MISSING_PARAM_DESC
+    description: Rotation Origin X.
     default: '0.0'
   - name: fRotationCenterY
     type: float
-    description: MISSING_PARAM_DESC
+    description: Rotation Origin Y.
     default: '0.0'
   - name: fLineSpacing
     type: float
-    description: MISSING_PARAM_DESC
+    description: Distance in pixels between the lines of text, this can be a negative number, **works only when colorCoded is set to true**.
     default: '0.0'
   examples:
   - path: examples/dxDrawText-1.lua
     description: This example code will add the current zone name in the lower left
       corner of the players' screens.
-    side: client
   - path: examples/dxDrawText-2.lua
     description: This example shows how to set both horizontal and vertical text size.
-    side: client
+  - path: examples/dxDrawText-3.lua
+    description: |
+      This example shows how use a custom function to achieve text wrapping while preserving its hex-colors.
+
+      **Note:** A line without any spaces in it will not break, meaning it may exceed maxwidth.
+
+      **Tip:** This function may lag if used too often. Consider only calling this function when any of the arguments change (such as the text, maxwidth, it's scale or font, etc.) and caching the result, rather than calling it [[onClientRender]] or similarly frequent events.
+    title: Custom text wrapping (word break) with color codes support
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if successful, false otherwise.
+      name: result
+    description: Returns **true** if successful, **false** otherwise.
   notes:
-  - type: info
-    content: The function is known to optimize certain drawing scenarios related to
-      scaling and opacity (so called text on raster optimisation ). You can find out
-      more about it here .
-  requires_review: true
+  - type: tip
+    content: |
+      - The function is known to optimize certain drawing scenarios related to scaling and opacity (so called **text on raster optimisation**). You can find out more about it [here](https://forum.mtasa.com/topic/132881-scaling-dx-elements-for-all-resolution/?do=findComment&comment=1002485).
+      - If you want to use both **colorCoded** and **wordBreak** at the same time to wrap text that contains hex color codes, use a custom text-wrapping function, see [example 3](#example3).
+  meta:
+    - changelog:
+        - version: 1.3.0-9.03986
+          description: Added **colorCoded** and **subPixelPositioning** arguments.
+        - version: 1.3.5-9.06054
+          description: Added **fRotation, fRotationCenterX** and **fRotationCenterY** arguments.
+        - version: 1.5.8-9.20957
+          description: Added **fLineSpacing** argument.
+
+

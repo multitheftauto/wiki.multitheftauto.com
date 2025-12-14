@@ -1,9 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxGetTextSize
-shared:
+client:
   name: dxGetTextSize
-  description: This function retrieves the theoretical width and height (in pixels)
-    of a certain piece of text, if it were to be drawn using [dxDrawText](/wiki/DxDrawText
-    "DxDrawText").
+  description: This function retrieves the theoretical width and height (in pixels) of a certain piece of text, if it were to be drawn using [[dxDrawText]].
   parameters:
   - name: text
     type: string
@@ -11,40 +8,50 @@ shared:
       width for.
   - name: width
     type: float
-    description: MISSING_PARAM_DESC
+    description: The width of the text. Use with wordBreak = true.
     default: '0'
-  - name: scaleXY
+  - name: scaleX
     type: float
-    description: MISSING_PARAM_DESC
-    default: 1.0 [, float scaleY = 1.0 ]
+    description: The X scale of the text. Scale can also be inputted as a [[Vector2]].
+    default: '1.0'
+  - name: scaleY
+    type: float
+    description: The Y scale of the text. Scale can also be inputted as a [[Vector2]].
+    default: '1.0'
   - name: font
-    type: mixed
-    description: MISSING_PARAM_DESC
+    type: string/dx-font
+    description: Either a custom [DX font](/reference/dx-font) element or the name of a built-in dx font.
     default: '"default"'
+    templateList: dx-fonts
   - name: wordBreak
     type: bool
-    description: MISSING_PARAM_DESC
+    description: If set to true, the text will wrap to a new line whenever it reaches the right side of the bounding box. If false, the text will always be completely on one line.
     default: 'false'
   - name: colorCoded
     type: bool
-    description: MISSING_PARAM_DESC
+    description: Should we exclude color codes from the width? False will include the hex in the length.
     default: 'false'
   examples:
   - path: examples/dxGetTextSize-1.lua
-    description: This example draws a text with black background at the bottom right
-      corner of the screen.
-    side: client
+    description: This example draws a text with black background at the bottom right corner of the screen.
+  - path: examples/dxGetTextSize_OOP-1.lua
+    description: This example draws a text with black background at the bottom right corner of the screen.
+    oop: true
   returns:
     values:
+    - type: float|false
+      name: width
     - type: float
-      name: value1
-    - type: float
-      name: value2
+      name: height
     description: Returns two floats representing the width and height of the text
-      in pixels.
+      in pixels, **false** if invalid arguments passed.
   oop:
-    element: font
-    note: This syntax requires you to ignore the font argument above
+    element: dx-font
+    note: This syntax requires you to ignore the font argument above.
     method: getSize
-    static: false
-  requires_review: true
+  notes:
+    - type: info
+      content: This function already takes the client's screen resolution into account.
+  preview_images:
+    - path: dxGetTextSize.png
+      description: Example.

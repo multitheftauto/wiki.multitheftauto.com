@@ -1,14 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxCreateShader
-shared:
+client:
   name: dxCreateShader
-  description: This function creates a [shader](/wiki/Shader "Shader") element that
+  description: This function creates a [[shader]] element that
     can be used in the dxDraw functions. Successful shader creation is not guaranteed
-    unless the [Effect File](/wiki/Shader "Shader") contains a fallback technique
+    unless the [Effect File](/articles/shaders) contains a fallback technique
     which will work on every existing PC.
   parameters:
-  - name: filepath / string raw_data
+  - name: filepath/raw_data
     type: string
-    description: MISSING_PARAM_DESC
+    description: The [filepath](/reference/Filepath) of the shader [Effect File (.fx)](/articles/shaders) file or whole data buffer of the shader file.
+  - name: macros
+    type: table
+    description: A [[table]] contains macros in an ordered and/or unordered way. See example below.
+    default: '{}'
   - name: priority
     type: float
     description: If more than one shader is matched to a world texture, the shader
@@ -24,58 +27,53 @@ shared:
   - name: layered
     type: bool
     description: When set to true, the shader will be drawn in a separate render pass.
-      Several layered shaders can be drawn on the same world texture. (To avoid Z
-      fighting artifacts, you may have to add DepthBias=-0.0002; to the technique
-      pass, but this might cause visual artifacts when applied on vehicles)
+      Several layered shaders can be drawn on the same world texture. (To avoid [Z
+      fighting](http://en.wikipedia.org/wiki/Z-fighting) artifacts, you may have to add `DepthBias=-0.0002;` to the technique
+      pass, but this might cause visual artifacts when applied on vehicles).
     default: 'false'
   - name: elementTypes
     type: string
-    description: 'A comma seperated list of element types to restrict this shader
-      to. Valid element types are: world - Textures in the GTA world ped - Player
-      and ped textures vehicle - Vehicles textures object - Objects textures other
-      - Element textures which are not peds, vehicles or objects all - Everything'
-    default: '"world'
-  - name: ped
-    type: unknown
-    description: MISSING_PARAM_DESC
-  - name: vehicle
-    type: unknown
-    description: MISSING_PARAM_DESC
-  - name: object
-    type: unknown
-    description: MISSING_PARAM_DESC
-  - name: other
-    type: unknown
-    description: MISSING_PARAM_DESC
-  - name: all"
-    type: unknown
-    description: MISSING_PARAM_DESC
+    description: |
+      A comma seperated list of element types to restrict this shader to. Valid element types are:
+      
+      - **world** - Textures in the GTA world
+      - **ped** - Player and ped textures
+      - **vehicle** - Vehicles textures
+      - **object** - Objects textures other
+      - **other** - Element textures which are not peds, vehicles or objects
+      - **all** - Everything
+      </ul>
+    default: '"world,vehicle,object,other"'
   examples:
   - path: examples/dxCreateShader-1.lua
-    description: ''
-    side: client
+  - path: examples/dxCreateShader_OOP-1.lua
+    oop: true
   - path: examples/dxCreateShader-2.lua
     description: 'This example creates basic shader from raw data (without i/o) on
       resource start:'
-    side: client
   - path: examples/dxCreateShader-3.lua
     description: 'This example creates a basic shader using macros to change shader''s
-      behaviour:'
-    side: client
+      behaviour. You can also pass macros in key-value pairs when the order is important.'
   returns:
     values:
-    - type: element
-      name: value1
+    - type: shader|false
+      name: shader element
     - type: string
-      name: value2
-    description: 'element: A shader element if successful, false if invalid arguments
-      were passed to the function. You should always check to see if this function
-      has returned false. string: The name of the technique that will be used.'
+      name: technique
+    description: 'Returns a [[shader]] element and the name of the technique that will be used if successful, **false** if invalid arguments were passed to the function or there is insufficient resources available.'
   oop:
     element: shader
     constructorclass: DxShader
   notes:
-  - type: info
-    content: It is highly recommended that dxSetTestMode is used when writing and
-      testing scripts using dxCreateShader.
-  requires_review: true
+  - type: tip
+    content: |
+      - It is highly recommended that [[dxSetTestMode]] is used when writing and testing scripts using **dxCreateShader**.
+      - You should always check to see if this function has returned **false**.
+  meta:
+    - changelog:
+        - version: 1.3.0-9.04435
+          description: Added **layered** and **elementTypes** arguments.
+        - version: 1.5.6-9.14403
+          description: Added option to use raw data instead of a file name.
+        - version: 1.5.8-9.20688
+          description: Added option to use macros.

@@ -1,17 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawCircle
-shared:
+client:
   name: dxDrawCircle
-  description: This function draws a circle shape on the screen \- rendered for **one**
-    frame. This should be used in conjunction with [onClientRender](/wiki/OnClientRender
-    "OnClientRender") in order to be display continuously.
+  description: This function draws a circle shape on the screen - rendered for **one**
+    frame. This should be used in conjunction with [[onClientRender]] in order to be display continuously.
   parameters:
   - name: posX
     type: float
-    description: An integer representing the absolute X position of the circle center,
+    description: An integer representing the **absolute** X position of the circle center,
       represented by pixels on the screen.
   - name: posY
     type: float
-    description: An integer representing the absolute Y position of the circle center,
+    description: An integer representing the **absolute** Y position of the circle center,
       represented by pixels on the screen.
   - name: radius
     type: float
@@ -27,12 +25,12 @@ shared:
     default: '360.0'
   - name: theColor
     type: int
-    description: An integer of the hex color, produced using tocolor or 0xAARRGGBB
+    description: An integer of the hex color, produced using [[tocolor]] or 0xAARRGGBB
       (AA = alpha, RR = red, GG = green, BB = blue).
     default: white
   - name: theCenterColor
     type: int
-    description: An integer of the hex color, produced using tocolor or 0xAARRGGBB
+    description: An integer of the hex color, produced using [[tocolor]] or 0xAARRGGBB
       (AA = alpha, RR = red, GG = green, BB = blue).
     default: theColor
   - name: segments
@@ -54,27 +52,28 @@ shared:
   examples:
   - path: examples/dxDrawCircle-1.lua
     description: This function draws a rectangle with rounded corners.
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the creation of the 2D circle was successful, false
+      name: result
+    description: Returns **true** if the creation of the 2D circle was successful, **false**
       otherwise.
+  preview_images:
+    - path: 'dxDrawCircle.png'
+      description: An example of how **dxDrawCircle** function works in practice.
   notes:
   - type: info
-    content: By documentation this function does perform a triangle approximation
-      of the cicle . This is important for when there is no shader support on the
+    content: By documentation this function does perform a **triangle approximation
+      of the cicle**. This is important for when there is no shader support on the
       end-user hardware. If there is shader support then you can instead use shaders
       with euler-based math (sin/cos/asin) to create a smoother circle. The performance
       does scale much better than increasing the segment count of this function because
-      drawing using shader would take up only one draw-call. Take look at this post
-      for more details.
-  - type: info
-    content: The above remark is about drawing circles on modern end-user hardware
-      with angle-interval support, as necessary by example for pie-charts. Drawing
-      full circles is easier because the math can be simplified to a euler distance
+      drawing using shader would take up only one draw-call. Take look at [this post](https://forum.mtasa.com/topic/133045-dxdrawcircle-chart/?do=findComment&comment=1002953)
+      for more details.<br/></br>
+      
+      The above remark is about drawing circles on modern end-user hardware
+      with angle-interval support, as necessary by example for pie-charts. **Drawing
+      full circles** is easier because the math can be simplified to a euler distance
       calculation from the texcoord (0.5, 0.5) to the currently drawing pixel. Then
       the HLSL clip function can be used to not render any pixels outside of the circle.
-      Read more about it in this post .
-  requires_review: true
+      Read more about it in [this post](https://forum.mtasa.com/topic/133453-round-render-target/#comment-1004102).

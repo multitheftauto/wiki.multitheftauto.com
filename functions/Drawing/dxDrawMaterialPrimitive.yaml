@@ -1,51 +1,44 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DxDrawMaterialPrimitive
-shared:
+client:
   name: dxDrawMaterialPrimitive
-  description: 'This function draws a 2D primitive shape with material applied to
-    it across the screen \- rendered for one frame. This should be used in conjunction
-    with [onClientRender](/wiki/OnClientRender "OnClientRender") in order to display
-    continuously.
-
-    If image file is used, it should ideally have dimensions that are a power of two,
-    to prevent possible blurring.
-
-    Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...'
+  description: |
+    This function draws a 2D primitive shape with material applied to it across the screen - rendered for **one** frame. This should be used in conjunction with [[onClientRender]] in order to display continuously.
+    
+    If image file is used, it should ideally have dimensions that are a power of two, to prevent possible blurring. 
+    **Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...**
   parameters:
   - name: pType
-    type: primitiveType
-    description: Type of primitive to be drawn.
+    type: string
+    description: Type of primitive to be drawn. More info on [MSDN site](https://msdn.microsoft.com/en-us/library/windows/desktop/bb147291(v=vs.85).aspx).
+    templateList: primitives
   - name: material
-    type: mixed
-    description: MISSING_PARAM_DESC
-  - name: postGUI
-    type: bool
-    description: A bool representing whether the line should be drawn on top of or
-      behind any ingame GUI (rendered by CEGUI).
+    type: string/texture
+    description: Either a [[texture]] element or a [filepath](/reference/Filepath) of the image which is going to be drawn. Image files should ideally have dimensions that are a power of two, to prevent possible blurring. Use a texture created with [[dxCreateTexture]] to **speed up drawing**.
+  - name: name
+    type: string
+    description: A string representing a stage at which the actual drawcall should happen.
+    templateList: primitive-drawing-stages
   - name: vertex1
     type: table
-    description: MISSING_PARAM_DESC
-  - name: vertex2
+    description: |
+      Tables representing each primitive vertex, required amount of them is determined by primitive type. See vertices format below:
+
+      - **posX** - An [[float]] representing the absolute X position of the vertex, represented by pixels on the screen.
+      - **posY** - An [[float]] representing the absolute Y position of the vertex, represented by pixels on the screen.
+      - **color (optional)** - An [integer](/reference/int) of the hex color, produced using [[tocolor]] or 0xAARRGGBB (AA = alpha, RR = red, GG = green, BB = blue). If it's not specified, white color is used.
+      - **u** - An [[float]] representing the relative X coordinate of the top left corner of the material which should be drawn from image.
+      - **v** - An [[float]] representing the relative Y coordinate of the top left corner of the material which should be drawn from image.
+  - name: vertex2...
     type: table
-    description: MISSING_PARAM_DESC
-  - name: '...'
-    type: unknown
-    description: MISSING_PARAM_DESC
+    description: Tables representing each primitive vertex, required amount of them is determined by primitive type. Check table format above.
+    default: nil
   examples:
   - path: examples/dxDrawMaterialPrimitive-1.lua
     description: ''
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Allowed types
-
-      - Missing section: Vertices format
-
-      '
-  requires_review: true
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
+  preview_images:
+    - path: primitives.png
+      description: Available primitive types.
