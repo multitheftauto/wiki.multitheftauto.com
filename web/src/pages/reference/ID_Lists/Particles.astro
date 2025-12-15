@@ -1,0 +1,209 @@
+---
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import { Image } from "astro:assets";
+import { getAssetImagePath } from "@src/utils/general";
+---
+
+<AutoStarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Particles',
+  tableOfContents: false,
+}}>
+
+<p>This page contains a list of particles that can be created by <a href="/reference/fxCreateParticle">fxCreateParticle</a>.</p>
+
+<div class="particles-grid">
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_blood.gif")} alt="Blood particle" />
+        <p>
+            <strong>Particle:</strong> blood<br/>
+            <strong>Color:</strong> 59, 245, 146, 255<br/>
+            <strong>Count:</strong> 20<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_boatsplash.gif")} alt="Boat splash particle" />
+        <p>
+            <strong>Particle:</strong> boat_splash<br/>
+            <strong>Color:</strong> 92, 177, 237, 255<br/>
+            <strong>Count:</strong> 20<br/>
+        </p>
+    </div>
+
+        <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_bubble.gif")} alt="Bubble particle" />
+        <p>
+            <strong>Particle:</strong> bubble<br/>
+            <strong>Color:</strong> 238, 250, 15, 255<br/>
+            <strong>Count:</strong> 30<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_cardebris.gif")} alt="Car debris particle" />
+        <p>
+            <strong>Particle:</strong> car_debris<br/>
+            <strong>Color:</strong> 126, 128, 130, 255<br/>
+            <strong>Count:</strong> 20<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_collisionsmoke.gif")} alt="Collision smoke particle" />
+        <p>
+            <strong>Particle:</strong> collision_smoke<br/>
+            <strong>Color:</strong> 206, 224, 242, 255<br/>
+            <strong>Count:</strong> 20<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_gunshell.gif")} alt="Gunshell particle" />
+        <p>
+            <strong>Particle:</strong> gunshell<br/>
+            <strong>Color:</strong> 187, 250, 110, 255<br/>
+            <strong>Count:</strong> 100<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_sand.gif")} alt="Sand particle" />
+        <p>
+            <strong>Particle:</strong> sand<br/>
+            <strong>Color:</strong> 250, 224, 110, 255<br/>
+            <strong>Count:</strong> 5<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_sand2.gif")} alt="Sand 2 particle" />
+        <p>
+            <strong>Particle:</strong> sand2<br/>
+            <strong>Color:</strong> 250, 224, 110, 255<br/>
+            <strong>Count:</strong> 5<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_hugesmoke.gif")} alt="Huge smoke particle" />
+        <p>
+            <strong>Particle:</strong> huge_smoke<br/>
+            <strong>Color:</strong> 250, 42, 112, 255<br/>
+            <strong>Count:</strong> 10<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_smoke.gif")} alt="Smoke particle" />
+        <p>
+            <strong>Particle:</strong> smoke<br/>
+            <strong>Color:</strong> 242, 121, 162, 255<br/>
+            <strong>Count:</strong> 10<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_spark.gif")} alt="Spark particle" />
+        <p>
+            <strong>Particle:</strong> spark<br/>
+            <strong>Color:</strong> 96, 7, 240, 255<br/>
+            <strong>Count:</strong> 30<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_spark2.gif")} alt="Spark 2 particle" />
+        <p>
+            <strong>Particle:</strong> spark2<br/>
+            <strong>Color:</strong> 96, 7, 240, 255<br/>
+            <strong>Count:</strong> 30<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_splash.gif")} alt="Splash particle" />
+        <p>
+            <strong>Particle:</strong> splash<br/>
+            <strong>Color:</strong> 247, 125, 17, 255<br/>
+            <strong>Count:</strong> 20<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_wake.gif")} alt="Wake particle" />
+        <p>
+            <strong>Particle:</strong> wake<br/>
+            <strong>Color:</strong> 125, 166, 98, 255<br/>
+            <strong>Count:</strong> 10<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_watersplash.gif")} alt="Water splash particle" />
+        <p>
+            <strong>Particle:</strong> water_splash<br/>
+            <strong>Color:</strong> 6, 99, 143, 255<br/>
+            <strong>Count:</strong> 40<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_wheeldirt.gif")} alt="Wheel dirt particle" />
+        <p>
+            <strong>Particle:</strong> wheel_dirt<br/>
+            <strong>Color:</strong> 40, 153, 6, 255<br/>
+            <strong>Count:</strong> 20<br/>
+        </p>
+    </div>
+
+    <div class="particles-box">
+        <Image src={getAssetImagePath("Effects/particles/Prt_glass.gif")} alt="Glass particle" />
+        <p>
+            <strong>Particle:</strong> glass<br/>
+            <strong>Color:</strong> 9, 80, 186, 100<br/>
+            <strong>Count:</strong> 20<br/>
+        </p>
+    </div>
+</div>
+
+<style>
+.particles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .particles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.particles-box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: var(--sl-color-gray-6);
+    margin: 0;
+}
+
+.particles-box img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
+.particles-box p {
+    margin-top: 10px;
+}
+</style>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'reference:ID_Lists/Effects',
+      'functions:any:Effects',
+])} currentId='' />
+
+</AutoStarlightPage>
