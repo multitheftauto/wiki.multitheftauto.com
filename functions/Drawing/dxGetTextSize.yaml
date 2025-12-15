@@ -1,6 +1,6 @@
 client:
   name: dxGetTextSize
-  description: This function retrieves the theoretical width and height (in pixels) of a certain piece of text, if it were to be drawn using [[dxDrawText]].
+  description: This function retrieves the width and height (in pixels) of a certain piece of text, if it were to be drawn using [[dxDrawText]].
   parameters:
   - name: text
     type: string

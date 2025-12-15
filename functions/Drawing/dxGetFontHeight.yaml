@@ -1,7 +1,6 @@
 client:
   name: dxGetFontHeight
-  description: This function retrieves the theoretical height of a certain piece of
-    text, if it were to be drawn using [[dxDrawText]].
+  description: This function returns the height of a **single line** of text for the given font. If you want to check the height of the entire multi-line text, use [[dxGetTextSize]].
   parameters:
   - name: scale
     type: float

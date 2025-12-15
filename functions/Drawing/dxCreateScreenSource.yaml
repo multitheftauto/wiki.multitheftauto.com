@@ -23,4 +23,6 @@ client:
     constructorclass: DxScreenSource
   notes:
     - type: tip
-      content: Successful screen source creation is not guaranteed, and may fail due to hardware or memory limitations. You should always check to see if this function has returned **false**.
+      content: |
+        - It is highly recommended that [[dxSetTestMode]] is used when writing and testing scripts using **dxCreateScreenSource**.
+        - Successful screen source creation is not guaranteed, and may fail due to hardware or memory limitations. You should always check to see if this function has returned **false**.

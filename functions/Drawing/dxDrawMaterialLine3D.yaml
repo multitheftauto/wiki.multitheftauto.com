@@ -63,7 +63,7 @@ client:
   notes:
     - type: tip
       content: |
-        - The 3D line with a large width value effectively becomes a rectangle, so it it possible to construct basic shapes such as boxes with several large width lines and the appropriate values for 'faceToward'.
+        - The 3D line with a large **width** value effectively becomes a rectangle, so it it possible to construct basic shapes such as boxes with several large width lines and the appropriate values for **faceToward**.
         - 3D lines are drawn at a particular place in the [game processing order](/reference/Game_Processing_Order), so use [[onClientPreRender]] for drawing if you are attaching them to world elements.
   meta:
     - changelog:

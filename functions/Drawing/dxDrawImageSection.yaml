@@ -62,7 +62,7 @@ client:
     default: 'false'
   examples:
   - path: examples/dxDrawImageSection-1.lua
-    description: Example 1The example draws a section of an image.
+    description: The example draws a section of an image.
   returns:
     values:
     - type: bool

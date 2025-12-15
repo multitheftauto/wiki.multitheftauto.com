@@ -23,9 +23,9 @@ client:
     default: topY
   - name: color
     type: int
-    description: The color of the text, a value produced by tocolor or 0xAARRGGBB
+    description: The color of the text, a value produced by [[tocolor]] or 0xAARRGGBB
       (AA = alpha, RR = red, GG = green, BB = blue).
-    default: white
+    default: '0xFFFFFFFF'
   - name: textSize
     type: float
     description: The size of the text scale.

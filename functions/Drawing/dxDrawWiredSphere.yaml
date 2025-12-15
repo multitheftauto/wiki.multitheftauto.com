@@ -22,7 +22,7 @@ client:
     type: float
     description: A width of line.
   - name: iterations
-    type: uint
+    type: int
     description: Number 1, 2, 3 or 4. 1 mean low density, 4 mean high.
   examples:
   - path: examples/dxDrawWiredSphere-1.lua

@@ -13,5 +13,5 @@ client:
     values:
     - type: string
       name: pixels format
-      templateList: pixels-format
+      templateList: pixels-format_with_dds
     description: Returns the format of the pixels if successful, **false** if invalid arguments were passed to the function.

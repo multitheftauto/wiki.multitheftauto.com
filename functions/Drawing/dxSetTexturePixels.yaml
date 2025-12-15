@@ -1,7 +1,7 @@
 client:
   name: dxSetTexturePixels
   pair: dxGetTexturePixels
-  description: This function sets the [pixels](/reference/Pixels) of a [[texture]] element. It can be used with a standard texture, render target or screen source. Only `plain` pixels format is supported.
+  description: This function sets the [pixels](/reference/Pixels) of a [[texture]] element. It can be used with a standard texture, render target or screen source.
   parameters:
   - name: surfaceIndex
     type: int
@@ -46,6 +46,7 @@ client:
     content: 'By default the pixels are set starting at the top left corner of the texture. To set a different region, define a rectangular area using all four of these optional arguments: **x, y, width, height**.'
   - type: info
     content: |
+      - It only works with `plain` format pixels.
       - This function is slow and not something you want to be doing once a frame.
       - It is slower when reading pixels from a render target or screen source.
       - Is very slow indeed if the texture format is not `argb`.

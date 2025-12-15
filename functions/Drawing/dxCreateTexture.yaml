@@ -100,3 +100,7 @@ client:
           description: Added **textureType** and **depth** arguments.
         - version: 1.3.0-9.04035
           description: Added **textureEdge** argument.
+        - version: 1.6.0-9.22188
+          description: Added **rgb** and **xrgb** texture format.
+  version:
+    updated: 1.6.0-9.22188

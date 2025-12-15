@@ -192,6 +192,12 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
         {id: 'plain', label: ''},
         {id: 'png', label: ''},
         {id: 'jpeg', label: ''},
+    ],
+
+    'pixels-format_with_dds': [
+        {id: 'plain', label: ''},
+        {id: 'png', label: ''},
+        {id: 'jpeg', label: ''},
         {id: 'dds', label: ''},
     ],
 
@@ -207,9 +213,15 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
 
     'texture-formats': [
         {id: 'argb', label: 'RGB uncompressed 32 bit color (default).'},
+        {id: 'rgb', label: 'RGB uncompressed 16-bit RGB color format. Uses 5 bits for red, 6 bits for green, and 5 bits for blue.'},
+        {id: 'xrgb', label: 'RGB Uncompressed 32-bit RGB color format without alpha. Each pixel uses 8 bits for red, green, and blue. The highest 8 bits are unused (padding) and should be ignored.'},
         {id: 'dxt1', label: 'DXT1 compressed - Can take a fraction of a second longer to load (unless the file is already a DXT1 .dds). Uses 8 times less video memory than ARGB and **can speed up drawing**. Quality not as good as ARGB. **It supports alpha blending, but it can only be on or off, that is: either 0 or 255**.'},
         {id: 'dxt3', label: 'DXT3 compressed - Can take a fraction of a second longer to load (unless the file is already a DXT3 .dds). Uses 4 times less video memory than ARGB and **can speed up drawing**. Quality slightly better than DXT1 and supports crisp alpha blending.'},
         {id: 'dxt5', label: 'DXT5 compressed - Can take a fraction of a second longer to load (unless the file is already a DXT5 .dds). Uses 4 times less video memory than ARGB and **can speed up drawing**. Quality slightly better than DXT1 and supports smooth alpha blending.'},
+        {id: 'intz', label: 'Depth-stencil texture format used for sampling depth buffers in shaders.'},
+        {id: 'df24', label: '24-bit depth buffer format with optional stencil support, exposed as a texture.'},
+        {id: 'df16', label: '16-bit depth buffer format exposed as a texture.'},
+        {id: 'rawz', label: 'Raw depth texture format providing direct access to depth buffer values.'},
     ],
 
     'texture-edges': [

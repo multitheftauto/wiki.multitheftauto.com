@@ -1,6 +1,6 @@
 client:
   name: dxGetPixelsSize
-  description: This function gets the dimensions of [pixels](/reference/Pixels) contained in a string. It works with all pixel formats.
+  description: This function gets the dimensions of [pixels](/reference/Pixels) contained in a string. It works with **all** pixel formats.
   parameters:
   - name: pixels
     type: string

@@ -1,7 +1,7 @@
 client:
   name: dxGetPixelColor
   pair: dxSetPixelColor
-  description: This function gets the color of a single pixel from [pixels](/reference/Pixels) contained in a string. It only works with `plain` format pixels.
+  description: This function gets the color of a single pixel from [pixels](/reference/Pixels) contained in a string.
   parameters:
   - name: pixels
     type: string
@@ -25,3 +25,6 @@ client:
     - type: int
       name: a
     description: Returns 4 int s representing the rgba color value of the pixel if succesful, or **false** if invalid arguments were passed to the function.
+  notes:
+    - type: info
+      content: It only works with `plain` format pixels.

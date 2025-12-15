@@ -16,7 +16,7 @@ client:
     type: string
     description: Pixels format.
     default: '"plain"'
-    templateList: pixels-format
+    templateList: pixels-format_with_dds
   - name: textureFormat
     type: string
     description: A string representing the desired texture format. Use `unkown` to determine automatically based on texture format.

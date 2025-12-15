@@ -1,7 +1,7 @@
 client:
   name: dxSetPixelColor
   pair: dxGetPixelColor
-  description: This function sets the color of a single pixel for [pixels](/reference/Pixels) contained in a string. It only works with `plain` format pixels.
+  description: This function sets the color of a single pixel for [pixels](/reference/Pixels) contained in a string.
   parameters:
   - name: pixels
     type: string
@@ -35,3 +35,6 @@ client:
       name: result
     description: Returns **true** if successful, or **false** if invalid arguments were passed
       to the function.
+  notes:
+    - type: info
+      content: It only works with `plain` format pixels.
