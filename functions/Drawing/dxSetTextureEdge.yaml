@@ -7,12 +7,12 @@ client:
     description: The affected texture.
   - name: textureEdge
     type: string
-    description: The texture edge mode. Available modes are `wrap, mirror, clamp, border,
-      mirror-once`.
+    description: The texture edge mode.
+    templateList: texture-edges
   - name: border-color
     type: int
     description: If **textureEdge** is set to `border`, you are able to define a border color here.
-    default: nil
+    default: '0'
   examples:
   - path: examples/dxSetTextureEdge-1.lua
     description: The following example draws the image ingame.
