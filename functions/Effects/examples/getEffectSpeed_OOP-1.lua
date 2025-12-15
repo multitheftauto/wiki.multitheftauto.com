@@ -1,0 +1,5 @@
+addCommandHandler("ges", function(cmd)
+    local x, y, z = localPlayer:getPosition()
+    local effect = Effect("explosion_crate", x, y, z)
+    outputChatBox("The speed: " .. tostring(effect.speed))
+end)

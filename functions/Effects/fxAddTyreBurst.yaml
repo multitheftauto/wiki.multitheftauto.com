@@ -1,38 +1,42 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddTyreBurst
-shared:
+client:
   name: fxAddTyreBurst
   description: Creates a tyre burst particle effect (a small white smoke puff).
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate of the effect.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate of the effect.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate of the effect.
   examples:
   - path: examples/fxAddTyreBurst-1.lua
-    description: This example will create a Tyre Burst Effect next to you when typing/tyreburstin
+    description: This example will create a Tyre Burst Effect next to you when typing `/tyreburst` in
       the Chatbox.
-    side: client
+  - path: examples/fxAddTyreBurst_OOP-1.lua
+    description: This example will create a Tyre Burst Effect next to you when typing `/tyreburst` in
+      the Chatbox.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addTyreBurst
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddTyreBurst.png'
+      description: Tyre burst.

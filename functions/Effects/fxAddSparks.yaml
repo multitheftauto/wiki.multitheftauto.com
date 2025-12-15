@@ -1,50 +1,49 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddSparks
-shared:
+client:
   name: fxAddSparks
   description: Creates a number of sparks originating from a point or along a line.
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate of the effect. The longer the distance from position is, the faster sparks fly.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate of the effect. The longer the distance from position is, the faster sparks fly.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate of the effect. The longer the distance from position is, the faster sparks fly.
   - name: force
     type: float
-    description: 'speed factor: the higher this value, the faster and further the
-      sparks fly.'
+    description: The higher this value, the faster and further the
+      sparks fly.
     default: '1.0'
   - name: count
     type: int
-    description: the number of effects to create.
+    description: The number of effects to create.
     default: '1'
   - name: acrossLineX
     type: float
-    description: MISSING_PARAM_DESC
+    description: If specified, the sparks will be created along a line going from pos to pos - acrossLine. If not specified, all sparks originate from the point at pos.
     default: '0.0'
   - name: acrossLineY
     type: float
-    description: MISSING_PARAM_DESC
+    description: If specified, the sparks will be created along a line going from pos to pos - acrossLine. If not specified, all sparks originate from the point at pos.
     default: '0.0'
   - name: acrossLineZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: If specified, the sparks will be created along a line going from pos to pos - acrossLine. If not specified, all sparks originate from the point at pos.
     default: '0.0'
   - name: blur
     type: bool
-    description: if false , creates standard bullet impact-like sparks. If true ,
+    description: if false, creates standard bullet impact-like sparks. If true,
       adds motion blur to the sparks.
     default: 'false'
   - name: spread
@@ -61,14 +60,18 @@ shared:
   examples:
   - path: examples/fxAddSparks-1.lua
     description: This example will add Fire Bins to all locations added in the table.
-    side: client
+  - path: examples/fxAddSparks_OOP-1.lua
+    description: This example will add Fire Bins to all locations added in the table.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addSparks
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddSparks.png'
+      description: Sparks.

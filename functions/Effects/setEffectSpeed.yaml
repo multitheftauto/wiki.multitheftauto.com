@@ -1,7 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetEffectSpeed
-shared:
+client:
   name: setEffectSpeed
-  description: This function sets the speed of a specified [effect](/wiki/Effect "Effect").
+  description: This function sets the speed of a specified [[effect]].
   parameters:
   - name: theEffect
     type: effect
@@ -11,18 +10,19 @@ shared:
     description: The speed to set.
   examples:
   - path: examples/setEffectSpeed-1.lua
-    description: This example adds commandsesthat creates effect of a smoke at player's
+    description: This example adds command `ses` that creates effect of a smoke at player's
       position and sets its speed to 5.
-    side: client
+  - path: examples/setEffectSpeed_OOP-1.lua
+    description: This example adds command `ses` that creates effect of a smoke at player's
+      position and sets its speed to 5.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the effect speed was succesfuly changed, false otherwise.
+      name: result
+    description: Returns **true** if the effect speed was succesfuly changed, **false** otherwise.
   oop:
     element: effect
     method: setSpeed
     variable: speed
-    static: false
   pair: getEffectSpeed
-  requires_review: true

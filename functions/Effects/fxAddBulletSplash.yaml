@@ -1,30 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddBulletSplash
-shared:
+client:
   name: fxAddBulletSplash
-  description: This function creates a bullet splash particle effect, normally created
-    when shooting into water.
+  description: This function creates a bullet splash particle effect, normally created when shooting into water.
   parameters:
   - name: posX
     type: float
-    description: A float representing the x position of the splash
+    description: A float representing the X position of the splash.
   - name: posY
     type: float
-    description: A float representing the y position of the splash
+    description: A float representing the Y position of the splash.
   - name: posZ
     type: float
-    description: A float representing the z position of the splash
+    description: A float representing the Z position of the splash.
   examples:
   - path: examples/fxAddBulletSplash-1.lua
     description: This example will add a Bullet Splash Effect next to your player
-      when typing/bsplashin the Chatbox.
-    side: client
+      when typing `/bsplash` in the chatbox.
+  - path: examples/fxAddBulletSplash_OOP-1.lua
+    description: This example will add a Bullet Splash Effect next to your player
+      when typing `/bsplash` in the chatbox.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addBulletSplash
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddBulletSplash.png'
+      description: Bullet splash.

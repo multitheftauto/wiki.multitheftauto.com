@@ -1,6 +1,5 @@
-addCommandHandler("ses", 
-function (cmd)
-   local x, y, z = getElementPosition(localPlayer)
-   local effect = createEffect("smoke30lit", x, y, z)
-   setEffectSpeed(effect, 5)
+addCommandHandler("ses", function(cmd)
+    local x, y, z = getElementPosition(localPlayer)
+    local effect = createEffect("smoke30lit", x, y, z)
+    setEffectSpeed(effect, 5)
 end)

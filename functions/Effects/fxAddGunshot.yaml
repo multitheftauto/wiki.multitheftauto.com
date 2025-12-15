@@ -1,26 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddGunshot
-shared:
+client:
   name: fxAddGunshot
   description: This function creates a gunshot particle effect.
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate where the bullet is fired.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate where the bullet is fired.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate where the bullet is fired.
   - name: includeSparks
     type: bool
     description: A bool representing whether the particle effect will generate sparks.
@@ -28,14 +27,18 @@ shared:
   examples:
   - path: examples/fxAddGunshot-1.lua
     description: This example adds a gunshot with sparks in front of your face.
-    side: client
+  - path: examples/fxAddGunshot_OOP-1.lua
+    description: This example adds a gunshot with sparks in front of your face.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addGunshot
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddGunshot.png'
+      description: Gunshot.

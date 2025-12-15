@@ -1,29 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddWaterHydrant
-shared:
+client:
   name: fxAddWaterHydrant
   description: This function creates a water hydrant particle effect.
   parameters:
   - name: posX
     type: float
-    description: A float representing the x position of the hydrant
+    description: A float representing the X position of the hydrant.
   - name: posY
     type: float
-    description: A float representing the y position of the hydrant
+    description: A float representing the Y position of the hydrant.
   - name: posZ
     type: float
-    description: A float representing the z position of the hydrant
+    description: A float representing the Z position of the hydrant.
   examples:
   - path: examples/fxAddWaterHydrant-1.lua
     description: 'This example will create 20 water hydrant effects around the players
-      position when they use the command: hydrantmania.'
-    side: client
+      position when they use the command: `hydrantmania`.'
+  - path: examples/fxAddWaterHydrant_OOP-1.lua
+    description: 'This example will create 20 water hydrant effects around the players
+      position when they use the command: `hydrantmania`.'
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addWaterHydrant
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddWaterHydrant.png'
+      description: Water hydrant.

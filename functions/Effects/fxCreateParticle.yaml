@@ -1,42 +1,41 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxCreateParticle
-shared:
+client:
   name: fxCreateParticle
   description: Creates the given particles of the specified color. Can be useful for
     creating flares, toxic fumes, reward effects, etc.
   parameters:
   - name: particle
     type: string
-    description: The name of the particle to create. See particles list.
+    description: The name of the particle to create. See [particles](/reference/ID_Lists/Particles) list.
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate where the particles flies to.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate where the particles flies to.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate where the particles flies to.
   - name: r
     type: float
-    description: MISSING_PARAM_DESC
+    description: The color (Red) of the particle.
   - name: g
     type: float
-    description: MISSING_PARAM_DESC
+    description: The color (Green) of the particle.
   - name: b
     type: float
-    description: MISSING_PARAM_DESC
+    description: The color (Blue) of the particle.
   - name: a
     type: float
-    description: MISSING_PARAM_DESC
+    description: The color (Alpha) of the particle.
   - name: randomizeColors
     type: bool
     description: Specifies whether the color should be fixed (r,g,b) or randomly calculated
@@ -44,16 +43,15 @@ shared:
     default: 'false'
   - name: count
     type: int
-    description: the number of flying particles to create. Depending on the particle,
-      a very large count may cause the game to lag or freeze (50k+).
+    description: The number of flying particles to create.
     default: '1'
   - name: brightness
     type: float
-    description: the brightness. Ranges from 0 (almost black) to 1 (normal color).
+    description: The brightness. Ranges from 0 (almost black) to 1 (normal color).
     default: '1.0'
   - name: size
     type: float
-    description: Particles size. If randomSizes is set then when 0 is specified the
+    description: Particles size. If **randomSizes** is set then when 0 is specified the
       minimum size is 0.3.
     default: '0.3'
   - name: randomSizes
@@ -63,19 +61,29 @@ shared:
     default: 'false'
   - name: life
     type: float
-    description: the higher this value, the longer the particles survive before they
-      disappear. This parameter may be ignored by some particles.
+    description: The higher this value, the longer the particles survive before they
+      disappear.
     default: '1.0'
   examples:
   - path: examples/fxCreateParticle-1.lua
     description: This example creates a constant green, toxic fume over the biowell.
-    side: client
+  - path: examples/fxCreateParticle_OOP-1.lua
+    description: This example creates a constant green, toxic fume over the biowell.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
+      name: result
+    description: Always returns **true**.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: createParticle
     static: true
-  requires_review: true
+  notes:
+    - type: warning
+      content: Depending on the particle, a very large count may cause the game to lag or freeze (50k+).
+  preview_images:
+    - path: 'Effects/particles/Prt_glass_randomcolors.gif'
+      description: Glass particles with **randomizeColors** set to true.
+  version:
+    added: 1.6.0 r22512

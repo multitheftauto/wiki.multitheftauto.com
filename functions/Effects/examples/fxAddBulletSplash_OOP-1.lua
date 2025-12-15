@@ -1,0 +1,5 @@
+addCommandHandler("bsplash", function()
+    local x, y, z = localPlayer:getPosition()
+    local gz = getGroundPosition(x, y, z)
+    Effect.addBulletSplash(x, y, gz)
+end)

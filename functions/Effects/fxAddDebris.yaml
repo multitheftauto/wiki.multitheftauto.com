@@ -1,54 +1,58 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddDebris
-shared:
+client:
   name: fxAddDebris
   description: Creates a debris particle effect (e.g. bits that fly off a car when
     ramming a wall).
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: colorR
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Red) of the debris effect.
     default: '255'
   - name: colorG
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Green) of the debris effect.
     default: '0'
   - name: colorB
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Blue) of the debris effect.
     default: '0'
   - name: colorA
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Alpha) of the debris effect.
     default: '255'
   - name: scale
     type: float
-    description: the size of the chunks.
+    description: The size of the chunks.
     default: '1.0'
   - name: count
     type: int
-    description: the number of chunks to create.
+    description: The number of chunks to create.
     default: '1'
   examples:
   - path: examples/fxAddDebris-1.lua
-    description: This example will create a Debris Effect next to you when typing/debrisin
+    description: This example will create a Debris Effect next to you when typing `/debris` in
       the Chatbox.
-    side: client
+  - path: examples/fxAddDebris_OOP-1.lua
+    description: This example will create a Debris Effect next to you when typing `/debris` in
+      the Chatbox.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addDebris
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddDebris.png'
+      description: Debris.

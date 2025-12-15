@@ -1,32 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddGlass
-shared:
+client:
   name: fxAddGlass
   description: This function creates a glass particle effect.
   parameters:
   - name: posX
     type: float
-    description: A float representing the x position of the glass
+    description: A float representing the X position of the glass.
   - name: posY
     type: float
-    description: A float representing the y position of the glass
+    description: A float representing the Y position of the glass.
   - name: posZ
     type: float
-    description: A float representing the z position of the glass
+    description: A float representing the Z position of the glass.
   - name: colorR
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Red) of the glass effect.
     default: '255'
   - name: colorG
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Green) of the glass effect.
     default: '0'
   - name: colorB
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Blue) of the glass effect.
     default: '0'
   - name: colorA
     type: int
-    description: MISSING_PARAM_DESC
+    description: The color (Alpha) of the glass effect.
     default: '255'
   - name: scale
     type: float
@@ -40,15 +39,20 @@ shared:
   examples:
   - path: examples/fxAddGlass-1.lua
     description: This example creates a glass particle effect at the position of the
-      player who use /addGlass command.
-    side: client
+      player who use `/addGlass` command.
+  - path: examples/fxAddGlass_OOP-1.lua
+    description: This example creates a glass particle effect at the position of the
+      player who use `/addGlass` command.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addGlass
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddGlass.png'
+      description: Glass.

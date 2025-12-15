@@ -1,23 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetEffectDensity
-shared:
+client:
   name: getEffectDensity
-  description: This function gets the density of certain [effect](/wiki/Effect "Effect").
+  description: This function gets the density of certain [[effect]].
   parameters:
   - name: theEffect
     type: effect
     description: The effect to get density of.
   examples:
   - path: examples/getEffectDensity-1.lua
-    description: ''
-    side: client
+  - path: examples/getEffectDensity_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: float
-      name: value
+      name: density
+    description: Returns [[float]] as effect density or **false** if invalid effect element passed.
   oop:
     element: effect
     method: getDensity
     variable: density
-    static: false
   pair: setEffectDensity
-  requires_review: true

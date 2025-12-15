@@ -1,38 +1,40 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddTankFire
-shared:
+client:
   name: fxAddTankFire
   description: This function creates a tank firing particle effect.
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate where the tank fire is directed to.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate where the tank fire is directed to.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate where the tank fire is directed to.
   examples:
   - path: examples/fxAddTankFire-1.lua
-    description: This example will create a Tank Fire Effect at your weapon's muzzle
-      position
-    side: client
+    description: This example will create a Tank Fire Effect at your weapon's muzzle position.
+  - path: examples/fxAddTankFire_OOP-1.lua
+    description: This example will create a Tank Fire Effect at your weapon's muzzle position.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addTankFire
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddTankFire.png'
+      description: Tank fire.

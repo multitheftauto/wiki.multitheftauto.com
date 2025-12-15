@@ -1,0 +1,5 @@
+addCommandHandler("pimpact", function()
+    local x, y, z = localPlayer:getPosition()
+    local gz = getGroundPosition(x, y, z)
+    Effect.addPunchImpact(x, y, gz, 0, 0, 0)
+end)

@@ -1,0 +1,5 @@
+addCommandHandler("woodfx", function()
+    local x, y, z = localPlayer:getPosition()
+    local gz = getGroundPosition(x, y, z)
+    Effect.addWood(x, y, gz+0.4, 0, 0, 0, math.random(3, 6), 0.7)
+end)

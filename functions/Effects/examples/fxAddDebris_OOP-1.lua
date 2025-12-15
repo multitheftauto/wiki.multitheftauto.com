@@ -1,0 +1,5 @@
+addCommandHandler("debris", function()
+    local x, y, z = localPlayer:getPosition()
+    local randomColor, randomAmount = math.random(0, 255), math.random(4, 8)
+    Effect.addDebris(x, y, z, randomColor, randomColor, randomColor, 255, 1.0, randomAmount)
+end)

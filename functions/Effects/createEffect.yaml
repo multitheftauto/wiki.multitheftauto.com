@@ -1,12 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CreateEffect
-shared:
+client:
   name: createEffect
-  description: Creates an [effect](/wiki/Element/Effect "Element/Effect") on specified
-    position.
+  description: Creates an [[effect]] on specified position.
   parameters:
   - name: name
     type: string
-    description: A string contains effect name .
+    description: A string contains effect name. See [effects list](/reference/ID_Lists/Effects).
   - name: x
     type: float
     description: A floating point number representing the X coordinate on the map.
@@ -35,24 +33,30 @@ shared:
     default: '0'
   - name: soundEnable
     type: bool
-    description: MISSING_PARAM_DESC
+    description: To enable the sound of the effect.
     default: 'false'
   examples:
   - path: examples/createEffect-1.lua
-    description: This example allows you to create effect by using 'B' key (use mouse
+    description: This example allows you to create effect by using `B` key (use mouse
       scroll up/down to switch effect).
-    side: client
+  - path: examples/createEffect_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: effect
-      name: value
-    description: Returns the effect element if creation was successful, false otherwise.
+      name: the effect
+    description: Returns the [[effect]] element if creation was successful, **false** otherwise.
   oop:
     element: effect
     constructorclass: Effect
   notes:
   - type: info
-    content: Not all effects support rotation (e.g. the "fire" - effect doesn't).
-  - type: info
-    content: All effects have their own duration.
-  requires_review: true
+    content: |
+      - Not all effects support rotation (e.g. the `fire` - effect doesn't).
+      - All effects have their own duration.
+  meta:
+    - changelog:
+        - version: 1.4.0-9.06892
+          description: Added **drawDistance** argument.
+        - version: 1.5.4-9.11631
+          description: Added **soundEnable** argument.

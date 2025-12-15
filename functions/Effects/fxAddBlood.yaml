@@ -1,44 +1,48 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddBlood
-shared:
+client:
   name: fxAddBlood
   description: Creates a blood splatter particle effect.
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate of the effect.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate of the effect.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate of the effect.
   - name: count
     type: int
-    description: the number of flying droplets to create.
+    description: The number of flying droplets to create.
     default: '1'
   - name: brightness
     type: float
-    description: the brightness. Ranges from 0 (almost black) to 1 (normal color).
+    description: The brightness. Ranges from 0 (almost black) to 1 (normal color).
     default: '1.0'
   examples:
   - path: examples/fxAddBlood-1.lua
     description: This example creates blood effects when a player gets shot.
-    side: client
+  - path: examples/fxAddBlood_OOP-1.lua
+    description: This example creates blood effects when a player gets shot.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
+      name: result
+    description: Returns **true** if successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addBlood
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddBlood.png'
+      description: Blood splatter.

@@ -1,38 +1,42 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddPunchImpact
-shared:
+client:
   name: fxAddPunchImpact
   description: Creates a punch impact particle effect (a small dust cloud).
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate of the effect.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate of the effect.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate of the effect.
   examples:
   - path: examples/fxAddPunchImpact-1.lua
-    description: This example will create a Punch Impact Effect next to you when typing/pimpactin
+    description: This example will create a Punch Impact Effect next to you when typing `/pimpact` in
       the Chatbox.
-    side: client
+  - path: examples/fxAddPunchImpact_OOP-1.lua
+    description: This example will create a Punch Impact Effect next to you when typing `/pimpact` in
+      the Chatbox.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addPunchImpact
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddPunchImpact.png'
+      description: Punch impact.

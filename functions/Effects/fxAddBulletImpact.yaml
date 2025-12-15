@@ -1,51 +1,52 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddBulletImpact
-shared:
+client:
   name: fxAddBulletImpact
-  description: Creates a bullet impact particle effect, consisting of a small smoke
-    cloud and a number of sparks.
+  description: Creates a bullet impact particle effect, consisting of a small smoke cloud and a number of sparks.
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate of the effect.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate of the effect.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate of the effect.
   - name: smokeSize
     type: int
-    description: the size of the smoke cloud.
+    description: The size of the smoke cloud.
     default: '1'
   - name: sparkCount
     type: int
-    description: the number of sparks to create.
+    description: The number of sparks to create.
     default: '1'
   - name: smokeIntensity
     type: float
-    description: the amount/transparency of smoke, ranges from 0 to 1.
+    description: The amount/transparency of smoke, ranges from 0 to 1.
     default: '1.0'
   examples:
   - path: examples/fxAddBulletImpact-1.lua
-    description: This example will create a Bullet Impact Effect on the position of
-      the bullet impact.
-    side: client
+    description: This example will create a Bullet Impact Effect on the position of the bullet impact.
+  - path: examples/fxAddBulletImpact_OOP-1.lua
+    description: This example will create a Bullet Impact Effect on the position of the bullet impact.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addBulletImpact
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddBulletImpact.png'
+      description: Bullet impact.

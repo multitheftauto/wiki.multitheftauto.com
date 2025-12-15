@@ -1,46 +1,50 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/FxAddWood
-shared:
+client:
   name: fxAddWood
   description: Creates a wood splinter particle effect.
   parameters:
   - name: posX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world X coordinate where the effect originates.
   - name: posY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Y coordinate where the effect originates.
   - name: posZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The world Z coordinate where the effect originates.
   - name: dirX
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction X coordinate of the effect.
   - name: dirY
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Y coordinate of the effect.
   - name: dirZ
     type: float
-    description: MISSING_PARAM_DESC
+    description: The direction Z coordinate of the effect.
   - name: count
     type: int
-    description: the number of splinters to create.
+    description: The number of splinters to create.
     default: '1'
   - name: brightness
     type: float
-    description: the brightness. Ranges from 0 (black) to 1 (normal color).
+    description: The brightness. Ranges from 0 (black) to 1 (normal color).
     default: '1.0'
   examples:
   - path: examples/fxAddWood-1.lua
-    description: This example will create a Wood Effect next to you when typing/woodfxin
+    description: This example will create a Wood Effect next to you when typing `/woodfx` in
       the Chatbox.
-    side: client
+  - path: examples/fxAddWood_OOP-1.lua
+    description: This example will create a Wood Effect next to you when typing `/woodfx` in
+      the Chatbox.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns a true if the operation was successful, false otherwise.
+      name: result
+    description: Returns a **true** if the operation was successful, **false** otherwise.
   oop:
-    element: Effect
-    method: )
+    element: effect
+    method: addWood
     static: true
-  requires_review: true
+  preview_images:
+    - path: 'Effects/fx/fxAddWood.png'
+      description: Wood.
