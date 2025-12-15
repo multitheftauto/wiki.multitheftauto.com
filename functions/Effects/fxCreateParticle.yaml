@@ -82,6 +82,8 @@ client:
   notes:
     - type: warning
       content: Depending on the particle, a very large count may cause the game to lag or freeze (50k+).
+    - type: info
+      content: '**bubble** particle works only in the water.'
   preview_images:
     - path: 'Effects/particles/Prt_glass_randomcolors.gif'
       description: Glass particles with **randomizeColors** set to true.
