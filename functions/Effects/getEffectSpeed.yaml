@@ -15,7 +15,7 @@ client:
     oop: true
   returns:
     values:
-    - type: float
+    - type: float|false
       name: effect speed
     description: Returns [[float]] containing the effect's speed, **false** if invalid arguments
       were specified.

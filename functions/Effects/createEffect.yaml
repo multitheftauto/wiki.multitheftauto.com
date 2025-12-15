@@ -43,7 +43,7 @@ client:
     oop: true
   returns:
     values:
-    - type: effect
+    - type: effect|false
       name: the effect
     description: Returns the [[effect]] element if creation was successful, **false** otherwise.
   oop:
