@@ -3,33 +3,43 @@ import { Code } from '@astrojs/starlight/components';
 import { marked } from 'marked';
 
 interface Props {
-  content: string;
+  content?: string;
   inline?: boolean;
 }
 
 const { content, inline = false } = Astro.props;
 
+let slotMarkdown = '';
+if (!content && Astro.slots.has('default')) {
+  slotMarkdown = await Astro.slots.render('default');
+}
+
+const rawContent = content ?? slotMarkdown;
+
+if (!rawContent) {
+  throw new Error('EnhancedMarkdown requires content prop or slot content.');
+}
 
 // We shouldn't this as we're now organizing pages in folders
 // TODO let's move away from MediaWiki links in the future
 
 function convertMediaWikiLinks(text: string): string {
   const redirects: Record<string, string> = {
-    'ACL': 'acl',
+    ACL: 'acl',
   };
 
   return text.replace(
     /\[\[([^|\]#]+)(?:#([^\]]+))?(?:\|([^\]]+))?\]\]/g,
     (_, link, hash, text) => {
-      const redirectedLink = redirects[link] ?? link;
-      const url = `/reference/${redirectedLink}${hash ? `#${hash}` : ''}`;
+      const redirected = redirects[link] ?? link;
+      const url = `/reference/${redirected}${hash ? `#${hash}` : ''}`;
       return `[${text || link}](${url})`;
     }
   );
 }
 
-const processedContent = convertMediaWikiLinks(content);
-const tokens = inline ? marked.Lexer.lexInline(processedContent) : marked.lexer(processedContent);
+const processed = convertMediaWikiLinks(rawContent);
+const tokens = inline ? marked.Lexer.lexInline(processed) : marked.lexer(processed);
 ---
 
 {

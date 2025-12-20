@@ -3,24 +3,33 @@ import EnhancedMarkdown from './EnhancedMarkdown.astro';
 import { SITE_CONTRIBUTING_URL } from '@src/content.constants';
 
 interface Props {
-  description: string;
+  description?: string;
   requiresReview?: boolean;
 }
 
 const { description, requiresReview = false } = Astro.props;
 
 let path = Astro.url.pathname;
-// Remove trailing slash if any
 path = path.endsWith('/') ? path.slice(0, -1) : path;
-// Also remove anything before the last slash, effectively removing folders
 path = path.substring(path.lastIndexOf('/'));
+
+const hasSlot = Astro.slots.has('default');
 ---
+
 <div pagefind-weight="6">
   {requiresReview && (
+    <>
       <p style="color: var(--sl-color-orange); font-size: 1.6rem;"><strong>Manual Review Required</strong></p>
       <p style="color: var(--sl-color-orange); font-size: 1.25rem;">Please finish this page using the <a target="_blank" href={"https://wiki.multitheftauto.com/wiki" + path}>corresponding Old Wiki article</a>. Go to <a target="_blank" href={SITE_CONTRIBUTING_URL}>Contribution guidelines</a> for more information.</p>
-      <hr>
+      <hr />
+    </>
   )}
 
-  <EnhancedMarkdown content={description} />
+  {description ? (
+    <EnhancedMarkdown content={description} />
+  ) : hasSlot ? (
+    <EnhancedMarkdown>
+      <slot />
+    </EnhancedMarkdown>
+  ) : null}
 </div>
