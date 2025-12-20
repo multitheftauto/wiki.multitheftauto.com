@@ -20,6 +20,7 @@ import PreviewImages from '@src/components/PreviewImages.astro';
 import TemplateList from '@src/components/TemplateList.astro';
 
 import { marked } from 'marked';
+import VersionBox from '@src/components/VersionBox.astro';
 
 export async function getStaticPaths() {
   const functions = await getCollection('functions');
@@ -111,51 +112,9 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
 
     <!-- Description -->
     {funcInfo.version ? (() => {
-      const CURRENT = MTA_CURRENT_VERSION.full;
-
-      const addedVersionRaw = funcInfo.version.added || "";
-      const updatedVersionRaw = funcInfo.version.updated || "";
-      const removedVersionRaw = funcInfo.version.removed || "";
-
-      const addedVersion = extractVersion(addedVersionRaw);
-      const updatedVersion = extractVersion(updatedVersionRaw);
-
-      const showAdded = !!addedVersion && isVersionLE(CURRENT, addedVersion);
-      const showUpdated = !!updatedVersion && isVersionLE(CURRENT, updatedVersion);
-      const showRemoved = !!removedVersionRaw;
-
-      if (!showRemoved && !showAdded && !showUpdated) {
-        return (
-          <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
-        );
-      }
-
-      return (
-        <div class={`added-updated-description-box${showRemoved ? " removed-box" : ""}`}>
-          <div class="added-updated-description-box-header">
-            <p>
-              {showRemoved ? (
-                <>
-                  <strong>Before</strong> <span set:html={renderRevisionLink(removedVersionRaw)} />
-                </>
-              ) : (
-                <>
-                  {showUpdated && (
-                    <strong>Updated in <span set:html={renderRevisionLink(updatedVersionRaw)} /></strong>
-                  )}
-                  {showUpdated && showAdded && ' | '}
-                  {showAdded && (
-                    <strong>Added in <span set:html={renderRevisionLink(addedVersionRaw)} /></strong>
-                  )}
-                </>
-              )}
-            </p>
-          </div>
-          <div class="added-updated-description-box-body">
-            <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
-          </div>
-        </div>
-      );
+      <VersionBox added={funcInfo.version.added || ""} updated={funcInfo.version.updated || ""} removed={funcInfo.version.removed || ""}>
+        <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
+      </VersionBox>
     })() : (
       <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
     )}

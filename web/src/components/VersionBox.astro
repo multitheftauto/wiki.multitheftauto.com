@@ -1,0 +1,72 @@
+---
+import { MTA_CURRENT_VERSION } from "@src/content.constants";
+import { extractVersion, isVersionLE, renderRevisionLink } from "@src/utils/general";
+import ItemDescription from "./ItemDescription.astro";
+
+interface Props {
+    added?: string;
+    updated?: string;
+    removed?: string;
+}
+
+const { added = "", updated = "", removed = "" } = Astro.props;
+
+const addedVersion = extractVersion(added);
+const updatedVersion = extractVersion(updated);
+
+const showAdded = !!addedVersion && isVersionLE(MTA_CURRENT_VERSION.full, addedVersion);
+const showUpdated = !!updatedVersion && isVersionLE(MTA_CURRENT_VERSION.full, updatedVersion);
+const showRemoved = !!removed;
+
+const shouldShowBox = showRemoved || showAdded || showUpdated;
+---
+{
+    !shouldShowBox ? (
+        <ItemDescription>
+            <slot/>
+        </ItemDescription>
+    ) : (
+        <div
+            class={`added-updated-description-box${showRemoved ? " removed-box" : ""}`}
+        >
+            <div class="added-updated-description-box-header">
+                <p>
+                    {showRemoved ? (
+                        <>
+                            <strong>Before</strong>{" "}
+                            <span set:html={renderRevisionLink(removed)} />
+                        </>
+                    ) : (
+                        <>
+                            {showUpdated && (
+                                <strong>
+                                    Updated in{" "}
+                                    <span
+                                        set:html={renderRevisionLink(updated)}
+                                    />
+                                </strong>
+                            )}
+
+                            {showUpdated && showAdded && " | "}
+
+                            {showAdded && (
+                                <strong>
+                                    Added in{" "}
+                                    <span
+                                        set:html={renderRevisionLink(added)}
+                                    />
+                                </strong>
+                            )}
+                        </>
+                    )}
+                </p>
+            </div>
+
+            <div class="added-updated-description-box-body">
+                <ItemDescription>
+                    <slot/>
+                </ItemDescription>
+            </div>
+        </div>
+    )
+}
