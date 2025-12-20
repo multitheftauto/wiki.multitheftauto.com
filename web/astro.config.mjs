@@ -73,6 +73,7 @@ export default defineConfig({
             {
               label: "Resources",
               items: [
+                { label: "Element data", link: "/reference/Element_data"},
                 { label: "Lua API", link: "/reference/Lua_API" },
                 { label: "ID Lists", link: "/reference/ID_Lists" },
                 { label: "Meta.xml", link: "/reference/Meta.xml" },

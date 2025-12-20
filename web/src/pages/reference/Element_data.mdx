@@ -1,0 +1,62 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import VersionBox from '@src/components/VersionBox.astro';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Element data',
+    tableOfContents: true
+}}>
+
+### What is element data?
+Each element can have any number of element data entries assigned to it.
+Element data is information assigned to a specific element based on a key.
+This allows you, for example, to store player-related information such as points, number of kills, and number of deaths, or vehicle-related data such as fuel level, mileage, or owner.
+
+Element data is not stored persistently in any way and is removed together with the element it was assigned to - in the case of a player, when they leave the server.
+Therefore, to avoid losing stored information, consider saving the data elsewhere, for example in a database.
+
+### Performance
+By default, every element data is synchronized between the client and the server, which means that any change to its value is immediately updated on both sides.
+However, with a big number of elements and a big amount of element data, the load on the server and the network increases - therefore, if you don't need synchronization, you can disable it or limit it to specific players for whom it should be synchronized.
+Synchronizing element data when it's not needed wastes bandwidth and unnecessarily burdens the server.
+
+#### How to disable or limit synchronization?
+You can completely disable synchronization by setting the 4-th argument of the [setElementData](/reference/setElementData) function to **false**.
+In that case, the element data will exist only on the side where it was set.
+
+If you do need synchronization, but it's not necessary for all players, you can use the element data **subscription** feature.
+When using [setElementData](/reference/setElementData), set the 4-th argument to `"subscribe"`, and then use the functions [addElementDataSubscriber](/reference/addElementDataSubscriber), [removeElementDataSubscriber](/reference/removeElementDataSubscriber), and [hasElementDataSubscriber](/reference/hasElementDataSubscriber) to define which specific players the given element data should be synchronized with.
+
+**This applies only to element data set on the server side - on the client side, you cannot choose who it is synchronized with; you can only completely disable its synchronization as described above.**
+
+### Restrictions
+Since not all data types can be packetized to be transferred, there are some restrictions.
+The types that cannot be stored as element data are non-element userdata (see [element types](/reference/Element)), functions and threads.
+Also, you may not send tables which contain one or more values of any of these types.
+
+### Security
+<VersionBox added="1.6.0 r22815">
+Element data **is not protected** from client changes by default.
+You **SHOULD** enable [elementdata_whitelisted](/reference/Server_mtaserver.conf#elementdata_whitelisted) in [mtaserver.conf](/reference/Server_mtaserver.conf) to protect your server simple cheats.
+Use the `clientChangesPolicy` parameter in [setElementData](/reference/setElementData) to allow some changes.
+</VersionBox>
+
+Read more about element data security [here](/articles/script-security#securing-setelementdata).
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:Element',
+        'reference:setElementData',
+        'reference:getElementData',
+        'reference:getAllElementData',
+        'reference:removeElementData',
+        'reference:addElementDataSubscriber',
+        'reference:hasElementDataSubscriber',
+        'reference:removeElementDataSubscriber',
+        'reference:onElementDataChange',
+        'reference:onClientElementDataChange',
+        'reference:onPlayerChangesProtectedData',
+])} currentId='' />
+
+</AutoStarlightPage>
