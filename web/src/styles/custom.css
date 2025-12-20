@@ -37,8 +37,15 @@
 
 .see-also-section {
     margin-top: 4rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 1.5rem;
+}
+
+:root[data-theme='dark'] .see-also-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme='light'] .see-also-section {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .code-example {
