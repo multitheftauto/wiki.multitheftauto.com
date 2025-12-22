@@ -116,35 +116,33 @@ import { functionTypePrettyName } from "@src/utils/functions";
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const title = document.querySelector(".page-title");
-        const sizeClasses = ["size-h2", "size-h3", "size-h4"];
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector(".page-title");
+  const sizeClasses = ["size-h2", "size-h3", "size-h4"];
 
-        function adjustTitle() {
-            if (!title) return;
+  function adjustTitle() {
+    if (!title) return;
 
-            title.classList.remove(...sizeClasses);
+    title.classList.remove(...sizeClasses);
 
-            requestAnimationFrame(() => {
-                const lineHeight = parseFloat(
-                    getComputedStyle(title).lineHeight,
-                );
+    requestAnimationFrame(() => {
+      const lineHeight = parseFloat(getComputedStyle(title).lineHeight);
+      let lines = Math.round(title.scrollHeight / lineHeight);
 
-                for (const sizeClass of sizeClasses) {
-                    title.classList.remove(...sizeClasses);
-                    if (sizeClass) title.classList.add(sizeClass);
+      if (lines <= 1) return;
 
-                    const lines = Math.round(title.scrollHeight / lineHeight);
-                    console.log(lines);
+      for (const sizeClass of sizeClasses) {
+        title.classList.remove(...sizeClasses);
+        title.classList.add(sizeClass);
 
-                    if (lines <= 1) {
-                        break;
-                    }
-                }
-            });
-        }
+        lines = Math.round(title.scrollHeight / lineHeight);
 
-        adjustTitle();
-        window.addEventListener("resize", adjustTitle);
+        if (lines <= 1) break;
+      }
     });
+  }
+
+  adjustTitle();
+  window.addEventListener("resize", adjustTitle);
+});
 </script>
