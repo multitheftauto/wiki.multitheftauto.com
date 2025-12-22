@@ -14,11 +14,7 @@ if (!content && Astro.slots.has('default')) {
   slotMarkdown = await Astro.slots.render('default');
 }
 
-const rawContent = content ?? slotMarkdown;
-
-if (!rawContent) {
-  throw new Error('EnhancedMarkdown requires content prop or slot content.');
-}
+const rawContent = content ?? slotMarkdown ?? "";
 
 // We shouldn't this as we're now organizing pages in folders
 // TODO let's move away from MediaWiki links in the future
