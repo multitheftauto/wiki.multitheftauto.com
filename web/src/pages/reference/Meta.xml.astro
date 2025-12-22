@@ -34,7 +34,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
             <li><strong>src:</strong> The file name of the source code. Since version <strong>1.6.0 r22430</strong>, it is possible to provide paths using <a href="https://en.wikipedia.org/wiki/Glob_(programming)">glob</a> format. Check <a href="#glob-example">example</a>.</li>
             <li><strong>type:</strong> The type of source code: "client", "server" or "shared".</li>
             <NoteBox type='info'>A shared script will be ran for both client and server, but separately as usual (basically adds the script twice: once for server and once for client).</NoteBox>
-            <li><strong>cache:</strong> When the script file type is <code>client</code>, this setting controls whether the file is saved on the clients' hard drive. If you are concerned about your scripts security, make sure to read <a href="/articles/Script Security">Script security guide</a>. Default is <code>true</code>. Using <code>false</code> will mean the file is not saved.</li>
+            <li><strong>cache:</strong> When the script file type is <code>client</code>, this setting controls whether the file is saved on the clients' hard drive. If you are concerned about your scripts security, make sure to read <a href="/articles/Script-security">Script security guide</a>. Default is <code>true</code>. Using <code>false</code> will mean the file is not saved.</li>
             <NoteBox type='info'><code>cache=false</code> files are started at the client first, so lua file load order might differ when mixing cache settings.</NoteBox>
             <li><strong>validate:</strong> If set to <code>false</code>, compatibility checks are skipped.</li>
         </ul>
@@ -64,7 +64,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
             <li><strong>type:</strong> The type of the config file: "client" or "server".</li>
         </ul>
 
-        <li><strong>&lt;export/&gt;</strong> This exports functions from this resource, so other resources can use them with <a href="reference/call">call</a>.</li>
+        <li><strong>&lt;export/&gt;</strong> This exports functions from this resource, so other resources can use them with <a href="/reference/call">call</a>.</li>
         <ul>
             <li><strong>function:</strong> The function name.</li>
             <li><strong>type:</strong> Whether function is exported server-side or client-side (valid values are: "client", "server" and "shared").</li>
@@ -79,7 +79,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
             <li><strong>raw:</strong> The html file is not parsed by the Lua interpreter and is treated as binary data. Must be used for binary files (images mainly) (true/false).</li>
         </ul>
 
-        <li><strong>&lt;settings/&gt;</strong> Most gamemodes use <a href="/articles/Settings system">settings system</a> to let server admins to configure it how they like. For instance you could set round time and then use <a href="/reference/get">get</a> and <a href="/reference/set">set</a> to get the value or change it, respectively.</li>
+        <li><strong>&lt;settings/&gt;</strong> Most gamemodes use <a href="/reference/Settings_system">settings system</a> to let server admins to configure it how they like. For instance you could set round time and then use <a href="/reference/get">get</a> and <a href="/reference/set">set</a> to get the value or change it, respectively.</li>
         <ul>
             <li><strong>&lt;setting/&gt;</strong> Resource settings can be accessed by resource and Admin panel, possible parameters are:</li>
             <ul>
@@ -99,7 +99,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
             <li><strong>both:</strong> The minimum client and server version (instead of the previous two attributes).</li>
         </ul>
         
-        <li><strong>&lt;aclrequest/&gt;</strong> A list of <a href="/articles/Access Control List">ACL</a> rights this resource will need. Any user with admin permission can accept or reject a resource ACL request by using the command: <code>/aclrequest [list/allow/deny] &lt;resourceName&gt; [&lt;rights&gt;/all]</code></li>
+        <li><strong>&lt;aclrequest/&gt;</strong> A list of <a href="/reference/Access_Control_List">ACL</a> rights this resource will need. Any user with admin permission can accept or reject a resource ACL request by using the command: <code>/aclrequest [list/allow/deny] &lt;resourceName&gt; [&lt;rights&gt;/all]</code></li>
         <ul>
             <li><strong>&lt;right/&gt;</strong> an individual right.</li>
             <ul>
@@ -108,7 +108,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
             </ul>
         </ul>
 
-        <li><strong>&lt;sync_map_element_data/&gt;</strong> Controls whether map <a href="/reference/Element Data">element data</a> such as <code>PosX</code> and <code>DoubleSided</code> are transferred to the client. This data is usually not required by most gamemodes or resources. (Map Editor and Interiors require this to be not set to <code>false</code> to work). When set in a gamemode <strong>meta.xml</strong>, the setting will apply to all maps loaded by that resource.</li>
+        <li><strong>&lt;sync_map_element_data/&gt;</strong> Controls whether map <a href="/reference/Element_data">element data</a> such as <code>PosX</code> and <code>DoubleSided</code> are transferred to the client. This data is usually not required by most gamemodes or resources. (Map Editor and Interiors require this to be not set to <code>false</code> to work). When set in a gamemode <strong>meta.xml</strong>, the setting will apply to all maps loaded by that resource.</li>
         <ul>
             <li><strong>false:</strong> Disable transfer of map element data for all resources. This can reduce map download times considerably.</li>
             <li><strong>true:</strong> Enable transfer of map element data for all resources. (If <code>false</code> and <code>true</code> are set in different resources, <code>true</code> will have priority and all resources will transfer map element data).</li>
