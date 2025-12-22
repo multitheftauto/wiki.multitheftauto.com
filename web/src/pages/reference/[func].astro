@@ -111,11 +111,11 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
     )}
 
     <!-- Description -->
-    {funcInfo.version ? (() => {
+    {funcInfo.version ? (
       <VersionBox added={funcInfo.version.added || ""} updated={funcInfo.version.updated || ""} removed={funcInfo.version.removed || ""}>
         <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
       </VersionBox>
-    })() : (
+    ) : (
       <ItemDescription description={funcInfo.description} requiresReview={funcInfo.requiresReview} />
     )}
 
