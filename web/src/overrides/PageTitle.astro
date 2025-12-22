@@ -1,12 +1,19 @@
 ---
-import { functionTypePrettyName } from '@src/utils/functions';
+import { functionTypePrettyName } from "@src/utils/functions";
 ---
-<div class="page-title-container">
-    <h1>{Astro.locals.starlightRoute.entry.data.title}</h1>
 
-    <div data-pagefind-ignore class="type-badge type-badge--client">{functionTypePrettyName['client']}</div>
-    <div data-pagefind-ignore class="type-badge type-badge--server">{functionTypePrettyName['server']}</div>
-    <div data-pagefind-ignore class="type-badge type-badge--shared">{functionTypePrettyName['shared']}</div>
+<div class="page-title-container">
+    <h1 class="page-title">{Astro.locals.starlightRoute.entry.data.title}</h1>
+
+    <div data-pagefind-ignore class="type-badge type-badge--client">
+        {functionTypePrettyName["client"]}
+    </div>
+    <div data-pagefind-ignore class="type-badge type-badge--server">
+        {functionTypePrettyName["server"]}
+    </div>
+    <div data-pagefind-ignore class="type-badge type-badge--shared">
+        {functionTypePrettyName["shared"]}
+    </div>
 </div>
 
 <style is:global>
@@ -34,7 +41,7 @@ import { functionTypePrettyName } from '@src/utils/functions';
 <style>
     .type-badge {
         font-size: 12px;
-        border-radius: .25rem;
+        border-radius: 0.25rem;
         text-transform: uppercase;
         font-weight: bold;
         display: none;
@@ -50,13 +57,6 @@ import { functionTypePrettyName } from '@src/utils/functions';
         color: var(--color-type-shared);
     }
 
-	h1 {
-		font-size: var(--sl-text-h1);
-		line-height: var(--sl-line-height-headings);
-		font-weight: 600;
-		color: var(--sl-color-white);
-	}
-
     .page-title-container {
         display: flex;
         justify-content: flex-start;
@@ -68,10 +68,29 @@ import { functionTypePrettyName } from '@src/utils/functions';
         position: relative;
     }
 
+    .page-title {
+        font-size: var(--sl-text-h1);
+        line-height: var(--sl-line-height-headings);
+        font-weight: 600;
+        color: var(--sl-color-white);
+    }
+
+    .page-title.size-h2 {
+        font-size: var(--sl-text-h2);
+    }
+
+    .page-title.size-h3 {
+        font-size: var(--sl-text-h3);
+    }
+
+    .page-title.size-h4 {
+        font-size: var(--sl-text-h4);
+    }
+
     @media (width >= 48rem) {
         .type-badge {
             font-size: initial;
-            padding: .15rem 1.5rem;
+            padding: 0.15rem 1.5rem;
         }
 
         .type-badge.type-badge--client {
@@ -95,3 +114,37 @@ import { functionTypePrettyName } from '@src/utils/functions';
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const title = document.querySelector(".page-title");
+        const sizeClasses = ["size-h2", "size-h3", "size-h4"];
+
+        function adjustTitle() {
+            if (!title) return;
+
+            title.classList.remove(...sizeClasses);
+
+            requestAnimationFrame(() => {
+                const lineHeight = parseFloat(
+                    getComputedStyle(title).lineHeight,
+                );
+
+                for (const sizeClass of sizeClasses) {
+                    title.classList.remove(...sizeClasses);
+                    if (sizeClass) title.classList.add(sizeClass);
+
+                    const lines = Math.round(title.scrollHeight / lineHeight);
+                    console.log(lines);
+
+                    if (lines <= 1) {
+                        break;
+                    }
+                }
+            });
+        }
+
+        adjustTitle();
+        window.addEventListener("resize", adjustTitle);
+    });
+</script>
