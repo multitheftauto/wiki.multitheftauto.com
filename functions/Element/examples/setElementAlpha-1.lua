@@ -1,4 +1,4 @@
 function invisible()
-        setElementAlpha(localPlayer, 0)
+    setElementAlpha(localPlayer, 0)
 end
-addCommandHandler ( "invisible", invisible )
+addCommandHandler("invisible", invisible)

@@ -1,28 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementChildrenCount
 shared:
   name: getElementChildrenCount
   description: This function returns the number of children an element has. Note that
     only the direct children are counted and not elements that are further down the
-    [element tree](/wiki/Element_tree "Element tree").
+    [element tree](/reference/Element).
   parameters:
   - name: parent
     type: element
-    description: the parent element
+    description: The parent element.
   examples:
   - path: examples/getElementChildrenCount-1.lua
-    description: 'To get the number of children the ''team1'' element has:'
-    side: server
-  - path: examples/getElementChildrenCount-2.lua
-    description: 'You could use the following code:'
-    side: server
+    description: |
+      To get the number of children the **team1** element has:
+
+      ```xml
+      <team1 id="red">
+          <spawnpoint id="spawnpoint_0" posX="2507.8715820313" posY="2772.6071777344" posZ="10.8203125" rot="270" skin="285"/>
+          <spawnpoint id="spawnpoint_1" posX="2508.060546875" posY="2780.3647460938" posZ="10.8203125" rot="270" skin="285"/>
+          <spawnpoint id="spawnpoint_2" posX="2508.0053710938" posY="2776.2897949219" posZ="10.8203125" rot="270" skin="285"/>
+          <spawnpoint id="spawnpoint_3" posX="2510.6899414063" posY="2778.3745117188" posZ="10.8203125" rot="270" skin="285"/>
+      </team1>
+      ```
+
+      You could use the following code. Note that this does not only count spawnpoint elements, but all child elements. Thus if there would be child elements of other types, the message would be wrong and you'd have to loop through the children manually, checking the type of each.
+  - path: examples/getElementChildrenCount_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns an int with the number of child elements, or false if the
+    - type: int|false
+      name: childrens count
+    description: Returns an [[int]] with the number of child elements, or **false** if the
       parent element does not exist.
   oop:
     element: element
     method: getChildrenCount
+    variable: childrenCount
     static: false
-  requires_review: true

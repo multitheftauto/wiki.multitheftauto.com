@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementChild
-shared:
+shared: &shared
   name: getElementChild
   description: This function returns one of the child elements of a given parent element.
     The child element is selected by its index (0 for the first child, 1 for the second
@@ -7,31 +6,48 @@ shared:
   parameters:
   - name: parent
     type: element
-    description: the element above the one to be returned in the hierarchy.
+    description: The element above the one to be returned in the hierarchy.
   - name: index
     type: int
-    description: the element's index (0 for the first element, 1 for the second, etc).
-  examples:
-  - path: examples/getElementChild-1.lua
-    description: 'If the .map file contains:'
-    side: server
-  - path: examples/getElementChild-2.lua
-    description: 'This outputs the name of the specified base. For example: ''teamBase
-      0'' for the first base.'
-    side: server
-  - path: examples/getElementChild-3.lua
-    description: 'Note that if there are other child elements, you''d have to check
-      whether the element is a base with thegetElementTypefunction. For example: ''teamBase
-      3'' would output ''Team Base 3: Factory'' with the .map file below, even though
-      it''s no base.'
-    side: server
+    description: The element's index (0 for the first element, 1 for the second, etc).
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns the requested element if it exists, or false if it doesn't.
+    - type: element|false
+      name: child
+    description: Returns the requested element if it exists, or **false** if it doesn't.
   oop:
     element: element
     method: getChild
     static: false
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/getElementChild-1.lua
+    description: |
+      If the .map file contains:
+
+      ```xml
+      <team1 id="red">
+        <base name="Mountain Top" />
+        <base name="Docks" />
+        <base name="Airport" />
+      </team1>
+      ```
+
+      Note that if there are other child elements, you'd have to check whether the element is a base with the [[getElementType]] function.
+      ```xml
+      <team1 id="red">
+        <base name="Mountain Top" />
+        <base name="Docks" />
+        <base name="Airport" />
+        <target name="Factory" />
+      </team1>
+      ```
+
+      For example: `teamBase 3` would output `Team Base 3: Factory` with the .map file below, even though it's no base.
+
+      This outputs the name of the specified base. For example: `teamBase 0` for the first base.
+  - path: examples/getElementChild_OOP-1.lua
+    description: This outputs the name of the specified base. For example `teamBase 0` for the first base.
+    oop: true

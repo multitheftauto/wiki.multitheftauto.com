@@ -1,36 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAttachedOffsets
-shared:
+shared: &shared
   name: getElementAttachedOffsets
   description: This function returns the offsets of an element that has been attached
-    to another element using [attachElements](/wiki/AttachElements "AttachElements").
+    to another element using [[attachElements]].
   parameters:
   - name: theElement
     type: element
     description: The attached element.
-  examples:
-  - path: examples/getElementAttachedOffsets-1.lua
-    description: Example:This example creates a car with a minigun
-    side: client
   returns:
     values:
+    - type: float|false
+      name: posX
     - type: float
-      name: value1
+      name: posY
     - type: float
-      name: value2
+      name: posZ
     - type: float
-      name: value3
+      name: rotX
     - type: float
-      name: value4
+      name: rotY
     - type: float
-      name: value5
-    - type: float
-      name: value6
-    description: Returns 6 floats , of which the first 3 indicate the position offset
-      (x, y, z), and the last 3 indicate the rotation offset (x, y, z), if successful.
-      false otherwise.
+      name: rotZ
+    description: Returns 6 floats, of which the first 3 indicate the position offset
+      (x, y, z), and the last 3 indicate the rotation offset (x, y, z), if successful. **false** otherwise.
   oop:
     element: element
     method: getAttachedOffsets
     static: false
   pair: setElementAttachedOffsets
-  requires_review: true
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/getElementAttachedOffsets-1.lua
+    description: This example creates a car with a minigun.
+  - path: examples/getElementAttachedOffsets_OOP-1.lua
+    oop: true

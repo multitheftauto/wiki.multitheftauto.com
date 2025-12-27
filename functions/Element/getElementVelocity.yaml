@@ -1,31 +1,41 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementVelocity
-shared:
+shared: &shared
   name: getElementVelocity
   description: This function returns three floats containing the velocity (movement
     speeds) along the X, Y, and Z axis respectively. This means that velocity values
-    can be positive and negative for each axis.
+    can be positive and negative for each axis. Supported element types are [[player]], [[ped]], [[vehicle]], [[object]], [[weapon]], [[projectile]] and [[sound]].
   parameters:
   - name: theElement
     type: element
     description: The element you wish to retrieve the velocity of.
   examples:
-  - path: examples/getElementVelocity-1.lua
-    description: This example retrieves, calculates, and displays the speed of a random
-      player.
-    side: server
+  - path: examples/getElementVelocity_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: float float float
-      name: value
-    description: If succesful, returns three float s that represent the element's
-      current velocity along the x , y , and z axis respectively. This function can
-      fail if the element is a player in a car. Use the vehicle element in this case.
-      It will also fail if the element specified does not have a velocity, or does
-      not exist. In case of failure, the first return value will be false .
+    - type: float|false
+      name: vx
+    - type: float
+      name: vy
+    - type: float
+      name: vz
+    description: If succesful, returns three floats that represent the element's
+      current velocity along the x, y and z axis respectively.
+      This function will fail if the element specified does not have a velocity, or does
+      not exist. In case of failure, the first return value will be **false**.
   oop:
     element: element
     method: getVelocity
     variable: velocity
     static: false
+  notes:
+    - type: info
+      content: |
+        - This function can **fail** if the element is a [[player]] in a car. Use the [[vehicle]] element in this case.
+        - The returned values are expressed in GTA units per [1/50th of a second](http://forum.mtasa.com/viewtopic.php?f=91&t=31225). A GTA Unit is [equal to one metre](http://gta.wikia.com/Unit#GTA3.2C_GTAVC_.26_GTASA).
   pair: setElementVelocity
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/getElementVelocity-1.lua
+    description: This example retrieves, calculates, and displays the speed of a random player.

@@ -1,73 +1,47 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementsByType
-client:
+shared: &shared
   name: getElementsByType
   description: This function is used to retrieve a list of all elements of the specified
     type. This can be useful, as it disregards *where* in the element tree it is.
-    It can be used with either the built in types (listed below) or with any custom
+    It can be used with either the built in types or with any custom
     type used in a .map file. For example, if there is an element of type "flag" (e.g.
     \<flag /\>) in the .map file, the using "flag" as the type argument would find
     it.
   parameters:
   - name: theType
     type: string
-    description: MISSING_PARAM_DESC
-  - name: element startat
-    type: '['
-    description: MISSING_PARAM_DESC
-    default: getRootElement(
-  examples: []
+    description: The type of element you want a list of. This is the same as the tag name in the .map file, so this can be used with a custom element type if desired. See [element types](/reference/Element).
+  - name: startat
+    type: element
+    description: The [[element]] the search should start at. Children of this element are searched, siblings or parents will not be found. By default, this is the root element which should suit most uses.
+    default: getRootElement()
+  - name: streamedIn
+    type: bool
+    description: If **true**, function will only return elements that are streamed in.
+    default: 'false'
+  examples: 
+    - path: examples/getElementsByType-1.lua
+      description: This example retrieves a table of the players in the server, and checks whether or not each one is in a vehicle.
+    - path: examples/getElementsByType-2.lua
+      description: This example retrieves a table of the teams in the server, and display them in chat.
+    - path: examples/getElementsByType_OOP-1.lua
+      oop: true
   returns:
     values:
-    - type: table
-      name: value
-    description: Returns a table containing all the elements of the specified type.
-      Returns an empty table if there are no elements of the specified type. Returns
-      false if the string specified is invalid (or not a string).
-  oop: &id001
+    - type: table|false
+      name: elements table
+    description: Returns a [[table]] containing all the elements of the specified type.
+      Returns an empty table if there are no elements of the specified type. Returns **false** if the string specified is invalid (or not a string).
+  oop:
     element: Element
-    note: This function is a static function underneath the Element class.
-    method: )
+    method: getAllByType
     static: true
-  requires_review: true
+
 server:
-  name: getElementsByType
-  description: This function is used to retrieve a list of all elements of the specified
-    type. This can be useful, as it disregards *where* in the element tree it is.
-    It can be used with either the built in types (listed below) or with any custom
-    type used in a .map file. For example, if there is an element of type "flag" (e.g.
-    \<flag /\>) in the .map file, the using "flag" as the type argument would find
-    it.
-  parameters:
-  - name: theType
-    type: string
-    description: MISSING_PARAM_DESC
-  - name: element startat
-    type: '['
-    description: MISSING_PARAM_DESC
-    default: getRootElement(
+  <<: *shared
+  ignore_parameters:
+    - streamedIn
   examples:
-  - path: examples/getElementsByType-1.lua
-    description: 'Example 1:This example retrieves a table of the players in the server,
-      and checks whether or not each one is in a vehicle:'
-    side: server
-  - path: examples/getElementsByType-2.lua
-    description: 'Example 2:This example retrieves a table of the teams in the server,
-      and display them in chat:'
-    side: server
-  - path: examples/getElementsByType-3.lua
-    description: 'Example 3:This shows how you could create a new element to describe
-      a gas station:'
-    side: server
-  - path: examples/getElementsByType-4.lua
-    description: 'Example 4:This example loops trough all connected players and redirects
-      them to another server host:'
-    side: server
-  returns:
-    values:
-    - type: table
-      name: value
-    description: Returns a table containing all the elements of the specified type.
-      Returns an empty table if there are no elements of the specified type. Returns
-      false if the string specified is invalid (or not a string).
-  oop: *id001
-  requires_review: true
+    - path: examples/getElementsByType-3.lua
+      description: This shows how you could create a new element to describe a gas station.
+    - path: examples/getElementsByType-4.lua
+      description: This example loops trough all connected players and redirects them to another server host.

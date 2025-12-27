@@ -1,11 +1,8 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementData
-client:
+shared: &shared
   name: setElementData
-  description: This function stores [element data](/wiki/Element_data "Element data")
+  description: This function stores [element data](/reference/Element_data)
     under a certain key, attached to an element. Element data set using this is then
-    synced with all clients and the server. The data can contain server\-created elements,
-    but you should avoid passing data that is not able to be synced such as xmlnodes,
-    acls, aclgroups etc.
+    synced with all clients and the server (by default).
   parameters:
   - name: theElement
     type: element
@@ -15,79 +12,81 @@ client:
     description: The key you wish to store the data under. (Maximum 128 characters.)
   - name: value
     type: var
-    description: The value you wish to store. See element data for a list of acceptable
-      datatypes.
-  - name: synchronize
-    type: bool
-    description: Determines whether or not the data will be synchronized with the
-      server.
-    default: 'true'
-  examples: []
+    description: The value you wish to store. See [element data restrictions](/reference/Element_data#restrictions).
+  - name: syncMode
+    type: string
+    description: Synchronization mode.
+    templateList: elementdata-sync-modes
+    default: '"broadcast"'
+  - name: clientChangesPolicy
+    type: string
+    description: Client changes policy.
+    templateList: elementdata-client-changes-policies
+    default: '"default"'
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the data was set successfully, false otherwise.
-  oop: &id001
+      name: result
+    description: Returns **true** if the data was set successfully, **false** otherwise.
+  oop:
     element: element
     method: setData
     static: false
   pair: getElementData
-  notes: &id002
-  - type: info
-    content: See Script security for tips on preventing cheaters when using events
-      and element data.
-  - type: info
-    content: For performance reasons, never use setElementData in events that fire
-      often (like onClientRender ) without further optimization or conditions. In
-      fact, using element data in general, can take such a toll on performance that
-      not using it unless strictly necessary (e.g use alternatives such as storing
-      data in tables) is recommended.
-  - type: tip
-    content: A simple and efficient way to make a variable known to the server and
-      clients is to use setElementData on the root element.
-  requires_review: true
-server:
-  name: setElementData
-  description: This function stores [element data](/wiki/Element_data "Element data")
-    under a certain key, attached to an element. Element data set using this is then
-    synced with all clients and the server. The data can contain server\-created elements,
-    but you should avoid passing data that is not able to be synced such as xmlnodes,
-    acls, aclgroups etc.
+  notes:
+    - type: tip
+      content: |
+        - A simple and efficient way to make a variable known to the server and clients is to use **setElementData** on the [[root]] element.
+        - See [element data perfromance](/reference/Element_data#performance) for tips on optimizing the use of element data.
+    - type: info
+      content: |
+        - The data can contain server\-created elements,
+          but you should avoid passing data that is not able to be synced such as [xmlnodes](/reference/xmlnode),
+          [acls](/reference/acl), [aclgroups](/reference/aclgroup) etc.
+        - A subscription mode has been introduced for **setElementData** serverside. When setting data in subscription mode, only clients that are added through [[addElementDataSubscriber]] will receive the data, which is good for performance. Note this mode only works when setting element data serverside. Setting data clientside still sends the update to all clients if `'synchronize'` is set to **true**.
+    - type: warning
+      content: For performance reasons, **never use setElementData (with sync = true) in events that fire often** (like [[onClientRender]]) without further optimization or conditions. In fact, using element data in general, can take such a toll on performance that not using it unless strictly necessary (e.g use alternatives such as storing data in [tables](/reference/table)) is recommended.
+    - type: important
+      content: |
+        - As element data is synced to all clients (by default), it can generate a lot of network traffic and be heavy on performance. Events are much more efficient for sending data from a client to the server only, or from the server to a specific client. Usage of element data should be discouraged where your goal can be achieved with events, and [tables](/reference/table) for storing and retrieving data. You can also use the subscription mode on serverside.
+        - See [Element data security](/reference/Element_data#security) for tips on preventing cheaters when using events and element data.
+  meta:
+    - changelog:
+        - version: 1.5.8-9.20477
+          description: Added **syncMode** argument.
+        - version: 1.6.0-9.22815
+          description: Added **clientChangesPolicy** argument.
+  version:
+    updated: 1.6.0-9.22815
+
+client:
+  <<: *shared
+  ignore_parameters:
+    - syncMode
+    - clientChangesPolicy
   parameters:
-  - name: theElement
-    type: element
-    description: The element you wish to attach the data to.
-  - name: key
-    type: string
-    description: The key you wish to store the data under. (Maximum 128 characters.)
-  - name: value
-    type: var
-    description: The value you wish to store. See element data for a list of acceptable
-      datatypes.
-  - name: syncMode
-    type: string
-    description: Synchronization mode. "broadcast" - Synchronize to all clients (default
-      behavior). You can also parse true for this option. "local" - Don't synchronize.
-      You can also parse false for this option. "subscribe" - Only synchronize to
-      specific clients. See addElementDataSubscriber and removeElementDataSubscriber
-      .
-    default: '"broadcast"'
-  - name: clientChangesPolicy
-    type: string
-    description: MISSING_PARAM_DESC
-    default: '"default"'
+    - name: theElement
+      type: element
+      description: The element you wish to attach the data to.
+    - name: key
+      type: string
+      description: The key you wish to store the data under. (Maximum 128 characters.)
+    - name: value
+      type: var
+      description: The value you wish to store. See [element data restrictions](/reference/Element_data#restrictions).
+    - name: synchronize
+      type: bool
+      description: Determines whether or not the data will be synchronized with the server.
+      default: 'true'
   examples:
-  - path: examples/setElementData-1.lua
-    description: This example allows a player to add a custom tag onto their nickname,
-      and also reverts it back to normal if they wish.
-    side: server
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the data was set successfully, false otherwise.
-  oop: *id001
-  pair: getElementData
-  notes: *id002
-  requires_review: true
+    - path: examples/setElementData-2.lua
+      description: This example gives the player a score for each kill they make.
+
+server:
+  <<: *shared
+  examples:
+    - path: examples/setElementData-1.lua
+      description: This example allows a player to add a custom tag onto their nickname, and also reverts it back to normal if they wish.
+    - path: examples/setElementData_OOP-1.lua
+      description: This example allow a player to set maximum passengers number for their vehicle.
+      oop: true

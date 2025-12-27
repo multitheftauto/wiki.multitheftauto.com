@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementCollisionsEnabled
 shared:
   name: getElementCollisionsEnabled
   description: This function indicates if a specific element is set to have collisions
@@ -7,20 +6,21 @@ shared:
   parameters:
   - name: theElement
     type: element
-    description: The element for which you want to check whether collisions are enabled
+    description: The element for which you want to check whether collisions are enabled.
   examples:
   - path: examples/getElementCollisionsEnabled-1.lua
     description: This example check if there are any players with collisions disabled.
-    side: server
+  - path: examples/getElementCollisionsEnabled_OOP-1.lua
+    description: This example check if there are any players with collisions disabled.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the collisions are enabled, false otherwise.
+      name: result
+    description: Returns **true** if the collisions are enabled, **false** otherwise.
   oop:
     element: element
     method: getCollisionsEnabled
     variable: collisions
     static: false
   pair: setElementCollisionsEnabled
-  requires_review: true

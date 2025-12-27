@@ -1,8 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementWithinMarker
-shared:
+shared: &shared
   name: isElementWithinMarker
-  description: This function is used to determine if an [element](/wiki/Element "Element")
-    is within a [marker](/wiki/Marker "Marker").
+  description: This function is used to determine if an element
+    is within a [[marker]].
   parameters:
   - name: theElement
     type: element
@@ -10,17 +9,19 @@ shared:
   - name: theMarker
     type: marker
     description: The marker you're checking.
-  examples:
-  - path: examples/isElementWithinMarker-1.lua
-    description: ''
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element is within the marker, false otherwise
+      name: result
+    description: Returns **true** if the element is within the marker, **false** otherwise
   oop:
     element: element
     method: isWithinMarker
     static: false
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/isElementWithinMarker-1.lua
+  - path: examples/isElementWithinMarker_OOP-1.lua
+    oop: true

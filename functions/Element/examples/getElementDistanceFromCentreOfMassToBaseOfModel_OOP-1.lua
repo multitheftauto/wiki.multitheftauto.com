@@ -1,0 +1,2 @@
+local distance = localPlayer.distanceFromCentreOfMassToBaseOfModel
+outputChatBox(tostring(distance))

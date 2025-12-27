@@ -1,27 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementCallPropagationEnabled
-shared:
+shared: &shared
   name: setElementCallPropagationEnabled
-  description: This function enables/disables call propagation on a certain element.
-    Look at the example for a practical application.
+  pair: isElementCallPropagationEnabled
+  description: This function enables/disables call propagation on a certain element. Look at the example for a practical application.
   parameters:
   - name: theElement
     type: element
-    description: The element whose propagation behaviour you'd like to change
+    description: The element whose propagation behaviour you'd like to change.
   - name: enabled
     type: bool
-    description: Whether propagation should be enabled or not
-  examples:
-  - path: examples/setElementCallPropagationEnabled-1.lua
-    description: ''
-    side: client
+    description: Whether propagation should be enabled or not.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true , if the propagation behaviour has been changed successfully,
-      false otherwise.
+      name: result
+    description: Returns **true**, if the propagation behaviour has been changed successfully,
+      **false** otherwise.
   oop:
     element: element
     method: setCallPropagationEnabled
     static: false
-  requires_review: true
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/setElementCallPropagationEnabled-1.lua
+  - path: examples/setElementCallPropagationEnabled_OOP-1.lua
+    oop: true

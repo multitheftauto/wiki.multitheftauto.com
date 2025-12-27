@@ -1,24 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetRootElement
-shared:
+shared: &shared
   name: getRootElement
-  description: 'This function returns the root node of the [element tree](/wiki/Element_tree
-    "Element tree"), called *root*. This node contains every other element: all resource
-    root elements, players and remote clients. It is never destroyed and cannot be
-    destroyed using [destroyElement](/wiki/DestroyElement "DestroyElement").'
-  parameters: []
+  description: This function returns the root node of the [element tree](/reference/Element_tree), called [[root]]. This node contains every other element - all resource root elements, players etc. It is never destroyed and cannot be destroyed using [[destroyElement]]. It is often used to attach handler functions to events triggered for any element, or also to make a scripting function affect all elements.
   examples:
   - path: examples/getRootElement-1.lua
-    description: This example will output the number of loaded resources by countingresourceelements
-      that are children of therootnode.
-    side: server
   returns:
     values:
     - type: element
-      name: value
-    description: Returns the root element .
+      name: root element
+    description: Returns the root [[element]].
   notes:
   - type: info
-    content: All resources have a predefined global variable called root that has
+    content: All resources have a [predefined global variable](/reference/Predefined_variables) called [[root]] that has
       the root element as value. The variable exists server side as well as client
       side.
-  requires_review: true
+
+client:
+  <<: *shared
+  examples:
+    - path: examples/getRootElement-2.lua
+      oop: true

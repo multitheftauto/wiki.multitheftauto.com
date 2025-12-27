@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementAttachedTo
-shared:
+shared: &shared
   name: getElementAttachedTo
   description: This function determines the element that the specified element is
     attached to.
@@ -7,19 +6,23 @@ shared:
   - name: theElement
     type: element
     description: The element you require the information for.
-  examples:
-  - path: examples/getElementAttachedTo-1.lua
-    description: This example defines a console command that outputs the type of the
-      element that the player is attached to.
-    side: server
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns the element that the chosen element is attached to, or false
-      if the element isn't attached to another element.
+    - type: element|false
+      name: '"child" element'
+    description: Returns the [[element]] that the chosen [[element]] is attached to, or **false**
+      if the element isn't attached to another element or invalid element was passed.
   oop:
     element: element
     method: getAttachedTo
+    variable: attachedTo
     static: false
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/getElementAttachedTo-1.lua
+    description: This example defines a console command that outputs the type of the element that the player is attached to.
+  - path: examples/getElementAttachedTo_OOP-1.lua
+    description: This example defines a console command that outputs the type of the element that the player is attached to.
+    oop: true

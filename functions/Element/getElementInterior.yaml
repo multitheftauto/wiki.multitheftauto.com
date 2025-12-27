@@ -1,26 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementInterior
-shared:
+shared: &shared
   name: getElementInterior
-  description: This function allows you to retrieve the interior of any element. An
+  description: This function allows you to retrieve the [interior](/reference/Interior) of any element. An
     interior is the current loaded place, 0 being outside.
   parameters:
   - name: theElement
     type: element
-    description: The element of which you'd like to retrieve the interior
-  examples:
-  - path: examples/getElementInterior-1.lua
-    description: This example shows a player if he is outside or not, when he enters
-      the command 'AmIOutside'.
-    side: server
+    description: The element of which you'd like to retrieve the interior.
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns an int for the interior if theElement is valid, false otherwise.
+    - type: int|false
+      name: interior
+    description: Returns an [[int]] for the interior if element is valid, **false** otherwise.
   oop:
     element: element
     method: getInterior
     variable: interior
     static: false
   pair: setElementInterior
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/getElementInterior-1.lua
+    description: This example shows a player if he is outside or not, when he enters
+      the command `AmIOutside`.
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/getElementInterior_OOP-1.lua
+    oop: true

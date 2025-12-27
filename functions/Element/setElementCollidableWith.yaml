@@ -1,33 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementCollidableWith
-shared:
+client:
   name: setElementCollidableWith
-  description: "This function can be used to set an element to collide with another\
-    \ element. An element with collisions disabled does not interact physically with\
-    \ the other element.  \n\n**Note:** You can only use this function with the element\
-    \ types listed below."
+  description: This function can be used to set an element to collide with another element. An element with collisions disabled does not interact physically with the other element. This can be a [[player]], [[ped]], [[vehicle]], [[object]] or [[weapon]].
   parameters:
   - name: theElement
     type: element
-    description: The element which colliding you want to change
+    description: The element which colliding you want to change.
   - name: withElement
     type: element
-    description: The other element you wish the first entity to collide with
+    description: The other element you wish the first entity to collide with.
   - name: enabled
     type: bool
     description: A boolean to indicate whether elements should be able to collide
-      with eachother ( true ) or not ( false )
+      with each other (true) or not (false).
   examples:
   - path: examples/setElementCollidableWith-1.lua
-    description: ''
-    side: client
+  - path: examples/setElementCollidableWith_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the collisions were set succesfully, false otherwise.
+      name: result
+    description: Returns **true** if the collisions were set succesfully, **false** otherwise.
   oop:
     element: element
     method: setCollidableWith
     static: false
   pair: isElementCollidableWith
-  requires_review: true
+  notes:
+    - type: info
+      content: If you want to completely disable an element's collisions, use [[setElementCollisionsEnabled]].

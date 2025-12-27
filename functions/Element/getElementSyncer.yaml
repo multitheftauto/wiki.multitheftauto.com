@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementSyncer
-shared:
+server:
   name: getElementSyncer
   description: This function gets the syncer of an element. The syncer is the player
     who is in control of the element.
@@ -9,21 +8,20 @@ shared:
     description: The element to get the syncer of.
   examples:
   - path: examples/getElementSyncer-1.lua
-    description: This code will kill the syncer of the first ped created with createPed.
-    side: server
+    description: This code will kill the syncer of the first ped created with [[createPed]].
   - path: examples/getElementSyncer-2.lua
-    description: This code will kill the syncer of the ped created with createPed.
-    side: server
+    description: This code will kill the syncer of the ped created with [[createPed]].
+  - path: examples/getElementSyncer_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns the element that is the syncer of theElement or false if
-      the element does not have a syncer.
+    - type: element|false
+      name: syncer element
+    description: Returns the [[element]] that is the syncer of theElement or **false** if
+      the element does not have a syncer or invalid element passed.
   oop:
     element: element
     method: getSyncer
     variable: syncer
     static: false
   pair: setElementSyncer
-  requires_review: true

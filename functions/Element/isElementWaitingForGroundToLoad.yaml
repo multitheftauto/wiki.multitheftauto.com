@@ -1,24 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementWaitingForGroundToLoad
-shared:
+client:
   name: isElementWaitingForGroundToLoad
   description: This function checks whether MTA has frozen an element because it is
-    above map objects which are still loading or not.
+    above map objects which are still loading or not. This can be a [[player]], [[ped]] or [[vehicle]].
   parameters:
   - name: theElement
     type: element
-    description: the element to check its frozen waiting for custom map objects to
-      load status. It can be a vehicle , ped or player .
+    description: The element to check its frozen waiting for custom map objects to
+      load status.
   examples:
   - path: examples/isElementWaitingForGroundToLoad-1.lua
     description: The next code snippet outputs a message when a vehicle respawns far
-      away from players, above anobject.
-    side: client
+      away from players, above an object.
+  - path: examples/isElementWaitingForGroundToLoad_OOP-1.lua
+    description: The next code snippet outputs a message when a vehicle respawns far away from players, above an object.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the specified element is frozen waiting for collisions
-      of custom map objects to load. Returns false if it's not or if the specified
+      name: result
+    description: Returns **true** if the specified element is frozen waiting for collisions
+      of custom map objects to load. Returns **false** if it's not or if the specified
       element is invalid.
   oop:
     element: element
@@ -28,5 +29,4 @@ shared:
   notes:
   - type: info
     content: When vehicles are frozen waiting for collisions to load they do not overwrite
-      the frozen status set by setElementFrozen .
-  requires_review: true
+      the frozen status set by [[setElementFrozen]].

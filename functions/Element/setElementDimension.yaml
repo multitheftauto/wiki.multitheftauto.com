@@ -1,9 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementDimension
-shared:
+shared: &shared
   name: setElementDimension
-  description: This function allows you to set the [dimension](/wiki/Dimension "Dimension")
-    of an element. See [Dimension](/wiki/Dimension "Dimension") for the in\-depth
-    explanation and the list of valid element types.
+  description: This function allows you to set the [dimension](/reference/Dimension) of an element.
   parameters:
   - name: theElement
     type: element
@@ -13,22 +10,23 @@ shared:
     description: An integer representing the dimension ID. You can also use -1 to
       make the element visible in all dimensions (only valid to objects). Valid values
       are 0 to 65535.
-  examples:
-  - path: examples/setElementDimension-1.lua
-    description: In this example the player's dimension is set to ID 1 when they enter
-      a vehicle, and set back to dimension 0 when they exit the vehicle.
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: 'Returns true if theElement and dimension are valid, false otherwise.
-
-      Also returns false if theElement is a player and it''s not alive.'
+      name: result
+    description: Returns **true** if theElement and dimension are valid, **false** otherwise. Also returns **false** if `theElement` is a [[player]] and it's not alive.
   oop:
     element: element
     method: setDimension
     variable: dimension
     static: false
   pair: getElementDimension
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementDimension-1.lua
+    description: In this example the player's dimension is set to ID 1 when they enter
+      a vehicle, and set back to dimension 0 when they exit the vehicle.
+  - path: examples/setElementDimension_OOP-1.lua
+    oop: true

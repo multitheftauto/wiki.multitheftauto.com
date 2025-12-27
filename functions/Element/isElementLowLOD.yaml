@@ -1,6 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementLowLOD
 shared:
   name: isElementLowLOD
+  pair: setLowLODElement
   description: This function reveals if an element is low LOD.
   parameters:
   - name: theElement
@@ -8,23 +8,16 @@ shared:
     description: The element whose low LOD status we want to get.
   examples:
   - path: examples/isElementLowLOD-1.lua
-    description: This example will show how many low lods objects is around you.
-    side: client
-  - path: examples/isElementLowLOD-2.lua
-    description: This example will show how many low lods objects is around all the
-      world.
-    side: server
+    description: This example will show how many low lods objects is around all the world.
+  - path: examples/isElementLowLOD_OOP-1.lua
+    description: This example will show how many low lods objects is around all the world.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element is low LOD, false otherwise.
+      name: result
+    description: Returns **true** if the element is low LOD, **false** otherwise.
   oop:
     element: element
     method: isLowLOD
     static: false
-  notes:
-  - type: info
-    content: See setLowLODElement for the list of valid element types that can be
-      assigned with that function.
-  requires_review: true

@@ -1,3 +1,2 @@
-<map mod="deathmatch">
-    <object name="object (1)" posX="100" posY="200" posZ="20" rotX="0" rotY="0" rotZ="0" doublesided="true" model="3860"/>
-</map>
+local obj = createObject(7488,1282.599609375, 1002, -6.0999999046326, 0, 0, 122.98101806641)
+setElementDoubleSided(obj, true)

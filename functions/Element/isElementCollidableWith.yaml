@@ -1,29 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementCollidableWith
-shared:
+client:
   name: isElementCollidableWith
-  description: "This function can be used to check whether specified element is collidable\
-    \ with another element.  \n\n**Note:** You can only use this function with the\
-    \ element types listed below."
+  description: This function can be used to check whether specified element is collidable with another element. This can be a [[player]], [[ped]], [[vehicle]] or [[object]].
   parameters:
   - name: theElement
     type: element
-    description: The element which colliding you want to get
+    description: The element which colliding you want to get.
   - name: withElement
     type: element
     description: The other element which colliding with the first entity you want
-      to get
+      to get.
   examples:
   - path: examples/isElementCollidableWith-1.lua
-    description: ''
-    side: client
+    description: This example adds the command `togglecol` which toggles the collision between the player and ped.
+  - path: examples/isElementCollidableWith_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the elements collide with each other, false otherwise.
+      name: result
+    description: Returns **true** if the elements collide with each other, **false** otherwise.
   oop:
     element: element
     method: isCollidableWith
     static: false
   pair: setElementCollidableWith
-  requires_review: true

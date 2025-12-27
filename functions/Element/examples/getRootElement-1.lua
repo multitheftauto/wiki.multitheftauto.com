@@ -1,11 +1,5 @@
---By default, predefined variable 'root' is getRootElement()
-local rootChildren = getElementChildren( root )
+local players = getElementsByType('player', getRootElement()) -- You can also use predefined global variable 'root' instead
+outputChatBox("Players online: "..#players)
 
-local resourceCount = 0
-for k, child in ipairs( rootChildren ) do
-	if getElementType( child ) == "resource" then
-		resourceCount = resourceCount + 1
-	end
-end
-
-outputChatBox( "There are " .. resourceCount .. " loaded resources." )
+local vehicles = getElementsByType('vehicle', root) -- Use predefined global variable 'root'
+outputChatBox("Vehicles on the map: "..#vehicles)

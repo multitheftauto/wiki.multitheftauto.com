@@ -1,33 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBoneQuaternion
-shared:
+client:
   name: getElementBoneQuaternion
-  description: "This function retrieves how a particular bone rotates in relation\
-    \ to the element.  \n\nThe use of [quaternions](https://en.wikipedia.org/wiki/Quaternion)\
-    \ are more effective and do not generate issues like gimbal lock that might arise\
-    \ with [Euler angles](https://en.wikipedia.org/wiki/Euler_angles), so they are\
-    \ a preferable choice for rotation."
+  pair: setElementBoneQuaternion
+  description: This function retrieves how a particular bone rotates in relation to the element. This can be a [[player]] or [[ped]].
   parameters:
   - name: ped
     type: element
-    description: The element (ped or player) from which the bone's rotation will be
-      retrieved.
+    description: The element from which the bone's rotation will be retrieved.
   - name: bone
     type: int
-    description: The ID of the bone to retrieve the quaternion of.
+    description: The ID of the bone to retrieve the quaternion of. See [Bone IDs](/reference/ID_Lists/Bones).
   examples:
   - path: examples/getElementBoneQuaternion-1.lua
-    description: This example retrieves the rotation of the player's head in quaternion.The
-      retrieved values ​​can be used for calculations.
-    side: client
+    description: This example retrieves the rotation of the player's head in quaternion. The retrieved values can be used for calculations.
   returns:
     values:
-    - type: int
-      name: value1
-    - type: int
-      name: value2
-    - type: int
-      name: value3
-    - type: int
-      name: value4
-    description: 'Returns four float values:'
-  requires_review: true
+    - type: float|false
+      name: The quaternion's coefficient of the 𝑖 component, representing rotation around the x-axis.
+    - type: float
+      name: The quaternion's coefficient of the 𝑗 component, representing rotation around the y-axis.
+    - type: float
+      name: The quaternion's coefficient of the 𝑘 component, representing rotation around the z-axis.
+    - type: float
+      name: The real part of the quaternion, which is linked to the angle of rotation.
+    description: 'Returns four floats: x, y, z, w, or **false** if invalid arguments were passed.'
+  notes:
+    - type: tip
+      content: The use of [quaternions](https://en.wikipedia.org/wiki/Quaternion) are more effective and do not generate issues like [gimbal lock](https://en.wikipedia.org/wiki/Gimbal_lock) that might arise with [Euler angles](https://en.wikipedia.org/wiki/Euler_angles), so they are a preferable choice for rotation.
+  version:
+    added: 1.6.0 r22741

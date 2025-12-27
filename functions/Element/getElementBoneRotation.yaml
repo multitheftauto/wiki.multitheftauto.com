@@ -1,34 +1,34 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBoneRotation
-shared:
+client:
   name: getElementBoneRotation
-  description: Returns the orientation of a specific bone relative to the [element](/wiki/Element
-    "Element"). Currently the [Player](/wiki/Element/Player "Element/Player") and
-    [Ped](/wiki/Element/Ped "Element/Ped") element types are accepted.
+  pair: setElementBoneRotation
+  description: Returns the orientation of a specific bone relative to the element. This can be a [[player]] or [[ped]].
   parameters:
   - name: theElement
     type: element
-    description: the element to get the bone rotation on.
+    description: The element to get the bone rotation on.
   - name: boneId
     type: int
-    description: the ID of the bone to get the rotation of. See Bone IDs .
+    description: The ID of the bone to get the rotation of. See [Bone IDs](/reference/ID_Lists/Bones).
   examples:
   - path: examples/getElementBoneRotation-1.lua
     description: 'This example outputs the yaw, pitch and roll orientation of a specific
-      bone relative to the local player bone specified through a command:'
-    side: client
+      bone relative to the local player bone specified through a command.'
   - path: examples/getElementBoneRotation-2.lua
-    description: This example takes the current rotation of all player bones. by ThigasDEV
-    side: client
+    description: This example takes the current rotation of all player bones.
   returns:
     values:
+    - type: float|false
+      name: yaw
     - type: float
-      name: x
+      name: pitch
     - type: float
-      name: "y"
-    - type: float
-      name: z
-    description: Returns 3 floats , representing the yaw, pitch, roll rotation values.
+      name: roll
+    description: Returns 3 floats, representing the yaw, pitch, roll rotation values or **false** if invalid arguments were passed.
   notes:
   - type: tip
-    content: If you want to attach an element to a bone, see attachElementToBone .
-  requires_review: true
+    content: |
+      - If you want to attach an element to a bone, see [pAttach](https://github.com/Patrick2562/mtasa-pAttach).
+      - If you're experiencing [gimbal lock](https://en.wikipedia.org/wiki/Gimbal_lock) issues during calculations, use [[getElementBoneQuaternion]].
+  preview_images:
+    - path: rotation_ypr.webp
+      description: Rotation axes.

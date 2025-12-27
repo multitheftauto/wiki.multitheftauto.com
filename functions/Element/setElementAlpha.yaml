@@ -1,10 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementAlpha
-shared:
+shared: &shared
   name: setElementAlpha
-  description: This function sets the alpha (transparency) value for the specified
-    [element](/wiki/Element "Element"). This can be a [player](/wiki/Player "Player"),
-    [ped](/wiki/Ped "Ped"), [object](/wiki/Object "Object"), [vehicle](/wiki/Vehicle
-    "Vehicle") or [weapon](/wiki/Element/Weapon "Element/Weapon").
+  description: This function sets the alpha (transparency) value for the specified element. This can be a [[player]], [[ped]], [[object]], [[weapon]], [[vehicle]] or [[marker]].
   parameters:
   - name: theElement
     type: element
@@ -13,22 +9,32 @@ shared:
     type: int
     description: 'The alpha value to set. Values are 0-255, where 255 is fully opaque
       and 0 is fully transparent. Note: Objects are fully transparent at 140.'
-  examples:
-  - path: examples/setElementAlpha-1.lua
-    description: This example makes the player invisible.
-    side: client
-  - path: examples/setElementAlpha-2.lua
-    description: This example lets you toggle invisibility when you write /invis.
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true or false if invalid arguments were passed.
+      name: result
+    description: Returns **true** or **false** if invalid arguments were passed.
   oop:
     element: element
     method: setAlpha
     variable: alpha
     static: false
   pair: getElementAlpha
-  requires_review: true
+  preview_images:
+    - path: setElementAlpha.png
+      description: Player ped alpha demonstration. Shown alpha levels are 255, 100 and 0 (left to right).
+
+client:
+  <<: *shared
+  examples:
+    - path: examples/setElementAlpha-1.lua
+      description: This example makes the player invisible.
+    - path: examples/setElementAlpha_OOP-1.lua
+      description: This example makes the player invisible.
+      oop: true
+
+server:
+  <<: *shared
+  examples:
+    - path: examples/setElementAlpha-2.lua
+      description: This example lets you toggle invisibility when you write `/invis`.

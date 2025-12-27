@@ -1,23 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementDistanceFromCentreOfMassToBaseOfModel
-shared:
+client:
   name: getElementDistanceFromCentreOfMassToBaseOfModel
-  description: This function is used to retrieve the distance between a [element](/wiki/Element
-    "Element")'s centre of mass to the base of the model. This can be used to calculate
-    the position the [element](/wiki/Element "Element") has to be set to, to have
+  description: This function is used to retrieve the distance between a [[element]]'s centre of mass to the base of the model. This can be used to calculate
+    the position the [[element]] has to be set to, to have
     it on ground level.
   parameters:
   - name: theElement
     type: element
-    description: MISSING_PARAM_DESC
+    description: The element you want to retrieve the value of.
   examples:
   - path: examples/getElementDistanceFromCentreOfMassToBaseOfModel-1.lua
     description: This example outputs the value for the local player.
-    side: client
+  - path: examples/getElementDistanceFromCentreOfMassToBaseOfModel_OOP-1.lua
+    description: This example outputs the value for the local player.
+    oop: true
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float with the distance, or false if the element is invalid.
+    - type: float|false
+      name: Distance from centre of mass to base model.
+    description: Returns a [[float]] with the distance, or **false** if the element is invalid.
   oop:
     element: element
     method: getDistanceFromCentreOfMassToBaseOfModel
@@ -28,12 +28,4 @@ shared:
     content: The distance value is only available when the element is streamed in,
       otherwise 0 is returned. If you create an element at the player's position which
       is going to be streamed in, call the function in the next frame to obtain the
-      correct value (with setTimer 0ms, for example).
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Required Parameters
-
-      '
-  requires_review: true
+      correct value (with [[setTimer]] 0ms, for example).

@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementCollisionsEnabled
-shared:
+shared: &shared
   name: setElementCollisionsEnabled
   description: This function can disable or enable an element's collisions. An element
     without collisions does not interact with the physical environment and remains
@@ -7,21 +6,19 @@ shared:
   parameters:
   - name: theElement
     type: element
-    description: The element you wish to set the collisions of
+    description: The element you wish to set the collisions of.
   - name: enabled
     type: bool
-    description: A boolean to indicate whether collisions are enabled ( true ) or
-      disabled ( false )
+    description: A boolean to indicate whether collisions are enabled (true) or
+      disabled (false).
   examples:
-  - path: examples/setElementCollisionsEnabled-1.lua
-    description: 'This example disables collisions for all vehicles within a certain
-      radius of a player:'
-    side: server
+    - path: examples/setElementCollisionsEnabled_OOP-1.lua
+      oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the collisions were set succesfully, false otherwise.
+      name: result
+    description: Returns **true** if the collisions were set succesfully, **false** otherwise.
   oop:
     element: element
     method: setCollisionsEnabled
@@ -30,11 +27,16 @@ shared:
   pair: getElementCollisionsEnabled
   notes:
   - type: info
-    content: Vehicles that are collisionless and have a driver will cause bugs.
-  - type: info
-    content: Enabling a players collisions when they're inside a vehicle will cause
-      bugs.
-  - type: info
-    content: Disabling a peds collisions will cause some problems, such as it being
-      unable to move or wrong rotation after creation.
-  requires_review: true
+    content: If you want to disable collisions only with specific elements, use [[setElementCollidableWith]].
+  - type: warning
+    content: |
+      - Vehicles that are collisionless and have a driver will cause bugs.
+      - Enabling a players collisions when they're inside a vehicle will cause bugs.
+      - Disabling a peds collisions will cause some problems, such as it being unable to move or wrong rotation after creation.
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementCollisionsEnabled-1.lua
+    description: 'This example disables collisions for all vehicles within a certain
+      radius of a player.'

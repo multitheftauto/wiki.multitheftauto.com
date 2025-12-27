@@ -1,32 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBonePosition
-shared:
+client:
   name: getElementBonePosition
-  description: Returns the 3D world coordinates of a specific bone of a given [element](/wiki/Element
-    "Element"). Currently the [Player](/wiki/Element/Player "Element/Player") and
-    [Ped](/wiki/Element/Ped "Element/Ped") element types are accepted.
+  pair: setElementBonePosition
+  description: Returns the 3D world coordinates of a specific bone of a given element. This can be a [[player]] or [[ped]].
   parameters:
   - name: theElement
     type: element
-    description: the element to get the bone position on.
+    description: The element to get the bone position on.
   - name: boneId
     type: int
-    description: the ID of the bone to get the position of. See Bone IDs .
+    description: The ID of the bone to get the position of. See [Bone IDs](/reference/ID_Lists/Bones).
   examples:
   - path: examples/getElementBonePosition-1.lua
-    description: 'This example outputs the X, Y, Z world position of the local player
-      bone specified through a command:'
-    side: client
+    description: 'This example outputs the X, Y, Z world position of the local player bone specified through a command.'
   returns:
     values:
-    - type: float
+    - type: float|false
       name: x
     - type: float
       name: "y"
     - type: float
       name: z
-    description: Returns 3 floats , representing the X, Y, Z world position of the
-      bone.
+    description: Returns 3 floats, representing the X, Y, Z world position of the
+      bone or **false** if invalid arguments were passed.
   notes:
   - type: tip
-    content: If you want to attach an element to a bone, see attachElementToBone .
-  requires_review: true
+    content: If you want to attach an element to a bone, see [pAttach](https://github.com/Patrick2562/mtasa-pAttach).

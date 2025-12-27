@@ -1,8 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementAttachedOffsets
-shared:
+shared: &shared
   name: setElementAttachedOffsets
   description: This function updates the offsets of an element that has been attached
-    to another element using [attachElements](/wiki/AttachElements "AttachElements").
+    to another element using [[attachElements]].
   parameters:
   - name: theElement
     type: element
@@ -10,34 +9,44 @@ shared:
   - name: xPosOffset
     type: float
     description: The x offset, if you want the elements to be a certain distance from
-      one another (default 0).
+      one another.
+    default: '0'
   - name: "yPosOffset"
     type: float
-    description: The y offset (default 0).
+    description: The y offset.
+    default: '0'
   - name: zPosOffset
     type: float
-    description: The z offset (default 0).
+    description: The z offset.
+    default: '0'
   - name: xRotOffset
     type: float
-    description: The x rotation offset (default 0).
+    description: The x rotation offset.
+    default: '0'
   - name: "yRotOffset"
     type: float
-    description: The y rotation offset (default 0).
+    description: The y rotation offset.
+    default: '0'
   - name: zRotOffset
     type: float
-    description: The z rotation offset (default 0).
+    description: The z rotation offset.
+    default: '0'
   examples:
-  - path: examples/setElementAttachedOffsets-1.lua
-    description: Example:This example creates a car with a minigun
-    side: client
+    - path: examples/setElementAttachedOffsets_OOP-1.lua
+      oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the attaching process was successful, false otherwise.
+      name: result
+    description: Returns **true** if the attaching process was successful, **false** otherwise.
   oop:
     element: element
     method: setAttachedOffsets
     static: false
   pair: getElementAttachedOffsets
-  requires_review: true
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/setElementAttachedOffsets-1.lua
+    description: This example creates a car with a minigun.

@@ -1,8 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AttachElements
-shared:
+shared: &shared
   name: attachElements
-  description: This function attaches one element to another, so that the first one
-    follows the second whenever it moves.
+  description: This function attaches one [[element]] to another, so that the first one follows the second whenever it moves.
   parameters:
   - name: theElement
     type: element
@@ -12,54 +10,68 @@ shared:
     description: The element to attach the first to.
   - name: xPosOffset
     type: float
-    description: The x offset, if you want the elements to be a certain distance from
-      one another (default 0).
+    description: The X offset, if you want the elements to be a certain distance from
+      one another.
     default: '0'
   - name: "yPosOffset"
     type: float
-    description: The y offset (default 0).
+    description: The Y offset.
     default: '0'
   - name: zPosOffset
     type: float
-    description: The z offset (default 0).
+    description: The Z offset.
     default: '0'
   - name: xRotOffset
     type: float
-    description: The x rotation offset (default 0).
+    description: The X rotation offset.
     default: '0'
   - name: "yRotOffset"
     type: float
-    description: The y rotation offset (default 0).
+    description: The Y rotation offset.
     default: '0'
   - name: zRotOffset
     type: float
-    description: The z rotation offset (default 0).
+    description: The Z rotation offset.
     default: '0'
-  examples:
-  - path: examples/attachElements-1.lua
-    description: 'Example 1:This example attaches a marker to the player who steals
-      the Mr. Whoopee:'
-    side: server
-  - path: examples/attachElements-2.lua
-    description: Example 3:This function adds a tank on top of a player (for extra
-      defense), clientside.  This means it will be invisible to other players.
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the attaching process was successful, false otherwise.
+      name: result
+    description: Returns **true** if the attaching process was successful, **false** otherwise.
   oop:
     element: element
     method: attach
+    variable: attachedTo
+    note: The variable can only be used if the offsets can be 0 (use [setElementAttachedOffsets](/reference/setElementAttachedOffsets)).
     static: false
   pair: detachElements
   notes:
   - type: info
-    content: The offset coodinates reflect the object space, not the world space.
+    content: |
+      - The offset coodinates reflect the object space, not the world space.
       This means that you cannot calculate the exact offsets between two objects by
-      pre-positioning them in the map editor as a reference. Please see attachElementsOffsets
-      for more details. Due to a limitation in GTA, unexpected attach rotations may
+      pre-positioning them in the map editor as a reference. Please see [[attachElementsOffsets]]
+      for more details.
+      - Due to a limitation in GTA, unexpected attach rotations may
       occur if all rotation offsets are non-zero. (i.e. Try to ensure at least one
-      of 'xRotOffset', 'yRotOffset' or 'zRotOffset' is zero).
-  requires_review: true
+      of `xRotOffset`, `yRotOffset` or `zRotOffset` is zero).
+      - If an attempt is made to attach two elements that are already attached the opposite way (eg `theElement` becomes `theAttachToElement` and vice versa), the 1st attachment order is automatically detached in favor of the 2nd attachment order. For example, if carA was attached to carB, now carB is attached to carA. Also, an element cannot be attached to two separate elements at one time. For example, two cars can be attached to one single car, but one single car cannot be attached to two separate cars. If you attempt to do this, the existing attachment will automatically be dropped in favor of the new attachment. For example, if carA is asked to attached to carB then carC, it is only attached to carC.
+      - This is not compatible with all elements. The following elements are compatible: [[ped]], [[player]], [[blip]], [[vehicle]], [[object]], [[marker]], [[pickup]], [[sound]], [[colshape]], [[weapon]], [[camera]], [[light]].
+server:
+  <<: *shared
+  examples:
+  - path: examples/attachElements-1.lua
+    description: 'This example attaches a marker to the player who steals the Mr. Whoopee.'
+  - path: examples/attachElements-2.lua
+    description: This function adds a tank on top of a player (for extra defense).
+  - path: examples/attachElements_OOP-1.lua
+    description: This function adds a tank on top of a player (for extra defense).
+    oop: true
+
+client:
+  <<: *shared
+  examples:
+    - path: 'examples/attachElements-3.lua'
+      description: This function adds a tank on top of a player (for extra defense), clientside. This means it will be invisible to other players.
+    - path: examples/attachElements_OOP-2.lua
+      oop: true

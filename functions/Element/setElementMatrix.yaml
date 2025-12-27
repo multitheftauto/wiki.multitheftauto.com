@@ -1,0 +1,20 @@
+shared:
+  name: setElementMatrix
+  pair: getElementMatrix
+  description: This function sets [matrix](/reference/Matrix) to element.
+  parameters:
+    - name: theElement
+      type: element
+      description: The element which you set matrix.
+    - name: theMatrix
+      type: table
+      description: The matrix.
+  returns:
+    description: Returns **true** if the matrix was set succesfully, **false** otherwise.
+    values:
+      - type: bool
+        name: result
+  oop:
+    element: element
+    method: setMatrix
+    variable: matrix

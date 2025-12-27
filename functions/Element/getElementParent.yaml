@@ -1,25 +1,54 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementParent
-shared:
+shared: &shared
   name: getElementParent
-  description: This function is used to determine the parent of an *element*.
+  description: This function is used to determine the parent of an element.
   parameters:
   - name: theElement
     type: element
     description: The child of the parent element you want returned.
   examples:
-  - path: examples/getElementParent-1.lua
-    description: 'Consider the following map file:'
-    side: server
+  - path: examples/getElementParent-2.lua
+    description: This example shows a trick that allows you to check which resource a given element comes from.
+  - path: examples/getElementParent_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: This returns the parent as an element . It returns false if theElement
-      is invalid, or is the root node.
+    - type: element|false
+      name: parent
+    description: This returns the parent as an [[element]]. It returns **false** if element is invalid, or is the root node.
   oop:
     element: element
     method: getParent
     variable: parent
     static: false
+  notes:
+    - type: tip
+      content: |
+        You can use this function to check which resource a given element comes from.
+
+        ```lua
+        getElementParent(getElementParent(element))
+        ```
+
+        See [example 1](#example1).
   pair: setElementParent
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+    - path: examples/getElementParent-1.lua
+      description: |
+        Consider the following map file:
+
+        ```xml
+        <spawngroup id="red">
+          <spawnpoint id="spawnpoint_0" posX="2507.8715820313" posY="2772.6071777344" posZ="10.8203125" rot="270" skin="285"/>
+          <spawnpoint id="spawnpoint_1" posX="2508.060546875" posY="2780.3647460938" posZ="10.8203125" rot="270" skin="285"/>
+        </spawngroup>
+
+        <spawngroup id="blue">
+          <spawnpoint id="spawnpoint_5" posX="2733.4184570313" posY="2753.1276855469" posZ="10.8203125" rot="90" skin="124"/>
+          <spawnpoint id="spawnpoint_6" posX="2733.5258789063" posY="2748.1110839844" posZ="10.8203125" rot="90" skin="125"/>
+        </spawngroup>
+        ```
+
+        This function determines a spawnpoint's parent element, and announces its ID.

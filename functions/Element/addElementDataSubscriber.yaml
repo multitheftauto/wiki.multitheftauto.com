@@ -1,11 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AddElementDataSubscriber
-shared:
+server:
   name: addElementDataSubscriber
-  description: 'This function subscribes a [player](/wiki/Player "Player") to specific
-    [element data](/wiki/Element_data "Element data").
-
-    This function is used together with [setElementData](/wiki/SetElementData "SetElementData")
-    in *"subscribe"* mode.'
+  description: This function subscribes a [[player]] to specific [element data](/reference/Element_data). This function is used together with [[setElementData]] in `"subscribe"` mode.
   parameters:
   - name: theElement
     type: element
@@ -18,13 +13,13 @@ shared:
     description: The player you wish to subscribe.
   examples:
   - path: examples/addElementDataSubscriber-1.lua
-    description: ''
-    side: server
+  - path: examples/addElementDataSubscriber_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the player was subscribed, false otherwise.
+      name: result
+    description: Returns **true** if the player was subscribed, **false** otherwise.
   oop:
     element: element
     method: addDataSubscriber
@@ -32,9 +27,8 @@ shared:
   pair: removeElementDataSubscriber
   notes:
   - type: info
-    content: Before using this function you need to setup an initial value of element
-      data in "subscribe" mode, otherwise the subscriber will not be added.
-  - type: info
-    content: Calling removeElementData or setElementData with other sync mode will
-      automatically remove all subscribers of specified element data.
-  requires_review: true
+    content: |
+      - Before using this function you need to setup an initial value of element
+        data in `"subscribe"` mode, otherwise the subscriber will not be added.
+      - Calling [[removeElementData]] or [[setElementData]] with other sync mode will
+        automatically remove all subscribers of specified element data.

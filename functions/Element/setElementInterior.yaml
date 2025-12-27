@@ -1,39 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementInterior
-shared:
+shared: &shared
   name: setElementInterior
-  description: This function allows you to set the [interior](/wiki/Interior "Interior")
-    of any element. An interior is the current loaded place, 0 being outside.
+  description: This function allows you to set the [interior](/reference/Interior) of any element. An interior is the current loaded place, 0 being outside.
   parameters:
   - name: theElement
     type: element
     description: The element in which you'd like to set the interior of.
   - name: interior
     type: int
-    description: The interior you want to set the element to. Valid values are 0 to
-      255.
+    description: The interior you want to set the element to. Valid values are 0 to 255.
   - name: x
     type: float
     description: A floating point number representing the X coordinate on the map.
+    default: nil
   - name: "y"
     type: float
     description: A floating point number representing the Y coordinate on the map.
+    default: nil
   - name: z
     type: float
     description: A floating point number representing the Z coordinate on the map.
-  examples:
-  - path: examples/setElementInterior-1.lua
-    description: In this example, if a player were to type /interior 1, they would
-      be teleported into this interior
-    side: server
-  - path: examples/setElementInterior-2.lua
-    description: In this example, if a player were to type /interior 1, they would
-      be teleported into this interior
-    side: client
+    default: nil
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if theElement and interior are valid arguments, false
+      name: result
+    description: Returns **true** if theElement and interior are valid arguments, **false**
       otherwise.
   oop:
     element: element
@@ -43,9 +34,17 @@ shared:
   pair: getElementInterior
   notes:
   - type: info
-    content: If passing the same interior as the element is in, the call will be ignored
-      and position (optional arguments) will not be set either. Use setElementPosition
+    content: |
+      - If passing the same interior as the element is in, the call will be ignored
+      and position (optional arguments) will not be set either. Use [[setElementPosition]]
       separately to be sure the position will be set.
-  - type: info
-    content: Some objects / buildings in interior 13 show in all interiors.
-  requires_review: true
+      - Some [objects](/reference/object)/[buildings](/reference/building) in **interior 13** show in all interiors.
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementInterior-1.lua
+    description: In this example, if a player were to type `/interior 1`, they would
+      be teleported into this interior.
+  - path: examples/setElementInterior_OOP-1.lua
+    oop: true

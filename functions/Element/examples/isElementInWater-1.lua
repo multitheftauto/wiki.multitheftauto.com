@@ -5,5 +5,4 @@ function waterCheck(thePlayer)
         outputChatBox("Dry.", thePlayer)
     end
 end
-
 addCommandHandler("check", waterCheck)

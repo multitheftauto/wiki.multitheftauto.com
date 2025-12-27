@@ -1,46 +1,45 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementBoneQuaternion
-shared:
+client:
   name: setElementBoneQuaternion
-  description: "This function determines how a particular bone rotates in relation\
-    \ to the element.  \n\nThe use of [quaternions](https://en.wikipedia.org/wiki/Quaternion)\
-    \ are more effective and do not generate issues like gimbal lock that might arise\
-    \ with [Euler angles](https://en.wikipedia.org/wiki/Euler_angles), so they are\
-    \ a preferable choice for rotation."
+  pair: getElementBoneQuaternion
+  description: This function determines how a particular bone rotates in relation to the element. This can be a [[player]] or [[ped]].
   parameters:
   - name: ped
     type: element
-    description: The element (ped or player) on which the bone's rotation will be
-      set.
+    description: The element on which the bone's rotation will be set.
   - name: bone
     type: int
-    description: The ID of the bone to set the quaternion of.
+    description: The ID of the bone to set the quaternion of. See [Bone IDs](/reference/ID_Lists/Bones).
   - name: x
     type: float
-    description: MISSING_PARAM_DESC
+    description: The quaternion's coefficient of the 𝑖 component, representing rotation around the x-axis.
   - name: "y"
     type: float
-    description: MISSING_PARAM_DESC
+    description: The quaternion's coefficient of the 𝑗 component, representing rotation around the y-axis.
   - name: z
     type: float
-    description: MISSING_PARAM_DESC
+    description: The quaternion's coefficient of the 𝑘 component, representing rotation around the z-axis.
   - name: w
     type: float
-    description: MISSING_PARAM_DESC
+    description: The real part of the quaternion, which is linked to the angle of rotation.
   examples:
   - path: examples/setElementBoneQuaternion-1.lua
     description: This example rotates the player's pelvis 180 degrees around an arbitrary
-      axis.The use ofupdateElementRpHAnimis necessary here as it applies the rotation.
-    side: client
+      axis. The use of [[updateElementRpHAnim]] is necessary here as it applies the rotation.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the set was successful, otherwise returns an error
-      message and returns false .
+      name: result
+    description: Returns **true** if the set was successful, otherwise returns **false**.
   notes:
   - type: info
-    content: If you want to apply the rotation, updateElementRpHAnim must be called
+    content: If you want to apply the rotation, [[updateElementRpHAnim]] must be called
       after this function.
   - type: tip
-    content: If you want to attach an element to a bone, see attachElementToBone .
-  requires_review: true
+    content: |
+      - The use of [quaternions](https://en.wikipedia.org/wiki/Quaternion) are more effective and do not generate issues like [gimbal lock](https://en.wikipedia.org/wiki/Gimbal_lock) that might arise with [Euler angles](https://en.wikipedia.org/wiki/Euler_angles), so they are a preferable choice for rotation.
+      - If you want to attach an element to a bone, see [pAttach](https://github.com/Patrick2562/mtasa-pAttach).
+  version:
+    added: 1.6.0 r22741
+  preview_images:
+    - path: setElementBoneQuaternion.png
+      description: '[Cayley Q8 graph](https://en.wikipedia.org/wiki/Cayley_graph) showing the six cycles of multiplication by <span style="color:red;">i</span>, <span style="color:green;">j</span> and <span style="color:blue;">k</span>.'

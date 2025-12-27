@@ -1,38 +1,37 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementBoundingBox
-shared:
+client:
   name: getElementBoundingBox
-  description: This function returns the minimum and maximum coordinates of an element's
-    bounding box.
+  description: This function returns the minimum and maximum coordinates of an element's bounding box.
   parameters:
   - name: theElement
     type: element
-    description: the element whose bounding box we want to get.
+    description: The element whose bounding box we want to get.
   examples:
   - path: examples/getElementBoundingBox-1.lua
-    description: This example outputs to chatbox the minimum and the maximum coordinates
-      of an element.
-    side: client
+    description: This example outputs to chatbox the minimum and the maximum coordinates of an element.
+  - path: examples/getElementBoundingBox_OOP-1.lua
+    description: This example draws a fancy vehicle bounding box.
+    oop: true
   returns:
     values:
+    - type: float|false
+      name: minX
     - type: float
-      name: value1
+      name: minY
     - type: float
-      name: value2
+      name: minZ
     - type: float
-      name: value3
+      name: maxX
     - type: float
-      name: value4
+      name: maxY
     - type: float
-      name: value5
-    - type: float
-      name: value6
-    description: This example outputs to chatbox the minimum and the maximum coordinates
-      of an element.
+      name: maxZ
+    description: Returns min x, min y, min z, max x, max y, max z if the passed element is valid and streamed in, **false** otherwise.
   oop:
     element: element
     method: getBoundingBox
     static: false
   notes:
   - type: info
-    content: The element must be streamed in for this function to work.
-  requires_review: true
+    content: |
+      - The element must be streamed in for this function to work.
+      - The values returned are relative to the position of the element, and as such if you wish to get world coordinates for drawing, etc., you should retrieve the position of the element and add the returned values onto that.

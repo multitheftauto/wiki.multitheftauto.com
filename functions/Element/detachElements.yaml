@@ -1,32 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/DetachElements
 shared:
   name: detachElements
   description: This function detaches attached elements from one another.
   parameters:
   - name: theElement
     type: element
-    description: The element to be detached (the "child")
+    description: The element to be detached (the "child").
   - name: theAttachToElement
     type: element
     description: The element you wish to detach from, will detach from the attached
       element if this isn't specified.
   examples:
   - path: examples/detachElements-1.lua
-    description: 'Example 1:This example attaches a marker to a vehicle, and detaches
-      it when it blows up:'
-    side: server
+    description: 'This example attaches a marker to a vehicle, and detaches it when it blows up.'
   - path: examples/detachElements-2.lua
-    description: 'Example 2:This function will detach any elements that might have
-      been attached to the passed element:'
-    side: server
+    description: 'This function will detach any elements that might have
+      been attached to the passed element.'
+  - path: examples/detachElements_OOP-1.lua
+    description: 'This function will detach any elements that might have
+      been attached to the passed element.'
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the detaching was successful, false otherwise.
+      name: result
+    description: Returns **true** if the detaching was successful, **false** otherwise.
   oop:
     element: element
     method: detach
     static: false
   pair: attachElements
-  requires_review: true

@@ -1,28 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementID
 shared:
   name: getElementID
-  description: This function gets the ID of an element. This is the "id" attribute
-    of the element and is a string, NOT a number like a model ID, weapons ID or similar.
+  description: This function gets the ID of an element. This is the `id` attribute
+    of the element and is a [[string]], **NOT** a number like a model ID, weapons ID or similar.
   parameters:
   - name: theElement
     type: element
-    description: the element from which to retrieve the ID.
+    description: The element from which to retrieve the ID.
   examples:
   - path: examples/getElementID-1.lua
-    description: 'To get the ID of the following element:'
-    side: server
-  - path: examples/getElementID-2.lua
-    description: 'You could use the following code:'
-    side: server
-  - path: examples/getElementID-3.lua
-    description: Another ex;
-    side: server
+    description: |
+      To get the ID of the following element:
+
+      ```xml
+        <flag id="northflag" posX="2365" posY="215" posZ="32" />
+      ```
+
+      You could use the following code.
+  - path: examples/getElementID_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: string
-      name: value
-    description: This returns a string containing the element ID. It will return an
-      empty string if it has no ID. It will return false if the element is invalid.
+    - type: string|false
+      name: element ID
+    description: This returns a [[string]] containing the element ID. It will return an
+      empty [[string]] if it has no ID. It will return **false** if the element is invalid.
   oop:
     element: element
     method: getID
@@ -30,7 +31,5 @@ shared:
     static: false
   pair: setElementID
   notes:
-  - type: info
-    content: This function can also be used to get the resource name of any resource-data
-      .
-  requires_review: true
+  - type: tip
+    content: This function can also be used to get the [[resource]] name of any resource-data.

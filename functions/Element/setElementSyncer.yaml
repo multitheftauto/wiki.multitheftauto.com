@@ -1,33 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementSyncer
-shared:
+server:
   name: setElementSyncer
-  description: This function can be used to change the syncer ([player](/wiki/Player
-    "Player")) of an element. The syncer is the player who is responsible for informing
-    the server about the state of that element \- it's position, orientation and other
-    state information. The function can be also used to remove an element's syncer.
+  description: This function can be used to change the syncer (player) of an element. The syncer is the player who is responsible for informing the server about the state of that element - it's position, orientation and other state information. The function can be also used to remove an element's syncer.
   parameters:
   - name: theElement
     type: element
     description: The element whose syncer you wish to change.
   - name: thePlayer
     type: player
-    description: The player who should be the new syncer of the element. If set to
-      false , this element will not have a syncer. If set to true , MTA will pick
+    description: The [[player]] who should be the new syncer of the element. If set to
+      **false**, this element will not have a syncer. If set to **true**, MTA will pick
       automatically the nearest or most relevant player to that element.
   - name: persist
     type: bool
-    description: If true , the server will not automatically change the syncer. If
-      set to false , default syncer behavior resumes.
+    description: If **true**, the server will not automatically change the syncer. If
+      set to **false**, default syncer behavior resumes.
     default: 'false'
   examples:
   - path: examples/setElementSyncer-1.lua
-    description: ''
-    side: server
+  - path: examples/setElementSyncer_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the syncer was changed successfully, false if the
+      name: result
+    description: Returns **true** if the syncer was changed successfully, **false** if the
       element passed was not a ped or vehicle.
   oop:
     element: element
@@ -35,4 +31,9 @@ shared:
     variable: syncer
     static: false
   pair: getElementSyncer
-  requires_review: true
+  notes:
+    - type: info
+      content: |
+        - Only [[vehicle]] and [[ped]] elements can have a syncer, other element types are not currently automatically synced by MTA.
+        - Using this function to change an element's syncer will only last as long as the element is within syncable range of the [[player]] unless persist is set to **true**. As soon as it becomes impossible for your chosen player to sync the element, another player (or no player) will be automatically selected, and your setting will be lost. With vehicles, the last occupant to leave a vehicle will be selected as the syncer and override any setting you may have made.
+        - Using this function to remove an element's syncer, means no player will be assigned to syncing the element. That will not be changed until **setElementSyncer** is called again. It should also be noted that certain network changes to an element do not require a syncer. Actions such as destroying an element or explicitly setting the element's position (in a server side script), will still be updated on all clients regardless of this setting.

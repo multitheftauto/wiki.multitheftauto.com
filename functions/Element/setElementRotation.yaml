@@ -1,48 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementRotation
-shared:
+shared: &shared
   name: setElementRotation
-  description: Sets the rotation of elements according to the world (does not work
-    with players that are on the ground).
+  description: Sets the rotation of elements according to the world.
   parameters:
   - name: theElement
     type: element
-    description: The element whose rotation will be set
+    description: The element whose rotation will be set.
   - name: rotX
     type: float
-    description: The element's rotation around the x axis in degrees
+    description: The element's rotation around the x axis in degrees.
   - name: rotY
     type: float
-    description: The element's rotation around the y axis in degrees
+    description: The element's rotation around the y axis in degrees.
   - name: rotZ
     type: float
-    description: The element's rotation around the z axis in degrees
+    description: The element's rotation around the z axis in degrees.
   - name: rotOrder
     type: string
-    description: 'A string representing the rotation order desired when interpreting
-      the provided euler angles . If omitted, default value is "default" . Allowed
-      values are: "default": default MTA behavior prior to 1.1, where rotation order
-      depends on element type "ZXY": rotation about the Z axis ( up ), then about
-      the resulting X axis ( right ), and finally about the resulting Y axis ( front
-      ). This is the default rotation order for objects "ZYX": rotation about the
-      Z axis ( up ), then about the resulting Y axis ( front ), and finally about
-      the resulting X axis ( right ). This is the default rotation order for vehicles'
+    description: A [[string]] representing the rotation order desired when interpreting the provided euler angles.
+    templateList: rotation-orders
     default: '"default"'
   - name: conformPedRotation
     type: bool
-    description: MISSING_PARAM_DESC
+    description: Relevant **only for peds** and will be ignored for other element types. A bool which should be set to **true** to ensure the ped rotation is correctly set in all circumstances. Failing to set this argument may result in the ped rotation being inverted whilst it is in the air and other inconsistencies. The default value of **false** is for backward compatibility with scripts which may depend upon the incorrect behaviour.
     default: 'false'
-  examples:
-  - path: examples/setElementRotation-1.lua
-    description: ''
-    side: client
-  - path: examples/setElementRotation-2.lua
-    description: ''
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element rotation was successfully set and false
+      name: result
+    description: Returns **true** if the element rotation was successfully set and **false**
       otherwise.
   oop:
     element: element
@@ -51,11 +36,23 @@ shared:
     static: false
   pair: getElementRotation
   notes:
-  - type: info
-    content: This function does not work on colshape .
-  - type: info
-    content: This function does not work on dummy element .
-  - type: tip
-    content: New scripts should set conformPedRotation to true when using this function
-      on peds . This will prevent quirky old behaviour.
-  requires_review: true
+    - type: info
+      content: |
+        - This function does not work on [[colshape]] and dummy-elements created by [[createElement]].
+        - The default rotation order for peds/players is `Z-Y-X` (**clientside**) and `-Z-Y-X` (**serverside**) but those rotation orders (set using "default" on peds) can not be used manually on other element types since they only exist due to historical and backward compatibility reasons. Specifying a rotation order other than `default` allows the same angles to later be uniformly used on several elements without having to consider their type.
+    - type: tip
+      content: New scripts should set `conformPedRotation` to **true** when using this function on peds. This will prevent quirky old behaviour.
+  meta:
+    - changelog:
+        - version: 1.3.1-9.04680
+          description: Added **conformPedRotation** argument.
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/setElementRotation-1.lua
+    description: How to correctly set the rotation for a ped.
+  - path: examples/setElementRotation-2.lua
+    description: When a player used the command `turn` and they are the driver of a vehicle the vehicle will rotate 10 degrees clockwise.
+  - path: examples/setElementRotation_OOP-1.lua
+    oop: true

@@ -1,25 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetLowLODElement
 shared:
   name: getLowLODElement
-  description: This function return the low LOD element that an element is associated
-    with.
+  description: This function return the low LOD element that an element is associated with.
   parameters:
   - name: theElement
     type: element
-    description: The element whose low LOD version we want to get.
+    description: The element whose low LOD version we want to get. This can be a [[object]] or [[building]].
   examples:
   - path: examples/getLowLODElement-1.lua
-    description: 'This example is not done yet:'
-    side: client
+  - path: examples/getLowLODElement_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a low LOD element if successful, false otherwise.
+    - type: element|false
+      name: lod element
+    description: Returns a low LOD element if successful, **false** otherwise.
   oop:
     element: element
     method: getLowLOD
     variable: lowLOD
     static: false
   pair: setLowLODElement
-  requires_review: true

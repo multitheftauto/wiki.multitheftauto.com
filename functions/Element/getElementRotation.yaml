@@ -1,40 +1,39 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementRotation
-shared:
+shared: &shared
   name: getElementRotation
   description: Retrieve the rotation of elements.
   parameters:
   - name: theElement
     type: element
-    description: The element whose rotation will be retrieved
+    description: The element whose rotation will be retrieved.
   - name: rotOrder
     type: string
-    description: 'A string representing the rotation order desired when returning
-      the euler angles . If omitted, default value is "default" . Allowed values are:
-      "default": default MTA behavior prior to 1.1, where rotation order depends on
-      element type "ZXY": rotation about the Z axis ( up ), then about the resulting
-      X axis ( right ) and finally about the resulting Y axis ( front ). This is the
-      default rotation order for objects "ZYX": rotation about the Z axis ( up ),
-      then about the resulting Y axis ( front ), and finally about the resulting X
-      axis ( right ). This is the default rotation order for vehicles'
+    description: A string representing the rotation order desired when returning
+      the [euler angles](http://en.wikipedia.org/wiki/Euler_angles).
     default: '"default"'
-  examples:
-  - path: examples/getElementRotation-1.lua
-    description: ''
-    side: client
+    templateList: rotation-orders
   returns:
     values:
-    - type: float
+    - type: float|false
       name: x
     - type: float
       name: "y"
     - type: float
       name: z
-    description: If a player points at a player element with a gun, its rotation will
-      appear in the chat box.
+    description: Returns 3 floats representing the Euler rotation angles on the axis X, Y and Z (with the rotation order depending on the **rotOrder** argument) if element exists and is a valid element, **false** if it's invalid.
   oop:
     element: element
     method: getRotation
     variable: rotation
     static: false
   pair: setElementRotation
-  requires_review: true
+  notes:
+    - type: info
+      content: The default rotation order for peds/players is `Z-Y-X` (**clientside**) and `-Z-Y-X` (**serverside**) but those rotation orders (set using "default" on peds) can not be used manually on other element types since they only exist due to historical and backward compatibility reasons. Specifying a rotation order other than `default` allows the same angles to later be uniformly used on several elements without having to consider their type.
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/getElementRotation-1.lua
+    description: If a player points at a player element with a gun, its rotation will appear in the chat box.
+  - path: examples/getElementRotation_OOP-1.lua
+    oop: true

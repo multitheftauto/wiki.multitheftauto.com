@@ -1,26 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementDoubleSided
-shared:
+shared: &shared
   name: isElementDoubleSided
-  description: This function checks whether an element is double\-sided as set by
-    [setElementDoubleSided](/wiki/SetElementDoubleSided "SetElementDoubleSided") or
-    not.
+  description: This function checks whether an element is double\-sided as set by [[setElementDoubleSided]] or not.
   parameters:
   - name: theElement
     type: element
     description: The element in which you'd like to check the double-sidedness of.
   examples:
-  - path: examples/isElementDoubleSided-1.lua
-    description: ''
-    side: server
+  - path: examples/isElementDoubleSided_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the theElement is double-sided, false otherwise.
+      name: result
+    description: Returns **true** if the theElement is double-sided, **false** otherwise.
   oop:
     element: element
     method: isDoubleSided
     variable: doubleSided
     static: false
   pair: setElementDoubleSided
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/isElementDoubleSided-1.lua
+    description: This example checks if the object is double-sided.

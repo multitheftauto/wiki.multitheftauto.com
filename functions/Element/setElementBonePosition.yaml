@@ -1,16 +1,14 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementBonePosition
-shared:
+client:
   name: setElementBonePosition
-  description: This function sets the position of a bone to the specified coordinates.
-    Currently the [Player](/wiki/Element/Player "Element/Player") and [Ped](/wiki/Element/Ped
-    "Element/Ped") element types are accepted.
+  pair: getElementBonePosition
+  description: This function sets the position of a bone to the specified coordinates. Currently the [[player]] and [[ped]] element types are accepted.
   parameters:
   - name: theElement
     type: element
-    description: the element to set the bone position on.
+    description: The element to set the bone position on.
   - name: bone
     type: int
-    description: the ID of the bone to set the position of. See Bone IDs .
+    description: The ID of the bone to set the position of. See [Bone IDs](/reference/ID_Lists/Bones).
   - name: x
     type: float
     description: The X coordinate of the destination.
@@ -22,16 +20,17 @@ shared:
     description: The Z coordinate of the destination.
   examples:
   - path: examples/setElementBonePosition-1.lua
-    description: This example shows a surprised CJ with a long neck
-    side: client
+    description: This example shows a surprised CJ with a long neck.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function was successful, false otherwise.
+      name: result
+    description: Returns **true** if the function was successful, **false** otherwise.
   notes:
   - type: info
-    content: You need to use this function together with onClientPedsProcessed .
+    content: You need to use this function together with [[onClientPedsProcessed]].
   - type: tip
-    content: If you want to attach an element to a bone, see attachElementToBone .
-  requires_review: true
+    content: If you want to attach an element to a bone, see [pAttach](https://github.com/Patrick2562/mtasa-pAttach).
+  preview_images:
+    - path: setElementBonePosition.png
+      description: Example preview.

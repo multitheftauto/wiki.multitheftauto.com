@@ -1,35 +1,39 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementAngularVelocity
-shared:
+shared: &shared
   name: setElementAngularVelocity
   description: Sets the angular velocity of a specified, supported element (Applies
     a spin to it).
   parameters:
   - name: theElement
     type: element
-    description: The element to apply the spin to. Can be either a player , ped ,
-      object , vehicle or a custom weapon .
+    description: The element to apply the spin to. Can be either a [[player]], [[ped]],
+      [[object]], [[vehicle]] or [[weapon]].
   - name: rx
     type: float
-    description: velocity around the X axis
+    description: Velocity around the X axis.
   - name: ry
     type: float
-    description: velocity around the Y axis
+    description: Velocity around the Y axis.
   - name: rz
     type: float
-    description: velocity around the Z axis
-  examples:
-  - path: examples/setElementAngularVelocity-1.lua
-    description: ''
-    side: server
+    description: Velocity around the Z axis.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if it was succesful, false otherwise.
+      name: result
+    description: Returns **true** if it was succesful, **false** otherwise.
   oop:
     element: element
     method: setAngularVelocity
     variable: angularVelocity
     static: false
   pair: getElementAngularVelocity
-  requires_review: true
+  notes:
+    - type: info
+      content: Server side supports only [[vehicle]] type currently.
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementAngularVelocity-1.lua
+  - path: examples/setElementAngularVelocity_OOP-1.lua
+    oop: true

@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetLowLODElement
-shared:
+shared: &shared
   name: setLowLODElement
   description: This function assigns a low LOD element to an element. The low LOD
     element is displayed when its associated element is not fully visible. If a low
@@ -11,22 +10,12 @@ shared:
     description: The element whose low LOD version we want to change.
   - name: lowLODElement
     type: element
-    description: MISSING_PARAM_DESC
-  examples:
-  - path: examples/setLowLODElement-1.lua
-    description: 'This example shows how to create and link a normal and low LOD object:'
-    side: client
-  - path: examples/setLowLODElement-2.lua
-    description: This example shows how to create and link a composite object
-    side: server
-  - path: examples/setLowLODElement-3.lua
-    description: 'Changing the draw distance for a model has to be done on the client:'
-    side: client
+    description: A low LOD element to display when the first element is not fully visible.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the assignment was successful, false otherwise.
+      name: result
+    description: Returns **true** if the assignment was successful, **false** otherwise.
   oop:
     element: element
     method: setLowLOD
@@ -36,5 +25,19 @@ shared:
   notes:
   - type: info
     content: The only valid elements types for assigning LODs with this function are
-      Object and Building .
-  requires_review: true
+      [[object]] and [[building]].
+
+server:
+  <<: *shared
+  examples:
+    - path: examples/setLowLODElement-2.lua
+      description: This example shows how to create and link a composite object.
+
+client:
+  <<: *shared
+  examples:
+    - path: examples/setLowLODElement-1.lua
+      description: 'This example shows how to create and link a normal and low LOD object:'
+    - path: examples/setLowLODElement_OOP-1.lua
+      description: 'This example shows how to create and link a normal and low LOD object:'
+      oop: true

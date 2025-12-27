@@ -1,8 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveElementData
-shared:
+server:
   name: removeElementData
-  description: This function removes the [element data](/wiki/Element_data "Element
-    data") with the given key for that element. The element data removal is synced
+  pair: setElementData
+  description: This function removes the [element data](/reference/Element_data) with the given key for that element. The element data removal is synced
     with all the clients.
   parameters:
   - name: theElement
@@ -10,17 +9,18 @@ shared:
     description: The element you wish to remove the data from.
   - name: key
     type: string
-    description: The key string you wish to remove.
+    description: The key string you wish to remove. Max 128 characters.
   examples:
   - path: examples/removeElementData-1.lua
-    description: This will set element data for player which spawned, and then remove
-      it on death.
-    side: server
+    description: This will set element data for player which spawned, and then remove it on death.
+  - path: examples/removeElementData_OOP-1.lua
+    description: This will set element data for player which spawned, and then remove it on death.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the data was removed succesfully, false if the given
+      name: result
+    description: Returns **true** if the data was removed succesfully, **false** if the given
       key does not exist in the element or the element is invalid.
   oop:
     element: element
@@ -28,6 +28,8 @@ shared:
     static: false
   notes:
   - type: info
-    content: If you want to remove the data in client side you can use 'setElementData(element,
-      key, nil)'.
-  requires_review: true
+    content: |
+      If you want to remove the data in client side you can use.
+      ```lua
+      setElementData(element, key, nil, sync)
+      ```

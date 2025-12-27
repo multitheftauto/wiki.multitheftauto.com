@@ -1,22 +1,17 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementDimension
-shared:
+shared: &shared
   name: getElementDimension
   description: This function allows you to retrieve the dimension of an element. See
-    [Dimension](/wiki/Dimension "Dimension") for the list of valid element types.
+    [[Dimension]] for the list of valid element types.
     The dimension determines what/who the element is visible to.
   parameters:
   - name: theElement
     type: element
     description: The element in which you'd like to retrieve the dimension of.
-  examples:
-  - path: examples/getElementDimension-1.lua
-    description: ''
-    side: server
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns an integer for the dimension if theElement is valid, false
+    - type: int|false
+      name: dimension
+    description: Returns an integer for the dimension if theElement is valid, **false**
       otherwise.
   oop:
     element: element
@@ -24,4 +19,15 @@ shared:
     variable: dimension
     static: false
   pair: setElementDimension
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/getElementDimension-1.lua
+    description: This example puts all vehicles with drivers in dimension 1, while all other vehicles are in dimension 0. This would have the effect of making on-foot players invisible to drivers, and vice versa. It'd also make entering a vehicle as passenger after the driver has entered impossible, as the vehicle would appear to vanish to any on foot players.
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/getElementDimension_OOP-1.lua
+    oop: true

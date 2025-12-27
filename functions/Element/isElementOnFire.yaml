@@ -1,25 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementOnFire
 shared:
   name: isElementOnFire
-  description: This function checks if the specified [element](/wiki/Element "Element")
-    is on fire or not.
+  description: This function checks if the specified element is on fire or not. This can be a [[player]], [[ped]], [[vehicle]] or [[object]].
   parameters:
   - name: theElement
     type: element
     description: The element to check.
   examples:
   - path: examples/isElementOnFire-1.lua
-    description: ''
-    side: server
+    description: Creates a command that checks if the player is on fire or not.
+  - path: examples/isElementOnFire_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element is on fire, false otherwise.
+      name: result
+    description: Returns **true** if the element is on fire, **false** otherwise.
   oop:
     element: element
     method: isOnFire
     variable: onFire
     static: false
   pair: setElementOnFire
-  requires_review: true
+  version:
+    added: 1.6.0 r22864

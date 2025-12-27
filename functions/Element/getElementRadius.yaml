@@ -1,28 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementRadius
-shared:
+client:
   name: getElementRadius
-  description: This function gets the radius of an [element](/wiki/Element "Element").
+  description: This function gets the radius of an [[element]]. This can be a [[player]], [[ped]], [[vehicle]], [[object]] or [[weapon]].
     Normally, sphere or circle\-shaped elements tend to return a more accurate and
     expected radius than others with another shapes.
   parameters:
   - name: theElement
     type: element
-    description: 'The element to get the radius of. It can be any entity type, such
-      as: Players . Peds . Vehicles . Objects .'
+    description: The element to get the radius of.
   examples:
   - path: examples/getElementRadius-1.lua
     description: This example shows how to get and output the radius of every player
-      who types the/getmyradiuscommand (which will always be1).
-    side: client
+      who types the `/getmyradius` command (which will always be 1).
+  - path: examples/getElementRadius_OOP-1.lua
+    description: This example shows how to get and output the radius of every player
+      who types the `/getmyradius` command (which will always be 1).
+    oop: true
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float containing the radius if the element is valid, false
+    - type: float|false
+      name: radius
+    description: Returns a [[float]] containing the radius if the element is valid, **false**
       otherwise.
   oop:
     element: element
     method: getRadius
     variable: radius
     static: false
-  requires_review: true

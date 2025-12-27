@@ -1,22 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementStreamable
-shared:
+client:
   name: isElementStreamable
-  description: This function checks whether an [element](/wiki/Element "Element")
-    is streamable as set by [setElementStreamable](/wiki/SetElementStreamable "SetElementStreamable")
-    or not.
+  description: This function checks whether an element is streamable as set by [[setElementStreamable]] or not.
   parameters:
   - name: theElement
     type: element
     description: The element to check the streamability of.
   examples:
   - path: examples/isElementStreamable-1.lua
-    description: Check if
-    side: client
+    description: Check if an element is streamable.
+  - path: examples/isElementStreamable_OOP-1.lua
+    description: Check if an element is streamable.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the passed element is streamable like normal, false
+      name: result
+    description: Returns **true** if the passed element is streamable like normal, **false**
       if this element must always be streamed in.
   oop:
     element: element
@@ -24,4 +23,3 @@ shared:
     variable: streamable
     static: false
   pair: setElementStreamable
-  requires_review: true

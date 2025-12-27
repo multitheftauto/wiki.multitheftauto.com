@@ -1,7 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementLocal
-shared:
+client:
   name: isElementLocal
-  description: This function checks whether a clientside [element](/wiki/Element "Element")
+  description: This function checks whether a clientside [[element]]
     is local to the client (doesn't exist in the server) or not.
   parameters:
   - name: theElement
@@ -10,16 +9,17 @@ shared:
   examples:
   - path: examples/isElementLocal-1.lua
     description: This clientside function destroys all local radar blips.
-    side: client
+  - path: examples/isElementLocal_OOP-1.lua
+    description: This clientside function destroys all local radar blips.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the passed element is local, false if not or if invalid
+      name: result
+    description: Returns **true** if the passed element is local, **false** if not or if invalid
       parameters are passed.
   oop:
     element: element
     method: isLocal
     variable: localElement
     static: false
-  requires_review: true

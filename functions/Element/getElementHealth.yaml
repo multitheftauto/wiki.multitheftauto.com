@@ -1,23 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementHealth
-shared:
+shared: &shared
   name: getElementHealth
-  description: This function returns the current health for the specified [element](/wiki/Element
-    "Element"). This can be a [player](/wiki/Player "Player"), a [ped](/wiki/Ped "Ped"),
-    a [vehicle](/wiki/Vehicle "Vehicle"), or an [object](/wiki/Object "Object").
+  description: This function returns the current health for the specified element. This can be a [[player]], [[ped]], [[vehicle]], [[object]] or [[weapon]].
   parameters:
   - name: theElement
     type: element
-    description: The player or vehicle whose health you want to check.
+    description: The element whose health you want to check.
   examples:
-  - path: examples/getElementHealth-1.lua
-    description: This example outputs the health of the player who enters the command
-      'showhealth', and their vehicle's health.
-    side: client
+  - path: examples/getElementHealth_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float indicating the element's health, or false if invalid
+    - type: float|false
+      name: health
+    description: Returns a [[float]] indicating the element's health, or **false** if invalid
       arguments were passed.
   oop:
     element: element
@@ -25,4 +20,9 @@ shared:
     variable: health
     static: false
   pair: setElementHealth
-  requires_review: true
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/getElementHealth-1.lua
+    description: This example outputs the health of the player who enters the command `showhealth`, and their vehicle's health.

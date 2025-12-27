@@ -1,34 +1,41 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/HasElementData
-shared:
+shared: &shared
   name: hasElementData
-  description: This function checks if an element has [element data](/wiki/Element_data
-    "Element data") available under a certain key.
+  description: This function checks if an element has [element data](/reference/Element_data) available under a certain key.
   parameters:
   - name: theElement
     type: element
     description: This is the element with data you want to check.
   - name: key
     type: string
-    description: The name of the element data entry you want to check for. (Maximum
-      31 characters.)
+    description: The name of the element data entry you want to check for. (Max 128 characters).
   - name: inherit
     type: bool
-    description: '- toggles whether or not the function should go up the hierarchy
+    description: 'Toggles whether or not the function should go up the hierarchy
       to find the requested key in case the specified element doesn''t have it.'
     default: 'true'
-  examples:
-  - path: examples/hasElementData-1.lua
-    description: ''
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: This function returns true if the element contains element data for
-      key , or false if the element doesn't exist or there is no data associated with
-      the key .
+      name: result
+    description: This function returns **true** if the element contains element data for
+      key, or **false** if the element doesn't exist or there is no data associated with
+      the key.
   oop:
     element: element
     method: hasData
     static: false
-  requires_review: true
+  notes:
+    - type: info
+      content: This function is only used to check whether a given element has a specific element data. If you want to get its value, use [[getElementData]] instead.
+
+client:
+  <<: *shared
+  examples:
+    - path: examples/hasElementData_OOP-1.lua
+      oop: true
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/hasElementData-1.lua
+    description: This example outputs a player's favorite animal using a console command `favoriteAnimal` if they have one set.

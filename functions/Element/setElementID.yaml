@@ -1,11 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementID
 shared:
   name: setElementID
-  description: 'This function sets the ID of an element to a string. This can be anything
-    from an identifying number, to a name.
-
-    You can only change the ID of an element clientside if that element has been created
-    clientside as well.'
+  description: This function sets the ID of an element to a [[string]]. This can be anything from an identifying number, to a name.
   parameters:
   - name: theElement
     type: element
@@ -15,13 +10,13 @@ shared:
     description: The new ID for theElement.
   examples:
   - path: examples/setElementID-1.lua
-    description: ''
-    side: server
+  - path: examples/setElementID_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: This returns true if successful. It will return false if theElement
+      name: result
+    description: This returns **true** if successful. It will return **false** if theElement
       is invalid, or does not exist, or if name is invalid, or is not a string.
   oop:
     element: element
@@ -29,4 +24,6 @@ shared:
     variable: id
     static: false
   pair: getElementID
-  requires_review: true
+  notes:
+    - type: info
+      content: You can only change the ID of an element clientside if that element has been created clientside as well.

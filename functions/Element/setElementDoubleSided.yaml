@@ -1,30 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementDoubleSided
 shared:
   name: setElementDoubleSided
   description: This function allows you to set the double\-sidedness of an element's
     model. When an element's model is double\-sided, it's back facing triangles become
-    visible.
+    visible. See [what is back-face culling](https://en.wikipedia.org/wiki/Back-face_culling).
   parameters:
   - name: theElement
     type: element
     description: The element in which you'd like to set the double-sidedness of.
   - name: enable
     type: bool
-    description: MISSING_PARAM_DESC
+    description: Set to true/false to enable/disable double-sidedness.
   examples:
   - path: examples/setElementDoubleSided-1.lua
-    description: This example shows how to set the double-sidedness of an object in
-      a map file.
-    side: server
+  - path: examples/setElementDoubleSided_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if theElement is valid, false otherwise.
+      name: result
+    description: Returns **true** if theElement is valid, **false** otherwise.
   oop:
     element: element
     method: setDoubleSided
     variable: doubleSided
     static: false
   pair: isElementDoubleSided
-  requires_review: true
+  notes:
+    - type: info
+      content: |
+        Possible uses of double-sidedness are: Elimination of invisible walls, using buildings as enclosures, using inverted landmasses as large pits or to make cave networks. 
+        It can also remove the need to add extra triangles to custom models when trying to make them appear solid from all directions.

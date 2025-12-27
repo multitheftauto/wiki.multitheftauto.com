@@ -1,28 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementOnFire
-shared:
+shared: &shared
   name: setElementOnFire
-  description: This function can be used to set a [element](/wiki/Element "Element")
-    on fire or extinguish a fire on it. Supported types are [ped](/wiki/Ped "Ped"),
-    [vehicle](/wiki/Vehicle "Vehicle") and [object](/wiki/Object "Object").
+  description: This function can be used to set a element on fire or extinguish a fire on it. Supported types are [[player]]/[[ped]], [[vehicle]] and [[object]].
   parameters:
   - name: theElement
     type: element
     description: The element that we want to set/unset.
   - name: isOnFire
     type: bool
-    description: true to set the element on fire, false to extinguish any fire on
-      it.
-  examples:
-  - path: examples/setElementOnFire-1.lua
-    description: Example 1:This example defines a command handler for the commandfireelement.
-      This will fire up a player or their vehicle if the state is true. Otherwise
-      the fire will be gone.
-    side: server
+    description: Set **true** to set the element on fire, **false** to extinguish any fire on it.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if successful, false otherwise
+      name: result
+    description: Returns **true** if successful, **false** otherwise
   oop:
     element: element
     method: setOnFire
@@ -31,6 +21,16 @@ shared:
   pair: isElementOnFire
   notes:
   - type: info
-    content: Function on the client side only works on elements created on the client
-      side.
-  requires_review: true
+    content: Function on the client side only works on elements created on the client side - excluding the local player.
+  version:
+    added: 1.6.0 r22864
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementOnFire-1.lua
+    description: This example defines a command handler for the command `fireelement`.
+      This will fire up a player or their vehicle if the state is true. Otherwise
+      the fire will be gone.
+  - path: examples/setElementOnFire_OOP-1.lua
+    oop: true

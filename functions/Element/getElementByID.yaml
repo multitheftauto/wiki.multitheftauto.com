@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementByID
 shared:
   name: getElementByID
   description: This function returns an element from the specified ID. If more than
@@ -7,8 +6,7 @@ shared:
   parameters:
   - name: id
     type: string
-    description: The ID of the element as it appears in the XML file or as set by
-      setElementID .
+    description: The ID of the element as it appears in the XML file or as set by [[setElementID]].
   - name: index
     type: int
     description: If there are two or more elements of the same ID it will return the
@@ -16,25 +14,35 @@ shared:
     default: '0'
   examples:
   - path: examples/getElementByID-1.lua
-    description: 'Assuming we have this in the .map file:'
-    side: server
-  - path: examples/getElementByID-2.lua
-    description: Then this example would retrieve the element and output the vehicle
-      name.
-    side: server
+    description: |
+      Assuming we have this in the .map file:
+
+      ```xml
+        <vehicle id="vipVehicle" posX="10" posY="10" posZ="4" model="602" />
+      ```
+
+      Then this example would retrieve the element and output the vehicle name.
+  - path: examples/getElementByID_OOP-1.lua
+    description: |
+      Assuming we have this in the .map file:
+
+      ```xml
+        <vehicle id="vipVehicle" posX="10" posY="10" posZ="4" model="602" />
+      ```
+
+      Then this example would retrieve the element and output the vehicle name.
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns the element with the given ID, or false if no such element
+    - type: element|false
+      name: result
+    description: Returns the [[element]] with the given ID, or **false** if no such element
       exists.
   oop:
     element: Element
-    note: This function is a static function underneath the Element class.
-    method: )
+    method: getByID
     static: true
   notes:
   - type: info
-    content: The ID in this context is the value of the 'id' data item of the element
-      (the id=".." attribute in the .map file), NOT the model ID, weapon ID or similiar.
-  requires_review: true
+    content: The ID in this context is the value of the `id` data item of the element
+      (the id=".." attribute in the .map file), **NOT** the model ID, weapon ID or similiar.

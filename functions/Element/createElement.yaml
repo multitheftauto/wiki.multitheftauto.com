@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CreateElement
 shared:
   name: createElement
-  description: This function is used to create a new dummy element in the [element
-    tree](/wiki/Element_tree "Element tree") which do not necessarily represent an
+  pair: destroyElement
+  description: This function is used to create a new dummy [[element]] in the [element tree](/reference/Element_tree) which do not necessarily represent an
     entity within the San Andreas world. A common use for this function is for creating
-    custom elements, such as a Flag or a Base.
+    custom elements, such as a **Flag** or a **Base**.
   parameters:
   - name: elementType
     type: string
@@ -15,20 +14,32 @@ shared:
     default: nil
   examples:
   - path: examples/createElement-1.lua
-    description: This example creates a "flag" element, named "blue", which will be
-      at the resource's dynamic map.
-    side: server
-  - path: examples/createElement-2.lua
-    description: 'Except for it being placed in a different map root, that line will
-      have the same effect as having this in a .map file:'
-    side: server
+    description: |
+      This example creates a "flag" element, named "blue", which will be at the resource's dynamic map.
+
+      Except for it being placed in a different map root, that line will have the same effect as having this in a .map file:
+      ```xml
+        <flag id="blue" />
+      ````
+
+      Lua
+  - path: examples/createElement_OOP-1.lua
+    description: |
+      This example creates a "flag" element, named "blue", which will be at the resource's dynamic map.
+
+      Except for it being placed in a different map root, that line will have the same effect as having this in a .map file:
+      ```xml
+        <flag id="blue" />
+      ````
+
+      Lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns the element if it was successfully created. Returns false
+    - type: element|false
+      name: created element
+    description: Returns the [[element]] if it was successfully created. Returns **false**
       if the arguments are wrong.
   oop:
     element: element
     constructorclass: Element
-  requires_review: true

@@ -1,11 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/HasElementDataSubscriber
-shared:
+server:
   name: hasElementDataSubscriber
-  description: 'This function returns whether a [player](/wiki/Player "Player") is
-    subscribed to specific [element data](/wiki/Element_data "Element data").
-
-    This function is used together with [setElementData](/wiki/SetElementData "SetElementData")
-    in *"subscribe"* mode.'
+  description: This function returns whether a [[player]] is subscribed to specific [element data](/reference/Element_data). This function is used together with [[setElementData]] in **subscribe mode**.
   parameters:
   - name: theElement
     type: element
@@ -18,15 +13,14 @@ shared:
     description: The player you wish to check.
   examples:
   - path: examples/hasElementDataSubscriber-1.lua
-    description: ''
-    side: server
+  - path: examples/hasElementDataSubscriber_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the player is subscribed, false otherwise.
+      name: result
+    description: Returns **true** if the player is subscribed, **false** otherwise.
   oop:
     element: element
     method: hasDataSubscriber
     static: false
-  requires_review: true

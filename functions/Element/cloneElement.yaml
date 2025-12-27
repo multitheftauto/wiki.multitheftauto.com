@@ -1,10 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/CloneElement
-shared:
+server:
   name: cloneElement
   description: This function clones (creates an exact copy of) an already existing
-    element. The root node, and player elements, cannot be cloned. If a player element
-    is a child of an element that is cloned, it will be skipped, along with the elements
-    that exist as a child to the player element.
+    element.
   parameters:
   - name: theElement
     type: element
@@ -28,17 +25,25 @@ shared:
     default: 'false'
   examples:
   - path: examples/cloneElement-1.lua
-    description: This example clones the vehicle a player is in.  This allows carrying
+    description: This example clones the vehicle a player is in. This allows carrying
       over of the current state of the vehicle, including mods, for example.
-    side: server
+  - path: examples/cloneElement_OOP-1.lua
+    description: This example clones the vehicle a player is in. This allows carrying
+      over of the current state of the vehicle, including mods, for example.
+    oop: true
   returns:
     values:
     - type: element
-      name: value
-    description: Returns the handle of the new cloned element of the parent, false
+      name: cloned element
+    description: Returns the handle of the new cloned element of the parent, **false**
       if invalid arguments were passed.
   oop:
-    element: element
+    element: element|false
     method: clone
     static: false
-  requires_review: true
+  notes:
+    - type: info
+      content: |
+        - if `cloneChildren` is **true**, the position floats will be offsets from the cloned element's position.
+        - The root node, and player elements, cannot be cloned. If a player element is a child of an element that is cloned, it will be skipped, along with the elements that exist as a child to the player element. Players are not the only elements that cannot be cloned. This list also includes remoteclients, and console elements.
+        - The cloned element will be placed on the [element tree](/reference/Element_tree) as a child of the same parent as the cloned element.

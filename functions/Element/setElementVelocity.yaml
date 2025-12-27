@@ -1,8 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementVelocity
-shared:
+shared: &shared
   name: setElementVelocity
-  description: This function sets the velocity (movement speeds) along each axis,
-    for an element.
+  description: This function sets the velocity (movement speeds) along each axis, for an element. This can be a [[player]], [[ped]], [[vehicle]], [[object]], [[weapon]], [[projectile]] or [[sound]].
   parameters:
   - name: theElement
     type: element
@@ -16,20 +14,11 @@ shared:
   - name: speedZ
     type: float
     description: A floating point value determining the speed along the Z axis.
-  examples:
-  - path: examples/setElementVelocity-1.lua
-    description: This example adds a function which copies the speed of a random player
-      to another random player. If there are less than 2 players it returnsfalse.
-    side: server
-  - path: examples/setElementVelocity-2.lua
-    description: This example lets players jump their vehicle into the air (if they
-      are the driver).
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the speed was set successfully, false if a bad element
+      name: result
+    description: Returns **true** if the speed was set successfully, **false** if a bad element
       was specified or other bad arguments.
   oop:
     element: element
@@ -37,4 +26,17 @@ shared:
     variable: velocity
     static: false
   pair: getElementVelocity
-  requires_review: true
+
+server:
+  <<: *shared
+  examples:
+    - path: examples/setElementVelocity-1.lua
+      description: This example adds a function which copies the speed of a random player to another random player. If there are less than 2 players it returnsfalse.
+
+client:
+  <<: *shared
+  examples:
+    - path: examples/setElementVelocity-2.lua
+      description: This example lets players jump their vehicle into the air (if they are the driver).
+    - path: examples/setElementVelocity_OOP-1.lua
+      oop: true

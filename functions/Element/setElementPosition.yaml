@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementPosition
-shared:
+shared: &shared
   name: setElementPosition
   description: This function sets the position of an element to the specified coordinates.
   parameters:
@@ -17,18 +16,14 @@ shared:
     description: The z coordinate of the destination.
   - name: warp
     type: bool
-    description: teleports players, resetting any animations they were doing. Setting
-      this to false preserves the current animation.
+    description: Teleports players, resetting any animations they were doing. Setting
+      this to **false** preserves the current animation.
     default: 'true'
-  examples:
-  - path: examples/setElementPosition-1.lua
-    description: This example lets admins teleport 5 random players to themselves
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function was successful, false otherwise.
+      name: result
+    description: Returns **true** if the function was successful, **false** otherwise.
   oop:
     element: element
     method: setPosition
@@ -36,13 +31,21 @@ shared:
     static: false
   pair: getElementPosition
   notes:
-  - type: warning
-    content: Do not use this function to spawn a player . It will cause problems with
-      other functions like warpPedIntoVehicle . Use spawnPlayer instead.
+  - type: info
+    content: Do not use this function to spawn a player. It will cause problems with
+      other functions like [[warpPedIntoVehicle]]. Use [[spawnPlayer]] instead.
   issues:
   - id: 539
     description: Changing player position when he/she has a jetpack will remove the
       jetpack and bug when skin is changed
   - id: 529
-    description: Player falls from his bike when its teleported by setElementPosition
-  requires_review: true
+    description: Player falls from his bike when its teleported by **setElementPosition**.
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementPosition-1.lua
+    description: This example lets admins teleport 5 random players to themselves.
+  - path: examples/setElementPosition_OOP-1.lua
+    description: This example teleports the player to the Grove Street.
+    oop: true

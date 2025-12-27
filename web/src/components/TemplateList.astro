@@ -321,6 +321,24 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
         {id: 'low_mem', label: 'Simulate little free video memory available for MTA.'},
         {id: 'no_shader', label: 'Simulate shaders failing validation.'},
     ],
+
+    'rotation-orders': [
+        {id: 'default', label: 'Default MTA behavior prior to 1.1, where rotation order depends on element type.'},
+        {id: 'ZXY', label: 'Rotation about the Z axis (up), then about the resulting X axis (right) and finally about the resulting Y axis (front). This is the default rotation order for **objects**.'},
+        {id: 'ZYX', label: 'Rotation about the Z axis (up), then about the resulting Y axis (front), and finally about the resulting X axis (right). This is the default rotation order for **vehicles**.'},
+    ],
+
+    'elementdata-sync-modes': [
+        {id: 'broadcast', label: 'Synchronize to all clients (default behavior). You can also parse **true** for this option.'},
+        {id: 'local', label: "Don't synchronize. You can also parse **false** for this option."},
+        {id: 'subscribe', label: 'Only synchronize to specific clients. See [addElementDataSubscriber](/reference/addElementDataSubscriber) and [removeElementDataSubscriber](/reference/removeElementDataSubscriber).'},
+    ],
+
+    'elementdata-client-changes-policies': [
+        {id: 'default', label: 'Use `elementdata_whitelisted` setting from [mtaserver.conf](/reference/Server_mtaserver.conf#elementdata_whitelisted).'},
+        {id: 'allow', label: 'Trust changes from clients.'},
+        {id: 'deny', label: 'Deny client changes. The server will trigger the [onPlayerChangesProtectedData](/reference/onPlayerChangesProtectedData) event when the client attempts to change the value.'},
+    ]
 };
 
 const icons: Record<string, string> = {

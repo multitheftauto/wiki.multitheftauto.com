@@ -1,8 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementVisibleTo
-shared:
+server:
   name: setElementVisibleTo
-  description: This function can change an [element](/wiki/Element "Element")'s [visibility](/wiki/Visibility
-    "Visibility").
+  description: This function can change an element's [visibility](/reference/Visibility). This can be a [[marker]], [[blip]] or [[radararea]].
   parameters:
   - name: theElement
     type: element
@@ -10,8 +8,7 @@ shared:
   - name: visibleTo
     type: element
     description: The element you wish the element to be visible or invisible to. Any
-      child elements that are players will also be able to see the element. See visibility
-      .
+      child elements that are players will also be able to see the element. See [visibility](/reference/Visibility).
   - name: visible
     type: bool
     description: Whether you are making it visible or invisible to the player.
@@ -19,21 +16,29 @@ shared:
   - path: examples/setElementVisibleTo-1.lua
     description: This example creates a marker and makes it only visibile to the player
       called 'someguy'.
-    side: server
   - path: examples/setElementVisibleTo-2.lua
     description: The following example shows how to make the marker visible to everyone
       except anotherguy
-    side: server
+  - path: examples/setElementVisibleTo_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element's visibility was changed successfully,
-      false otherwise, for example if you are trying to change the visibility of a
+      name: result
+    description: Returns **true** if the element's visibility was changed successfully,
+      **false** otherwise, for example if you are trying to change the visibility of a
       vehicle, player or object.
   oop:
     element: element
     method: setVisibleTo
     static: false
   pair: isElementVisibleTo
-  requires_review: true
+  notes:
+    - type: info
+      content: |
+        - Visibility settings of lower elements in the element tree override higher ones - if visibility for root is set to false and for a player is set to true, it will be visible to the player.
+        - Setting visibility for one element will also set visibility for all of its children. Order of **setElementVisibleTo** calls doesn't matter.
+    - type: tip
+      content: |
+        - If you want to clear all visibility settings of an element, try [[clearElementVisibleTo]].
+        - If the element doesn't need to exist on the server side, you can simply create it on the client side (for example, a [[blip]]). In that case, you don't need to use this function, because only the client on which the element was created will see it.

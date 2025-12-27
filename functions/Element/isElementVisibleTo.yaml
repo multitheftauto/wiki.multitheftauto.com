@@ -1,32 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementVisibleTo
-shared:
+server:
   name: isElementVisibleTo
-  description: This checks if an element is visible to a player. This does not check
-    if the player can literally see the element, just that they are aware that it
-    exists. Some so\-called [per\-player elements](/wiki/Per-player_elements?action=edit&redlink=1
-    "Per-player elements (page does not exist)") are able to be visible only to some
-    players, as such this checks if this is the case for a particular element/player
-    combination.
+  description: This checks if an element is visible to a player. This does not check if the player can literally see the element, just that they are aware that it exists. Some so-called per-player elements are able to be visible only to some players (see [[Visibility]]), as such this checks if this is the case for a particular element/player combination.
   parameters:
   - name: theElement
     type: element
-    description: The element you want to check the visibility of
+    description: The element you want to check the visibility of.
   - name: visibleTo
     type: element
-    description: The player you want to check against
+    description: The player you want to check against.
   examples:
   - path: examples/isElementVisibleTo-1.lua
     description: This checks if the player is visible to them selves.
-    side: server
+  - path: examples/isElementVisibleTo_OOP-1.lua
+    description: This example adds a `countvisibleblips` command to count how many blips are visible to the player.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if element is visible to the specified player, false
+      name: result
+    description: Returns **true** if element is visible to the specified player, **false**
       if not or an invalid argument was passed to the function.
   oop:
     element: element
     method: isVisibleTo
     static: false
+  notes:
+    - type: tip
+      content: If you want to check whether an element is visible on the screen, use [[isElementOnScreen]].
   pair: setElementVisibleTo
-  requires_review: true

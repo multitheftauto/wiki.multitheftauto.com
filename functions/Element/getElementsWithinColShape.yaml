@@ -1,7 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetElementsWithinColShape
 shared:
   name: getElementsWithinColShape
-  description: This function is used to retrieve a list of all elements in a colshape,
+  description: This function is used to retrieve a list of all elements in a [[colshape]],
     of the specified type.
   parameters:
   - name: theShape
@@ -9,23 +8,24 @@ shared:
     description: The colshape you want to get the elements from.
   - name: elemType
     type: string
-    description: 'The type of element you want a list of. This can be any element
-      type, the common ones being: "player": A player connected to the server "ped":
-      A ped "vehicle": A vehicle "object": An object "pickup": A pickup "marker":
-      A marker'
+    description: The type of element you want a list of. This can be any element type.
     default: nil
   examples:
   - path: examples/getElementsWithinColShape-1.lua
-    description: This example retrieves atableof players inside a colshape and prints
-      their name to the chat.
-    side: server
+    description: This example retrieves a table of players inside a colshape and prints their name to the chat.
+  - path: examples/getElementsWithinColShape_OOP-1.lua
+    description: This example retrieves a table of players inside a colshape and prints their name to the chat.
+    oop: true
+  - path: examples/getElementsWithinColShape_OOP-2.lua
+    description: This example retrieves a table of players inside a colshape and prints their name to the chat.
+    oop: true
   returns:
     values:
-    - type: table
-      name: value
-    description: Returns a table containing all the elements inside the colshape,
+    - type: table|false
+      name: elements
+    description: Returns a [[table]] containing all the elements inside the colshape,
       of the specified type. Returns an empty table if there are no elements inside.
-      Returns false if the colshape is invalid.
+      Returns **false** if the colshape is invalid.
   oop:
     element: colshape
     method: getElementsWithin
@@ -33,8 +33,12 @@ shared:
     static: false
   notes:
   - type: info
-    content: For legacy reasons, a colshape created on the client does not collide
-      with elements already existing at that location until they first move. This
-      function doesn't verify whether elements are in the same dimension and interior,
+    content: |
+      - For legacy reasons, a colshape created on the client does not collide
+      with elements already existing at that location until they first move.
+      - This function doesn't verify whether elements are in the same dimension and interior,
       additional checks could be implemented manually if they are needed.
-  requires_review: true
+  meta:
+    - changelog:
+        - version: 1.5.5-3.12286	
+          description: Added **.elementsWithin** OOP variable.

@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementFrozen
-shared:
+shared: &shared
   name: setElementFrozen
   description: This function freezes an element (stops it in its position and disables
     movement) or unfreezes it.
@@ -9,18 +8,13 @@ shared:
     description: The element whose freeze status we want to change.
   - name: freezeStatus
     type: bool
-    description: A boolean denoting whether we want to freeze ( true ) or unfreeze
-      ( false ) it.
-  examples:
-  - path: examples/setElementFrozen-1.lua
-    description: This example binds the "p" key to a function to freeze/unfreeze the
-      player's current vehicle.
-    side: server
+    description: A boolean denoting whether we want to freeze (true) or unfreeze
+      (false) it.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element was frozen, false if it wasn't or if
+      name: result
+    description: Returns **true** if the element was frozen, **false** if it wasn't or if
       invalid arguments are passed.
   oop:
     element: element
@@ -29,16 +23,21 @@ shared:
     static: false
   pair: isElementFrozen
   notes:
-  - type: warning
-    content: This function cancels any animation set by setPedAnimation if you freeze
-      the ped.
+  - type: info
+    content: This function cancels any animation set by [[setPedAnimation]] if you freeze the ped.
   issues:
   - id: 1291
-    description: Ped rotation is always zero on client side if ped has been frozed
-      after creating it
+    description: Ped rotation is always zero on client side if ped has been frozed after creating it.
   - id: 541
-    description: Frozen ped rotation goes wrong with latency reduction enabled
+    description: Frozen ped rotation goes wrong with latency reduction enabled.
   - id: 442
-    description: Client-side setElementFrozen should sync vehicle driven by local
-      player
-  requires_review: true
+    description: Client-side **setElementFrozen** should sync vehicle driven by local player.
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementFrozen-1.lua
+    description: This example binds the `p` key to a function to freeze/unfreeze the player's current vehicle.
+  - path: examples/setElementFrozen_OOP-1.lua
+    oop: true
+    

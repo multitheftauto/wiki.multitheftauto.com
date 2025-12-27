@@ -1,10 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementLighting
-shared:
+client:
   name: setElementLighting
-  description: This function changes the lighting value for the specified [element](/wiki/Element
-    "Element"). This can be a [player](/wiki/Player "Player"), [ped](/wiki/Ped "Ped"),
-    [vehicle](/wiki/Vehicle "Vehicle"), [object](/wiki/Object "Object"), [weapon](/wiki/Element/Weapon
-    "Element/Weapon").
+  description: This function changes the lighting value for the specified element. This can be a [[player]], [[ped]], [[vehicle]], [[object]] or a [[weapon]].
   parameters:
   - name: theElement
     type: element
@@ -14,19 +10,16 @@ shared:
     description: The lighting value that you want to set.
   examples:
   - path: examples/setElementLighting-1.lua
-    description: This example sets the lighting value of all players and vehicles
-      to 10
-    side: client
+    description: This example sets the lighting value of all players and vehicles to 10
   - path: examples/setElementLighting-2.lua
-    description: This example sets the lighting value to 10 only for our player, while
-      keeping other players at the default value.
-    side: client
+    description: This example sets the lighting value to 10 only for our player, while keeping other players at the default value.
+  - path: examples/setElementLighting_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function was successful, false otherwise. This
-      function can fail if called right after element creation.
+      name: result
+    description: Returns **true** if the function was successful, **false** otherwise.
   oop:
     element: element
     method: setLighting
@@ -37,5 +30,6 @@ shared:
   - type: info
     content: Lighting is calculated in real-time every frame. Therefore, to correctly
       override the lighting, you should use this function in combination with the
-      onClientPedsProcessed event, not only for peds, but also for vehicles and objects.
-  requires_review: true
+      [[onClientPedsProcessed]] event, not only for peds, but also for other element types.
+  version:
+    added: 1.6.0 r22862

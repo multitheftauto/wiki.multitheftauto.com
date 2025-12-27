@@ -1,11 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveElementDataSubscriber
-shared:
+server:
   name: removeElementDataSubscriber
-  description: 'This function unsubscribes a [player](/wiki/Player "Player") from
-    specific [element data](/wiki/Element_data "Element data").
-
-    This function is used together with [setElementData](/wiki/SetElementData "SetElementData")
-    in *"subscribe"* mode.'
+  description: This function unsubscribes a [[player]] from specific [element data](/reference/Element_data). This function is used together with [[setElementData]] in `"subscribe"` mode. This function works only on players who were previously added to subscription using [[addElementDataSubscriber]].
   parameters:
   - name: theElement
     type: element
@@ -18,16 +13,15 @@ shared:
     description: The player you wish to unsubscribe.
   examples:
   - path: examples/removeElementDataSubscriber-1.lua
-    description: ''
-    side: server
+  - path: examples/removeElementDataSubscriber_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the player was unsubscribed, false otherwise.
+      name: result
+    description: Returns **true** if the player was unsubscribed, **false** otherwise.
   oop:
     element: element
     method: removeDataSubscriber
     static: false
   pair: addElementDataSubscriber
-  requires_review: true

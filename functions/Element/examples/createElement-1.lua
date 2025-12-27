@@ -1,1 +1,1 @@
-blueTeamFlag = createElement( "flag", "blue" )
+local blueTeamFlag = createElement("flag", "blue")

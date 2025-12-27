@@ -1,31 +1,38 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsElementInWater
-shared:
+shared: &shared
   name: isElementInWater
-  description: This function checks whether an [element](/wiki/Element "Element")
-    is submerged in water.
+  description: This function checks whether an element is submerged in water.
   parameters:
   - name: theElement
     type: element
     description: The element to check.
-  examples:
-  - path: examples/isElementInWater-1.lua
-    description: ''
-    side: server
-  - path: examples/isElementInWater-2.lua
-    description: ''
-    side: client
-  - path: examples/isElementInWater-3.lua
-    description: ''
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the passed element is in water, false if it isn't,
+      name: result
+    description: Returns **true** if the passed element is in water, **false** if it isn't,
       or if the element is invalid.
   oop:
     element: element
     method: isInWater
     variable: inWater
     static: false
-  requires_review: true
+  notes:
+    - type: info
+      content: This function returns **true** only when the pivot point (usually the center of the model) is in water. This means it will return **true** if, for example, a ped is submerged halfway in water.
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/isElementInWater-2.lua
+    description: Function which checks if player is in water, which is triggered when player dies.
+  - path: examples/isElementInWater-3.lua
+    description: Function which checks if player is in water and then kills the player after 3 seconds.
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/isElementInWater-1.lua
+    description: Creates a command that checks if the player is in water or not.
+  - path: examples/isElementInWater_OOP-1.lua
+    description: Creates a command that checks if the player is in water or not.
+    oop: true

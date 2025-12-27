@@ -1,23 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetAttachedElements
-shared:
+shared: &shared
   name: getAttachedElements
-  description: This function returns a table of all the elements attached to the specified
-    element
+  description: This function returns a [[table]] of all the elements attached to the specified
+    element.
   parameters:
   - name: theElement
     type: element
     description: The element which you require the information from.
   examples:
   - path: examples/getAttachedElements-1.lua
-    description: ''
-    side: server
   returns:
     values:
-    - type: table
-      name: value
-    description: Returns a table of all the elements attached to the specified element.
+    - type: table|false
+      name: attached elements
+    description: Returns a [[table]] of all the elements attached to the specified element or **false** if invalid element passed.
   oop:
     element: element
     method: getAttachedElements
     static: false
-  requires_review: true
+
+client:
+  <<: *shared
+  examples:
+  - path: examples/getAttachedElements_OOP-1.lua
+    oop: true

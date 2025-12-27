@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/SetElementParent
-shared:
+shared: &shared
   name: setElementParent
   description: This function is used for setting an element as the parent of another
     element.
@@ -10,15 +9,11 @@ shared:
   - name: parent
     type: element
     description: The element you wish to be the parent of theElement .
-  examples:
-  - path: examples/setElementParent-1.lua
-    description: 'This example sets the parent of each spawnpoint to a dummy element:'
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if both elements are valid, false otherwise.
+      name: result
+    description: Returns **true** if both elements are valid, **false** otherwise.
   oop:
     element: element
     method: setParent
@@ -27,18 +22,31 @@ shared:
   pair: getElementParent
   notes:
   - type: info
-    content: This function does not change when an element will be destroyed - Elements
-      are always destroyed when the resource that created them is stopped.
-  - type: info
-    content: When an element is destroyed, its parent becomes the new parent of its
-      children.
-  - type: info
-    content: setElementParent only works if new parent is the root element, map root,
-      or ancestor of map root
+    content: |
+      - The client-side version of this function can only be used on client-created elements. It cannot be used to modify the parent of server side elements.
+      - This function does not change when an element will be destroyed - Elements are always destroyed when the resource that created them is stopped.
+      - When an element is destroyed, its parent becomes the new parent of its children.
+      - **setElementParent** only works if new parent is the root element, map root, or ancestor of map root.
   - type: tip
-    content: This function does not affect the child elements position. To attach
-      elements use the function attachElements .
-  - type: important
-    content: The client-side version of this function can only be used on client-created
-      elements. It cannot be used to modify the parent of server side elements.
-  requires_review: true
+    content: This function does not affect the child elements position. To attach elements use the function [[attachElements]].
+
+server:
+  <<: *shared
+  examples:
+  - path: examples/setElementParent-1.lua
+    description: |
+      This example sets the parent of each spawnpoint to a dummy element.
+
+      This is the equivalnet of the lua code below.
+      ```xml
+      <spawngroup id="Group of spawn points">
+        <spawnpoint id="spawnpoint_0" posX="2507.8715820313" posY="2772.6071777344" posZ="10.8203125" rot="270" skin="285"/>
+        <spawnpoint id="spawnpoint_1" posX="2508.060546875" posY="2780.3647460938" posZ="10.8203125" rot="270" skin="285"/>
+        <spawnpoint id="spawnpoint_2" posX="2508.0053710938" posY="2776.2897949219" posZ="10.8203125" rot="270" skin="285"/>
+        <spawnpoint id="spawnpoint_3" posX="2510.6899414063" posY="2778.3745117188" posZ="10.8203125" rot="270" skin="285"/>
+      </spawngroup>
+      ```
+
+      Lua code
+  - path: examples/setElementParent_OOP-1.lua
+    oop: true
