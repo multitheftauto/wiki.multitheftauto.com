@@ -22,6 +22,8 @@ By default, every element data is synchronized between the client and the server
 However, with a big number of elements and a big amount of element data, the load on the server and the network increases - therefore, if you don't need synchronization, you can disable it or limit it to specific players for whom it should be synchronized.
 Synchronizing element data when it's not needed wastes bandwidth and unnecessarily burdens the server.
 
+Never use [setElementData](/reference/setElementData) (with sync = true) in events that fire often (like [onClientRender](/reference/onClientRender)) without further optimization or conditions.
+
 #### How to disable or limit synchronization?
 You can completely disable synchronization by setting the 4-th argument of the [setElementData](/reference/setElementData) function to **false**.
 In that case, the element data will exist only on the side where it was set.
