@@ -7,6 +7,9 @@ import starlightScrollToTop from 'starlight-scroll-to-top'
 
 export default defineConfig({
   site: SITE_URL,
+  redirects: {
+    '/reference/matrix': '/reference/Matrix',
+  },
   i18n: {
     locales: ["en", "es", "fr", "pl"],
     defaultLocale: "en",
