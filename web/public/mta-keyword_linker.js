@@ -12,7 +12,9 @@ const wantedScopes = new Set([
 const luaGlobals = new Set(["_G", "_VERSION", "math.pi", "math.huge"]);
 
 const customLinks = new Map([
-
+  ["Vector4", "/reference/Vector4"],
+  ["Vector3", "/reference/Vector3"],
+  ["Vector2", "/reference/Vector2"]
 ]);
 
 function extractFunctions(tmLanguage, textContent) {
