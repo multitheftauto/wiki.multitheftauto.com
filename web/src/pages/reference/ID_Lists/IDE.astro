@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import NoteBox from '@src/components/NoteBox.astro';
 import { ide_table } from '@src/data/ide_table';
 ---
 <StarlightPage frontmatter={{
@@ -7,6 +8,8 @@ import { ide_table } from '@src/data/ide_table';
     title: 'IDE list',
     tableOfContents: false,
 }}>
+
+<NoteBox type="info">This list may be (and probably is) incomplete.</NoteBox>
 
 <input id="filterInput" placeholder="🔍 Filter by any column: Model ID, Model Name, LOD ID, LOD Name, TXD, IDE..." style="margin-bottom: 1rem; width: 100%;" />
 
