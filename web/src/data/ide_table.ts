@@ -1,4 +1,4 @@
-export const lod_table = [
+export const ide_table = [
     [694, 784, 'sm_redwoodgrp', 'gta_tree_pine', 'lod_redwoodgrp', 'lod_veg', 'countryS'],
     [791, 785, 'vbg_fir_copse', 'gta_tree_pine', 'lod_vbg_fir_co', 'lod_veg', 'countrye'],
     [1259, 1268, 'billbd1', 'BillBrd', 'lodlbd1', 'BillBrd', 'LAe'],

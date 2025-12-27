@@ -1,6 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
-import { lod_table } from '@src/data/lod_table';
+import { ide_table } from '@src/data/ide_table';
 ---
 <StarlightPage frontmatter={{
     template: 'doc',
@@ -24,7 +24,7 @@ import { lod_table } from '@src/data/lod_table';
           </tr>
       </thead>
       <tbody id="tableBody">
-          {lod_table.map(([id, lod_id, dff, txd, lod_dff, lod_txd, ide], i) => (
+          {ide_table.map(([id, lod_id, dff, txd, lod_dff, lod_txd, ide], i) => (
           <tr>
               <td><a href={`https://dev.prineside.com/en/gtasa_samp_model_id/model/${id}`}>{id}</a></td>
               <td>{dff}</td>
