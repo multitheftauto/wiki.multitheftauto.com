@@ -9,7 +9,11 @@ const wantedScopes = new Set([
   "support.function.lua"
 ]);
 
-const luaGlobals = ["_G", "_VERSION", "math.pi", "math.huge"];
+const luaGlobals = new Set(["_G", "_VERSION", "math.pi", "math.huge"]);
+
+const customLinks = new Map([
+
+]);
 
 function extractFunctions(tmLanguage, textContent) {
   const result = new Set();
@@ -50,7 +54,7 @@ function extractFunctions(tmLanguage, textContent) {
       const funcs = funcsMatch.split("|");
       funcs.forEach(fn => {
         result.add(fn);
-        luaGlobals.push(fn);
+        luaGlobals.add(fn);
       });
       return;
     } else {
@@ -76,16 +80,31 @@ function initKeywordLinker() {
 
     spans.forEach(span => {
       const text = span.textContent;
-      if (allFunctions.has(text)) {
-        let url = `/reference/${text}`;
+      console.log(span.dataset.linked);
+      if (!span.dataset.linked && (allFunctions.has(text) || customLinks.has(text))) {
+        span.dataset.linked = "true";
+
+        let url = customLinks.get(text) ?? `/reference/${text}`;
+
+        // Lua keywords
         const [lib] = text.split(".");
-        if (["string", "math", "table", "os", "debug", "coroutine"].includes(lib) || luaGlobals.includes(text)) {
+        if (["string", "math", "table", "os", "debug", "coroutine"].includes(lib) || luaGlobals.has(text)) {
           url = `https://www.lua.org/manual/5.1/manual.html#pdf-${text}`;
         }
 
-        const isExternalURL = url.startsWith("https://www.");
+        const a = document.createElement("a");
+        a.href = url;
+        a.textContent = text;
+        a.className = "mta-keyword-link";
 
-        span.innerHTML = `<a href="${url}" class="mta-keyword-link" ${isExternalURL ? 'target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`;
+        // Open external links in a new tab
+        const isExternalURL = /^https?:\/\//.test(url);
+        if (isExternalURL) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+
+        span.replaceChildren(a);
       }
     });
   }
