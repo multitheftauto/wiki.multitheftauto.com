@@ -1,7 +1,6 @@
 shared: &shared
   name: attachElements
   description: This function attaches one [[element]] to another, so that the first one follows the second whenever it moves. Supported element types are [[ped]], [[player]], [[blip]], [[vehicle]], [[object]], [[marker]], [[pickup]], [[sound]], [[colshape]], [[weapon]], [[camera]], [[light]].
-server:
   parameters:
   - name: theElement
     type: element
