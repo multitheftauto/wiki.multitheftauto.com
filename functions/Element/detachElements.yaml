@@ -9,6 +9,7 @@ shared:
     type: element
     description: The element you wish to detach from, will detach from the attached
       element if this isn't specified.
+    default: nil
   examples:
   - path: examples/detachElements-1.lua
     description: 'This example attaches a marker to a vehicle, and detaches it when it blows up.'

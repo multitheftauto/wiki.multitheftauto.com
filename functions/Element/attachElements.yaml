@@ -1,6 +1,7 @@
 shared: &shared
   name: attachElements
-  description: This function attaches one [[element]] to another, so that the first one follows the second whenever it moves.
+  description: This function attaches one [[element]] to another, so that the first one follows the second whenever it moves. Supported element types are [[ped]], [[player]], [[blip]], [[vehicle]], [[object]], [[marker]], [[pickup]], [[sound]], [[colshape]], [[weapon]], [[camera]], [[light]].
+server:
   parameters:
   - name: theElement
     type: element
@@ -56,8 +57,6 @@ shared: &shared
       occur if all rotation offsets are non-zero. (i.e. Try to ensure at least one
       of `xRotOffset`, `yRotOffset` or `zRotOffset` is zero).
       - If an attempt is made to attach two elements that are already attached the opposite way (eg `theElement` becomes `theAttachToElement` and vice versa), the 1st attachment order is automatically detached in favor of the 2nd attachment order. For example, if carA was attached to carB, now carB is attached to carA. Also, an element cannot be attached to two separate elements at one time. For example, two cars can be attached to one single car, but one single car cannot be attached to two separate cars. If you attempt to do this, the existing attachment will automatically be dropped in favor of the new attachment. For example, if carA is asked to attached to carB then carC, it is only attached to carC.
-      - This is not compatible with all elements. The following elements are compatible: [[ped]], [[player]], [[blip]], [[vehicle]], [[object]], [[marker]], [[pickup]], [[sound]], [[colshape]], [[weapon]], [[camera]], [[light]].
-server:
   <<: *shared
   examples:
   - path: examples/attachElements-1.lua
