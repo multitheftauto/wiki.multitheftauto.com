@@ -62,6 +62,8 @@ shared: &shared
     - changelog:
         - version: '1.6.0 r23232'
           description: Added to the server side, thus the function is now shared.
+  version:
+    updated: 1.6.0 r23232
 
 client:
   <<: *shared
