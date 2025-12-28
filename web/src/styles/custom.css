@@ -40,6 +40,34 @@
     padding-top: 1.5rem;
 }
 
+:root[data-theme='dark'] .sl-badge {
+  color: #fff;
+}
+
+:root[data-theme='light'] .sl-badge {
+  color: #222;
+}
+
+.sl-badge.danger {
+  background-color: var(--sl-color-red-low);
+}
+
+.sl-badge.note {
+  background-color: var(--sl-color-blue-low);
+}
+
+.sl-badge.success {
+  background-color: var(--sl-color-green-low);
+}
+
+.sl-badge.caution {
+  background-color: var(--sl-color-orange-low);
+}
+
+.sl-badge.tip {
+  background-color: var(--sl-color-purple-low);
+}
+
 :root[data-theme='dark'] .see-also-section {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
