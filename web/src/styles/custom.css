@@ -40,6 +40,10 @@
     padding-top: 1.5rem;
 }
 
+.see-also-section .see-also-group ul li .sl-badge {
+  margin-left: 0.5rem;
+}
+
 :root[data-theme='dark'] .sl-badge {
   color: #fff;
 }

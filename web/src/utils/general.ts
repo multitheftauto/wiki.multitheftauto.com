@@ -1,6 +1,6 @@
 import { marked } from 'marked';
 import path from 'path';
-import { getFunctionsByCategory, getFunctionsByTypeByCategory } from '@src/utils/functions';
+import { getFunctionInfo, getFunctionsByCategory, getFunctionsByTypeByCategory } from '@src/utils/functions';
 import { getEventsByCategory, getEventsByTypeByCategory } from '@src/utils/events';
 import { getElementsByCategory, getElementCategory } from '@src/utils/elements';
 
@@ -36,6 +36,7 @@ type SeeAlsoLink = {
   name: string;
   link: string;
   newTab?: boolean;
+  badge?: string;
 };
 
 export type SeeAlsoLinkGroup = {
@@ -144,7 +145,22 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
 
     const title = makeTitle(subType, category, type);
     if (!groupedMap.has(title)) groupedMap.set(title, []);
-    const links = items.map((i: any) => ({ name: i.id, link: `/reference/${i.id}` }));
+    const links = items.map((i: any) => {
+      let badge: string | undefined;
+
+      if (i.collection === 'functions')
+      {
+        const funcInfo = getFunctionInfo(i.data);
+        badge = funcInfo.version?.added ? `new` : (funcInfo.version?.updated ? `updated` : undefined);
+      }
+
+      return {
+        name: i.id,
+        link: `/reference/${i.id}`,
+        badge: badge,
+      };
+    });
+
     groupedMap.get(title)!.push(...links);
   }
 

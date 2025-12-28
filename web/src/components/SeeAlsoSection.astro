@@ -1,5 +1,6 @@
 ---
-import type { SeeAlsoLinkGroup } from '@src/utils/general';
+import type { SeeAlsoLinkGroup } from "@src/utils/general";
+import { Badge } from "@astrojs/starlight/components";
 
 export interface Props {
   seeAlsoLinks: SeeAlsoLinkGroup[];
@@ -7,28 +8,61 @@ export interface Props {
 }
 
 const { seeAlsoLinks, currentId } = Astro.props;
+
+const badgeConfig: {
+  [key: string]: {
+    text: string;
+    variant: "note" | "danger" | "success" | "caution" | "tip" | "default";
+  };
+} = {
+  new: { text: "New", variant: "success" },
+  updated: { text: "Updated", variant: "caution" },
+};
 ---
 
-{seeAlsoLinks.length > 0 && (
-  <div class="see-also-section" data-pagefind-ignore>
-    <h4>See Also</h4>
-    {seeAlsoLinks.map((group) => (
-      <div class="see-also-group">
-        <h5>{group.title}</h5>
-        <ul>
-          {group.links.map((link) => (
-            <li>
-              {link.name === currentId ? (
-                <strong>{link.name.replace(/_/g, ' ')}</strong>
-              ) : (
-                <a target={link.newTab ? '_blank' : '_self'}
-                   rel={link.newTab ? 'noopener noreferrer' : undefined}
-                 href={link.link}>{link.name.replace(/_/g, ' ')}</a>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-)}
+{
+  seeAlsoLinks.length > 0 && (
+    <div class="see-also-section" data-pagefind-ignore>
+      <h4>See Also</h4>
+      {seeAlsoLinks.map((group) => (
+        <div class="see-also-group">
+          <h5>{group.title}</h5>
+          <ul>
+            {group.links.map((link) => (
+              <li>
+                {link.name === currentId ? (
+                  <strong>{link.name.replace(/_/g, " ")}</strong>
+                ) : (
+                  <a
+                    target={link.newTab ? "_blank" : "_self"}
+                    rel={link.newTab ? "noopener noreferrer" : undefined}
+                    href={link.link}
+                  >
+                    {link.name.replace(/_/g, " ")}
+                  </a>
+                )}
+
+                {link.badge &&
+                  (() => {
+                    const config = badgeConfig[link.badge] ?? {
+                      text: link.badge,
+                      variant: "default",
+                    };
+
+                    return (
+                      <Badge
+                        text={config.text}
+                        variant={config.variant}
+                        size="medium"
+                        style="font-weight: bold;"
+                      />
+                    );
+                  })()}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )
+}
