@@ -1,5 +1,6 @@
 ---
 import type { SeeAlsoLinkGroup } from "@src/utils/general";
+import { getBadgeConfig } from "@src/utils/badges";
 import { Badge } from "@astrojs/starlight/components";
 
 export interface Props {
@@ -8,16 +9,6 @@ export interface Props {
 }
 
 const { seeAlsoLinks, currentId } = Astro.props;
-
-const badgeConfig: {
-  [key: string]: {
-    text: string;
-    variant: "note" | "danger" | "success" | "caution" | "tip" | "default";
-  };
-} = {
-  new: { text: "New", variant: "success" },
-  updated: { text: "Updated", variant: "caution" },
-};
 ---
 
 {
@@ -44,10 +35,7 @@ const badgeConfig: {
 
                 {link.badge &&
                   (() => {
-                    const config = badgeConfig[link.badge] ?? {
-                      text: link.badge,
-                      variant: "default",
-                    };
+                    const config = getBadgeConfig(link.badge) || {text: link.badge, variant: "default"};
 
                     return (
                       <Badge

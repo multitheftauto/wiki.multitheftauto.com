@@ -2,6 +2,8 @@
 import { getFunctionInfo } from '@src/utils/functions';
 import { getEventTypePretty } from '@src/utils/events';
 import { Icon } from '@astrojs/starlight/components';
+import { badgeConfig } from "@src/utils/badges";
+import { Badge } from "@astrojs/starlight/components";
 
 interface Props {
   itemsByCategory: any;
@@ -134,14 +136,50 @@ function displayCategory(category: string) {
       <h4>{displayTitle(category)}
         <a href={`#${slugify(category)}`}><Icon size="1.5rem" name="external" class="mtainfoicon"/></a>
       </h4>
+
       <ul>
         {items
           .slice()
           .sort((a, b) => a.id.localeCompare(b.id))
-          .map(item => (
-          <li set:html={displayItem(item)}></li>
-        ))}
+          .map((item) => {
+            const isFunction = item.collection === "functions";
+            const funcInfo = isFunction ? getFunctionInfo(item.data) : null;
+
+            const badgeType = funcInfo?.version?.added ? "new" : funcInfo?.version?.updated ? "updated" : null;
+            const badge = badgeType ? badgeConfig[badgeType] : null;
+
+            return (
+              <li>
+                <a href={`/reference/${item.id}`}>{item.id}</a>
+
+                {what === "all_functions" && funcInfo && (
+                  <>
+                    (<span class={`side-${funcInfo.type}`}>{funcInfo.typePretty}</span>)
+                  </>
+                )}
+
+                {what === "all_events" && (
+                  <>
+                    {" "}
+                    (<span class={`side-${item.data.type}`}>
+                      {getEventTypePretty(item.data.type)}-side
+                    </span>)
+                  </>
+                )}
+
+                {badge && (
+                  <Badge
+                    text={badge.text}
+                    variant={badge.variant}
+                    size="medium"
+                    style="font-weight: bold;"
+                  />
+                )}
+              </li>
+            );
+          })}
       </ul>
+
     </section>
   ))}
 </section>
