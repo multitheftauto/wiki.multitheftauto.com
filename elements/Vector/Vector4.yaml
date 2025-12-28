@@ -24,6 +24,123 @@ oop_only_methods:
         optional: true
         description: If vectorOrX is a float, this is the W coordinate
 
+  - name: dot
+    type: method
+    description: |
+      Calculates the dot (scalar) product of two vectors.
+    signature: float Vector4:dot ( Vector4 vector )
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector to calculate the dot product with.
+    returns:
+      type: float
+      description: The scalar dot product.
+
+  - name: getX
+    type: method
+    description: Returns the X component of the vector.
+    signature: float Vector4:getX ( )
+    returns:
+      type: float
+      description: The X coordinate.
+
+  - name: setX
+    type: method
+    description: Sets the X component of the vector.
+    signature: nil Vector4:setX ( float x )
+    parameters:
+      - name: x
+        type: float
+        description: The new X value.
+
+  - name: getY
+    type: method
+    description: Returns the Y component of the vector.
+    signature: float Vector4:getY ( )
+    returns:
+      type: float
+      description: The Y coordinate.
+
+  - name: setY
+    type: method
+    description: Sets the Y component of the vector.
+    signature: nil Vector4:setY ( float y )
+    parameters:
+      - name: "y"
+        type: float
+        description: The new Y value.
+
+  - name: getZ
+    type: method
+    description: Returns the Z component of the vector.
+    signature: float Vector4:getZ ( )
+    returns:
+      type: float
+      description: The Z coordinate.
+
+  - name: setZ
+    type: method
+    description: Sets the Z component of the vector.
+    signature: nil Vector4:setZ ( float z )
+    parameters:
+      - name: z
+        type: float
+        description: The new Z value.
+
+  - name: getW
+    type: method
+    description: Returns the W component of the vector.
+    signature: float Vector4:getW ( )
+    returns:
+      type: float
+      description: The W coordinate.
+
+  - name: setW
+    type: method
+    description: Sets the W component of the vector.
+    signature: nil Vector4:setW ( float w )
+    parameters:
+      - name: w
+        type: float
+        description: The new W value.
+
+  - name: normalize
+    type: method
+    description: |
+      Normalizes the vector to a unit vector (length of 1). Modifies the original vector.
+    signature: bool Vector4:normalize ( )
+    returns:
+      type: bool
+      description: Whether the operation succeeded (e.g., the vector was not zero-length).
+
+  - name: getNormalized
+    type: method
+    description: |
+      Returns a normalized version of the vector without modifying the original.
+    signature: Vector4 Vector4:getNormalized ( )
+    returns:
+      type: Vector4
+      description: A new normalized vector.
+
+  - name: getLength
+    type: method
+    description: |
+      Returns the length (magnitude) of the vector.
+    signature: float Vector4:getLength ( )
+    returns:
+      type: float
+      description: The vector's length.
+
+  - name: getSquaredLength
+    type: method
+    description: |
+      Returns the squared length of the vector (useful to anil square root operations).
+    signature: float Vector4:getSquaredLength ( )
+    returns:
+      type: float
+      description: The squared length of the vector.
+
 examples:
   - path: examples/vector4-1.lua
     description: This example adds a command called "/garage", allowing you to get any garage bounding box. 
