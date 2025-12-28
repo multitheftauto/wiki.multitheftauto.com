@@ -21,7 +21,7 @@ const elementsByCategory = getOOPElementsByCategory();
                 <summary>{category} classes</summary>
                 <ul>
                     {elements.map(element => (
-                        <li><a href={`/${element.id}`}>{element.id}</a></li>
+                        <li><a href={`/reference/${element.id}`}>{element.id}</a></li>
                     ))}
                 </ul>
             </details>
