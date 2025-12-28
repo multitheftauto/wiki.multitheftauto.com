@@ -41,6 +41,7 @@ oop_only_methods:
     type: method
     description: Returns the X component of the vector.
     signature: float Vector4:getX ( )
+    variable: x
     returns:
       type: float
       description: The X coordinate.
@@ -49,6 +50,7 @@ oop_only_methods:
     type: method
     description: Sets the X component of the vector.
     signature: nil Vector4:setX ( float x )
+    variable: x
     parameters:
       - name: x
         type: float
@@ -58,6 +60,7 @@ oop_only_methods:
     type: method
     description: Returns the Y component of the vector.
     signature: float Vector4:getY ( )
+    variable: "y"
     returns:
       type: float
       description: The Y coordinate.
@@ -66,6 +69,7 @@ oop_only_methods:
     type: method
     description: Sets the Y component of the vector.
     signature: nil Vector4:setY ( float y )
+    variable: "y"
     parameters:
       - name: "y"
         type: float
@@ -75,6 +79,7 @@ oop_only_methods:
     type: method
     description: Returns the Z component of the vector.
     signature: float Vector4:getZ ( )
+    variable: z
     returns:
       type: float
       description: The Z coordinate.
@@ -83,6 +88,7 @@ oop_only_methods:
     type: method
     description: Sets the Z component of the vector.
     signature: nil Vector4:setZ ( float z )
+    variable: z
     parameters:
       - name: z
         type: float
@@ -92,6 +98,7 @@ oop_only_methods:
     type: method
     description: Returns the W component of the vector.
     signature: float Vector4:getW ( )
+    variable: w
     returns:
       type: float
       description: The W coordinate.
@@ -100,6 +107,7 @@ oop_only_methods:
     type: method
     description: Sets the W component of the vector.
     signature: nil Vector4:setW ( float w )
+    variable: w
     parameters:
       - name: w
         type: float
@@ -119,6 +127,7 @@ oop_only_methods:
     description: |
       Returns a normalized version of the vector without modifying the original.
     signature: Vector4 Vector4:getNormalized ( )
+    variable: normalized
     returns:
       type: Vector4
       description: A new normalized vector.
@@ -128,6 +137,7 @@ oop_only_methods:
     description: |
       Returns the length (magnitude) of the vector.
     signature: float Vector4:getLength ( )
+    variable: length
     returns:
       type: float
       description: The vector's length.
@@ -137,6 +147,7 @@ oop_only_methods:
     description: |
       Returns the squared length of the vector (useful to anil square root operations).
     signature: float Vector4:getSquaredLength ( )
+    variable: squaredLength
     returns:
       type: float
       description: The squared length of the vector.

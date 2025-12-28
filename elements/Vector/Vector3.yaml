@@ -50,6 +50,7 @@ oop_only_methods:
     type: method
     description: Returns the X component of the vector.
     signature: float Vector3:getX ( )
+    variable: x
     returns:
       type: float
       description: The X coordinate.
@@ -58,6 +59,7 @@ oop_only_methods:
     type: method
     description: Sets the X component of the vector.
     signature: void Vector3:setX ( float x )
+    variable: x
     parameters:
       - name: x
         type: float
@@ -67,6 +69,7 @@ oop_only_methods:
     type: method
     description: Returns the Y component of the vector.
     signature: float Vector3:getY ( )
+    variable: "y"
     returns:
       type: float
       description: The Y coordinate.
@@ -75,6 +78,7 @@ oop_only_methods:
     type: method
     description: Sets the Y component of the vector.
     signature: void Vector3:setY ( float y )
+    variable: "y"
     parameters:
       - name: "y"
         type: float
@@ -84,6 +88,7 @@ oop_only_methods:
     type: method
     description: Returns the Z component of the vector.
     signature: float Vector3:getZ ( )
+    variable: z
     returns:
       type: float
       description: The Z coordinate.
@@ -92,6 +97,7 @@ oop_only_methods:
     type: method
     description: Sets the Z component of the vector.
     signature: void Vector3:setZ ( float z )
+    variable: z
     parameters:
       - name: z
         type: float
@@ -111,6 +117,7 @@ oop_only_methods:
     description: |
       Returns a normalized version of the vector without modifying the original.
     signature: vector3 Vector3:getNormalized ( )
+    variable: normalized
     returns:
       type: Vector3
       description: A new normalized vector.
@@ -120,6 +127,7 @@ oop_only_methods:
     description: |
       Returns the length (magnitude) of the vector.
     signature: float Vector3:getLength ( )
+    variable: length
     returns:
       type: float
       description: The vector's length.
@@ -129,6 +137,7 @@ oop_only_methods:
     description: |
       Returns the squared length of the vector (useful to avoid square root operations).
     signature: float Vector3:getSquaredLength ( )
+    variable: squaredLength
     returns:
       type: float
       description: The squared length of the vector.

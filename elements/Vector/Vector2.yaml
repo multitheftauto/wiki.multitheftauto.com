@@ -1,4 +1,4 @@
-name: 'vector2'
+name: 'Vector2'
 description: |
   This is a 2D [Vector](/reference/Vector) class.
 oop_only_methods:
@@ -26,22 +26,16 @@ oop_only_methods:
   - name: getX
     description: Gets the X coordinate of a vector
     signature: float Vector2.getX(vector2 vector)
+    variable: x
     parameters:
       - name: vector
         type: vector2
         description: Vector2 to get X coordinate from
 
-  - name: getY
-    description: Gets the Y coordinate of a vector
-    signature: float Vector2.getY(vector2 vector)
-    parameters:
-      - name: vector
-        type: vector2
-        description: Vector2 to get Y coordinate from
-
   - name: setX
     description: Sets the X coordinate of a vector
     signature: bool Vector2.setX(vector2 vector, float x)
+    variable: x
     parameters:
       - name: vector
         type: vector2
@@ -50,9 +44,19 @@ oop_only_methods:
         type: float
         description: New X coordinate
 
+  - name: getY
+    description: Gets the Y coordinate of a vector
+    signature: float Vector2.getY(vector2 vector)
+    variable: "y"
+    parameters:
+      - name: vector
+        type: vector2
+        description: Vector2 to get Y coordinate from
+
   - name: setY
     description: Sets the Y coordinate of a vector
     signature: bool Vector2.setY(vector2 vector, float y)
+    variable: "y"
     parameters:
       - name: vector
         type: vector2
@@ -64,6 +68,7 @@ oop_only_methods:
   - name: getNormalized
     description: Gets a normalized version of the vector
     signature: vector2 Vector2.getNormalized(vector2 vector)
+    variable: normalized
     parameters:
       - name: vector
         type: vector2
@@ -72,6 +77,7 @@ oop_only_methods:
   - name: getLength
     description: Gets the length of a vector
     signature: float Vector2.getLength(vector2 vector)
+    variable: length
     parameters:
       - name: vector
         type: vector2
@@ -80,6 +86,7 @@ oop_only_methods:
   - name: getSquaredLength
     description: Gets the squared length of a vector
     signature: float Vector2.getSquaredLength(vector2 vector)
+    variable: squaredLength
     parameters:
       - name: vector
         type: vector2

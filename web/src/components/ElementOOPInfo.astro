@@ -49,7 +49,7 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
 
 {oop_only_methods.length > 0 && (
 <section class="oop-methods-section">
-    <h4><a href="/reference/OOP">OOP</a>-Only Methods</h4>
+    <h4><a href="/reference/OOP">OOP</a>-Only Methods and Variables</h4>
 
     {oop_only_methods.map((method: any) => (
         <>
@@ -91,6 +91,10 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
                 </li>
                 ))}
             </ul>
+            )}
+
+            {method.variable && (
+                <strong>Variable:</strong> <span><a href="/reference/Vector">{element_name}</a>.{method.variable}</span>
             )}
         </>
     ))}

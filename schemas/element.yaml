@@ -39,6 +39,8 @@ properties:
           type: string
         signature:
           type: string
+        variable:
+          type: string
         overloads:
           type: array
           items:
