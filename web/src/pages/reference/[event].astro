@@ -39,9 +39,11 @@ const eventParameters = event.data.parameters || [];
 let parametersCode = "";
 // Build parameters code syntax e.g. "int param1, string param2"
 if (eventParameters.length > 0) {
+  const ZERO_WIDTH_SPACE = '\u200B';
+
   parametersCode = eventParameters
     .map((param: any) => {
-      return param.type + " " + param.name;
+      return ZERO_WIDTH_SPACE + param.type + " " + param.name;
     })
     .join(", ");
 }

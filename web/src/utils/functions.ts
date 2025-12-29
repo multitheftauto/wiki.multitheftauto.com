@@ -31,7 +31,7 @@ function buildSyntaxString(
   const ZERO_WIDTH_SPACE = '\u200B';
 
   const returnString = returns
-    ? `${returns.values.map(v => v.type).join(`,${ZERO_WIDTH_SPACE} `)}`
+    ? `${returns.values.map(v => `${ZERO_WIDTH_SPACE}${v.type}`).join(', ')}`
     : '';
 
   const paramParts: string[] = [];
@@ -44,8 +44,12 @@ function buildSyntaxString(
     }
   };
 
+  const addZWSPToType = (typeStr: string): string => {
+    return typeStr.split(/(?:\/|\|)/).map(t => `${ZERO_WIDTH_SPACE}${t.trim()}`).join(typeStr.includes('|') ? '|' : '/');
+  };
+
   for (const p of parameters) {
-    const str = `${p.type} ${p.name}${p.default !== undefined ? ` = ${p.default}` : ''}`;
+    const str = `${addZWSPToType(p.type)} ${p.name}${p.default !== undefined ? ` = ${p.default}` : ''}`;
 
     if (p.default !== undefined) {
       optionalGroup.push(str);
