@@ -1,6 +1,7 @@
 ---
-import { Code } from '@astrojs/starlight/components';
-import { marked } from 'marked';
+import { Code } from "@astrojs/starlight/components";
+import { marked } from "marked";
+import type { Token } from "marked";
 
 interface Props {
   content?: string;
@@ -9,9 +10,9 @@ interface Props {
 
 const { content, inline = false } = Astro.props;
 
-let slotMarkdown = '';
-if (!content && Astro.slots.has('default')) {
-  slotMarkdown = await Astro.slots.render('default');
+let slotMarkdown = "";
+if (!content && Astro.slots.has("default")) {
+  slotMarkdown = await Astro.slots.render("default");
 }
 
 const rawContent = content ?? slotMarkdown ?? "";
@@ -21,16 +22,16 @@ const rawContent = content ?? slotMarkdown ?? "";
 
 function convertMediaWikiLinks(text: string): string {
   const redirects: Record<string, string> = {
-    ACL: 'acl',
+    ACL: "acl",
   };
 
   return text.replace(
     /\[\[([^|\]#]+)(?:#([^\]]+))?(?:\|([^\]]+))?\]\]/g,
     (_, link, hash, text) => {
       const redirected = redirects[link] ?? link;
-      const url = `/reference/${redirected}${hash ? `#${hash}` : ''}`;
+      const url = `/reference/${redirected}${hash ? `#${hash}` : ""}`;
       return `[${text || link}](${url})`;
-    }
+    },
   );
 }
 
@@ -39,15 +40,45 @@ const tokens = inline ? marked.Lexer.lexInline(processed) : marked.lexer(process
 ---
 
 {
-  tokens.map((token) => {
-    if (token.type === 'code') {
-      return <Code code={token.text} lang={token.lang || 'text'} />;
-    }
+  (function processTokens(tokens: Token[]) {
+    return tokens.map((token) => {
+      if (token.type === "code") {
+        return <Code code={token.text} lang={token.lang || "text"} />;
+      }
 
-    if (inline) {
-      return <Fragment set:html={marked.parseInline(token.raw ?? token.text ?? '')} />;
-    }
+      if (!inline) {
+        if (token.type === "list") {
+          const listToken = token as any;
+          const Tag = listToken.ordered ? "ol" : "ul";
 
-    return <Fragment set:html={marked.parser([token])} />;
-  })
+          return (
+            <Tag>
+              {listToken.items.map((item: Token) => processTokens([item])[0])}
+            </Tag>
+          );
+        }
+
+        if (token.type === "list_item") {
+          const listItemToken = token as any;
+
+          if (listItemToken.tokens && listItemToken.tokens.length > 0) {
+            const content = processTokens(listItemToken.tokens);
+            return <li>{content}</li>;
+          }
+
+          return <li>{listItemToken.text}</li>;
+        }
+      }
+
+      if (inline) {
+        return (
+          <Fragment
+            set:html={marked.parseInline(token.raw ?? token.text ?? "")}
+          />
+        );
+      }
+
+      return <Fragment set:html={marked.parser([token])} />;
+    });
+  })(tokens)
 }
