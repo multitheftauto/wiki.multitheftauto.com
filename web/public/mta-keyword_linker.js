@@ -82,7 +82,6 @@ function initKeywordLinker() {
 
     spans.forEach(span => {
       const text = span.textContent;
-      console.log(span.dataset.linked);
       if (!span.dataset.linked && (allFunctions.has(text) || customLinks.has(text))) {
         span.dataset.linked = "true";
 
