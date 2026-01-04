@@ -40,7 +40,7 @@ const tokens = inline ? marked.Lexer.lexInline(processed) : marked.lexer(process
 ---
 
 {
-  (function processTokens(tokens: Token[]) {
+  (function processTokens(tokens: Token[], isListItem: boolean = false): any[] {
     return tokens.map((token) => {
       if (token.type === "code") {
         return <Code code={token.text} lang={token.lang || "text"} />;
@@ -62,11 +62,19 @@ const tokens = inline ? marked.Lexer.lexInline(processed) : marked.lexer(process
           const listItemToken = token as any;
 
           if (listItemToken.tokens && listItemToken.tokens.length > 0) {
-            const content = processTokens(listItemToken.tokens);
+            const content = processTokens(listItemToken.tokens, true);
             return <li>{content}</li>;
           }
 
           return <li>{listItemToken.text}</li>;
+        }
+
+        if (token.type === "text" && isListItem) {
+          const textToken = token as any;
+          
+          return (
+            <Fragment set:html={marked.parseInline(textToken.raw ?? textToken.text ?? "")} />
+          );
         }
       }
 
