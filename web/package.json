@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.36.2",
     "@multitheftauto/starlight-theme-mtasa": "^1.4.1",
-    "astro": "^5.15.7",
+    "astro": "^5.16.9",
     "glob": "^11.1.0",
     "js-yaml": "^4.1.0",
     "marked": "^15.0.6",
