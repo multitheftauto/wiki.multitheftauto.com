@@ -1,23 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingRestoreMemorySize
-shared:
+client:
   name: engineStreamingRestoreMemorySize
   description: Restores the maximum amount of RAM \[in bytes] that can be used for
-    streaming to the default value
+    streaming to the default value.
   parameters: []
   examples:
   - path: examples/engineStreamingRestoreMemorySize-1.lua
-    description: This example adds a command that can be used to change the streaming
-      memory size, and display the previous value.
-    side: client
+    description: This example adds a command that can be used to change the streaming memory size, and display the previous value.
+  - path: examples/engineStreamingRestoreMemorySize_OOP-1.lua
+    description: This example adds a command that can be used to change the streaming memory size, and display the previous value.
+    oop: true
   returns:
     values:
     - type: nil
-      name: value
+      name: nothing
+    description: This functions returns nothing.
   oop:
-    element: enginestreaming
+    element: EngineStreaming
     method: restoreMemorySize
-    static: false
-  notes:
-  - type: tip
-    content: The function to manipulate the memory size is engineStreamingSetMemorySize
-  requires_review: true
+    static: true
+  version:
+    added: 1.6.0 r21874

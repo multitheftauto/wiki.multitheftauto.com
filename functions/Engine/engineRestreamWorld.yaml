@@ -1,17 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestreamWorld
-shared:
+client:
   name: engineRestreamWorld
-  description: This function re\-streams everything in the GTA world. Read [this pull
-    request](https://github.com/multitheftauto/mtasa-blue/pull/1735) to understand
-    what it is for.
+  description: This function re\-streams everything in the GTA world. This function will force unload all models. This can be useful if you try to replace buildings in SA world.
   parameters: []
   examples:
   - path: examples/engineRestreamWorld-1.lua
-    description: 'This function can be used after a model (or more) is loaded withengineLoadDFF:'
-    side: client
+    description: 'This function can be used after a model (or more) is loaded with [[engineLoadDFF]]:'
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the world was restreamed successfully, false otherwise.
-  requires_review: true
+      name: result
+    description: Always returns **true**.
+  version:
+    updated: 1.6.0-9.22663
+  meta:
+    - changelog:
+        - version: 1.6.0-9.21712
+          description: Added **includeLODs** argument.
+        - version: 1.6.0-9.22663
+          description: Removed **includeLODs** argument. Now it's always **true**.

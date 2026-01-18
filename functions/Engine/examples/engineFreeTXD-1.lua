@@ -1,4 +1,3 @@
--- TODO
 -- Allocate
 local newTxdId = engineRequestTXD("MYTEX")
 

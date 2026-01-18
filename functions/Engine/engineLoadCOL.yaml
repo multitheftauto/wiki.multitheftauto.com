@@ -1,26 +1,66 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadCOL
-shared:
+client:
   name: engineLoadCOL
-  description: This function loads a RenderWare Collision (COL 1/2/3\) file into GTA.
-    The collisions can then be used to provide collisions for in\-game objects.
+  description: This function loads a RenderWare Collision (COL 1/2/3\) file into GTA. The collisions can then be used to provide collisions for in-game objects.
   parameters:
-  - name: col_file / string raw_data
+  - name: filePath/rawData
     type: string
-    description: MISSING_PARAM_DESC
-  examples: []
+    description: The [filepath](/reference/Filepath) to the COL file you want to load or whole data buffer of the COL file.
+  examples: 
+    - path: examples/engineLoadCOL-1.lua
+    - path: examples/engineLoadCOL_OOP-1.lua
+      oop: true
   returns:
     values:
-    - type: col
-      name: value
-    description: Returns a COL if the file was loaded, false otherwise.
+    - type: col|false
+      name: collision element
+    description: Returns a [COL](/reference/col) if the file was loaded, **false** otherwise.
   oop:
     element: col
     constructorclass: EngineCOL
   notes:
   - type: info
-    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
-      - as other orders can cause collisions, textures or the DFF not to load due
-      to technical limitations. Collision libraries (.col files containing multiple
-      collision models) are not supported. See COL for details. Or you can try engineGetCOLsFromLibrary
-      , if you'd like.
-  requires_review: true
+    content: |
+      - For vehicles, please omit this function by embedding your [COL](/reference/col) file into your [DFF](/reference/dff) file. This way, you can be sure that the COL file is correctly (and automatically) loaded when calling [[engineLoadDFF]].
+
+      - Follow loading order **( COL -> TXD -> DFF )** as other orders can cause collisions, textures or the DFF not to load.
+      - Collision libraries (.col files containing multiple collision models) are **not supported**. See [COL](/reference/col) for details. Or you can try
+
+        <details>
+          <summary>This custom function to get the collision data from the col library</summary>
+
+          ```lua
+          local matchedCOLVer = {COLL = "COLL", COL2 = "COL2", COL3 = "COL3"}
+
+          function engineGetCOLsFromLibrary(file)
+              assert(type(file) == "string", "Bad argument @'engineGetCOLsFromLibrary' expected a string at argument 1, got " ..type(file))
+              
+              if fileExists(file) then -- COL Library
+                  local f = fileOpen(file)
+                  local str = fileRead(f, fileGetSize(f))
+                  fileClose(f)
+                  return engineGetCOLsFromLibrary(str)
+              else
+                  local cols = {}
+                  while true do
+                      local colVer = file:sub(1, 4)
+                      if matchedCOLVer[colVer] then
+                          local a, b, c, d = file:byte(5, 8)
+                          local colSize = a + b * 0x100 + c * 0x10000 + d * 0x1000000
+                          local col = file:sub(1, colSize + 8)
+                          local colName = col:sub(9, 29)
+                          local zeroPoint = colName:find("\0")
+                          cols[colName:sub(1, zeroPoint - 1)] = col
+                          file = file:sub(colSize + 9)
+                      else
+                          break
+                      end
+                  end
+                  return cols
+              end
+          end
+          ```
+        </details>
+  meta:
+    - changelog:
+        - version: 1.4.1-9.07088
+          description: Added option to use raw data instead of a file path.

@@ -1,6 +1,6 @@
 function onClientResourceStartReplaceModels()
 	local modelsToReplace = {
-		{ -- replace object (all object IDs here: https://dev.prineside.com/en/gtasa_samp_model_id/)
+		{ -- replace object
 			colFile = "object.col",
 			txdFile = "object.txd",
 			dffFile = "object.dff",
@@ -8,7 +8,7 @@ function onClientResourceStartReplaceModels()
 			alphaTransparency = false,
 			filteringEnabled = true,
 		},
-		{ -- replace vehicle (all vehicle IDs here: https://wiki.multitheftauto.com/wiki/Vehicle_IDs)
+		{ -- replace vehicle
 			colFile = false, -- if file is not present set to false/nil
 			txdFile = "vehicle.txd",
 			dffFile = "vehicle.dff",
@@ -16,7 +16,7 @@ function onClientResourceStartReplaceModels()
 			alphaTransparency = false,
 			filteringEnabled = true,
 		},
-		{ -- replace skin (all ped IDs here: https://wiki.multitheftauto.com/wiki/Character_Skins)
+		{ -- replace skin
 			colFile = false, -- if file is not present set to false/nil
 			txdFile = "ped.txd",
 			dffFile = "ped.dff",
@@ -24,7 +24,7 @@ function onClientResourceStartReplaceModels()
 			alphaTransparency = false,
 			filteringEnabled = true,
 		},
-		{ -- replace weapon (all weapon IDs here: https://wiki.multitheftauto.com/wiki/Weapons)
+		{ -- replace weapon 
 			colFile = false, -- if file is not present set to false/nil
 			txdFile = "m4.txd",
 			dffFile = "m4.dff",

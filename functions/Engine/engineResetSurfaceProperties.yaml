@@ -1,28 +1,16 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineResetSurfaceProperties
-shared:
+client:
   name: engineResetSurfaceProperties
   description: This function resets a surface property to its default value. If no
     ID is provided, it will reset all surfaces' properties to their original values.
   parameters:
   - name: surfaceID
     type: int
-    description: Material ID from 0 to 178
+    description: Material ID from 0 to 178. See [surface materials](/reference/ID_Lists/Surface_Materials).
   examples:
   - path: examples/engineResetSurfaceProperties-1.lua
-    description: This will reset anySurface Propertiesfor id:5
-    side: client
+    description: This will reset any **surface properties** for id 5.
   returns:
     values:
-    - type: mixed
-      name: value
-    description: Returns true if the function executed succesfully, false otherwise.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Properties
-
-      - Missing section: Materials, surfaces properties
-
-      '
-  requires_review: true
+    - type: bool
+      name: result
+    description: Returns **true** if the function executed succesfully, **false** or [[nil]] otherwise.

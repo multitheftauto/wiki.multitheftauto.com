@@ -1,6 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelTXDID
-shared:
+client:
   name: engineSetModelTXDID
+  pair: engineGetModelTXDID
   description: This function changes the TXD ID of the given model ID.
   parameters:
   - name: modelID
@@ -8,16 +8,22 @@ shared:
     description: The ID of the model to update TXD ID.
   - name: txdID
     type: int
-    description: The ID of target TXD. Use engineRequestTXD to get a new TXD ID.
-  examples: []
+    description: The ID of target TXD. Use [[engineRequestTXD]] to get a new TXD ID.
+  examples: 
+    - path: examples/engineSetModelTXDID-1.lua
+      description: This example replaces textures for some Grove Street buildings.
+    - path: examples/engineSetModelTXDID_OOP-1.lua
+      description: This example replaces textures for some Grove Street buildings.
+      oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if this function succeeds, throw a error if it fails
+      name: result
+    description: Returns **true** if this function succeeds, throw a **error** if it fails
       for some reason.
   oop:
     element: Engine
     method: setModelTXDID
     static: true
-  requires_review: true
+  version:
+    added: 1.6.0 r22190

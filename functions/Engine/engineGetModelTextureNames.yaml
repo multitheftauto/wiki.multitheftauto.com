@@ -1,28 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelTextureNames
-shared:
+client:
   name: engineGetModelTextureNames
-  description: This function returns a table of the world textures which are applied
+  description: This function returns a [[table]] of the world textures which are applied
     to the specified model.
   parameters:
-  - name: modelId
+  - name: modelIdOrName
     type: string
-    description: MISSING_PARAM_DESC
-    default: '""'
+    description: You can either use the model id or the model name.
   examples:
   - path: examples/engineGetModelTextureNames-1.lua
     description: This example will output the texture names applied to the Comet.
-    side: client
+  - path: examples/engineGetModelTextureNames_OOP-1.lua
+    description: This example will output the texture names applied to the Comet.
+    oop: true
   - path: examples/engineGetModelTextureNames-2.lua
     description: The model name can also be used.
-    side: client
   returns:
     values:
-    - type: table
-      name: value
-    description: Returns a table if this function succeeds, false if it fails for
+    - type: table|false
+      name: model texture names
+    description: Returns a [[table]] if this function succeeds, **false** if it fails for
       some reason.
   oop:
     element: Engine
     method: getModelTextureNames
     static: true
-  requires_review: true

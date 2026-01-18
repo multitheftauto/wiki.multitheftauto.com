@@ -1,41 +1,41 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetAsynchronousLoading
-shared:
+client:
   name: engineSetAsynchronousLoading
-  description: This function enables or disables asynchronous model loading. Enabling
+  description: |
+    This function enables or disables asynchronous model loading. Enabling
     asynchronous model loading may reduce the small pauses that occur when a new model
     is displayed for the first time. However, it can cause the new models to appear
     slightly later than they might have otherwise.
+
+    If asynchronous loading is disabled, MTA requests all resources to be loaded at the time they have been requested. This will halt game execution for the time being.
+    Otherwise, all resource requests are queued up on the to-be-loaded queue. At the beginning of the game frame, the GTA:SA streaming system is updated, along with its streaming slicers. This is when a model is loaded after going through multiple stages. Having asynchronous loading disabled forces all stages to be consecutively run through.
+
+    For more details read [GTA:SA Resource Streaming](/reference/GTA_Resource_Streaming).
   parameters:
   - name: enable
     type: bool
-    description: Set to true/false to enable/disable asynchronous loading. Only works
-      if the client's preferences has 'Asynchronous Loading' set to 'Auto'.
+    description: Set to **true/false** to enable/disable asynchronous loading.
   - name: force
     type: bool
-    description: If set to true, ignores the client's preferences.
+    description: If set to **true**, ignores the client's preferences.
+    default: 'false'
   examples:
   - path: examples/engineSetAsynchronousLoading-1.lua
-    description: The next example enables the model asynchronous loading ignoring
+    description: The example enables the model asynchronous loading ignoring
       client preferences if there are a lot of objects (and the player wants to).
-    side: client
+  - path: examples/engineSetAsynchronousLoading_OOP-1.lua
+    description: The example enables the model asynchronous loading ignoring
+      client preferences if there are a lot of objects (and the player wants to).
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function executed successfully, false otherwise.
+      name: result
+    description: Returns **true** if the function executed successfully, **false** otherwise.
   oop:
     element: Engine
     method: setAsynchronousLoading
     static: true
   notes:
   - type: warning
-    content: Using this function with a large amounts of engineReplace* at the same
+    content: Using this function with a large amounts of **engineReplace*** at the same
       time may cause loading times to be exponentially slower.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: How it works
-
-      '
-  requires_review: true

@@ -1,22 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetPoolDefaultCapacity
-shared:
+client:
   name: engineGetPoolDefaultCapacity
   description: This function returns the default capacity of the provided pool.
   parameters:
   - name: pool
     type: string
-    description: Name of the pool
+    description: Name of the pool. See [pools](/reference/Pools).
   examples: []
   returns:
     values:
-    - type: number
-      name: value
-    description: The default capacity of the provided pool as positive number
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Engine pools
-
-      '
-  requires_review: true
+    - type: int
+      name: defalt capacity
+    description: Returns the default capacity of the provided pool as positive number or throws **error** if invalid argument passed.
+  version:
+    added: 1.6.0 r22471

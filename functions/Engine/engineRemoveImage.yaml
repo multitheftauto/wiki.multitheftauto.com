@@ -1,6 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRemoveImage
-shared:
+client:
   name: engineRemoveImage
+  pair: engineAddImage
   description: This function disables streaming from an IMG container.
   parameters:
   - name: img_file
@@ -8,17 +8,19 @@ shared:
     description: The IMG file you want to remove.
   examples:
   - path: examples/engineRemoveImage-1.lua
-    description: This example loads IMG file, adds it to GTA and after 10 seconds
-      removes it.
-    side: client
+    description: This example loads IMG file, adds it to GTA and after 10 seconds removes it.
+  - path: examples/engineRemoveImage_OOP-1.lua
+    description: This example loads IMG file, adds it to GTA and after 10 seconds removes it.
+    oop: true
   returns:
     values:
-    - type: boolean
-      name: value
-    description: Returns true if stremaing from IMG file was successfully disabled,
-      false otherwise.
+    - type: bool
+      name: result
+    description: Returns **true** if stremaing from IMG file was successfully disabled,
+      **false** otherwise.
   oop:
     element: img
     method: remove
     static: false
-  requires_review: true
+  version:
+    added: 1.6.0 r21695

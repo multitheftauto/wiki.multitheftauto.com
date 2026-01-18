@@ -1,6 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelLODDistance
-shared:
+client:
   name: engineGetModelLODDistance
+  pair: engineSetModelLODDistance
   description: This function gets the LOD distance for any object / model ID.
   parameters:
   - name: model
@@ -9,16 +9,21 @@ shared:
   examples:
   - path: examples/engineGetModelLODDistance-1.lua
     description: This example calculates the actual LOD distance by taking into account
-      the Video tab 'Draw distance' setting
-    side: client
+      the Video tab 'Draw distance' setting.
+  - path: examples/engineGetModelLODDistance_OOP-1.lua
+    description: This example calculates the actual LOD distance by taking into account
+      the Video tab 'Draw distance' setting.
+    oop: true
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float representing the LOD distance of the model, or false
+    - type: float|false
+      name: lod distance
+    description: Returns a [[float]] representing the LOD distance of the model, or **false**
       if the model argument is incorrect.
   oop:
     element: Engine
     method: getModelLODDistance
     static: true
-  requires_review: true
+  notes:
+    - type: info
+      content: You can use [[getVehiclesLODDistance]] for vehicles and [[getPedsLODDistance]] for peds.

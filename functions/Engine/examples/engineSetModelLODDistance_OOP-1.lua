@@ -1,0 +1,1 @@
+Engine.setModelLODDistance(3167, 100)

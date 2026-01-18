@@ -1,32 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineFreeModel
-shared:
+client:
   name: engineFreeModel
+  pair: engineRequestModel
   description: This function is used to un\-assign the specified model ID from the
-    [engineRequestModel](/wiki/EngineRequestModel "EngineRequestModel") assignment.
+    [[engineRequestModel]] assignment.
   parameters:
   - name: modelID
     type: int
-    description: the model ID you want to have un-assigned.
+    description: The model ID you want to have un-assigned.
   examples:
   - path: examples/engineFreeModel-1.lua
     description: This example creates a ped and then gives you the opportunity to
       change its model. If the resource stops, then the IDs allocated will be deallocated.
-      Use/capfor creating the ped and/sapto skin the ped. You will need some skins
-      added to a folder and to the meta.xml for/sapto work.
-    side: client
+      Use `/cap` for creating the ped and `/sap` to skin the ped. You will need some skins
+      added to a folder and to the meta.xml for `/sap` to work.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the model was successfully freed, false otherwise.
+      name: result
+    description: Returns **true** if the model was successfully freed, **false** otherwise.
   notes:
   - type: info
     content: If there are elements created on the game world whose model ID does match
-      the one that you want to release using the engineFreeModel function then their
+      the one that you want to release using the **engineFreeModel** function then their
       model ID is reset to a well-known default before releasing the internal model
-      data. This is 0 for peds, 1337 for objects and 400 for vehicles. By doing this
-      there are no model data leaks if using the engineFreeModel function while elements
+      data (parentID). By doing this
+      there are no model data leaks if using the **engineFreeModel** function while elements
       are still streamed-in. Creators of custom model systems have to be careful though
       as custom model IDs should only be released if all elements that use said ID
       are streamed-out or destroyed.
-  requires_review: true

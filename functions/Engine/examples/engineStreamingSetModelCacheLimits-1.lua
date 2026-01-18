@@ -1,5 +1,3 @@
-addEventHandler("onClientResourceStart", resourceRoot,
-    function()
-        engineStreamingSetModelCacheLimits(0, 0)
-    end
-)
+addEventHandler("onClientResourceStart", resourceRoot, function()
+    engineStreamingSetModelCacheLimits(0, 0)
+end)

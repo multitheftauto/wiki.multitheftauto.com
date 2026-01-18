@@ -1,23 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelTextures
-shared:
+client:
   name: engineGetModelTextures
   description: This function allows you to get the textures of any model.
   parameters:
   - name: modelName/modelID
     type: string/int
-    description: MISSING_PARAM_DESC
+    description: Either the model ID or model name.
   - name: textureNames
     type: string/table
     description: Only return textures with specified name(s). You can provide a single
       string or a table of strings. Wildcard matching e.g. "ro?ds*" can be used.
+    default: nil
   examples:
   - path: examples/engineGetModelTextures-1.lua
-    description: Get the textures for model ID 3722 and draw them with dxDrawImage.
-    side: client
+  - path: examples/engineGetModelTextures_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: table
-      name: value
-    description: Returns a table of texture elements [textureName, texture], false
+    - type: table|false
+      name: model textures
+    description: Returns a [[table]] of [[texture]] elements [textureName, texture], **false**
       otherwise.
-  requires_review: true
+  oop:
+    element: Engine
+    static: true
+    method: getModelTextures
+  notes:
+    - type: important
+      content: |
+        This function creates an [texture element](/reference/texture) for every texture on each call! That's why you should **NEVER** use it in per-frame events such as [[onClientRender]].
+        Additionally, when you no longer need the textures, remember to destroy them. If you only want to retrieve texture names, use [[engineGetModelTextureNames]].

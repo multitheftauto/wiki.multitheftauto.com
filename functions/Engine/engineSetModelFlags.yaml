@@ -1,25 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelFlags
-shared:
+client:
   name: engineSetModelFlags
-  description: This function changes [model flags](/wiki/Model_flags "Model flags").
+  pair: engineGetModelFlags
+  description: This function changes [model flags](/reference/Model_flags).
   parameters:
   - name: modelID
     type: int
     description: ID of the model you want to change.
   - name: flags
     type: int
-    description: flags.
+    description: Flags.
   - name: ideFlags
     type: bool
-    description: use IDE flag format.
+    description: Use IDE flag format.
   examples: []
   returns:
     values:
-    - type: boolean
-      name: value
-    description: Returns true if model flags was successfully changed, false otherwise.
+    - type: bool
+      name: result
+    description: Returns **true** if model flags was successfully changed, throws an **error** otherwise
   oop:
     element: Engine
     method: setModelFlags
     static: true
-  requires_review: true
+  version:
+    added: 1.6.0 r21695

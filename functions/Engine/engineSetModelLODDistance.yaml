@@ -1,40 +1,59 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelLODDistance
-shared:
+client:
   name: engineSetModelLODDistance
+  pair: engineGetModelLODDistance
   description: This function sets a custom LOD distance for any object / model ID.
     This is the distance at which objects of that model ID are switched to their LOD
     model, or (if there is no LOD model) become invisible.
   parameters:
-  - name: model
-    type: int
-    description: The model / object ID number you want to change the LOD distance
-      of.
+  - name: modelNameOrID
+    type: string/int
+    description: The model ID or name of the model you want to change the LOD distance of.
   - name: distance
     type: float
     description: New LOD distance value in San Andreas units.
   - name: extendedLod
     type: bool
-    description: MISSING_PARAM_DESC
+    description: Allows to set a greater distance than the current 325 units.
     default: 'false'
   examples:
   - path: examples/engineSetModelLODDistance-1.lua
     description: This example will set the LOD distance of all script-created objects.
-    side: client
   - path: examples/engineSetModelLODDistance-2.lua
     description: This example will, besides replacing with custom map objects, also
       set the LOD distance accordingly, a necessary step (otherwise the object could
       seem to fail loading and only show up 1 feet away).
-    side: client
   - path: examples/engineSetModelLODDistance-3.lua
     description: This example shows how to use LOD's with buildings.
-    side: client
+  - path: examples/engineSetModelLODDistance_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function executed succesfully, false otherwise.
+      name: result
+    description: Returns **true** if the function executed succesfully, **false** otherwise.
   oop:
     element: Engine
     method: setModelLODDistance
     static: true
-  requires_review: true
+  notes:
+    - type: info
+      content: |
+        - This function only works with script-created objects, just like objects created with [[createObject]] or buildings created with [[createBuilding]]. It DOES NOT work with default map objects/buildings.
+        - If the LOD distance for a high LOD model is set to more than 325, the fade out effect of the model will not trigger and the model will just pop in/pop out of existence.
+        - The actual draw distance used is modified by the draw distance slider in the settings **Video** tab of the MTA client.
+        - When the 'Video' tab draw distance slider is 0%, the **engineSetModelLODDistance** setting approximately matches the draw distance used. e.g  `engineSetModelLODDistance(1337,100)` will mean model 1337 will be visible up to a distance of **100** units.
+        - When the **Video** tab draw distance slider is 100%, the **engineSetModelLODDistance** setting is approximately doubled before use. e.g. `engineSetModelLODDistance(1337,100)` will mean model 1337 will be visible up to a distance of **200** units.
+        - There is a general draw distance limit of 325 units. So `engineSetModelLODDistance(1337,400)` will mean model 1337 will be visible up to a distance of 325 units no matter what the **Video** tab says.
+        - The limit for [objects](/reference/object) is 325 units, but the actual draw distance used is 5 times the setting value. Also, they ignore the **Video** tab draw distance slider. So a setting of 200 will mean a low LOD element will always have a draw distance of 1000 units.
+        - For [buildings](/reference/building) the distance must be set greater than 300 for a low LOD building in order to work correctly. Otherwise, the low LOD will always be visible. The actual draw distance is NOT 5 times the setting value.
+        - You can use [[setVehiclesLODDistance]] for vehicles and [[setPedsLODDistance]] for peds.
+    - type: tip
+      content: |
+        Therefore, unless it's really important, **engineSetModelLODDistance** should not be set to anything greater than 170.
+        170 will still give the maximum draw distance (of 325 units) on clients that have a **Video** tab draw distance setting of 100%, and it will help reduce lag for players who chose a lower draw distance in their settings.
+  version:
+    updated: 1.6.0 r22676
+  meta:
+    - changelog:
+        - version: 1.6.0 r22676
+          description: Added **extendedLod** argument.

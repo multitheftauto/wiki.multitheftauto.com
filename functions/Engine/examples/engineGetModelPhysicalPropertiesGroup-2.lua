@@ -1,4 +1,4 @@
-function checkID(player, id)
+function checkID(cmd, id)
     id = tonumber(id)
     local group = engineGetModelPhysicalPropertiesGroup(id)
     outputChatBox("Model ID " .. id .. "'s group is: " .. tostring(group))

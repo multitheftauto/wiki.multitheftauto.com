@@ -1,19 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetModelTXDID
-shared:
+client:
   name: engineGetModelTXDID
+  pair: engineSetModelTXDID
   description: This function gets TXD ID from a model.
   parameters:
   - name: modelID
-    type: number
+    type: int
     description: ID of the model you want to get TXD ID from.
-  examples: []
   returns:
     values:
-    - type: number
-      name: value
-    description: Returns ID if successful, false otherwise.
+    - type: int
+      name: txd id
+    description: Returns ID if successful, otherwise **error** is triggered.
   oop:
     element: Engine
     method: getModelTXDID
     static: true
-  requires_review: true
+  version:
+    added: 1.6.0 r21695

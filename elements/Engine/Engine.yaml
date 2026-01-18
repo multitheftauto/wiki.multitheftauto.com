@@ -1,0 +1,7 @@
+name: 'Engine'
+description: |
+    Engine is a static class that represents functions related to the game engine.
+
+see_also:
+  - 'functions:any:Engine'
+  - 'events:any:Engine'

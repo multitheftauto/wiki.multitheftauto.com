@@ -1,0 +1,8 @@
+name: 'ifp'
+description: |
+  The IFP class represents an archive that stores animations for peds and objects. A single IFP file can contain multiple different animations. 
+  An IFP file can be loaded using [[engineLoadIFP]], after which you can either replace an existing animation using [[engineReplaceAnimation]] or use entirely new custom animations.
+  
+see_also:
+  - 'functions:any:Engine'
+  - 'events:any:Engine'

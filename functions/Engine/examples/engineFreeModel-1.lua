@@ -9,12 +9,14 @@ addCommandHandler("cap", createAllocatedPed, false, false)
 
 function skinAllocatedPeds()
     local txd, dff;
-    for id,ped in pairs(peds) do
+    for id, ped in pairs(peds) do
         if fileExists("skins/" .. id .. ".txd") and fileExists("skins/" .. id .. ".dff") then
             txd = engineLoadTXD("skins/" .. id .. ".txd")
             engineImportTXD(txd, id)
+            
             dff = engineLoadDFF("skins/" .. id .. ".dff")
             engineReplaceModel(dff, id)
+
             outputChatBox("Model ID "..id.." changed correctly.")
         else
             outputChatBox("Model ID "..id.." couldn't change. REASON: skins/" .. id .. ".txd or skins/" .. id .. ".dff does not exist.")

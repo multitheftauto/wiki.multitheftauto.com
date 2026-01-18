@@ -1,0 +1,20 @@
+client:
+  name: engineRestream
+  description: This function re-streams a specific group of models and can be used as a more stable alternative to [[engineRestreamWorld]] when you only need to re-stream a specific model group rather than the entire world.
+  parameters:
+    - name: restreamOption
+      type: string
+      description: 'Which group of models should be re-streamed and can be one of the following: `world`, `vehicles`, `peds`, or `objects`.'
+      default: '"world"'
+  returns:
+    description: This function always returns [[nil]].
+    values:
+      - type: nil
+        name: nothing
+  notes:
+    - type: info
+      content: This function works only on elements created by MTA. For example, objects created with [[createObject]]. If you want to re-stream elements that are part of the GTA map, you still need to use [[engineRestreamWorld]] or pass `world` as **restreamOption**.
+    - type: tip
+      content: If you only want to re-stream a specific model, [[engineRestreamModel]] may be a better choice.
+  version:
+    added: 1.6.0 r25613

@@ -1,7 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingSetMemorySize
-shared:
+client:
   name: engineStreamingSetMemorySize
-  description: Sets the maximum amount of RAM \[in bytes] that can be used for streaming
+  description: Sets the maximum amount of RAM \[in bytes] that can be used for streaming.
   parameters:
   - name: sizeBytes
     type: int
@@ -11,26 +10,32 @@ shared:
   - path: examples/engineStreamingSetMemorySize-1.lua
     description: This example adds a command that can be used to change the streaming
       memory size, and display the previous value.
-    side: client
+  - path: examples/engineStreamingSetMemorySize_OOP-1.lua
+    description: This example adds a command that can be used to change the streaming
+      memory size, and display the previous value.
+    oop: true
   returns:
     values:
     - type: nil
-      name: value
+      name: nothing
+    description: This functions returns nothing.
   oop:
-    element: enginestreaming
+    element: EngineStreaming
     method: setMemorySize
     variable: memorySize
-    static: false
+    static: true
   pair: engineStreamingGetMemorySize
   notes:
   - type: tip
-    content: The `showmemstat` command can be used to see this value in real-time
-      [You might have to scroll down using PgDown on your keyboard]
-  - type: tip
-    content: To restore to default value use engineStreamingRestoreMemorySize
+    content: |
+      - The `showmemstat` command can be used to see this value in real-time
+        [You might have to scroll down using PgDown on your keyboard].
+      - To restore to default value use [[engineStreamingRestoreMemorySize]].
   - type: important
-    content: This function is meant for advanced users only, as it can lead to stability
-      issues . Using a very high value might result in more crashes, while using a
+    content: |
+      **This function is meant for advanced users only, as it can lead to stability
+      issues**. Using a very high value might result in more crashes, while using a
       value too low might lead to frequent pop-in [and due to the way MTA works micro-stutter
-      as well]
-  requires_review: true
+      as well].
+  version:
+    added: 1.6.0 r21874

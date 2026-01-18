@@ -1,23 +1,52 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadDFF
-shared:
+client:
   name: engineLoadDFF
   description: This function loads a RenderWare Model (DFF) file into GTA.
   parameters:
-  - name: dff_file / string raw_data
+  - name: filePath/rawData
     type: string
-    description: MISSING_PARAM_DESC
-  examples: []
+    description: The [filepath](/reference/Filepath) to the DFF file you want to load or whole data buffer of the DFF file.
+  examples: 
+    - path: examples/engineLoadDFF-1.lua
+    - path: examples/engineLoadDFF_OOP-1.lua
+      oop: true
   returns:
     values:
-    - type: dff
-      name: value
-    description: Returns a DFF element if the dff file loaded, false otherwise.
+    - type: dff|false
+      name: dff element
+    description: Returns a [DFF](/reference/dff) element if the dff file loaded, **false** otherwise.
   oop:
     element: dff
     constructorclass: EngineDFF
   notes:
   - type: info
-    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
-      - as other orders can cause collisions, textures or the DFF not to load due
-      to technical limitations.
-  requires_review: true
+    content: Follow loading order **( COL -> TXD -> DFF )** as other orders can cause collisions, textures or the DFF not to load.
+  - type: tip
+    content: |
+      If some error occurs while loading the DFF, MTA will output a message - check out DFF error messages to know what they mean.
+
+      <details>
+        <summary>error messages</summary>
+
+        <strong>Texture archive corrupt - File size mismatch with section headers, Re-exporting the file is recommended.</strong>
+        A texture archive in this resource is corrupt and may need attention, this error occurs because sections inside the file are telling the game the file is larger or smaller than it is Textures use the .txd extension, it is recommended to open this up with something like txd editor which can be found online and re-save it which should fix the section headers
+
+        <strong>DFF file corrupt - File size mismatch with section headers, Re-exporting the file is recommended.</strong>
+        A DFF (model) in this resource is corrupt and may need attention, this error occurs because sections inside the file are telling the game the file is smaller than it is DFFs are models and use the .dff extension
+
+        This can be caused by inbuilt collision files being written to the file wrongly, to test this open up the file in RW Analyze and look at the bottom for a "frame extension" this is typically where collision data should be stored.
+
+        We are still unsure as to why this models are exported like this so if anyone has some information on this please visit bugs.mtasa.com and report any information you have under the new issues project
+      
+        <strong>DFF file corrupt - frame with name ??? is over the 23 character limit</strong>
+        A DFF frame name (or node) is beyond the limit of allowed characters this will certainly cause a crash and should be fixed immediately. This can be fixed by re-exporting the DFF file with a smaller name for the part in question.
+
+        <strong>DFF file corrupt - texture with name ??? is over the 32 character limit</strong>
+        A DFF frame name (or node) is beyond the limit of allowed characters this will certainly cause a crash and should be fixed immediately. This can be fixed by re-exporting the DFF file with a smaller name for the part in question
+
+        <strong>DFF Tried to read beyond the file size, Re-exporting the file is recommended</strong>
+        A DFF (model) in this resource is corrupt and needs attention, this error occurs because sections inside the file are telling the game the file is larger than the file size.
+      </details>
+  meta:
+    - changelog:
+        - version: 1.4.1-9.07088
+          description: Added option to use raw data instead of a file path.

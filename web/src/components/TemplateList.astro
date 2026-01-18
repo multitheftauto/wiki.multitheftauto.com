@@ -338,7 +338,21 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
         {id: 'default', label: 'Use `elementdata_whitelisted` setting from [mtaserver.conf](/reference/Server_mtaserver.conf#elementdata_whitelisted).'},
         {id: 'allow', label: 'Trust changes from clients.'},
         {id: 'deny', label: 'Deny client changes. The server will trigger the [onPlayerChangesProtectedData](/reference/onPlayerChangesProtectedData) event when the client attempts to change the value.'},
-    ]
+    ],
+
+    'area-preloading-options': [
+        {id: 'all', label: 'Loads models and collisions in a designated area.'},
+        {id: 'models', label: 'Only loads models in the designated area.'},
+        {id: 'collisions', label: 'Loads only collisions in the designated area.'},
+    ],
+
+    'model-load-states': [
+        {id: 'unloaded', label: 'Model is not loaded.'},
+        {id: 'loaded', label: 'Model is loaded.'},
+        {id: 'requested', label: 'Model is waiting for loading.'},
+        {id: 'reading', label: 'Model is being read.'},
+        {id: 'finishing', label: 'Second reading state for big models.'},
+    ],
 };
 
 const icons: Record<string, string> = {
