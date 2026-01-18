@@ -1,5 +1,5 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/GetCancelReason
-shared:
+server:
   name: getCancelReason
   description: Gets the reason for cancelling an event.
   parameters: []
@@ -12,5 +12,4 @@ shared:
     values:
     - type: string
       name: value
-    description: Returns the reason that was given with cancelEvent
-  requires_review: true
+    description: Returns the reason that was given with [cancelEvent](/reference/cancelEvent "CancelEvent")

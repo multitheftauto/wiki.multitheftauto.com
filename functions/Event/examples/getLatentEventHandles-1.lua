@@ -1,5 +1,5 @@
--- CLIENT SIDE:
-
+-- *****************************************************************************
+-- CLIENT CODE
 local lastTriggerd = false 
 
 addCommandHandler("trigger",function()
@@ -12,8 +12,8 @@ addCommandHandler("trigger",function()
 	lastTriggerd = #getLatentEventHandles() -- set the lastTriggerd with the id for last event triggerd
 end)
 
--- SERVER SIDE:
-
+-- *****************************************************************************
+-- SERVER CODE
 addEvent("LatentEventsCheck",true)
 addEventHandler("LatentEventsCheck",root,function (thePlayer)
 	outputChatBox("Latent trigger done from: " .. getPlayerName(thePlayer), root,math.random(255),0,0) 
