@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetModelLoadState
-shared:
+client:
   name: engineStreamingGetModelLoadState
   description: This function returns load state of model.
   parameters:
@@ -10,8 +9,8 @@ shared:
   returns:
     values:
     - type: string
-      name: value
-    description: 'Returns string with model load state.
-
-      Possible load states:'
-  requires_review: true
+      name: load state
+      templateList: model-load-states
+    description: Returns string with model load state or throws **error** if invalid model ID is passed.
+  version:
+    added: 1.6.0 r22676

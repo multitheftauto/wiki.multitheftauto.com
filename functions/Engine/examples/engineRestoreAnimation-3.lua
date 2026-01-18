@@ -1,1 +1,1 @@
-engineRestoreAnimation( localPLayer, "ped", "weapon_crouch" )
+engineRestoreAnimation(localPLayer, "ped", "weapon_crouch")

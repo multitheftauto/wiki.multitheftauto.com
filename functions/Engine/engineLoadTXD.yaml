@@ -1,38 +1,45 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineLoadTXD
-shared:
+client:
   name: engineLoadTXD
-  description: This function loads a RenderWare Texture Dictionary (TXD) file into
-    GTA. The texture dictionary can then be used to provide textures.
+  description: This function loads a RenderWare Texture Dictionary (TXD) file into GTA. The texture dictionary can then be used to provide textures.
   parameters:
-  - name: txd_file / string raw_data
+  - name: filePath/rawData
     type: string
-    description: MISSING_PARAM_DESC
+    description: The [filepath](/reference/Filepath) to the TXD file you want to load or whole data buffer of the TXD file.
   - name: filteringEnabled
     type: bool
     description: Whether to enable texture filtering.
     default: 'true'
-  examples: []
+  examples: 
+    - path: examples/engineLoadTXD-1.lua
+    - path: examples/engineLoadTXD_OOP-1.lua
+      oop: true
   returns:
     values:
-    - type: txd
-      name: value
-    description: Returns a TXD if the file was loaded, false otherwise.
+    - type: txd|false
+      name: txd element
+    description: Returns a [TXD](/reference/txd) if the file was loaded, **false** otherwise.
   oop:
     element: txd
     constructorclass: EngineTXD
   notes:
   - type: info
-    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
-      - as other orders can cause collisions, textures or the DFF not to load due
-      to technical limitations.
+    content: |
+      - Follow loading order **( COL -> TXD -> DFF )** as other orders can cause collisions, textures or the DFF not to load.
+      - The **filteringEnabled** property overrides the filtering modes in each texture
+        of the TXD with point filtering. It also sets the **uAddressing** and **vAddressing**
+        to `WRAP`. If textures come with mipmaps then they are disabled which is especially
+        visible without anisotropic filtering. It is recommended to set **filteringEnabled**
+        to **false** if the TXD was created with mipmaps (the filtering mode can be changed
+        in a TXD editor).
   - type: tip
-    content: Do your TXD files take megabytes of disk space? You can read some tips
-      on reducing the size of TXD files to compress them without ruining texture quality.
-  - type: info
-    content: The filteringEnabled property overrides the filtering modes in each texture
-      of the TXD with point filtering. It also sets the uAddressing and vAddressing
-      to WRAP. If textures come with mipmaps then they are disabled which is especially
-      visible without anisotropic filtering . It is recommended to set filteringEnabled
-      to false if the TXD was created with mipmaps (the filtering mode can be changed
-      in a TXD editor).
-  requires_review: true
+    content: Do your TXD files take megabytes of disk space? You can read some [tips
+      on reducing the size of TXD files](/reference/Optimize_Custom_TXD) to compress them without ruining texture quality.
+  meta:
+    - changelog:
+        - version: 1.4.1-9.07088
+          description: Added option to use raw data instead of a file path.
+  preview_images:
+    - path: engineLoadTXD-1.png
+      description: Difference between texture filtering modes (left = filtering **disabled**, right = filtering **enabled**).
+    - path: engineLoadTXD-2.png
+      description: '**Left**: anisotropic + mipmaps; **Middle**: `filteringEnabled` = true; **Right**: linear interpolation + mipmaps without anisot.'

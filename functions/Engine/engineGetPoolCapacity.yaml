@@ -1,22 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetPoolCapacity
-shared:
+client:
   name: engineGetPoolCapacity
+  pair: engineSetPoolCapacity
   description: This function returns the capacity of the provided pool.
   parameters:
   - name: pool
     type: string
-    description: Name of the pool
-  examples: []
+    description: Name of the pool. See [pools](/reference/Pools).
   returns:
     values:
-    - type: number
-      name: value
-    description: The capacity of the provided pool as positive number
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Engine pools
-
-      '
-  requires_review: true
+    - type: int
+      name: capacity
+    description: Returns the capacity of the provided pool as a positive number, or throws an **error** if an invalid argument is passed.
+  version:
+    added: 1.6.0 r22471

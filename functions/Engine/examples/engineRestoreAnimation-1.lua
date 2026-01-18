@@ -1,1 +1,1 @@
-engineRestoreAnimation( localPlayer )
+engineRestoreAnimation(localPlayer)

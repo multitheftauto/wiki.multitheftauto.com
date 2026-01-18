@@ -1,16 +1,16 @@
 -- Load IMG
-local img = engineLoadIMG( "file.img" )
+local img = engineLoadIMG("file.img")
 
 -- Enable streaming from this IMG
-engineAddImage( img )
+engineAddImage(img)
 
 -- Get model TXD id
 local infernusModelID = 411
-local infernusModelTxdID = engineGetModelTXDID( infernusModelID )
+local infernusModelTxdID = engineGetModelTXDID(infernusModelID)
 
 -- Link DFF and TXD to IMG files
-engineImageLinkDFF( img, "infernus.dff", infernusModelID )
-engineImageLinkTXD( img, "infernus.txd", infernusModelTxdID )
+engineImageLinkDFF(img, "infernus.dff", infernusModelID)
+engineImageLinkTXD(img, "infernus.txd", infernusModelTxdID)
 
 -- Reload game models
 engineRestreamWorld()

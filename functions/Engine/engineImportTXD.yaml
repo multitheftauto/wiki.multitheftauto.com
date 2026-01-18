@@ -1,38 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineImportTXD
-shared:
+client:
   name: engineImportTXD
   description: This function imports (adds) a loaded RenderWare Texture Dictionary
     into a specific model. This is necessary in order for the DFF loader to find any
     new textures. Please **call this function before loading the DFF model file**,
     in order to allow the DFF loading process to find the new textures. This function
     can also replace default GTA textures, so that it becomes possible to e.g. put
-    custom images on existing billboards. Ped and weapon textures are also supported.
+    custom images on existing billboards - ped and weapon textures are also supported.
   parameters:
   - name: texture
     type: txd
-    description: The TXD that was loaded with engineLoadTXD
-  - name: model_id
-    type: int
-    description: The model id to import the TXD into
-  examples: []
+    description: The TXD element that was loaded with [[engineLoadTXD]].
+  - name: model
+    type: string/int
+    description: The model id or model name to import the TXD into.
+  examples: 
+    - path: examples/engineImportTXD-1.lua
+    - path: examples/engineImportTXD_OOP-1.lua
+      oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function executed succesfully, false otherwise.
+      name: result
+    description: Returns **true** if the function executed succesfully, **false** otherwise.
   oop:
     element: txd
     method: import
     static: false
   notes:
   - type: info
-    content: CJ clothing component textures can be replaced by using the IDs listed
-      in the Clothing Component IDs article.
-  - type: info
-    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
-      - as other orders can cause collisions, textures or the DFF not to load due
-      to technical limitations.
+    content: |
+      - CJ clothing component textures can be replaced by using the IDs listed in the [clothes replacement](/reference/Clothes_replacement) article.
+      - Follow loading order **( COL -> TXD -> DFF )** which is used in the example - as other orders can cause collisions, textures or the DFF not to load.
   - type: tip
-    content: Do your TXD files take megabytes of disk space? You can read some tips
-      on reducing the size of TXD files to compress them without ruining texture quality.
-  requires_review: true
+    content: Do your TXD files take megabytes of disk space? You can read some [tips
+      on reducing the size of TXD files](/reference/Optimize_Custom_TXD) to compress them without ruining texture quality.

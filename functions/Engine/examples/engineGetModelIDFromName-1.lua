@@ -1,5 +1,5 @@
 function getTargetModelNameAndID(target) 
-    if ( isElement(target) and getElementType(target) == "object" ) then 
+    if (isElement(target) and getElementType(target) == "object") then 
         local modelName = tostring(engineGetModelNameFromID(getElementModel(target)))
         outputChatBox("Name: "..modelName)
         -- Although we could just use getElementModel(target) for this example we will use modelName

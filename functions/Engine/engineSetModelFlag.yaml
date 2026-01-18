@@ -1,22 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetModelFlag
-shared:
+client:
   name: engineSetModelFlag
-  description: This function changes specific [model flag](/wiki/Model_flags "Model
-    flags").
+  description: This function changes specific [model flag](/reference/Model_flags).
   parameters:
   - name: modelID
     type: int
     description: ID of the model you want to set flag.
   - name: flagName
     type: string
-    description: flag name .
+    description: Flag name. Check [model flags](/reference/Model_flags).
   - name: state
     type: bool
-    description: flag state.
-  examples: []
+    description: Flag state.
+  examples: 
+    - path: examples/engineSetModelFlag-1.lua
   returns:
     values:
-    - type: boolean
-      name: value
-    description: Returns boolean with flag state, throws an error otherwise.
-  requires_review: true
+    - type: bool
+      name: result
+    description: Returns boolean with flag state, throws an **error** otherwise.
+  version:
+    added: 1.6.0 r21695

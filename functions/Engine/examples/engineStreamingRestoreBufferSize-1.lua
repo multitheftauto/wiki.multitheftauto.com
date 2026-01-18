@@ -1,5 +1,3 @@
-addEventHandler("onClientResourceStart", resourceRoot,
-    function()
-        engineStreamingRestoreBufferSize()
-    end
-)
+addEventHandler("onClientResourceStart", resourceRoot, function()
+    engineStreamingRestoreBufferSize()
+end)

@@ -1,42 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineGetObjectGroupPhysicalProperty
-shared:
+client:
   name: engineGetObjectGroupPhysicalProperty
+  pair: engineSetObjectGroupPhysicalProperty
   description: This function gets physical property of given properties group.
   parameters:
   - name: groupID
     type: int
-    description: the id of physical properties group which you wish to get a property
-      from.
+    description: The id of physical properties group (in range 0-159) which you wish to get a property from.
   - name: property
-    type: objectgroup-modifiable
-    description: MISSING_PARAM_DESC
+    type: string
+    description: The property which you wish to get. See [physical properties](/reference/Object_physical_properties).
   examples:
   - path: examples/engineGetObjectGroupPhysicalProperty-1.lua
-    description: ''
-    side: client
+  - path: examples/engineGetObjectGroupPhysicalProperty_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: var
-      name: value
+      name: property value
     description: Returns the value contained in given property if everything went
-      well, error is raised otherwise.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Properties
-
-      - Missing section: Physical properties
-
-      - Missing section: Damage effect
-
-      - Missing section: Collision Response
-
-      - Missing section: Fx Type
-
-      - Missing section: Break Mode
-
-      - Missing section: Fx Effect
-
-      '
-  requires_review: true
+      well, **error** is raised otherwise.
+  oop:
+    element: Engine
+    static: true
+    method: getObjectGroupPhysicalProperty

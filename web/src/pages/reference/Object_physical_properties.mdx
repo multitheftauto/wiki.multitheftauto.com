@@ -1,0 +1,301 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Object physical properties',
+    tableOfContents: false
+}}>
+
+### Physical properties 
+<table>
+    <thead>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Description</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>mass</td>
+            <td>float</td>
+            <td>Mass of an object.</td>
+        </tr>
+
+        <tr>
+            <td>turn_mass</td>
+            <td>float</td>
+            <td>Turn mass (kg m^3) of an object.</td>
+        </tr>
+
+        <tr>
+            <td>air_resistance</td>
+            <td>float</td>
+            <td>Air resistance of an object.</td>
+        </tr>
+
+        <tr>
+            <td>elasticity</td>
+            <td>float</td>
+            <td>Elasticity of an object.</td>
+        </tr>
+
+        <tr>
+            <td>buoyancy</td>
+            <td>float</td>
+            <td>Buoyancy of an object.</td>
+        </tr>
+
+        <tr>
+            <td>uproot_limit</td>
+            <td>float</td>
+            <td>How much force is needed to uproot the object.</td>
+        </tr>
+
+        <tr>
+            <td>col_damage_multiplier</td>
+            <td>float</td>
+            <td>Force multiplier used when colliding with object.</td>
+        </tr>
+
+        <tr>
+            <td>col_damage_effect</td>
+            <td>string, see <a href="#damage-effects">damage effects</a></td>
+            <td>Dictates which damage effect is applied to object on collision.</td>
+        </tr>
+
+        <tr>
+            <td>special_col_response</td>
+            <td>string, see <a href="#collision-responses">collision responses</a></td>
+            <td>Dictates how object responds to being collided with.</td>
+        </tr>
+
+        <tr>
+            <td>avoid_camera</td>
+            <td>bool</td>
+            <td>Dictates whether camera passes throught the object.</td>
+        </tr>
+
+        <tr>
+            <td>cause_explosion</td>
+            <td>bool</td>
+            <td>Dictates whether objects exploded upon collision.</td>
+        </tr>
+
+        <tr>
+            <td>fx_type</td>
+            <td>string, see <a href="#fx-types">fx types</a></td>
+            <td>Dictates when particles will be created when colliding with object.</td>
+        </tr>
+
+        <tr>
+            <td>fx_offset</td>
+            <td><a href="/reference/Vector3">Vector3</a></td>
+            <td>Offset from center of mass where particles will be created upon collision.</td>
+        </tr>
+
+        <tr>
+            <td>fx_system</td>
+            <td>string, see <a href="/reference/ID_Lists/Effects">effects</a></td>
+            <td>Effect that will be used upon collision.</td>
+        </tr>
+
+        <tr>
+            <td>smash_multiplier</td>
+            <td>float</td>
+            <td>Force multiplier when destroying object.</td>
+        </tr>
+
+        <tr>
+            <td>break_velocity</td>
+            <td><a href="/reference/Vector3">Vector3</a></td>
+            <td>Velocity and direction in which the object is destroyed.</td>
+        </tr>
+
+        <tr>
+            <td>break_velocity_randomness</td>
+            <td>float</td>
+            <td>Randomness of velocity and direction in which the object is destroyed, 0 means that object uses break_velocity without any randomness.</td>
+        </tr>
+
+        <tr>
+            <td>break_mode</td>
+            <td>string, see <a href="#break-modes">break modes</a></td>
+            <td>Dictates how object can be damaged.</td>
+        </tr>
+
+        <tr>
+            <td>sparks_on_impact</td>
+            <td>bool</td>
+            <td>Dictates whether object creates sparks upon impact.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br/>
+#### Damage effects
+<table>
+    <thead>
+        <th>Effect</th>
+        <th>Description</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>none</td>
+            <td>Object doesn't change at all once it's damaged.</td>
+        </tr>
+
+        <tr>
+            <td>change_model</td>
+            <td>Some of the objects change model on collision, those use this.</td>
+        </tr>
+
+        <tr>
+            <td>smash</td>
+            <td>Object is smashed.</td>
+        </tr>
+    
+        <tr>
+            <td>change_smash</td>
+            <td>First change_model, afterwards smash on collision.</td>
+        </tr>
+
+        <tr>
+            <td>breakable</td>
+            <td>Object is breakable normally.</td>
+        </tr>
+
+        <tr>
+            <td>breakable_remove</td>
+            <td>object.dat says: `ie. never regenerated after destroyed`.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br/>
+#### Collision responses
+<table>
+    <thead>
+        <th>Response</th>
+        <th>Description</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>none</td>
+            <td>Object doesn't respond in any special way.</td>
+        </tr>
+
+        <tr>
+            <td>lamppost</td>
+            <td>Objects acts like an lamp post.</td>
+        </tr>
+
+        <tr>
+            <td>small_box</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>big_box</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>fence_part</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>grenade</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>swingdoor</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>lockdoor</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>hanging</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>poolball</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
+
+<br/>
+#### Break modes
+<table>
+    <thead>
+        <th>Mode</th>
+        <th>Description</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>not_by_gun</td>
+            <td>Not breakable by gun.</td>
+        </tr>
+
+        <tr>
+            <td>by_gun</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>smashable</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
+
+<br/>
+#### Fx types
+<table>
+    <thead>
+        <th>Type</th>
+        <th>Description</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>none</td>
+            <td>No particles effect played on collision.</td>
+        </tr>
+
+        <tr>
+            <td>play_on_hit</td>
+            <td>Particles effect is played on collision, even if object isn't destroyed.</td>
+        </tr>
+
+        <tr>
+            <td>play_on_destroyed</td>
+            <td>Particles effect is played only once object is destroyed.</td>
+        </tr>
+
+        <tr>
+            <td>play_on_hitdestroyed</td>
+            <td>Particles effect is played both when hit and destroyed.</td>
+        </tr>
+    </tbody>
+</table>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:engineGetObjectGroupPhysicalProperty',
+        'reference:engineSetObjectGroupPhysicalProperty',
+        'reference:engineRestoreObjectGroupPhysicalProperties',
+])} currentId='' />
+
+</AutoStarlightPage>

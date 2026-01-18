@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingFreeUpMemory
-shared:
+client:
   name: engineStreamingFreeUpMemory
   description: This function frees up the streaming RAM memory.
   parameters:
@@ -9,18 +8,24 @@ shared:
   examples:
   - path: examples/engineStreamingFreeUpMemory-1.lua
     description: 'This example frees up the streaming memory when the resource starts:'
-    side: client
+  - path: examples/engineStreamingFreeUpMemory_OOP-1.lua
+    description: 'This example frees up the streaming memory when the resource starts:'
+    oop: true
   returns:
     values:
-    - type: bool
-      name: value
-    description: 'This example frees up the streaming memory when the resource starts:'
+    - type: nil
+      name: nothing
+    description: This functon returns nothing.
+  oop:
+    element: EngineStreaming
+    method: freeUpMemory
+    static: true
   notes:
   - type: info
     content: This function isn't accurate. The function works more like try to free
-      up at least this amount of bytes . It usually ends up freeing everything that
+      up at least this amount of bytes. It usually ends up freeing everything that
       isn't currently needed (which, depending on the scenery might be 1-200 megabytes).
   - type: important
-    content: This function is meant for advanced users only, as it can lead to stability
-      issues . If you use it too often, the map might start to flicker.
-  requires_review: true
+    content: |
+      **This function is meant for advanced users only**, as it can lead to stability
+      issues. If you use it too often, the map might start to flicker.

@@ -1,5 +1,3 @@
-addEventHandler ("onClientResourceStart", resourceRoot,
-    function ()
-        outputChatBox ("Used memory by the GTA streamer: "..engineStreamingGetUsedMemory ()..".")
-    end
-)
+addEventHandler("onClientResourceStart", resourceRoot, function()
+    outputChatBox("Used memory by the GTA streamer: " .. engineStreamingGetUsedMemory() .. ".")
+end)

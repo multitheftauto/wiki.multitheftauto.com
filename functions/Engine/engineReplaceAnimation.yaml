@@ -1,41 +1,42 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineReplaceAnimation
-shared:
+client:
   name: engineReplaceAnimation
+  pair: engineRestoreAnimation
   description: This function replaces a specific internal (default) animation with
-    a custom one that has been loaded using [engineLoadIFP](/wiki/EngineLoadIFP "EngineLoadIFP")
-    function. This function only affects a specific [player](/wiki/Player "Player")
-    or [ped](/wiki/Ped "Ped"), the [internal animation](/wiki/Animations "Animations")
+    a custom one that has been loaded using [[engineLoadIFP]]
+    function. This function only affects a specific [[player]]
+    or [[ped]], the [internal animation](/reference/ID_Lists/Animations)
     is not replaced for everyone, for instance, different players and peds are able
     to have completely different crouching, walking, and fighting etc., animations
     running simultaneously at the same time. Also, it's not synchronized, you'll need
-    to execute this function on every client in Lua to synchronize it.
+    to execute this function on every client in Lua to synchronize it. Internal animations replaced using this function can still be played with [[setPedAnimation]]. You can restore replaced animations back with [[engineRestoreAnimation]].
   parameters:
   - name: thePed
     type: ped
-    description: the player or ped you want to replace an animation for.
+    description: The player or ped you want to replace an animation for.
   - name: InternalBlockName
     type: string
-    description: the internal block name.
+    description: The [internal block](/reference/ID_Lists/Animations) name.
   - name: InternalAnimName
     type: string
-    description: the internal animation name inside InternalBlockName.
+    description: The [internal animation](/reference/ID_Lists/Animations) name inside **InternalBlockName**.
   - name: CustomBlockName
     type: string
-    description: the custom block name of the loaded IFP file that you passed to engineLoadIFP
+    description: The custom block name of the loaded [IFP](/reference/ifp) file that you passed to [[engineLoadIFP]]
       as second parameter.
   - name: CustomAnimName
     type: string
-    description: the custom animation name inside the loaded IFP file with CustomBlockName.
+    description: The custom animation name inside the loaded [IFP](/reference/ifp) file with **CustomBlockName**.
   examples:
   - path: examples/engineReplaceAnimation-1.lua
-    description: This example loads a custom IFP file (parkour.ifp), and replaces
+    description: This example loads a custom IFP file ([parkour.ifp](/downloads/parkour.ifp)), and replaces
       the internal crouch animation from ped block with a custom animation. If you
-      press C on your keyboard, the custom animation will be played instead of crouch
+      press `C` on your keyboard, the custom animation will be played instead of crouch
       animation.
-    side: client
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true on success, false in case of failure.
-  requires_review: true
+      name: result
+    description: Returns **true** on success, **false** in case of failure.
+  notes:
+    - type: info
+      content: Partial animations are not supported, you can still replace them, but they won't work as intended, for example, `FightA_block` animation from `ped` block is a partial animation, you can't replace it properly, only a few animations are partial, rest of them are not, so it shouldn't be a problem.

@@ -1,0 +1,119 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { clothingModels, clothingTextures } from '@src/data/clothes_ids.ts';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Clothes replacement',
+    tableOfContents: {
+      maxHeadingLevel: 4
+    }
+}}>
+
+<div id="_top"></div>
+
+### Replacing models (DFF)
+Starting with version **1.6.0 r22987**, CJ's clothing models can be replaced.
+```lua
+-- Load your custom .dff file that will
+-- replace one of the game's DFFs for CJ clothing
+local dff = engineLoadDFF("custom_afrobeard.dff")
+engineReplaceModel(dff, 30001)
+```
+#### Model IDs and names
+<details>
+  <summary>Full list of model IDs that are associated with CJ clothing models.</summary>
+
+  <div
+    style={{
+      display: 'flex',
+      gap: '2rem',
+      flexWrap: 'wrap',
+    }}
+  >
+    {[0, 1, 2].map((colIndex) => (
+      <table
+        key={colIndex}
+        style={{margin: 0}}
+      >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {clothingModels
+            .filter((_, i) => i % 3 === colIndex)
+            .map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.id}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    ))}
+  </div>
+
+  <style>
+    {`
+      @media (max-width: 768px) {
+        div[style*="display: flex"] {
+          flex-direction: column;
+        }
+      }
+    `}
+  </style>
+</details>
+
+### Replacing textures (TXD)
+<details>
+  <summary>Full list of clothing component texture IDs and names.</summary>
+
+  <div
+    style={{
+      display: 'flex',
+      gap: '2rem',
+      flexWrap: 'wrap',
+    }}
+  >
+    {[0, 1, 2, 3].map((colIndex) => (
+      <table
+        key={colIndex}
+        style={{margin: 0}}
+      >
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {clothingTextures
+            .filter((_, i) => i % 4 === colIndex)
+            .map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.id}</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    ))}
+  </div>
+
+  <style>
+    {`
+      @media (max-width: 768px) {
+        div[style*="display: flex"] {
+          flex-direction: column;
+        }
+      }
+    `}
+  </style>
+</details>
+
+### Adding new custom clothing
+Starting from version **1.6.0 r23124**, it is possible to add new CJ clothes using the functions [engineAddClothingModel](/reference/engineAddClothingModel), [engineAddClothingTXD](/reference/engineAddClothingTXD), and [addClothingModel](/reference/addClothingModel).
+
+</AutoStarlightPage>

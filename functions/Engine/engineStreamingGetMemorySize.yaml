@@ -1,21 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineStreamingGetMemorySize
-shared:
+client:
   name: engineStreamingGetMemorySize
-  description: Gets the maximum amount of RAM \[in bytes] that can be used for streaming
+  description: Gets the maximum amount of RAM \[in bytes] that can be used for streaming.
   parameters: []
   examples:
   - path: examples/engineStreamingGetMemorySize-1.lua
     description: This example adds a command that can be used to change the streaming
       memory size, and display the previous value.
-    side: client
+  - path: examples/engineStreamingGetMemorySize_OOP-1.lua
+    description: This example adds a command that can be used to change the streaming
+      memory size, and display the previous value.
+    oop: true
   returns:
     values:
     - type: int
-      name: value
+      name: memory size
     description: The maximum amount of RAM [in bytes] that can be used for streaming.
       It is always a non-zero positive number.
   oop:
-    element: enginestreaming
+    element: engineStreaming
     method: getMemorySize
     variable: memorySize
     static: false
@@ -23,5 +25,6 @@ shared:
   notes:
   - type: tip
     content: The `showmemstat` command can be used to see this value in real-time
-      [You might have to scroll down using PgDown on your keyboard]
-  requires_review: true
+      [You might have to scroll down using PgDown on your keyboard].
+  version:
+    added: 1.6.0 r21874

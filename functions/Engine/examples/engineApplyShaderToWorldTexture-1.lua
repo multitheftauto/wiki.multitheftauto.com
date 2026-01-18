@@ -1,8 +1,8 @@
-theTechnique = dxCreateShader("shader.fx")
-explosionTexture = dxCreateTexture( "tex/Explosion.png")
+local theShader = dxCreateShader("shader.fx")
+local explosionTexture = dxCreateTexture("tex/Explosion.png")
 
 function replaceEffect()
-	engineApplyShaderToWorldTexture(theTechnique, "fireball6")
-	dxSetShaderValue (theTechnique, "gTexture", explosionTexture)
+    dxSetShaderValue(theShader, "gTexture", explosionTexture)
+    engineApplyShaderToWorldTexture(theShader, "fireball6")
 end
 addEventHandler("onClientResourceStart", resourceRoot, replaceEffect)

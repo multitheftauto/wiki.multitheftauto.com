@@ -1,34 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineReplaceModel
-shared:
+client:
   name: engineReplaceModel
-  description: This function replaces the given model ID with the model contained
-    in a DFF file loaded by [engineLoadDFF](/wiki/EngineLoadDFF "EngineLoadDFF").
-    This function supports [vehicles](/wiki/Vehicle "Vehicle"), [objects](/wiki/Object
-    "Object"), [peds](/wiki/Ped "Ped") and [players](/wiki/Player "Player").
+  pair: engineRestoreModel
+  description: This function replaces the given model with the model contained
+    in a DFF file loaded by [[engineLoadDFF]].
   parameters:
   - name: theModel
     type: dff
-    description: The model to replace the given model ID with
-  - name: modelID
-    type: int
-    description: The model it to replace the model of
+    description: The model to replace the given model with.
+  - name: modelNameOrID
+    type: string/int
+    description: The model ID or name of the model to be replaced.
   - name: alphaTransparency
     type: bool
-    description: Set to true if model uses semi-transparent textures, e.g. windows.
+    description: Set to **true** if model uses semi-transparent textures, e.g. windows.
       This will ensure other objects behind the semi-transparent textures are rendered
-      correctly. (Can slightly impact performance, so only set when required)
+      correctly. **Can slightly impact performance, so only set when required**.
     default: 'false'
   examples:
   - path: examples/engineReplaceModel-1.lua
     description: This example allows you to replace single or many models (with ability
       to toggle TXD filtering/DFF alpha transparency) - by usingtable. Do not forget
-      to add those file paths tometa.xml
-    side: client
+      to add those file paths to `meta.xml`.
+  - path: examples/engineReplaceModel_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the model was successfully replaced, false if it
+      name: result
+    description: Returns **true** if the model was successfully replaced, **false** if it
       failed for some reason, ie. the DFF or the model ID is not valid.
   oop:
     element: dff
@@ -36,14 +35,18 @@ shared:
     static: false
   notes:
   - type: info
-    content: Follow loading order ( COL -> TXD -> DFF ) which is used in the example
-      - as other orders can cause collisions, textures or the DFF not to load due
-      to technical limitations. Default GTA map objects behave inconsistently when
-      using this function on them. If you want to replace models in the original GTA
-      map, you need to call engineRestreamWorld after replacing models as well. A
-      raw data DFF element can only be used once, because the underlying memory for
-      the model is released after replacement. If the replacement model is broken
-      and the original model is not loaded/streamed-in at the time of replacement,
-      this function will succeed and you won't see any error message, neither when
-      the model replacement fails once the original model starts to load/stream-in.
-  requires_review: true
+    content: |
+      - Follow loading order **( COL -> TXD -> DFF )** which is used in the example - as other orders can cause collisions, textures or the DFF not to load.
+      - Default GTA map objects behave inconsistently when
+        using this function on them. If you want to replace models in the original GTA
+        map, you need to call [[engineRestreamWorld]] after replacing models as well.
+      - A raw data DFF element can only be used once, because the underlying memory for
+        the model is released after replacement. 
+      - If the replacement model is broken
+        and the original model is not loaded/streamed-in at the time of replacement,
+        this function will succeed and you won't see any error message, neither when
+        the model replacement fails once the original model starts to load/stream-in.
+  - type: tip
+    content: |
+      - If you want to replace CJ's clothing, check out [clothes replacement guide](/reference/Clothes_replacement).
+      - To replace weapon models you must use their object IDs, not weapon IDs. There is a weapon model list available at [weapons list](/reference/ID_Lists/Weapons).

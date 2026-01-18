@@ -1,5 +1,4 @@
 function replaceObjects()
-
 	local col1 = engineLoadCOL("map1.col")
 	local col2 = engineLoadCOL("map2.col")
 

@@ -1,0 +1,9 @@
+name: 'img'
+description: |
+  The IMG class represents an archive that stores multiple files, including [DFF](/reference/dff), [TXD](/reference/txd), [IFP](/reference/ifp) and [COL](/reference/col) files. GTA uses archives, among other things, to load models and textures - an example of such an archive is `gta3.img`.
+
+  An archive can be loaded using the [engineLoadIMG](/reference/engineLoadIMG) function and then initialized using the [engineAddImage](/reference/engineAddImage) function.
+
+see_also:
+  - 'functions:any:Engine'
+  - 'events:any:Engine'

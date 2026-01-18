@@ -1,25 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineResetModelLODDistance
-shared:
+client:
   name: engineResetModelLODDistance
-  description: This function resets the LOD distance for an object / model ID.
+  description: This function resets the LOD distance for an model ID.
   parameters:
   - name: model
     type: int
-    description: The model / object ID number you want to reset the LOD distance of.
+    description: The model ID number you want to reset the LOD distance of.
   examples:
   - path: examples/engineResetModelLODDistance-1.lua
-    description: This code will reset all script spawned objects' LOD distances. It
+    description: This code will reset all script spawned objects LOD distances. It
       also implements a counter which will show how many objects have been affected
       by this script.
-    side: client
+  - path: examples/engineResetModelLODDistance_OOP-1.lua
+    description: This code will reset all script spawned objects LOD distances. It
+      also implements a counter which will show how many objects have been affected
+      by this script.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the LOD distance was reset to default, or false if
+      name: result
+    description: Returns **true** if the LOD distance was reset to default, or **false** if
       the model argument is incorrect, or the LOD distance hasn't been changed.
+  notes:
+    - type: info
+      content: You can use [[resetVehiclesLODDistance]] for vehicles and [[resetPedsLODDistance]] for peds.
   oop:
     element: Engine
     method: resetModelLODDistance
     static: true
-  requires_review: true

@@ -1,26 +1,19 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetPoolCapacity
-shared:
+client:
   name: engineSetPoolCapacity
+  pair: engineGetPoolCapacity
   description: This function changes the capacity of the provided pool.
   parameters:
   - name: pool
     type: string
-    description: Name of the pool
+    description: Name of the pool. See [pools](/reference/Pools).
   - name: capacity
     type: number
-    description: New size
+    description: New size.
   examples: []
   returns:
     values:
-    - type: boolean
-      name: value
-    description: true if the pool capacity was changed and false if not. Throws an
-      error if the pool is invalid.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Engine pools
-
-      '
-  requires_review: true
+    - type: bool
+      name: result
+    description: Return **true** if the pool capacity was changed and **false** if not. Throws an **error** if the pool is invalid.
+  version:
+    added: 1.6.0 r22471

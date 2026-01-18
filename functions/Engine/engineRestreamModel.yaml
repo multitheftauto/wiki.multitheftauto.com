@@ -1,0 +1,19 @@
+client:
+  name: engineRestreamModel
+  description: This function re-streams a specific model by its ID. It can be used as a more efficient alternative to [[engineRestreamWorld]] when you only need to re-stream a single model. For example, after using [[engineImageLinkDFF]], instead of calling [[engineRestreamWorld]], you can call [[engineRestreamModel]] to re-stream only the replaced model, improving performance.
+  parameters:
+    - name: modelId
+      type: int
+      description: The ID of the model you want to re-stream.
+  examples:
+    - path: examples/engineRestreamModel-1.lua
+  returns:
+    description: The function returns **true** if the model was successfully re-streamed, and **false** otherwise.
+    values:
+      - type: bool
+        name: result
+  notes:
+    - type: info
+      content: This function works only on elements created by MTA. For example, objects created with [[createObject]]. If you want to re-stream elements that are part of the GTA map, you still need to use [[engineRestreamWorld]].
+  version:
+    added: 1.6.0 r25613

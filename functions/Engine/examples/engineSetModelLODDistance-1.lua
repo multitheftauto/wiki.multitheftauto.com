@@ -15,7 +15,6 @@ function setAllObjectsLOD()
         -- Set LOD for this model ID.
         -- The 'true' enables extended range.
         engineSetModelLODDistance(modelID, lodLevel, true)
-
     end
 end
 

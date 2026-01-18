@@ -1,45 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineSetObjectGroupPhysicalProperty
-shared:
+client:
   name: engineSetObjectGroupPhysicalProperty
+  pair: engineGetObjectGroupPhysicalProperty
   description: This function sets physical property of given properties group.
   parameters:
   - name: groupID
     type: int
-    description: the id of physical properties group which you wish to set a property
-      of.
+    description: The id of physical properties group which you wish to set a property of.
   - name: property
-    type: objectgroup-modifiable
-    description: MISSING_PARAM_DESC
+    type: string
+    description: The property which you wish to set. See [physical properties](/reference/Object_physical_properties).
   - name: newValue
     type: var
-    description: new value of the property, with proper type as specified in table
-      below
+    description: New value of the property, with proper type.
   examples:
-  - path: examples/engineSetObjectGroupPhysicalProperty-1.lua
-    description: ''
-    side: client
+    - path: examples/engineSetObjectGroupPhysicalProperty-1.lua
+    - path: examples/engineSetObjectGroupPhysicalProperty_OOP-1.lua
+      oop: true
+  oop:
+    element: Engine
+    method: setObjectGroupPhysicalProperty
+    static: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if everything went well, error is raised otherwise.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Properties
-
-      - Missing section: Physical properties
-
-      - Missing section: Damage effect
-
-      - Missing section: Collision Response
-
-      - Missing section: Fx Type
-
-      - Missing section: Break Mode
-
-      - Missing section: Fx Effect
-
-      '
-  requires_review: true
+      name: result
+    description: Returns **true** if everything went well, **error** is raised otherwise.

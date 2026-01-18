@@ -1,7 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineRestoreDFFImage
-shared:
+client:
   name: engineRestoreDFFImage
-  description: This function restores changes to DFF file from IMG container.
+  description: This function restores changes to DFF file from IMG container. This function reverses the effect of [[engineImageLinkDFF]].
   parameters:
   - name: modelID
     type: int
@@ -11,11 +10,10 @@ shared:
     values:
     - type: bool
       name: value
-    description: Returns true if IMG file was successfully restored, false otherwise.
+    description: Returns **true** if IMG file was successfully restored, **false** or throws **error** otherwise.
   oop:
-    element: dff
-    constructorclass: EngineIMG
-  notes:
-  - type: warning
-    content: This article is incomplete and may contain errors
-  requires_review: true
+    element: Engine
+    method: restoreDFFImage
+    static: true
+  version:
+    added: 1.6.0 r21695

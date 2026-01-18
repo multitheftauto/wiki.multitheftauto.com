@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineAddClothingModel
-shared:
+client:
   name: engineAddClothingModel
   description: This function adds new CJ clothing model.
   parameters:
@@ -8,11 +7,13 @@ shared:
     description: The model that will be added.
   - name: fileName
     type: string
-    description: Name of the file containing the TXD/DFF extension.
-  examples: []
+    description: Name of the file containing the DFF extension.
+  examples: 
+    - path: examples/engineAddClothingModel-1.lua
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the model was added, and false otherwise.
-  requires_review: true
+      name: result
+    description: Returns **true** if the model was added, and throws an **error** otherwise.
+  version:
+    added: 1.6.0 r23124

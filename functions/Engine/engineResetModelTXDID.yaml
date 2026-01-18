@@ -1,21 +1,20 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineResetModelTXDID
-shared:
+client:
   name: engineResetModelTXDID
   description: This function restores the original TXD ID of the given model ID. Reverses
-    the effect of [EngineSetModelTXDID](/wiki/EngineSetModelTXDID "EngineSetModelTXDID").
+    the effect of [[engineSetModelTXDID]].
   parameters:
   - name: modelID
     type: int
-    description: The ID of the model to restore the model of
-  examples: []
+    description: The ID of the model to restore the model of.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if this function succeeds, throw a error if it fails
+      name: result
+    description: Returns **true** if this function succeeds, throw a **error** if it fails
       for some reason.
   oop:
     element: Engine
     method: resetModelTXDID
     static: true
-  requires_review: true
+  version:
+    added: 1.6.0 r22190

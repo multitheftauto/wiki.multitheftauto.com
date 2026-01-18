@@ -1,21 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineAddImage
-shared:
+client:
   name: engineAddImage
-  description: This function adds an IMG file container to GTA streamer. After this
-    GTA will asynchronously load models from IMG. **Only two additional archives can
-    be enabled once**
+  pair: engineRemoveImage
+  description: This function adds an IMG file container to GTA streamer. After this GTA will asynchronously load models from IMG.
   parameters:
   - name: imgArchive
     type: img
     description: The IMG file you want to add to GTA world.
-  examples: []
   returns:
     values:
-    - type: boolean
-      name: value
-    description: Returns true if the IMG element was successfully added, false otherwise.
+    - type: bool
+      name: result
+    description: Returns **true** if the IMG element was successfully added, **false** otherwise.
   oop:
     element: img
     method: add
     static: false
-  requires_review: true
+  version:
+    added: 1.6.0 r21695
+    updated: 1.6.0 r21892
+  meta:
+    - changelog:
+        - version: 1.6.0 r21892
+          description: The maximum number of archives that can be enabled once has been increased to **255**; previously, it was limited to just **2** archives enabled once.

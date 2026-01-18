@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/EngineImageGetFile
-shared:
+client:
   name: engineImageGetFile
   description: This function gets a file from an IMG container.
   parameters:
@@ -7,20 +6,21 @@ shared:
     type: img
     description: The IMG file you want to get file from.
   - name: file
-    type: string/number
+    type: string/int
     description: Name or position of the file you want to get.
   examples:
   - path: examples/engineImageGetFile-1.lua
-    description: 'You could use the following code:'
-    side: client
+  - path: examples/engineImageGetFile_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: string
-      name: value
-    description: Returns file's binary data if successful, false otherwise. Data size
+      name: data
+    description: Returns the file's binary data if successful; otherwise, it throws an **error**. Data size
       is bonded to 2 Kb block size.
   oop:
     element: img
     method: getFile
     static: false
-  requires_review: true
+  version:
+    added: 1.6.0 r21695
