@@ -1,4 +1,4 @@
 function onVehicleStartEnter()
-   cancelEvent()
+    cancelEvent()
 end
 addEventHandler("onVehicleStartEnter", root, onVehicleStartEnter)

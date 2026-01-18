@@ -1,60 +1,59 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TriggerServerEvent
-shared:
+client:
   name: triggerServerEvent
-  description: This function triggers an event previously registered on the server.
+  description: |
+    This function triggers an event previously registered on the server.
     This is the primary means of passing information between the client and the server.
-    Servers have a similar [triggerClientEvent](/wiki/TriggerClientEvent "TriggerClientEvent")
+    Servers have a similar [triggerClientEvent](/reference/triggerClientEvent "TriggerClientEvent")
     function that can do the reverse. You can treat this function as if it was an
-    asynchronous function call, using [triggerClientEvent](/wiki/TriggerClientEvent
+    asynchronous function call, using [triggerClientEvent](/reference/triggerClientEvent
     "TriggerClientEvent") to pass back any returned information if necessary.
+
+    Almost any data types can be passed as expected, including [elements](/reference/Element "Element") and complex nested [tables](/reference/table "Tables"). Non-element MTA data types like xmlNodes or resource pointers will not be able to be passed as they do not necessarily have a valid representation on the client. **Elements of the Vector or Matrix classes cannot be passed!**
+
+    Events are sent reliably, so the server will receive them, but there may be (but shouldn't be) a significant delay before they are received. You should take this into account when using them.
+
+    Keep in mind the bandwidth issues when using events - don't pass a large list of arguments unless you really need to. It **is marginally more efficient to pass one large event than two smaller ones.**
   parameters:
   - name: event
     type: string
     description: The name of the event to trigger server-side. You should register
-      this event with addEvent and add at least one event handler using addEventHandler
+      this event with [addEvent](/reference/addEvent "AddEvent") and add at least one event handler using [addEventHandler](/reference/addEventHandler "AddEventHandler")
       .
   - name: theElement
     type: element
-    description: The element that is the source of the event.
-  - name: arguments...
-    type: unknown
+    description: The element that is the [source](/reference/Event_System "Event System") of the event.
+  - name: arguments
+    type: mixed
     description: A list of arguments to trigger with the event. You can pass any lua
-      data type (except functions). You can also pass elements .
+      data type (except functions). You can also pass [elements](/reference/Element "Element").
+    default: 'nil'
   examples:
   - path: examples/triggerServerEvent-1.lua
     description: ''
-    side: client
   - path: examples/triggerServerEvent-2.lua
     description: ''
-    side: server
-  - path: examples/triggerServerEvent-3.lua
-    description: ''
-    side: client
-  - path: examples/triggerServerEvent-4.lua
-    description: ''
-    side: server
   returns:
     values:
     - type: bool
       name: value
-    description: Returns true if the event trigger has been sent, false if invalid
+    description: Returns **true** if the event trigger has been sent, **false** if invalid
       arguments were specified or a client side element was a parameter.
   notes:
   - type: info
     content: It is marginally more efficient to pass one large event than two smaller
       ones.
   - type: important
-    content: 'You should use the global variable client server-side instead of passing
+    content: 'You should use the global variable [client](/reference/Predefined_variables) server-side instead of passing
       the localPlayer by parameter or source. Otherwise event faking (passing another
       player instead of the localPlayer ) would be possible. For more information
-      see: Script security article.'
+      see: [Script security](/Script_security) article.'
   - type: important
-    content: To save server CPU, you should avoid setting theElement to the root element
+    content: To save server CPU, you should avoid setting **theElement** to the [root](/reference/root "Root") element
       where possible - it should be used as a last resort (rather questionable thing
       to do, limited to very specific tasks, if any). Using localPlayer is preferred
-      and highly advisable. resourceRoot can also be used as alternative choice, if
-      addEventHandler is bound to root element, or to resourceRoot when there is need
+      and highly advisable. [resourceRoot](/reference/resourceRoot "ResourceRoot") can also be used as alternative choice, if
+      [addEventHandler](/reference/addEventHandler "addEventHandler") is bound to [root](/reference/root "Root") element, or to [resourceRoot](/reference/resourceRoot "ResourceRoot") when there is need
       to restrict event to single certain resource (although cheater could still trigger
-      it from different resource, by using getResourceRootElement and passing respective
+      it from different resource, by using [getResourceRootElement](/reference/getResourceRootElement "getResourceRootElement") and passing respective
       resource root element)
-  requires_review: true

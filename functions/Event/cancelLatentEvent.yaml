@@ -1,11 +1,11 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CancelLatentEvent
-client:
+shared:
   name: cancelLatentEvent
   description: Stops a latent event from completing
   parameters:
   - name: handle
     type: int
-    description: A handle previous got from getLatentEventHandles .
+    description: A handle previous got from [getLatentEventHandles](/reference/getLatentEventHandles "GetLatentEventHandles").
   examples:
   - path: examples/cancelLatentEvent-1.lua
     description: ''
@@ -19,7 +19,7 @@ client:
       name: value
     description: Returns a true if the latent event was successfully cancelled, or
       false if it was not
-  requires_review: true
+
 server:
   name: cancelLatentEvent
   description: Stops a latent event from completing
@@ -29,7 +29,7 @@ server:
     description: The player who is receiving the event.
   - name: handle
     type: int
-    description: A handle previous got from getLatentEventHandles .
+    description: A handle previous got from [getLatentEventHandles](/reference/getLatentEventHandles "GetLatentEventHandles").
   examples:
   - path: examples/cancelLatentEvent-2.lua
     description: ''
@@ -43,4 +43,3 @@ server:
       name: value
     description: Returns a true if the latent event was successfully cancelled, or
       false if it was not
-  requires_review: true

@@ -1,26 +1,40 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/TriggerLatentClientEvent
-shared:
+server:
   name: triggerLatentClientEvent
-  description: 'This function is the same as [triggerClientEvent](/wiki/TriggerClientEvent
+  description: 'This function is the same as [triggerClientEvent](/reference/triggerClientEvent
     "TriggerClientEvent")  except the transmission rate of the data contained in the
     arguments can be limited
 
     and other network traffic is not blocked while the data is being transferred.'
   parameters:
   - name: sendTo
-    type: '[table/element'
+    type: 'table/element'
     description: The event will be sent to all players that are children of the specified
-      element. By default this is the root element, and hence the event is sent to
+      element. By default this is the [root](/reference/root "Root") element, and hence the event is sent to
       all players. If you specify a single player it will just be sent to that player.
       This argument can also be a table of player elements.
-    default: getRootElement(
+    default: getRootElement()
+  - name: name
+    type: string
+    description: The name of the event to trigger client side. You should register this event with [addEvent](/reference/addEvent "AddEvent") and add at least one event handler using [addEventHandler](/reference/addEventHandler "AddEventHandler").
+  - name: bandwidth
+    type: int
+    description: The bytes per second rate to send the data contained in the arguments.
+    default: 50000
+  - name: persist
+    type: bool
+    description: A bool indicating whether the transmission should be allowed to continue even after the resource that triggered it has since stopped.
+    default: 'false'
+  - name: theElement
+    type: element
+    description: The element that is the [source](/reference/Event_System "Event System") of the event. This could be another player, or if this isn't relevant, use the [root](/reference/root "Root") element.
+  - name: arguments
+    type: mixed
+    description: A list of arguments to trigger with the event. You can pass any Lua data type (except functions). You can also pass [elements](/reference/Element "Element"). The total amount of data should not exceed 100MB.
+    default: 'nil'
   examples:
   - path: examples/triggerLatentClientEvent-1.lua
     description: ''
-    side: client
-  - path: examples/triggerLatentClientEvent-2.lua
-    description: ''
-    side: server
   returns:
     values:
     - type: bool
@@ -29,15 +43,7 @@ shared:
       arguments were specified.
   notes:
   - type: info
-    content: You should avoid triggering events on the root element unless you really
-      need to. Doing this triggers the event on every element in the element tree
+    content: You should avoid triggering events on the [root](/reference/root "Root") element unless you really
+      need to. Doing this triggers the event on every element in the [element tree](/reference/Element_tree "Element Tree")
       , which is potentially very CPU intensive. Use as specific (i.e. low down the
       tree) element as you can.
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: triggerClientEvent vs triggerLatentClientEvent test by DreTaX
-
-      '
-  requires_review: true

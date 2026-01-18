@@ -1,22 +1,23 @@
 # Scraped from: https://wiki.multitheftauto.com/wiki/CancelEvent
-client:
+shared:
   name: cancelEvent
   description: This function is used to stop the automatic internal handling of events,
     for example this can be used to prevent an item being given to a player when they
-    walk over a pickup, by canceling the [onPickupUse](/wiki/OnPickupUse "OnPickupUse")
+    walk over a pickup, by canceling the [onPickupUse](/reference/onPickupUse "OnPickupUse")
     event.
   parameters: []
-  examples:
-  - path: examples/cancelEvent-2.lua
-    description: This example prevents any damage to a player clientside by makingcancelEventan
-      event handler for theonClientPlayerDamageevent.
-    side: client
   returns:
     values:
     - type: bool
       name: value
     description: Always returns true .
-  requires_review: true
+
+client:
+  examples:
+  - path: examples/cancelEvent-2.lua
+    description: This example prevents any damage to a player clientside by making **cancelEvent** an
+      event handler for the [onClientPlayerDamage](/reference/onClientPlayerDamage "OnClientPlayerDamage") event.
+
 server:
   name: cancelEvent
   description: This function is used to stop the automatic internal handling of events,
@@ -26,19 +27,17 @@ server:
   parameters:
   - name: cancel
     type: bool
-    description: MISSING_PARAM_DESC
+    description: True to cancel, false to uncancel.
     default: 'true'
   - name: reason
     type: string
-    description: MISSING_PARAM_DESC
+    description: The reason for cancelling the event.
     default: '""'
   examples:
   - path: examples/cancelEvent-1.lua
     description: This example stops the player from entering a vehicle.
-    side: server
   returns:
     values:
     - type: bool
       name: value
     description: Always returns true .
-  requires_review: true
