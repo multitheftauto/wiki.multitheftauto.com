@@ -1,0 +1,53 @@
+---
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import { Code } from '@astrojs/starlight/components';
+import { explosionTypesById } from '@src/data/explosion_types';
+
+let luaTable = `local explosionTypes = {\n`;
+Object.entries(explosionTypesById).forEach(([id, { name, info }], index) => {
+    luaTable += `\t[${id}] = "${name}"`;
+    if (info) {
+        luaTable += `, -- ${info}`;
+    }
+    luaTable += `\n`;
+});
+luaTable += `}`;
+
+---
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Explosion Types',
+    tableOfContents: false,
+}}>
+    <p>The following explosion types are used by <a href="/reference/createExplosion">createExplosion</a> function.
+    
+    <table class="damage-types-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {Object.entries(explosionTypesById).map(([id, { name, info }]) => (
+                <tr>
+                    <td>{id}</td>
+                    <td>{name}</td>
+                    <td>{info || ''}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+    
+    <section data-pagefind-ignore>
+        <h4>Explosion types in a Lua table:</h4>
+        <Code lang="lua" code={luaTable}/>
+    </section>
+
+    <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:ID_Lists',
+    ])} currentId='' />
+</AutoStarlightPage>

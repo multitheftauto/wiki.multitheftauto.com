@@ -1,0 +1,15 @@
+export const explosionTypesById: Record<number, { name: string; info?: string }> = {
+    0: { name: "Grenade", info: "When a grenade or satchel projectile explodes." },
+    1: { name: "Molotov", info: "When a molotov projectile explodes" },
+    2: { name: "Rocket", info: "When a rocket projectile explodes. When a type 7 explosion occurs (with a victim i.e. vehicle source) and a 5% chance. If plane or heli (not RC vehicle) and below 250 hp and a 1.2% chance." },
+    3: { name: "Rocket Weak", info: "If a HS rocket projectile and the launcher is not local player." },
+    4: { name: "Car", info: "When a car or bike explodes." },
+    5: { name: "Car Quick", info: "When ID 564 or 441 blows up. (RC Tiger & Bandit)" },
+    6: { name: "Boat", info: "When a boat blows up." },
+    7: { name: "Aircraft", info: "When a plane or helicopter blows up." },
+    8: { name: "Mine", info: "Related to PICKUP_NAUTICAL_MINE_ARMED." },
+    9: { name: "Object", info: "Exploding object e.g. explosive barrel, tank stations." },
+    10: { name: "Tank Grenade", info: "Rhino shooting." },
+    11: { name: "Small", info: "Most likely only used by scripts." },
+    12: { name: "Tiny", info: "When ID 464, 465 or 501 (RC Baron, RC Raider, Goblin) blows up." },
+};
