@@ -1,22 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AddEventHandler
 shared:
   name: addEventHandler
-  description: This function will add an [event](/wiki/Event "Event") handler. An
+  description: This function will add an [event](/reference/Event_System "Event System") handler. An
     event handler is a function that will be called when the event it's attached to
-    is triggered. See [event system](/wiki/Event_system "Event system") for more information
+    is triggered. See [event system](/reference/Event_System "Event System") for more information
     on how the event system works.
   parameters:
   - name: eventName
     type: string
-    description: 'The name of the event you want to attach the handler function to.
-      Note: The maximum allowed length is 100 ASCII characters (that is, English letters
-      and numerals)'
+    description: 'The name of the [event](/reference/Event_System "Event System") you want to attach the handler function to.
+      **Note: The maximum allowed length is 100 ASCII characters (that is, English letters
+      and numerals)**'
   - name: attachedTo
     type: element
-    description: The element you wish to attach the handler to. The handler will only
+    description: The [[element]] you wish to attach the handler to. The handler will only
       be called when the event it is attached to is triggered for this element, or
       one of its children. Often, this can be the root element (meaning the handler
-      will be called when the event is triggered for any element).
+      will be called when the event is triggered for *any* element).
   - name: handlerFunction
     type: function
     description: The handler function you wish to call when the event is triggered.
@@ -25,45 +24,35 @@ shared:
   - name: propagate
     type: bool
     description: A boolean representing whether the handler will be triggered if the
-      event was propagated down or up the element tree (starting from the source),
+      event was propagated down or up the [element tree](/reference/Element_tree "Element tree") (starting from the source),
       and not triggered directly on attachedTo (that is, handlers attached with this
       argument set to false will only be triggered if source == this ). In GUI events
       you will probably want to set this to false .
     default: 'true'
   - name: priority
     type: string
-    description: MISSING_PARAM_DESC
+    description: 'A string representing the trigger order priority relative to other event handlers of the same name. Possible values are:'
+    templateList: 'event-priority'
     default: '"normal"'
   examples:
   - path: examples/addEventHandler-1.lua
     description: This serverside example sends a message to everyone in the server
       when a player spawns.
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the event handler was attached successfully. Returns
-      false if the specified event could not be found or any parameters were invalid.
+      name: result
+    description: Returns **true** if the event handler was attached successfully. otherwise **false** if the specified event could not be found or any parameters were invalid.
   notes:
   - type: info
-    content: You shouldn't re-use the same name for your handler function as the event
+    content: |
+      - You shouldn't re-use the same name for your handler function as the event
       name - if multiple handler functions are used, as this can lead to confusion.
       On the same note, for multiple reasons, it isn't a good idea to export the same
       functions that you use locally as remote event handlers.
-  - type: info
-    content: See Event Source Element for a descriptive visualization of the event
+      - See [Event Source Element](/reference/Event_Source_Element "Event Source Element") for a descriptive visualization of the event
       system handling an event trigger.
-  - type: important
-    content: See Script security for how-to prevent cheaters from abusing event system
-      and element data .
-  - type: important
-    content: Anything bound to a specific element will be run before other handlers
-      that are bound to something higher in the element tree (like root) This means
-      that "high+10" bound to root won't trigger before "normal" bound directly to
-      an element.
-  - type: info
-    content: Due to the additional set of global variables, the event-trigger specific
+      - Due to the additional set of global variables, the event-trigger specific
       variables it is NOT a good idea to use the same function locally as well as
       directly as an event handler . Event handlers often make use of the source element
       variable which would often find no use in generic functions. Inside of server-side
@@ -73,4 +62,10 @@ shared:
       the same issues. It is recommended to adapt a good-natured distancing principle
       between code meant to run from local logic in separation to code meant to run
       from remote logic.
-  requires_review: true
+  - type: important
+    content: |
+      - See [Script security](/Script_security "Script security") for how-to prevent cheaters from abusing [event system](/reference/Event_System "Event system").
+      - Anything bound to a specific element will be run before other handlers
+      that are bound to something higher in the element tree (like root) This means
+      that "high+10" bound to root **won't** trigger before "normal" bound directly to
+      an element.

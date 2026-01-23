@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetEventHandlers
 shared:
   name: getEventHandlers
   description: This function gets the attached functions from the event and attached
@@ -6,20 +5,21 @@ shared:
   parameters:
   - name: eventName
     type: string
-    description: The name of the event. For example ( "onPlayerWasted" ).
+    description: The name of the event.
   - name: attachedTo
     type: element
-    description: The element attached to.
-  examples:
-  - path: examples/getEventHandlers-1.lua
-    description: ''
-    side: server
-  - path: examples/getEventHandlers-2.lua
-    description: This example removes all onClientMarkerHit event in current script.
-    side: client
+    description: The [[element]] attached to.
   returns:
     values:
     - type: table
-      name: value
-    description: Returns table with attached functions, empty table otherwise.
-  requires_review: true
+      name: result
+    description: Returns [[table]] with attached functions, otherwise empty [[table]].
+
+server:
+  examples:
+    - path: examples/getEventHandlers-1.lua
+      description: ''
+client:
+  examples:
+    - path: examples/getEventHandlers-2.lua
+      description: This example removes all [[onClientMarkerHit]] event.

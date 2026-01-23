@@ -1,1 +1,0 @@
-triggerEvent("onCustomEvent", resourceRoot, "Hello, world!")

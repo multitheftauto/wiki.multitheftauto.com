@@ -5,5 +5,4 @@ function onPlayerSpawnHandler ( )
 	-- output in the chat box that they've spawned
 	outputChatBox ( playerName .. " has spawned!" )
 end
-
 addEventHandler( "onPlayerSpawn", root, onPlayerSpawnHandler ) -- root is a predefined global variable for getRootElement()

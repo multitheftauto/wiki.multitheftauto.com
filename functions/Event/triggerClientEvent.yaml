@@ -1,56 +1,60 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/TriggerClientEvent
-shared:
+server:
   name: triggerClientEvent
-  description: This function triggers an event previously registered on a client.
+  description: | 
+    This function triggers an event previously registered on a client.
     This is the primary means of passing information between the server and the client.
-    Clients have a similar [triggerServerEvent](/wiki/TriggerServerEvent "TriggerServerEvent")
+    Clients have a similar [triggerServerEvent](/reference/triggerServerEvent "TriggerServerEvent")
     function that can do the reverse. You can treat this function as if it was an
-    asynchronous function call, using [triggerServerEvent](/wiki/TriggerServerEvent
+    asynchronous function call, using [triggerServerEvent](/reference/triggerServerEvent
     "TriggerServerEvent") to pass back any returned information if necessary.
+
+    Almost any data types can be passed as expected, including [elements](/reference/Element "Element") and complex nested [tables](/reference/table "Table"). Non-element MTA data types like [xmlNodes](/reference/xmlnode "XML Node") or resource pointers will not be able to be passed as they do not necessarily have a valid representation on the client.
+
+    Events are sent reliably, so clients will receive them, but there may be (but shouldn't be) a significant delay before they are received. You should take this into account when using them.
+    
+    Keep in mind the bandwidth issues when using events - don't pass a large list of arguments unless you really need to. It is marginally more efficient to pass one large event than two smaller ones.
   parameters:
-  - name: table/element sendTo
-    type: '['
-    description: MISSING_PARAM_DESC
+  - name: sendTo
+    type: 'table/element'
+    description: The event will be sent to all [players](/reference/player "Player") that are children of the specified element. By default this is the [root](/reference/root "Root") element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be a table of player elements.
     default: getRootElement(
+  - name: name
+    type: string
+    description: The name of the event to trigger client side. You should register this event with [[addEvent]] and add at least one event handler using [[addEventHandler]].
+  - name: sourceElement
+    type: element
+    description: The element that is the [source](/reference/Event_System "Event System") of the event.
+  - name: arguments
+    type: 'mixed'
+    description: A list of arguments to trigger with the event. You can pass any lua data type (except functions). You can also pass [elements](/reference/Element "Element").
+    default: 'nil'
+
   examples:
   - path: examples/triggerClientEvent-1.lua
     description: ''
-    side: client
   - path: examples/triggerClientEvent-2.lua
     description: ''
-    side: server
   - path: examples/triggerClientEvent-3.lua
     description: ''
-    side: client
-  - path: examples/triggerClientEvent-4.lua
-    description: ''
-    side: server
-  - path: examples/triggerClientEvent-5.lua
-    description: ''
-    side: client
-  - path: examples/triggerClientEvent-6.lua
-    description: ''
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the event trigger has been sent, false if invalid
+      name: result
+    description: Returns **true** if the event trigger has been sent, otherwise **false** if invalid
       arguments were specified.
   notes:
   - type: info
     content: It is marginally more efficient to pass one large event than two smaller
       ones.
   - type: important
-    content: Non-element MTA data types like xmlNodes or resource pointers will not
+    content: |
+      - Non-element MTA data types like [xmlNodes](/reference/xmlnode "XML Node") or resource pointers will not
       be able to be passed as they do not necessarily have a valid representation
       on the client.
-  - type: important
-    content: To save client CPU, you should avoid setting theElement to the root element
+      - To save client CPU, you should avoid setting theElement to the [root](/reference/root "Root") element
       where possible - it should be used as a last resort (rather questionable thing
-      to do, limited to very specific tasks, if any). Using target element ( player
+      to do, limited to very specific tasks, if any). Using target element ( [player](/reference/player "Player")
       who should receive event, if expected to be delivered to particular one) is
-      preferred and highly advisable. resourceRoot can also be used as alternative
-      choice, if addEventHandler is bound to root element, or to resourceRoot when
+      preferred and highly advisable. [resourceRoot](/reference/resourceRoot "ResourceRoot") can also be used as alternative
+      choice, if [addEventHandler](/reference/addEventHandler "addEventHandler") is bound to [root](/reference/root "Root") element, or to [resourceRoot](/reference/resourceRoot "ResourceRoot") when
       there is need to restrict event to single certain resource.
-  requires_review: true

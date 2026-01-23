@@ -1,30 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveEventHandler
 shared:
   name: removeEventHandler
-  description: This functions removes a handler function from an [event](/wiki/Event
+  description: This functions removes a handler function from an [event](/reference/Event_System
     "Event"), so that the function is not called anymore when the event is triggered.
-    See [event system](/wiki/Event_system "Event system") for more information on
+    See [event system](/reference/Event_System "Event system") for more information on
     how the event system works.
   parameters:
   - name: eventName
     type: string
-    description: The name of the event you want to detach the handler function from.
+    description: The name of the [event](/reference/Event_System "Event") you want to detach the handler function from.
   - name: attachedTo
     type: element
-    description: The element the handler was attached to.
+    description: The [[element]] the handler was attached to.
   - name: functionVar
     type: function
     description: The handler function that was attached.
+  returns:
+    values:
+    - type: bool
+      name: result
+    description: Returns **true** if the event handler was removed successfully, otherwise
+      **false** if the specified event handler could not be found or invalid parameters
+      were passed.
+
+client:
   examples:
   - path: examples/removeEventHandler-1.lua
     description: This example shows how to toggle a message on/off a screen with a
       command.
-    side: client
-  returns:
-    values:
-    - type: bool
-      name: value
-    description: Returns true if the event handler was removed successfully. Returns
-      false if the specified event handler could not be found or invalid parameters
-      were passed.
-  requires_review: true

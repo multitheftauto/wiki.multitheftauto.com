@@ -1,17 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetLatentEventHandles
-client:
+shared:
   name: getLatentEventHandles
   description: Gets the currently queued latent events. The last one in the table
-    is always the latest event queued. Each returned handle can be used with [getLatentEventStatus](/wiki/GetLatentEventStatus
-    "GetLatentEventStatus") or [cancelLatentEvent](/wiki/CancelLatentEvent "CancelLatentEvent")
+    is always the latest event queued.
   parameters: []
-  examples: []
+  examples:
+  - path: examples/getLatentEventHandles-1.lua
+    description: This command is triggering an latent-event to server, and if you
+      write the command again and the trigger still didn't end then you have to wait.
   returns:
     values:
     - type: table
-      name: value
-    description: Returns a table of handles or false if invalid arguments were passed.
-  requires_review: true
+      name: result
+    description: Returns a [[table]] of handles, otherwise **false** if invalid arguments were passed.
+
 server:
   name: getLatentEventHandles
   description: Gets the currently queued latent events. The last one in the table
@@ -21,14 +22,8 @@ server:
   - name: thePlayer
     type: player
     description: The player who is receiving the events.
-  examples:
-  - path: examples/getLatentEventHandles-1.lua
-    description: This command is triggering an latent-event to server, and if you
-      write the command again and the trigger still didn't end then you have to wait.
-    side: server
   returns:
     values:
     - type: table
-      name: value
-    description: Returns a table of handles or false if invalid arguments were passed.
-  requires_review: true
+      name: result
+    description: Returns a [[table]] of handles, otherwise **false** if invalid arguments were passed.
