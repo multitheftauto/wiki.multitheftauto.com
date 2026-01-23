@@ -5,18 +5,11 @@ client:
     This is the primary means of passing information between the client and the server.
     Servers have a similar [[triggerClientEvent]] function that can do the reverse. You can treat this function as if it was an
     asynchronous function call, using [[triggerClientEvent]] to pass back any returned information if necessary.
-
-    Almost any data types can be passed as expected, including [elements](/reference/Element "Element") and complex nested [tables](/reference/table "Tables"). Non-element MTA data types like xmlNodes or resource pointers will not be able to be passed as they do not necessarily have a valid representation on the client. **Elements of the Vector or Matrix classes cannot be passed!**
-
-    Events are sent reliably, so the server will receive them, but there may be (but shouldn't be) a significant delay before they are received. You should take this into account when using them.
-
-    Keep in mind the bandwidth issues when using events - don't pass a large list of arguments unless you really need to. It **is marginally more efficient to pass one large event than two smaller ones.**
   parameters:
   - name: event
     type: string
     description: The name of the event to trigger server-side. You should register
-      this event with [[addEvent]] and add at least one event handler using [[addEventHandler]]
-      .
+      this event with [[addEvent]] and add at least one event handler using [[addEventHandler]].
   - name: theElement
     type: element
     description: The element that is the [source](/reference/Event_System "Event System") of the event.
@@ -38,14 +31,16 @@ client:
       arguments were specified or a client side element was a parameter.
   notes:
   - type: info
-    content: It is marginally more efficient to pass one large event than two smaller
-      ones.
+    content: |
+      - Almost any data types can be passed as expected, including [elements](/reference/Element "Element") and complex nested [tables](/reference/table "Tables"). Non-element MTA data types like [xmlNodes](/reference/xmlnode "XML Node") or resource pointers will not be able to be passed as they do not necessarily have a valid representation on the client. **Elements of the [Vector](/reference/Vector "Vector") or [Matrix](/reference/Matrix "Matrix") classes cannot be passed!**
+      - Events are sent reliably, so the server will receive them, but there may be (but shouldn't be) a significant delay before they are received. You should take this into account when using them.
+      - Keep in mind the bandwidth issues when using events - don't pass a large list of arguments unless you really need to. **It is marginally more efficient to pass one large event than two smaller ones.**
   - type: important
     content: |
-      - You should use the global variable [client](/reference/Predefined_variables) server-side instead of passing
-      the localPlayer by parameter or source. Otherwise event faking (passing another
-      player instead of the localPlayer ) would be possible. For more information
-      see: [Script security](/Script_security) article.
+      - You should use the global variable [client](/reference/Predefined_variables#client) server-side instead of passing
+      the **localPlayer** by parameter or source. Otherwise event faking (passing another
+      player instead of the localPlayer) would be possible. For more information
+      see: [Script security](/articles/script-security) article.
       - To save server CPU, you should avoid setting **theElement** to the [root](/reference/root "Root") element
       where possible - it should be used as a last resort (rather questionable thing
       to do, limited to very specific tasks, if any). Using localPlayer is preferred
@@ -53,4 +48,4 @@ client:
       [addEventHandler](/reference/addEventHandler "addEventHandler") is bound to [root](/reference/root "Root") element, or to [resourceRoot](/reference/resourceRoot "ResourceRoot") when there is need
       to restrict event to single certain resource (although cheater could still trigger
       it from different resource, by using [getResourceRootElement](/reference/getResourceRootElement "getResourceRootElement") and passing respective
-      resource root element)
+      resource root element).

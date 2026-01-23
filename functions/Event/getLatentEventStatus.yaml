@@ -1,18 +1,4 @@
-shared:
-  name: getLatentEventStatus
-  description: Gets the status of one queued latent event.
-  parameters:
-  - name: handle
-    type: int
-    description: A handle previous got from [[getLatentEventHandles]].
-  returns:
-    values:
-    - type: table
-      name: result
-    description: 'Returns a [[table]] with the following info, otherwise **false** if invalid arguments
-      were passed:'
-
-server:
+shared: &shared
   name: getLatentEventStatus
   description: Gets the status of one queued latent event.
   parameters:
@@ -22,15 +8,18 @@ server:
   - name: handle
     type: int
     description: A handle previous got from [[getLatentEventHandles]].
-  examples: []
   returns:
     values:
     - type: table
       name: result
-    description: 'Returns a [[table]] with the following info, otherwise **false** if invalid arguments were passed:'
-      
+    description: 'Returns a [[table]] with the following info, otherwise **false** if invalid arguments
+      were passed.'
+
 client:
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
   examples:
   - path: examples/getLatentEventStatus-1.lua
     description: The example starts a latent event and outputs the status of the transfer
-      to the client console
+      to the client console.

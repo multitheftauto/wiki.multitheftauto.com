@@ -1,20 +1,6 @@
-shared:
+shared: &shared
   name: cancelLatentEvent
-  description: Stops a latent event from completing
-  parameters:
-  - name: handle
-    type: int
-    description: A handle previous got from [[getLatentEventHandles]].
-  examples:
-  - path: examples/cancelLatentEvent-1.lua
-    description: ''
-  returns:
-    values:
-    - type: bool
-      name: result
-    description: Returns a **true** if the latent event was successfully cancelled, otherwise **false**.
-
-server:
+  description: Stops a latent event from completing.
   parameters:
   - name: thePlayer
     type: player
@@ -22,16 +8,24 @@ server:
   - name: handle
     type: int
     description: A handle previous got from [[getLatentEventHandles]].
-  examples:
-  - path: examples/cancelLatentEvent-3.lua
-    description: "Cancel all my triggerLatentClientEvent's"
   returns:
     values:
     - type: bool
       name: result
     description: Returns a **true** if the latent event was successfully cancelled, otherwise **false**.
 
-client:
+server:
+  <<: *shared
   examples:
   - path: examples/cancelLatentEvent-2.lua
-    description: "Cancel all my triggerLatentServerEvent's"
+    description: "Cancel all my triggerLatentClientEvent's."
+
+client:
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
+  examples:
+  - path: examples/cancelLatentEvent-1.lua
+    description: ''
+  - path: examples/cancelLatentEvent-3.lua
+    description: "Cancel all my triggerLatentServerEvent's."

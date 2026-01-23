@@ -9,4 +9,4 @@ server:
     values:
     - type: string
       name: result
-    description: Returns the reason that was given with [[cancelEvent]]
+    description: Returns the reason that was given with [[cancelEvent]].

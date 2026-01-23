@@ -16,7 +16,7 @@ shared:
       be called when the event it is attached to is triggered for this element, or
       one of its children. Often, this can be the root element (meaning the handler
       will be called when the event is triggered for *any* element).
-  - name: handlerFunction
+  - name: handlerFunction()
     type: function
     description: The handler function you wish to call when the event is triggered.
       This function will be passed all of the event's parameters as arguments, but
@@ -53,8 +53,8 @@ shared:
       - See [Event Source Element](/reference/Event_Source_Element "Event Source Element") for a descriptive visualization of the event
       system handling an event trigger.
       - Due to the additional set of global variables, the event-trigger specific
-      variables it is NOT a good idea to use the same function locally as well as
-      directly as an event handler . Event handlers often make use of the source element
+      variables it is **NOT** a good idea to use the same function locally as well as
+      directly as an event handler. Event handlers often make use of the source element
       variable which would often find no use in generic functions. Inside of server-side
       remote event handlers it is important to add protections against exploits due
       to unexpected client event triggers or network-based load situations while generic
@@ -64,8 +64,8 @@ shared:
       from remote logic.
   - type: important
     content: |
-      - See [Script security](/Script_security "Script security") for how-to prevent cheaters from abusing [event system](/reference/Event_System "Event system").
+      - See [Script security](/articles/script-security "Script security") for how-to prevent cheaters from abusing [event system](/reference/Event_System "Event system").
       - Anything bound to a specific element will be run before other handlers
-      that are bound to something higher in the element tree (like root) This means
-      that "high+10" bound to root **won't** trigger before "normal" bound directly to
+      that are bound to something higher in the element tree (like [[root]]) This means
+      that `high+10` bound to root **won't** trigger before `normal` bound directly to
       an element.

@@ -1,4 +1,4 @@
-shared:
+shared: &shared
   name: removeEventHandler
   description: This functions removes a handler function from an [event](/reference/Event_System
     "Event"), so that the function is not called anymore when the event is triggered.
@@ -11,7 +11,7 @@ shared:
   - name: attachedTo
     type: element
     description: The [[element]] the handler was attached to.
-  - name: functionVar
+  - name: functionVar()
     type: function
     description: The handler function that was attached.
   returns:
@@ -23,6 +23,7 @@ shared:
       were passed.
 
 client:
+  <<: *shared
   examples:
   - path: examples/removeEventHandler-1.lua
     description: This example shows how to toggle a message on/off a screen with a

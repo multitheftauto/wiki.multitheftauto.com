@@ -1,12 +1,8 @@
-shared:
+shared: &shared
   name: getLatentEventHandles
-  description: Gets the currently queued latent events. The last one in the table
+  description: Gets the currently queued latent events. The last one in the [[table]]
     is always the latest event queued.
   parameters: []
-  examples:
-  - path: examples/getLatentEventHandles-1.lua
-    description: This command is triggering an latent-event to server, and if you
-      write the command again and the trigger still didn't end then you have to wait.
   returns:
     values:
     - type: table
@@ -14,10 +10,7 @@ shared:
     description: Returns a [[table]] of handles, otherwise **false** if invalid arguments were passed.
 
 server:
-  name: getLatentEventHandles
-  description: Gets the currently queued latent events. The last one in the table
-    is always the latest event queued. Each returned handle can be used with [getLatentEventStatus](/wiki/GetLatentEventStatus
-    "GetLatentEventStatus") or [cancelLatentEvent](/wiki/CancelLatentEvent "CancelLatentEvent")
+  <<: *shared
   parameters:
   - name: thePlayer
     type: player
@@ -27,3 +20,12 @@ server:
     - type: table
       name: result
     description: Returns a [[table]] of handles, otherwise **false** if invalid arguments were passed.
+
+client:
+  <<: *shared
+  ignore_parameters:
+    - thePlayer
+  examples:
+  - path: examples/getLatentEventHandles-1.lua
+    description: This command is triggering an latent-event to server, and if you
+      write the command again and the trigger still didn't end then you have to wait.

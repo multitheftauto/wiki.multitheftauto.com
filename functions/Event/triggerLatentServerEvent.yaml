@@ -7,8 +7,7 @@ client:
   - name: event
     type: string
     description: The name of the event to trigger server-side. You should register
-      this event with [[addEvent]] and add at least one event handler using [[addEventHandler]]
-      .
+      this event with [[addEvent]] and add at least one event handler using [[addEventHandler]].
   - name: bandwidth
     type: int
     description: The bytes per second rate to send the data contained in the arguments.

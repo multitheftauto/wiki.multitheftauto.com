@@ -1,4 +1,4 @@
-shared:
+shared: &shared
   name: cancelEvent
   description: This function is used to stop the automatic internal handling of events
     event.
@@ -8,14 +8,19 @@ shared:
     - type: bool
       name: result
     description: Always returns **true**.
+  notes:
+    - type: info
+      content: Not every event can be cancelled, so make sure the event is cancellable according to the documentation.
 
 client:
+  <<: *shared
   examples:
   - path: examples/cancelEvent-2.lua
     description: This example prevents any damage to a player clientside by making **cancelEvent** an
       event handler for the [[onClientPlayerDamage]] event.
 
 server:
+  <<: *shared
   parameters:
   - name: cancel
     type: bool
@@ -28,8 +33,3 @@ server:
   examples:
   - path: examples/cancelEvent-1.lua
     description: This example stops the player from entering a vehicle.
-  returns:
-    values:
-    - type: bool
-      name: result
-    description: Returns **true**, otherwise **false** if parameters are invalid.

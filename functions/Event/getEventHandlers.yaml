@@ -1,4 +1,4 @@
-shared:
+shared: &shared
   name: getEventHandlers
   description: This function gets the attached functions from the event and attached
     element from current lua script.
@@ -14,12 +14,18 @@ shared:
     - type: table
       name: result
     description: Returns [[table]] with attached functions, otherwise empty [[table]].
+  notes:
+    - type: important
+      content: This function only checks the current script.
 
 server:
+  <<: *shared
   examples:
     - path: examples/getEventHandlers-1.lua
       description: ''
+
 client:
+  <<: *shared
   examples:
     - path: examples/getEventHandlers-2.lua
       description: This example removes all [[onClientMarkerHit]] event.
