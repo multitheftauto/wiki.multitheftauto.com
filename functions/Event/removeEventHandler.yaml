@@ -10,7 +10,7 @@ shared:
     description: The name of the [event](/reference/Event_System "Event") you want to detach the handler function from.
   - name: attachedTo
     type: element
-    description: The [element](/reference/Element "Element") the handler was attached to.
+    description: The [[element]] the handler was attached to.
   - name: functionVar
     type: function
     description: The handler function that was attached.

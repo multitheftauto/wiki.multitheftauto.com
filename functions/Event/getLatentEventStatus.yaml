@@ -9,7 +9,7 @@ shared:
     values:
     - type: table
       name: result
-    description: 'Returns a **table** with the following info, otherwise **false** if invalid arguments
+    description: 'Returns a [[table]] with the following info, otherwise **false** if invalid arguments
       were passed:'
 
 server:
@@ -27,8 +27,7 @@ server:
     values:
     - type: table
       name: result
-    description: 'Returns a **table** with the following info, otherwise **false** if invalid arguments
-      were passed:'
+    description: 'Returns a [[table]] with the following info, otherwise **false** if invalid arguments were passed:'
       
 client:
   examples:

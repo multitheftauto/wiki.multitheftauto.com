@@ -6,7 +6,7 @@ shared:
   returns:
     values:
     - type: bool
-      name: value
+      name: result
     description: Always returns **true**.
 
 client:

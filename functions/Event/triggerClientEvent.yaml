@@ -47,11 +47,11 @@ server:
     content: It is marginally more efficient to pass one large event than two smaller
       ones.
   - type: important
-    content: Non-element MTA data types like [xmlNodes](/reference/xmlnode "XML Node") or resource pointers will not
+    content: |
+      - Non-element MTA data types like [xmlNodes](/reference/xmlnode "XML Node") or resource pointers will not
       be able to be passed as they do not necessarily have a valid representation
       on the client.
-  - type: important
-    content: To save client CPU, you should avoid setting theElement to the [root](/reference/root "Root") element
+      - To save client CPU, you should avoid setting theElement to the [root](/reference/root "Root") element
       where possible - it should be used as a last resort (rather questionable thing
       to do, limited to very specific tasks, if any). Using target element ( [player](/reference/player "Player")
       who should receive event, if expected to be delivered to particular one) is

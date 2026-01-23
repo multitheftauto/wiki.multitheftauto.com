@@ -11,7 +11,7 @@ shared:
     values:
     - type: table
       name: result
-    description: Returns a **table** of handles, otherwise **false** if invalid arguments were passed.
+    description: Returns a [[table]] of handles, otherwise **false** if invalid arguments were passed.
 
 server:
   name: getLatentEventHandles
@@ -26,4 +26,4 @@ server:
     values:
     - type: table
       name: result
-    description: Returns a **table** of handles, otherwise **false** if invalid arguments were passed.
+    description: Returns a [[table]] of handles, otherwise **false** if invalid arguments were passed.

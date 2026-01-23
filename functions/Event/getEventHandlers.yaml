@@ -8,12 +8,12 @@ shared:
     description: The name of the event.
   - name: attachedTo
     type: element
-    description: The [element](/reference/Element "Element") attached to.
+    description: The [[element]] attached to.
   returns:
     values:
     - type: table
       name: result
-    description: Returns **table** with attached functions, otherwise **empty table**.
+    description: Returns [[table]] with attached functions, otherwise empty [[table]].
 
 server:
   examples:

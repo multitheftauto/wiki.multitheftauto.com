@@ -41,12 +41,12 @@ client:
     content: It is marginally more efficient to pass one large event than two smaller
       ones.
   - type: important
-    content: 'You should use the global variable [client](/reference/Predefined_variables) server-side instead of passing
+    content: |
+      - You should use the global variable [client](/reference/Predefined_variables) server-side instead of passing
       the localPlayer by parameter or source. Otherwise event faking (passing another
       player instead of the localPlayer ) would be possible. For more information
-      see: [Script security](/Script_security) article.'
-  - type: important
-    content: To save server CPU, you should avoid setting **theElement** to the [root](/reference/root "Root") element
+      see: [Script security](/Script_security) article.
+      - To save server CPU, you should avoid setting **theElement** to the [root](/reference/root "Root") element
       where possible - it should be used as a last resort (rather questionable thing
       to do, limited to very specific tasks, if any). Using localPlayer is preferred
       and highly advisable. [resourceRoot](/reference/resourceRoot "ResourceRoot") can also be used as alternative choice, if
