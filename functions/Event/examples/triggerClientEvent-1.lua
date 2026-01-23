@@ -1,14 +1,12 @@
 -- *****************************************************************************
 -- SERVER CODE
- greetingCommand ( playerSource, commandName )
-    triggerClientEvent ( playerSource, "onGreeting", playerSource, "Hello World!" )
+function greetingCommand(playerSource, commandName)
+    triggerClientEvent(playerSource, "onGreeting", playerSource, "Hello World!")
 end
-addCommandHandler ( "greet", greetingCommand )
+addCommandHandler("greet", greetingCommand)
 
 -- *****************************************************************************
 -- CLIENT CODE
-function greetingHandler ( message )
-    outputChatBox ( "The server says: " .. message )
-end
-addEvent( "onGreeting", true )
-addEventHandler( "onGreeting", localPlayer, greetingHandler )
+function greetingHandler(message) outputChatBox("The server says: " .. message) end
+addEvent("onGreeting", true)
+addEventHandler("onGreeting", localPlayer, greetingHandler)

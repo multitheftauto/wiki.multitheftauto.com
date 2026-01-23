@@ -1,6 +1,6 @@
-addEvent ( "onSpecialEvent", true )
+addEvent("onSpecialEvent", true)
 
-function specialEventHandler ( text )
-	outputChatBox ( text )
+function specialEventHandler(text)
+	outputChatBox(text)
 end
-addEventHandler ( "onSpecialEvent", root, specialEventHandler )
+addEventHandler("onSpecialEvent", root, specialEventHandler)
