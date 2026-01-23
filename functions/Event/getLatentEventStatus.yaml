@@ -1,16 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetLatentEventStatus
 shared:
   name: getLatentEventStatus
   description: Gets the status of one queued latent event.
   parameters:
   - name: handle
     type: int
-    description: A handle previous got from [getLatentEventHandles](/reference/GetLatentEventHandles "GetLatentEventHandles") .
+    description: A handle previous got from [[getLatentEventHandles]].
   returns:
     values:
     - type: table
-      name: value
-    description: 'Returns a table with the following info or false if invalid arguments
+      name: result
+    description: 'Returns a **table** with the following info, otherwise **false** if invalid arguments
       were passed:'
 
 server:
@@ -22,13 +21,13 @@ server:
     description: The player who is receiving the event.
   - name: handle
     type: int
-    description: A handle previous got from [getLatentEventHandles](/reference/GetLatentEventHandles "GetLatentEventHandles") .
+    description: A handle previous got from [[getLatentEventHandles]].
   examples: []
   returns:
     values:
     - type: table
-      name: value
-    description: 'Returns a table with the following info or false if invalid arguments
+      name: result
+    description: 'Returns a **table** with the following info, otherwise **false** if invalid arguments
       were passed:'
       
 client:

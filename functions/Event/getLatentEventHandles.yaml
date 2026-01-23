@@ -1,9 +1,7 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GetLatentEventHandles
 shared:
   name: getLatentEventHandles
   description: Gets the currently queued latent events. The last one in the table
-    is always the latest event queued. Each returned handle can be used with [getLatentEventStatus](/reference/GetLatentEventStatus
-    "GetLatentEventStatus") or [cancelLatentEvent](/reference/CancelLatentEvent "CancelLatentEvent")
+    is always the latest event queued.
   parameters: []
   examples:
   - path: examples/getLatentEventHandles-1.lua
@@ -12,8 +10,8 @@ shared:
   returns:
     values:
     - type: table
-      name: value
-    description: Returns a table of handles or false if invalid arguments were passed.
+      name: result
+    description: Returns a **table** of handles, otherwise **false** if invalid arguments were passed.
 
 server:
   name: getLatentEventHandles
@@ -27,5 +25,5 @@ server:
   returns:
     values:
     - type: table
-      name: value
-    description: Returns a table of handles or false if invalid arguments were passed.
+      name: result
+    description: Returns a **table** of handles, otherwise **false** if invalid arguments were passed.

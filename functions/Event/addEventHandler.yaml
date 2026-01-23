@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AddEventHandler
 shared:
   name: addEventHandler
   description: This function will add an [event](/reference/Event_System "Event System") handler. An
@@ -32,24 +31,18 @@ shared:
     default: 'true'
   - name: priority
     type: string
-    description: | 
-      A string representing the trigger order priority relative to other event handlers of the same name. Possible values are:
-
-      "high"
-      "normal"
-      "low"
+    description: 'A string representing the trigger order priority relative to other event handlers of the same name. Possible values are:'
+    templateList: 'event-priority'
     default: '"normal"'
   examples:
   - path: examples/addEventHandler-1.lua
     description: This serverside example sends a message to everyone in the server
       when a player spawns.
-    side: server
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the event handler was attached successfully. Returns
-      false if the specified event could not be found or any parameters were invalid.
+      name: result
+    description: Returns **true** if the event handler was attached successfully. otherwise **false** if the specified event could not be found or any parameters were invalid.
   notes:
   - type: info
     content: You shouldn't re-use the same name for your handler function as the event
@@ -60,8 +53,7 @@ shared:
     content: See [Event Source Element](/reference/Event_Source_Element "Event Source Element") for a descriptive visualization of the event
       system handling an event trigger.
   - type: important
-    content: See [Script security](/Script_security "Script security") for how-to prevent cheaters from abusing [event system](/reference/Event_System "Event system")
-      and [element data](/reference/Element_data "Element data").
+    content: See [Script security](/Script_security "Script security") for how-to prevent cheaters from abusing [event system](/reference/Event_System "Event system").
   - type: important
     content: Anything bound to a specific element will be run before other handlers
       that are bound to something higher in the element tree (like root) This means

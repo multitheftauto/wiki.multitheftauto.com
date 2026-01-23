@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/TriggerEvent
 shared:
   name: triggerEvent
   description: This function will trigger a named [event](/reference/Event_System "Event") on
@@ -26,13 +25,9 @@ shared:
   returns:
     values:
     - type: bool
-      name: value
-    description: | 
-      Returns **nil** if the arguments are invalid or the event could not be found.
+      name: result
+    description: Returns **true** if the event was triggered successfully, otherwise **false** if the event was cancelled using [[cancelEvent]], or **nil** if the arguments are invalid or the event could not be found.
 
-      Returns **true** if the event was triggered successfully, and was not cancelled using [cancelEvent](/reference/cancelEvent "CancelEvent").
-      
-      Returns **false** if the event was triggered successfully, and was cancelled using [cancelEvent](/reference/cancelEvent "CancelEvent").
   notes:
   - type: info
     content: You should avoid triggering events on the [root](/reference/root "Root") element unless you really

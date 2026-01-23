@@ -1,13 +1,10 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/TriggerServerEvent
 client:
   name: triggerServerEvent
   description: |
     This function triggers an event previously registered on the server.
     This is the primary means of passing information between the client and the server.
-    Servers have a similar [triggerClientEvent](/reference/triggerClientEvent "TriggerClientEvent")
-    function that can do the reverse. You can treat this function as if it was an
-    asynchronous function call, using [triggerClientEvent](/reference/triggerClientEvent
-    "TriggerClientEvent") to pass back any returned information if necessary.
+    Servers have a similar [[triggerClientEvent]] function that can do the reverse. You can treat this function as if it was an
+    asynchronous function call, using [[triggerClientEvent]] to pass back any returned information if necessary.
 
     Almost any data types can be passed as expected, including [elements](/reference/Element "Element") and complex nested [tables](/reference/table "Tables"). Non-element MTA data types like xmlNodes or resource pointers will not be able to be passed as they do not necessarily have a valid representation on the client. **Elements of the Vector or Matrix classes cannot be passed!**
 
@@ -18,7 +15,7 @@ client:
   - name: event
     type: string
     description: The name of the event to trigger server-side. You should register
-      this event with [addEvent](/reference/addEvent "AddEvent") and add at least one event handler using [addEventHandler](/reference/addEventHandler "AddEventHandler")
+      this event with [[addEvent]] and add at least one event handler using [[addEventHandler]]
       .
   - name: theElement
     type: element
@@ -36,7 +33,7 @@ client:
   returns:
     values:
     - type: bool
-      name: value
+      name: result
     description: Returns **true** if the event trigger has been sent, **false** if invalid
       arguments were specified or a client side element was a parameter.
   notes:

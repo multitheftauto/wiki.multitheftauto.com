@@ -1,7 +1,6 @@
 -- *****************************************************************************
 -- CLIENT CODE
 local lastTriggerd = false 
-
 addCommandHandler("trigger",function()
 	local triggers = getLatentEventHandles() -- get all latent events
 	if triggers[lastTriggerd] then -- you can use (getLatentEventStatus) too!

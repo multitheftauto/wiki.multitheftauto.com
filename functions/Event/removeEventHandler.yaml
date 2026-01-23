@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/RemoveEventHandler
 shared:
   name: removeEventHandler
   description: This functions removes a handler function from an [event](/reference/Event_System
@@ -18,9 +17,9 @@ shared:
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the event handler was removed successfully. Returns
-      false if the specified event handler could not be found or invalid parameters
+      name: result
+    description: Returns **true** if the event handler was removed successfully, otherwise
+      **false** if the specified event handler could not be found or invalid parameters
       were passed.
 
 client:

@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/TriggerClientEvent
 server:
   name: triggerClientEvent
   description: | 
@@ -21,7 +20,7 @@ server:
     default: getRootElement(
   - name: name
     type: string
-    description: The name of the event to trigger client side. You should register this event with [addEvent](/reference/addEvent "AddEvent") and add at least one event handler using [addEventHandler](/reference/addEventHandler "AddEventHandler").
+    description: The name of the event to trigger client side. You should register this event with [[addEvent]] and add at least one event handler using [[addEventHandler]].
   - name: sourceElement
     type: element
     description: The element that is the [source](/reference/Event_System "Event System") of the event.
@@ -40,8 +39,8 @@ server:
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the event trigger has been sent, false if invalid
+      name: result
+    description: Returns **true** if the event trigger has been sent, otherwise **false** if invalid
       arguments were specified.
   notes:
   - type: info

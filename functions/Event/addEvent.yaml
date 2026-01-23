@@ -1,4 +1,3 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/AddEvent
 shared:
   name: addEvent
   description: This function allows you to register a custom [event](/reference/Event_System "Event").
@@ -11,14 +10,13 @@ shared:
   - name: allowRemoteTrigger
     type: bool
     description: A boolean specifying whether this event can be called remotely using
-      [triggerClientEvent](/reference/triggerClientEvent "TriggerClientEvent") / [triggerServerEvent](/reference/triggerServerEvent "TriggerServerEvent") or not.
+      [[triggerClientEvent]] / [[triggerServerEvent]] or not.
     default: 'false'
   examples:
   - path: examples/addEvent-1.lua
-    description: This example will define a new event calledonSpecialEvent.
+    description: This example will define a new event.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the event was added successfully, false if the event
-      was already added.
+      name: result
+    description: Returns **true** if the event was added successfully, otherwise **false** if the event already exists **built-in game events** or if it fails for any other reason.
