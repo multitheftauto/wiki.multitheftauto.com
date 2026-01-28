@@ -1,4 +1,4 @@
-function onVehicleStartEnter()
+function onClientPlayerDamage()
     cancelEvent()
 end
-addEventHandler("onVehicleStartEnter", root, onVehicleStartEnter)
+addEventHandler("onClientPlayerDamage", root, onClientPlayerDamage)
