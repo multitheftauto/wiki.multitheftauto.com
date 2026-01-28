@@ -7,6 +7,8 @@ addCommandHandler("greet", greetingCommand)
 
 -- *****************************************************************************
 -- CLIENT CODE
-function greetingHandler(message) outputChatBox("The server says: " .. message) end
+function greetingHandler(message)
+    outputChatBox("The server says: " .. message)
+end
 addEvent("onGreeting", true)
 addEventHandler("onGreeting", localPlayer, greetingHandler)
