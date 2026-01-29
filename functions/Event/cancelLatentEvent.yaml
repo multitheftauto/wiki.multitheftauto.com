@@ -17,7 +17,7 @@ shared: &shared
 server:
   <<: *shared
   examples:
-  - path: examples/cancelLatentEvent-2.lua
+  - path: examples/cancelLatentEvent-3.lua
     description: "Cancel all my triggerLatentClientEvent's."
 
 client:
@@ -27,5 +27,5 @@ client:
   examples:
   - path: examples/cancelLatentEvent-1.lua
     description: ''
-  - path: examples/cancelLatentEvent-3.lua
+  - path: examples/cancelLatentEvent-2.lua
     description: "Cancel all my triggerLatentServerEvent's."

@@ -1,8 +1,8 @@
-addCommandHandler("cancelLatentEvents", function(player)
-    local handles = getLatentEventHandles(player) -- Returns a table. 
+addCommandHandler("cancelLatentEvents", function()
+    local handles = getLatentEventHandles() -- Returns a table. 
 
     for index = 1, #handles do -- Loop through the table.
         local handle = handles[index]
-        cancelLatentEvent(player, handle) -- Cancel it!
+        cancelLatentEvent(handle) -- Cancel it!
     end
 end)

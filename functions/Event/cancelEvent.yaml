@@ -15,7 +15,7 @@ shared: &shared
 client:
   <<: *shared
   examples:
-  - path: examples/cancelEvent-2.lua
+  - path: examples/cancelEvent-1.lua
     description: This example prevents any damage to a player clientside by making **cancelEvent** an
       event handler for the [[onClientPlayerDamage]] event.
 
@@ -31,5 +31,5 @@ server:
     description: The reason for cancelling the event.
     default: '""'
   examples:
-  - path: examples/cancelEvent-1.lua
+  - path: examples/cancelEvent-2.lua
     description: This example stops the player from entering a vehicle.
