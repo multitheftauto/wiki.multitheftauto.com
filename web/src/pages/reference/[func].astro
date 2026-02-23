@@ -283,6 +283,7 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
             {syntax.returns && (
               <>
                 <h4>Returns</h4>
+                <EnhancedMarkdown content={syntax.returns.description ?? ""} />
                 <ul>
                   {syntax.returns.values.map((ret: any) => (
                     <li>
@@ -291,7 +292,6 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
                     </li>
                   ))}
                 </ul>
-                <EnhancedMarkdown content={syntax.returns.description ?? ""} />
               </>
             )}
           </>
