@@ -7,6 +7,11 @@ import starlightScrollToTop from 'starlight-scroll-to-top'
 
 export default defineConfig({
   site: SITE_URL,
+  build: {
+    // Generates /reference/createBlip.html instead of /reference/createBlip/index.html
+    // which makes the canonical URL not have a trailing slash.
+    format: 'file',
+  },
   redirects: {
     '/reference/matrix': '/reference/Matrix',
   },
