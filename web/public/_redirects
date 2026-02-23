@@ -1,3 +1,10 @@
 /wiki        /
 /wiki/*      /:splat
 /Main_Page   /
+
+# 1) Redirect trailing slash -> no slash
+/*/ /:splat 307
+
+# 2) Rewrite extensionless paths to their /index.html (so /reference/createBlip works)
+# This is a rewrite (status 200), not a redirect
+/* /:splat/index.html 200
