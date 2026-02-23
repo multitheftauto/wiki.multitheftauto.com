@@ -229,7 +229,7 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
               <>
                 {syntax.parameters.some((param: any) => !param.default) && (
                   <>
-                    <h5>Required Arguments</h5>
+                    <h5>Required arguments</h5>
                     <ul>
                       {syntax.parameters
                         .filter((param: any) => !param.default)
@@ -254,8 +254,8 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
 
                 {syntax.parameters.some((param: any) => param.default) && (
                   <>
-                    <h5>Optional Arguments</h5>
-                    <p><strong>NOTE</strong>: When using <a href="/reference/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
+                    <h5>Optional arguments</h5>
+                    <p><strong>Note</strong>: when using <a href="/reference/Optional_Arguments">optional arguments</a>, you might need to supply all arguments before the one you wish to use.</p>
                     <ul>
                       {syntax.parameters
                         .filter((param: any) => param.default)
