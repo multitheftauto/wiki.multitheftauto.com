@@ -12,9 +12,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.36.2",
+    "@astrojs/starlight": "^0.37.6",
     "@multitheftauto/starlight-theme-mtasa": "^1.4.1",
-    "astro": "^5.16.11",
+    "astro": "^5.18.0",
     "glob": "^11.1.0",
     "js-yaml": "^4.1.0",
     "marked": "^15.0.6",
