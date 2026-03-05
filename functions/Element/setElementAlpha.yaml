@@ -23,6 +23,9 @@ shared: &shared
   preview_images:
     - path: setElementAlpha.png
       description: Player ped alpha demonstration. Shown alpha levels are 255, 100 and 0 (left to right).
+  notes:
+  - type: info
+    content: After setting the alpha of an object that is normally opaque, you may run into transparency rendering issues - looking through the object might not render correctly. To fix this, use [[engineSetModelFlag]] and set the `draw_last` flag, then restream the model, for example via [[engineRestreamModel]] or another method.
 
 client:
   <<: *shared
