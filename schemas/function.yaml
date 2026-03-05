@@ -91,20 +91,20 @@ $defs:
             type: string
             enum: [client, server]
 
-          oneOf:
-            - required: [method]
-              properties:
-                method:
-                  type: string
-                static:
-                  type: boolean
-                  default: false
-                variable:
-                  type: string
-            - required: [constructorclass]
-              properties:
-                constructorclass:
-                  type: string
+        oneOf:
+          - required: [method]
+            properties:
+              method:
+                type: string
+              static:
+                type: boolean
+                default: false
+              variable:
+                type: string
+          - required: [constructorclass]
+            properties:
+              constructorclass:
+                type: string
 
       - type: array
         items:
@@ -120,20 +120,20 @@ $defs:
               type: string
               enum: [client, server]
 
-            oneOf:
-              - required: [method]
-                properties:
-                  method:
-                    type: string
-                  static:
-                    type: boolean
-                  variable:
-                    type: string
+          oneOf:
+            - required: [method]
+              properties:
+                method:
+                  type: string
+                static:
+                  type: boolean
+                variable:
+                  type: string
 
-              - required: [constructorclass]
-                properties:
-                  constructorclass:
-                    type: string
+            - required: [constructorclass]
+              properties:
+                constructorclass:
+                  type: string
 
   parameters:
     type: array
