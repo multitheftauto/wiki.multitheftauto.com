@@ -17,8 +17,42 @@
     /* Override Starlight styling */
     --sl-content-width: 70rem;
 }
+
 .small-text {
     font-size: 0.7em;
+}
+
+.fading-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--fade-color), transparent 50%);
+  opacity: 0.25;
+}
+
+:root[data-theme='dark'] .fade-shared {
+  --fade-color: var(--color-type-shared-background-high-light);
+}
+
+:root[data-theme='dark'] .fade-client {
+  --fade-color: var(--color-type-client-background-high-light);
+}
+
+:root[data-theme='dark'] .fade-server {
+  --fade-color: var(--color-type-server-background-high-light);
+}
+
+:root[data-theme='light'] .fade-shared {
+  --fade-color: var(--color-type-shared-background-high-dark);
+}
+
+:root[data-theme='light'] .fade-client {
+  --fade-color: var(--color-type-client-background-high-dark);
+}
+
+:root[data-theme='light'] .fade-server {
+  --fade-color: var(--color-type-server-background-high-dark);
 }
 
 .function-syntax,

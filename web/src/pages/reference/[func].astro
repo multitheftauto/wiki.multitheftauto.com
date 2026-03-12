@@ -97,6 +97,8 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
       tableOfContents: false,
     }}
   >
+    <div class={`fading-bg fade-${funcType}`}></div>
+
     {needsChecking && (
       <div class="notes-section">
         <NoteBox type="needs_checking">
