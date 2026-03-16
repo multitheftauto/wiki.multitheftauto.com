@@ -9,7 +9,7 @@ shared: &shared
   parameters:
     - name: 'node'
       type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) to get the attributes of.
+      description: The [[xmlnode]] to get the attributes of.
   returns:
     description: |
       If successful, returns a [[table]] with as keys the names of the attributes and as values the corresponding attribute values. If the node has no attributes, returns an empty table. In case of failure, returns **false**.

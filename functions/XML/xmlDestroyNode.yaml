@@ -8,7 +8,7 @@ shared: &shared
   parameters:
     - name: 'theXMLNode'
       type: 'xmlnode'
-      description: "The [xmlnode](/xmlnode) you want to destroy."
+      description: "The [[xmlnode]] you want to destroy."
   returns:
     description: |
       Returns **true** if the xml node was successfully destroyed, **false** otherwise.

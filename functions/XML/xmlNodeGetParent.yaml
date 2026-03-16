@@ -5,7 +5,7 @@ shared: &shared
     method: getParent
     variable: parent
   description: |
-    Returns the parent node of an [xmlnode](/xmlnode).
+    Returns the parent node of an [[xmlnode]].
   parameters:
     - name: 'node'
       type: 'xmlnode'

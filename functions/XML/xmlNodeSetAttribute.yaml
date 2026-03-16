@@ -9,7 +9,7 @@ shared: &shared
   parameters:
     - name: 'node'
       type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) of which you wish to edit an attribute.
+      description: The [[xmlnode]] of which you wish to edit an attribute.
     - name: 'name'
       type: 'string'
       description: The name of the attribute.

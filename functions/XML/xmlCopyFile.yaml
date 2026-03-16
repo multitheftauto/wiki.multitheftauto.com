@@ -12,7 +12,7 @@ shared: &shared
   parameters:
     - name: 'nodeToCopy'
       type: 'xmlnode'
-      description: "The [xmlnode](/xmlnode) that is to be copied to a new document."
+      description: "The [[xmlnode]] that is to be copied to a new document."
     - name: 'newFilePath'
       type: 'string'
       description: |

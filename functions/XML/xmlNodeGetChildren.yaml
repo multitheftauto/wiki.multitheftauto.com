@@ -9,7 +9,7 @@ shared: &shared
   parameters:
     - name: 'parentNode'
       type: 'xmlnode'
-      description: This is an [xmlnode](/xmlnode) that you want to find the child node under.
+      description: This is an [[xmlnode]] that you want to find the child node under.
     - name: 'index'
       type: 'int'
       default: 'nil'

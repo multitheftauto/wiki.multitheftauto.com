@@ -6,11 +6,11 @@ shared: &shared
     method: getValue
     variable: value
   description: |
-    This function is made to be able to read tag values in XML files (eg. <something>anything</something>).
+    This function is made to be able to read tag values in XML files (eg. `<something>anything</something>`).
   parameters:
     - name: 'node'
       type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) of which you need to know the value.
+      description: The [[xmlnode]] of which you need to know the value.
   returns:
     description: Returns the value of the node as a [[string]] if it was received successfully, **false** otherwise.
     values:

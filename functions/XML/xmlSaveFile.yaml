@@ -8,7 +8,7 @@ shared: &shared
   parameters:
     - name: 'rootNode'
       type: 'xmlnode'
-      description: The root [xmlnode](/xmlnode) of the loaded XML file.
+      description: The root [[xmlnode]] of the loaded XML file.
   returns:
     description: |
       Returns **true** if save was successful, **false** if the XML file does not exist.

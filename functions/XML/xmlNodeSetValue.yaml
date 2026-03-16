@@ -10,7 +10,7 @@ shared: &shared
   parameters:
     - name: 'node'
       type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) you want to set the value of.
+      description: The [[xmlnode]] you want to set the value of.
     - name: 'value'
       type: 'string'
       description: The string value you want the node to have.

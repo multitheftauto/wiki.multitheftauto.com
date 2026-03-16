@@ -10,7 +10,7 @@ shared: &shared
   parameters:
     - name: 'node'
       type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) to change the tag name of.
+      description: The [[xmlnode]] to change the tag name of.
     - name: 'name'
       type: 'string'
       description: The name of the attribute.

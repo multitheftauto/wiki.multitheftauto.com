@@ -9,7 +9,7 @@ shared: &shared
   parameters:
     - name: 'node'
       type: 'xmlnode'
-      description: The [xmlnode](/xmlnode) from which you wish to return the attribute.
+      description: The [[xmlnode]] from which you wish to return the attribute.
     - name: 'name'
       type: 'string'
       description: The name of the attribute.
