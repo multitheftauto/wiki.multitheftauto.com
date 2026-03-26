@@ -1,8 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateProgressBar
-shared:
+client:
   name: guiCreateProgressBar
-  description: This function creates a [progress bar](/wiki/Element/GUI/Progress_bar
-    "Element/GUI/Progress bar").
+  description: This function creates a progress bar.
   parameters:
   - name: x
     type: float
@@ -22,26 +20,30 @@ shared:
       relative argument.
   - name: relative
     type: bool
-    description: This is whether sizes and positioning are relative. If this is true
-      , then all x,y,width,height floats must be between 0 and 1, representing measures
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing measures
       relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: This is the parent that the progress bar is attached to. If the relative
-      argument is true, sizes and positioning will be made relative to this parent.
-      If the relative argument is false, positioning will be the number of offset
+    description: This is the parent that the progress bar is attached to. If the `relative`
+      argument is **true**, sizes and positioning will be made relative to this parent.
+      If the `relative` argument is **false**, positioning will be the number of offset
       pixels from the parent's origin. If no parent is passed, the parent will become
       the screen - causing positioning and sizing according to screen positioning.
     default: nil
   examples:
   - path: examples/guiCreateProgressBar-1.lua
-    description: ''
-    side: client
+  - path: examples/guiCreateProgressBar_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
+    - type: gui-progressbar|false
+      name: result
     description: Returns element of the progress bar if it was created succesfully,
-      false otherwise.
-  requires_review: true
+      **false** otherwise.
+  preview_images:
+    - path: GUI/progressbar.png
+      description: A preview of a GUI Progress Bar.
+  oop:
+    element: gui-progressbar
+    constructorclass: GuiProgressBar

@@ -1,3 +1,7 @@
 name: gui-checkbox
 description: |
   The GUI checkbox class represents GUI checkboxes in MTA's GUI system. These can be checked or unchecked. 
+
+preview_images: 
+  - path: "GUI/checkbox.png"
+    description: Example GUI checkboxes.

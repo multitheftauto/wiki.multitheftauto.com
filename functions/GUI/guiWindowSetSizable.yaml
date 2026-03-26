@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiWindowSetSizable
-shared:
+client:
   name: guiWindowSetSizable
   description: This function enables or disables user resizing of a GUI window.
   parameters:
   - name: theElement
-    type: element
+    type: gui-window
     description: The window to be changed.
   - name: status
     type: bool
@@ -12,17 +11,18 @@ shared:
       or disabled.
   examples:
   - path: examples/guiWindowSetSizable-1.lua
-    description: This example creates a gui window and sets it to be not sizable
-    side: client
+    description: This example creates a gui window and sets it to be not sizable.
+  - path: examples/guiWindowSetSizable_OOP-1.lua
+    description: This example creates a gui window and sets it to be not sizable.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function is successful, false otherwise.
+      name: result
+    description: Returns **true** if the function is successful, **false** otherwise.
   oop:
-    element: guiwindow
+    element: gui-window
     method: setSizable
     variable: sizable
     static: false
   pair: guiWindowIsSizable
-  requires_review: true

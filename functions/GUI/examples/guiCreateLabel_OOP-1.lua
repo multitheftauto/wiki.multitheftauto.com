@@ -1,0 +1,1 @@
+local label = GuiLabel(100, 100, 200, 100, "Hello "..localPlayer.name.."!", false)

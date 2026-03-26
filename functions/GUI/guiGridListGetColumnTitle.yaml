@@ -1,25 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetColumnTitle
-shared:
+client:
   name: guiGridListGetColumnTitle
+  pair: guiGridListSetColumnTitle
   description: This function is used to get the column title of a gridlist column.
   parameters:
   - name: guiGridlist
-    type: element
-    description: The grid list you want to get the column title from
+    type: gui-gridlist
+    description: The grid list you want to get the column title from.
   - name: columnIndex
     type: int
-    description: Column ID
+    description: Column ID. Indexes start at 1.
   examples:
   - path: examples/guiGridListGetColumnTitle-1.lua
-    description: ''
-    side: client
+  - path: examples/guiGridListGetColumnTitle_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: string
-      name: value
-    description: Returns a string containing the column title, or false otherwise.
+    - type: string|false
+      name: column title
+    description: Returns a [[string]] containing the column title, or **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: getColumnTitle
     static: false
-  requires_review: true

@@ -1,31 +1,30 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetProperty
-shared:
+client:
   name: guiGetProperty
   description: This function gets the value of a specific CEGUI property of a GUI
-    element. For a list of properties and their meaning, see the [CEGUI properties
-    page](http://static.cegui.org.uk/static/WindowsLookProperties.html).
+    element. For a list of properties and their meaning, see the
+    <a href="http://static.cegui.org.uk/static/WindowsLookProperties.html" target="_blank">CEGUI properties page</a>.
   parameters:
   - name: guiElement
-    type: element
-    description: the GUI element you wish to get a property of.
+    type: gui-element
+    description: The GUI element you wish to get a property of.
   - name: property
     type: string
-    description: the name of of property you want the value of.
+    description: The name of property you want the value of.
   examples:
   - path: examples/guiGetProperty-1.lua
     description: This example creates a button when the resource starts and defines
       a console command that toggles it between enabled (clickable) and disabled (not
       clickable).
-    side: client
+  - path: examples/guiGetProperty_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: string
-      name: value
-    description: If the function succeeds, it returns a string with the value of the
-      property. If it fails, it returns false .
+    - type: string|false
+      name: property value
+    description: If the function succeeds, it returns a [[string]] with the value of the
+      property. If it fails, it returns **false**.
   oop:
-    element: guielement
+    element: gui-element
     method: getProperty
     static: false
   pair: guiSetProperty
-  requires_review: true

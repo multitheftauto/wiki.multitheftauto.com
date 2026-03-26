@@ -1,23 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListClear
-shared:
+client:
   name: guiGridListClear
   description: This function clears all the data from a grid list.
   parameters:
   - name: gridList
-    type: element
-    description: The grid list element to be cleared
+    type: gui-gridlist
+    description: The grid list element to be cleared.
   examples:
   - path: examples/guiGridListClear-1.lua
-    description: 'This creates a player list and then clears it when a button is clicked:'
-    side: client
+    description: This creates a player list and then clears it when a button is clicked.
+  - path: examples/guiGridListClear_OOP-1.lua
+    description: This creates a player list and then clears it when a button is clicked.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the grid list element is valid and has been cleared
-      successfully, false otherwise.
+      name: result
+    description: Returns **true** if the grid list element is valid and has been cleared
+      successfully, **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: clear
     static: false
-  requires_review: true

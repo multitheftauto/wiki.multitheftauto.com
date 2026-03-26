@@ -1,10 +1,9 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelSetColor
-shared:
+client:
   name: guiLabelSetColor
   description: This function allows you to set the color of a GUI label.
   parameters:
   - name: theElement
-    type: element
+    type: gui-label
     description: The label to be changed.
   - name: red
     type: int
@@ -19,16 +18,18 @@ shared:
   - path: examples/guiLabelSetColor-1.lua
     description: This example creates a label with text "Hello World!" and sets it
       to a random color.
-    side: client
+  - path: examples/guiLabelSetColor_OOP-1.lua
+    description: This example creates a label with text "Hello World!" and sets it
+      to a random color.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the the color of the gui label was successfully changed,
-      false otherwise.
+      name: result
+    description: Returns **true** if the the color of the gui label was successfully changed,
+      **false** otherwise.
   oop:
-    element: guilabel
+    element: gui-label
     method: setColor
     static: false
   pair: guiLabelGetColor
-  requires_review: true

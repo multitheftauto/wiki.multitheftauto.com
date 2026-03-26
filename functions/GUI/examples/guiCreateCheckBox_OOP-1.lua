@@ -1,0 +1,1 @@
+local checkbox = GuiCheckBox(200, 300, 200, 30, "I like MTA", true)

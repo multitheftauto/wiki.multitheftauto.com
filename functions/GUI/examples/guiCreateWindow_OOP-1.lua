@@ -1,0 +1,1 @@
+local window = GuiWindow(300, 300, 500, 700, "Simple Window", false)

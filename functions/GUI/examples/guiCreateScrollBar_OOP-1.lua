@@ -1,0 +1,2 @@
+local window = GuiWindow(0.3664, 0.2764, 0.3508, 0.3477, "Window", true) -- We create a window.
+local scrollbar = GuiScrollBar(15, 81, 24, 245, false, false, window) -- We create a scrollbar as a child of 'window'

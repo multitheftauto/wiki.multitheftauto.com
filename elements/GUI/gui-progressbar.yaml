@@ -1,3 +1,7 @@
 name: gui-progressbar
 description: |
   The GUI progress bar class represents GUI progress bars in MTA's GUI system. These are mostly used as loading bars because you can alter the percentage amount of progress in it. 
+
+preview_images: 
+  - path: "GUI/progressbar.png"
+    description: Example GUI progress bar.

@@ -4,9 +4,9 @@ client:
   description: This function loads the specified URL.
   notes:
     - type: info
-      content: You should use [[requestBrowserDomains]] first to request permission to load the url on the client.
-    - type: info
-      content: Calling <b>loadBrowserURL</b> right after [[createBrowser]] will not work normally due to the nature of the asynchronous browser interface. Refer to [[onClientBrowserCreated]] for more information.
+      content: |
+        - You should use [[requestBrowserDomains]] first to request permission to load the url on the client.
+        - Calling **loadBrowserURL** right after [[createBrowser]] will not work normally due to the nature of the asynchronous browser interface. Refer to [[onClientBrowserCreated]] for more information.
   oop:
     element: browser
     method: loadURL
@@ -24,7 +24,7 @@ client:
       default: '""'
     - name: urlEncoded
       type: bool
-      description: If set to true, it will be available f.e. in PHP's $_POST variable (the content type is <i>application/x-www-form-urlencoded</i>).
+      description: If set to true, it will be available f.e. in PHP's `$_POST` variable (the content type is `application/x-www-form-urlencoded`).
       default: 'true'
   returns:
     values:

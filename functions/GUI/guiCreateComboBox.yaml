@@ -1,12 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateComboBox
-shared:
+client:
   name: guiCreateComboBox
   description: This function creates a combobox GUI element, which you can compare
     to a gridlist with a dropdown feature.
   parameters:
   - name: x
     type: float
-    description: A float of the 2D x position of the GUI combobox on a player's screen.  This
+    description: A float of the 2D x position of the GUI combobox on a player's screen. This
       is affected by the relative argument.
   - name: "y"
     type: float
@@ -27,15 +26,14 @@ shared:
       shown if no item is selected.
   - name: relative
     type: bool
-    description: This is whether sizes and positioning are relative.  If this is true
-      , then all x,y,width,height floats must be between 0 and 1, representing sizes
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing sizes
       relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: This is the parent that the GUI combobox is attached to.  If the
-      relative argument is true, sizes and positioning will be made relative to this
-      parent. If the relative argument is false, positioning will be the number of
+    description: This is the parent that the GUI combobox is attached to. If the
+      `relative` argument is **true**, sizes and positioning will be made relative to this
+      parent. If the `relative` argument is **false**, positioning will be the number of
       offset pixels from the parent's origin. If no parent is passed, the parent will
       become the screen - causing positioning and sizing according to screen positioning.
     default: nil
@@ -43,19 +41,21 @@ shared:
   - path: examples/guiCreateComboBox-1.lua
     description: This example creates a combo box in the center of the screen with
       all server vehicles on it.
-    side: client
+  - path: examples/guiCreateComboBox_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
+    - type: gui-combobox|false
+      name: result
     description: Returns an element of the created combobox if it was successfully
-      created, false otherwise.
+      created, **false** otherwise.
   oop:
-    element: element
+    element: gui-combobox
     constructorclass: GuiComboBox
+  preview_images:
+    - path: GUI/combobox.png
+      description: A preview of a GUI ComboBox.
   notes:
   - type: info
     content: The height of a combobox must be enough to fit the drop down menu, else
-      the drop down won't appear. See guiComboBoxAdjustHeight to give your combobox
-      the correct height.
-  requires_review: true
+      the drop down won't appear.

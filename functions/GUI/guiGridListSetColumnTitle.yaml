@@ -1,28 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetColumnTitle
-shared:
+client:
   name: guiGridListSetColumnTitle
+  pair: guiGridListGetColumnTitle
   description: This function is used to change the column title of a gridlist column.
   parameters:
   - name: guiGridlist
-    type: element
-    description: The grid list you want to change the column title from
+    type: gui-gridlist
+    description: The grid list you want to change the column title for.
   - name: columnIndex
     type: int
-    description: Column ID
+    description: Column ID. Indexes start at 1.
   - name: title
     type: string
-    description: The title of the column
+    description: The title of the column.
   examples:
   - path: examples/guiGridListSetColumnTitle-1.lua
-    description: ''
-    side: client
+  - path: examples/guiGridListSetColumnTitle_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the new title was set, or false otherwise.
+      name: result
+    description: Returns **true** if the new title was set, or **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: setColumnTitle
     static: false
-  requires_review: true

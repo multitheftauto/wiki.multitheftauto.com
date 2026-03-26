@@ -1,0 +1,6 @@
+name: gui-browser
+description: |
+  The **GUI browser** class represents GUI browsers in MTA's GUI system. The **gui-browser** element type is a special type of [[browser]] element intended for use in the CEGUI system. 
+  Each **gui-browser** element also represents a **browser** element, which can be managed the same way as an object created with [[createBrowser]]. Such an element from **gui-browser** can be obtained using [[guiGetBrowser]].
+
+  The differences between **browser** and **gui-browser** are explained [here](https://forum.multitheftauto.com/topic/80422-dx-browser-vs-gui-browser/#comment-737334).

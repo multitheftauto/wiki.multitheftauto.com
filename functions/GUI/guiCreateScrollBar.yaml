@@ -1,48 +1,51 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateScrollBar
-shared:
+client:
   name: guiCreateScrollBar
-  description: This function creates a GUI scrollbar. You can use the functions [guiScrollBarSetScrollPosition](/wiki/GuiScrollBarSetScrollPosition
-    "GuiScrollBarSetScrollPosition") and [guiScrollBarGetScrollPosition](/wiki/GuiScrollBarGetScrollPosition
-    "GuiScrollBarGetScrollPosition") to read and modify the scrollbar's scroll.
+  description: This function creates a GUI scrollbar. You can use the functions [[guiScrollBarSetScrollPosition]] and [[guiScrollBarGetScrollPosition]] to read and modify the scrollbar's scroll.
   parameters:
   - name: x
     type: float
-    description: the 2D x offset of the GUI scrollbar from its parent.  This is affected
+    description: The 2D x offset of the GUI scrollbar from its parent. This is affected
       by the relative argument.
   - name: "y"
     type: float
-    description: the 2D y offset of the GUI scrollbar from its parent. This is affected
+    description: The 2D y offset of the GUI scrollbar from its parent. This is affected
       by the relative argument.
   - name: width
     type: float
-    description: the width of the GUI scrollbar. This is affected by the relative
+    description: The width of the GUI scrollbar. This is affected by the relative
       argument.
   - name: height
     type: float
-    description: the height of the GUI scrollbar. This is affected by the relative
+    description: The height of the GUI scrollbar. This is affected by the relative
       argument.
   - name: horizontal
     type: bool
-    description: whether this scrollbar is horizontal ( true ) or vertical ( false
-      ).
+    description: Whether this scrollbar is horizontal (true) or vertical (false).
   - name: relative
     type: bool
-    description: whether sizes and positions are relative to their parent's.  If this
-      is true , then all measures must be between 0 and 1, representing sizes/positions
-      as a fraction of the parent widget's size.
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing measures
+      relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: the gui-element this scrollbar is attached to. By default, it is
-      nil, meaning the widget is attached to the background.
+    description: This is the parent that the scrollbar is attached to. If the `relative`
+      argument is **true**, sizes and positioning will be made relative to this parent.
+      If the `relative` argument is **false**, positioning will be the number of offset
+      pixels from the parent's origin. If no parent is passed, the parent will become
+      the screen - causing positioning and sizing according to screen positioning.
     default: nil
   examples:
   - path: examples/guiCreateScrollBar-1.lua
-    description: ''
-    side: client
+  - path: examples/guiCreateScrollBar_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: gui-scrollbar
-      name: value
-    description: Returns a gui-scrollbar if it was created successfully, false otherwise.
-  requires_review: true
+    - type: gui-scrollbar|false
+      name: result
+    description: Returns a gui-scrollbar if it was created successfully, **false** otherwise.
+  oop:
+    element: gui-scrollbar
+    constructorclass: GuiScrollBar
+  preview_images:
+    - path: GUI/scrollbar.png
+      description: A preview of a GUI ScrollBar.

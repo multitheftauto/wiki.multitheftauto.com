@@ -1,26 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetItemColor
-shared:
+client:
   name: guiGridListSetItemColor
+  pair: guiGridListGetItemColor
   description: This function changes the color of a gridlist item.
   parameters:
   - name: gridList
-    type: element
-    description: The grid list element
+    type: gui-gridlist
+    description: The grid list element.
   - name: rowIndex
     type: int
-    description: Row ID
+    description: Row ID. Indexes start at 0.
   - name: columnIndex
     type: int
-    description: Column ID
+    description: Column ID. Indexes start at 1.
   - name: red
     type: int
-    description: The amount of red in the color (0-255)
+    description: The amount of red in the color (0-255).
   - name: green
     type: int
-    description: The amount of green in the color (0-255)
+    description: The amount of green in the color (0-255).
   - name: blue
     type: int
-    description: The amount of blue in the color (0-255)
+    description: The amount of blue in the color (0-255).
   - name: alpha
     type: int
     description: The amount of alpha in the color (0-255).
@@ -30,14 +30,14 @@ shared:
     description: This example creates a player list on the right of the screen and
       fills it with players online and sets the grid list item color according to
       their nametag color.
-    side: client
+  - path: examples/guiGridListSetItemColor_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the item color was set successfully, false otherwise.
+      name: result
+    description: Returns **true** if the item color was set successfully, **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: setItemColor
     static: false
-  requires_review: true

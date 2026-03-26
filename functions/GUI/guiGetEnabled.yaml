@@ -1,24 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetEnabled
-shared:
+client:
   name: guiGetEnabled
-  description: This function determines if a GUI element is enabled.
+  description: This function determines whether a GUI element is enabled. Elements that are disabled do not respond to user interaction; for example, a button that is disabled cannot be clicked and appears grayed out.
   parameters:
   - name: guiElement
-    type: element
-    description: the GUI element to be checked.
+    type: gui-element
+    description: The GUI element to be checked.
   examples:
   - path: examples/guiGetEnabled-1.lua
-    description: ''
-    side: client
+  - path: examples/guiGetEnabled_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element is enabled, false otherwise.
+      name: result
+    description: Returns **true** if the element is enabled, **false** otherwise.
   oop:
-    element: guielement
+    element: gui-element
     method: getEnabled
     variable: enabled
     static: false
+  preview_images:
+    - path: GUI/disabled_enabled.png
+      description: Example of disabled gui widgets.
   pair: guiSetEnabled
-  requires_review: true

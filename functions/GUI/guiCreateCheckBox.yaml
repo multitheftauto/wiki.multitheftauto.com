@@ -1,7 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateCheckBox
-shared:
+client:
   name: guiCreateCheckBox
-  description: This function creates a [checkbox](/wiki/Element/GUI/Checkbox "Element/GUI/Checkbox").
+  description: This function creates a checkbox.
   parameters:
   - name: x
     type: float
@@ -28,30 +27,33 @@ shared:
       by default.
   - name: relative
     type: bool
-    description: This is whether sizes and positioning are relative. If this is true
-      , then all x,y,width,height floats must be between 0 and 1, representing measures
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing measures
       relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: This is the parent that the checkbox is attached to. If the relative
-      argument is true, sizes and positioning will be made relative to this parent.
-      If the relative argument is false, positioning will be the number of offset
+    description: This is the parent that the checkbox is attached to. If the `relative`
+      argument is **true**, sizes and positioning will be made relative to this parent.
+      If the `relative` argument is **false**, positioning will be the number of offset
       pixels from the parent's origin. If no parent is passed, the parent will become
       the screen - causing positioning and sizing according to screen positioning.
     default: nil
   examples:
   - path: examples/guiCreateCheckBox-1.lua
     description: This example creates a GUI window with a checked and an unchecked
-      checkbox and adds a command to toggle their visibility
-    side: client
+      checkbox and adds a command to toggle their visibility.
+  - path: examples/guiCreateCheckBox_OOP-1.lua
+    description: Create a checkbox with the text "I like MTA" and set it to be checked by default.
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns element of the checkbox if it was created succesfully, false
+    - type: gui-checkbox|false
+      name: result
+    description: Returns element of the checkbox if it was created succesfully, **false**
       otherwise.
+  preview_images:
+    - path: GUI/checkbox.png
+      description: A preview of a GUI CheckBox.
   oop:
-    element: element
+    element: gui-checkbox
     constructorclass: GuiCheckBox
-  requires_review: true

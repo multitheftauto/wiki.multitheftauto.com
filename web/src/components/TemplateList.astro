@@ -359,6 +359,72 @@ const lists: Record<string, { id: number | string; label?: string }[]> = {
         {id: "normal"},
         {id: "low"}
     ],
+
+    'chatbox-presets': [
+        {id: 'chat_font', label: 'Returns the chatbox font'},
+        {id: 'chat_lines', label: 'Returns how many lines the chatbox has'},
+        {id: 'chat_color', label: 'Returns the background color of the chatbox'},
+        {id: 'chat_text_color', label: 'Returns the chatbox text color'},
+        {id: 'chat_input_color', label: 'Returns the background color of the chatbox input'},
+        {id: 'chat_input_prefix_color', label: 'Returns the color of the input prefix text'},
+        {id: 'chat_input_text_color', label: 'Returns the color of the text in the chatbox input'},
+        {id: 'chat_scale', label: 'Returns the scale of the text in the chatbox'},
+        {id: 'chat_position_offset_x', label: 'Returns the x position offset setting'},
+        {id: 'chat_position_offset_y', label: 'Returns the y position offset setting'},
+        {id: 'chat_position_horizontal', label: 'Returns the horizontal alignment setting'},
+        {id: 'chat_position_vertical', label: 'Returns the vertical alignment setting'},
+        {id: 'chat_text_alignment', label: 'Returns the text alignment setting'},
+        {id: 'chat_width', label: 'Returns the scale of the background width'},
+        {id: 'chat_css_style_text', label: 'Returns whether text fades out over time'},
+        {id: 'chat_css_style_background', label: 'Returns whether the background fades out over time'},
+        {id: 'chat_line_life', label: 'Returns how long it takes for text to start fading out'},
+        {id: 'chat_line_fade_out', label: 'Returns how long takes for text to fade out'},
+        {id: 'chat_use_cegui', label: 'Returns whether CEGUI is used to render the chatbox'},
+        {id: 'text_scale', label: 'Returns text scale'},
+        {id: 'chat_text_outline', label: 'Returns whether text black/white outline is used'}
+    ],
+
+    'cursor-types': [
+        {id: 'none', label: 'Cursor has no image.'},
+        {id: 'arrow', label: 'Default cursor.'},
+        {id: 'sizing_ns', label: 'N-S (up-down) sizing cursor.'},
+        {id: 'sizing_ew', label: 'E-W (left-right) sizing cursor.'},
+        {id: 'sizing_nwse', label: 'NW-SE diagonal sizing cursor.'},
+        {id: 'sizing_nesw', label: 'NE-SW diagonal sizing cursor.'},
+        {id: 'sizing_eswe', label: 'ES-WE horizontal sizing cursor.'},
+        {id: 'move', label: 'Move cursor.'},
+        {id: 'container_drag', label: 'Drag container cursor (not in use).'},
+        {id: 'segment_moving', label: 'Segment moving cursor (not in use).'},
+        {id: 'segment_sizing', label: 'Segment sizing cursor (not in use).'}
+    ],
+
+    'input-modes': [
+        {id: 'allow_binds', label: 'Binds are enabled, hence using a key such as `t` in an editbox will still activate the chatbox.'},
+        {id: 'no_binds', label: 'Binds are disabled, hence using a key such as `t` in an editbox will **not** activate the chatbox.'},
+        {id: 'no_binds_when_editing', label: 'Binds are always enabled except when an editable editbox or memo has input focus.'}
+    ],
+
+    'gridlist-selection-modes': [
+        {id: '0', label: 'Single row selection'},
+        {id: '1', label: 'Multiple row selection'},
+        {id: '2', label: 'Single cell selection'},
+        {id: '3', label: 'Multiple cell selection'},
+        {id: '4', label: 'Nominated(First) single column selection'},
+        {id: '5', label: 'Nominated(First) multiple column selection'},
+        {id: '6', label: 'Single column selection'},
+        {id: '7', label: 'Multiple column selection'},
+        {id: '8', label: 'Nominated(First) single row selection'},
+        {id: '9', label: 'Nominated(First) multiple row selection'},
+    ],
+
+    'gui-fonts': [
+        {id: 'default-normal'},
+        {id: 'default-small'},
+        {id: 'default-bold-small'},
+        {id: 'clear-normal'},
+        {id: 'sa-header'},
+        {id: 'sa-gothic'},
+    ],
 };
 
 const icons: Record<string, string> = {

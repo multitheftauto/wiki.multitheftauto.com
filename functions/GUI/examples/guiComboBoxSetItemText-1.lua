@@ -1,7 +1,13 @@
-addCommandHandler("setText",
-function(cmd, text)
+local comboBox = guiCreateComboBox(100, 150, 200, 300, "", false)
+guiComboBoxAddItem(comboBox, "First item")
+guiComboBoxAddItem(comboBox, "Second item")
 
-local item = guiComboBoxGetSelected(comboBox)
-guiComboBoxSetItemText(comboBox, item, text)
+addCommandHandler("setText", function(cmd, text)
+    local item = guiComboBoxGetSelected(comboBox)
+    if (item == -1) then
+        outputChatBox("No item selected.")
+        return
+    end
 
+    guiComboBoxSetItemText(comboBox, item, text)
 end)

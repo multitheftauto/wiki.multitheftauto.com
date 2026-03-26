@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditIsReadOnly
-shared:
+client:
   name: guiEditIsReadOnly
   description: This function checks if an edit box is read\-only.
   parameters:
@@ -8,13 +7,16 @@ shared:
     description: The edit box to check read-only status of.
   examples:
   - path: examples/guiEditIsReadOnly-1.lua
-    description: ''
-    side: client
+  - path: examples/guiEditIsReadOnly_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the edit box is read-only, false if not, nil if an
+      name: result
+    description: Returns **true** if the edit box is read-only, **false** if not, [[nil]] if an
       invalid edit box was provided.
+  oop:
+    element: gui-edit
+    method: ''
+    variable: readOnly
   pair: guiEditSetReadOnly
-  requires_review: true

@@ -1,12 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateMemo
-shared:
+client:
   name: guiCreateMemo
   description: This function creates a new GUI memo. This is a multiline edit box
     in which the user can input text.
   parameters:
   - name: x
     type: float
-    description: A float of the 2D x position of the GUI memo on a player's screen.  This
+    description: A float of the 2D x position of the GUI memo on a player's screen. This
       is affected by the relative argument.
   - name: "y"
     type: float
@@ -25,36 +24,30 @@ shared:
     description: A string of the text that will be displayed by default in the memo.
   - name: relative
     type: bool
-    description: This is whether sizes and positioning are relative.  If this is true
-      , then all x,y,width,height floats must be between 0 and 1, representing measures
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing measures
       relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: This is the parent that the GUI memo is attached to.  If the relative
-      argument is true, sizes and positioning will be made relative to this parent.
-      If the relative argument is false, positioning will be the number of offset
+    description: This is the parent that the GUI memo is attached to. If the `relative`
+      argument is **true**, sizes and positioning will be made relative to this parent.
+      If the `relative` argument is **false**, positioning will be the number of offset
       pixels from the parent's origin. If no parent is passed, the parent will become
       the screen - causing positioning and sizing according to screen positioning.
     default: nil
   examples:
   - path: examples/guiCreateMemo-1.lua
-    description: ''
-    side: client
+  - path: examples/guiCreateMemo_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: gui-memo
-      name: value
+    - type: gui-memo|false
+      name: result
     description: Returns a gui-memo element of the created memo if it was successfully
-      created, false otherwise.
+      created, **false** otherwise.
+  preview_images:
+    - path: GUI/memo.png
+      description: A preview of a GUI Memo.
   oop:
-    element: guimemo?action=edit&redlink=1
+    element: gui-memo
     constructorclass: GuiMemo
-  meta:
-  - needs_checking: 'This function was partially migrated from the old wiki. Please
-      review manually:
-
-      - Missing section: Element Type
-
-      '
-  requires_review: true

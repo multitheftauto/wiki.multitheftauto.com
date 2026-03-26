@@ -1,3 +1,7 @@
 name: gui-edit
 description: |
   The GUI edit field class represents GUI edit fields in MTA's GUI system. You can input text in these which you can afterwards check from the script. It can be used, for example when making a registration system.
+
+preview_images: 
+  - path: "GUI/edit.png"
+    description: Example GUI edit field.

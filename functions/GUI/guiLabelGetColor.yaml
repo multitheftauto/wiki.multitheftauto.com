@@ -1,24 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelGetColor
-shared:
+client:
   name: guiLabelGetColor
   description: This function gets the color of a label.
   parameters:
   - name: theLabel
-    type: gui-element
+    type: gui-label
     description: The label to get color.
   examples:
   - path: examples/guiLabelGetColor-1.lua
-    description: ''
-    side: client
+  - path: examples/guiLabelGetColor_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: int int int
-      name: value
-    description: Returns three int values, representing the amount of red, green,
-      blue if successful. false otherwise.
+    - type: int|false
+      name: r
+    - type: int
+      name: g
+    - type: int
+      name: b
+    description: Returns three [[int]] values, representing the amount of red, green,
+      blue if successful, **false** otherwise.
   oop:
-    element: guilabel
+    element: gui-label
     method: getColor
     static: false
   pair: guiLabelSetColor
-  requires_review: true

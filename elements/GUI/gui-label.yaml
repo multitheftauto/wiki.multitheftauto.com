@@ -1,3 +1,7 @@
 name: gui-label
 description: |
   The GUI label class represents GUI labels in MTA's GUI system. These are simply a bunch of text which client cannot modify.
+
+preview_images: 
+  - path: "GUI/label.png"
+    description: Example GUI label.

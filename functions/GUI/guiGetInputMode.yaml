@@ -1,25 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetInputMode
-shared:
+client:
   name: guiGetInputMode
-  description: 'This function returns the current input mode as set by [guiSetInputMode](/wiki/GuiSetInputMode
-    "GuiSetInputMode").
-
-    Default mode is *"allow\_binds"*.'
+  description: 'This function returns the current input mode as set by [[guiSetInputMode]].
+    Default mode is `allow_binds`.'
   parameters: []
   examples:
   - path: examples/guiGetInputMode-1.lua
-    description: ''
-    side: client
+  - path: examples/guiGetInputMode_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: string
-      name: value
-    description: 'Returns a string defining the current input mode, potential values
-      are:'
+      name: input mode
+      templateList: input-modes
+    description: Returns a string defining the current input mode.
   oop:
     element: GuiElement
-    method: )
+    method: getInputMode
     variable: inputMode
     static: true
+  notes:
+    - type: info
+      content: |
+        This function is **not** a replacement of [[guiGetInputEnabled]], indeed for the mode `no_binds_when_editing` the actual state of binds depends on the currently focused GUI widget.
+        
+        - When [[guiGetInputMode]] returns `allow_binds` you can be sure that [[guiGetInputEnabled]] will return **false**.
+        - When [[guiGetInputMode]] returns `no_binds` you can be sure that [[guiGetInputEnabled]] will return **true**.
   pair: guiSetInputMode
-  requires_review: true

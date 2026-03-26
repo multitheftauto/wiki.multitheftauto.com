@@ -1,0 +1,27 @@
+name: GuiElement
+description: |
+  **GuiElement** is a static class representing GUI system widgets (CEGUI). 
+
+  GUI widgets are a very prominent part of client side scripts. They are used when creating a GUI interface for the server.
+  GUI widgets belong to client side scripting only, they cannot be created in server side scripts.
+  To find a tutorial for creating a basic GUI interface see [Introduction to Scripting the GUI](/articles/gui-introduction/).
+
+  <h2>GUI Widgets</h2>
+
+  - [Button](/reference/gui-button/)
+  - [Browser](/reference/gui-browser/)
+  - [Checkbox](/reference/gui-checkbox/)
+  - [Combobox](/reference/gui-combobox/)
+  - [Edit field](/reference/gui-edit/)
+  - [Gridlist](/reference/gui-gridlist/)
+  - [Memo](/reference/gui-memo/)
+  - [Progress bar](/reference/gui-progressbar/)
+  - [Radio button](/reference/gui-radiobutton/)
+  - [Scrollbar](/reference/gui-scrollbar/)
+  - [Scrollpane](/reference/gui-scrollpane/)
+  - [Static image](/reference/gui-staticimage/)
+  - [Tab panel](/reference/gui-tabpanel/)
+  - [Tab](/reference/gui-tab)
+  - [Text label](/reference/gui-label)
+  - [Window](/reference/gui-window)
+  <br/>

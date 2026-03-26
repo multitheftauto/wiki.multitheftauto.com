@@ -1,32 +1,34 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListAddColumn
-shared:
+client:
   name: guiGridListAddColumn
+  pair: guiGridListRemoveColumn
   description: This function is used to create columns in grid lists.
   parameters:
   - name: gridList
-    type: element
-    description: The grid list you want to add a column to
+    type: gui-gridlist
+    description: The grid list you want to add a column to.
   - name: title
     type: string
-    description: Title of the column
+    description: Title of the column.
   - name: width
     type: float
-    description: Column width, relative to the grid list width
+    description: Column width, relative to the grid list width.
   examples:
   - path: examples/guiGridListAddColumn-1.lua
     description: This example creates a player list on the right side of the screen
       and fills it with the currently connected players.
-    side: client
+  - path: examples/guiGridListAddColumn_OOP-1.lua
+    description: This example creates a player list on the right side of the screen
+      and fills it with the currently connected players.
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns the column id if it was created, false otherwise.
+    - type: int|false
+      name: column id
+    description: Returns the column id if it was created, **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: addColumn
     static: false
   notes:
   - type: info
     content: If the width of all columns exceeds 0.95 horizontal scrollbar will appear.
-  requires_review: true

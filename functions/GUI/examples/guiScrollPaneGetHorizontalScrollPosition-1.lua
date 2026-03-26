@@ -1,8 +1,10 @@
-if ( myScrollPane ) then -- if the scroll pane exist then
-        -- get the position
-	local position = guiScrollPaneGetHorizontalScrollPosition( myScrollPane )
-	-- output to the chatbox
-	outputChatBox ( "Current position of scroll pane:" .. tostring(position) .. "%" )
-else -- if the scroll pane was not found
-       outputChatBox ("scroll pane not found!")
+local scrollpane = guiCreateScrollPane(0.3, 0.3, 0.2, 0.2, true)
+local label = guiCreateLabel(0.3, 0.28, 0.1, 0.1, 'Horizontal scroll: 0%', true, window)
+
+for i = 1,10 do
+    guiCreateButton(0.1 + 0.25 * i, 0.4, 0.2, 0.2, 'Button '..i, true, scrollpane)
 end
+
+setTimer(function()
+    guiSetText(label, 'Horizontal scroll: '..math.floor(guiScrollPaneGetHorizontalScrollPosition(scrollpane))..'%')
+end, 250, 0)

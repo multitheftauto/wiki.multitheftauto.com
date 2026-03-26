@@ -1,25 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxRemoveItem
-shared:
+client:
   name: guiComboBoxRemoveItem
+  pair: guiComboBoxAddItem
   description: This function removes an item from a combobox.
   parameters:
   - name: comboBox
-    type: element
-    description: The combobox containing the item you're interested in
+    type: gui-combobox
+    description: The combobox containing the item you're interested in.
   - name: itemId
     type: int
-    description: The index of the item to remove
+    description: The index of the item to remove. Indexing starts at 0.
   examples:
   - path: examples/guiComboBoxRemoveItem-1.lua
     description: This example removes selected item.
-    side: client
+  - path: examples/guiComboBoxRemoveItem_OOP-1.lua
+    description: This example removes player's name from the list when they leave the server.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the item was removes successfully, false otherwise.
+      name: result
+    description: Returns **true** if the item was removed successfully, **false** otherwise.
   oop:
-    element: guicombobox
+    element: gui-combobox
     method: removeItem
     static: false
-  requires_review: true

@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateWindow
-shared:
+client:
   name: guiCreateWindow
   description: This function is for creating a new GUI window. This provides a base
     for other gui elements to be created within. However, windows do not have a parent
@@ -27,28 +26,26 @@ shared:
       window.
   - name: relative
     type: bool
-    description: This is whether sizes and positioning are relative.  If this is true
-      , then all x,y,width,height floats must be between 0 and 1, representing sizes/positions
-      as a fraction of the screen size. If false , then the size and co-ordinates
-      are based on client's resolution, accessible using guiGetScreenSize .
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing sizes/positions
+      as a fraction of the screen size. If **false**, then the size and coordinates
+      are based on client's resolution, accessible using [[guiGetScreenSize]].
     default: 'false'
   examples:
   - path: examples/guiCreateWindow-1.lua
-    description: Example 1:This example creates a information window and adds two
-      tabs to a "tabPanel" tabpanel, and adds some other gui elements to it.
-    side: client
-  - path: examples/guiCreateWindow-2.lua
-    description: Example 2:This example creates a weapon selection screen, complete
+    description: This example creates a weapon selection screen, complete
       with a window, gridlist and a button. Users can select a shotgun or a machine
       gun. The window is not movable or sizable.
-    side: client
+  - path: examples/guiCreateWindow_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a gui window element if it was created successfully, false
+    - type: gui-window|false
+      name: result
+    description: Returns a gui window element if it was created successfully, **false**
       otherwise.
+  preview_images:
+    - path: GUI/window.png
+      description: A preview of a GUI Window.
   oop:
-    element: element
+    element: gui-window
     constructorclass: GuiWindow
-  requires_review: true

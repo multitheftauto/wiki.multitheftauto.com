@@ -1,29 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetFont
-shared:
+client:
   name: guiGetFont
   description: This function is used to get the current font that is used to draw
     text in GUI elements.
   parameters:
   - name: guiElement
-    type: element
-    description: element you wish to get the font of.
+    type: gui-element
+    description: Element you wish to get the font of.
   examples:
   - path: examples/guiGetFont-1.lua
     description: This example sets and gets the font of a pre-made gui element and
       outputs it to chat box.
-    side: client
-  returns:
-    values:
-    - type: string
-      name: value1
-    - type: element
-      name: value2
+  - path: examples/guiGetFont_OOP-1.lua
     description: This example sets and gets the font of a pre-made gui element and
       outputs it to chat box.
+    oop: true
+  returns:
+    values:
+    - type: string|false
+      name: font name
+    - type: gui-font
+      name: font element
+    description: Returns a string containing the name of the element's current font and the [custom GUI font](/reference/gui-font) that is used, or [[nil]] for default fonts. Returns **false** if the gui element passed to the function is invalid.
   oop:
-    element: guielement
+    element: gui-element
     method: getFont
     variable: font
     static: false
   pair: guiSetFont
-  requires_review: true

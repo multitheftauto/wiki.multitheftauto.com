@@ -1,25 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxGetSelected
-shared:
+client:
   name: guiComboBoxGetSelected
   description: This function returns the index of the selected combobox item.
   parameters:
   - name: comboBox
-    type: element
-    description: the combobox you want to know the selected item index of
+    type: gui-combobox
+    description: The combobox you want to know the selected item index of.
   examples:
   - path: examples/guiComboBoxGetSelected-1.lua
     description: This example outputs selected item's text and ID to the chat.
-    side: client
+  - path: examples/guiComboBoxGetSelected_OOP-1.lua
+    description: This example outputs selected item's text and ID to the chat.
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
+    - type: int|nil
+      name: index
     description: Returns the index of the selected item if the specified combobox
-      is valid and has a selected item, -1 if no item is selected, nil otherwise.
+      is valid and has a selected item, **-1** if no item is selected, [[nil]] otherwise.
   oop:
-    element: guicombobox
+    element: gui-combobox
     method: getSelected
     variable: selected
     static: false
   pair: guiComboBoxSetSelected
-  requires_review: true

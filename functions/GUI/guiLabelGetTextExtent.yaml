@@ -1,26 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiLabelGetTextExtent
-shared:
+client:
   name: guiLabelGetTextExtent
   description: This function returns the extent, or width, of the current text inside
     a GUI text label.
   parameters:
   - name: theLabel
-    type: element
+    type: gui-label
     description: The text label to get the text extent from.
   examples:
   - path: examples/guiLabelGetTextExtent-1.lua
     description: This example creates a window, a text label, gets the text extent
       and font height, and sets the text label size according to these values.
-    side: client
+  - path: examples/guiLabelGetTextExtent_OOP-1.lua
+    description: This example creates a window, a text label, gets the text extent
+      and font height, and sets the text label size according to these values.
+    oop: true
   returns:
     values:
-    - type: float
-      name: value
+    - type: float|false
+      name: extent
     description: Returns the absolute width of the current text inside the text label
-      if the function is successful, false otherwise.
+      if the function is successful, **false** otherwise.
   oop:
-    element: guilabel
+    element: gui-label
     method: getTextExtent
     variable: textExtent
     static: false
-  requires_review: true

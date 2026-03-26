@@ -1,10 +1,13 @@
-if ( myScrollPane ) then -- if the scroll pane exist then
-	-- set the position
-        guiScrollPaneSetHorizontalScrollPosition( myScrollPane, 100 ) -- right end
-        -- get the position
-	local position = guiScrollPaneGetHorizontalScrollPosition( myScrollPane )
-	-- output to the chatbox
-	outputChatBox ( "Current position of scroll pane:" .. tostring(position) .. "%" )
-else -- if the scroll pane was not found
-       outputChatBox ("scroll pane not found!")
+local scrollpane = guiCreateScrollPane(0.3, 0.3, 0.2, 0.2, true)
+
+for i = 1,10 do
+    guiCreateButton(0.1 + 0.25 * i, 0.4, 0.2, 0.2, 'Button '..i, true, scrollpane)
 end
+
+addCommandHandler('scroll', function(cmd, value)
+    if (not tonumber(value)) then
+        return
+    end
+
+    guiScrollPaneSetHorizontalScrollPosition(scrollpane, tonumber(value))
+end)

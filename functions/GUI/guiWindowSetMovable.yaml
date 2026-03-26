@@ -1,28 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiWindowSetMovable
-shared:
+client:
   name: guiWindowSetMovable
   description: This function allows you to specify whether or not a user can move
     a GUI window.
   parameters:
   - name: theElement
-    type: element
+    type: gui-window
     description: The window to be changed.
   - name: status
     type: bool
     description: A boolean value indicating whether the window is movable or not.
   examples:
   - path: examples/guiWindowSetMovable-1.lua
-    description: This example creates a gui window and sets it to be not movable
-    side: client
+    description: This example creates a gui window and sets it to be not movable.
+  - path: examples/guiWindowSetMovable_OOP-1.lua
+    description: This example creates a gui window and sets it to be not movable.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function is successful, false otherwise.
+      name: result
+    description: Returns **true** if the function is successful, **false** otherwise.
   oop:
-    element: guiwindow
+    element: gui-window
     method: setMovable
     variable: movable
     static: false
   pair: guiWindowIsMovable
-  requires_review: true

@@ -1,7 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateStaticImage
-shared:
+client:
   name: guiCreateStaticImage
-  description: This function creates a static image using a .png image in the resource.
+  description: This function creates a static image using a image file in the resource.
   parameters:
   - name: x
     type: float
@@ -21,35 +20,32 @@ shared:
       argument.
   - name: path
     type: string
-    description: The filepath of the image file that is being loaded.
+    description: The [filepath](/reference/Filepath) of the image file that is being loaded.
   - name: relative
     type: bool
-    description: This is whether sizes and positioning are relative. If this is true
-      , then all x,y,width,height floats must be between 0 and 1, representing measures
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing measures
       relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: This is the parent that the image is attached to. If the relative
-      argument is true, sizes and positioning will be made relative to this parent.
-      If the relative argument is false, positioning will be the number of offset
+    description: This is the parent that the image is attached to. If the `relative`
+      argument is **true**, sizes and positioning will be made relative to this parent.
+      If the `relative` argument is **false**, positioning will be the number of offset
       pixels from the parent's origin. If no parent is passed, the parent will become
       the screen - causing positioning and sizing according to screen positioning.
     default: nil
   examples:
   - path: examples/guiCreateStaticImage-1.lua
-    description: ''
-    side: client
-  - path: examples/guiCreateStaticImage-2.lua
-    description: In this exampleMeta.xmlis used to tell the server which files it
-      will be using.
-    side: server
+  - path: examples/guiCreateStaticImage_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns element if image was created successfully, false otherwise.
+    - type: gui-staticimage|false
+      name: result
+    description: Returns element if image was created successfully, **false** otherwise.
+  preview_images:
+    - path: GUI/staticimage.png
+      description: A preview of a GUI StaticImage.
   oop:
-    element: element
+    element: gui-staticimage
     constructorclass: GuiStaticImage
-  requires_review: true

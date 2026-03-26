@@ -1,33 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetVisible
-shared:
+client:
   name: guiSetVisible
   description: This function changes the visibility state of a GUI element.
   parameters:
   - name: guiElement
-    type: element
-    description: the GUI element whose visibility is to be changed
+    type: gui-element
+    description: The GUI element whose visibility is to be changed.
   - name: state
     type: bool
-    description: the new visibility state
+    description: The new visibility state.
   examples:
   - path: examples/guiSetVisible-1.lua
     description: This example creates a GUI window and changes its visibility every
       2 seconds, indefinitely.
-    side: client
   - path: examples/guiSetVisible-2.lua
-    description: This example creates a GUI window withyesandnobuttons and you can
-      toggle its visibility with thexkey.
-    side: client
+    description: This example creates a GUI window with `yes` and `no` buttons and you can
+      toggle its visibility with the `X` key.
+  - path: examples/guiSetVisible_OOP-1.lua
+    description: This example creates a GUI window and you can
+      toggle its visibility with the `O` key.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element's visibility could be changed, false
+      name: result
+    description: Returns **true** if the element's visibility could be changed, **false**
       otherwise.
   oop:
-    element: guielement
+    element: gui-element
     method: setVisible
     variable: visible
     static: false
   pair: guiGetVisible
-  requires_review: true

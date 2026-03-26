@@ -1,24 +1,24 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetVisible
-shared:
+client:
   name: guiGetVisible
   description: This function determines if a GUI element is visible.
   parameters:
   - name: guiElement
-    type: element
-    description: the GUI element to be checked
+    type: gui-element
+    description: The GUI element to be checked.
   examples:
   - path: examples/guiGetVisible-1.lua
-    description: This example toggles the visibility of myWindow.
-    side: client
+    description: This example toggles the visibility of window.
+  - path: examples/guiGetVisible_OOP-1.lua
+    description: This example toggles the visibility of window.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the element is visible, false otherwise.
+      name: result
+    description: Returns **true** if the element is visible, **false** otherwise.
   oop:
-    element: guielement
+    element: gui-element
     method: getVisible
     variable: visible
     static: false
   pair: guiSetVisible
-  requires_review: true

@@ -1,1 +1,1 @@
-outputConsole( guiGetCursorType( ) )
+outputConsole(guiGetCursorType())

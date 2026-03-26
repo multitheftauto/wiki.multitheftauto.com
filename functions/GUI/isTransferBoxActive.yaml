@@ -1,21 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsTransferBoxActive
-shared:
+client:
   name: isTransferBoxActive
-  description: This function returns whether the file downloading dialog box is active
+  description: |
+    This function returns whether the file downloading dialog box is active
     or not. This appears when a resource is started and the client doesn't have all
     the files that resource requires the client to have.
+
+    It's important to note that resources aren't started on the client until they're completely downloaded, so a resource cannot use this function to detect if it's own files are downloaded. A client-side resource triggers the [[onClientResourceStart]] event when the files it requires are downloaded.
   parameters: []
   examples:
   - path: examples/isTransferBoxActive-1.lua
     description: This makes the camera fade in, once all resource downloads are finished.
-    side: client
+  - path: examples/isTransferBoxActive_OOP-1.lua
+    description: This makes the camera fade in, once all resource downloads are finished.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the file transfer box is visible, false if not.
+      name: result
+    description: Returns **true** if the file transfer box is visible, **false** if not.
   oop:
     element: GuiElement
-    method: )
+    method: isTransferBoxActive
+    variable: transferBoxActive
     static: true
-  requires_review: true

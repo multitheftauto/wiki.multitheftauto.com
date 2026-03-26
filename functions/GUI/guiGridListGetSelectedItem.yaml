@@ -1,29 +1,29 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetSelectedItem
-shared:
+client:
   name: guiGridListGetSelectedItem
+  pair: guiGridListSetSelectedItem
   description: This function returns the row and column indexes of the selected item
     in a grid list. First selected row and column is (0, 0\).
   parameters:
   - name: gridList
-    type: element
-    description: the grid list you want to know the selected row index of
+    type: gui-gridlist
+    description: The grid list you want to know the selected row index of.
   examples:
   - path: examples/guiGridListGetSelectedItem-1.lua
     description: This code creates a grid list and fills it with the names of the
       connected players. When the user selects an item, its text (the player name)
       will be output in the chat box.
-    side: client
+  - path: examples/guiGridListGetSelectedItem_OOP-1.lua
+    oop: true
   returns:
     values:
+    - type: int|false
+      name: row
     - type: int
-      name: value1
-    - type: int
-      name: value2
+      name: column
     description: Returns the row and column indexes of the selected item if the specified
-      grid list is valid and has a selected item, (-1, -1) if no item is selected,
-      false otherwise.
+      grid list is valid and has a selected item, **(-1, -1)** if no item is selected,
+      **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: getSelectedItem
     static: false
-  requires_review: true

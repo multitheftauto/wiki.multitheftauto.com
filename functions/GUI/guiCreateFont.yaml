@@ -1,28 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateFont
-shared:
+client:
   name: guiCreateFont
-  description: This function creates a [GUI font](/wiki/GUI_font "GUI font") element
-    that can be used in [guiSetFont](/wiki/GuiSetFont "GuiSetFont"). Successful font
+  description: This function creates a gui-font element
+    that can be used in [[guiSetFont]]. Successful font
     creation is not guaranteed, and may fail due to hardware or memory limitations.
   parameters:
   - name: filepath
     type: string
-    description: the name of the file containing the font.
+    description: The name of the file containing the font.
   - name: size
     type: int
-    description: size of the font.
+    description: Size of the font.
     default: '9'
   examples:
   - path: examples/guiCreateFont-1.lua
-    description: ''
-    side: client
+  - path: examples/guiCreateFont_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: Returns a GUI font element if successful, false if invalid arguments
+    - type: gui-font|false
+      name: result
+    description: Returns a GUI font element if successful, **false** if invalid arguments
       were passed to the function, or there is insufficient resources available.
+  notes:
+    - type: tip
+      content: |
+        - It is highly recommended that [[dxSetTestMode]] is used when writing and testing scripts using **guiCreateFont**.
+        - You should always check to see if this function has returned **false**.
   oop:
-    element: element
+    element: gui-font
     constructorclass: GuiFont
-  requires_review: true

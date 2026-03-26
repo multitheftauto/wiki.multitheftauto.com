@@ -1,33 +1,33 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetInputMode
-shared:
+client:
   name: guiSetInputMode
-  description: 'This function controls the input mode to define whether or not (and
+  description: This function controls the input mode to define whether or not (and
     when) keybinds or MTA binds are overridden (disabled) so that text can be input
     into an editbox, for example.
-
-    Available input modes are:'
   parameters:
   - name: mode
     type: string
-    description: 'a string representing the desired input mode. Accepted values are:
-      "allow_binds": binds are enabled, hence using a key such as t in an editbox
-      will still open the chatbox (default) "no_binds": binds are disabled, hence
-      using a key such as t will never open the chatbox "no_binds_when_editing": binds
-      are enabled except when an editbox or memo has input focus'
+    description: A [[string]] representing the desired input mode.
+    templateList: input-modes
   examples:
   - path: examples/guiSetInputMode-1.lua
-    description: ''
-    side: client
+  - path: examples/guiSetInputMode_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if input mode could be changed, false if invalid parameters
+      name: result
+    description: Returns **true** if input mode could be changed, **false** if invalid parameters
       are passed.
   oop:
     element: GuiElement
-    method: )
+    method: setInputMode
     variable: inputMode
     static: true
+  notes:
+    - type: info
+      content: |
+        This function **can be** used as a replacement of [[guiSetInputEnabled]] since it provides the same functionality with one added feature.
+
+        - `guiSetInputEnabled(false)` is the same as `guiSetInputMode("allow_binds")`.
+        - `guiSetInputEnabled(true)` is the same as `guiSetInputMode("no_binds")`.
   pair: guiGetInputMode
-  requires_review: true

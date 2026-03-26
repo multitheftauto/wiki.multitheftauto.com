@@ -1,21 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetColumnCount
-shared:
+client:
   name: guiGridListGetColumnCount
   description: This allows you to get the count of existing columns in a gridlist.
   parameters:
   - name: gridList
-    type: element
-    description: The grid list you want to add a column to
-  examples: []
+    type: gui-gridlist
+    description: The grid list whose columns you want to count.
+  examples: 
+    - path: examples/guiGridListGetColumnCount-1.lua
+    - path: examples/guiGridListGetColumnCount_OOP-1.lua
+      oop: true
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns an integer with the amount of columns in the gridlist, false
+    - type: int|false
+      name: column count
+    description: Returns an integer with the amount of columns in the gridlist, **false**
       otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: getColumnCount
     variable: columnCount
     static: false
-  requires_review: true

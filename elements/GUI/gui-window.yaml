@@ -1,3 +1,7 @@
 name: gui-window
 description: |
   The GUI window class represents GUI windows in MTA's GUI system. These are mainly used as layout for other GUI elements. They can be moved and resized by default. 
+
+preview_images: 
+  - path: "GUI/window.png"
+    description: Example GUI window.

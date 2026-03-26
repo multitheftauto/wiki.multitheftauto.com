@@ -1,35 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetItemData
-shared:
+client:
   name: guiGridListGetItemData
-  description: "With this function you can retrieve the [string](/wiki/String \"String\"\
-    ) data associated with an item in a [grid list](/wiki/Element/GUI/Gridlist \"\
-    Element/GUI/Gridlist\"). This is not the text that is displayed on the item, but\
-    \ an internal string that you can use to hold extra information about the item.\
-    \  \n\n**Note:** This function will only work **after** you set the item's text\
-    \ using [guiGridListSetItemText](/wiki/GuiGridListSetItemText \"GuiGridListSetItemText\"\
-    )!"
+  pair: guiGridListSetItemData
+  description: With this function you can retrieve the string data associated with an item in a grid list. This is not the text that is displayed on the item, but an internal string that you can use to hold extra information about the item.
   parameters:
   - name: gridList
-    type: element
-    description: the grid list containing the item you're interested in
+    type: gui-gridlist
+    description: The grid list containing the item you're interested in.
   - name: rowIndex
     type: int
-    description: the row index of the item
+    description: The row index of the item. Indexes start at 0.
   - name: columnIndex
     type: int
-    description: the column index of the item
+    description: The column index of the item. Indexes start at 1.
   examples:
   - path: examples/guiGridListGetItemData-1.lua
     description: This example displays a random item data from the gridlist.
-    side: client
+  - path: examples/guiGridListGetItemData_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: var
-      name: value
-    description: Returns the item data of the specified item if succesful, false if
-      one of the arguments was invalid.
+    - type: mixed
+      name: item data
+    description: Returns the item data of the specified item if succesful, **false** if
+      one of the arguments was invalid or [[nil]] if data doesn't exists.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: getItemData
     static: false
-  requires_review: true
+  notes:
+    - type: info
+      content: This function will only work after you set the item's text using [[guiGridListSetItemText]].

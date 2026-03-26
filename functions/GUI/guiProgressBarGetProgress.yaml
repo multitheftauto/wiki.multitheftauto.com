@@ -1,19 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiProgressBarGetProgress
-shared:
+client:
   name: guiProgressBarGetProgress
+  pair: guiProgressBarSetProgress
   description: This function gets the progress of a progress bar as a percentage.
   parameters:
   - name: theProgressbar
-    type: progressBar
+    type: gui-progressbar
     description: The progressbar you want to check.
-  examples:
-  - path: examples/guiProgressBarGetProgress-1.lua
-    description: This example gets the progress of a bar called "somebar" created
-      withguiCreateProgressBar, and outputs it to the chatbox.
-    side: client
+  examples: 
+    - path: examples/guiProgressBarGetProgress-1.lua
+    - path: examples/guiProgressBarGetProgress_OOP-1.lua
+      oop: true
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float ranging between 0 and 100.
-  requires_review: true
+    - type: float|false
+      name: progress
+    description: Returns a [[float]] ranging between 0 and 100, **false** if invalid progressbar element was passed.
+  oop:
+    element: gui-progressbar
+    method: getProgress
+    variable: progress

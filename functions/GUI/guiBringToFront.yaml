@@ -1,26 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiBringToFront
-shared:
+client:
   name: guiBringToFront
+  pair: guiMoveToBack
   description: This function brings a GUI element on top of others.
   parameters:
   - name: guiElement
-    type: element
-    description: the GUI element that you want to move to the front.
+    type: gui-element
+    description: The GUI element that you want to move to the front.
   examples:
   - path: examples/guiBringToFront-1.lua
     description: This example creates a gui window and brings it on top.
-    side: client
+  - path: examples/guiBringToFront_OOP-1.lua
+    description: This example creates a gui window and brings it on top.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function was successful, false otherwise.
+      name: result
+    description: Returns **true** if the function was successful, **false** otherwise.
   oop:
-    element: guielement
+    element: gui-element
     method: bringToFront
     static: false
   notes:
   - type: info
-    content: If property "AlwaysOnTop" sets to "True", this function will return false
-      .
-  requires_review: true
+    content: If property `AlwaysOnTop` sets to `True`, this function will return **false**.

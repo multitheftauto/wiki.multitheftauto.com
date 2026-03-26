@@ -1,23 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiFocus
-shared:
+client:
   name: guiFocus
+  pair: guiBlur
   description: This function focuses a defocused GUI element. Used primarily for edit
     fields and memos.
   parameters:
   - name: guiElement
-    type: element
-    description: the GUI element that you want to focus
+    type: gui-element
+    description: The GUI element that you want to focus.
   examples:
   - path: examples/guiFocus-1.lua
-    description: ''
-    side: client
+  - path: examples/guiFocus_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function was successful, false otherwise.
+      name: result
+    description: Returns **true** if the function was successful, **false** otherwise.
   oop:
-    element: guielement
+    element: gui-element
     method: focus
     static: false
-  requires_review: true

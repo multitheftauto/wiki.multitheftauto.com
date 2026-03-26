@@ -1,27 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetSelectedCount
-shared:
+client:
   name: guiGridListGetSelectedCount
-  description: This function returns the amount of options selected in the specified
-    [grid list](/wiki/Element/GUI/Gridlist "Element/GUI/Gridlist").
+  description: This function returns the amount of options selected in the specified grid list.
   parameters:
   - name: gridList
-    type: element
+    type: gui-gridlist
     description: The grid list which amount of selected items you want to retrieve.
   examples:
   - path: examples/guiGridListGetSelectedCount-1.lua
     description: This example creates a gridlist filled with players names then check
       who has the letter "a" in their name, after it selects everyone who has the
-      letter "a" then it outputs the selected rows. TESTED!
-    side: client
+      letter "a" then it outputs the selected rows.
+  - path: examples/guiGridListGetSelectedCount_OOP-1.lua
+    description: This example creates a gridlist filled with players names then check
+      who has the letter "a" in their name, after it selects everyone who has the
+      letter "a" then it outputs the selected rows.
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
+    - type: int|false
+      name: selected items count
     description: Returns an integer representing the amount of selected options if
-      everything was successful or false if invalid arguments were passed.
+      everything was successful or **false** if invalid arguments were passed.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: getSelectedCount
     variable: selectedCount
     static: false
-  requires_review: true

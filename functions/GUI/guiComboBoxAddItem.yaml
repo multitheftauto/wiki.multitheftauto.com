@@ -1,26 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxAddItem
-shared:
+client:
   name: guiComboBoxAddItem
+  pair: guiComboBoxRemoveItem
   description: Adds an item to a combobox.
   parameters:
   - name: comboBox
-    type: element
-    description: The combobox you want to add a row to
+    type: gui-combobox
+    description: The combobox you want to add a row to.
   - name: value
     type: string
     description: The text that the item will contain.
   examples:
   - path: examples/guiComboBoxAddItem-1.lua
-    description: This Example will add an item to comboBox when player use commandaddItemfollowed
+    description: This example will add an item to comboBox when player use command `addItem` followed
       by the value of the item.
-    side: client
+  - path: examples/guiComboBoxAddItem_OOP-1.lua
+    description: This example will add an item to comboBox when player use command `addItem` followed
+      by the value of the item.
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns the item ID if it has been created, false otherwise.
+    - type: int|false
+      name: itemID
+    description: Returns the item ID if it has been created, **false** otherwise.
   oop:
-    element: guicombobox
+    element: gui-combobox
     method: addItem
     static: false
-  requires_review: true

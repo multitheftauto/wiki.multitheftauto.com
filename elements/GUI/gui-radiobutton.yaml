@@ -1,3 +1,7 @@
 name: gui-radiobutton
 description: |
-  The GUI radio button class represents GUI radio buttons in MTA's GUI system. These can be checked or unchecked and work quite similiar as the GUI checkboxes. 
+  The GUI radio button class represents GUI radio buttons in MTA's GUI system. These can be checked or unchecked and work quite similiar as the GUI checkboxes. Unlike a checkbox, only one radio button can be selected at a time - when you select another one, the selection is automatically transferred.
+
+preview_images: 
+  - path: "GUI/radiobutton.png"
+    description: Example GUI radio button.

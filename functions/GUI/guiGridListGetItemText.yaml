@@ -1,34 +1,31 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListGetItemText
-shared:
+client:
   name: guiGridListGetItemText
+  pair: guiGridListSetItemText
   description: This function retrieves the text from a specific grid list item.
   parameters:
   - name: gridList
-    type: element
-    description: the gridlist containing the item you're interested in
+    type: gui-gridlist
+    description: The gridlist containing the item you're interested in.
   - name: rowIndex
     type: int
-    description: row id of the item (first is 0)
+    description: Row ID of the item. Indexes start at 0.
   - name: columnIndex
     type: int
-    description: column id of the item (first is 0)
+    description: Column ID of the item. Indexes start at 1.
   examples:
   - path: examples/guiGridListGetItemText-1.lua
-    description: 'Example 1: This example creates a gridlist with entries "Hello"
-      and "World!" and chooses randomly which of these two grid list items it will
-      retrieve.'
-    side: client
-  - path: examples/guiGridListGetItemText-2.lua
-    description: 'Example 2: This example creates a player list on resource start,
+    description: 'This example creates a player list on resource start,
       clicking on it will output the selected player name to the chatbox.'
-    side: client
+  - path: examples/guiGridListGetItemText_OOP-1.lua
+    description: 'This example creates a player list on resource start,
+      clicking on it will output the selected player name to the chatbox.'
+    oop: true
   returns:
     values:
-    - type: string
-      name: value
-    description: Returns the text of the item if the arguments are right, false otherwise.
+    - type: string|false
+      name: item text
+    description: Returns the text of the item if the arguments are right, **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: getItemText
     static: false
-  requires_review: true

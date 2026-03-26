@@ -1,36 +1,40 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListSetColumnWidth
-shared:
+client:
   name: guiGridListSetColumnWidth
+  pair: guiGridListGetColumnWidth
   description: This allows you to set the width of an existing column in a gridlist.
   parameters:
   - name: gridList
-    type: element
-    description: The grid list you want to add a column to
+    type: gui-gridlist
+    description: The grid list you want to add a column to.
   - name: columnIndex
     type: int
-    description: Column ID of the size you want to change
+    description: Column ID of the size you want to change. Indexes start at 1.
   - name: width
     type: number
-    description: A float or integer of the width of the column depending on the relative
+    description: A [[float]] or [integer](/reference/int) of the width of the column depending on the relative
       argument.
   - name: relative
     type: bool
     description: A boolean defining whether width measurements will be relative to
-      the Gridlist size, or absolute pixels.
+      the gridlist size, or absolute pixels.
+    default: 'false'
   examples:
   - path: examples/guiGridListSetColumnWidth-1.lua
     description: This example creates a gridlist with one column that is too small
       to display. After the column has been successfully created, we give it a new
       width so you can see column.
-    side: client
+  - path: examples/guiGridListSetColumnWidth_OOP-1.lua
+    description: This example creates a gridlist with one column that is too small
+      to display. After the column has been successfully created, we give it a new
+      width so you can see column.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the gridlist column width was successfully set, false
+      name: result
+    description: Returns **true** if the gridlist column width was successfully set, **false**
       if bad arguments were given.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: setColumnWidth
     static: false
-  requires_review: true

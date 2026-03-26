@@ -1,20 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiWindowIsMovable
-shared:
+client:
   name: guiWindowIsMovable
   description: This function checks if a GUI window is movable.
   parameters:
   - name: guiWindow
     type: gui-window
-    description: the window to check the movable flag of
+    description: The window to check the movable flag of.
   examples:
   - path: examples/guiWindowIsMovable-1.lua
-    description: ''
-    side: client
+  - path: examples/guiWindowIsMovable_OOP-1.lua
+    description: This example creates a window whose movability can be toggled with the `L` key.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the window is movable, false if not, nil if an invalid
+      name: result
+    description: Returns **true** if the window is movable, **false** if not, [[nil]] if an invalid
       window was provided.
+  oop:
+    element: gui-window
+    method: isMovable
+    variable: movable
   pair: guiWindowSetMovable
-  requires_review: true

@@ -1,26 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiMemoGetVerticalScrollPosition
-shared:
+client:
   name: guiMemoGetVerticalScrollPosition
   description: This function is used to get the vertical scroll position of a memo
     as a percentage.
   parameters:
   - name: theMemo
     type: gui-memo
-    description: the memo you want to know the vertical scroll position of.
+    description: The memo you want to know the vertical scroll position of.
   examples:
   - path: examples/guiMemoGetVerticalScrollPosition-1.lua
-    description: This example gets the position of a memo called "theMemo" created
-      withguiCreateMemo, and outputs it to the chatbox.
-    side: client
+    description: This example gets the scroll position of a memo called "theMemo" created
+      with [[guiCreateMemo]], and outputs it to the chatbox.
+  - path: examples/guiMemoGetVerticalScrollPosition_OOP-1.lua
+    description: This example gets the scroll position of a memo called "theMemo" created
+      with [[guiCreateMemo]], and outputs it to the chatbox.
+    oop: true
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float ranging between 0 and 100, or false otherwise.
+    - type: float|false
+      name: scroll position
+    description: Returns a [[float]] ranging between 0 and 100, or **false** otherwise.
   oop:
-    element: guimemo
+    element: gui-memo
     method: getVerticalScrollPosition
     variable: verticalScrollPosition
     static: false
   pair: guiMemoSetVerticalScrollPosition
-  requires_review: true

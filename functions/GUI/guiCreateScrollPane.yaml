@@ -1,44 +1,54 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateScrollPane
-shared:
+client:
   name: guiCreateScrollPane
   description: This creates a GUI scroll pane.
   parameters:
   - name: x
     type: float
-    description: the 2D x offset of the GUI scrollpane from its parent. This is affected
+    description: The 2D x offset of the GUI scrollpane from its parent. This is affected
       by the relative argument.
   - name: "y"
     type: float
-    description: the 2D y offset of the GUI scrollpane from its parent. This is affected
+    description: The 2D y offset of the GUI scrollpane from its parent. This is affected
       by the relative argument.
   - name: width
     type: float
-    description: the width of the GUI scrollpane. This is affected by the relative
+    description: The width of the GUI scrollpane. This is affected by the relative
       argument.
   - name: height
     type: float
-    description: the height of the GUI scrollpane. This is affected by the relative
+    description: The height of the GUI scrollpane. This is affected by the relative
       argument.
   - name: relative
     type: bool
-    description: whether sizes and positions are relative to their parent's. If this
-      is true, then all measures must be between 0 and 1, representing sizes/positions
-      as a fraction of the parent widget's size.
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width and height floats must be between 0 and 1, representing
+      sizes relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: the gui-element this scrollpane is attached to. By default, it is
-      nil, meaning the widget is attached to the background.
+    description: This is the parent that the gui scrollpane is attached to. If the `relative`
+      argument is **true**, sizes and positioning will be made relative to this parent.
+      If the `relative` argument is **false**, positioning will be the number of offset
+      pixels from the parent's origin. If no parent is passed, the parent will become
+      the screen - causing positioning and sizing according to screen positioning.
     default: nil
   examples:
   - path: examples/guiCreateScrollPane-1.lua
     description: This example creates a small window with a scrollpane on. Using the
-      /fill command you can populate the scrollpane with the names of every player
+      `/fill` command you can populate the scrollpane with the names of every player
       in the server.
-    side: client
+  - path: examples/guiCreateScrollPane_OOP-1.lua
+    description: This example creates a small window with a scrollpane on. Using the
+      `/fill` command you can populate the scrollpane with the names of every player
+      in the server.
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
-    description: The gui-element if created, otherwise false.
-  requires_review: true
+    - type: gui-scrollpane|false
+      name: result
+    description: The gui-scrollpane if created, otherwise **false**.
+  oop:
+    element: gui-scrollpane
+    constructorclass: GuiScrollPane
+  preview_images:
+    - path: GUI/scrollpane.png
+      description: A preview of a GUI ScrollPane.

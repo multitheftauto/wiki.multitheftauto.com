@@ -1,3 +1,7 @@
 name: gui-scrollpane
 description: |
-  Todo
+  The GUI scrollpane class represents GUI scrollpanes in MTA's GUI system. A scrollpane is a kind of area that can be scrolled. If the content inside the scrollpane extends beyond its bounds, scrollbars are added automatically, but they can also be managed by other scrollpane functions.
+
+preview_images: 
+  - path: "GUI/scrollpane.png"
+    description: Example GUI scrollpane.

@@ -1,12 +1,11 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditSetMaxLength
-shared:
+client:
   name: guiEditSetMaxLength
   description: This function sets the maximum text length that can be typed into an
     edit box.
   parameters:
   - name: guiEdit
-    type: element
-    description: MISSING_PARAM_DESC
+    type: gui-edit
+    description: The edit box to be changed.
   - name: length
     type: int
     description: An integer indicating the maximum number of characters that can be
@@ -14,18 +13,18 @@ shared:
   examples:
   - path: examples/guiEditSetMaxLength-1.lua
     description: This example creates an edit box with a limit on text length, alongside
-      an "Output!" button.  When the button is clicked, it will output the message
+      an "Output!" button. When the button is clicked, it will output the message
       in the edit box into the chatbox.
-    side: client
+  - path: examples/guiEditSetMaxLength_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the max length was set successfully, false otherwise.
+      name: result
+    description: Returns **true** if the max length was set successfully, **false** otherwise.
   oop:
-    element: guiedit
+    element: gui-edit
     method: setMaxLength
     variable: maxLength
     static: false
   pair: guiEditGetMaxLength
-  requires_review: true

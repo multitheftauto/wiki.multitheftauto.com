@@ -1,24 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetSelectedTab
-shared:
+client:
   name: guiSetSelectedTab
-  description: This function is used to change the currently selected [tab](/wiki/Element/GUI/Tab
-    "Element/GUI/Tab") in a [tab panel](/wiki/Element/GUI/Tab_panel "Element/GUI/Tab
-    panel").
+  pair: guiGetSelectedTab
+  description: This function is used to change the currently selected tab in a tab-panel.
   parameters:
   - name: tabPanel
-    type: element
+    type: gui-tabpanel
     description: The tab panel which current tab you want to change.
   - name: theTab
-    type: element
+    type: gui-tab
     description: The tab which will be the new active tab.
   examples:
   - path: examples/guiSetSelectedTab-1.lua
     description: This example changes the selected tab to the next available tab.
-    side: client
+  - path: examples/guiSetSelectedTab_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the selected tab was changed to a new one successfully,
-      false otherwise.
-  requires_review: true
+      name: result
+    description: Returns **true** if the selected tab was changed to a new one successfully,
+      **false** otherwise.
+  oop:
+    element: gui-tabpanel
+    method: setSelectedTab
+    variable: selectedTab

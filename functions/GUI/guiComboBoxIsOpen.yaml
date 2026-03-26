@@ -1,26 +1,27 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxIsOpen
-shared:
+client:
   name: guiComboBoxIsOpen
   description: This function returns the state of combobox.
   parameters:
   - name: comboBox
-    type: element
+    type: gui-combobox
     description: The combo box to get the state.
   examples:
   - path: examples/guiComboBoxIsOpen-1.lua
     description: This example opens/closes the combobox after clicking the button.
       Checking if combobox is opened and change button text.
-    side: client
+  - path: examples/guiComboBoxIsOpen_OOP-1.lua
+    description: This example opens/closes the combobox after clicking the button.
+      Checking if combobox is opened and change button text.
+    oop: true
   returns:
     values:
-    - type: bool
-      name: value
-    description: Returns true if combobox is opened, false if combobox is closed,
-      nil otherwise.
+    - type: bool|nil
+      name: result
+    description: Returns **true** if combobox is opened, **false** if combobox is closed,
+      [[nil]] if the specified combobox is invalid.
   oop:
-    element: guicombobox
+    element: gui-combobox
     method: isOpen
     variable: open
     static: false
   pair: guiComboBoxSetOpen
-  requires_review: true

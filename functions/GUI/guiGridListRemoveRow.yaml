@@ -1,28 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListRemoveRow
-shared:
+client:
   name: guiGridListRemoveRow
+  pair: guiGridListAddRow
   description: This allows you to delete rows that exist in grid lists.
   parameters:
   - name: gridList
-    type: element
-    description: The grid list you want to remove a row from
+    type: gui-gridlist
+    description: The grid list you want to remove a row from.
   - name: rowIndex
     type: int
-    description: The row ID which you want to remove
+    description: The row ID which you want to remove. Indexes start at 0.
   examples:
   - path: examples/guiGridListRemoveRow-1.lua
     description: In this example, when the script starts, a grid list with 1 column
       and 2 rows, which have text assigned to them. After 3 seconds, one row is randomly
       deleted.
-    side: client
+  - path: examples/guiGridListRemoveRow_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the grid list row was successfully removed, false
+      name: result
+    description: Returns **true** if the grid list row was successfully removed, **false**
       otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: removeRow
     static: false
-  requires_review: true

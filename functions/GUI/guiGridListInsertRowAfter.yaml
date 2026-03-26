@@ -1,28 +1,39 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGridListInsertRowAfter
-shared:
+client:
   name: guiGridListInsertRowAfter
   description: This allows you to insert a new row after a specified row, and simultaneously
     set text. Good for inserting new rows in the middle of existing rows. To insert
-    at the top use \-1 as row index.
+    at the top use **-1** as row index.
   parameters:
   - name: gridList
-    type: element
-    description: The grid list you want to add a row to
+    type: gui-gridlist
+    description: The grid list you want to add a row to.
   - name: rowIndex
     type: int
-    description: Row ID of the row you want to insert the new row after.
+    description: Row ID of the row you want to insert the new row after. Indexes start at 0.
+  - name: itemText1
+    type: int/string
+    description: The text for the first column item in the row. Either a string or a number can be passed (use numbers for sorting purposes).
+    default: nil
+  - name: itemText2
+    type: int/string
+    description: The text for the second column item in the row. Either a string or a number can be passed (use numbers for sorting purposes).
+    default: nil
+  - name: '...'
+    type: int/string
+    description: Item text for any other columns.
+    default: nil
   examples:
   - path: examples/guiGridListInsertRowAfter-1.lua
     description: This example would create a gridlist then add the current players
-      in the server and if anyone joins, it would insert a row at the bottom.
-    side: client
+      in the server and if anyone joins, it would insert a row at the top.
+  - path: examples/guiGridListInsertRowAfter_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns row id if the row was successfully added, false otherwise.
+    - type: int|false
+      name: row id
+    description: Returns row id if the row was successfully added, **false** otherwise.
   oop:
-    element: guigridlist
+    element: gui-gridlist
     method: insertRowAfter
     static: false
-  requires_review: true

@@ -1,23 +1,21 @@
-function clientsideResourceStart ()
-        --Create a gridlist
-    	local myGridList = guiCreateGridList ( 0.80, 0.10, 0.15, 0.60, true ) 
-    	--Create columnA on the gridlist
-		local columnA = guiGridListAddColumn ( myGridList, "columnA Title", 0.85 ) 
-    	--Add 2 rows to the grid list
-		rowA = guiGridListAddRow ( myGridList )
-    	rowB = guiGridListAddRow ( myGridList )
-        --Create the text "Hello" for rowA, columnA
-		guiGridListSetItemText ( myGridList, rowA, columnA, "Hello", false, false )   	
-    	--Create the text "World!" for rowB, columnA
-		guiGridListSetItemText ( myGridList, rowB, columnA, "World!", false, false )
-    	--Choose randomly which grid list item text to retrieve
-        getRandomItem = math.random ( 1, 2 )       
-		if getRandomItem == 1 then 
-                randomItemData = guiGridListGetItemText ( myGridList, rowA, columnA )
-        elseif getRandomItem == 2 then
-                randomItemData = guiGridListGetItemText ( myGridList, rowB, columnA )
+local playerList
+
+function createPlayerList()
+    -- Create the grid list
+    playerList = guiCreateGridList(0.80, 0.10, 0.15, 0.60, true)
+    -- Create a players column in the list
+    local column = guiGridListAddColumn(playerList, "Player", 0.85)
+    if (column) then -- If the column has been created, fill it with players
+        for id, playeritem in ipairs(getElementsByType("player")) do
+            local row = guiGridListAddRow(playerList)
+            guiGridListSetItemText(playerList, row, column, getPlayerName(playeritem), false, false)
         end
-        --Output the randomly retrieved item text
-        outputChatBox ( "My gridlist item text: "..randomItemData ) 
+        addEventHandler("onClientGUIClick", playerList, click)
+    end
 end
-addEventHandler ( "onClientResourceStart", resourceRoot, clientsideResourceStart )
+addEventHandler("onClientResourceStart", getRootElement(), createPlayerList)
+
+function click()
+    local playerName = guiGridListGetItemText(playerList, guiGridListGetSelectedItem(playerList), 1)
+    outputChatBox(playerName)
+end

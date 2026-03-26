@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetScreenSize
-shared:
+client:
   name: guiGetScreenSize
   description: This function retrieves the local screen size according to the resolution
     they are using.
@@ -8,15 +7,17 @@ shared:
   - path: examples/guiGetScreenSize-1.lua
     description: This example checks whether a player is using a low resolution, and
       warns them that GUI may appear incorrect.
-    side: client
+  - path: examples/guiGetScreenSize_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: float float
-      name: value
+    - type: float
+      name: width
+    - type: float
+      name: height
     description: This returns two floats representing the player's screen resolution,
-      width and height .
+      width and height.
   oop:
     element: GuiElement
     method: getScreenSize
     static: true
-  requires_review: true

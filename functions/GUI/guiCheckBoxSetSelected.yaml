@@ -1,31 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCheckBoxSetSelected
-shared:
+client:
   name: guiCheckBoxSetSelected
   description: This function selects (ticks) or unselects a checkbox.
   parameters:
   - name: theCheckbox
-    type: element
-    description: The GUI element in which you wish to change the selection state of
+    type: gui-checkbox
+    description: The GUI element in which you wish to change the selection state of.
   - name: state
     type: bool
     description: The state of the checkbox, where true indicates selected, and false
       indicates unselected.
   examples:
   - path: examples/guiCheckBoxSetSelected-1.lua
-    description: This example creates 2 checkboxes and sets one of them selected then
-      checks if the first one is selected and if it is then the second one would be
-      set selected.
-    side: client
+  - path: examples/guiCheckBoxSetSelected_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the checkbox's selection state was successfully set,
-      false otherwise.
+      name: result
+    description: Returns **true** if the checkbox's selection state was successfully set,
+      **false** otherwise.
   oop:
-    element: guicheckbox
+    element: gui-checkbox
     method: setSelected
     variable: selected
-    static: false
   pair: guiCheckBoxGetSelected
-  requires_review: true

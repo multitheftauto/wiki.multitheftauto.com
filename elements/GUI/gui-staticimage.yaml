@@ -1,3 +1,7 @@
 name: gui-staticimage
 description: |
   The GUI static image class represents GUI static images in MTA's GUI system. These are custom images which can be loaded to clients screen.
+
+preview_images: 
+  - path: "GUI/staticimage.png"
+    description: Example GUI static image.

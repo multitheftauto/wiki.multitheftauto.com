@@ -1,0 +1,5 @@
+addEventHandler("onClientResourceStart", resourceRoot, function()
+    local image = GuiStaticImage(200, 200, 10, 10, "image.png", false)
+    local w, h = image:getNativeSize()
+    outputChatBox("Image size: "..w..":"..h)
+end)

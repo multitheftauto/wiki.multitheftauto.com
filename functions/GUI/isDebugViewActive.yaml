@@ -1,23 +1,23 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/IsDebugViewActive
-shared:
+client:
   name: isDebugViewActive
   description: This function returns whether the ingame debug window is visible or
-    not. This is the debugwindow visible using the "debugscript \<level\>" command.
+    not. This is the debugwindow visible using the `debugscript <level>` command.
   parameters: []
   examples:
   - path: examples/isDebugViewActive-1.lua
-    description: This example makes a /debug command to check if the client's debugscript
+    description: This example makes a `/debug` command to check if the client's debugscript
       is on or off.
-    side: client
+  - path: examples/isDebugViewActive_OOP-1.lua
+    description: This example makes a `/debug` command to check if the client's debugscript
+      is on or off.
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the debug view is visible, false if not.
+      name: result
+    description: Returns **true** if the debug view is visible, **false** if not.
   oop:
     element: GuiElement
-    method: )
+    method: isDebugViewActive
     variable: debugViewActive
     static: true
   pair: setDebugViewActive
-  requires_review: true

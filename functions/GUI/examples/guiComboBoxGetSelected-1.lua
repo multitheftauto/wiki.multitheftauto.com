@@ -1,9 +1,15 @@
-addCommandHandler("getSelected",
-function (command)
+local comboBox = guiCreateComboBox(300, 300, 200, 100, "Select an item", false)
+guiComboBoxAddItem(comboBox, "Item 1")
+guiComboBoxAddItem(comboBox, "Item 2")
 
-local item = guiComboBoxGetSelected(comboBox)
-local text = guiComboBoxGetItemText(comboBox, item)
+addCommandHandler("getSelected", function(command)
+    local item = guiComboBoxGetSelected(comboBox)
+    if (item == -1) then
+        outputChatBox("No item selected!")
+        return
+    end
 
-outputChatBox("Currently selected item with ID: " .. tostring(item) .. " and with text: " .. text)
+    local text = guiComboBoxGetItemText(comboBox, item)
 
+    outputChatBox("Currently selected item with ID: " .. tostring(item) .. " and with text: " .. text)
 end)

@@ -1,29 +1,32 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiGetSize
-shared:
+client:
   name: guiGetSize
   description: This function gets the size of a GUI element.
   parameters:
   - name: theElement
-    type: element
+    type: gui-element
     description: The GUI element to get size of.
   - name: relative
     type: bool
     description: A boolean representing whether the size should be relative to the
       element's parent width, or an absolute size in pixels.
+    default: 'false'
   examples:
   - path: examples/guiGetSize-1.lua
     description: This example creates a random sized gui window and outputs its size
       to the chatbox.
-    side: client
+  - path: examples/guiGetSize_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: float float
-      name: value
-    description: Returns the GUI element size x and y if the function has been successful,
-      false otherwise.
+    - type: float|false
+      name: width
+    - type: float
+      name: height
+    description: Returns the GUI element size width and height if the function has been successful,
+      **false** otherwise.
   oop:
-    element: guielement
+    element: gui-element
     method: getSize
+    variable: size
     static: false
   pair: guiSetSize
-  requires_review: true

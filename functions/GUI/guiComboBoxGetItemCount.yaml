@@ -1,20 +1,25 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiComboBoxGetItemCount
-shared:
+client:
   name: guiComboBoxGetItemCount
   description: This function returns the number of items in a combo box.
   parameters:
   - name: comboBox
-    type: element
+    type: gui-combobox
     description: The combo box to get the number of items from.
   examples:
   - path: examples/guiComboBoxGetItemCount-1.lua
     description: This example creates a gui combo box, fills it with the names of
       the connected players and prints the number of items (players) in the chatbox.
-    side: client
+  - path: examples/guiComboBoxGetItemCount_OOP-1.lua
+    description: This example creates a gui combo box, fills it with the names of
+      the connected players and prints the number of items (players) in the chatbox.
+    oop: true
+  oop:
+    element: gui-combobox
+    method: getItemCount
+    variable: itemCount
   returns:
     values:
-    - type: int
-      name: value
-    description: Returns the number of items if the function is successful, false
+    - type: int|false
+      name: item-count
+    description: Returns the number of items if the function is successful, **false**
       otherwise.
-  requires_review: true

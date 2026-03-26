@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiMemoSetReadOnly
-shared:
+client:
   name: guiMemoSetReadOnly
   description: This function allows you to set or remove read\-only status for a GUI
     memo. If read\-only is set to *true*, the contents are not editable.
@@ -13,17 +12,16 @@ shared:
       disabled.
   examples:
   - path: examples/guiMemoSetReadOnly-1.lua
-    description: ''
-    side: client
+  - path: examples/guiMemoSetReadOnly_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the status was successfully changed, false otherwise.
+      name: result
+    description: Returns **true** if the status was successfully changed, **false** otherwise.
   oop:
-    element: guimemo
+    element: gui-memo
     method: setReadOnly
     variable: readOnly
     static: false
   pair: guiMemoIsReadOnly
-  requires_review: true

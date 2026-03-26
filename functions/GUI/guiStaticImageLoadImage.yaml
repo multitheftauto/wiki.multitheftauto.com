@@ -1,32 +1,34 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiStaticImageLoadImage
-shared:
+client:
   name: guiStaticImageLoadImage
-  description: 'This function allows you to change the image in GUI static image element
-    to another one. **Tip**: If you set other images as children you will have to
-    use [setElementCallPropagationEnabled](/wiki/SetElementCallPropagationEnabled
-    "SetElementCallPropagationEnabled") to only affect the parent image.'
+  description: This function allows you to change the image in GUI static image element
+    to another one.
   parameters:
   - name: theElement
-    type: element
+    type: gui-staticimage
     description: The static image element to be changed.
   - name: filename
     type: string
-    description: A string specifying the filepath of the image file being loaded in
+    description: A string specifying the [filepath](/reference/Filepath) of the image file being loaded in
       current resource.
   examples:
   - path: examples/guiStaticImageLoadImage-1.lua
-    description: This example creates a static image ("myimage.png") and replaces
-      it with other image ("otherimage.png") 10 seconds after creation.
-    side: client
+    description: This example creates a static image `myimage.png` and replaces
+      it with other image `otherimage.png` 10 seconds after creation.
+  - path: examples/guiStaticImageLoadImage_OOP-1.lua
+    description: This example creates a static image `myimage.png` and replaces
+      it with other image `otherimage.png` 10 seconds after creation.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the the image in the static image element was successfully
-      changed, false otherwise.
+      name: result
+    description: Returns **true** if the the image in the static image element was successfully
+      changed, **false** otherwise.
   oop:
-    element: guistaticimage
+    element: gui-staticimage
     method: loadImage
     variable: image
     static: false
-  requires_review: true
+  notes:
+    - type: tip
+      content: If you set other images as children you will have to use [[setElementCallPropagationEnabled]] to only affect the parent image.

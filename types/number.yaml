@@ -1,2 +1,2 @@
 description: |
-  A [**number**](https://www.lua.org/pil/2.3.html) is a numeric value that can be either an integer or a floating point number. It is a fundamental data type in Lua and is used to represent quantities, measurements, and other numerical values.
+  A [**number**](https://www.lua.org/pil/2.3.html) is a numeric value that can be either an [integer](/reference/int) or a [floating point number](/reference/float). It is a fundamental data type in Lua and is used to represent quantities, measurements, and other numerical values.

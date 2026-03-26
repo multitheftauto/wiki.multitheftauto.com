@@ -1,8 +1,6 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCreateRadioButton
-shared:
+client:
   name: guiCreateRadioButton
-  description: This function creates a [radio button](/wiki/Element/GUI/Radio_button
-    "Element/GUI/Radio button").
+  description: This function creates a radio button.
   parameters:
   - name: x
     type: float
@@ -25,15 +23,14 @@ shared:
     description: The text to be displayed next to the radio button.
   - name: relative
     type: bool
-    description: This is whether sizes and positioning are relative. If this is true
-      , then all x,y,width,height floats must be between 0 and 1, representing measures
+    description: This is whether sizes and positioning are relative. If this is **true**, then all x, y, width, height floats must be between 0 and 1, representing measures
       relative to the parent.
     default: 'false'
   - name: parent
     type: gui-element
-    description: This is the parent that the radio button is attached to. If the relative
-      argument is true, sizes and positioning will be made relative to this parent.
-      If the relative argument is false, positioning will be the number of offset
+    description: This is the parent that the radio button is attached to. If the `relative`
+      argument is **true**, sizes and positioning will be made relative to this parent.
+      If the `relative` argument is **false**, positioning will be the number of offset
       pixels from the parent's origin. If no parent is passed, the parent will become
       the screen - causing positioning and sizing according to screen positioning.
     default: nil
@@ -41,15 +38,17 @@ shared:
   - path: examples/guiCreateRadioButton-1.lua
     description: This example creates a radio button then checks if one is selected
       and if it is, then it's output the title and sets the next radio button selected.
-      (TESTED!)
-    side: client
+  - path: examples/guiCreateRadioButton_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: element
-      name: value
+    - type: gui-radiobutton|false
+      name: result
     description: Returns element of the radio button if it was created succesfully,
-      false otherwise.
+      **false** otherwise.
+  preview_images:
+    - path: GUI/radiobutton.png
+      description: A preview of a GUI Radio Button.
   oop:
-    element: element
+    element: gui-radiobutton
     constructorclass: GuiRadioButton
-  requires_review: true

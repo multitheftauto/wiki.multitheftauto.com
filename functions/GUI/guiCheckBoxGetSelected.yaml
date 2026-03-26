@@ -1,25 +1,26 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiCheckBoxGetSelected
-shared:
+client:
   name: guiCheckBoxGetSelected
   description: This function gets a checkbox's selection state.
   parameters:
   - name: theCheckbox
-    type: element
-    description: MISSING_PARAM_DESC
+    type: gui-checkbox
+    description: The checkbox you wish to retrieve the selection state of.
   examples:
   - path: examples/guiCheckBoxGetSelected-1.lua
     description: This example makes a different beep based on the state when any checkbox
       has been clicked.
-    side: client
+  - path: examples/guiCheckBoxGetSelected_OOP-1.lua
+    description: This example makes a different beep based on the state when any checkbox
+      has been clicked.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the checkbox is selected, false if it is not.
+      name: result
+    description: Returns **true** if the checkbox is selected, **false** if it is not.
   oop:
-    element: guicheckbox
+    element: gui-checkbox
     method: getSelected
     variable: selected
     static: false
   pair: guiCheckBoxSetSelected
-  requires_review: true

@@ -1,29 +1,28 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiEditSetMasked
-shared:
+client:
   name: guiEditSetMasked
   description: This function sets or removes masking (covering up the text being typed)
     for password text fields.
   parameters:
-  - name: theElement
-    type: element
+  - name: guiEdit
+    type: gui-edit
     description: The edit box to be changed.
   - name: status
     type: bool
     description: A boolean value indicating whether masking is to be enabled or disabled.
   examples:
   - path: examples/guiEditSetMasked-1.lua
-    description: This example creates an edit box and an OK button.  The user types
-      in his password, and it checks if the password was correct
-    side: client
+    description: This example creates an edit box and an OK button. The user types
+      in his password, and it checks if the password was correct.
+  - path: examples/guiEditSetMasked_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the function is successful, false otherwise.
+      name: result
+    description: Returns **true** if the function is successful, **false** otherwise.
   oop:
-    element: guiedit
+    element: gui-edit
     method: setMasked
     variable: masked
     static: false
   pair: guiEditIsMasked
-  requires_review: true

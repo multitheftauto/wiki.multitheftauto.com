@@ -1,5 +1,4 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiMemoIsReadOnly
-shared:
+client:
   name: guiMemoIsReadOnly
   description: This function checking if memo is read only or no.
   parameters:
@@ -8,18 +7,17 @@ shared:
     description: The memo to check read-only status of.
   examples:
   - path: examples/guiMemoIsReadOnly-1.lua
-    description: ''
-    side: client
+  - path: examples/guiMemoIsReadOnly_OOP-1.lua
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the memo is read only, false if the memo isn't read
-      only, nil otherwise.
+      name: result
+    description: Returns **true** if the memo is read only, **false** if the memo isn't read
+      only, [[nil]] if invalid memo element was passed.
   oop:
-    element: guimemo
-    method: isReadOnly
+    element: gui-memo
+    method: ''
     variable: readOnly
     static: false
   pair: guiMemoSetReadOnly
-  requires_review: true

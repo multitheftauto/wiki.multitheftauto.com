@@ -1,6 +1,6 @@
-function dontAllowAnyOpenWindow ()
-	if isMTAWindowActive ()	then
-		 setElementHealth ( getLocalPlayer(), 0.0 )
-	end	 
+function dontAllowAnyOpenWindow()
+	if isMTAWindowActive() then
+		setElementHealth(localPlayer, 0.0)
+	end
 end
-setTimer ( dontAllowAnyOpenWindow, 50, 0 )
+setTimer(dontAllowAnyOpenWindow, 50, 0)

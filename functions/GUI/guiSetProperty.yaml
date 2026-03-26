@@ -1,38 +1,36 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiSetProperty
-shared:
+client:
   name: guiSetProperty
   description: This function sets the value of a specific CEGUI property of a GUI
-    element. For a list of properties and their meaning, see the [CEGUI properties
-    page](http://static.cegui.org.uk/static/WindowsLookProperties.html).
+    element. For a list of properties and their meaning, see the <a href="http://static.cegui.org.uk/static/WindowsLookProperties.html" target="_blank">CEGUI properties page</a>.
   parameters:
   - name: guiElement
-    type: element
-    description: the GUI element you wish to get a property of.
+    type: gui-element
+    description: The GUI element you wish to get a property of.
   - name: property
     type: string
-    description: the name of of property you want the value of.
+    description: The name of of property you want the value of.
   - name: value
     type: string
-    description: the new value for the property.
+    description: The new value for the property.
   examples:
   - path: examples/guiSetProperty-1.lua
     description: This example creates a button when the resource starts and defines
       a console command that toggles it between enabled (clickable) and disabled (not
       clickable).
-    side: client
   - path: examples/guiSetProperty-2.lua
     description: This example creates a button when the resource starts and defines
       its normal color to red and hover color to yellow.
-    side: client
+  - path: examples/guiSetProperty_OOP-1.lua
+    description: This example creates a button that has green text, turns blue when hovered over, and turns red when pressed.
+    oop: true
   returns:
     values:
     - type: bool
-      name: value
-    description: If the function succeeds it returns true , if it fails it returns
-      false .
+      name: result
+    description: If the function succeeds it returns **true**, if it fails it returns
+      **false**.
   oop:
-    element: guielement
+    element: gui-element
     method: setProperty
     static: false
   pair: guiGetProperty
-  requires_review: true

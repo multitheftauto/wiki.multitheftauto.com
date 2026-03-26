@@ -1,20 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/GuiScrollPaneGetVerticalScrollPosition
-shared:
+client:
   name: guiScrollPaneGetVerticalScrollPosition
+  pair: guiScrollPaneSetVerticalScrollPosition
   description: This function is used to get the position of a vertical scroll pane
     as a percentage.
   parameters:
   - name: verticalScrollPane
-    type: element
-    description: The scroll pane you want to know the position of
+    type: gui-scrollpane
+    description: The scroll pane you want to know the position of.
   examples:
   - path: examples/guiScrollPaneGetVerticalScrollPosition-1.lua
-    description: This example gets the position of a scroll pane called "myScrollPane"
-      created withguiCreateScrollPane, and outputs it to the chatbox.
-    side: client
+  - path: examples/guiScrollPaneGetVerticalScrollPosition_OOP-1.lua
+    oop: true
   returns:
     values:
-    - type: float
-      name: value
-    description: Returns a float ranging between 0 and 100, or false otherwise.
-  requires_review: true
+    - type: float|false
+      name: Vertical scroll position
+    description: Returns a [[float]] ranging between 0 and 100, or **false** otherwise.
+  oop:
+    element: gui-scrollpane
+    method: getVerticalScrollPosition
+    variable: verticalScrollPosition

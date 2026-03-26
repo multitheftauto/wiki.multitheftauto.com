@@ -4,6 +4,7 @@ addEventHandler('onClientResourceStart',resourceRoot,function()
 	for key,player in ipairs(getElementsByType('player')) do -- get the connected players
 		guiComboBoxAddItem(playersList, getPlayerName(player)) -- add players name to the combo box
 	end
+	
 	local playersCount = guiComboBoxGetItemCount(playersList) -- get the number of items 
 	outputChatBox('Number of connected players: '..playersCount) -- show info on chatbox
 end)
