@@ -34,7 +34,12 @@ shared:
   - name: endZ
     type: float
     description: MISSING_PARAM_DESC
-  examples: []
+  examples: 
+  - path: examples/processLineAgainstMesh-1.lua
+    description: This example prints the name of the texture hit by the player's crosshair 
+      on any vehicle in the world.  It uses processLineAgainstMesh to check 
+      for collisions between a line from the camera to a point in front of it and the meshes of vehicles.
+    side: client
   returns:
     values:
     - type: bool
