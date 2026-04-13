@@ -20,8 +20,7 @@ const customLinks = new Map([
 function sanitizeUrl(url) {
   if (typeof url !== "string") return null;
 
-  // Allow root-relative URLs (e.g. "/reference/Vector3")
-  if (url.startsWith("/")) {
+  if (url.startsWith("/") && !url.startsWith("//")) {
     return url;
   }
 
@@ -29,14 +28,10 @@ function sanitizeUrl(url) {
     const parsed = new URL(url, window.location.origin);
     const protocol = parsed.protocol.toLowerCase();
 
-    // Only allow http/https URLs
     if (protocol === "http:" || protocol === "https:") {
       return parsed.href;
     }
-  } catch (e) {
-    // If URL construction fails, treat as unsafe
-    return null;
-  }
+  } catch (_) {}
 
   return null;
 }
