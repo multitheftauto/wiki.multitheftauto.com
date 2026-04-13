@@ -22,6 +22,11 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  vite: {
+    ssr: {
+      noExternal: ['zod'],
+    },
+  },
   integrations: [
     starlight({
       plugins: [mtasaStarlightThemePlugin(), starlightScrollToTop({
