@@ -17,6 +17,30 @@ const customLinks = new Map([
   ["Vector2", "/reference/Vector2"]
 ]);
 
+function sanitizeUrl(url) {
+  if (typeof url !== "string") return null;
+
+  // Allow root-relative URLs (e.g. "/reference/Vector3")
+  if (url.startsWith("/")) {
+    return url;
+  }
+
+  try {
+    const parsed = new URL(url, window.location.origin);
+    const protocol = parsed.protocol.toLowerCase();
+
+    // Only allow http/https URLs
+    if (protocol === "http:" || protocol === "https:") {
+      return parsed.href;
+    }
+  } catch (e) {
+    // If URL construction fails, treat as unsafe
+    return null;
+  }
+
+  return null;
+}
+
 function extractFunctions(tmLanguage, textContent) {
   const result = new Set();
 
@@ -93,13 +117,19 @@ function initKeywordLinker() {
           url = `https://www.lua.org/manual/5.1/manual.html#pdf-${text}`;
         }
 
+        const safeUrl = sanitizeUrl(url);
+        if (!safeUrl) {
+          // Do not create a link if the URL is unsafe
+          return;
+        }
+
         const a = document.createElement("a");
-        a.href = url;
+        a.href = safeUrl;
         a.textContent = text;
         a.className = "mta-keyword-link";
 
         // Open external links in a new tab
-        const isExternalURL = /^https?:\/\//.test(url);
+        const isExternalURL = /^https?:\/\//.test(safeUrl);
         if (isExternalURL) {
           a.target = "_blank";
           a.rel = "noopener noreferrer";
