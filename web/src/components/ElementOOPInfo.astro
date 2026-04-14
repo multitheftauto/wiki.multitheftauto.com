@@ -67,7 +67,7 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
                         {overload.parameters.map((param: any) => (
                         <li>
                             <strong>{param.name}</strong>
-                            {param.optional && ' (optional)'}: <code>{param.type}</code> – {param.description}
+                            {param.optional && ' (optional)'}: {param.description}
                         </li>
                         ))}
                     </ul>
