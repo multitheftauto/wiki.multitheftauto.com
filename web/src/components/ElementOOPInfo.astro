@@ -1,6 +1,6 @@
 ---
 import { Code } from '@astrojs/starlight/components';
-import { getFixedStaticOOPClass } from '@src/utils/functions';
+import { getFixedStaticOOPClass, buildSyntaxString } from '@src/utils/functions';
 
 export interface Props {
     element_name?: string | null;
@@ -60,7 +60,7 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
             <div class="overloads">
                 {method.overloads.map((overload: any) => (
                 <div class="overload">
-                    <Code code={overload.signature} lang="lua" />
+                    <Code code={buildSyntaxString(method.name, overload.parameters, overload.returns)} lang="lua" />
                     {overload.description && <p>{overload.description}</p>}
                     {overload.parameters?.length > 0 && (
                     <ul class="parameters">
@@ -77,9 +77,9 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
             </div>
             )}
 
-            {!method.overloads && method.signature && (
+            {!method.overloads && (
             <div class="signature">
-                <Code code={method.signature} lang="lua" />
+                <Code code={buildSyntaxString(method.name, method.parameters, method.returns)} lang="lua" />
             </div>
             )}
 
@@ -87,7 +87,7 @@ let oop_constructor = oop_compatible_functions.find(func => func.oop.constructor
             <ul class="parameters">
                 {method.parameters.map((param: any) => (
                 <li>
-                    <strong>{param.name}</strong>: <code>{param.type}</code> – {param.description}
+                    <strong>{param.name}</strong>: {param.description}
                 </li>
                 ))}
             </ul>

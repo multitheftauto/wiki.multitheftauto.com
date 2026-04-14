@@ -5,103 +5,143 @@ oop_only_methods:
   - name: create
     description: |
       Default constructor for the Vector2 class. Returns a Vector2 object.
-    signature: Vector2(mixed vectorOrX[, float y])
     parameters:
       - name: vectorOrX
-        type: float | table | vector2
-        description: Vector2, table, or float indicating vector's coordinates
+        type: float | table | Vector2
+        description: Vector2, table, or float indicating vector's coordinates.
       - name: "y"
         type: float
-        optional: true
-        description: If vectorOrX is a float, this is the Y coordinate
+        default: 0
+        description: If vectorOrX is a float, this is the Y coordinate.
+    returns:
+      description: Returns **Vector2** element.
+      values:
+        - type: Vector2
+          name: vector
 
   - name: normalize
-    description: Normalizes the vector
-    signature: bool Vector2.normalize(vector2 vector)
+    description: Normalizes the vector.
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to normalize
+        type: Vector2
+        description: Vector2 to normalize.
+    returns:
+      values:
+        - type: bool
+          name: result
+      description: Whether the operation succeeded (e.g., the vector was not zero-length).
 
   - name: getX
-    description: Gets the X coordinate of a vector
-    signature: float Vector2.getX(vector2 vector)
+    description: Gets the X coordinate of a vector.
     variable: x
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to get X coordinate from
+        type: Vector2
+        description: Vector2 to get X coordinate from.
+    returns:
+      values:
+        - type: float|false
+          name: x  
+      description: The X coordinate.
 
   - name: setX
-    description: Sets the X coordinate of a vector
-    signature: bool Vector2.setX(vector2 vector, float x)
+    description: Sets the X coordinate of a vector.
     variable: x
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to set X coordinate on
+        type: Vector2
+        description: Vector2 to set X coordinate on.
       - name: x
         type: float
-        description: New X coordinate
+        description: New X coordinate.
 
   - name: getY
-    description: Gets the Y coordinate of a vector
-    signature: float Vector2.getY(vector2 vector)
+    description: Gets the Y coordinate of a vector.
     variable: "y"
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to get Y coordinate from
+        type: Vector2
+        description: Vector2 to get Y coordinate from.
+    returns:
+      values:
+        - type: float|false
+          name: 'y'
+      description: The Y coordinate.
 
   - name: setY
-    description: Sets the Y coordinate of a vector
-    signature: bool Vector2.setY(vector2 vector, float y)
+    description: Sets the Y coordinate of a vector.
     variable: "y"
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to set Y coordinate on
+        type: Vector2
+        description: Vector2 to set Y coordinate on.
       - name: "y"
         type: float
-        description: New Y coordinate
+        description: New Y coordinate.
 
   - name: getNormalized
-    description: Gets a normalized version of the vector
-    signature: vector2 Vector2.getNormalized(vector2 vector)
+    description: Gets a normalized version of the vector.
     variable: normalized
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to get normalized version of
+        type: Vector2
+        description: Vector2 to get normalized version of.
+    returns:
+      values:
+        - type: Vector2|false
+          name: normalized vector
+      description: A new normalized vector.
 
   - name: getLength
-    description: Gets the length of a vector
-    signature: float Vector2.getLength(vector2 vector)
+    description: Gets the length of a vector.
     variable: length
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to get length from
+        type: Vector2
+        description: Vector2 to get length from.
+    returns:
+      values:
+        - type: float|false
+          name: length
+      description: The vector's length.
 
   - name: getSquaredLength
-    description: Gets the squared length of a vector
-    signature: float Vector2.getSquaredLength(vector2 vector)
+    description: Gets the squared length of a vector.
     variable: squaredLength
     parameters:
       - name: vector
-        type: vector2
-        description: Vector2 to get squared length from
+        type: Vector2
+        description: Vector2 to get squared length from.
+    returns:
+      values:
+        - type: float|false
+          name: squaredLength
+      description: The squared length of the vector.
 
   - name: dot
-    description: Gets the dot product of two vectors
-    signature: float Vector2.dot(vector2 vectorOne, vector2 vectorTwo)
+    description: Gets the dot product of two vectors.
     parameters:
       - name: vectorOne
-        type: vector2
-        description: First vector
+        type: Vector2
+        description: First vector.
       - name: vectorTwo
-        type: vector2
-        description: Second vector
+        type: Vector2
+        description: Second vector.
+    returns:
+      values:
+        - type: float|false
+          name: dot-product
+      description: The scalar dot product.
 
 examples:
   - path: examples/vector2-1.lua

@@ -6,61 +6,85 @@ oop_only_methods:
   - name: create
     description: |
       Default constructor for the Vector3 class. Returns a Vector3 object.
-    signature: Vector3(mixed vectorOrX[, float y, float z])
     parameters:
       - name: vectorOrX
-        type: float | table | vector3
-        description: Vector3, table, or floats indicating vector's coordinates
+        type: float | table | Vector3
+        description: Vector3, table, or floats indicating vector's coordinates.
       - name: "y"
         type: float
-        optional: true
-        description: If vectorOrX is a float, this is the Y coordinate
+        default: 0
+        description: If vectorOrX is a float, this is the Y coordinate.
       - name: z
         type: float
-        optional: true
-        description: If vectorOrX is a float, this is the Z coordinate
+        default: 0
+        description: If vectorOrX is a float, this is the Z coordinate.
+    returns:
+      description: Returns **Vector3** element.
+      values:
+        - type: Vector3
+          name: vector
 
   - name: cross
     type: method
     description: |
       Calculates the cross product of two vectors. The result is a vector orthogonal to both.
-    signature: vector3 Vector3:cross ( vector3 vector )
     parameters:
-      - name: vector
+      - name: vectorA
+        type: Vector3
+        description: Source vector.
+      - name: vectorB
         type: Vector3
         description: Vector to calculate the cross product with.
     returns:
-      type: Vector3
+      values:
+        - type: Vector3|false
+          name: cross-product
       description: The resulting vector from the cross product.
 
   - name: dot
     type: method
     description: |
       Calculates the dot (scalar) product of two vectors.
-    signature: float Vector3:dot ( vector3 vector )
     parameters:
-      - name: vector
+      - name: vectorA
+        type: Vector3
+        description: Source vector.
+      - name: vectorB
         type: Vector3
         description: Vector to calculate the dot product with.
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: dot-product
       description: The scalar dot product.
 
   - name: getX
     type: method
     description: Returns the X component of the vector.
-    signature: float Vector3:getX ( )
+    parameters: 
+      - type: Vector3
+        name: vector
+        description: Vector3 to get X coordinate from.
     variable: x
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: x  
       description: The X coordinate.
 
   - name: setX
     type: method
     description: Sets the X component of the vector.
-    signature: void Vector3:setX ( float x )
     variable: x
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
+      - name: vector
+        type: Vector3
+        description: Vector3 to set X coordinate on.
       - name: x
         type: float
         description: The new X value.
@@ -68,18 +92,30 @@ oop_only_methods:
   - name: getY
     type: method
     description: Returns the Y component of the vector.
-    signature: float Vector3:getY ( )
+    parameters: 
+      - type: Vector3
+        name: vector
+        description: Vector3 to get Y coordinate from.
     variable: "y"
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: 'y'
       description: The Y coordinate.
 
   - name: setY
     type: method
     description: Sets the Y component of the vector.
-    signature: void Vector3:setY ( float y )
     variable: "y"
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
+      - name: vector
+        type: Vector3
+        description: Vector3 to set Y coordinate on.
       - name: "y"
         type: float
         description: The new Y value.
@@ -87,18 +123,30 @@ oop_only_methods:
   - name: getZ
     type: method
     description: Returns the Z component of the vector.
-    signature: float Vector3:getZ ( )
+    parameters: 
+      - type: Vector3
+        name: vector
+        description: Vector3 to get Z coordinate from.
     variable: z
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: z
       description: The Z coordinate.
 
   - name: setZ
     type: method
     description: Sets the Z component of the vector.
-    signature: void Vector3:setZ ( float z )
     variable: z
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
+      - name: vector
+        type: Vector3
+        description: Vector3 to set Z coordinate on.
       - name: z
         type: float
         description: The new Z value.
@@ -107,47 +155,69 @@ oop_only_methods:
     type: method
     description: |
       Normalizes the vector to a unit vector (length of 1). Modifies the original vector.
-    signature: bool Vector3:normalize ( )
+    parameters: 
+      - name: vector
+        type: Vector3
+        description: Vector3 to normalize.
     returns:
-      type: bool
+      values:
+        - type: bool
+          name: result
       description: Whether the operation succeeded (e.g., the vector was not zero-length).
 
   - name: getNormalized
     type: method
     description: |
       Returns a normalized version of the vector without modifying the original.
-    signature: vector3 Vector3:getNormalized ( )
+    parameters: 
+      - type: Vector3
+        name: vector
+        description: Vector3 to get normalized version of.
     variable: normalized
     returns:
-      type: Vector3
+      values:
+        - type: Vector3|false
+          name: normalized vector
       description: A new normalized vector.
 
   - name: getLength
     type: method
     description: |
       Returns the length (magnitude) of the vector.
-    signature: float Vector3:getLength ( )
+    parameters:
+      - name: vector
+        type: Vector3
+        description: Vector3 to get length from.
     variable: length
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: length
       description: The vector's length.
 
   - name: getSquaredLength
     type: method
     description: |
       Returns the squared length of the vector (useful to avoid square root operations).
-    signature: float Vector3:getSquaredLength ( )
+    parameters:
+      - name: vector
+        type: Vector3
+        description: Vector3 to get squared length from.
     variable: squaredLength
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: squaredLength
       description: The squared length of the vector.
 
   - name: intersectsSegmentTriangle
     type: method
     description: |
       Determines if a line segment intersects with a triangle.
-    signature: vector3 Vector3:intersectsSegmentTriangle ( vector3 segmentDir, vector3 triVert0, vector3 triVert1, vector3 triVert2 )
     parameters:
+      - name: origin
+        type: Vector3
+        description: Origin point of the segment.
       - name: segmentDir
         type: Vector3
         description: The direction vector of the segment.
@@ -161,33 +231,10 @@ oop_only_methods:
         type: Vector3
         description: Third vertex of the triangle.
     returns:
-      type: Vector3 | false
+      values:
+        - type: Vector3|false
+          name: point of intersection
       description: The point of intersection, or false if none.
-
-  - name: intersectsSegmentTriangle (static)
-    type: static_method
-    description: |
-      Static version of the segment-triangle intersection method.
-    signature: vector3 Vector3.intersectsSegmentTriangle ( vector3 origin, vector3 segmentDir, vector3 triVert0, vector3 triVert1, vector3 triVert2 )
-    parameters:
-      - name: origin
-        type: Vector3
-        description: Origin point of the segment.
-      - name: segmentDir
-        type: Vector3
-        description: Direction of the segment.
-      - name: triVert0
-        type: Vector3
-        description: First triangle vertex.
-      - name: triVert1
-        type: Vector3
-        description: Second triangle vertex.
-      - name: triVert2
-        type: Vector3
-        description: Third triangle vertex.
-    returns:
-      type: Vector3 | false
-      description: The intersection point, or false if there is no intersection.
 
 examples:
   - path: examples/vector3-1.lua

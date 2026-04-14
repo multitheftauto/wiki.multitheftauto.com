@@ -6,52 +6,67 @@ oop_only_methods:
   - name: create
     description: |
       Default constructor for the Vector4 class. Returns a Vector4 object.
-    signature: Vector4(mixed vectorOrX[, float y, float z, float w])
     parameters:
       - name: vectorOrX
-        type: float | table | vector4
+        type: float | table | Vector4
         description: Vector4, table, or floats indicating vector's coordinates
       - name: "y"
         type: float
-        optional: true
-        description: If vectorOrX is a float, this is the Y coordinate
+        default: 0
+        description: If vectorOrX is a float, this is the Y coordinate.
       - name: z
         type: float
-        optional: true
-        description: If vectorOrX is a float, this is the Z coordinate
+        default: 0
+        description: If vectorOrX is a float, this is the Z coordinate.
       - name: w
         type: float
-        optional: true
-        description: If vectorOrX is a float, this is the W coordinate
+        default: 0
+        description: If vectorOrX is a float, this is the W coordinate.
 
   - name: dot
     type: method
     description: |
       Calculates the dot (scalar) product of two vectors.
-    signature: float Vector4:dot ( Vector4 vector )
     parameters:
-      - name: vector
+      - name: vectorOne
+        type: Vector4
+        description: First vector.
+      - name: vectorTwo
         type: Vector4
         description: Vector to calculate the dot product with.
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: dot-product
       description: The scalar dot product.
 
   - name: getX
     type: method
     description: Returns the X component of the vector.
-    signature: float Vector4:getX ( )
     variable: x
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to get X coordinate from.
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: x
       description: The X coordinate.
 
   - name: setX
     type: method
     description: Sets the X component of the vector.
-    signature: nil Vector4:setX ( float x )
     variable: x
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to set X coordinate on.
       - name: x
         type: float
         description: The new X value.
@@ -59,18 +74,30 @@ oop_only_methods:
   - name: getY
     type: method
     description: Returns the Y component of the vector.
-    signature: float Vector4:getY ( )
     variable: "y"
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to get Y coordinate from.
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: 'y'
       description: The Y coordinate.
 
   - name: setY
     type: method
     description: Sets the Y component of the vector.
-    signature: nil Vector4:setY ( float y )
     variable: "y"
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to set Y coordinate on.
       - name: "y"
         type: float
         description: The new Y value.
@@ -78,18 +105,30 @@ oop_only_methods:
   - name: getZ
     type: method
     description: Returns the Z component of the vector.
-    signature: float Vector4:getZ ( )
     variable: z
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to get Z coordinate from.
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: z
       description: The Z coordinate.
 
   - name: setZ
     type: method
     description: Sets the Z component of the vector.
-    signature: nil Vector4:setZ ( float z )
     variable: z
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to set Z coordinate on.
       - name: z
         type: float
         description: The new Z value.
@@ -97,18 +136,30 @@ oop_only_methods:
   - name: getW
     type: method
     description: Returns the W component of the vector.
-    signature: float Vector4:getW ( )
     variable: w
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to get W coordinate from.
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: w
       description: The W coordinate.
 
   - name: setW
     type: method
     description: Sets the W component of the vector.
-    signature: nil Vector4:setW ( float w )
     variable: w
+    returns: 
+      values:
+        - type: bool
+          name: result
+      description: ''
     parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to set W coordinate on.
       - name: w
         type: float
         description: The new W value.
@@ -117,39 +168,59 @@ oop_only_methods:
     type: method
     description: |
       Normalizes the vector to a unit vector (length of 1). Modifies the original vector.
-    signature: bool Vector4:normalize ( )
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to normalize.
     returns:
-      type: bool
+      values: 
+        - type: bool
+          name: result
       description: Whether the operation succeeded (e.g., the vector was not zero-length).
 
   - name: getNormalized
     type: method
     description: |
       Returns a normalized version of the vector without modifying the original.
-    signature: Vector4 Vector4:getNormalized ( )
     variable: normalized
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to get normalized version of.
     returns:
-      type: Vector4
+      values: 
+        - type: Vector4|false
+          name: normalized vector
       description: A new normalized vector.
 
   - name: getLength
     type: method
     description: |
       Returns the length (magnitude) of the vector.
-    signature: float Vector4:getLength ( )
     variable: length
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to get length from.
     returns:
-      type: float
+      values:
+        - type: float|false
+          name: length
       description: The vector's length.
 
   - name: getSquaredLength
     type: method
     description: |
       Returns the squared length of the vector (useful to anil square root operations).
-    signature: float Vector4:getSquaredLength ( )
     variable: squaredLength
+    parameters:
+      - name: vector
+        type: Vector4
+        description: Vector4 to get squared length from.
     returns:
-      type: float
+      values: 
+        - type: float|false
+          name: squaredLength
       description: The squared length of the vector.
 
 examples:

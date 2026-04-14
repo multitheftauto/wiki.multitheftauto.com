@@ -23,12 +23,15 @@ function getFunctionTypePretty(data: FunctionData): string {
 
 // return_type func_name ( param1, param2, [ optional param1 ] )
 // e.g. bool setCursorPosition ( int cursorX, int cursorY )
-function buildSyntaxString(
+export function buildSyntaxString(
   funcName: string,
   parameters: Parameter[],
   returns: ReturnBlock | null,
 ): string {
   const ZERO_WIDTH_SPACE = '\u200B';
+
+  if (!returns)
+    console.log(funcName, returns);
 
   const returnString = returns
     ? `${returns.values.map(v => `${ZERO_WIDTH_SPACE}${v.type}`).join(', ')}`
@@ -48,7 +51,7 @@ function buildSyntaxString(
     return typeStr.split(/(?:\/|\|)/).map(t => `${ZERO_WIDTH_SPACE}${t.trim()}`).join(typeStr.includes('|') ? '|' : '/');
   };
 
-  for (const p of parameters) {
+  for (const p of (parameters ?? [])) {
     const str = `${addZWSPToType(p.type)} ${p.name}${p.default !== undefined ? ` = ${p.default}` : ''}`;
 
     if (p.default !== undefined) {
