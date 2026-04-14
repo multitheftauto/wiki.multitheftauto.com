@@ -53,6 +53,10 @@ $defs:
         anyOf:
           - type: string
           - const: true
+      html:
+        type: boolean
+        default: false
+        description: If true, a note will be displayed on the function page indicating that the function is only available in the HTTP interface.
       parameters:
         $ref: "#/$defs/parameters"
       ignore_parameters:

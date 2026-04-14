@@ -1,21 +1,18 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/HttpSetResponseCode
-shared:
+server:
   name: httpSetResponseCode
   description: This function sets the HTTP status code that will be sent for the current
     HTML page.
+  html: true
   parameters:
   - name: code
     type: int
-    description: MISSING_PARAM_DESC
+    description: The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/" target="_blank" rel="noopener noreferrer">HTTP status code</a> to be set.
   examples:
-  - path: examples/httpSetResponseCode-1.lua
-    description: This example displays a 'Page not found' error message and the response
-      code 404. The location of thehttpSetResponseCodecall is unimportant - it can
-      be placed anywhere in the document.
-    side: server
+  - path: examples/httpSetResponseCode-1.html
+    description: In this example, when accessing the resource web page, if the logged-in user is not in the `IT_Admin` ACL group, a **Page not found** message is displayed and a 404 status code is returned. If the user is in the specified group, the page displays the text **Hello admin**.
+    lang: html
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the code was set successfully, false otherwise.
-  requires_review: true
+      name: result
+    description: Returns **true** if the code was set successfully, **false** otherwise.

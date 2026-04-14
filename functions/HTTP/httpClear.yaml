@@ -1,24 +1,15 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/HttpClear
-shared:
+server:
   name: httpClear
   description: This function removes all text from the current HTML output.
+  html: true
   parameters: []
   examples:
-  - path: examples/httpClear-1.lua
-    description: This sample resource page adds a message to be outputted saying there
-      are players in the server, but clears output if the server is empty so a blank
-      page is displayed instead.
-    side: server
-  - path: examples/httpClear-2.lua
-    description: ''
-    side: server
-  - path: examples/httpClear-3.lua
-    description: ''
-    side: server
+  - path: examples/httpClear-1.html
+    description: This example creates a simple [HTTP interface](/reference/Resource_Web_Access/) for a server resource. When you open the resource page in a browser, you will see a white page with text indicating that there are players on the server. If the server is empty, the page will be completely blank.
+    lang: html
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the output buffer was cleared successfully, false
+      name: result
+    description: Returns **true** if the output buffer was cleared successfully, **false**
       otherwise.
-  requires_review: true

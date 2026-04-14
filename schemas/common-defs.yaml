@@ -147,6 +147,9 @@ $defs:
             - client
             - server
             - shared
+        lang:
+          type: string
+          description: Optionally, allows you to specify the language in which the code from the file specified by path will be displayed.
 
   see_also:
     type: array

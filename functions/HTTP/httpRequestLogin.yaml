@@ -1,24 +1,22 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/HttpRequestLogin
-shared:
+server:
   name: httpRequestLogin
-  description: This function makes the user's browser show a 'basic authentication'
-    login box. The result of the login is handled automatically by the server. If
-    the user has not logged in satisfactorily, you should just call the httpRequestLogin
-    function again. It is the script's responsibility to judge when the user is logged
-    in satisfactorily \- you can use the *user* variable can be used to check if the
-    user has logged in with an account you are happy with. If the logged in user doesn't
-    meet whatever criteria you have, you can just call httpRequestLogin again and
-    they will be re\-promoted for their password.
+  description: |
+    This function makes the user's browser show a 'basic authentication' login box.
+    The result of the login is handled automatically by the server.
+    If the user has not logged in satisfactorily, you should just call the **httpRequestLogin** function again.
+    It is the script's responsibility to judge when the user is logged in satisfactorily - you can use the [user](/reference/Predefined_variables.html#http) variable can be used to check if the user has logged in with an account you are happy with.
+    If the logged in user doesn't meet whatever criteria you have, you can just call **httpRequestLogin** again and they will be re-promoted for their password.
+  
+    This function works by setting a header `('Authentication')` and a return code `(403 - Authentication required)`. As such, nothing happens until you finish the page. The content of the page is generally not displayed unless the login fails.
   parameters: []
+  html: true
   examples:
-  - path: examples/httpRequestLogin-1.lua
-    description: This example shows how you can make a page that only registered users
-      can see.
-    side: server
+  - path: examples/httpRequestLogin-1.html
+    description: This example requires you to log in with an account that belongs to the `IT_Admin` ACL group when accessing the resource web page.
+    lang: html
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the relevant headers and return codes have been set,
-      false otherwise. Essentially, always returns true .
-  requires_review: true
+      name: result
+    description: Returns **true** if the relevant headers and return codes have been set,
+      **false** otherwise.

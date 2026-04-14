@@ -43,6 +43,7 @@ export type FunctionInfo = {
     version?: VersionInfo;
     issues?: IssuesTable;
     redirect?: string;
+    html?: boolean;
 };
 
 export type FunctionData = {

@@ -99,6 +99,12 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
   >
     <div class={`fading-bg fade-${funcType}`}></div>
 
+    {funcPair && (
+      <p>
+        <strong>Pair:</strong> <a href={`/reference/${funcPair}`}>{funcPair}</a>
+      </p>
+    )}
+
     {needsChecking && (
       <div class="notes-section">
         <NoteBox type="needs_checking">
@@ -107,10 +113,12 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
       </div>
     )}
 
-    {funcPair && (
-      <p>
-        <strong>Pair:</strong> <a href={`/reference/${funcPair}`}>{funcPair}</a>
-      </p>
+    {funcInfo.html && (
+      <div class="notes-section">
+        <NoteBox type="warning">
+          <EnhancedMarkdown content="This function works only in the [HTTP interface](/reference/Resource_Web_Access/), meaning in .html files - it is not available in `.lua` files." />
+        </NoteBox>
+      </div>
     )}
 
     <!-- Description -->

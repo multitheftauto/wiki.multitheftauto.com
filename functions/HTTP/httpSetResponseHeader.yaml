@@ -1,22 +1,21 @@
-# Scraped from: https://wiki.multitheftauto.com/wiki/HttpSetResponseHeader
-shared:
+server:
   name: httpSetResponseHeader
   description: This function sets the value for the specified HTTP response header
     of the current HTML page.
+  html: true
   parameters:
   - name: headerName
     type: string
-    description: MISSING_PARAM_DESC
+    description: The HTTP header whose value is being set. You can find a list of header names <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers" target="_blank" rel="noopener noreferrer">here</a>. Header names should be all lower case letters.
   - name: headerValue
     type: string
-    description: MISSING_PARAM_DESC
+    description: The new value for the specified header.
   examples:
-  - path: examples/httpSetResponseHeader-1.lua
-    description: Using httpSetResponseHeader to set the content type. (Example fromhttpWrite)
-    side: server
+  - path: examples/httpSetResponseHeader-1.html
+    description: This example displays an image on the page by setting the header content-type to `image/png`.
+    lang: html
   returns:
     values:
     - type: bool
-      name: value
-    description: Returns true if the header value was set successfully, false otherwise.
-  requires_review: true
+      name: result
+    description: Returns **true** if the header value was set successfully, **false** otherwise.

@@ -9,6 +9,7 @@ export interface CodeExample {
   side: string;
   title?: string;
   oop?: boolean;
+  lang?: string;
 }
 
 export interface Props {
@@ -68,7 +69,7 @@ if (codeExamples.length === 0 && !examplesRequired) {
           <div class="tab-body">
             {example.description && <EnhancedMarkdown content={example.description} />}
             <div class="code-example">
-              <Code code={example.luaCode} lang="lua" />
+              <Code code={example.luaCode} lang={example.lang ?? "lua"} />
             </div>
           </div>
         </div>
