@@ -1,6 +1,6 @@
 ---
 import { functionTypePrettyName } from "@src/utils/functions";
-const funcType = (Astro.locals.side ?? 'shared');
+const funcType = Astro.locals.side;
 ---
 
 <div class={`page-title-container type-${funcType}`}>

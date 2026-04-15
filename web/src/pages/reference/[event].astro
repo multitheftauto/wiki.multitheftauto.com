@@ -11,7 +11,7 @@ import {
 import { Icon } from "@astrojs/starlight/components";
 
 import NoteBox from "@src/components/NoteBox.astro";
-import type { NotesType } from "@src/utils/types";
+import type { MetaItem, NotesType } from "@src/utils/types";
 
 import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
 import CodeExamplesSection from "@src/components/CodeExamplesSection.astro";
@@ -70,9 +70,9 @@ if (Array.isArray(event.data.notes) && event.data.notes.length > 0) {
 }
 
 const eventMeta = event.data.meta || [];
-const changelogEntries = eventMeta.find((m) => m.changelog)?.changelog ?? [];
+const changelogEntries = eventMeta.find((m:MetaItem) => m.changelog)?.changelog ?? [];
 const needsChecking =
-  eventMeta.find((m) => m.needs_checking)?.needs_checking ?? undefined;
+  eventMeta.find((m:MetaItem) => m.needs_checking)?.needs_checking ?? undefined;
 ---
 
   <StarlightPage
