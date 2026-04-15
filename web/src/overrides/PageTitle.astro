@@ -1,149 +1,139 @@
 ---
 import { functionTypePrettyName } from "@src/utils/functions";
+const funcType = (Astro.locals.funcType ?? 'shared') as 'client' | 'server' | 'shared';
 ---
 
-<div class="page-title-container">
+<div class={`page-title-container type-${funcType}`}>
     <h1 class="page-title">{Astro.locals.starlightRoute.entry.data.title}</h1>
 
-    <div data-pagefind-ignore class="type-badge type-badge--client">
-        {functionTypePrettyName["client"]}
-    </div>
-    <div data-pagefind-ignore class="type-badge type-badge--server">
-        {functionTypePrettyName["server"]}
-    </div>
-    <div data-pagefind-ignore class="type-badge type-badge--shared">
-        {functionTypePrettyName["shared"]}
+    <div class={`type-badge type-badge-${funcType}`}>
+        {functionTypePrettyName[funcType]}
     </div>
 </div>
 
-<style is:global>
-    .show-type-badge-client {
+<style>
+    .page-title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--selected-type-color);
+        margin-bottom: -1.5rem; /* .content-panel */
+        padding-bottom: 1.5rem;
+    }
+
+    .page-title-container.type-client {
         --selected-type-color: var(--color-type-client);
     }
-    .show-type-badge-server {
+
+    .page-title-container.type-server {
         --selected-type-color: var(--color-type-server);
     }
-    .show-type-badge-shared {
+
+    .page-title-container.type-shared {
         --selected-type-color: var(--color-type-shared);
     }
 
-    .show-type-badge-client .type-badge--client {
-        display: block;
-    }
-    .show-type-badge-server .type-badge--server {
-        display: block;
-    }
-    .show-type-badge-shared .type-badge--shared {
-        display: block;
-    }
-</style>
-
-<style>
-    .type-badge {
-        font-size: 12px;
-        border-radius: 0.25rem;
-        text-transform: uppercase;
-        font-weight: bold;
-        display: none;
-    }
-
-    .type-badge.type-badge--client {
-        color: var(--color-type-client);
-    }
-    .type-badge.type-badge--server {
-        color: var(--color-type-server);
-    }
-    .type-badge.type-badge--shared {
-        color: var(--color-type-shared);
-    }
-
-    .page-title-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-direction: column;
-        border-bottom: 1px solid var(--selected-type-color);
-        padding-bottom: 1.5rem;
-        margin-bottom: calc(-1.5rem - 1px);
-        position: relative;
-    }
-
     .page-title {
+        max-width: 100%;
         font-size: var(--sl-text-h1);
         line-height: var(--sl-line-height-headings);
-        font-weight: 600;
+        font-weight: bold;
         color: var(--sl-color-white);
     }
 
-    .page-title.size-h2 {
-        font-size: var(--sl-text-h2);
+    .type-badge {
+        flex-shrink: 0;
+        padding: 0.15rem 1.5rem;
+        border-radius: 0.25rem;
+        text-transform: uppercase;
+        font-weight: bold;
     }
 
-    .page-title.size-h3 {
-        font-size: var(--sl-text-h3);
+    .type-badge.type-badge-client {
+        color: var(--color-type-client);
+        background-color: var(--color-type-client-background);
+        border: 1px solid var(--color-type-client);
     }
 
-    .page-title.size-h4 {
-        font-size: var(--sl-text-h4);
+    .type-badge.type-badge-server {
+        color: var(--color-type-server);
+        background-color: var(--color-type-server-background);
+        border: 1px solid var(--color-type-server);
     }
 
-    @media (width >= 48rem) {
-        .type-badge {
-            font-size: initial;
-            padding: 0.15rem 1.5rem;
-        }
+    .type-badge.type-badge-shared {
+        color: var(--color-type-shared);
+        background-color: var(--color-type-shared-background);
+        border: 1px solid var(--color-type-shared);
+    }
 
-        .type-badge.type-badge--client {
-            background-color: var(--color-type-client-background);
-            border: 1px solid var(--color-type-client);
-        }
-        .type-badge.type-badge--server {
-            background-color: var(--color-type-server-background);
-            border: 1px solid var(--color-type-server);
-        }
-        .type-badge.type-badge--shared {
-            background-color: var(--color-type-shared-background);
-            border: 1px solid var(--color-type-shared);
-        }
-
+    @media (max-width: 768px) {
         .page-title-container {
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
-            margin-top: 1rem;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .page-title {
+            font-size: var(--sl-text-h3);
+        }
+
+        .type-badge {
+            align-self: flex-end;
+            margin-top: 0.25rem;
         }
     }
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const title = document.querySelector(".page-title");
-  const sizeClasses = ["size-h2", "size-h3", "size-h4"];
+window.addEventListener("load", () => {
+  const title = document.querySelector(".page-title") as HTMLElement;;
+  const badge = document.querySelector(".type-badge") as HTMLElement;
+  const container = document.querySelector(".page-title-container") as HTMLElement;
 
-  function adjustTitle() {
-    if (!title) return;
+  if (!title || !badge || !container) return;
 
-    title.classList.remove(...sizeClasses);
+  const sizes = [
+    "var(--sl-text-h1)",
+    "var(--sl-text-h2)",
+    "var(--sl-text-h3)",
+    "var(--sl-text-h4)",
+    "var(--sl-text-h5)",
+    "var(--sl-text-xl)",
+    "var(--sl-text-lg)",
+    "var(--sl-text-base)",
+    "var(--sl-text-sm)",
+    "var(--sl-text-xs)",
+    "var(--sl-text-2xs)"
+  ];
 
-    requestAnimationFrame(() => {
-      const lineHeight = parseFloat(getComputedStyle(title).lineHeight);
-      let lines = Math.round(title.scrollHeight / lineHeight);
+  const MIN_GAP = 10;
 
-      if (lines <= 1) return;
-
-      for (const sizeClass of sizeClasses) {
-        title.classList.remove(...sizeClasses);
-        title.classList.add(sizeClass);
-
-        lines = Math.round(title.scrollHeight / lineHeight);
-
-        if (lines <= 1) break;
-      }
-    });
+  function gap() {
+    const t = title.getBoundingClientRect();
+    const b = badge.getBoundingClientRect();
+    return b.left - t.right;
   }
 
-  adjustTitle();
-  window.addEventListener("resize", adjustTitle);
+  function adjust() {
+    for (const size of sizes) {
+      title.style.fontSize = size;
+      if (container.style.flexDirection == "column" || gap() >= MIN_GAP) break;
+    }
+
+    if (badge.getBoundingClientRect().right > container.getBoundingClientRect().right)
+    {
+        container.style.flexDirection = "column";
+        badge.style.alignSelf = "flex-start";
+    }
+  }
+
+  if (document.fonts) {
+    document.fonts.ready.then(adjust);
+  } else {
+    adjust();
+  }
+
+  new ResizeObserver(adjust).observe(container);
 });
 </script>
 

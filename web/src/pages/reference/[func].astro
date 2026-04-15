@@ -40,6 +40,8 @@ const funcType = funcInfo.type;
 const funcPair = funcInfo.pair;
 const funcPath = path.dirname(func.filePath ?? "");
 
+Astro.locals.funcType = funcType;
+
 // Join shared, client, and server examples
 let funcExamples: any[] = [];
 
@@ -87,8 +89,6 @@ let funcSyntaxes = parseFunctionSyntaxes(func.id, func.data);
 
 const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [funcInfo.oop]: [];
 ---
-
-<div class={`show-type-badge-${funcType}`}>
   <StarlightPage
     frontmatter={{
       template: 'doc',
@@ -340,4 +340,3 @@ const oopList = Array.isArray(funcInfo.oop) ? funcInfo.oop : funcInfo.oop ? [fun
 
     <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksForItem(func)} currentId={func.id} />
   </StarlightPage>
-</div>
