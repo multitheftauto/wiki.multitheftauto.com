@@ -116,12 +116,15 @@ addEventHandler("onPlayerResourceStart", root, init)`/>
 <h4>HTTP</h4>
 <p>List Predefined variables available in the HTTP files (<a href="/reference/Resource_Web_Access">more info about it</a>).</p>
 
-<Code lang="lua" code=`requestHeaders -- table, contains all HTTP headlines current page.
+<Code lang="text" code=`requestHeaders -- table, contains all HTTP headlines current page.
 form -- table, contains all POST and GET settings, transferred current page.
 cookies -- table, contains all COOKIE, transferred current page.
 hostname -- string, contains IP or name host, which requested current page.
 url -- string, URL current page.
-user -- element, account user, which requested current page.`/>
+user -- element, account user, which requested current page.
+requestBody - string, contains body of the request.
+method - string, contains method of the request (GET, POST, etc.).
+`/>
 
 <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:Element_tree',
