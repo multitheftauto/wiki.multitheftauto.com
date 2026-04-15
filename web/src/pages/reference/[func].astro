@@ -40,7 +40,7 @@ const funcType = funcInfo.type;
 const funcPair = funcInfo.pair;
 const funcPath = path.dirname(func.filePath ?? "");
 
-Astro.locals.funcType = funcType;
+Astro.locals.side = funcType;
 
 // Join shared, client, and server examples
 let funcExamples: any[] = [];

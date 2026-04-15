@@ -34,6 +34,7 @@ event.data.itemType = "event";
 const eventType = event.data.type;
 const eventPath = path.dirname(event.filePath ?? "");
 let eventExamples = event.data.examples || [];
+Astro.locals.side = eventType;
 
 const eventParameters = event.data.parameters || [];
 let parametersCode = "";
@@ -74,7 +75,6 @@ const needsChecking =
   eventMeta.find((m) => m.needs_checking)?.needs_checking ?? undefined;
 ---
 
-<div class={"show-type-badge-" + eventType}>
   <StarlightPage
     frontmatter={{
       template: "doc",
@@ -172,7 +172,6 @@ const needsChecking =
       currentId={event.id}
     />
   </StarlightPage>
-</div>
 
 <style>
   .help-icon {
