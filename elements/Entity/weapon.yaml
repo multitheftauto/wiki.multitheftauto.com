@@ -1,4 +1,4 @@
 name: 'weapon'
 description: |
-  The Weapon class represents a custom static weapon. Weapon elements created by [createWeapon](/createWeapon) can be manipulated with the following scripting functions.
+  The Weapon class represents a custom static weapon. Weapon elements created by [[createWeapon]] can be manipulated with the following scripting functions.
 

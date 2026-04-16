@@ -2,4 +2,4 @@ name: 'effect'
 description: |
   The Effect class represents custom effect elements in the game world such as smoke, sparks, fire etc.
 
-  TODO all effects table
+  Effects listed in the [Effect Types](/reference/ID_Lists/Effects) page can be created using the [[createEffect]] function.

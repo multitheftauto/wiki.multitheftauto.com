@@ -1,9 +1,3 @@
 name: 'radararea'
 description: |
   The radar area class represents coloured areas that can be displayed on a player's radar.
-
-
-see_also:
-  - 'functions:any:RadarArea'
-  - 'events:any:RadarArea'
-

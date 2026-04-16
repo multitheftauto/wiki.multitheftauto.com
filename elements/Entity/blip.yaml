@@ -2,5 +2,5 @@ name: 'blip'
 description: |
   The blip class represents small icons or blips that can be shown on a player's radar.
 
-  The list of blip icons are available on the [Radar Blips](/radar_blips) page. 
+  The list of blip icons are available on the [Radar Blips](/reference/ID_Lists/Blips) page. 
 
