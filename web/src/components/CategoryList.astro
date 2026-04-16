@@ -6,7 +6,7 @@ import { badgeConfig } from "@src/utils/badges";
 import { Badge } from "@astrojs/starlight/components";
 
 interface Props {
-  itemsByCategory: any;
+  itemsByCategory: Record<string, any[]>;
   what: string;
 }
 

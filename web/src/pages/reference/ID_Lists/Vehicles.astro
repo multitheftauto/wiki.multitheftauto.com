@@ -32,7 +32,7 @@ import { vehicles } from '@src/data/vehicles';
           <li>
               <a href={`#${category}`}>{category}</a>
               <ul>
-                  {Object.keys(vehicles[category]).map(subcategory => (
+                  {Object.keys(vehicles[category as keyof typeof vehicles]).map(subcategory => (
                       <>
                           {subcategory !== 'Uncategorized' && (
                               <li>
@@ -82,6 +82,7 @@ import { vehicles } from '@src/data/vehicles';
           <h3 class="vehicle-category-title">{category}</h3>
           {
               Object.entries(subcategories).map(([subcategory, vehiclesList]) => (
+                <>
                   <div class="vehicle-subcategory" id={subcategory}>
                       {subcategory !== 'Uncategorized' && (
                           <h4 class="vehicle-subcategory-title">{subcategory}</h4>
@@ -102,6 +103,7 @@ import { vehicles } from '@src/data/vehicles';
                       ))}
                       </div>
                   </div>
+                  </>
               ))
           }
       </div>

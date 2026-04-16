@@ -38,7 +38,7 @@ import { blips } from "@src/data/blips";
                         src={getAssetImagePath(`Blips/radar_${blip.name}.png`)}
                         alt={blip.name}
                         class="blip-image"
-                        id={blip.id}
+                        id={String(blip.id)}
                     />
 
                     <p><code>{blip.id}</code></p>

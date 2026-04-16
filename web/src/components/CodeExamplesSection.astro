@@ -83,14 +83,15 @@ if (codeExamples.length === 0 && !examplesRequired) {
     const buttons = document.querySelectorAll('.tab-btn');
     const tabs = document.querySelectorAll('.tab-content');
 
-    function activateTab(tabIndex) {
-      buttons.forEach((b) => b.classList.toggle('active', b.dataset.tab === tabIndex));
-      tabs.forEach((t) => (t.style.display = t.dataset.tab === tabIndex ? 'block' : 'none'));
+    function activateTab(tabIndex: string) {
+      buttons.forEach((b) => (b as HTMLElement).classList.toggle('active', (b as HTMLElement).dataset.tab === tabIndex));
+      tabs.forEach((t) => ((t as HTMLElement).style.display = (t as HTMLElement).dataset.tab === tabIndex ? 'block' : 'none'));
     }
 
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const tab = btn.dataset.tab;
+        const tab = (btn as HTMLElement).dataset.tab;
+        if (!tab) return;
         activateTab(tab);
 
         history.replaceState(null, '', `#example${parseInt(tab) + 1}`);

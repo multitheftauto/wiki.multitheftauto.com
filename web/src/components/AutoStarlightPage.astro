@@ -1,5 +1,6 @@
 ---
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import type { MarkdownHeading } from 'astro';
 import { parse } from 'node-html-parser';
 
 const { frontmatter = {} } = Astro.props;
@@ -11,10 +12,10 @@ if (Astro.slots.has('default')) {
 
 const root = parse(slot ?? '', { lowerCaseTagName: false });
 
-const headings = [];
+const headings: MarkdownHeading[] = [];
 
 // AnchorHeading component source
-function renderAnchorHeading(level, id, text, classAttr = '', styleAttr = '') {
+function renderAnchorHeading(level: number, id: string, text: string, classAttr = '', styleAttr = '') {
   const accessibleLabel = `Section ${text}`;
 
   return `
