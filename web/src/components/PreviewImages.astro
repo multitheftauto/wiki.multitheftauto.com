@@ -5,9 +5,10 @@ import { marked } from "marked";
 
 interface Props {
     images?: any[];
+    displayImageOnly?: boolean;
 }
 
-const { images } = Astro.props;
+const { images, displayImageOnly } = Astro.props;
 const maxDimension = 256; // max size of preview image (256x256)
 
 if (images?.length) {
@@ -15,8 +16,9 @@ if (images?.length) {
         images.map(async (imageInfo) => {
             const { default: resolvedPath } = await getAssetImagePath(imageInfo.path);
             const { width: originalWidth, height: originalHeight, src } = resolvedPath;
+            const customMax = imageInfo.maxDimension ?? maxDimension;
 
-            const scale = Math.min(maxDimension / originalWidth, maxDimension / originalHeight, 1);
+            const scale = Math.min(customMax / originalWidth, customMax / originalHeight, 1);
 
             Object.assign(imageInfo, {
                 resolvedPath,
@@ -31,9 +33,11 @@ if (images?.length) {
 
 {images && images.length > 0 && (
     <div data-pagefind-ignore id="preview-images-gallery">
-        <h4>Gallery</h4>
-        <p>Click on the image to view the full preview along with the description.</p>
-
+        {!displayImageOnly && (
+            <h4>Gallery</h4>
+            <p>Click on the image to view the full preview along with the description.</p>
+        )}
+        
         <div class="preview-images">
             {images.map(({ src, description, resolvedPath, width, height }) => (
                 <a href={src} class="glightbox" data-description={description ? marked(description) : ""} data-gallery="gallery">
