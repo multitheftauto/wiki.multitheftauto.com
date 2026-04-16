@@ -91,10 +91,8 @@ export default defineConfig({
                 { label: "ID Lists", link: "/reference/ID_Lists" },
                 { label: "Meta.xml", link: "/reference/Meta.xml" },
                 {label: 'Predefined variables', link: '/reference/Predefined_variables'},
-                {
-                  label: "Resource Web Access",
-                  link: "/reference/Resource_Web_Access",
-                },
+                {label: "Resource Web Access", link: "/reference/Resource_Web_Access"},
+                {label: "CEF Tutorial", link: "/reference/CEF-tutorial"},
                 {label: "Game processing order", link: '/reference/Game_Processing_Order'},
                 {label: "Texture pixels", link: '/reference/Pixels'},
                 {
