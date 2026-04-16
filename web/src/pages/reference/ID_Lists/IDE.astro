@@ -45,8 +45,6 @@ import { ide_table } from '@src/data/ide_table';
 <script>
   const filterInput = document.getElementById('filterInput') as HTMLInputElement;
   const tableBody = document.getElementById('tableBody') as HTMLTableElement;
-  if (!filterInput || !tableBody)
-    return;
 
   filterInput.addEventListener('input', () => {
     const filter = filterInput.value.toLowerCase();
