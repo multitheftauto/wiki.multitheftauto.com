@@ -70,7 +70,7 @@ It is also the scope of "elements". It is written in XML, which is based on HTML
             <li><strong>function:</strong> The function name.</li>
             <li><strong>type:</strong> Whether function is exported server-side or client-side (valid values are: "client", "server" and "shared").</li>
             <NoteBox type='info'>A shared export will make the function callable from both client and server scripts (basically adds the export twice: once for server and once for client).</NoteBox>
-            <li><strong>http:</strong> Can the function be called via HTTP (true/false).</li>
+            <li><strong>http:</strong> Can the function be called via HTTP (true/false). See <a href="/reference/Resource_Web_Access">Resource Web Access</a>.</li>
             <li><VersionBox added="1.6.0 r226390"><strong>router:</strong> Specifies whether the function is used as a router. It only works when the <code>http</code> attribute is set to <strong>true</strong>.</VersionBox></li>
             <NoteBox type='info'>You can have only one router function.</NoteBox>
             <li><strong>restricted</strong> Defines the default access policy for an exported function when the ACL does not contain any rules for that function. If set to <strong>false</strong>, the function will still be callable even if it is not explicitly defined in the ACL as <code>function.exportedFunctionName</code> with an access value of <strong>true</strong> or <strong>false</strong>.</li>
