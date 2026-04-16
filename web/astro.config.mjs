@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import path from 'node:path';
 import mtasaStarlightThemePlugin from "@multitheftauto/starlight-theme-mtasa";
 import { SITE_TITLE, SITE_URL } from "./src/content.constants";
 import starlightScrollToTop from 'starlight-scroll-to-top'
@@ -26,6 +27,11 @@ export default defineConfig({
     ssr: {
       noExternal: ['zod'],
     },
+    resolve: {
+      alias: {
+        '@src': path.resolve('./src'),
+      }
+    }
   },
   integrations: [
     starlight({
