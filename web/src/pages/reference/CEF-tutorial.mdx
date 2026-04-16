@@ -1,0 +1,194 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import VersionBox from '@src/components/VersionBox.astro';
+import { Code } from '@astrojs/starlight/components';
+import NoteBox from '@src/components/NoteBox.astro';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'CEF Tutorial',
+    tableOfContents: true
+}}>
+
+## What is CEF?
+CEF stands for **C**hromium **E**mbedded **F**ramework and is a framework for embedding Chromium-based browsers in other applications - in our case MTA.
+CEF is based on Google's Chromium project so it is also a fast, secure and stable web engine.
+You can find more information about CEF on CEF's GoogleCode project page: https://bitbucket.org/chromiumembedded/cef
+
+## The basics
+Creating a new browser is really simple. Let's open YouTube for example:
+
+```lua
+-- Create a new remote browser (size is 800*600px) with transparency enabled
+local browser = createBrowser(800, 600, true, true)
+
+-- "Wait" for the browser (this is necessary because CEF runs in a secondary thread and hence requires the 'asynchronous' event mechanism)
+addEventHandler("onClientBrowserCreated", browser, function()
+    -- We're ready to load the URL now (the source of this event is the browser that has been created)
+    loadBrowserURL(source, "https://youtube.com/")
+end)
+```
+
+This example does not require any domain requests as YouTube is whitelisted by default. More about domain requests below.
+
+## Domain request system
+In order to prevent people from abusing the possibilities CEF offers, we decided to introduce a request system.
+This means the domain you want to load has to meet at least one of the following requirements:
+- It isn't blacklisted globally by the MTA team. A domain might be blacklisted due to malicious content. Such domains cannot be requested.
+- The domain was requested via [requestBrowserDomains](/reference/requestBrowserDomains) and accepted by the player before.
+- The domain is on the user's whitelist `(MTA settings => Tab: Browser => Whitelist)`.
+
+## Local vs remote mode
+There are two modes CEF can run in:
+
+Characteristics of **local** mode:
+- You **can** execute Javascript code without any restriction (See: [executeBrowserJavascript](/reference/executeBrowserJavascript)).
+- You **can** only load websites stored in the resource folder (See [local scheme](/reference/Local_Scheme_Handler)).
+- You **cannot** load remote content.
+
+Characteristics of **remote** mode:
+- You **cannot** execute Javascript code.
+- You **can** only load remote content.
+- Keep in mind that either loading remote websites or Javascript on remote websites can be disabled in the MTA settings.
+
+Changing the mode after the browser was created is not possible due to technical reasons.
+
+## Resource management
+### How to load local HTML files
+Loading local HTML files works similar to loading images.
+
+Add your HTML files to your [meta.xml](/reference/Meta.xml) through the file tag:
+```xml
+<file src="html/myAwesomeUI.html"/>
+```
+
+### How to load local resources in local HTML files
+Imagine you want to load an image or play a video from your MTA resource. This is possible via a custom URI scheme named `http://mta/`.
+Check out the [local scheme handler](/reference/Local_Scheme_Handler) page for more information.
+
+#### Example
+This examples shows how to play a video.
+**Lua**
+```lua
+-- Create a browser (local mode is also required to access local data)
+local webView = createBrowser(640, 480, true, true)
+
+addEventHandler("onClientBrowserCreated", webView, function()
+    -- Load HTML UI
+    loadBrowserURL(webView, "http://mta/local/html/myVideo.html")
+end)
+```
+
+**meta.xml**
+```xml
+<file src="html/myVideo.html"/>
+<file src="media/myVideo.webm"/>
+```
+
+**html**
+```html
+<html>
+<head></head>
+<body>
+    <video width="640" height="480" controls>
+         <source src="http://mta/local/myVideo.webm" type="video/webm"/>
+    </video>
+</body>
+</html>
+```
+
+## Lua \<==\> Javascript communication
+First of all, communication between Lua and Javascript is only available in local mode due to security reasons.
+
+### Lua to Javascript
+Lua to javascript is pretty easy as you can execute Javascript code from Lua using [executeBrowserJavascript](/reference/executeBrowserJavascript).
+
+### Javascript to Lua
+You are able to trigger a client event via the Javascript method `triggerEvent` which is part of the static class/namespace `mta`. The syntax is as follows:
+```javascript
+mta.triggerEvent(string event, var parameter1, var parameter2, var parameter3, ...)
+```
+The source of this event is always the [browser element](/reference/browser) that triggered the event.
+
+### Debugging
+The web development mode can be enabled as follows (type it in the client's F8 console):
+
+```lua
+crun setDevelopmentMode(true, true)
+```
+Now, you should be able to see web errors and blocked domains/URLs in the debug window at the bottom (debugscript).
+
+## Things you should keep in mind while working with CEF
+You should always keep in mind that some modern browser features are not available on some computers.
+This is for example true for WebGL.
+
+Another problematic feature is Adobe Flash. Adobe Flash is enabled by default, but you should avoid using it due to the fact that plugins can be disabled in the settings on the one hand (Java is disabled completely by the way) and Flash is very restrictive on the other hand.
+Restrictive means it runs in a separate process uses a very old interface and offers therefore just a few ways to control it.
+As a consequence, you cannot control the volume of flash objects. Fortunately, HTML5 is an even better replacement and provides very good audio and video interface (http://www.w3schools.com/tags/ref_av_dom.asp) which even supports 3D sound.
+
+## Advanced usage
+Since our CEF implementation does not do z-ordering by default, you have to provide your own z-ordering mechanism.
+You can find a basic implementation of such a mechanism here: https://github.com/Jusonex/mtasa_cef_tools
+There are also a few utility functions that allow you to integrate these classes easily into your own object-oriented UI system.
+
+## Performance
+Creating lots of browsers does not influence MTA directly (except the fact MTA has to copy the texture data in the main/GTA thread due to technical restrictions), because one part of CEF runs in another process and the other part in a secondary thread.
+So if you do not want to show the browser, it is definitely the best to destroy the browser.
+If you cannot destroy the browser (imagine you have to save the website's state for some reason), you can save a lot of resources by disabling rendering via [setBrowserRenderingPaused](/reference/setBrowserRenderingPaused).
+This will stop CEF from rendering new frames/processing input and MTA from copying the texture data.
+
+## Troubleshooting
+**google.com doesn't work (even though I requested google.com)**
+
+Google redirects to a country-specific website by default. If you want to prevent Google from doing this, load the following URL: https://www.google.com/ncr
+
+## 3-rd party
+### Typescript
+Typescript declaration for mta functions:
+
+```typescript
+declare var mta: {
+    triggerEvent(event: string): void;
+    triggerEvent(event: string, ...any): void;
+};
+```
+
+### React
+Example how to call react function from mta
+
+1. Create a hook
+```typescript
+const useMta = () => {
+  const dispatch = yourDispatcherHere();
+  const w = window as any;
+  w.MtaPrefixSomeName = () => dispatch(dispatchFunction());
+}
+export default useMta;
+```
+
+2. Add this hook to main App component.
+
+3. Call from lua
+```lua
+function callReactFunction(name, arg)
+    local name = string.format(name, "[^a-zA-Z0-9]", "");
+    local code;
+    if(arg~= nil)then
+        code = string.format("MtaPrefix%s(%q)",name, arg)
+    else
+        code = string.format("MtaPrefix%s()",name)
+    end
+    return executeBrowserJavascript(theBrowser, code)
+end
+```
+
+Use of prefix let you call only mta specific functions with bare minimum of validation required.
+Option `%q` puts quotes around a string argument's value. Read more at https://www.gammon.com.au/scripts/doc.php?lua=string.format
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:Scripting_Functions.html#Browser',
+        'reference:Resource_Web_Access',
+])} currentId='' />
+
+</AutoStarlightPage>
