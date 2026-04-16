@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<'div'> {
 const { type = 'info', class: className, ...rest } = Astro.props;
 ---
 
-<div
+<div data-pagefind-ignore
   class:list={[
     "custom-note-box",
     { 

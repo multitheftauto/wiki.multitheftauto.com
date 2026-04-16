@@ -15,7 +15,7 @@ const { entries } = Astro.props;
 ---
 
 {entries.length > 0 && (
-  <div class="changelog-section">
+  <div data-pagefind-ignore class="changelog-section">
     <h4>Changelog</h4>
     <div class="changelog-list">
       {entries.map(entry => (

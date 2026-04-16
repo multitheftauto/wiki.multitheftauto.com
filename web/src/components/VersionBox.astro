@@ -27,7 +27,7 @@ const shouldShowBox = showRemoved || showAdded || showUpdated;
         </ItemDescription>
     ) : (
         <div
-            class={`added-updated-description-box${showRemoved ? " removed-box" : ""}`}
+            data-pagefind-ignore class={`added-updated-description-box${showRemoved ? " removed-box" : ""}`}
         >
             <div class="added-updated-description-box-header">
                 <p>
