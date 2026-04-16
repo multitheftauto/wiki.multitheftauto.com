@@ -1,0 +1,89 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import { Code } from '@astrojs/starlight/components';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'PHP SDK',
+    tableOfContents: false
+}}>
+
+You can access the MTA Web Interface from almost any programming language that can request web pages. PHP can do this very easily.
+
+This SDK provides one function call that will allow you to call any exported script functions on any server that you have access to.
+
+## Installation
+### Prerequisites
+This SDK requires PHP 7.1 or greater.
+
+### HTTPlug client abstraction
+**If you don't follow this requirement before require the SDK, composer will throw you an error.**
+
+As this SDK uses HTTPlug, you will have to require some libraries for get it working. See [HTTPlug for library users](http://docs.php-http.org/en/latest/httplug/users.html) for more info.
+
+### Setup
+The only supported installation method is via [Composer](https://getcomposer.org/). Run the following command to require this SDK in your project:
+```bash
+composer require multitheftauto/mtasa-php-sdk
+```
+
+## Examples
+
+There are three ways to call an MTA server's exported functions, as shown in the following example:
+
+```php
+<?php
+
+require_once('vendor/autoload.php');
+
+use MultiTheftAuto\Sdk\Mta;
+use MultiTheftAuto\Sdk\Model\Server;
+use MultiTheftAuto\Sdk\Model\Authentication;
+
+$server = new Server('127.0.0.1', 22005);
+$auth = new Authentication('myUser', 'myPassword');
+$mta = new Mta($server, $auth);
+
+$response = $mta->getResource('someResource')->call('callableFunction', $arg1, $arg2, $arg3, ...);
+// or
+$response = $mta->getResource('someResource')->call->callableFunction($arg1, $arg2, $arg3, ...);
+
+var_dump($response);
+```
+
+### A page that can be called by [callRemote](/reference/callRemote)
+This example just adds two numbers passed to it by a Lua script.
+
+PHP: (for the page that Lua expects to be at http://www.example.com/page.php)
+```php
+<?php 
+
+require_once('vendor/autoload.php');
+
+use MultiTheftAuto\Sdk\Mta;
+
+$input = Mta::getInput();
+Mta::doReturn($input[0] + $input[1]);
+```
+
+```lua
+-- result is called when the function returns
+function result(sum)
+    outputChatBox(sum)
+end
+function addNumbers(number1, number2)
+    callRemote ( "http://www.example.com/page.php", result, number1, number2 )
+end 
+addNumbers ( 123, 456 ) -- call the function
+```
+
+## Releases
+Visit the [releases page on GitHub](https://github.com/multitheftauto/mtasa-php-sdk/releases) to download the SDK.
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:Resource_Web_Access',
+        'reference:CEF-tutorial',
+])} currentId='' />
+
+</AutoStarlightPage>

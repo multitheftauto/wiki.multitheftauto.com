@@ -1,0 +1,440 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import { getSeeAlsoLinksFromList } from '@src/utils/general';
+import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import VersionBox from '@src/components/VersionBox.astro';
+import { Code } from '@astrojs/starlight/components';
+import NoteBox from '@src/components/NoteBox.astro';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Resource Web Access',
+    tableOfContents: true
+}}>
+
+The Multi Theft Auto Server provides a web interface that resources can use in a variety of ways. This document's purpose is to explain what these ways are and how to go about using them.
+
+<NoteBox type='info'> If you are looking for a tutorial on how to use the in-game web browser and create websites using CEF, please visit [CEF Tutorial](/reference/CEF-tutorial) instead.</NoteBox>
+
+There are three key parts that make up this system.
+- **Pages** - The ability to serve any http items (specified the [meta.xml](/reference/Meta.xml)) as a page or file.
+- **Calls** - The ability to call any exported http functions (specified in the [meta.xml](/reference/Meta.xml)).
+<VersionBox added="1.6.0 r22639">- **Router** - Use a designated http function to route requests within a resource manually (overriding the two parts above).</VersionBox>
+
+### Pages
+#### Specifying a file in the meta
+You can define files in a resource that will be accessible via the web server. To do this, you need to add them to [meta.xml](/reference/Meta.xml) using the [html tag](/reference/Meta.xml#tags).
+```xml
+<html src="index.html" />
+```
+The [html tag](/reference/Meta.xml#tags) in addition to **src** has two more attributes:
+- **default** - Specifies the file that will be the main page of the resource.
+- **raw** - Indicates that the file will not be parsed by the Lua interpreter and is treated as a binary file (used, for example, for images).
+
+You can access the resource through a web browser at: http://server-ip:http-port/resource-name/optional-page/ For example, for a local server and the `performancebrowser`: http://192.168.33.107:22005/performancebrowser/
+
+The HTTP port is usually the server port + 2; by default it is `22005`.
+
+The `performancebrowser` resource has a file defined in its meta that will be displayed as the main page — that is, when no specific page is provided in the URL.
+```xml
+    <html src="pad.gif" raw="true" />
+    <html src="loading.gif" raw="true" />
+    <html src="main.htm" default="true"/>
+    <html src="main.css" raw="true" />
+    <html src="main.js" raw="true" />
+```
+
+You can specify a page like this: http://192.168.33.107:22005/webadmin/groups and it will display the `groups.htm` file.
+
+If no file is marked as **default** in [meta.xml](/reference/Meta.xml), then the **first file listed in the html tag** will be used as the default page.
+
+For example, in this case:
+```xml
+    <html src="acls.htm" />
+    <html src="groups.htm" />
+    <html src="players.htm" />
+    <html src="admin.js" raw="true"/>
+    <html src="icon_minus_8_on_F.png" raw="true"/>
+    <html src="icon_plus_8_on_F.png" raw="true"/>
+    <html src="icon_x_8_on_F.png" raw="true"/>
+
+    <html src="ie-70.css" raw="true"/>
+    <html src="css.css" raw="true"/>
+    <html src="groups.css" raw="true"/>
+```
+
+The default file will be `acls.htm` because it is listed first.
+
+### Binary files
+Despite the misleading name, the html tag node can contain any type of file. If the files do not require processing by the Lua interpreter (for example, binary files like images or .zip archives, or files that do not use Lua at all like .js or plain .html) you should set the `raw` attribute to **true**.
+Files marked as raw are not pre-processed before being sent to the browser.
+```xml
+<html src="icon_minus_8_on_F.png" raw="true"/>
+```
+
+### Parsed files
+If a file is not specified in the metafile as **raw**, then it is passed through a pre-processor before it is returned to the client.
+This pre-processor works much like PHP or ASP but uses Lua. You can embed standard MTA scripts within HTML pages, controlling the output.
+Almost all standard MTA functions work, plus a number of special [HTTP Functions](/reference/Scripting_Functions.html#HTTP).
+
+Aside from HTTP functions, embedded Lua has access to the following [environment variables](/reference/Predefined_variables.html#HTTP) that contain information about how the page was requested.
+- table **requestHeaders** - This is a table containing all the headers that were requested with the page. You can set returned headers using [httpSetResponseHeader](/reference/httpSetResponseHeader).
+- table **form** - This is a table containing all the form data submitted to the page using HTTP POST combined with any variables passed in the querystring with HTTP GET.
+- table **cookies** - This is a table of all the cookies. You can modify cookies using [httpSetResponseCookie](/reference/httpSetResponseCookie).
+- string **hostname** - This is a string containing the IP address or hostname that requested the page.
+- string **url** - This is the URL of the page.
+- [account](/reference/account) **user** - This is the [account](/reference/account) element of the current user.
+- string **requestBody** - This is the request body.
+- string **requestMethod** - This is the HTTP method used to request the page (e.g. GET, POST, etc).
+
+### Calls
+It is important that processed files are executed in a separate virtual machine (Lua VM) from the .lua code in the resource.
+Therefore, if you want to call a function from the resource code, that function must be exported so it can be invoked using the [call](/reference/call) function from within the processed HTML files.
+
+You can specify that certain exported functions in your resource are able to be called from the HTTP interface.
+All the SDKs (listed below) allow you to call these functions from a remote location.
+
+To export a function and make it callable via the web server, you need to add an entry in [meta.xml](/reference/Meta.xml) using the [export tag](/reference/Meta.xml#tags) and set the **http** attribute to `true`.
+```xml
+<export function='functionName' http='true' />
+```
+It can be a normal Lua function like any other, returning as many values as you want, 
+but it must not return non-element userdata such as [xmlnode](/reference/xmlnode) etc., functions, or threads, nor may it return tables containing any of the aforementioned types.
+
+#### Protocol
+<NoteBox type='info'>You don't need to know this unless you're writing your own HTTP request code. You can just use one of the SDKs listed below.</NoteBox>
+
+Calls are made via an HTTP POST request to the URL: http://server-ip:http-port/resource/call/exported-function-name/
+The request body should be a JSON array of arguments passed to the function. The request will return a JSON array of values that were returned by the function as the HTTP response.
+The server supports HTTP Basic authentication and you can configure access via the [ACL](/reference/Access_Control_List/) and the built-in accounts system.
+
+#### Calls from the HTTP web interface
+Using calls is probably easiest from the web interface and can be done almost seamlessly.
+
+First, add this to your [meta.xml](/reference/Meta.xml) file:
+```xml
+<include resource="ajax" />
+```
+
+Secondly, add the following to the `<head>` section of the page you want to call from
+
+```lua
+<* = exports.ajax:start(getResourceName(getThisResource())) *>
+```
+Finally, you can create a javascript block on your page and call your functions almost as if they were local.
+The only difference is that the calls are asynchronous - you should specify a callback function as the last argument for your call.
+This is called when the function returns.
+
+<details>
+<summary>Here's a simple example.</summary>
+
+
+
+**meta.xml**
+```xml
+<meta>
+   <include resource="ajax" />
+   <script src='code.lua' />
+   <html src='page.htm' default='true' />
+   <export function='showChatMessage' http='true' />
+</meta>
+```
+
+**code.lua**
+```lua
+function showChatMessage ( message )
+    outputChatBox ( message )
+    return 5;
+end
+```
+
+**page.htm**
+```html
+<html>
+    <head>
+        <* = exports.ajax:start(getResourceName(getThisResource())) *>
+        <script type='text/javascript'>
+            function say() {
+                var message = document.getElementById('message')
+                showChatMessage ( message.value, 
+                    function ( number ) {
+                        // the function has been called and returned something
+                        message.value = "The function returned " + number;
+                    }
+                );
+            }
+        </script>
+    </head>
+    <body>
+        <input type='text' id='message' /><input type='button' value='say' onclick='say();' />
+    </body>
+</html>
+```
+
+You can see (fairly complex) examples of how this can be done in the resources `resourcebrowser`, `resourcemanager` and `webadmin`.
+</details>
+
+## Router
+<VersionBox added="1.6.0 r22639">
+A router is a function that overrides both the function call mechanism and basic web server functionality, to allow a scripter to personalize the routing and client-response for each resource separately.
+For example, this allows a scripter to write an api named resource with a router function, that can serve any sort of information in a RESTy fashion.
+You may also take this further, and name the resource v1 (or v2...) for easy API versioning.
+You can spin up and down the different resources as you wish, and users of your API can continue using an older version this way.
+</VersionBox>
+
+### How to setup a router function
+A router function has to be specified in the meta.xml (see example below).
+You can name the function however you like, there are no restrictions, as long as the function can be found in the global Lua scope in your scripts.
+**Note: You can have only one router function.**
+
+```xml
+<export function="httpRouter" http="true" router="true" />
+```
+
+Then you have to specify the function in any Lua script:
+```lua
+function httpRouter(request)
+    return 200 -- see below for a more complex return value
+end
+```
+
+### Request
+This section describes all the fields, that can be found in the request table passed to the router function for every call.
+The descriptions below use the following example URL: http://127.0.0.1:22005/api/vehicles/123?meow=true (**api** is the resource name).
+
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>account</td>
+            <td>[account](/reference/account)</td>
+            <td>An account that was used for this request (can be a [guest account](/reference/isGuestAccount)).</td>
+        </tr>
+
+        <tr>
+            <td>method</td>
+            <td>[string](/reference/string)</td>
+            <td>One of the following: `OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, PATCH`.</td>
+        </tr>
+
+        <tr>
+            <td>path</td>
+            <td>[string](/reference/string)</td>
+            <td>The requested path within your resource: `/vehicles/123`.</td>
+        </tr>
+
+        <tr>
+            <td>absolute_path</td>
+            <td>[string](/reference/string)</td>
+            <td>The absolute path from the URL: `/api/vehicles/123?meow=true"`.</td>
+        </tr>
+
+        <tr>
+            <td>hostname</td>
+            <td>[string](/reference/string)</td>
+            <td>The hostname of the web server: `127.0.0.1`.</td>
+        </tr>
+
+        <tr>
+            <td>port</td>
+            <td>[integer](/reference/int)</td>
+            <td>The client port used by the web server: `56758` (can be anything, but **never** 22005).</td>
+        </tr>
+
+        <tr>
+            <td>body</td>
+            <td>[string](/reference/string)</td>
+            <td>	The body portion of the request sent by the client.</td>
+        </tr>
+
+        <tr>
+            <td>query</td>
+            <td>[table](/reference/table)</td>
+            <td>A key-value table (with [string](/reference/string) keys and values) with the path's query fields (only query).</td>
+        </tr>
+
+        <tr>
+            <td>formData</td>
+            <td>[table](/reference/table)</td>
+            <td>A key-value table (with [string](/reference/string) keys and values) with the request form data (both query and body fields).</td>
+        </tr>
+
+        <tr>
+            <td>cookies</td>
+            <td>[table](/reference/table)</td>
+            <td>A key-value table (with [string](/reference/string) keys and values) with the request cookies.</td>
+        </tr>
+
+        <tr>
+            <td>headers</td>
+            <td>[table](/reference/table)</td>
+            <td>A key-value table (with [string](/reference/string) keys and values) with the request headers (like User-Agent).</td>
+        </tr>
+    </tbody>
+</table>
+
+### Response
+This section describes all the possible variants, that can be returned by the router function. There are three variants in total:
+
+- Return literally nothing: response will use http status code 200 and an empty body.
+- Return an [integer](/reference/int): response will convert the number to an http status code and use an empty body.
+- Return a [table](/reference/table): response will be filled with the fields from the table (defaults to http status code 200 and empty body, if not overriden by a table field).
+
+#### Response table fields
+<table>
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>status</td>
+            <td>[integer](/reference/int)</td>
+            <td>A number that will be converted to an http status code.</td>
+        </tr>
+
+        <tr>
+            <td>body</td>
+            <td>[string](/reference/string)</td>
+            <td>A string that will be used for the response body.</td>
+        </tr>
+
+        <tr>
+            <td>headers</td>
+            <td>[table](/reference/table)</td>
+            <td>A key-value table (with [string](/reference/string) keys and values) that will be written to the header section of the response.</td>
+        </tr>
+
+        <tr>
+            <td>cookies</td>
+            <td>[table](/reference/table)</td>
+            <td>A table with simple [string](/reference/string) key and value entries, or any-type key with [table](/reference/table) values (key is not used), entries. Check the examples below, if it's unclear.</td>
+        </tr>
+    </tbody>
+</table>
+
+### Examples
+```lua
+function httpRouter(request)
+    -- HTTP status code 200 & empty body
+end
+```
+
+```lua
+function httpRouter(request)
+    return 404 --< HTTP status code & empty body
+end
+```
+
+```lua
+function httpRouter(request)
+    return {
+        status = 404,
+        body = "not found",
+    }
+end
+```
+
+```lua
+function httpRouter(request)
+    return {
+        status = 505,
+        body = "foo",
+        cookies = {
+            foo = "1234",
+            {
+                name = "bar",  -- Cookie name must always be a lowercase "name" key
+                value = "6666",  -- Cookie value must always be a lowercase "value" key
+                Version = "2",  -- Any other cookie field can use any case
+            }
+        },
+        headers = {
+            ["content-type"] = "text/html",
+            ["etag"] = "c561c68d0ba92bbeb8b0f612a9199f722e3a621a",
+            ["access-control-allow-origin"] = "*",
+            ["x-custom-header"] = "MTA server",
+        }
+    }
+end
+```
+
+## Securing the web interface
+The [ACL](/reference/Access_Control_List/) has a number of rights that can affect what files can be accessed.
+- **resource.ResourceName.http** - If enabled, the resource will be accessible from http://server-ip:http-port/resource-name/
+
+This works as with other ACL rights - You can enable it just for Admin users, or any other group of users you wish.
+
+## SDKs
+<NoteBox type='important'>
+All SDKs except the **PHP SDK** and **JavaScript SDK** are **unofficial and community-made** - meaning they may be outdated and may contain bugs, security vulnerabilities, or even dead links.
+The MTA Team is not responsible for any community-created SDKs and does not provide support for them.
+</NoteBox>
+
+There are a number of so-called 'SDKs' available that allow you to interface with the server from other programming languages.
+With these, you could (in theory) write whole gamemodes.
+In practice, this is probably a bad idea, but it is useful for statistics and administration.
+The PHP SDK is the most developed version. Feel free to modify or create your own SDKs - if you do please send us a copy.
+
+- [PHP SDK](https://github.com/multitheftauto/mtasa-php-sdk) (Simple article on how to use it [here](/reference/PHP-SDK))
+- [JavaScript SDK](/reference/JavaScript-SDK)
+- [Java SDK](https://rapidshare.com/files/3674532513/JavaSDK.zip) ([forum post](https://forum.multitheftauto.com/topic/39538-tut-java-sdk/)) - Author: [Skyline (laserlaser)](http://forum.mtasa.com/memberlist.php?mode=viewprofile&u=51246)
+- [Node.js SDK](https://github.com/4O4/node-mtasa) ([npm](https://www.npmjs.com/package/mtasa)) - Author: 4O4
+- [Python SDK](https://pypi.org/project/MTA-SDK-Python/) - Author: Ceevyl
+- [Rust SDK](https://crates.io/crates/mta-sdk) - Author: João Silva
+- [C# SDK](https://mirror.multitheftauto.com/files/50p_MTA_CSharp_SDK_1.0.rar) - Author: [50p](https://forum.multitheftauto.com/profile/1687-50p/)
+<details style="display: inline-block;">
+<summary>Perl SDK</summary>
+Currently there is not a Perl SDK as such, but you can use the following code to call a function on an MTA server, assuming you have access:
+
+```perl
+using JSON;
+
+sub callFunction {
+	my ($server, $resourcename, $functionname) = @_;
+	my $content = objToJson([@_[3..$#_]]);
+	$ua = LWP::UserAgent->new;
+	$ua->parse_head(0);
+	$ua->agent("");
+	my $url = "http://" . $server . "/" . $resourcename . "/call/" . $functionname;
+	$req = HTTP::Request->new(POST => $url);
+	$req->content_type('application/x-www-form-urlencoded');
+        $req->content($content);
+	$req->header('Accept' => 'text/html');
+	$res = $ua->request($req);
+	my $ret = "";
+	eval {
+		$ret = jsonToObj($res->content);
+	};
+	return $ret;
+}
+```
+
+This requires that you install the JSON package.
+You can do this easily by navigating to your perl 'bin' directory and executing "cpan", then typing "install JSON".
+
+Syntax:
+```perl
+my $ret = callFunction("hostname:httpPort", "resourceName", "functionName" [, args ...]);
+```
+The function returns an array of the values returned by the function.
+</details>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+        'reference:callRemote',
+        'reference:call',
+        'reference:Scripting_Functions.html#HTTP',
+        'reference:Meta.xml',
+        'reference:CEF-tutorial',
+])} currentId='' />
+
+</AutoStarlightPage>
