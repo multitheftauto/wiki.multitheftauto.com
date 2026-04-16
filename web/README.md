@@ -6,7 +6,7 @@ The source code in this directory [(/web)](/web) is licensed under the GPLv3 lic
 
 ## Development
 
-Requires [Node.js](https://nodejs.org) version `20` or higher (`node -v` to check).
+Requires [Node.js](https://nodejs.org) version `22` or higher (`node -v` to check).
 
 The site is built with [Astro](https://astro.build) and the [Starlight](https://starlight.astro.build) expansion.
 
