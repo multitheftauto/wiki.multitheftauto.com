@@ -1,0 +1,54 @@
+---
+const { title, image, items } = Astro.props;
+import PreviewImages from "@src/components/PreviewImages.astro";
+
+type ComponentItem = {
+    name: string,
+    link?: string,
+    desc: string,
+};
+---
+
+<h3>{title}</h3>
+
+<div class="component-list-container">
+  <PreviewImages displayImageOnly={true} images={image} />
+
+  <table>
+    <thead>
+      <tr>
+        <th>Component name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {items.map((c: ComponentItem) => (
+        <tr>
+          <td>{c.name}</td>
+          <td>
+            {c.link ? (
+              <a href={c.link} target="_blank" rel="noopener noreferrer">
+                {c.desc}
+              </a>
+            ) : (
+              c.desc
+            )}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+.component-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--sl-color-gray-4);
+    padding: 0.2rem;
+}
+</style>

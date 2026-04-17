@@ -1,0 +1,180 @@
+---
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import * as vehicleComponentsData from "@src/data/vehicle_components";
+import { Code } from "@astrojs/starlight/components";
+import VehicleComponentTable from "@src/components/VehicleComponentTable.astro";
+
+let omni_luaTable = `local vehiclesWithOmni = { ${vehicleComponentsData.vehicles_with_omni.join(", ")} }`;
+---
+
+<AutoStarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Vehicle Components',
+  tableOfContents: false,
+}}>
+
+This page presents a list of available default vehicle components. Vehicles of the same type may have different components depending on the model.
+
+<VehicleComponentTable
+  title="Cars & Trailers"
+  image={[{ path: "Vehicles/Components/car_trailer.png", maxDimension: 1024 }]}
+  items={vehicleComponentsData.carTrailerComponents}
+/>
+
+<VehicleComponentTable
+  title="Monster Truck"
+  image={[{ path: "Vehicles/Components/mtruck.png", maxDimension: 1024 }]}
+  items={vehicleComponentsData.monsterTruckComponents}
+/>
+
+<VehicleComponentTable
+  title="Bikes"
+  image={[{ path: "Vehicles/Components/bike.png", maxDimension: 1024 }]}
+  items={vehicleComponentsData.bikeComponents}
+/>
+
+<VehicleComponentTable
+  title="Quadbike"
+  image={[{ path: "Vehicles/Components/quad.png", maxDimension: 1024 }]}
+  items={vehicleComponentsData.quadbikeComponents}
+/>
+
+<VehicleComponentTable
+  title="Bicycles (BMX)"
+  image={[{ path: "Vehicles/Components/bmx.png", maxDimension: 1024 }]}
+  items={vehicleComponentsData.bicycleComponents}
+/>
+
+<VehicleComponentTable
+  title="Boats"
+  image={[{ path: "Vehicles/Components/boat.png", maxDimension: 512 }, { path: "Vehicles/Components/boat2.png", maxDimension: 512  }]}
+  items={vehicleComponentsData.boatComponents}
+/>
+
+<VehicleComponentTable
+  title="Planes"
+  image={[{ path: "Vehicles/Components/plane.png", maxDimension: 512 }, { path: "Vehicles/Components/plane2.png", maxDimension: 512  }]}
+  items={vehicleComponentsData.planeComponents}
+/>
+
+<VehicleComponentTable
+  title="Helicopters"
+  image={[{ path: "Vehicles/Components/heli.png", maxDimension: 1024 }]}
+  items={vehicleComponentsData.helicopterComponents}
+/>
+
+<VehicleComponentTable
+  title="Trains & Tram"
+  image={[{ path: "Vehicles/Components/train.png", maxDimension: 512 }, { path: "Vehicles/Components/tram.png", maxDimension: 512  }]}
+  items={vehicleComponentsData.trainComponents}
+/>
+
+<section data-pagefind-ignore>
+<h2>Miscellaneous components</h2>
+These components are used across various vehicle models for specific functionality such as forklift.
+
+<table>
+    <thead>
+        <th>Component name</th>
+        <th>Vehicle model</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>misc_a</td>
+            <td>403 (fifth wheel), 406 (dump trailer), 407 (water cannon), 412 (suspension part), 424 (engine part), 432 (turret), 434 (suspension part), 435 (tow bar), 443 (big ramp), 450 (tow bar), 477 (ZR-350 lights), 485 (tow bar), 486 (dozer blade), 495 (suspension part), 513 (left top aileron), 514 (fifth wheel), 515 (fifth wheel), 519 (front landing gear), 520 (left landing gear), 524 (drum part), 525 (towtruck arm), 530 (forklift forks), 531 (tow bar), 532 (harvester header), 534 (suspension part), 535 (suspension part), 536 (suspension part), 539 (vortex air cushion), 544 (ladder base), 552 (tow bar), 564 (turret), 566 (suspension part), 567 (suspension part), 568 (suspension part), 575 (suspension part), 576 (suspension part), 577 (front landing gear), 582 (newsvan satellite), 584 (tow bar), 591 (tow bar front), 592 (front landing gear), 595 (gunner position), 601 (turret), 603 (engine supercharger), 606 (tow bar rear), 607 (tow bar rear), 611 (tow bar)</td>
+        </tr>
+        
+        <tr>
+            <td>misca</td>
+            <td>Left sweeper brush (574)</td>
+        </tr>
+
+        <tr>
+            <td>misc_b</td>
+            <td>412 (suspension part), 424 (suspension part), 432 (barrel), 434 (suspension part), 443 (small ramp), 485, 495 (suspension part), 513 (right top wing aileron), 520 (right landing gear), 524 (drum), 525 (towtruck hook), 532 (harvester reel), 534 (suspension part), 535 (suspension part), 536 (suspension part), 539 (engine part), 544 (ladder main part), 564 (barrel), 566 (suspension part), 567 (suspension part), 568 (suspension part), 575 (suspension part), 576 (suspension part), 583 (tow bar), 591 (fifth wheel rear), 592 (cargo ramp), 601 (barrel), 606 (tow bar front), 607 (tow bar front), 610 (blades)</td>
+        </tr>
+
+        <tr>
+            <td>miscb</td>
+            <td>Right sweeper brush (574)</td>
+        </tr>
+
+        <tr>
+            <td>misc_c</td>
+            <td>424 (suspension part), 432 (turret muzzle) 434 (suspension part), 532 (harvester auger), 534, 536 (suspension part), 544 (ladder second part), 564 (turret muzzle), 567, 568 (suspension part), 601 (turret muzzle)</td>
+        </tr>
+
+        <tr>
+            <td>misc_d</td>
+            <td>424 (suspension part), 434 (suspension part), 532 (harvester parts), 568 (suspension part)</td>
+        </tr>
+
+        <tr>
+            <td>misc_e</td>
+            <td>424 (engine part), 434 (engine part), 568 (engine part)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Component nodes</h2>
+Component nodes for <a href="/reference/spawnVehicleFlyingComponent">spawnVehicleFlyingComponent</a> function.
+
+<div class="node-list-container">
+{Object.entries(vehicleComponentsData.componentNodes).map(([title, items]) => (
+    <section class="table-card">
+    <h3>{title}</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Node index</th>
+          <th>Node name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {items.map((item) => (
+          <tr>
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </section>
+))}
+</div>
+
+    <h4>Vehicles with omni lights in a Lua table:</h4>
+    <Code lang="lua" code={omni_luaTable}/>
+</section>
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+    'reference:ID_Lists',
+    'reference:ID_Lists/Vehicles',
+])} currentId='' />
+
+</AutoStarlightPage>
+
+<style>
+.node-list-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--sl-color-gray-4);
+    padding: 0.2rem;
+}
+
+@media (max-width: 900px) {
+  .node-list-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.table-card {
+  margin: 0;
+  justify-items: center;
+}
+</style>
