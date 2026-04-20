@@ -34,7 +34,7 @@ You can access the resource through a web browser at: http://server-ip:http-port
 
 The HTTP port is usually the server port + 2; by default it is `22005`.
 
-The `performancebrowser` resource has a file defined in its meta that will be displayed as the main page — that is, when no specific page is provided in the URL.
+The `performancebrowser` resource has a file defined in its meta that will be displayed as the main page - that is, when no specific page is provided in the URL.
 ```xml
     <html src="pad.gif" raw="true" />
     <html src="loading.gif" raw="true" />
@@ -76,15 +76,7 @@ If a file is not specified in the metafile as **raw**, then it is passed through
 This pre-processor works much like PHP or ASP but uses Lua. You can embed standard MTA scripts within HTML pages, controlling the output.
 Almost all standard MTA functions work, plus a number of special [HTTP Functions](/reference/Scripting_Functions.html#HTTP).
 
-Aside from HTTP functions, embedded Lua has access to the following [environment variables](/reference/Predefined_variables.html#HTTP) that contain information about how the page was requested.
-- table **requestHeaders** - This is a table containing all the headers that were requested with the page. You can set returned headers using [httpSetResponseHeader](/reference/httpSetResponseHeader).
-- table **form** - This is a table containing all the form data submitted to the page using HTTP POST combined with any variables passed in the querystring with HTTP GET.
-- table **cookies** - This is a table of all the cookies. You can modify cookies using [httpSetResponseCookie](/reference/httpSetResponseCookie).
-- string **hostname** - This is a string containing the IP address or hostname that requested the page.
-- string **url** - This is the URL of the page.
-- [account](/reference/account) **user** - This is the [account](/reference/account) element of the current user.
-- string **requestBody** - This is the request body.
-- string **requestMethod** - This is the HTTP method used to request the page (e.g. GET, POST, etc).
+Aside from HTTP functions, embedded Lua has access to the following [environment variables](/reference/Predefined_variables.html#http) that contain information about how the page was requested.
 
 ### Calls
 It is important that processed files are executed in a separate virtual machine (Lua VM) from the .lua code in the resource.
@@ -126,8 +118,6 @@ This is called when the function returns.
 
 <details>
 <summary>Here's a simple example.</summary>
-
-
 
 **meta.xml**
 ```xml
@@ -184,7 +174,8 @@ You can spin up and down the different resources as you wish, and users of your 
 ### How to setup a router function
 A router function has to be specified in the meta.xml (see example below).
 You can name the function however you like, there are no restrictions, as long as the function can be found in the global Lua scope in your scripts.
-**Note: You can have only one router function.**
+
+<NoteBox type='info'>You can have only one router function.</NoteBox>
 
 ```xml
 <export function="httpRouter" http="true" router="true" />

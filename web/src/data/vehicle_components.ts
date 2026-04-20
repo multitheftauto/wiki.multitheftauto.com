@@ -636,7 +636,7 @@ export const planeComponents = [
   },
   {
     name: "wingtop_pos",
-    desc: "",
+    desc: "Unknown empty frame (Skimmer only)",
   },
   {
     name: "light_left / light_right / light_tailplane",

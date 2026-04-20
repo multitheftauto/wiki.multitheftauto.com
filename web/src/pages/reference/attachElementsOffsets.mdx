@@ -8,7 +8,7 @@ import VersionBox from '@src/components/VersionBox.astro';
     title: 'attachElementsOffsets',
     tableOfContents: false
 }}>
-
+<section data-pagefind-ignore>
 ### Problem
 The offset coordinates reflect the object space, not the world space. This means that you cannot simply visualize the attachment in the map editor and calculate the offsets between the 2 sets of world coordinates for `theElement` and `theAttachToObject`.
 
@@ -84,5 +84,5 @@ end
         'reference:attachElements',
         'reference:setElementAttachedOffsets',
 ])} currentId='' />
-
+</section>
 </AutoStarlightPage>
