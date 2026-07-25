@@ -51,7 +51,7 @@ client:
           description: A [[string]] representing the desired texture edge handling.
           default: '"wrap"'
           templateList: texture-edges
-        - name: textureFormat
+        - name: textureType
           type: string
           description: A [[string]] representing the desired texture type.
           default: '"2d"'
