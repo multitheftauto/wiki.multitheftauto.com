@@ -2,9 +2,15 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { Image } from 'astro:assets';
 import { getAssetImagePath } from '@src/utils/general';
-
 import { MTA_CURRENT_VERSION } from '@src/content.constants';
-import { Icon } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkButton  } from '@astrojs/starlight/components';
+import IconLinkCard from '@src/components/IconLinkCard.astro';
+
+
+           // <li><a href={"/Changes_in_"+MTA_CURRENT_VERSION.full}>Changes in {MTA_CURRENT_VERSION.full}</a></li>
+                    
+
+
 ---
 
 <StarlightPage frontmatter={{
@@ -18,162 +24,113 @@ import { Icon } from '@astrojs/starlight/components';
         }
     ],
 }}>
-<div class="mtahero">
-    <div class="mtahero_left">
+
+<div class="mainpage">
+    <div class="header">
         <Image src={getAssetImagePath("mta_logo.png")} alt="Multi Theft Auto Logo"/>
-    </div>
 
-    <div class="mtahero_right">
-        <p>Welcome to the <strong>new Multi Theft Auto Wiki</strong> (work in progress). Visit this wiki's <a href="https://github.com/multitheftauto/wiki.multitheftauto.com" target="_blank">GitHub repository</a> for more information about the project and how to contribute. The old wiki is still active at <a href="https://wiki.multitheftauto.com/wiki/Main_Page">wiki.multitheftauto.com</a> (where unofficial articles and pages are still available).</p>
-        
-        <p>There are many <a href="/Contributing">things you can do</a> to help us improve MTA - create a map, a gamemode, help document scripting functions, write example code, write tutorials or just play MTA and report the bugs you find.</p>
-
-        <p>If you have any questions or problems related to scripting, feel free to get in touch with us on <a href="https://discord.com/invite/mtasa" target="_blank">Discord</a>.</p>
-
-        <p class="bigtext">[ Stop playing with yourself ]</p>
-    </div>
-</div>
-
-<div class="mtagrid">
-    <div class="mtabox">
-        <h3>Play</h3>
-        <div>
-            <a class="downloadmta mtagreen" href="https://multitheftauto.com/"><Icon size="1.8rem" name="download" class="mtadownload-icon mtagreen" />Download <strong>Multi Theft Auto: San Andreas</strong> ({MTA_CURRENT_VERSION.full})</a>
+        <div class="header-text">
+            <h1>Welcome to the Multi Theft Auto Documentation</h1>
+            <span>On this wiki you'll find a wealth of information on using <i>Multi Theft Auto</i>.</span>
+            
+            <div class="header-buttons">
+                <LinkButton href="https://multitheftauto.com/" icon="download" iconPlacement='start'>Download MTA SA {MTA_CURRENT_VERSION.full}</LinkButton>
+                <LinkButton href="https://github.com/multitheftauto/mtasa-blue" icon="github" iconPlacement='start' variant='secondary'>View on GitHub</LinkButton>
+            </div>
         </div>
-        <ul>
-            <li><a href="/Where_to_buy_GTASA">Where to buy GTASA</a></li>
-            <li><a href="/Client_Manual">Client Manual</a></li>
-            <li><a href={"/Changes_in_"+MTA_CURRENT_VERSION.full}>Changes in {MTA_CURRENT_VERSION.full}</a></li>
-            <li><a href="/Known_Issues_-_FAQ">Known Issues</a></li>
-            <li><a href="/Server_Manual">Server Manual</a></li>
-            <li><a href="/Map_manager">Map Manager</a></li>
-        </ul>
-
-        <h3>Map Editor</h3>
-        <ul>
-            <li><a href="/Resource:Editor">Manual</a></li>
-            <li><a href="/Resource:Editor/EDF">Editor Definition Format</a></li>
-            <li><a href="/Resource:Editor/Plugins">Plugins</a></li>
-            <li><a href="/Resource:Editor#FAQ">Frequently Asked Questions</a></li>
-        </ul>
     </div>
 
-    <div class="mtabox">
-        <h3>Community</h3>
-        <ul>
-            <li><a href="/Category:Resource">Resource Catalogue</a></li>
-            <li><a href="https://forum.multitheftauto.com/">Forum</a></li>
-            <li><a href="https://discord.com/invite/mtasa">Official MTA Discord server</a> (<a href="https://forum.multitheftauto.com/topic/95008-multi-theft-autos-official-discord-server/">Forum post</a>)</li>
-            <li><a href="https://discord.com/invite/GNN6PRtTnu">Development Discord</a></li>
-            <li><a href="https://community.multitheftauto.com/">MTA Community</a></li>
-            <li><a href="https://twitter.com/MTAQA">Twitter</a>, <a href="https://www.youtube.com/user/MTAQA">YouTube</a>, <a href="https://www.facebook.com/multitheftauto">Facebook</a>, <a href="https://www.moddb.com/mods/multi-theft-auto-san-andreas">ModDB</a></li>
-        </ul>
-    </div>
+    <div class="content">
+        <CardGrid>
+            <Card title="Community" icon="heart">
+                <IconLinkCard title="Help Center" href="https://help.multitheftauto.com" icon="open-book"/>
+                <IconLinkCard title="Development Discord" href="https://discord.com/invite/GNN6PRtTnu" icon="discord"/>
+                <IconLinkCard title="ModDB" href="https://www.moddb.com/mods/multi-theft-auto-san-andreas" icon="mastodon"/>
+                <IconLinkCard title="MTA Community" href="https://community.multitheftauto.com/" description='Share and download resources.' icon="external"/>
+                <IconLinkCard title="RW Tool" href="https://nightly.mtasa.com/rwtool/" icon="setting" />
+            </Card>
 
-    <div class="mtabox">
-        <h3>Developing Multi Theft Auto</h3>
-        <ul>
-            <li><a href="https://nightly.mtasa.com/">Nightly builds</a></li>
-            <li><a href="/Compiling_MTASA">Compiling MTASA on Windows</a></li>
-            <li><a href="/Building_MTASA_Server_on_GNU_Linux">Compiling MTASA on GNU/Linux</a></li>
-            <li><a href="https://github.com/multitheftauto/mtasa-blue">Main GitHub repository</a></li>
-            <li><a href="https://github.com/multitheftauto/mtasa-blue/milestones">Roadmap</a></li>
-            <li><a href="https://github.com/multitheftauto/mtasa-blue/issues">Bugtracker (GitHub Issues)</a></li>
-        </ul>
-    </div>
+            <Card title="Developing Multi Theft Auto" icon="information">
+                <IconLinkCard title="Nightly builds" href="https://nightly.mtasa.com/" icon="cloud-download"/>
+                <IconLinkCard title="Roadmap" href="https://github.com/multitheftauto/mtasa-blue/milestones" icon="github"/>
+                <IconLinkCard title="Bugtracker" href="https://github.com/multitheftauto/mtasa-blue/issues" icon="laptop"/>
+                <IconLinkCard title="Contributing guidelines" href="https://github.com/multitheftauto/mtasa-docs/blob/main/mtasa-blue/CONTRIBUTING.md" icon="seti:notebook"/>
+            
+                <div class="mta-opensource-info">
+                    <Image style={{ width: '50px', height: '50px' }} src={getAssetImagePath("osi_symbol.png")} alt="Open Source Initiative"/>
+                    <div style="display: flex; flex-direction: column;">
+                        <span><b>Multi Theft Auto</b> is <b>Open Source</b></span>
+                        <span>This means anyone can contribute to making Multi Theft Auto even better!</span>
+                    </div>
+                </div>
+            </Card>
 
-
-    <div class="mtabox">
-        <h3>Scripting</h3>
-        <ul>
-            <li><a href="/articles/scripting-introduction">Introduction to Scripting</a></li>
-            <li><a href="/articles/gui-introduction">Introduction to Scripting the GUI</a></li>
-            <li><a href="/Debugging">Debugging Tutorial</a></li>
-            <li><a href="/Resources">Introduction to Resources</a>
-            <ul>
-                <li><a href="/reference/Resource_Web_Access">Resource Web Access</a></li>
-                <li><a href="/reference/CEF-tutorial">CEF Tutorial</a></li>
-                <li><a href="/Category:Resource">Resource Catalogue</a></li>
-                <li><a href="/reference/Meta.xml">Meta.xml</a></li>
-                <li><a href="/reference/Access_Control_List">ACL</a></li>
-            </ul>
-            </li>
-            <li><a href="/Writing_Gamemodes">Writing Gamemodes</a></li>
-            <li><a href="/articles/script-security">Script security</a></li>
-            <li><a href="/Modules">Server Modules</a></li>
-        </ul>
-        <p>Forum Links</p>
-        <ul>
-            <li><a href="https://forum.multitheftauto.com/forum/71-scripting/">Scripting Sub-Forum</a></li>
-            <li><a href="https://forum.multitheftauto.com/forum/123-tutorials/">Scripting Tutorials Sub-Forum</a></li>
-            <li><a href="https://forum.multitheftauto.com/topic/24702-mtasa-wiki-offline-copies-online-mirrors/">Offline Wiki Copies</a></li>
-        </ul>
-        <h3>General Lua Help</h3>
-        <ul>
-            <li><a href="http://www.lua.org/pil/index.html">Programming in Lua Manual</a></li>
-            <li><a href="http://www.lua.org/manual/5.1/#index">Internal Lua functions reference</a></li>
-            <li><a href="http://lua-users.org/wiki/TutorialDirectory">Lua Wiki</a></li>
-            <li><a href="http://nixstaller.sourceforge.net/manual/0.5.1/nixstaller_10.html">Lua Guide from Nixstaller</a></li>
-        </ul>
-    </div>
-
-    <div class="mtabox">
-        <h3>Reference</h3>
-        <ul>
-            <li><a href="/reference/Lua_API">MTA Lua API Reference</a></li>
-            <li><a href="/reference/ID_Lists">ID Lists</a></li>
-        </ul>
+        </CardGrid>
     </div>
 </div>
-
-</StarlightPage>
 
 <style>
-    .bigtext {
-        font-size: 1.4em;
-        font-weight: bold;
+.mainpage {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10%;
+    text-align: left;
+}
+
+.header img {
+    max-width: 180px;
+    height: auto;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mta-opensource-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16px;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
     }
 
-    .mtahero {
-        display: flex;
+    .header-buttons {
+        justify-content: center;
+    }
+
+    .header-text {
         align-items: center;
-        justify-content: space-between;
     }
-    .mtahero_left {
-        flex: 1;
-        align-self: flex-start;
-        padding-right: 16px;
-    }
-    .mtahero_right {
-        flex: 3;
-    }
-
-    .mtagrid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        align-items: flex-start;
-        justify-content: flex-start;
-    }
-
-    .mtabox {
-        padding: 4px 8px 8px 8px;
-        padding: 1rem;
-    }
-
-    .downloadmta {
-        font-size: 1.2em;
-    }
-    .mtadownload-icon {
-        display: inline-block;
-        vertical-align: top;
-        margin-right: 6px;
-    }
-    .mtagreen {
-        color: lightgreen !important;
-    }
-    :root[data-theme="light"] .mtagreen {
-        color: #00ac09 !important;
-    }
-
+}
 </style>
