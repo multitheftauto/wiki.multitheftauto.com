@@ -21,7 +21,7 @@ const { title, description, icon, iconColor, titleColor, target = Astro.props.ta
 <div class="sl-link-card">
     <span class="sl-flex stack">
         <div class="inline-flex">
-            {icon && <Icon name={icon} size="1.333em" color={iconColor || "#FFFFFF"}/>}
+            {icon && <Icon name={icon} size="1.333em" color={iconColor || "var(--sl-color-white)"}/>}
             <a {...attributes}>
                 <span class="title" set:html={title} style=`color: ${titleColor || "var(--sl-color-white)"}` />
             </a>
