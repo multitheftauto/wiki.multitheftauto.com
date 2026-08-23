@@ -1,12 +1,13 @@
----
-title: Shaders
----
-
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
 import { Code } from '@astrojs/starlight/components';
 import { Image } from "astro:assets";
 import { getAssetImagePath } from "@src/utils/general";
 
-<div id="_top"/>
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Shaders',
+    tableOfContents: true
+}}>
 Shaders can be used for replacing world textures with [engineApplyShaderToWorldTexture](/reference/engineApplyShaderToWorldTexture) or for drawings with [drawing functions](Client_Scripting_Functions#Drawing).
 
 ## How HLSL Effect Files file integrate into MTA:SA
@@ -816,3 +817,5 @@ int TexCoord1;
         <a href="https://nightly.mtasa.com/files/shaders/shader_circle.zip">Download</a>
     </div>
 </div>
+
+</AutoStarlightPage>
