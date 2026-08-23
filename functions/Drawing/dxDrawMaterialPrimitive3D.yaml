@@ -13,9 +13,9 @@ client:
   - name: material
     type: string/texture
     description: Either a [[texture]] element or a [filepath](/reference/Filepath) of the image which is going to be drawn. Image files should ideally have dimensions that are a power of two, to prevent possible blurring. Use a texture created with [[dxCreateTexture]] to **speed up drawing**.
-  - name: name
-    type: string
-    description: A string representing a stage at which the actual drawcall should happen.
+  - name: stage
+    type: bool/string
+    description: A string representing the stage at which the actual draw call should happen. If **true** is provided, the stage will be `postgui`; if **false**, it will be `postfx`.
     templateList: primitive-drawing-stages
   - name: vertex1
     type: table

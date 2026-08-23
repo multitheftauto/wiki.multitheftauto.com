@@ -7,8 +7,8 @@ client:
     description: Type of primitive to be drawn.
     templateList: primitives
   - name: stage
-    type: string
-    description: A string representing a stage at which the actual drawcall should happen.
+    type: bool/string
+    description: A string representing the stage at which the actual draw call should happen. If **true** is provided, the stage will be `postgui`; if **false**, it will be `postfx`.
     templateList: primitive-drawing-stages
   - name: vertex1
     type: table
