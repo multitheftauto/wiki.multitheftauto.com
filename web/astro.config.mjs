@@ -90,6 +90,7 @@ export default defineConfig({
             {label: "Introduction to scripting GUI", link: "/guides/GUI-introduction"},
             {label: "Script security", link: "/guides/Script-security"},
             {label: "Introduction to CEF", link: "/guides/CEF-introduction"},
+            {label: "Javascript SDK", link: "/guides/JavaScript-SDK"},
             {label: "PHP SDK", link: "/guides/PHP-SDK"},
           ]
         },
