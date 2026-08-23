@@ -1,0 +1,52 @@
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+
+<AutoStarlightPage
+    frontmatter={{
+        template: "doc",
+        title: "Surface formats",
+        tableOfContents: false
+    }}>
+
+Based on [this](https://learn.microsoft.com/en-us/windows/win32/direct3d9/d3dformat).
+
+| Name | Description |
+| :--- | :--- |
+| r8g8b8 | 32-bit ARGB pixel format with alpha, using 8 bits per channel. |
+| a8r8g8b8 | 32-bit ARGB pixel format with alpha, using 8 bits per channel. |
+| x8r8g8b8 | 32-bit RGB pixel format, where 8 bits are reserved for each color. |
+| r5g6b5 | 16-bit RGB pixel format with 5 bits for red, 6 bits for green, and 5 bits for blue. |
+| x1r5g5b5 | 16-bit pixel format where 5 bits are reserved for each color. |
+| a1r5g5b5 | 16-bit pixel format where 5 bits are reserved for each color and 1 bit is reserved for alpha. |
+| a4r4g4b4 | 16-bit ARGB pixel format with 4 bits for each channel. |
+| r3g3b2 | 8-bit RGB texture format using 3 bits for red, 3 bits for green, and 2 bits for blue. |
+| a8 | 8-bit alpha only. |
+| a8r3g3b2 | 16-bit ARGB texture format using 8 bits for alpha, 3 bits each for red and green, and 2 bits for blue. |
+| x4r4g4b4 | 16-bit RGB pixel format using 4 bits for each color. |
+| a2b10g10r10 | 32-bit pixel format using 10 bits for each color and 2 bits for alpha. |
+| a8b8g8r8 | 32-bit ARGB pixel format with alpha, using 8 bits per channel. |
+| x8b8g8r8 | 32-bit RGB pixel format, where 8 bits are reserved for each color. |
+| g16r16 | 32-bit pixel format using 16 bits each for green and red. |
+| a2r10g10b10 | 32-bit pixel format using 10 bits each for red, green, and blue, and 2 bits for alpha. |
+| a16b16g16r16 | 64-bit pixel format using 16 bits for each component. |
+| a8p8 | 8-bit color indexed with 8 bits of alpha. |
+| p8 | 8-bit color indexed. |
+| l8 | 8-bit luminance only. |
+| l16 | 16-bit luminance only. |
+| a8l8 | 16-bit using 8 bits each for alpha and luminance. |
+| r8g8b8 | 24-bit RGB pixel format with 8 bits per channel. |
+| a4l4 | 8-bit using 4 bits each for alpha and luminance. |
+| r16f | 16-bit float format using 16 bits for the red channel. |
+| g16r16f | 32-bit float format using 16 bits for the red channel and 16 bits for the green channel. |
+| a16b16g16r16f | 64-bit float format using 16 bits for the each channel (alpha, blue, green, red). |
+| r32f | 32-bit float format using 32 bits for the red channel. |
+| g32r32f | 64-bit float format using 32 bits for the red channel and 32 bits for the green channel. |
+| a32b32g32r32f | 128-bit float format using 32 bits for the each channel (alpha, blue, green, red). |
+
+    <SeeAlsoSection
+        seeAlsoLinks={getSeeAlsoLinksFromList([
+            "reference:dxCreateRenderTarget",
+        ])}
+    />
+</AutoStarlightPage>

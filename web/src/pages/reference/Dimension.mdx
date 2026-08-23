@@ -1,0 +1,51 @@
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+
+<AutoStarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Dimension',
+  tableOfContents: false,
+}}>
+
+Dimensions are a way of separating parts of the game world from each other. Each dimension can contain elements of the types listed below. These are are only visible to players in the same dimension. You can, in theory, have up to 65535 dimensions.
+
+The following [Element](/reference/Element/) types can be used in the Dimension system:
+* [Player](/reference/player/)
+* [Ped](/reference/ped/)
+* [Vehicle](/reference/vehicle/)
+* [Object](/reference/object/)
+* [Pickup](/reference/pickup/)
+* [Marker](/reference/marker/)
+* [Collision shape](/reference/colshape/)
+* [Blip](/reference/blip/)
+* [Radar area](/reference/radararea/)
+* [Team](/reference/team/)
+* [Sound](/reference/sound/)
+* [Weapon](/reference/weapon/)
+* [Light](/reference/light/)
+* [Water](/reference/water/)
+* Custom dummy elements ([createElement](/reference/createElement/))
+
+The camera's dimension is updated when:
+* The local player joins the server (set to 0)
+* [resetMapInfo](/reference/resetMapInfo/) is called (set to 0)
+* The local player spawns (set to the player's dimension)
+* [setElementDimension](/reference/setElementDimension/) is called
+
+## Uses
+
+A useful use of this is for unique [interiors](/reference/Interior/). For example, there is only one actual Pizza restaurant in San Andreas, with each warp point going to the same place. This works fine in single player games (as you aren't going to be in two places at once), but with multiplayer this can be confusing, as you could enter in one place and see all the players who entered in another. To avoid this, you can split the players into dimensions, so they will only see players who entered in the same place, duplicating the Pizza restaurant interior as many times as you want with different dimensions.
+
+## Relevant scripting functions
+
+* [setElementDimension](/reference/setElementDimension/)
+* [getElementDimension](/reference/getElementDimension/)
+* [spawnPlayer](/reference/spawnPlayer/)
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'reference:Interior',
+      'reference:Entity',
+])} currentId='' />
+
+</AutoStarlightPage>

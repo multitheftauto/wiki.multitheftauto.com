@@ -1,13 +1,21 @@
 import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
-import { Code } from '@astrojs/starlight/components';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
+import NoteBox from '@src/components/NoteBox.astro';
 
 <AutoStarlightPage frontmatter={{
     template: 'doc',
     title: 'Visibility',
     tableOfContents: false
 }}>
+
+<NoteBox type='tip'>
+    **Before you read**
+
+    This article explains how to restrict the visibility of a specific [marker](/reference/marker), [blip](/reference/blip), or [radar-area](/reference/radararea) to certain players.
+    If a marker, blip, or radar area is intended to be visible to only one player, you should create it client-side instead.
+    This way, it will only be visible to the local player.
+</NoteBox>
 
 The visibility system for [markers](/reference/marker), [blips](/reference/blip) and [radar-areas](/reference/radararea) works by the following rule: 
 - **if something is visible to a certain [element](/reference/element), it is also visible to all of that element's children. Also, everything is visible to the root element by default.**
@@ -21,14 +29,19 @@ The same things go for markers.
 If you only want something to be visible to certain players the most efficient and least buggy thing to do is to when creating the element instead of the default visibility of [root](/reference/root), set it to [resourceRoot](/reference/resourceRoot) (no player will see it as no player is a child of resourceRoot) and then use [setElementVisibleTo](/reference/setElementVisibleTo) on specific players. Otherwise there is a chance that players will see the blip for a fraction of a second, as the blip is created but then destroyed right after.
 
 This is bad (chance of being seen on minimap for about 50ms):
-<Code lang="lua" code="a = createBlip(0, 0, 0, 41)
+
+```lua
+local a = createBlip(0, 0, 0, 41)
 setElementVisibleTo(a, root, false)
-setElementVisibleTo(a, somePlayer, true)" />
+setElementVisibleTo(a, somePlayer, true)
+```
 
-This is good:
+This is better:
 
-<Code lang="lua" code="a = createBlip(0, 0, 0, 41, 1, 2, 3, 4, 5, 6, 9999, resourceRoot)
-setElementVisibleTo(a, somePlayer, true)" />
+```lua
+local a = createBlip(0, 0, 0, 41, 1, 2, 3, 4, 5, 6, 9999, resourceRoot)
+setElementVisibleTo(a, somePlayer, true)
+```
 
 <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:Predefined_variables',

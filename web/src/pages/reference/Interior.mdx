@@ -1,0 +1,41 @@
+import AutoStarlightPage from "@src/components/AutoStarlightPage.astro";
+import SeeAlsoSection from "@src/components/SeeAlsoSection.astro";
+import { getSeeAlsoLinksFromList } from "@src/utils/general";
+
+<AutoStarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Interior',
+  tableOfContents: false,
+}}>
+
+An interior in GTA is an area that isn't 'outside'. For example, inside houses, casinos, restaurants, shops etc. Players can not, by default, access these. You can use various scripting functions to move elements into these interiors. When you change the interior a player is in, they can only see the non-player elements in that interior. Players can see each other in whatever interior they are in.
+
+You can have up to 255 interiors, interior 0 being the first one and referring to the normal GTA world.
+
+The camera's interior is updated when:
+* The local player joins the server (set to 0)
+* [resetMapInfo](/reference/resetMapInfo/) is called (set to 0)
+* The local player spawns (set to the player's interior)
+* [setElementInterior](/reference/setElementInterior/) is called
+
+## Uses
+
+To allow a player to enter an interior, you should use the [setElementInterior](/reference/setElementInterior/) function on the player you wish to move. You can also use this function on other elements, for example to make a vehicle or object appear in the interior.
+
+## Dimensions
+
+The original GTA interiors are reused in a number of places throughout the game - e.g. each fast food restaurant interior is used many times. [Dimensions](/reference/Dimension/) are a feature that was added to MTA to solve this problem. You can allocate each instance of the interior a separate dimension which will mean that the players in each dimension won't be able to see each other or interact with each other. This will mean that the interiors appear to be entirely separate, despite physically being in the same place.
+
+## Relevant scripting functions
+
+* [setElementInterior](/reference/setElementInterior/)
+* [getElementInterior](/reference/getElementInterior/)
+* [spawnPlayer](/reference/spawnPlayer/)
+
+<SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
+      'reference:Dimension',
+      'reference:ID_Lists/Interiors',
+      'reference:Entity',
+])} currentId='' />
+
+</AutoStarlightPage>

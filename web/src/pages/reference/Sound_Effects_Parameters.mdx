@@ -1,0 +1,125 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Audio Effects Parameters',
+}}>
+
+This page contains a list of sound effects parameters. See [getSoundEffectParameters](/reference/getSoundEffectParameters/) and [setSoundEffectParameter](/reference/setSoundEffectParameter).
+
+## Chorus
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_CHORUS.html](http://www.un4seen.com/doc/#bass/BASS_DX8_CHORUS.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| wetDryMix | float | 50 | 0-100 | Ratio of wet (processed) signal to dry (unprocessed) signal. |
+| depth | float | 10 | 0-100 | Percentage by which the delay time is modulated by the low-frequency oscillator (LFO). |
+| feedback | float | 25 | -99-99 | Percentage of output signal to feed back into the effect's input. |
+| frequency | float | 1.1 | 0-10 | Frequency of the LFO. |
+| waveform | int | 1 | 0-1 | Waveform of the LFO... 0 = triangle, 1 = sine. |
+| delay | float | 16 | 0-20 (ms) | Number of milliseconds the input is delayed before it is played back. |
+| phase | int | 1 | 0-4 | Phase differential between left and right LFOs.<br/>- **0:** -180<br/>- **1:** -90<br/>- **2:** 0<br/>- **3:** 90<br/>- **4:** 180 |
+
+## Compressor
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_COMPRESSOR.html](http://www.un4seen.com/doc/#bass/BASS_DX8_COMPRESSOR.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| gain | float | 0 | -60-60 (dB) | Output gain of signal after compression. |
+| attack | float | 10 | 0.01-500 (ms) | Time before compression reaches its full value. |
+| release | float | 200 | 50-3000 (ms) | Speed at which compression is stopped after input drops below threshold. |
+| threshold | float | -20 | -60-0 (dB) | Point at which compression begins. |
+| ratio | float | 3 | 1-100 | Compression ratio. |
+| predelay | int | 4 (ms) | 0-4 (ms) | Time after **threshold** is reached before attack phase is started. |
+
+## Distortion
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_DISTORTION.html](http://www.un4seen.com/doc/#bass/BASS_DX8_DISTORTION.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| gain | float | -18 | -60-0 (dB) | Amount of signal change after distortion. |
+| edge | float | 15 | 0-100 | Percentage of distortion intensity. |
+| postEQCenterFrequency | float | 2400 | 100-8000 (Hz) | Center frequency of harmonic content addition. |
+| postEQBandwidth | float | 2400 | 100-8000 (Hz) | Width of frequency band that determines range of harmonic content addition. |
+| preLowpassCutoff | float | 8000 | 100-8000 (Hz) | Filter cutoff for high-frequency harmonics attenuation. |
+
+## Echo
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_ECHO.html](http://www.un4seen.com/doc/#bass/BASS_DX8_ECHO.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| wetDryMix | float | 50 | 0-100 | Ratio of wet (processed) signal to dry (unprocessed) signal. |
+| feedback | float | 50 | 0-100 | Percentage of output fed back into input. |
+| leftDelay | float | 500 | 1-2000 (ms) | Delay for left channel. |
+| rightDelay | float | 500 | 1-2000 (ms) | Delay for right channel. |
+| panDelay | bool | false | false, true | Value that specifies whether to swap left and right delays with each successive echo. |
+
+## Flanger
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_FLANGER.html](http://www.un4seen.com/doc/#bass/BASS_DX8_FLANGER.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| wetDryMix | float | 50 | 0-100 | Ratio of wet (processed) signal to dry (unprocessed) signal. |
+| depth | float | 100 | 0-100 | Percentage by which the delay time is modulated by the low-frequency oscillator (LFO). |
+| feedback | float | -50 | -99-99 | Percentage of output signal to feed back into the effect's input. |
+| frequency | float | 0.25 | 0-10 | Frequency of the LFO. |
+| waveform | int | 1 | 0-1 | Waveform of the LFO... 0 = triangle, 1 = sine. |
+| delay | float | 2 | 0-4 (ms) | Number of milliseconds the input is delayed before it is played back. |
+| phase | int | 2 | 0-4 | Phase differential between left and right LFOs.<br/><br/>- **0:** -180<br/>- **1:** -90<br/>- **2:** 0<br/>- **3:** 90<br/>- **4:** 180 |
+
+## Gargle
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_GARGLE.html](http://www.un4seen.com/doc/#bass/BASS_DX8_GARGLE.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| rateHz | int | 20 | 1-1000 (Hz) | Rate of modulation. |
+| waveShape | int | 0 | 0-1 | Shape of the modulation waveform... 0 = triangle, 1 = square. |
+
+## I3DL2 Reverb
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_I3DL2REVERB.html](http://www.un4seen.com/doc/#bass/BASS_DX8_I3DL2REVERB.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| room | int | -1000 | -10000-0 (mB) | Attenuation of the room effect. |
+| roomHF | int | -100 | -10000-0 (mB) | Attenuation of the room high-frequency effect. |
+| roomRolloffFactor | float | 0 | 0-10 | Rolloff factor for the reflected signals. |
+| decayTime | float | 1.49 | 0.1-20 (s) | Decay time. |
+| decayHFRatio | float | 0.83 | 0.1-2 | Ratio of the decay time at high frequencies to the decay time at low frequencies. |
+| delay | float | 2 | 0-4 (ms) | Number of milliseconds the input is delayed before it is played back. |
+| reflections | int | -2602 | -10000-1000 (mB) | Attenuation of early reflections relative to room. |
+| reflectionsDelay | float | 0.007 | 0-0.3 (s) | Delay time of the first reflection relative to the direct path. |
+| reverb | int | 200 | -10000-2000 (mB) | Attenuation of late reverberation relative to room. |
+| reverbDelay | float | 0.011 | 0-0.1 (s) | Time limit between the early reflections and the late reverberation relative to the time of the first reflection. |
+| diffusion | float | 100 | 0-100 | Echo density in the late reverberation decay. |
+| density | float | 100 | 0-100 | Modal density in the late reverberation decay. |
+| HFReference | float | 5000 | 20-20000 (Hz) | Delay time of the first reflection relative to the direct path. |
+
+## Parametric Equalizer (parameq)
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_PARAMEQ.html](http://www.un4seen.com/doc/#bass/BASS_DX8_PARAMEQ.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| center | float | 0 | 80-16000 (Hz) | Center frequency. |
+| bandwidth | float | 12 | 1-36 | Bandwidth, in semitones. |
+| gain | float | 0 | -15-15 (dB) | Output gain of signal. |
+
+## Reverb
+
+Full documentation: [http://www.un4seen.com/doc/#bass/BASS_DX8_REVERB.html](http://www.un4seen.com/doc/#bass/BASS_DX8_REVERB.html)
+
+| Parameter | Type | Default value | Valid range | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| inGain | float | 0 | -96-0 (dB) | Input gain of signal. |
+| reverbMix | float | 0 | -96-0 (dB) | Reverb mix. |
+| reverbTime | float | 1000 | 0.001-3000 (ms) | Reverb time. |
+| highFreqRTRatio | float | 0.001 | 0.001-0.999 (ms) | High-frequency reverb time ratio. |
+
+</AutoStarlightPage>

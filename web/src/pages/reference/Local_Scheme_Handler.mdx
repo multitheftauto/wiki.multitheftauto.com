@@ -1,0 +1,29 @@
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+<StarlightPage frontmatter={{
+  template: 'doc',
+  title: 'Local Scheme Handler',
+  tableOfContents: false,
+}}>
+
+In many cases it is necessary to access files stored on the local disk from browsers.
+
+### Scheme format
+`http://mta/resourceName/file.extension`
+
+* **resourceName:** The [resource](/reference/resource/) name, local is a special name for the current resource.
+* **file.extension:** The file path within resourceName. Check [filepath](/reference/Filepath/).
+
+You can use this scheme format for [loadBrowserURL](/reference/loadBrowserURL/) as well as in HTML files e.g. `<img/>`; tags.
+
+### Examples
+##### Example 1
+
+`http://mta/myResource/assets/myImage.png` <br/>
+Refers to the file **assets/myImage.png** in a resource named myResource.
+
+##### Example 2
+`http://mta/local/assets/myImage.png` <br/>
+Refers to the file **assets/myImage.png** in the current resource.
+
+</StarlightPage>

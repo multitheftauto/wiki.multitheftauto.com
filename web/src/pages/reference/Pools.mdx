@@ -8,156 +8,28 @@ import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
     tableOfContents: false
 }}>
 
-<table>
-    <thead>
-        <th>Name</th>
-        <th>Default size</th>
-        <th>Resizable</th>
-        <th>Description</th>
-    </thead>
-
-    <tbody>
-        <tr>
-            <td>building</td>
-            <td>13000</td>
-            <td>yes</td>
-            <td>Static world objects - terrain, roads, buildings...</td>
-        </tr>
-
-        <tr>
-            <td>dummy</td>
-            <td>2500</td>
-            <td>no</td>
-            <td>Dynamic world objects - doors, fences, boxes...</td>
-        </tr>
-
-        <tr>
-            <td>ped</td>
-            <td>140</td>
-            <td>no</td>
-            <td>Peds.</td>
-        </tr>
-
-        <tr>
-            <td>object</td>
-            <td>1200</td>
-            <td>no</td>
-            <td>Scriptable objects.</td>
-        </tr>
-
-        <tr>
-            <td>vehicle</td>
-            <td>110</td>
-            <td>no</td>
-            <td>Vehicles.</td>
-        </tr>
-
-        <tr>
-            <td>col-model</td>
-            <td>12000</td>
-            <td>no</td>
-            <td>Collisions.</td>
-        </tr>
-
-        <tr>
-            <td>task</td>
-            <td>5000</td>
-            <td>no</td>
-            <td>Tasks.</td>
-        </tr>
-
-        <tr>
-            <td>event</td>
-            <td>5000</td>
-            <td>no</td>
-            <td>GTA Events.</td>
-        </tr>
-
-        <tr>
-            <td>task-allocator</td>
-            <td>16</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-    
-        <tr>
-            <td>ped-intelligence</td>
-            <td>64</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>ped-attractor</td>
-            <td>64</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>entry-info-node</td>
-            <td>72600</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>node-route</td>
-            <td>64</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>patrol-route</td>
-            <td>32</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>point-route</td>
-            <td>64</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>pointer-double-link-pool</td>
-            <td>74800</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>pointer-single-link-pool</td>
-            <td>90000</td>
-            <td>yes</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>env-map-material</td>
-            <td>16000</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>env-map-atomic</td>
-            <td>4000</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-
-        <tr>
-            <td>spec-map-material</td>
-            <td>16000</td>
-            <td>no</td>
-            <td>-</td>
-        </tr>
-    </tbody>
-</table>
+| Name | Default size | Resizable | Description |
+| :--- | :--- | :--- | :--- |
+| building | 13000 | yes | Static world objects - terrain, roads, buildings... |
+| dummy | 2500 | no | Dynamic world objects - doors, fences, boxes... |
+| ped | 140 | no | Peds. |
+| object | 1200 | no | Scriptable objects. |
+| vehicle | 110 | no | Vehicles. |
+| col-model | 12000 | no | Collisions. |
+| task | 5000 | no | Tasks. |
+| event | 5000 | no | GTA Events. |
+| task-allocator | 16 | no | - |
+| ped-intelligence | 64 | no | - |
+| ped-attractor | 64 | no | - |
+| entry-info-node | 72600 | no | - |
+| node-route | 64 | no | - |
+| patrol-route | 32 | no | - |
+| point-route | 64 | no | - |
+| pointer-double-link-pool | 74800 | no | - |
+| pointer-single-link-pool | 90000 | yes | - |
+| env-map-material | 16000 | no | - |
+| env-map-atomic | 4000 | no | - |
+| spec-map-material | 16000 | no | - |
 
 <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:engineGetPoolCapacity',

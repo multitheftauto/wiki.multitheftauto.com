@@ -1,7 +1,6 @@
 import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
 import { getSeeAlsoLinksFromList } from '@src/utils/general';
 import SeeAlsoSection from '@src/components/SeeAlsoSection.astro';
-import VersionBox from '@src/components/VersionBox.astro';
 
 <AutoStarlightPage frontmatter={{
     template: 'doc',
@@ -13,10 +12,8 @@ The Lua matrix library is a collection of stuff to help with matrix math. The or
 
 However, we recommend you use the following files as they have been changed slightly to work better with MTA:
 
-<ul>
-    <li><a href="/downloads/matrix.lua" download>matrix.lua</a></li>
-    <li><a href="/downloads/complex.lua" download>complex.lua</a></li>
-</ul>
+* [matrix.lua](/downloads/matrix.lua)
+* [complex.lua](/downloads/complex.lua)
 
 <SeeAlsoSection seeAlsoLinks={getSeeAlsoLinksFromList([
         'reference:Matrix',
