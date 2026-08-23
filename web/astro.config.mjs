@@ -43,6 +43,7 @@ export default defineConfig({
         showTooltip: true,
         showProgressRing: false,
       })],
+      lastUpdated: true,
       favicon: "favicon.ico",
       title: SITE_TITLE,
       logo: {
