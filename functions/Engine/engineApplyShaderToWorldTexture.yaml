@@ -47,7 +47,7 @@ client:
   notes:
   - type: tip
     content: |
-      - The resource [shader_tex_names](/articles/shaders#texture-names) can help in finding the names of world textures.
+      - The resource [shader_tex_names](/reference/Shaders#shader-examples) can help in finding the names of world textures.
       - When replacing the texture for a ped using the CJ skin, set **textureName** to `CJ`.
       - The shader inherits the render states of the original when it is drawn, so texture stage 0 will already be set to the original texture.
       - When using with a [[ped]], ensure you have set **ped** or **all** in the `elementTypes` when calling [[dxCreateShader]].

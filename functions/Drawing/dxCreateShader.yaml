@@ -7,7 +7,7 @@ client:
   parameters:
   - name: filepath/raw_data
     type: string
-    description: The [filepath](/reference/Filepath) of the shader [Effect File (.fx)](/articles/shaders) file or whole data buffer of the shader file.
+    description: The [filepath](/reference/Filepath) of the shader [Effect File (.fx)](/reference/Shaders) file or whole data buffer of the shader file.
   - name: macros
     type: table
     description: A [[table]] contains macros in an ordered and/or unordered way. See example below.

@@ -119,7 +119,7 @@ export default defineConfig({
                 {label: "Meta.xml", link: "/reference/Meta.xml" },
                 {label: "Predefined variables", link: '/reference/Predefined_variables'},
                 {label: "Resource Web Access", link: "/reference/Resource_Web_Access"},
-                {label: "Shaders", link: "/reference/shaders"},
+                {label: "Shaders", link: "/reference/Shaders"},
                 {label: "Texture pixels", link: "/reference/Pixels"},
               ],
             },
