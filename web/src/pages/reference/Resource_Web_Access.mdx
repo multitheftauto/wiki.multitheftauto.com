@@ -22,11 +22,11 @@ There are three key parts that make up this system.
 
 ### Pages
 #### Specifying a file in the meta
-You can define files in a resource that will be accessible via the web server. To do this, you need to add them to [meta.xml](/reference/Meta.xml) using the [html tag](/reference/Meta.xml#tags).
+You can define files in a resource that will be accessible via the web server. To do this, you need to add them to [meta.xml](/reference/Meta.xml) using the [html tag](/reference/Meta.xml#html).
 ```xml
 <html src="index.html" />
 ```
-The [html tag](/reference/Meta.xml#tags) in addition to **src** has two more attributes:
+The [html tag](/reference/Meta.xml#html) in addition to **src** has two more attributes:
 - **default** - Specifies the file that will be the main page of the resource.
 - **raw** - Indicates that the file will not be parsed by the Lua interpreter and is treated as a binary file (used, for example, for images).
 
@@ -192,83 +192,19 @@ end
 This section describes all the fields, that can be found in the request table passed to the router function for every call.
 The descriptions below use the following example URL: http://127.0.0.1:22005/api/vehicles/123?meow=true (**api** is the resource name).
 
-<table>
-    <thead>
-        <tr>
-            <th>Field</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr>
-            <td>account</td>
-            <td>[account](/reference/account)</td>
-            <td>An account that was used for this request (can be a [guest account](/reference/isGuestAccount)).</td>
-        </tr>
-
-        <tr>
-            <td>method</td>
-            <td>[string](/reference/string)</td>
-            <td>One of the following: `OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, PATCH`.</td>
-        </tr>
-
-        <tr>
-            <td>path</td>
-            <td>[string](/reference/string)</td>
-            <td>The requested path within your resource: `/vehicles/123`.</td>
-        </tr>
-
-        <tr>
-            <td>absolute_path</td>
-            <td>[string](/reference/string)</td>
-            <td>The absolute path from the URL: `/api/vehicles/123?meow=true"`.</td>
-        </tr>
-
-        <tr>
-            <td>hostname</td>
-            <td>[string](/reference/string)</td>
-            <td>The hostname of the web server: `127.0.0.1`.</td>
-        </tr>
-
-        <tr>
-            <td>port</td>
-            <td>[integer](/reference/int)</td>
-            <td>The client port used by the web server: `56758` (can be anything, but **never** 22005).</td>
-        </tr>
-
-        <tr>
-            <td>body</td>
-            <td>[string](/reference/string)</td>
-            <td>	The body portion of the request sent by the client.</td>
-        </tr>
-
-        <tr>
-            <td>query</td>
-            <td>[table](/reference/table)</td>
-            <td>A key-value table (with [string](/reference/string) keys and values) with the path's query fields (only query).</td>
-        </tr>
-
-        <tr>
-            <td>formData</td>
-            <td>[table](/reference/table)</td>
-            <td>A key-value table (with [string](/reference/string) keys and values) with the request form data (both query and body fields).</td>
-        </tr>
-
-        <tr>
-            <td>cookies</td>
-            <td>[table](/reference/table)</td>
-            <td>A key-value table (with [string](/reference/string) keys and values) with the request cookies.</td>
-        </tr>
-
-        <tr>
-            <td>headers</td>
-            <td>[table](/reference/table)</td>
-            <td>A key-value table (with [string](/reference/string) keys and values) with the request headers (like User-Agent).</td>
-        </tr>
-    </tbody>
-</table>
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `account` | [account](/reference/account) | An account that was used for this request (can be a [guest account](/reference/isGuestAccount)). |
+| `method` | [string](/reference/string) | One of the following: `OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, PATCH`. |
+| `path` | [string](/reference/string) | The requested path within your resource: `/vehicles/123`. |
+| `absolute_path` | [string](/reference/string) | The absolute path from the URL: `/api/vehicles/123?meow=true`. |
+| `hostname` | [string](/reference/string) | The hostname of the web server: `127.0.0.1`. |
+| `port` | [integer](/reference/int) | The client port used by the web server: `56758` (can be anything, but **never** 22005). |
+| `body` | [string](/reference/string) | The body portion of the request sent by the client. |
+| `query` | [table](/reference/table) | A key-value table (mit [string](/reference/string) keys and values) with the path's query fields (only query). |
+| `formData` | [table](/reference/table) | A key-value table (with [string](/reference/string) keys and values) with the request form data (both query and body fields). |
+| `cookies` | [table](/reference/table) | A key-value table (with [string](/reference/string) keys and values) with the request cookies. |
+| `headers` | [table](/reference/table) | A key-value table (with [string](/reference/string) keys and values) with the request headers (like User-Agent). |
 
 ### Response
 This section describes all the possible variants, that can be returned by the router function. There are three variants in total:
@@ -278,41 +214,12 @@ This section describes all the possible variants, that can be returned by the ro
 - Return a [table](/reference/table): response will be filled with the fields from the table (defaults to http status code 200 and empty body, if not overriden by a table field).
 
 #### Response table fields
-<table>
-    <thead>
-        <tr>
-            <th>Field</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr>
-            <td>status</td>
-            <td>[integer](/reference/int)</td>
-            <td>A number that will be converted to an http status code.</td>
-        </tr>
-
-        <tr>
-            <td>body</td>
-            <td>[string](/reference/string)</td>
-            <td>A string that will be used for the response body.</td>
-        </tr>
-
-        <tr>
-            <td>headers</td>
-            <td>[table](/reference/table)</td>
-            <td>A key-value table (with [string](/reference/string) keys and values) that will be written to the header section of the response.</td>
-        </tr>
-
-        <tr>
-            <td>cookies</td>
-            <td>[table](/reference/table)</td>
-            <td>A table with simple [string](/reference/string) key and value entries, or any-type key with [table](/reference/table) values (key is not used), entries. Check the examples below, if it's unclear.</td>
-        </tr>
-    </tbody>
-</table>
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `status` | [integer](/reference/int) | A number that will be converted to an http status code. |
+| `body` | [string](/reference/string) | A string that will be used for the response body. |
+| `headers` | [table](/reference/table) | A key-value table (with [string](/reference/string) keys and values) that will be written to the header section of the response. |
+| `cookies` | [table](/reference/table) | A table with simple [string](/reference/string) key and value entries, or any-type key with [table](/reference/table) values (key is not used), entries. Check the examples below, if it's unclear. |
 
 ### Examples
 ```lua
