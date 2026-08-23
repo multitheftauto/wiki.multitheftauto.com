@@ -129,6 +129,13 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
       groupedMap.get(title)!.push({ name: refPage, link: `/reference/${refPage}` });
       continue;
     }
+    if (type === 'guide') {
+      const name = rest[0];
+      const title = 'Guide';
+      if (!groupedMap.has(title)) groupedMap.set(title, []);
+      groupedMap.get(title)!.push({ name: name, link: `/guides/${name}` });
+      continue;
+    }
     if (type === 'external') {
       const title = rest[0];
       const httpprefix = rest[1];
@@ -176,6 +183,7 @@ export function getSeeAlsoLinksFromList(seeAlsoList: string[]): SeeAlsoLinkGroup
       if (!type || rest.length === 0) return null;
       if (type === 'article') return 'Articles';
       if (type === 'reference') return 'Reference';
+      if (type === 'guide') return 'Guide';
       if (type === 'external') return 'Links';
       return makeTitle(rest[0], rest[1], type);
     })
