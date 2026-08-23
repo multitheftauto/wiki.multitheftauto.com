@@ -78,7 +78,7 @@ export default defineConfig({
               link: "/",
             },
             {
-              label: "Contributing",
+              label: "How you can help",
               link: "/Contributing",
             },
           ],
@@ -90,6 +90,7 @@ export default defineConfig({
             {label: "Introduction to scripting GUI", link: "/guides/GUI-introduction"},
             {label: "Script security", link: "/guides/Script-security"},
             {label: "Introduction to CEF", link: "/guides/CEF-introduction"},
+            {label: "PHP SDK", link: "/guides/PHP-SDK"},
           ]
         },
         {
