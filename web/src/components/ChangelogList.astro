@@ -1,6 +1,6 @@
 ---
-import { renderRevisionLink } from '@src/utils/general';
-import EnhancedMarkdown from './EnhancedMarkdown.astro';
+import { renderRevisionLink } from "@src/utils/general";
+import EnhancedMarkdown from "./EnhancedMarkdown.astro";
 
 interface ChangelogEntry {
   version: string;
@@ -14,40 +14,47 @@ interface Props {
 const { entries } = Astro.props;
 ---
 
-{entries.length > 0 && (
-  <div data-pagefind-ignore class="changelog-section">
-    <h4>Changelog</h4>
-    <div class="changelog-list">
-      {entries.map(entry => (
-        <li>
-          <span class="changelog-version" set:html={renderRevisionLink(entry.version)}></span>
-          <span class="changelog-description"><EnhancedMarkdown content={entry.description}/></span>
-        </li>
-      ))}
+{
+  entries.length > 0 && (
+    <div data-pagefind-ignore class="changelog-section">
+      <h4>Changelog</h4>
+      <div class="changelog-list">
+        {entries.map((entry) => (
+          <li>
+            <span
+              class="changelog-version"
+              set:html={renderRevisionLink(entry.version)}
+            />
+            <span class="changelog-description">
+              <EnhancedMarkdown content={entry.description} />
+            </span>
+          </li>
+        ))}
+      </div>
     </div>
-  </div>
-)}
+  )
+}
 
 <style>
-.changelog-list {
-  background-color: var(--sl-color-bg-nav);
-  border-left: 4px solid var(--sl-color-gray-5);
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
-  color: var(--sl-color-text);
-  list-style: none;
-}
+  .changelog-list {
+    background-color: var(--sl-color-bg-nav);
+    border-left: 4px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--sl-color-text);
+    list-style: none;
+  }
 
-.changelog-version {
-  font-weight: bold;
-  color: var(--sl-color-orange-high);
-  display: block;
-  text-decoration: none;
-}
+  .changelog-version {
+    font-weight: bold;
+    color: var(--sl-color-orange-high);
+    display: block;
+    text-decoration: none;
+  }
 
-.changelog-description {
-  display: block;
-  margin-left: 0.5rem;
-}
+  .changelog-description {
+    display: block;
+    margin-left: 0.5rem;
+  }
 </style>
