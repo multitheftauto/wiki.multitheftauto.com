@@ -1,0 +1,42 @@
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Steps } from '@astrojs/starlight/components';
+
+<StarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Game processing order',
+    tableOfContents: false
+}}>
+
+Here is an overview of the order in which operations and events are executed during an average frame of playing MTA.
+
+#### Frame start
+
+<Steps>
+    1.  **GTA Environment & Entity Updates** - The game engine updates the surrounding environment, streaming, weather, and general world state through various update methods.
+
+    2.  **World Processing & Matrix Updates** - `CWorld::Process` is executed. This handles frame positions, matrices, and IK animations.
+
+    3.  **[onClientPreRender](/reference/onClientPreRender)** - Triggered immediately after `CWorld::Process` finishes.
+        > **Best used for:** 3D `dxDraw` operations or elements that need to strictly follow world objects.
+
+    4.  **Camera Processing** - `CCamera::Process` updates the player's view and perspective.
+
+    5.  **[onClientRender](/reference/onClientRender)** - The primary rendering pipeline event. 
+        > **Best used for:** Drawing 2D DX elements, user interfaces, and custom GUI. MTA handles its internal screen drawing here.
+
+    6.  **Entity Pre-Render & Preparations** - GTA calls `PreRender` methods for all entities to update their lighting and frame animations (e.g., vehicle components or ped bones).
+
+    7.  **[onClientPedsProcessed](/reference/onClientPedsProcessed)** - Triggered after `CWorld::ProcessPedsAfterPreRender`.
+        > **Best used for:** Updating ped bone transformations, overriding moving vehicle component positions (e.g., firela ladder), or overwriting element lighting.
+
+    8.  **World & FX Rendering** - The engine renders the physical 3D world, geometry, and visual effects (`FX`).
+
+    9.  **[onClientHUDRender](/reference/onClientHUDRender)** - Triggered right before `Render2dStuff` (the game's HUD drawing routine).
+        > **Best used for:** Full-screen post-processing effects that should render *underneath* the radar and in-game HUD.
+
+    10. **GTA HUD & Final Frame Output** - GTA draws the final HUD elements and wraps up the frame.
+</Steps>
+
+#### Frame end
+
+</StarlightPage>
