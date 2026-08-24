@@ -36,7 +36,7 @@ Setting pixels to a [render target](/reference/dxCreateRenderTarget) is **especi
 
 ## Examples
 
-Pixels can also be loaded from any png/jpeg file just like this:
+Pixels can also be loaded from any *png/jpeg* file just like this:
 
 ```lua
 local fileHandler = fileOpen("hello.jpg")
@@ -54,10 +54,13 @@ fileClose(fileHandler)
 Pixels can be used to create textures just like this:
 
 ```lua
-local newTexture = dxCreateTexture(pixelsData)`/>
+local newTexture = dxCreateTexture(pixelsData)
+```
 
-<p>Pixels can be used to save textures just like this:</p>
-<Code lang="lua" code=`local texturePixels = dxGetTexturePixels(myRenderTarget)
+Pixels can be used to save textures just like this:
+
+```lua
+local texturePixels = dxGetTexturePixels(myRenderTarget)
 local texturePixelsConverted = dxConvertPixels(texturePixels, "jpeg")
 local fileHandler = fileCreate("piccy.jpg")
 
