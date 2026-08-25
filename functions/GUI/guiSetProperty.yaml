@@ -1,7 +1,7 @@
 client:
   name: guiSetProperty
   description: This function sets the value of a specific CEGUI property of a GUI
-    element. For a list of properties and their meaning, see the <a href="http://static.cegui.org.uk/static/WindowsLookProperties.html" target="_blank">CEGUI properties page</a>.
+    element. For a list of properties and their meaning, see the <a href="https://web.archive.org/web/20260220180628/http://static.cegui.org.uk/static/WindowsLookProperties.html" target="_blank">CEGUI properties page</a>.
   parameters:
   - name: guiElement
     type: gui-element
