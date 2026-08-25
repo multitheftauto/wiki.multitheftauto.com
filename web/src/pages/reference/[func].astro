@@ -108,6 +108,15 @@ const oopList = Array.isArray(funcInfo.oop)
   : funcInfo.oop
     ? [funcInfo.oop]
     : [];
+
+const renderOOPMethod = (oopItem: any) => {
+  const targetName = oopItem.static
+    ? getFixedStaticOOPClass(oopItem.element)
+    : oopItem.element;
+  const separator = oopItem.static ? "." : ":";
+
+  return `<li><strong>Method</strong>: <a href="/reference/${oopItem.element}">${targetName}</a>${separator}${oopItem.method}(...)</li>`;
+};
 ---
 
 <StarlightPage
@@ -226,16 +235,7 @@ const oopList = Array.isArray(funcInfo.oop)
                 ) : (
                   <>
                     {oopItem.method && (
-                      <li>
-                        <strong>Method</strong>:
-                        <a href={`/reference/${oopItem.element}`}>
-                          {oopItem.static
-                            ? getFixedStaticOOPClass(oopItem.element)
-                            : oopItem.element}
-                        </a>
-                        {oopItem.static ? "." : ":"}
-                        {oopItem.method}(...)
-                      </li>
+                      <Fragment set:html={renderOOPMethod(oopItem)} />
                     )}
                     {oopItem.variable && (
                       <li>
@@ -272,18 +272,8 @@ const oopList = Array.isArray(funcInfo.oop)
             ) : (
               <>
                 {oopList[0].method && (
-                  <li>
-                    <strong>Method</strong>:
-                    <a href={`/reference/${oopList[0].element}`}>
-                      {oopList[0].static
-                        ? getFixedStaticOOPClass(oopList[0].element)
-                        : oopList[0].element}
-                    </a>
-                    {oopList[0].static ? "." : ":"}
-                    {oopList[0].method}(...)
-                  </li>
+                  <Fragment set:html={renderOOPMethod(oopList[0])} />
                 )}
-
                 {oopList[0].variable && (
                   <li>
                     <strong>Variable</strong>: .{oopList[0].variable}
