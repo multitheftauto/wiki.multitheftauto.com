@@ -8,7 +8,7 @@ client:
     description: The GUI element you wish to get a property of.
   - name: property
     type: string
-    description: The name of of property you want the value of.
+    description: The name of property you want the value of.
   - name: value
     type: string
     description: The new value for the property.
