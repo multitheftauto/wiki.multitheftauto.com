@@ -1,0 +1,120 @@
+import AutoStarlightPage from '@src/components/AutoStarlightPage.astro';
+import NoteBox from '@src/components/NoteBox.astro';
+import { Steps } from '@astrojs/starlight/components';
+
+<AutoStarlightPage frontmatter={{
+    template: 'doc',
+    title: 'Client on MacOS X manual',
+    tableOfContents: {
+        maxHeadingLevel: 4,
+    }
+}}>
+
+<NoteBox type="needs_checking">This guide might be outdated.</NoteBox>
+
+<NoteBox type="important">
+**This does not work on macOS Catalina.**
+
+macOS Catalina removes support for 32bit software. A 64bit version of Wine does exist, but it's not easy to make 32bit software run inside 64bit Wine — at least not on macOS.
+
+Other options include:
+* Install Windows in a Virtual Machine (using e.g. VirtualBox), and install MTA in there
+* [Downgrading Catalina to an earlier version](https://www.digitaltrends.com/computing/how-to-downgrade-from-catalina-to-mojave/)
+* [Hacking Catalina to support 32 bit software](https://apple.stackexchange.com/questions/363574/how-much-of-32-bit-support-is-dropped-in-macos-catalina)
+</NoteBox>
+
+## Preparation
+* Download [MTA Installer](https://mtasa.com/download)
+* Make sure you have the GTA San Andreas folder copied to your computer.
+    * You might need a GTA SA 1.00 No CD crack - any HOODLUM release will do.
+
+## Install Wine
+<Steps>
+    1. Make sure you have [Homebrew](https://brew.sh/) installed.
+    2. Get the latest staging version of Wine, you can do this by running the following commands:
+        * `brew tap homebrew/cask-versions`: import the Homebrew repository for alternate cask versions
+        * `brew cask install wine-staging`: install wine-staging
+    3. Run wine start explorer.exe and press **Install** if prompted about Wine Mono.
+        <NoteBox type="tip">If you are not prompted about Wine Mono now, make sure you select **Install** if you are ever prompted to install it in the future.</NoteBox>
+</Steps>
+
+## Play GTA
+Run 
+```sh
+wine start explorer.exe 
+```
+and navigate to `gta_sa.exe`.
+
+If you get stuck after the NVIDIA logo, just hit **Space** to skip the Rockstar logo videos that would ordinarily play.
+
+<NoteBox type="tip">
+1. You can use `Cmd+Tab` to minimise GTA San Andreas.
+2. Start GTA from the Terminal like this:
+    ```sh
+    wine start /unix ~/Documents/Projects/mtasa/macos/Rockstar\ Games/GTA\ San\ Andreas/gta_sa.exe
+    ```
+</NoteBox>
+
+## Install MTA
+Navigate and run mta installer using your preferred method (from explorer.exe or from the Terminal, as above).
+
+### Verify MTA works
+<Steps>
+    1. Start MTA (from the installer, or by navigating through `C:\Program Files (x86)\`).
+    2. Hit `Map Editor`
+    3. Make sure you can fly around the GTA map!
+    4. Process to test CEF (see below).
+</Steps>
+
+### Running MTA in the future
+<Steps>
+    1. Opening `Terminal.app`.
+    2. Running
+        ```sh
+            wine start /unix ~/.wine/drive_c/Program\ Files/MTA\ San\ Andreas\ 1.5/Multi\ Theft\ Auto.exe
+        ```
+</Steps>
+
+## CEF (web browsers)
+CEF stands for Chromium Embedded Framework. It is essential that this works for you.
+This section has been copied to the following AppDB entries: [1.5.6](https://appdb.winehq.org/objectManager.php?sClass=version&iId=38051)
+
+### Test CEF
+<Steps>
+    1. Open the console by hitting the backtick key (to the left of the `1` key).
+    2. Enter `start webbrowser`
+    3. Close the console using the same key, and press the Chromium icon in the bottom left corner.
+    4. If you do NOT see the MTA website, please see the "Fix CEF" section below.
+</Steps>
+
+### Fix CEF
+<Steps>
+    1. Open `Terminal.app`.
+    2. Type 
+        ```sh
+        cd "~/.wine/drive_c/Program Files/MTA San Andreas 1.5/MTA"
+        ```
+        and hit **Enter**.
+    3. Type
+        ```sh
+        ln -s libcef.dll chrome_elf.dll icudtl.dat natives_blob.bin v8_context_snapshot.bin snapshot_blob.bin CEF/
+        ```
+
+        If you previously followed an earlier version of these instructions and this line complains about File exists, first run the following commands, then reattempt the above command:
+        ```sh
+        cd CEF
+        rm libcef.dll chrome_elf.dll icudtl.dat natives_blob.bin v8_context_snapshot.bin snapshot_blob.bin
+        cd ../
+        # Now you may run the `ln -s` command above.
+        ```
+    4. Test this feature as described above.
+</Steps>
+
+## Enable EAX
+<Steps>
+    1. Type `winecfg` into a Terminal.
+    2. Navigate to **Staging**.
+    3. Enable EAX.
+</Steps>
+
+</AutoStarlightPage>
