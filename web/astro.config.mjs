@@ -87,6 +87,7 @@ export default defineConfig({
           label: "Guides",
           items: [
             {label: "Scripting introduction", link: "/guides/Scripting-introduction"},
+            {label: "Steam Deck manual", link: "/guides/SteamDeck"},
             {label: "Introduction to scripting GUI", link: "/guides/GUI-introduction"},
             {label: "Script security", link: "/guides/Script-security"},
             {label: "Introduction to CEF", link: "/guides/CEF-introduction"},
